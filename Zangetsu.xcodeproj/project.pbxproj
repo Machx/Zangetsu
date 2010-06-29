@@ -13,7 +13,6 @@
 		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
-		B890149411D99D6A00705CE4 /* CWDebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149211D99D6A00705CE4 /* CWDebugLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		B890149211D99D6A00705CE4 /* CWDebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugLog.h; path = Source/CWDebugLog.h; sourceTree = "<group>"; };
 		B890149311D99D6A00705CE4 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacros.h; path = Source/CWMacros.h; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				B82D73E711DA850A00863F3B /* Zangetsu.h */,
-				B890149211D99D6A00705CE4 /* CWDebugLog.h */,
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B890142911D992F000705CE4 /* CWSHA1_Convenience.h */,
 				B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */,
@@ -132,7 +129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */,
-				B890149411D99D6A00705CE4 /* CWDebugLog.h in Headers */,
 				B890149511D99D6A00705CE4 /* CWMacros.h in Headers */,
 				B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */,
 			);
