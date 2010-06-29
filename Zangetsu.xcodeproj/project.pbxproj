@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
-		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; };
-		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; };
+		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
-		B890149411D99D6A00705CE4 /* CWDebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149211D99D6A00705CE4 /* CWDebugLog.h */; };
-		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; };
+		B890149411D99D6A00705CE4 /* CWDebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149211D99D6A00705CE4 /* CWDebugLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
