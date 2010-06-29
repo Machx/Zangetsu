@@ -3,7 +3,7 @@
  *  RedFlag
  *
  *  Created by Colin Wheeler on 2/2/09.
- *  Copyright 2009 Niblonian Soft. All rights reserved.
+ *  Copyright 2009. All rights reserved.
  *
  */
 

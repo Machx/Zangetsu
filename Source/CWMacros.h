@@ -3,7 +3,7 @@
  *  Gitty
  *
  *  Created by Colin Wheeler on 5/17/09.
- *  Copyright 2009 Niblonian Soft. All rights reserved.
+ *  Copyright 2009. All rights reserved.
  *
  */
 
