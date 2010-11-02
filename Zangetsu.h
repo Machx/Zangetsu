@@ -7,6 +7,5 @@
  *
  */
 
-#import "CWDebugLog.h"
 #import "CWMacros.h"
 #import "CWSHA1_Convenience.h"
