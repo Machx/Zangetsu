@@ -9,3 +9,4 @@
 
 #import "CWMacros.h"
 #import "CWSHA1_Convenience.h"
+#import "CWTask.h"

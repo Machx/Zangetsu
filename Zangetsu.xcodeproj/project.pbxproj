@@ -10,6 +10,9 @@
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
@@ -25,6 +28,9 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Zangetsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zangetsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
+		B84994A6128210D6001206E1 /* CWTask_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask_Private.h; path = Source/CWTask_Private.h; sourceTree = "<group>"; };
+		B84994A7128210D6001206E1 /* CWTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask.h; path = Source/CWTask.h; sourceTree = "<group>"; };
+		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -90,6 +96,9 @@
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B890142911D992F000705CE4 /* CWSHA1_Convenience.h */,
 				B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */,
+				B84994A6128210D6001206E1 /* CWTask_Private.h */,
+				B84994A7128210D6001206E1 /* CWTask.h */,
+				B84994A8128210D6001206E1 /* CWTask.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -131,6 +140,8 @@
 				B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */,
 				B890149511D99D6A00705CE4 /* CWMacros.h in Headers */,
 				B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */,
+				B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */,
+				B84994AA128210D6001206E1 /* CWTask.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */,
+				B84994AB128210D6001206E1 /* CWTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
