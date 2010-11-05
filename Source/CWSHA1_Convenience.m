@@ -31,7 +31,7 @@
 	const char *cStringRep = [str UTF8String];
 	unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
 	
-	CC_SHA1(cStringRep, strlen(cStringRep), shaHash);
+	CC_SHA1(cStringRep, (CC_LONG)strlen(cStringRep), shaHash);
 	
 	NSString *shaHashString = [NSString  stringWithFormat:
 				   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
@@ -53,7 +53,7 @@
 	const char *cStringRep = [str UTF8String];
 	unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
 	
-	CC_SHA1(cStringRep, strlen(cStringRep), shaHash);
+	CC_SHA1(cStringRep, (CC_LONG)strlen(cStringRep), shaHash);
 	
 	NSString *shaHashString = [NSString  stringWithFormat:
 				   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
