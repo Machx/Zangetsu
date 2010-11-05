@@ -13,6 +13,8 @@
 		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
+		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
@@ -31,6 +33,8 @@
 		B84994A6128210D6001206E1 /* CWTask_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask_Private.h; path = Source/CWTask_Private.h; sourceTree = "<group>"; };
 		B84994A7128210D6001206E1 /* CWTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask.h; path = Source/CWTask.h; sourceTree = "<group>"; };
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
+		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
+		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,8 @@
 				B82D73E711DA850A00863F3B /* Zangetsu.h */,
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B890142911D992F000705CE4 /* CWSHA1_Convenience.h */,
+				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
+				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */,
 				B84994A6128210D6001206E1 /* CWTask_Private.h */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
@@ -142,6 +148,7 @@
 				B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */,
 				B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */,
 				B84994AA128210D6001206E1 /* CWTask.h in Headers */,
+				B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 			files = (
 				B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */,
 				B84994AB128210D6001206E1 /* CWTask.m in Sources */,
+				B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
