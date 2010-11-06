@@ -11,3 +11,4 @@
 #import "CWSHA1_Convenience.h"
 #import "CWTask.h"
 #import "CWDateUtilities.h"
+#import "NSStringAdditions.h"
