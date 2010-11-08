@@ -11,7 +11,7 @@
 
 @interface NSString (CWNSStringAdditions) 
 
-- (void)enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                              usingBlock:(void (^)(NSString *substring))block;
+- (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
+                                 usingBlock:(void (^)(NSString *substring))block;
 
 @end

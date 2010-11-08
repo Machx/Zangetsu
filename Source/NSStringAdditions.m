@@ -11,7 +11,7 @@
 
 @implementation NSString (CWNSStringAdditions)
 
-- (void)enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
+- (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                               usingBlock:(void (^)(NSString *substring))block
 {
 	dispatch_group_t group = dispatch_group_create();
