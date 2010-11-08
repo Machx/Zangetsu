@@ -42,3 +42,5 @@
 #	define CWAssert4(...) /**/
 #	define CWAssert5(...) /**/
 #endif
+
+#define CW_CURRENT_CGCONTEXT (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];

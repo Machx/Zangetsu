@@ -3,9 +3,9 @@
 Zangetsu is the framework I intend to make power many of my applications going forward. My current goal is to isolate more and more code that is general and not application specific and move it into this framework. This framework is made available under the Open Source MIT License.
 
 Zangetsu differs from other frameworks in some ways
-* It only supports Mac OS X 10.6 and later
-* It only supports Garbage Collection (libauto)
-* It will be built to take advantage of features in LLVM/Clang Compiler
+It only supports Mac OS X 10.6 and later
+It only supports Garbage Collection (libauto)
+It will be built to take advantage of features in LLVM/Clang Compiler
 
 The Framework will try and always take advantage of the latest features on Mac OS X, to use features on older versions of Mac OS X you can refeer back to older versions of the framework.
 
