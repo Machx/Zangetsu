@@ -17,11 +17,14 @@
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
+		B8588977128DF314002AC417 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArrayAdditions.h */; };
+		B8588978128DF314002AC417 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArrayAdditions.m */; };
+		B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */; };
+		B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8B6638C1287A93B00CB4E3E /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = B8B6638B1287A93B00CB4E3E /* ReadMe.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,10 @@
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
+		B8588975128DF314002AC417 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayAdditions.h; path = Source/NSArrayAdditions.h; sourceTree = "<group>"; };
+		B8588976128DF314002AC417 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSArrayAdditions.m; path = Source/NSArrayAdditions.m; sourceTree = "<group>"; };
+		B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionaryAdditions.h; path = Source/NSDictionaryAdditions.h; sourceTree = "<group>"; };
+		B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionaryAdditions.m; path = Source/NSDictionaryAdditions.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -73,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				B8B6638B1287A93B00CB4E3E /* ReadMe.md */,
+				B82D73E711DA850A00863F3B /* Zangetsu.h */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -103,7 +111,6 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B82D73E711DA850A00863F3B /* Zangetsu.h */,
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B890142911D992F000705CE4 /* CWSHA1_Convenience.h */,
 				B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */,
@@ -112,8 +119,7 @@
 				B84994A6128210D6001206E1 /* CWTask_Private.h */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
 				B84994A8128210D6001206E1 /* CWTask.m */,
-				B837BC171284FDC0009215D7 /* NSStringAdditions.h */,
-				B837BC181284FDC0009215D7 /* NSStringAdditions.m */,
+				B858897A128DF403002AC417 /* Foundation Additions */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -145,6 +151,19 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		B858897A128DF403002AC417 /* Foundation Additions */ = {
+			isa = PBXGroup;
+			children = (
+				B837BC171284FDC0009215D7 /* NSStringAdditions.h */,
+				B837BC181284FDC0009215D7 /* NSStringAdditions.m */,
+				B8588975128DF314002AC417 /* NSArrayAdditions.h */,
+				B8588976128DF314002AC417 /* NSArrayAdditions.m */,
+				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
+				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
+			);
+			name = "Foundation Additions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -159,6 +178,8 @@
 				B84994AA128210D6001206E1 /* CWTask.h in Headers */,
 				B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */,
 				B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */,
+				B8588977128DF314002AC417 /* NSArrayAdditions.h in Headers */,
+				B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
-				B8B6638C1287A93B00CB4E3E /* ReadMe.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +250,8 @@
 				B84994AB128210D6001206E1 /* CWTask.m in Sources */,
 				B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */,
 				B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */,
+				B8588978128DF314002AC417 /* NSArrayAdditions.m in Sources */,
+				B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
