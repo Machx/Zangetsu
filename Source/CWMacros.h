@@ -43,4 +43,7 @@
 #	define CWAssert5(...) /**/
 #endif
 
+#pragma mark -
+#pragma mark Quartz/Core Graphics Macros
+
 #define CW_CURRENT_CGCONTEXT (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];

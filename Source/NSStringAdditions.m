@@ -8,6 +8,12 @@
 
 @implementation NSString (CWNSStringAdditions)
 
+//
+// Asynchronous & Synchronous string enumeration 
+// this method was created for being able to enumerate over all the lines
+// in a string asychronously, but make the whole operation of enumerating 
+// over all the lines, synchronous
+//
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                               usingBlock:(void (^)(NSString *substring))block
 {

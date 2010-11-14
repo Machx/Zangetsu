@@ -5,8 +5,15 @@
 
 @implementation NSString ( CCSHA1_Convenience )
 
+//
+// Return the sha value of the string passed in
+//
 +(NSString *)sha1HashFromString:(NSString *)str 
 {
+	if(str == nil){
+		return nil;
+	}
+	
 	const char *cStringRep = [str UTF8String];
 	unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
 	
@@ -26,6 +33,9 @@
 
 @implementation NSData (CCSHA1_Convenience)
 
+//
+// Convience method to return the SHA1 value of the contents of a NSData object given
+//
 -(NSString *)sha1StringFromData
 {
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];

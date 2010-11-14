@@ -3,7 +3,7 @@
 //  NilTracker
 //
 //  Created by Colin Wheeler on 10/16/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010. All rights reserved.
 //
 
 #import "CWDateUtilities.h"
@@ -11,6 +11,10 @@
 
 @implementation CWDateUtilities
 
+//
+// Experimental method for parsing ISO8601 Strings given usually when 
+// XML data is given bakc
+//
 +(NSDate *)dateFromISO8601String:(NSString *)dateString
 {
 	[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
