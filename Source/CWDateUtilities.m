@@ -13,7 +13,7 @@
 
 //
 // Experimental method for parsing ISO8601 Strings given usually when 
-// XML data is given bakc
+// XML data is given back
 //
 +(NSDate *)dateFromISO8601String:(NSString *)dateString
 {
@@ -29,6 +29,22 @@
 	_returnDate = _tmp_date;
 	
 	return _returnDate;
+}
+
+//
+// Convenience Method to quickly return a NSDate object from a date
+// string with a specified date format
+//
++(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat
+{
+	[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:dateFormat];
+	
+	NSDate *returnedDate = [formatter dateFromString:dateString];
+	
+	return returnedDate;
 }
 
 @end
