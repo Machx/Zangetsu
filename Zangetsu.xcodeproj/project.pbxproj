@@ -23,6 +23,8 @@
 		B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */; };
 		B88C112D1290D2BA00B49835 /* CWSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C112B1290D2BA00B49835 /* CWSystemInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C112C1290D2BA00B49835 /* CWSystemInfo.m */; };
+		B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C1196129239C500B49835 /* NSSetAdditions.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
@@ -51,6 +53,8 @@
 		B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionaryAdditions.m; path = Source/NSDictionaryAdditions.m; sourceTree = "<group>"; };
 		B88C112B1290D2BA00B49835 /* CWSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSystemInfo.h; path = Source/CWSystemInfo.h; sourceTree = "<group>"; };
 		B88C112C1290D2BA00B49835 /* CWSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfo.m; path = Source/CWSystemInfo.m; sourceTree = "<group>"; };
+		B88C1195129239C500B49835 /* NSSetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSetAdditions.h; path = Source/NSSetAdditions.h; sourceTree = "<group>"; };
+		B88C1196129239C500B49835 /* NSSetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSSetAdditions.m; path = Source/NSSetAdditions.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -166,6 +170,8 @@
 				B8588976128DF314002AC417 /* NSArrayAdditions.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
+				B88C1195129239C500B49835 /* NSSetAdditions.h */,
+				B88C1196129239C500B49835 /* NSSetAdditions.m */,
 			);
 			name = "Foundation Additions";
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 				B8588977128DF314002AC417 /* NSArrayAdditions.h in Headers */,
 				B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */,
 				B88C112D1290D2BA00B49835 /* CWSystemInfo.h in Headers */,
+				B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +267,7 @@
 				B8588978128DF314002AC417 /* NSArrayAdditions.m in Sources */,
 				B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */,
 				B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */,
+				B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

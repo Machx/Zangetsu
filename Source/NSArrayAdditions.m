@@ -6,7 +6,7 @@
 #import "NSArrayAdditions.h"
 
 
-@implementation NSArray (NSArrayAdditions)
+@implementation NSArray (CWNSArrayAdditions)
 
 //
 // Convenience Method to return the first object in
@@ -43,6 +43,20 @@
 	}
 	
 	return self;
+}
+
+//
+// Simple find convenience method using blocks
+//
+-(id)cw_find:(BOOL (^)(id obj))block
+{
+	for(id obj in self){
+		if(block(obj)){
+			return obj;
+		}
+	}
+	
+	return nil;
 }
 
 @end

@@ -16,4 +16,6 @@
 
 -(NSArray *)cw_eachWithIndex:(void (^)(id obj,NSInteger index))block;
 
+-(id)cw_find:(BOOL (^)(id obj))block;
+
 @end
