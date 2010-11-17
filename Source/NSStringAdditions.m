@@ -31,4 +31,34 @@
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
+//
+//
+//
+- (NSString *) stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
+{
+	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL,(CFStringRef) self,(CFDictionaryRef) entitiesDictionary);
+	
+	return CFMakeCollectable(str);
+}
+
+//
+//
+//
+- (NSString *) stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
+{
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef) self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
+	
+	return CFMakeCollectable(str);
+}
+
+//
+//
+//
+- (NSString *) stringByReplacingPercentEscapes 
+{
+	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef) self, CFMakeCollectable(CFSTR("")));
+	
+	return CFMakeCollectable(str);
+}
+
 @end

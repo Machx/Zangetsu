@@ -13,5 +13,8 @@
 
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                                  usingBlock:(void (^)(NSString *substring))block;
+- (NSString *) stringByUnescapingEntities: (NSDictionary *) entitiesDictionary;
+- (NSString *) stringByAddingPercentEscapesUsingEncoding: (NSStringEncoding) encoding legalURLCharactersToBeEscaped: (NSString *) legalCharacters;
+- (NSString *) stringByReplacingPercentEscapes;
 
 @end
