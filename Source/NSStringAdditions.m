@@ -38,7 +38,7 @@
 {
 	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL,(CFStringRef) self,(CFDictionaryRef) entitiesDictionary);
 	
-	return CFMakeCollectable(str);
+	return (NSString *)CFMakeCollectable(str);
 }
 
 //
@@ -48,7 +48,7 @@
 {
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef) self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
 	
-	return CFMakeCollectable(str);
+	return (NSString *)CFMakeCollectable(str);
 }
 
 //
@@ -58,7 +58,7 @@
 {
 	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef) self, CFMakeCollectable(CFSTR("")));
 	
-	return CFMakeCollectable(str);
+	return (NSString *)CFMakeCollectable(str);
 }
 
 @end

@@ -13,4 +13,6 @@
 
 +(NSDate *)dateFromISO8601String:(NSString *)dateString;
 
++(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat;
+
 @end

@@ -16,7 +16,7 @@ The Framework will try and always take advantage of the latest features on Mac O
 
 ## What does Zangetsu mean? ##
 
-Zangetsu ( 斬月 ) is Japanese and means Slaying Moon. The inspiration for the name for this project comes from the Japanese Anime Bleach. Specifically a character called Ichigo Kurosaki and his zanpakutō (斬魄刀?, literally "soul-cutter sword"). It is a sword that takes many shapes. In the same way I intend this framework to do the same.
+Zangetsu ( 斬月 ) is Japanese and means Slaying Moon. The inspiration for the name for this project comes from the Japanese Anime Bleach. Specifically a character called Ichigo Kurosaki and his zanpakutō ((斬魄刀) literally "soul-cutter sword"). It is a sword that takes many shapes. In the same way I intend this framework to do the same.
 
 ## Where is the Documentation ##
 There is no documentation...yet. There will be documenation in the future.
