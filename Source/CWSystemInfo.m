@@ -24,9 +24,9 @@
 	Gestalt(gestaltSystemVersionMinor, &versMin);
 	Gestalt(gestaltSystemVersionBugFix, &versBugFix);
 	
-	return NSDICT([NSNumber numberWithLong:versMaj],    kSystemMajorVersion,
-				  [NSNumber numberWithLong:versMin],    kSystemMinorVersion,
-				  [NSNumber numberWithLong:versBugFix], kSystemBugFixVersion);
+	return NSDICT([NSNumber numberWithLong:versMaj],    kCWSystemMajorVersion,
+				  [NSNumber numberWithLong:versMin],    kCWSystemMinorVersion,
+				  [NSNumber numberWithLong:versBugFix], kCWSystemBugFixVersion);
 }
 
 //
