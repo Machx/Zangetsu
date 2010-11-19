@@ -26,7 +26,7 @@
 	return self;
 }
 
--(id)cw_map:(id (^)(id obj))block
+-(NSSet *)cw_map:(id (^)(id obj))block
 {
 	NSMutableSet *cwSet = [[NSMutableSet alloc] init];
 	
