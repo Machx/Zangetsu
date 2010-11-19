@@ -18,4 +18,6 @@
 
 -(id)cw_find:(BOOL (^)(id obj))block;
 
+-(NSArray *)cw_mapArray:(id (^)(id obj))block;
+
 @end

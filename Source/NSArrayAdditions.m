@@ -59,4 +59,18 @@
 	return nil;
 }
 
+//
+// Simple mapping method using a block
+//
+-(NSArray *)cw_mapArray:(id (^)(id obj))block
+{
+	NSMutableArray *cwArray = [[NSMutableArray alloc] init];
+	
+	for(id obj in self){
+		[cwArray addObject:block(obj)];
+	}
+	
+	return cwArray;
+}
+
 @end

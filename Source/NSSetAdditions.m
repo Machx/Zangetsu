@@ -26,4 +26,15 @@
 	return self;
 }
 
+-(id)cw_map:(id (^)(id obj))block
+{
+	NSMutableSet *cwSet = [[NSMutableSet alloc] init];
+	
+	for(id obj in self){
+		[cwSet addObject:block(obj)];
+	}
+	
+	return cwSet;
+}
+
 @end
