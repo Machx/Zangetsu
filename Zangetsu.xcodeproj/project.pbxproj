@@ -25,8 +25,8 @@
 		B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C112C1290D2BA00B49835 /* CWSystemInfo.m */; };
 		B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C1196129239C500B49835 /* NSSetAdditions.m */; };
-		B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1_Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */; };
+		B890142B11D992F000705CE4 /* CWSHA1Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -56,8 +56,8 @@
 		B88C112C1290D2BA00B49835 /* CWSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfo.m; path = Source/CWSystemInfo.m; sourceTree = "<group>"; };
 		B88C1195129239C500B49835 /* NSSetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSetAdditions.h; path = Source/NSSetAdditions.h; sourceTree = "<group>"; };
 		B88C1196129239C500B49835 /* NSSetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSSetAdditions.m; path = Source/NSSetAdditions.m; sourceTree = "<group>"; };
-		B890142911D992F000705CE4 /* CWSHA1_Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1_Convenience.h; path = Source/CWSHA1_Convenience.h; sourceTree = "<group>"; };
-		B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1_Convenience.m; path = Source/CWSHA1_Convenience.m; sourceTree = "<group>"; };
+		B890142911D992F000705CE4 /* CWSHA1Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1Utilities.h; path = Source/CWSHA1Utilities.h; sourceTree = "<group>"; };
+		B890142A11D992F000705CE4 /* CWSHA1Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1Utilities.m; path = Source/CWSHA1Utilities.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B890149311D99D6A00705CE4 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacros.h; path = Source/CWMacros.h; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
-				B890142911D992F000705CE4 /* CWSHA1_Convenience.h */,
-				B890142A11D992F000705CE4 /* CWSHA1_Convenience.m */,
+				B890142911D992F000705CE4 /* CWSHA1Utilities.h */,
+				B890142A11D992F000705CE4 /* CWSHA1Utilities.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B84994A6128210D6001206E1 /* CWTask_Private.h */,
@@ -185,7 +185,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890142B11D992F000705CE4 /* CWSHA1_Convenience.h in Headers */,
+				B890142B11D992F000705CE4 /* CWSHA1Utilities.h in Headers */,
 				B890149511D99D6A00705CE4 /* CWMacros.h in Headers */,
 				B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */,
 				B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890142C11D992F000705CE4 /* CWSHA1_Convenience.m in Sources */,
+				B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */,
 				B84994AB128210D6001206E1 /* CWTask.m in Sources */,
 				B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */,
 				B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */,

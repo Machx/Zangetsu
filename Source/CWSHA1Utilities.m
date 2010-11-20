@@ -7,7 +7,7 @@
 #import "CWSHA1_Convenience.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation NSString ( CCSHA1_Convenience )
+@implementation NSString (CWSHA1Utilities)
 
 //
 // Return the sha value of the string passed in
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation NSData (CCSHA1_Convenience)
+@implementation NSData (CWSHA1Utilities)
 
 //
 // Convience method to return the SHA1 value of the contents of a NSData object given

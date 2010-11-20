@@ -23,13 +23,13 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NSString ( CWSHA1_Convenience )
+@interface NSString (CWSHA1Utilities)
 
 +(NSString *)sha1HashFromString:(NSString *)str;
 
 @end
 
-@interface NSData ( CWSHA1_Convenience )
+@interface NSData (CWSHA1Utilities)
 
 -(NSString *)sha1StringFromData;
 
