@@ -4,7 +4,7 @@
 //
 
 
-#import "CWSHA1_Convenience.h"
+#import "CWSHA1Utilities.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (CWSHA1Utilities)
