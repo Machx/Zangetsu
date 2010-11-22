@@ -7,6 +7,8 @@
 //
 
 #import "CWSystemInfo.h"
+#import <sys/param.h>
+#import <sys/sysctl.h>
 
 
 @implementation CWSystemInfo
@@ -42,6 +44,18 @@
 	Gestalt(gestaltSystemVersionBugFix, &versBugFix);
 	
 	return [NSString stringWithFormat:@"%d.%d.%d",versMaj,versMin,versBugFix];
+}
+
++(NSInteger)numberOfCPUCores
+{
+	NSInteger coreCount = 0;
+	size_t size = sizeof(coreCount);
+	
+	if( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ){
+		return 1;
+	}
+	
+	return coreCount;
 }
 
 @end

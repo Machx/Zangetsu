@@ -17,5 +17,5 @@
 
 +(NSDictionary *)hostVersion;
 +(NSString *)hostVersionString;
-
++(NSInteger)numberOfCPUCores;
 @end
