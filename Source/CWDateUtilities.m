@@ -8,7 +8,6 @@
 
 #import "CWDateUtilities.h"
 
-
 @implementation CWDateUtilities
 
 //
@@ -17,7 +16,7 @@
 //
 +(NSDate *)dateFromISO8601String:(NSString *)dateString
 {
-	return [self dateFromString:dateString withDateFormat:@"yyyy-mm-dd'T'hh:mm:ssZZZ"];
+	return [self dateFromString:dateString withDateFormat:kCWISO8601TimeFormat];
 }
 
 //

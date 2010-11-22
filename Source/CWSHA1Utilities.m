@@ -9,9 +9,9 @@
 
 @implementation NSString (CWSHA1Utilities)
 
-//
-// Return the sha value of the string passed in
-//
+/**
+ Return the sha value of the string passed in
+ */
 +(NSString *)sha1HashFromString:(NSString *)str 
 {
 	if(str == nil){
@@ -37,9 +37,9 @@
 
 @implementation NSData (CWSHA1Utilities)
 
-//
-// Convience method to return the SHA1 value of the contents of a NSData object given
-//
+/**
+ Convience method to return the SHA1 value of the contents of a NSData object given
+ */
 -(NSString *)sha1StringFromData
 {
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];

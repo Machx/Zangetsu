@@ -11,11 +11,11 @@
 
 @implementation CWSystemInfo
 
-//
-// Convenience Method to return a dictionary with the Mac OS X version
-// information in a way where you can query a specific part of the version
-// information you want
-//
+/**
+ Convenience Method to return a dictionary with the Mac OS X version
+ information in a way where you can query a specific part of the version
+ information you want
+ */
 +(NSDictionary *)hostVersion
 {
 	SInt32 versMaj, versMin, versBugFix;
@@ -29,10 +29,10 @@
 				  [NSNumber numberWithLong:versBugFix], kCWSystemBugFixVersion);
 }
 
-//
-// Convenience method to return a NSString with the Mac OS X version 
-// information. 
-//
+/**
+ Convenience method to return a NSString with the Mac OS X version 
+ information.
+ */
 +(NSString *)hostVersionString
 {
 	SInt32 versMaj, versMin, versBugFix;
