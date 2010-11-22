@@ -1,18 +1,6 @@
 # Zangetsu Framework #
 
-Zangetsu is the framework I intend to make power many of my applications going forward. My current goal is to isolate more and more code that is general and not application specific and move it into this framework. This framework is made available under the Open Source MIT License.
-
-Zangetsu differs from other frameworks in some ways 
-
-* Only Mac OS X 10.6 and later is supported
-
-
-* Only Garbage Collection (libauto) is supported (no retain count support)
-
-
-* It aggressively takes advantage of features in LLVM/Clang Compiler when possible
-
-The Framework will try and always take advantage of the latest features on Mac OS X, to use features on older versions of Mac OS X you can refeer back to older versions of the framework.
+Zangetsu is a general purpose 64 bit capable Garbage Collected Framework for Mac OS X and later. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the Open Source MIT License.
 
 ## What's in Zangetsu? ##
 
@@ -26,7 +14,7 @@ Zangetsu contains
 
 * NSTask Conveience Methods
 
-* Host Version Convenience Methods
+* Host Version Info Convenience Methods
 
 * Additional methods for NSArray, NSDictionary, NSSet & NSString to make using & enumerating over them easier.
 

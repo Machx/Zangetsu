@@ -46,6 +46,9 @@
 	return [NSString stringWithFormat:@"%d.%d.%d",versMaj,versMin,versBugFix];
 }
 
+/**
+ Does what it says it does, returns the # of cpu cores on the host Mac
+ */
 +(NSInteger)numberOfCPUCores
 {
 	NSInteger coreCount = 0;
