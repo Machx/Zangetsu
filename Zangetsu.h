@@ -8,7 +8,7 @@
  */
 
 #import "CWMacros.h"
-#import "CWSHA1_Convenience.h"
+#import "CWSHA1Utilities.h"
 #import "CWTask.h"
 #import "CWDateUtilities.h"
 #import "NSStringAdditions.h"
