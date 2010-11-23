@@ -10,19 +10,19 @@
 
 @implementation CWDateUtilities
 
-//
-// Experimental method for parsing ISO8601 Strings given usually when 
-// XML data is given back
-//
+/**
+ Experimental method for parsing ISO8601 Strings given usually when 
+ XML data is given back
+ */
 +(NSDate *)dateFromISO8601String:(NSString *)dateString
 {
 	return [self dateFromString:dateString withDateFormat:kCWISO8601TimeFormat];
 }
 
-//
-// Convenience Method to quickly return a NSDate object from a date
-// string with a specified date format
-//
+/**
+ Convenience Method to quickly return a NSDate object from a date
+ string with a specified date format
+ */
 +(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat
 {
 	[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];

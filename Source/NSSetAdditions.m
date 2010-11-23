@@ -11,10 +11,10 @@
 
 @implementation NSSet (CWNSSetAdditions)
 
-//
-// Simple convenience method to find a object in
-// a NSSet using a block
-//
+/**
+ Simple convenience method to find a object in
+ a NSSet using a block
+ */
 -(id)cw_find:(BOOL (^)(id obj))block
 {
 	for(id obj in self){
@@ -26,9 +26,12 @@
 	return self;
 }
 
+/**
+ Convenient Map method for NSSet
+ */
 -(NSSet *)cw_map:(id (^)(id obj))block
 {
-	NSMutableSet *cwSet = [[NSMutableSet alloc] init];
+	NSMutableSet *cwSet = [[NSMutableSet alloc] initWithCapacity:[self count]];
 	
 	for(id obj in self){
 		[cwSet addObject:block(obj)];

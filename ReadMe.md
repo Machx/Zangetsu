@@ -1,6 +1,6 @@
 # Zangetsu Framework #
 
-Zangetsu is a general purpose 64 bit capable Garbage Collected Framework for Mac OS X and later. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the Open Source MIT License.
+Zangetsu is a general purpose 64 bit capable Garbage Collected Framework for Mac OS X 10.6 and later. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the Open Source MIT License.
 
 ## What's in Zangetsu? ##
 

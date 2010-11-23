@@ -11,9 +11,9 @@
 
 @implementation NSDictionary (CWNSDictionaryAdditions)
 
-//
-// Ruby Inspired Iterator for NSDictionary in Objective-C
-//
+/**
+ Ruby Inspired Iterator for NSDictionary in Objective-C
+ */
 -(NSDictionary *)cw_each:(void (^)(id key, id value))block
 {
 	for(id key in self) {

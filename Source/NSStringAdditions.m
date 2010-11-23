@@ -31,12 +31,11 @@
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
-//
-//
-//
+/**
+ */
 - (NSString *) stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
 {
-	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL,(CFStringRef) self,(CFDictionaryRef) entitiesDictionary);
+	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL, (CFStringRef)self, (CFDictionaryRef) entitiesDictionary);
 	
 	NSString *returnString = [NSString stringWithString:(NSString *)str];
 	
@@ -45,12 +44,11 @@
 	return returnString;
 }
 
-//
-//
-//
+/**
+ */
 - (NSString *) stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
 {
-	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef) self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
 	
 	NSString *returnString = [NSString stringWithString:(NSString *)str];
 	
@@ -59,12 +57,11 @@
 	return returnString;
 }
 
-//
-//
-//
+/**
+ */
 - (NSString *) stringByReplacingPercentEscapes 
 {
-	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef) self, CFMakeCollectable(CFSTR("")));
+	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)self, CFMakeCollectable(CFSTR("")));
 	
 	NSString *returnString = [NSString stringWithString:(NSString *)str];
 	
