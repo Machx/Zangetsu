@@ -23,4 +23,15 @@
 	return self;
 }
 
+/**
+ Simple Convenience method to tell if the dictionary
+ contains a particular key
+ */
+-(BOOL)cw_dictionaryContainsKey:(NSString *)key
+{
+	NSArray *keys = [self allKeys];
+	
+	return [keys containsObject:key];
+}
+
 @end

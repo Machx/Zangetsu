@@ -14,4 +14,6 @@
 //Ruby inspired iteration for Objective-C
 -(NSDictionary *)cw_each:(void (^)(id key, id value))block;
 
+-(BOOL)cw_dictionaryContainsKey:(NSString *)key;
+
 @end

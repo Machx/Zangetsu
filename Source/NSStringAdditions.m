@@ -32,6 +32,7 @@
 }
 
 /**
+ NSString wrapper for the function CFXMLCreateStringByUnescapingEntities in Core Foundation
  */
 - (NSString *) stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
 {
@@ -45,6 +46,7 @@
 }
 
 /**
+ NSString wrapper for the function CFURLCreateStringByAddingPercentEscapes in Core Foundation
  */
 - (NSString *) stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
 {
@@ -58,6 +60,7 @@
 }
 
 /**
+ NSString wrapper for the function CFURLCreateStringByReplacingPercentEscapes in Core Foundation
  */
 - (NSString *) stringByReplacingPercentEscapes 
 {
