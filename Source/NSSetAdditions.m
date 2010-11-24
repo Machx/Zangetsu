@@ -23,7 +23,7 @@
 		}
 	}
 	
-	return self;
+	return nil;
 }
 
 /**

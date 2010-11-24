@@ -64,7 +64,7 @@
  */
 -(NSArray *)cw_mapArray:(id (^)(id obj))block
 {
-	NSMutableArray *cwArray = [[NSMutableArray alloc] init];
+	NSMutableArray *cwArray = [[NSMutableArray alloc] initWithCapacity:[self count]];
 	
 	for(id obj in self){
 		[cwArray addObject:block(obj)];
