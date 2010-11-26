@@ -11,6 +11,10 @@
 
 @implementation CWDictionaryTests
 
+/**
+ Test for cw_dictionaryContainsKey to make sure it works properly. In this
+ case it should return true for finding the object in the dictionary.
+ */
 -(void)testContainsKey
 {
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];

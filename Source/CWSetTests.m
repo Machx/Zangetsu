@@ -11,6 +11,10 @@
 
 @implementation CWSetTests
 
+/**
+ Test for cw_find to make sure it works correctly. It should
+ correctly return YES for finding the desired object in the set
+ */
 -(void)testSetFindObjInSet
 {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
@@ -24,9 +28,14 @@
 		return NO;
 	}];
 	
-	STAssertNotNil(testobj,@"if obj is nil then cw_find didnt find the bender object");
+	STAssertNotNil(testobj,@"if obj is nil then cw_find (NSSet) didnt find the Bender object");
 }
 
+/**
+ Test for cw_map to make sure it correctly maps to another
+ array correctly. In this case it should  do a 1 to 1 map
+ of another set and the 2 should equal
+ */
 -(void)testSetMapSet
 {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];

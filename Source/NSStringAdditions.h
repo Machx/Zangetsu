@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+//TODO: move this to its own path utilities class rather than NSString
 #define CWFullPathFromTildeString(_X_) [_X_ stringByExpandingTildeInPath]
 
 @interface NSString (CWNSStringAdditions) 
