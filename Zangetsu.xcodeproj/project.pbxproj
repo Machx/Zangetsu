@@ -31,6 +31,7 @@
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Zangetsu.framework */; };
+		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
 		B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDictionaryTests.m; path = Source/CWDictionaryTests.m; sourceTree = "<group>"; };
+		B8F5E6E212A0355900E58C94 /* CWSetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSetTests.h; path = Source/CWSetTests.h; sourceTree = "<group>"; };
+		B8F5E6E312A0355900E58C94 /* CWSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSetTests.m; path = Source/CWSetTests.m; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +213,8 @@
 			children = (
 				B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */,
 				B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */,
+				B8F5E6E212A0355900E58C94 /* CWSetTests.h */,
+				B8F5E6E312A0355900E58C94 /* CWSetTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */,
+				B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
