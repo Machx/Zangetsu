@@ -29,7 +29,19 @@
 		B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
+		B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Zangetsu.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B8F5E67312A02EC100E58C94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
+			remoteInfo = Zangetsu;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -61,6 +73,10 @@
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B890149311D99D6A00705CE4 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacros.h; path = Source/CWMacros.h; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
+		B8F5E66912A02EB400E58C94 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
+		B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDictionaryTests.m; path = Source/CWDictionaryTests.m; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +90,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F5E66612A02EB400E58C94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5B0486A6940098B216 /* Zangetsu.framework */,
+				B8F5E66912A02EB400E58C94 /* Unit Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +121,7 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */,
 			);
 			name = Zangetsu;
 			sourceTree = "<group>";
@@ -132,6 +158,7 @@
 				B88C112B1290D2BA00B49835 /* CWSystemInfo.h */,
 				B88C112C1290D2BA00B49835 /* CWSystemInfo.m */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
+				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -178,6 +205,15 @@
 			name = "Foundation Additions";
 			sourceTree = "<group>";
 		};
+		B8F5E67C12A02F6500E58C94 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */,
+				B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -221,6 +257,25 @@
 			productReference = 8DC2EF5B0486A6940098B216 /* Zangetsu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B8F5E66812A02EB400E58C94 /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F5E67212A02EB700E58C94 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				B8F5E66412A02EB400E58C94 /* Resources */,
+				B8F5E66512A02EB400E58C94 /* Sources */,
+				B8F5E66612A02EB400E58C94 /* Frameworks */,
+				B8F5E66712A02EB400E58C94 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8F5E67412A02EC100E58C94 /* PBXTargetDependency */,
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = B8F5E66912A02EB400E58C94 /* Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,6 +297,7 @@
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Zangetsu */,
+				B8F5E66812A02EB400E58C94 /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,7 +311,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F5E66412A02EB400E58C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8F5E66712A02EB400E58C94 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
@@ -273,7 +352,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F5E66512A02EB400E58C94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8F5E67412A02EC100E58C94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
+			targetProxy = B8F5E67312A02EC100E58C94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
@@ -426,6 +521,84 @@
 			};
 			name = Analyze;
 		};
+		B8F5E66F12A02EB700E58C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B8F5E67012A02EB700E58C94 /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Analyze;
+		};
+		B8F5E67112A02EB700E58C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -445,6 +618,16 @@
 				1DEB91B208733DA50010E9CD /* Debug */,
 				B837BC341285F7EC009215D7 /* Analyze */,
 				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8F5E67212A02EB700E58C94 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F5E66F12A02EB700E58C94 /* Debug */,
+				B8F5E67012A02EB700E58C94 /* Analyze */,
+				B8F5E67112A02EB700E58C94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
