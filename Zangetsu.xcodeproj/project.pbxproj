@@ -29,6 +29,7 @@
 		B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Zangetsu.framework */; };
 		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
@@ -39,7 +40,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Zangetsu;
 		};
 /* End PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B890149311D99D6A00705CE4 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacros.h; path = Source/CWMacros.h; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
+		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
+		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */,
 				B8F5E6E212A0355900E58C94 /* CWSetTests.h */,
 				B8F5E6E312A0355900E58C94 /* CWSetTests.m */,
+				B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */,
+				B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			files = (
 				B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */,
 				B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */,
+				B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
