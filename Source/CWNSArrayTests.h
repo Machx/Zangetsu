@@ -15,4 +15,6 @@
 -(void)testFirstObject;
 -(void)testFind;
 -(void)testMapArray;
+-(void)testCWEach;
+-(void)testCWEachWithIndex;
 @end
