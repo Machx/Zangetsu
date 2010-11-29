@@ -82,6 +82,31 @@
 }
 
 /**
+ experimental method
+ like cw_find but instead uses NSHashTable to store weak pointers to 
+ all objects passing the test of the bool block
+ 
+ I don't particularly like this name but given objc's naming 
+ structure this is as good as I can do for now
+ */
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
+{
+	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
+	
+	for (id obj in self) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}
+	
+	if (results.count != 0) {
+		return results;
+	}
+	
+	return nil;
+}
+
+/**
  Simple mapping method using a block
  */
 -(NSArray *)cw_mapArray:(id (^)(id obj))block

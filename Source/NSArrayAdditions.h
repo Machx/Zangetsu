@@ -20,6 +20,8 @@
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
+
 -(NSArray *)cw_mapArray:(id (^)(id obj))block;
 
 @end

@@ -27,6 +27,49 @@
 }
 
 /**
+ like cw_find but instead uses NSArray to store 
+ all objects passing the test of the bool block
+ */
+-(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block
+{
+	NSMutableArray *results = [[NSMutableArray alloc] init];
+	
+	for (id obj in self) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}
+	
+	if (results.count != 0) {
+		return results;
+	}
+	
+	return nil;
+}
+
+/**
+ experimental method
+ like cw_find but instead uses NSHashTable to store pointers to 
+ all objects passing the test of the bool block
+ */
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
+{
+	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
+	
+	for (id obj in self) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}
+
+	if (results.count != 0) {
+		return results;
+	}
+
+	return nil;
+}
+
+/**
  Convenient Map method for NSSet
  */
 -(NSSet *)cw_mapSet:(id (^)(id obj))block

@@ -13,6 +13,10 @@
 
 -(id)cw_find:(BOOL (^)(id obj))block;
 
+-(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
+
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
+
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
 @end
