@@ -11,6 +11,8 @@
 
 @interface NSSet (CWNSSetAdditions) 
 
+-(NSSet *)cw_each:(void (^)(id obj))block;
+
 -(id)cw_find:(BOOL (^)(id obj))block;
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;

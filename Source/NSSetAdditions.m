@@ -12,6 +12,18 @@
 @implementation NSSet (CWNSSetAdditions)
 
 /**
+ Ruby inspired iterator
+ */
+-(NSSet *)cw_each:(void (^)(id obj))block
+{
+	for (id obj in self) {
+		block(obj);
+	}
+	
+	return self;
+}
+
+/**
  Simple convenience method to find a object in
  a NSSet using a block
  */
