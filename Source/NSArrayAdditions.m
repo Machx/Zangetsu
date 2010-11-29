@@ -60,6 +60,28 @@
 }
 
 /**
+ Like cw_find but instead of returning the first object
+ that passes the test it returns all objects passing the 
+ bool block test
+ */
+-(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block
+{
+	NSMutableArray *results = [[NSMutableArray alloc] init];
+	
+	for (id obj in self) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}
+	
+	if (results.count != 0) {
+		return results;
+	}
+	
+	return nil;
+}
+
+/**
  Simple mapping method using a block
  */
 -(NSArray *)cw_mapArray:(id (^)(id obj))block
