@@ -13,6 +13,6 @@
 
 -(id)cw_find:(BOOL (^)(id obj))block;
 
--(NSSet *)cw_map:(id (^)(id obj))block;
+-(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
 @end

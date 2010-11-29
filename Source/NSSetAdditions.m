@@ -29,7 +29,7 @@
 /**
  Convenient Map method for NSSet
  */
--(NSSet *)cw_map:(id (^)(id obj))block
+-(NSSet *)cw_mapSet:(id (^)(id obj))block
 {
 	NSMutableSet *cwSet = [[NSMutableSet alloc] initWithCapacity:[self count]];
 	

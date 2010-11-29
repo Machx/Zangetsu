@@ -40,7 +40,7 @@
 {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
-	NSSet *testSet2 = [testSet1 cw_map:^(id obj) {
+	NSSet *testSet2 = [testSet1 cw_mapSet:^(id obj) {
 		
 		NSString *testString = (NSString *)obj;
 		

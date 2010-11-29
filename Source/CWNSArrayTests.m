@@ -98,10 +98,10 @@
 				STAssertTrue([testString isEqualToString:@"Fry"],@"Index 0 should be Fry cw_eachWithIndex");
 				break;
 			case 1:
-				STAssertTrue([testString isEqualToString:@"Leela"],@"Index 0 should be Fry cw_eachWithIndex");
+				STAssertTrue([testString isEqualToString:@"Leela"],@"Index 0 should be Leela cw_eachWithIndex");
 				break;
 			case 2:
-				STAssertTrue([testString isEqualToString:@"Bender"],@"Index 0 should be Fry cw_eachWithIndex");
+				STAssertTrue([testString isEqualToString:@"Bender"],@"Index 0 should be Bender cw_eachWithIndex");
 				break;
 			default:
 				STAssertTrue(FALSE,@"cw_eachWithIndex should not reach this point");
