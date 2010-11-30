@@ -27,7 +27,7 @@
  Simple convenience method to find a object in
  a NSSet using a block
  */
--(id)cw_find:(BOOL (^)(id obj))block
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block
 {
 	for(id obj in self){
 		if(block(obj)){

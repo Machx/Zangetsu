@@ -19,7 +19,7 @@
 {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
-	id testobj = [testSet cw_find:^(id obj) {
+	id testobj = [testSet cw_findWithBlock:^(id obj) {
 		
 		if ([(NSString *)obj isEqualToString:@"Bender"]) {
 			return YES;
