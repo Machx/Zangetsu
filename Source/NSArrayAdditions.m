@@ -74,11 +74,7 @@
 		}
 	}
 	
-	if (results.count != 0) {
-		return results;
-	}
-	
-	return nil;
+	return results;
 }
 
 /**
@@ -99,11 +95,7 @@
 		}
 	}
 	
-	if (results.count != 0) {
-		return results;
-	}
-	
-	return nil;
+	return results;
 }
 
 /**
