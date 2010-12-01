@@ -22,4 +22,17 @@
 	STAssertTrue([dictionary cw_dictionaryContainsKey:@"bar"],@"Dictionary should contain key bar");
 }
 
+-(void)testDictionaryMapping
+{
+	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
+	
+	NSDictionary *d2 = [dictionary mapDictionary:^(id *value, id *key) {
+		//
+	}];
+	
+	NSLog(@"dict %@\ndict2 %@",dictionary,d2);
+	
+	STAssertTrue([dictionary isEqualToDictionary:d2],@"Dictionary and Dictionary2 should be equal");
+}
+
 @end

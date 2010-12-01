@@ -34,4 +34,27 @@
 	return [keys containsObject:key];
 }
 
+/**
+ Dictionary Mapping
+ */
+-(NSDictionary *)mapDictionary:(void (^)(id *value, id *key))block
+{
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	
+	__block id _intKey;
+	__block id _intValue;
+	
+	for (id key in self.allKeys) {
+		
+		_intKey = key;
+		_intValue = [self valueForKey:key];
+		
+		block(&_intValue,&_intKey);
+		
+		[dict setValue:_intValue forKey:_intKey];
+	}
+	
+	return dict;
+}
+
 @end
