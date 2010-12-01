@@ -16,7 +16,7 @@
 
 -(NSArray *)cw_eachWithIndex:(void (^)(id obj,NSInteger index))block;
 
--(id)cw_find:(BOOL (^)(id obj))block;
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 

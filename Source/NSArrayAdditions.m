@@ -48,7 +48,7 @@
 /**
  Simple find convenience method using blocks
  */
--(id)cw_find:(BOOL (^)(id obj))block
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block
 {
 	for(id obj in self){
 		if(block(obj)){

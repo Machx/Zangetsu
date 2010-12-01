@@ -31,7 +31,7 @@
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	NSString *string = [testArray cw_find:^(id obj) {
+	NSString *string = [testArray cw_findWithBlock:^(id obj) {
 		
 		if ([(NSString *)obj isEqualToString:@"Bender"]) {
 			return YES;
