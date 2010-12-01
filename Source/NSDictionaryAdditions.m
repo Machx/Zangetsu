@@ -37,7 +37,7 @@
 /**
  Dictionary Mapping
  */
--(NSDictionary *)cw_mapDictionary:(void (^)(id *value, id *key))block
+-(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	
@@ -49,9 +49,9 @@
 		_intKey = key;
 		_intValue = [self valueForKey:key];
 		
-		block(&_intValue,&_intKey);
+		block(&_intKey,&_intValue);
 		
-		if (_intKey != nil) {
+		if ( (_intKey != nil) && (_intValue != nil) ) {
 			[dict setValue:_intValue forKey:_intKey];
 		}
 	}
