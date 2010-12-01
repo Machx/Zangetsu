@@ -51,7 +51,9 @@
 		
 		block(&_intValue,&_intKey);
 		
-		[dict setValue:_intValue forKey:_intKey];
+		if (_intKey != nil) {
+			[dict setValue:_intValue forKey:_intKey];
+		}
 	}
 	
 	return dict;
