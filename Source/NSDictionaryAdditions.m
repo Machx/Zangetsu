@@ -37,7 +37,7 @@
 /**
  Dictionary Mapping
  */
--(NSDictionary *)mapDictionary:(void (^)(id *value, id *key))block
+-(NSDictionary *)cw_mapDictionary:(void (^)(id *value, id *key))block
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	

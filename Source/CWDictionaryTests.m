@@ -26,7 +26,7 @@
 {
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
-	NSDictionary *d2 = [dictionary mapDictionary:^(id *value, id *key) {
+	NSDictionary *d2 = [dictionary cw_mapDictionary:^(id *value, id *key) {
 		//
 	}];
 	

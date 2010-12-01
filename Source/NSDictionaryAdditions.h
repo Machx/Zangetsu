@@ -15,6 +15,6 @@
 -(NSDictionary *)cw_each:(void (^)(id key, id value))block;
 
 -(BOOL)cw_dictionaryContainsKey:(NSString *)key;
--(NSDictionary *)mapDictionary:(void (^)(id *value, id *key))block;
+-(NSDictionary *)cw_mapDictionary:(void (^)(id *value, id *key))block;
 
 @end
