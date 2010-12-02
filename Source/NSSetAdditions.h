@@ -15,7 +15,7 @@
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
--(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block;
+-(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 

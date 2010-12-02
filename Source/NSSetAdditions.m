@@ -41,7 +41,7 @@
 /**
  Exactly like cw_findWithBlock except it returns a BOOL
  */
--(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block
+-(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
 {
 	for (id obj in self) {
 		if (block(obj)) {
