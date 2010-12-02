@@ -36,13 +36,14 @@
 
 /**
  Dictionary Mapping
+ THIS IS VERY EXPERIMENTAL AND IS NOT 100% WORKING AS I WOULD LIKE
  */
 -(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	
-	__block id _intKey;
-	__block id _intValue;
+	id _intKey;
+	id _intValue;
 	
 	for (id key in self.allKeys) {
 		
