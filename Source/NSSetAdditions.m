@@ -39,6 +39,20 @@
 }
 
 /**
+ Exactly like cw_findWithBlock except it returns a BOOL
+ */
+-(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block
+{
+	for (id obj in self) {
+		if (block(obj)) {
+			return YES;
+		}
+	}
+	
+	return NO;
+}
+
+/**
  like cw_find but instead uses NSArray to store 
  all objects passing the test of the bool block
  */
