@@ -47,8 +47,8 @@
 	
 	for (id key in self.allKeys) {
 		
-		_intKey = key;
-		_intValue = [self valueForKey:key];
+		_intKey = [key copy];
+		_intValue = [[self valueForKey:key] copy];
 		
 		block(&_intKey,&_intValue);
 		

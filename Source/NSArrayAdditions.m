@@ -46,7 +46,8 @@
 }
 
 /**
- Simple find convenience method using blocks
+ Finds the first instance of the object that you indicate
+ via a block (returning a bool) you are looking for
  */
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block
 {
