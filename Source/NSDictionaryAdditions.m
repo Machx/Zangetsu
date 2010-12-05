@@ -42,8 +42,8 @@
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	
-	id _intKey;
-	id _intValue;
+	__block id _intKey;
+	__block id _intValue;
 	
 	for (id key in self.allKeys) {
 		
