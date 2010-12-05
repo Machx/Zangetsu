@@ -4,9 +4,23 @@
 //
 
 #import "NSStringAdditions.h"
-
+#import <CoreFoundation/CoreFoundation.h>
 
 @implementation NSString (CWNSStringAdditions)
+
+/**
+ Convenience method for Core Foundations CFUUIDCreate() function
+ */
++(NSString *)cw_uuidString
+{
+	NSString *returnedString = nil;
+	
+	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
+	returnedString = (NSString *)CFMakeCollectable(CFUUIDCreateString(kCFAllocatorDefault, uid));
+	CFMakeCollectable(uid);
+	
+	return returnedString;
+}
 
 /**
  Asynchronous & Synchronous string enumeration 
@@ -34,7 +48,7 @@
 /**
  NSString wrapper for the function CFXMLCreateStringByUnescapingEntities in Core Foundation
  */
-- (NSString *) stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
+- (NSString *) cw_stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
 {
 	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL, (CFStringRef)self, (CFDictionaryRef) entitiesDictionary);
 	
@@ -48,7 +62,7 @@
 /**
  NSString wrapper for the function CFURLCreateStringByAddingPercentEscapes in Core Foundation
  */
-- (NSString *) stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
+- (NSString *) cw_stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
 {
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
 	
@@ -62,7 +76,7 @@
 /**
  NSString wrapper for the function CFURLCreateStringByReplacingPercentEscapes in Core Foundation
  */
-- (NSString *) stringByReplacingPercentEscapes 
+- (NSString *) cw_stringByReplacingPercentEscapes 
 {
 	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)self, CFMakeCollectable(CFSTR("")));
 	
