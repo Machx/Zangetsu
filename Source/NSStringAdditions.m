@@ -16,8 +16,12 @@
 	NSString *returnedString = nil;
 	
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
-	returnedString = (NSString *)CFMakeCollectable(CFUUIDCreateString(kCFAllocatorDefault, uid));
+	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
+	
+	returnedString = [[NSString alloc] initWithString:(NSString *)tmpString];
+	
 	CFMakeCollectable(uid);
+	CFMakeCollectable(tmpString);
 	
 	return returnedString;
 }
