@@ -16,3 +16,4 @@
 #import "NSDictionaryAdditions.h"
 #import "CWSystemInfo.h"
 #import "NSSetAdditions.h"
+#import "NSURLConnectionAdditions.h"
