@@ -12,6 +12,7 @@
 #define NSDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
 #define NSARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
 #define NSBOOL(_X_) [NSNumber numberWithBool:(_X_)]
+#define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
 #pragma mark -
 #pragma mark Log Functions

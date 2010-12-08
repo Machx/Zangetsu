@@ -19,4 +19,8 @@
 						  onGCDQueue:(dispatch_queue_t)queue 
 					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block;
 
++(NSData *)cw_performGCDSynchronousRequest:(NSURLRequest *)request 
+								  response:(NSURLResponse **)response 
+								  andError:(NSError **)error;
+
 @end

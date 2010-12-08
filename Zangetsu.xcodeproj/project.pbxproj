@@ -39,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B8F5E67312A02EC100E58C94 /* PBXContainerItemProxy */ = {
+		B8C5CAAB12AFEE2600D79B4E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -291,7 +291,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B8F5E67412A02EC100E58C94 /* PBXTargetDependency */,
+				B8C5CAAC12AFEE2600D79B4E /* PBXTargetDependency */,
 			);
 			name = "Unit Tests";
 			productName = "Unit Tests";
@@ -389,10 +389,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B8F5E67412A02EC100E58C94 /* PBXTargetDependency */ = {
+		B8C5CAAC12AFEE2600D79B4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
-			targetProxy = B8F5E67312A02EC100E58C94 /* PBXContainerItemProxy */;
+			targetProxy = B8C5CAAB12AFEE2600D79B4E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -55,4 +55,26 @@
 	});
 }
 
++(NSData *)cw_performGCDSynchronousRequest:(NSURLRequest *)request 
+								  response:(NSURLResponse **)response 
+								  andError:(NSError **)error
+{
+	NSParameterAssert(request);
+	
+	__block NSData *data = nil;
+	__block NSURLResponse *resp = nil;
+	__block NSError *err = nil;
+	
+	dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+		data = [NSURLConnection sendSynchronousRequest:request 
+									 returningResponse:&resp 
+												 error:&err];
+	});
+	
+	*response = resp;
+	*error = err;
+	
+	return data;
+}
+
 @end
