@@ -10,7 +10,7 @@
 @implementation NSString (CWSHA1Utilities)
 
 /**
- Return the sha value of the string passed in
+ Return the SHA1 value of the string passed in
  */
 +(NSString *)sha1HashFromString:(NSString *)str 
 {
