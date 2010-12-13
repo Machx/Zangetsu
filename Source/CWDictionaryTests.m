@@ -27,7 +27,7 @@
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
 	NSDictionary *d2 = [dictionary cw_mapDictionary:^(id *key,id *value) {
-		//
+		//*value = @"morvo"; //for testing...
 	}];
 	
 	NSLog(@"dict %@\ndict2 %@",dictionary,d2);

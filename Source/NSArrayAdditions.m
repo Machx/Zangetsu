@@ -52,14 +52,14 @@
 {
 	dispatch_group_t group = dispatch_group_create();
 	
-	__block BOOL *_stop = NO;
+	__block BOOL _stop = NO;
 	
 	for(id object in self){
 		
-		if (*_stop == YES) { break; }
+		if (_stop == YES) { break; }
 		
 		dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-			block(object,_stop);
+			block(object,&_stop);
 		});
 	}
 	

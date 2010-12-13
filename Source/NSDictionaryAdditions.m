@@ -24,6 +24,30 @@
 }
 
 /**
+ Same as cw_each but operates concurrently and passes in a bool
+ pointer allowing you to stop the enumeration
+ */
+-(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
+{
+	dispatch_group_t group = dispatch_group_create();
+
+	__block BOOL _stop = NO;
+
+	for (id key in self) {
+
+		if(_stop == NO) { break; }
+
+		dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+			block(key,[self valueForKey:key],&_stop);
+		});
+	}
+
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+
+	return self;
+}
+
+/**
  Simple Convenience method to tell if the dictionary
  contains a particular key
  */
@@ -35,8 +59,7 @@
 }
 
 /**
- Dictionary Mapping
- THIS IS VERY EXPERIMENTAL AND IS NOT 100% WORKING AS I WOULD LIKE
+ An dictionary mapping method using only 1 block
  */
 -(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block
 {
