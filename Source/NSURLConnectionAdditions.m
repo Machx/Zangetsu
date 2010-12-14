@@ -82,7 +82,7 @@
 	__block NSURLResponse *resp = nil;
 	__block NSError *err = nil;
 	
-	dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+	dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		data = [NSURLConnection sendSynchronousRequest:request 
 									 returningResponse:&resp 
 												 error:&err];

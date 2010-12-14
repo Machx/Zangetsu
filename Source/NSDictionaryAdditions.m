@@ -30,6 +30,8 @@
 -(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
 {
 	dispatch_group_t group = dispatch_group_create();
+	
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 	__block BOOL _stop = NO;
 
@@ -37,7 +39,7 @@
 
 		if(_stop == NO) { break; }
 
-		dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+		dispatch_group_async(group, queue, ^{
 			block(key,[self valueForKey:key],&_stop);
 		});
 	}
