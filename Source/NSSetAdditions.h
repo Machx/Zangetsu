@@ -13,6 +13,8 @@
 
 -(NSSet *)cw_each:(void (^)(id obj))block;
 
+-(NSSet *)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block;
+
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
