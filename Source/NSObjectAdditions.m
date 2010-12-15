@@ -7,7 +7,6 @@
 //
 
 #import "NSObjectAdditions.h"
-#import <objc/runtime.h>
 
 
 @implementation NSObject (CWNSObjectAdditions)
@@ -25,6 +24,13 @@
 -(void)cw_associateWeakValue:(id)value withKey:(void *)key
 {
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(void)cw_associateValue:(id)value
+				 withKey:(void *)key
+  usingAssociationPolicy:(objc_AssociationPolicy)policy
+{
+	objc_setAssociatedObject(self, key, value, policy);
 }
 
 @end

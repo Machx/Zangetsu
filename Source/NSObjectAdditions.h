@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <objc/runtime.h>
 
 @interface   NSObject (CWNSObjectAdditions) {}
 
@@ -16,5 +16,7 @@
 -(void)cw_associateValue:(id)value withKey:(void *)key;
 
 -(void)cw_associateWeakValue:(id)value withKey:(void *)key;
+
+-(void)cw_associateValue:(id)value withKey:(void *)key usingAssociationPolicy:(objc_AssociationPolicy)policy;
 
 @end
