@@ -24,3 +24,4 @@
 #import "NSURLConnectionAdditions.h"
 #import "CWBlockFoundation.h"
 #import "CWDebugUtilities.h"
+#import "NSObjectAdditions.h"
