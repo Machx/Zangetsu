@@ -12,9 +12,9 @@
 
 @implementation NSObject (CWNSObjectAdditions)
 
--(void)cw_valueAssociatedWithKey:(void *)key
+-(id)cw_valueAssociatedWithKey:(void *)key
 {
-	objc_getAssociatedObject(self, key);
+	return objc_getAssociatedObject(self, key);
 }
 
 -(void)cw_associateValue:(id)value withKey:(void *)key
