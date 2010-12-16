@@ -8,6 +8,8 @@ Zangetsu contains
 
 * Macros to make creating NSDictionaries, NSArrays, etc easy
 
+* Objective-C Associated Objects
+
 * Easy debug logging
 
 * SHA1 Convenience APIs
@@ -19,6 +21,8 @@ Zangetsu contains
 * Additional methods for NSArray, NSDictionary, NSSet & NSString to make using & enumerating over them easier.
 
 * Asynchronous & Synchronous NSURLConnection download APIs
+
+* And much more...
 
 ## What does Zangetsu mean? ##
 

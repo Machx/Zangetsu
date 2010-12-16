@@ -222,12 +222,12 @@
 		B858897A128DF403002AC417 /* Foundation Additions */ = {
 			isa = PBXGroup;
 			children = (
-				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
-				B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */,
 				B8588975128DF314002AC417 /* NSArrayAdditions.h */,
 				B8588976128DF314002AC417 /* NSArrayAdditions.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
+				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
+				B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */,
 				B88C1195129239C500B49835 /* NSSetAdditions.h */,
 				B88C1196129239C500B49835 /* NSSetAdditions.m */,
 				B837BC171284FDC0009215D7 /* NSStringAdditions.h */,

@@ -15,23 +15,13 @@
 #include <errno.h>
 #include <stdio.h>
 
-@implementation CWDebugUtilities
-
--(id) init
-{
-	self = [super init];
-	if (self) {
-		//
-	}
-	
-	return self;
-}
-
 /**
  Returns if the currently running application is being debugged
  discovered at http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
+ this implementation apparently will always say yes when being run
+ by Xcode, but no when being run normally in finder
  */
-+(BOOL)isDebugInProgress
+BOOL CWIsDebugInProgress(void)
 {
 	int mib[4];
 	size_t bufSize = 0;
@@ -52,4 +42,5 @@
 	return (kp.kp_proc.p_flag & P_TRACED) != 0;
 }
 
+@implementation CWDebugUtilities
 @end

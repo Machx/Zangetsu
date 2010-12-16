@@ -8,9 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+BOOL CWIsDebugInProgress(void);
 
-@interface CWDebugUtilities : NSObject {
-
-}
-+(BOOL)isDebugInProgress;
+@interface CWDebugUtilities : NSObject {}
 @end
