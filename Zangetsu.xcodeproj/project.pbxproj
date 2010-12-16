@@ -22,6 +22,8 @@
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
+		B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */; };
 		B8588977128DF314002AC417 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8588978128DF314002AC417 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArrayAdditions.m */; };
 		B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,6 +79,8 @@
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSObjectAdditions.h; path = Source/NSObjectAdditions.h; sourceTree = "<group>"; };
 		B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSObjectAdditions.m; path = Source/NSObjectAdditions.m; sourceTree = "<group>"; };
+		B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFoundation.h; path = Source/CWFoundation.h; sourceTree = "<group>"; };
+		B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFoundation.m; path = Source/CWFoundation.m; sourceTree = "<group>"; };
 		B8588975128DF314002AC417 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayAdditions.h; path = Source/NSArrayAdditions.h; sourceTree = "<group>"; };
 		B8588976128DF314002AC417 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSArrayAdditions.m; path = Source/NSArrayAdditions.m; sourceTree = "<group>"; };
 		B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionaryAdditions.h; path = Source/NSDictionaryAdditions.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */,
 				B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */,
 				B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */,
+				B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */,
+				B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
 			);
@@ -275,6 +281,7 @@
 				B8806A2D12B3D44D00F85BCE /* CWBlockFoundation.h in Headers */,
 				B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */,
 				B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */,
+				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,7 @@
 				B8806A2E12B3D44D00F85BCE /* CWBlockFoundation.m in Sources */,
 				B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */,
 				B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */,
+				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
