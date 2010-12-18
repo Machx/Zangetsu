@@ -41,6 +41,3 @@ BOOL CWIsDebugInProgress(void)
 	
 	return (kp.kp_proc.p_flag & P_TRACED) != 0;
 }
-
-@implementation CWDebugUtilities
-@end

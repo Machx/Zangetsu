@@ -8,13 +8,13 @@
 
 #import "CWFoundation.h"
 
+/**
+ Until true weak linking classes comes to the Mac OS X & iOS SDKs
+ this will be necessary to determine if a class exists or not
+ */
 BOOL CWClassExists(NSString * class)
 {
 	Class _class = NSClassFromString(class);
 	
 	return (_class) ? YES : NO;
 }
-
-@implementation CWFoundation
-
-@end

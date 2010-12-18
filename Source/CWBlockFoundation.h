@@ -11,9 +11,3 @@
 typedef void (^VoidBlock)(void);
 
 void inAutoreleasePool(VoidBlock block);
-
-@interface CWBlockFoundation : NSObject {
-
-}
-
-@end

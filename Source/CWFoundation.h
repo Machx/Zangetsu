@@ -9,10 +9,3 @@
 #import <Cocoa/Cocoa.h>
 
 BOOL CWClassExists(NSString * class);
-
-
-@interface CWFoundation : NSObject {
-
-}
-
-@end

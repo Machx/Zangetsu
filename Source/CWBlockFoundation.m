@@ -8,11 +8,6 @@
 
 #import "CWBlockFoundation.h"
 
-
-@implementation CWBlockFoundation
-
-@end
-
 /**
  Runs the passed in block in a NSAutoreleasePool and then
  drains the autoreleasepool
