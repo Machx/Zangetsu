@@ -3,7 +3,7 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 12/18/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
@@ -13,4 +13,5 @@
 
 }
 -(void)testStrongReferenceObjcAssociation;
+-(void)testAssociatedObjectsOptionsAPI;
 @end
