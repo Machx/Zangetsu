@@ -9,9 +9,8 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWNSObjectTests : SenTestCase {
-
-}
+@interface CWNSObjectTests : SenTestCase {}
 -(void)testStrongReferenceObjcAssociation;
 -(void)testAssociatedObjectsOptionsAPI;
+-(void)testWeakObjcAssociation;
 @end
