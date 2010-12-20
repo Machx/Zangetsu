@@ -27,14 +27,14 @@
 	[queue addOperationWithBlock:^() {
 		
 		NSURLResponse *_response = nil;
-		NSError *_error = nil;
+		NSError *_urlError = nil;
 		
 		NSData *_data = [NSURLConnection sendSynchronousRequest:request
 											  returningResponse:&_response 
-														  error:&_error];
+														  error:&_urlError];
 		
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^() {
-			block(_data,_response,_error);
+			block(_data,_response,_urlError);
 		}];
 	}];
 }
@@ -54,14 +54,14 @@
 	dispatch_async(queue, ^{
 		
 		NSURLResponse *_response = nil;
-		NSError *_error = nil;
+		NSError *_urlError = nil;
 		
 		NSData *_data = [NSURLConnection sendSynchronousRequest:request
 											  returningResponse:&_response 
-														  error:&_error];
+														  error:&_urlError];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			block(_data,_response,_error);
+			block(_data,_response,_urlError);
 		});
 	});
 }

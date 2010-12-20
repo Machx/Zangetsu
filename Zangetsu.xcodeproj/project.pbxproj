@@ -42,6 +42,8 @@
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8E9142F12BD8C7400167AE8 /* CWNSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */; };
+		B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Zangetsu.framework */; };
 		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
@@ -103,6 +105,8 @@
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8E9141312BD8B0A00167AE8 /* CWNSObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSObjectTests.h; path = Source/CWNSObjectTests.h; sourceTree = "<group>"; };
 		B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSObjectTests.m; path = Source/CWNSObjectTests.m; sourceTree = "<group>"; };
+		B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilities.h; path = Source/CWPathUtilities.h; sourceTree = "<group>"; };
+		B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilities.m; path = Source/CWPathUtilities.m; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */,
 				B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */,
 				B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */,
+				B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */,
+				B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
 			);
@@ -287,6 +293,7 @@
 				B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */,
 				B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */,
 				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
+				B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +416,7 @@
 				B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */,
 				B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */,
 				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
+				B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
