@@ -27,19 +27,19 @@
 				 @"ObjC Associated Objects should be equal but are not!");
 }
 
--(void)testAssociatedObjectsOptionsAPI
-{
-	NSString *key2 = @"key2";
-	
-	NSObject *object = [[NSObject alloc] init];
-	
-	[object cw_associateValue:@"All Hail the Hypnotoad!" 
-					  withKey:key2 
-	   usingAssociationPolicy:OBJC_ASSOCIATION_RETAIN];
-	
-	STAssertTrue([[object cw_valueAssociatedWithKey:key2] isEqualToString:@"All Hail the Hypnotoad!" ],
-				 @"ObjC Associated Objects should be equal but are not!");
-}
+//-(void)testAssociatedObjectsOptionsAPI
+//{
+//	NSString *key2 = @"key2";
+//	
+//	NSObject *object = [[NSObject alloc] init];
+//	
+//	[object cw_associateValue:@"All Hail the Hypnotoad!" 
+//					  withKey:key2 
+//	   usingAssociationPolicy:OBJC_ASSOCIATION_RETAIN];
+//	
+//	STAssertTrue([[object cw_valueAssociatedWithKey:key2] isEqualToString:@"All Hail the Hypnotoad!" ],
+//				 @"ObjC Associated Objects should be equal but are not!");
+//}
 
 -(void)testWeakObjcAssociation
 {

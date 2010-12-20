@@ -7,7 +7,7 @@
 //
 
 #import "NSObjectAdditions.h"
-
+#import <objc/runtime.h>
 
 @implementation NSObject (CWNSObjectAdditions)
 
@@ -39,11 +39,11 @@
  Associates the value with a key using the specified 
  objective-c association policy
  */
--(void)cw_associateValue:(id)value
-				 withKey:(void *)key
-  usingAssociationPolicy:(objc_AssociationPolicy)policy
-{
-	objc_setAssociatedObject(self, key, value, policy);
-}
+//-(void)cw_associateValue:(id)value
+//				 withKey:(void *)key
+//  usingAssociationPolicy:(objc_AssociationPolicy)policy
+//{
+//	objc_setAssociatedObject(self, key, value, policy);
+//}
 
 @end

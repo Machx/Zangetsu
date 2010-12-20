@@ -11,6 +11,6 @@
 
 @interface CWNSObjectTests : SenTestCase {}
 -(void)testStrongReferenceObjcAssociation;
--(void)testAssociatedObjectsOptionsAPI;
+//-(void)testAssociatedObjectsOptionsAPI;
 -(void)testWeakObjcAssociation;
 @end
