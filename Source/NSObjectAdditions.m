@@ -35,15 +35,4 @@
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
-/**
- Associates the value with a key using the specified 
- objective-c association policy
- */
-//-(void)cw_associateValue:(id)value
-//				 withKey:(void *)key
-//  usingAssociationPolicy:(objc_AssociationPolicy)policy
-//{
-//	objc_setAssociatedObject(self, key, value, policy);
-//}
-
 @end
