@@ -11,6 +11,9 @@
 
 @implementation CWPathUtilities
 
+/**
+ Conveince method for returing the apps Application Support folder
+ */
 +(NSString *)applicationSupportFolder
 {
 	NSString *_path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
@@ -18,6 +21,9 @@
 	return _path;
 }
 
+/**
+ Gets the application support folder and appends the string onto it
+ */
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path
 {
 	NSString *_appSupportPath = [CWPathUtilities applicationSupportFolder];
