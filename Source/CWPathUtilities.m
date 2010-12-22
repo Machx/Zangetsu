@@ -33,4 +33,11 @@
 	return _result;
 }
 
++(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath
+{
+	NSString * _homeFolder = NSHomeDirectory();
+	
+	return [NSString stringWithFormat:@"%@/%@",_homeFolder,subPath];
+}
+
 @end

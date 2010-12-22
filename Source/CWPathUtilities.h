@@ -13,4 +13,5 @@
 @interface CWPathUtilities : NSObject {}
 +(NSString *)applicationSupportFolder;
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
++(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
 @end
