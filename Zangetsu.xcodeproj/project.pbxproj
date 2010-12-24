@@ -15,6 +15,8 @@
 		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
+		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; };
+		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
@@ -77,6 +79,8 @@
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
 		B837BC171284FDC0009215D7 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = Source/NSStringAdditions.h; sourceTree = "<group>"; };
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
+		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
+		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B84994A6128210D6001206E1 /* CWTask_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask_Private.h; path = Source/CWTask_Private.h; sourceTree = "<group>"; };
 		B84994A7128210D6001206E1 /* CWTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask.h; path = Source/CWTask.h; sourceTree = "<group>"; };
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */,
 				B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */,
 				B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */,
+				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
+				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
 			);
@@ -301,6 +307,7 @@
 				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
 				B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */,
 				B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */,
+				B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +432,7 @@
 				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
 				B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */,
 				B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */,
+				B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
