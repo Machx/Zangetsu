@@ -8,4 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
+#ifdef DEBUG
 BOOL CWIsDebugInProgress(void);
+#endif

@@ -15,6 +15,7 @@
 #include <errno.h>
 #include <stdio.h>
 
+#ifdef DEBUG
 /**
  Returns if the currently running application is being debugged
  discovered at http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
@@ -41,3 +42,5 @@ BOOL CWIsDebugInProgress(void)
 	
 	return (kp.kp_proc.p_flag & P_TRACED) != 0;
 }
+
+#endif
