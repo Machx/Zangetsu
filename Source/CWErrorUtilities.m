@@ -8,7 +8,7 @@
 
 #import "CWErrorUtilities.h"
 
-NSError *CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
+NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
 {
 	NSString *_domain;
 	if(domain == nil){

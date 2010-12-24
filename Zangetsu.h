@@ -27,3 +27,4 @@
 #import "NSObjectAdditions.h"
 #import "CWFoundation.h"
 #import "CWPathUtilities.h"
+#import "CWErrorUtilities.h"

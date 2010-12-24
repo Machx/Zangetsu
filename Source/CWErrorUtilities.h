@@ -10,4 +10,4 @@
 
 #define kCWErrorDomain @"CWErrorDomain"
 
-NSError *CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage);
+NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage);
