@@ -10,7 +10,11 @@
 
 NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
 {
+	NSCParameterAssert(errorMessage);
+	NSCParameterAssert(errorCode);
+
 	NSString *_domain;
+
 	if(domain == nil){
 		_domain = kCWErrorDomain;
 	} else {
