@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define kCWErrorDomain @"CWErrorDomain"
+static NSString * const kCWErrorDomain = @"CWErrorDomain";
 
 NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage);

@@ -8,10 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define kCWSystemMajorVersion @"majorVersion"
-#define kCWSystemMinorVersion @"minorVersion"
-#define kCWSystemBugFixVersion @"bugfixVersion"
-
+static NSString * const kCWSystemMajorVersion =  @"majorVersion";
+static NSString * const kCWSystemMinorVersion =  @"minorVersion";
+static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 
 @interface CWSystemInfo : NSObject {}
 
