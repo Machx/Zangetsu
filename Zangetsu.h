@@ -28,3 +28,4 @@
 #import "CWFoundation.h"
 #import "CWPathUtilities.h"
 #import "CWErrorUtilities.h"
+#import "CWGraphicsFoundation.h"

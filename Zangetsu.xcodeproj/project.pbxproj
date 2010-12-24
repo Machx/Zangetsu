@@ -15,7 +15,7 @@
 		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
-		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; };
+		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
