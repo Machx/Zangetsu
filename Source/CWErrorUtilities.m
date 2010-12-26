@@ -8,6 +8,10 @@
 
 #import "CWErrorUtilities.h"
 
+/**
+ Easy convenience method to create a NSError Object. It checks for the error message
+ and throws an assertion if it's missing
+ */
 NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
 {
 	NSCParameterAssert(errorMessage);

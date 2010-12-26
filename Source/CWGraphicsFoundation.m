@@ -8,6 +8,9 @@
 
 #import "CWGraphicsFoundation.h"
 
+/**
+ Easy way to return the CGContextRef inside a NSView
+ */
 CGContextRef CWCurrentCGContext()
 {
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
