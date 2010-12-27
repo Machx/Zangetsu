@@ -38,7 +38,7 @@ NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMe
 	va_list args;
 	va_start(args, errorMessage);
 	
-	NSString *completeErrorMessage = [NSString stringWithFormat:errorMessage,args];
+	NSString *completeErrorMessage = [[NSString alloc] initWithFormat:errorMessage arguments:args];
 	
 	va_end(args);
 	
