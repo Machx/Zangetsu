@@ -22,7 +22,7 @@
  this implementation apparently will always say yes when being run
  by Xcode, but no when being run normally in finder
  */
-BOOL CWIsDebugInProgress(void)
+BOOL CWIsDebugInProgress()
 {
 	int mib[4];
 	size_t bufSize = 0;
@@ -41,6 +41,18 @@ BOOL CWIsDebugInProgress(void)
 	}
 	
 	return (kp.kp_proc.p_flag & P_TRACED) != 0;
+}
+
+/**
+ Intentionally crashes the application
+ ONLY USE THIS IN DEBUGGING YOUR APP!!! 
+ NEVER INCLUDE THIS IN A SHIPPING PRODUCTION APP IN RELEASE MODE!!!
+ When run from within Xcode this actually triggers gdb breaking on
+ the line that intentionally caused the crash.
+ */
+void CWCrash()
+{
+	__builtin_trap();
 }
 
 #endif

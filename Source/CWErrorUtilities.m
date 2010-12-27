@@ -28,22 +28,22 @@ NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMe
 	NSCParameterAssert(errorCode);
 	
 	NSString *_domain;
-	
+
 	if (domain == nil) {
 		_domain = kCWErrorDomain;
 	} else {
 		_domain = domain;
 	}
-	
+
 	va_list args;
 	va_start(args, errorMessage);
-	
+
 	NSString *completeErrorMessage = [[NSString alloc] initWithFormat:errorMessage arguments:args];
-	
+
 	va_end(args);
-	
+
 	NSDictionary *_errorDictionary = NSDICT(completeErrorMessage,NSLocalizedDescriptionKey);
-	
+
 	return [NSError errorWithDomain:_domain
 							   code:errorCode
 						   userInfo:_errorDictionary];
