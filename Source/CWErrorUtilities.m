@@ -14,25 +14,15 @@
  */
 NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
 {
-	NSCParameterAssert(errorMessage);
-	NSCParameterAssert(errorCode);
-
-	NSString *_domain;
-
-	if(domain == nil){
-		_domain = kCWErrorDomain;
-	} else {
-		_domain = domain;
-	}
-	
-	NSDictionary *_errorDictionary = NSDICT(errorMessage,NSLocalizedDescriptionKey);
-	
-	return [NSError errorWithDomain:_domain
-							   code:errorCode
-						   userInfo:_errorDictionary];
+	return CWCreateErrorV(errorCode, domain, errorMessage);
 }
 
-NSError* CWCreateErrorVA(NSInteger errorCode, NSString *domain, NSString *errorMessage, ...)
+/**
+ Easy convenience method to create a NSError Object. It checks for the error message
+ and throws an assertion if it's missing just like CWCreateError except this one allows
+ for a string with formatting and passing arguments for the formatting of a string
+ */
+NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMessage, ...)
 {
 	NSCParameterAssert(errorMessage);
 	NSCParameterAssert(errorCode);
