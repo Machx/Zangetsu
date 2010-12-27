@@ -11,3 +11,5 @@
 static NSString * const kCWErrorDomain = @"CWErrorDomain";
 
 NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage);
+
+NSError* CWCreateErrorVA(NSInteger errorCode, NSString *domain, NSString *errorMessage, ...);
