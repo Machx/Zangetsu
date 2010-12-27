@@ -8,7 +8,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-#ifdef DEBUG
 BOOL CWIsDebugInProgress(void);
 void CWCrash(void);
-#endif

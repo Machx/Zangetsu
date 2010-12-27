@@ -7,15 +7,13 @@
 //
 
 #import "CWDebugUtilities.h"
-
 #include <sys/sysctl.h>
 #include <unistd.h>
-
 #include <err.h>
 #include <errno.h>
 #include <stdio.h>
 
-#ifdef DEBUG
+
 /**
  Returns if the currently running application is being debugged
  discovered at http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
@@ -54,5 +52,3 @@ void CWCrash()
 {
 	__builtin_trap();
 }
-
-#endif
