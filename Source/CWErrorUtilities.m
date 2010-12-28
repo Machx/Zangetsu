@@ -22,9 +22,9 @@ NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMes
  and throws an assertion if it's missing just like CWCreateError except this one allows
  for a string with formatting and passing arguments for the formatting of a string
  */
-NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMessage, ...)
+NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMessageFormat, ...)
 {
-	NSCParameterAssert(errorMessage);
+	NSCParameterAssert(errorMessageFormat);
 	NSCParameterAssert(errorCode);
 	
 	NSString *_domain;
@@ -36,9 +36,9 @@ NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMe
 	}
 
 	va_list args;
-	va_start(args, errorMessage);
+	va_start(args, errorMessageFormat);
 
-	NSString *completeErrorMessage = [[NSString alloc] initWithFormat:errorMessage arguments:args];
+	NSString *completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
 
 	va_end(args);
 

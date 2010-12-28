@@ -43,3 +43,10 @@
 #	define CWAssert4(...) /**/
 #	define CWAssert5(...) /**/
 #endif
+
+#pragma mark -
+#pragma mark Garbage Collection
+
+#define CWDefaultCollector() [NSGarbageCollector defaultCollector]
+#define CWGCCollectIfNeeded() [[NSGarbageCollector defaultCollector] collectIfNeeded]
+#define CWGCCollectExaustively() [[NSGarbageCollector defaultCollector] collectExhaustively]
