@@ -8,4 +8,4 @@
 
 #import <Cocoa/Cocoa.h>
 
-CGContextRef CWCurrentCGContext();
+extern CGContextRef CWCurrentCGContext();

@@ -11,7 +11,7 @@
 /**
  Easy way to return the CGContextRef inside a NSView
  */
-CGContextRef CWCurrentCGContext()
+inline CGContextRef CWCurrentCGContext()
 {
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 }
