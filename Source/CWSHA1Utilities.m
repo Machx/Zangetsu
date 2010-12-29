@@ -12,7 +12,7 @@
 /**
  Return the SHA1 value of the string passed in
  */
-+(NSString *)sha1HashFromString:(NSString *)str 
++(NSString *)cw_sha1HashFromString:(NSString *)str 
 {
 	if(str == nil){
 		return nil;
@@ -40,7 +40,7 @@
 /**
  Convience method to return the SHA1 value of the contents of a NSData object given
  */
--(NSString *)sha1StringFromData
+-(NSString *)cw_sha1StringFromData
 {
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 	const char *cStringRep = [str UTF8String];

@@ -25,12 +25,12 @@
 
 @interface NSString (CWSHA1Utilities)
 
-+(NSString *)sha1HashFromString:(NSString *)str;
++(NSString *)cw_sha1HashFromString:(NSString *)str;
 
 @end
 
 @interface NSData (CWSHA1Utilities)
 
--(NSString *)sha1StringFromData;
+-(NSString *)cw_sha1StringFromData;
 
 @end

@@ -29,3 +29,4 @@
 #import "CWPathUtilities.h"
 #import "CWErrorUtilities.h"
 #import "CWGraphicsFoundation.h"
+#import "CWMD5Utilities.h"

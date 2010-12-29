@@ -17,6 +17,8 @@
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
+		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B849523012CBE1CF00098684 /* CWMD5Utilities.m */; };
 		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
@@ -81,6 +83,8 @@
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
 		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
+		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
+		B849523012CBE1CF00098684 /* CWMD5Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMD5Utilities.m; path = Source/CWMD5Utilities.m; sourceTree = "<group>"; };
 		B84994A6128210D6001206E1 /* CWTask_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask_Private.h; path = Source/CWTask_Private.h; sourceTree = "<group>"; };
 		B84994A7128210D6001206E1 /* CWTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask.h; path = Source/CWTask.h; sourceTree = "<group>"; };
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B890142911D992F000705CE4 /* CWSHA1Utilities.h */,
 				B890142A11D992F000705CE4 /* CWSHA1Utilities.m */,
+				B849522F12CBE1CF00098684 /* CWMD5Utilities.h */,
+				B849523012CBE1CF00098684 /* CWMD5Utilities.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B84994A6128210D6001206E1 /* CWTask_Private.h */,
@@ -308,6 +314,7 @@
 				B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */,
 				B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */,
 				B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */,
+				B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +440,7 @@
 				B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */,
 				B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */,
 				B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */,
+				B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

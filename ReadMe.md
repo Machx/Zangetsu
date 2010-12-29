@@ -12,7 +12,7 @@ Zangetsu contains
 
 * Easy debug logging
 
-* SHA1 Convenience APIs
+* SHA1 & MD5 Convenience APIs
 
 * NSTask Conveience APIs
 
