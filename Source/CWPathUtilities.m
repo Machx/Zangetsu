@@ -8,6 +8,7 @@
 
 #import "CWPathUtilities.h"
 
+static NSString * const kCWAppName = @"CFBundleName";
 
 @implementation CWPathUtilities
 
@@ -18,7 +19,9 @@
 {
 	NSString *_path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
 	
-	return _path;
+	NSString *_appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
+	
+	return [NSString stringWithFormat:@"%@/%@",_path,_appName];
 }
 
 /**

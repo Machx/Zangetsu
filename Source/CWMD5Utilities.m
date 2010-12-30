@@ -25,14 +25,14 @@
 	
 	CC_MD5(cStringRep, (CC_LONG)strlen(cStringRep), md5Hash);
 	
-	NSString *shaHashString = [NSString  stringWithFormat:
+	NSString *md5HashString = [NSString  stringWithFormat:
 							   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], 
-							   md5Hash[4], md5Hash[5], md5Hash[6], md5Hash[7], 
-							   md5Hash[8], md5Hash[9], md5Hash[10], md5Hash[11], 
-							   md5Hash[12], md5Hash[13], md5Hash[14], md5Hash[15],md5Hash[16]];
+							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],
+							   md5Hash[5], md5Hash[6], md5Hash[7], md5Hash[8], md5Hash[9],
+							   md5Hash[10], md5Hash[11], md5Hash[12], md5Hash[13], md5Hash[14],
+							   md5Hash[15],md5Hash[16]];
 	
-	return [shaHashString lowercaseString];
+	return [md5HashString lowercaseString];
 }
 
 @end
@@ -50,14 +50,14 @@
 	
 	CC_MD5(cStringRep, (CC_LONG)strlen(cStringRep), md5Hash);
 	
-	NSString *shaHashString = [NSString  stringWithFormat:
+	NSString *md5HashString = [NSString  stringWithFormat:
 							   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], 
-							   md5Hash[4], md5Hash[5], md5Hash[6], md5Hash[7], 
-							   md5Hash[8], md5Hash[9], md5Hash[10], md5Hash[11], 
-							   md5Hash[12], md5Hash[13], md5Hash[14], md5Hash[15],md5Hash[16]];
+							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],
+							   md5Hash[5], md5Hash[6], md5Hash[7], md5Hash[8], md5Hash[9],
+							   md5Hash[10], md5Hash[11], md5Hash[12], md5Hash[13], md5Hash[14],
+							   md5Hash[15],md5Hash[16]];
 	
-	return [shaHashString lowercaseString];
+	return [md5HashString lowercaseString];
 }
 
 @end
