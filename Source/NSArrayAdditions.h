@@ -11,7 +11,6 @@
 
 -(id)cw_firstObject;
 
-//Ruby inspired iterators
 -(NSArray *)cw_each:(void (^)(id obj))block;
 
 -(NSArray *)cw_eachWithIndex:(void (^)(id obj,NSInteger index))block;

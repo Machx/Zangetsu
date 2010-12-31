@@ -19,7 +19,6 @@
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B849523012CBE1CF00098684 /* CWMD5Utilities.m */; };
-		B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A6128210D6001206E1 /* CWTask_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -85,7 +84,6 @@
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
 		B849523012CBE1CF00098684 /* CWMD5Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMD5Utilities.m; path = Source/CWMD5Utilities.m; sourceTree = "<group>"; };
-		B84994A6128210D6001206E1 /* CWTask_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask_Private.h; path = Source/CWTask_Private.h; sourceTree = "<group>"; };
 		B84994A7128210D6001206E1 /* CWTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTask.h; path = Source/CWTask.h; sourceTree = "<group>"; };
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; };
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				B849523012CBE1CF00098684 /* CWMD5Utilities.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
-				B84994A6128210D6001206E1 /* CWTask_Private.h */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
 				B84994A8128210D6001206E1 /* CWTask.m */,
 				B88C112B1290D2BA00B49835 /* CWSystemInfo.h */,
@@ -298,7 +295,6 @@
 				B890142B11D992F000705CE4 /* CWSHA1Utilities.h in Headers */,
 				B890149511D99D6A00705CE4 /* CWMacros.h in Headers */,
 				B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */,
-				B84994A9128210D6001206E1 /* CWTask_Private.h in Headers */,
 				B84994AA128210D6001206E1 /* CWTask.h in Headers */,
 				B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */,
 				B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */,

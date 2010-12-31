@@ -11,7 +11,6 @@
 
 @interface NSDictionary (CWNSDictionaryAdditions)
 
-//Ruby inspired iteration for Objective-C
 -(NSDictionary *)cw_each:(void (^)(id key, id value))block;
 
 -(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block;

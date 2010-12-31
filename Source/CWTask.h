@@ -8,20 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CWTask : NSObject {
-@private
-	NSString * _executable;
-	NSString * _directoryPath;
-	NSTask *_internal_task;
-	NSInteger _successCode;
-	NSArray * _task_args;
-}
+@interface CWTask : NSObject {}
 
+//public vars
+@property(nonatomic, readonly) NSString *executable;
+@property(nonatomic, readonly) NSString *directoryPath;
+@property(nonatomic, readonly) NSInteger successCode;
+@property(nonatomic, readonly) NSArray *arguments;
+
+//public api
 -(id)initWithExecutable:(NSString *)exec 
 		   andArguments:(NSArray *)execArgs 
 			atDirectory:(NSString *)path;
-
--(NSString *) launchTaskWithError:(NSError **)error;
--(NSInteger) successCode;
+-(NSString *)launchTask:(NSError **)error;
 
 @end

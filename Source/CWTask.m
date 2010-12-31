@@ -7,79 +7,74 @@
 //
 
 #import "CWTask.h"
-#import "CWTask_Private.h"
+
+static const NSInteger kCWTaskNotLaunched = -1729;
+
+@interface CWTask(Private)
+@property(nonatomic, readwrite, retain) NSString *executable;
+@property(nonatomic, readwrite, retain) NSArray *arguments;
+@property(nonatomic, readwrite, retain) NSString *directoryPath;
+@property(nonatomic, readwrite, assign) NSInteger successCode;
+@end
 
 @implementation CWTask
 
-@synthesize _executable;
-@synthesize _directoryPath;
-@synthesize _internal_task;
-@synthesize _successCode;
-@synthesize _task_args;
+@synthesize executable;
+@synthesize arguments;
+@synthesize directoryPath;
+@synthesize successCode;
+
+#pragma mark -
+#pragma mark Public API
 
 -(id)initWithExecutable:(NSString *)exec 
 		   andArguments:(NSArray *)execArgs 
 			atDirectory:(NSString *)path
 {
 	self = [super init];
-	if(self){
-		_internal_task = [[NSTask alloc] init];
-		_directoryPath = path;
-		_executable = exec;
-		_successCode = 0;
-		_task_args = execArgs;
+	if (self) {
+		executable = exec;
+		arguments = execArgs;
+		directoryPath = path;
+		successCode = kCWTaskNotLaunched; 
 	}
 	
 	return self;
 }
 
--(NSString *) launchTaskWithError:(NSError **)error;
+-(NSString *)launchTask:(NSError **)error
 {
-	NSParameterAssert(self._internal_task);
+	NSParameterAssert(executable);
 	
-	if(self._executable == nil){
-		NSAssert(0,@"CWTask Executable is Nil! Exiting...");
-		*error = [NSError errorWithDomain:@"CWTask Domain"
-									 code:1
-								 userInfo:nil];
-		return nil;
+	NSTask *cwTask = [[NSTask alloc] init];
+	NSPipe *pipe = [NSPipe pipe];
+	NSString *resultsString = nil;
+	NSData *returnedData = nil;
+	
+	[cwTask setLaunchPath:self.executable];
+	[cwTask setStandardOutput:pipe];
+	
+	if (arguments.count > 0) {
+		[cwTask setArguments:self.arguments];
+	}
+	if (self.directoryPath) {
+		[cwTask setCurrentDirectoryPath:self.directoryPath];
 	}
 	
-	NSPipe *_taskPipe = [NSPipe pipe];
-	NSData *_returned_data = nil;
-	
-	[self._internal_task setStandardOutput:_taskPipe];
-	[self._internal_task setArguments:self._task_args];
-	[self._internal_task setLaunchPath:self._executable];
-	if(self._directoryPath){
-		[self._internal_task setCurrentDirectoryPath:self._directoryPath];
+	@try {
+		[cwTask launch];
+	}
+	@catch (NSException * e) {
+		CWLog(@"caught exception: %@",e);
 	}
 	
-	CWLog(@"CWTask: %@",self._internal_task);
+	returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
 	
-	@try{
-		[self._internal_task launch];
-	}@catch(NSException * e){
-		CWLog(@"Caught Exception: %@",e);
-	}
+	resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
 	
-	_returned_data = [[NSData alloc] initWithData:[[_taskPipe fileHandleForReading] readDataToEndOfFile]];
+	self.successCode = [cwTask terminationStatus];
 	
-	self._successCode = [self._internal_task terminationStatus];
-	
-	NSString * returnedString = nil;
-	
-	if(_returned_data != nil){
-		returnedString = [[NSString alloc] initWithData:_returned_data
-											   encoding:NSUTF8StringEncoding];
-	}
-	
-	return returnedString;
-}
-
--(NSInteger) successCode
-{
-	return self._successCode;
+	return resultsString;
 }
 
 @end
