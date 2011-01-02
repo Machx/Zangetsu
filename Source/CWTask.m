@@ -11,6 +11,7 @@
 static const NSInteger kCWTaskNotLaunched = -1729;
 
 @interface CWTask(Private)
+//Publicly declared
 @property(nonatomic, readwrite, retain) NSString *executable;
 @property(nonatomic, readwrite, retain) NSArray *arguments;
 @property(nonatomic, readwrite, retain) NSString *directoryPath;
@@ -23,6 +24,7 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 @synthesize arguments;
 @synthesize directoryPath;
 @synthesize successCode;
+@synthesize completionBlock;
 
 #pragma mark -
 #pragma mark Public API
@@ -74,6 +76,8 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 	
 	self.successCode = [cwTask terminationStatus];
 	
+	self.completionBlock();
+
 	return resultsString;
 }
 

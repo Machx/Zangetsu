@@ -8,13 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
+typedef void (^TaskCompletionBlock)(void);
+
 @interface CWTask : NSObject {}
 
-//public vars
+//public readonly vars
 @property(nonatomic, readonly) NSString *executable;
 @property(nonatomic, readonly) NSString *directoryPath;
 @property(nonatomic, readonly) NSInteger successCode;
 @property(nonatomic, readonly) NSArray *arguments;
+//public read/write vars
+@property(nonatomic, copy) TaskCompletionBlock completionBlock;
 
 //public api
 -(id)initWithExecutable:(NSString *)exec 
