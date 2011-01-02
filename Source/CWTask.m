@@ -18,6 +18,8 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 @property(nonatomic, readwrite, assign) NSInteger successCode;
 @end
 
+static BOOL inAsynchronous = NO;
+
 @implementation CWTask
 
 @synthesize executable;
@@ -38,7 +40,7 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 		executable = exec;
 		arguments = execArgs;
 		directoryPath = path;
-		successCode = kCWTaskNotLaunched; 
+		successCode = kCWTaskNotLaunched;
 	}
 	
 	return self;
@@ -76,7 +78,9 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 	
 	self.successCode = [cwTask terminationStatus];
 	
-	self.completionBlock();
+	if (inAsynchronous == NO) {
+		self.completionBlock();
+	}
 
 	return resultsString;
 }
@@ -84,6 +88,8 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 -(void)launchTaskOnQueue:(NSOperationQueue *)queue 
 	 withCompletionBlock:(void (^)(NSString *output, NSError *error))block
 {
+	inAsynchronous = YES;
+	
 	[queue addOperationWithBlock:^() {
 		
 		NSError *taskError = nil;
@@ -100,6 +106,8 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 -(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
 		withCompletionBlock:(void (^)(NSString *output, NSError *error))block
 {
+	inAsynchronous = YES;
+	
 	dispatch_async(queue, ^{
 		
 		NSError *taskError = nil;
