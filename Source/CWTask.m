@@ -50,37 +50,41 @@ static BOOL inAsynchronous = NO;
 {
 	NSParameterAssert(executable);
 	
+	static dispatch_once_t pred;
+	
 	NSTask *cwTask = [[NSTask alloc] init];
-	NSPipe *pipe = [NSPipe pipe];
-	NSString *resultsString = nil;
-	NSData *returnedData = nil;
+	__block NSPipe *pipe = [NSPipe pipe];
+	__block NSString *resultsString = nil;
+	__block NSData *returnedData = nil;
 	
-	[cwTask setLaunchPath:self.executable];
-	[cwTask setStandardOutput:pipe];
-	
-	if (arguments.count > 0) {
-		[cwTask setArguments:self.arguments];
-	}
-	if (self.directoryPath) {
-		[cwTask setCurrentDirectoryPath:self.directoryPath];
-	}
-	
-	@try {
-		[cwTask launch];
-	}
-	@catch (NSException * e) {
-		CWLog(@"caught exception: %@",e);
-	}
-	
-	returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
-	
-	resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
-	
-	self.successCode = [cwTask terminationStatus];
-	
-	if (inAsynchronous == NO) {
-		self.completionBlock();
-	}
+	dispatch_once(&pred, ^{
+		[cwTask setLaunchPath:self.executable];
+		[cwTask setStandardOutput:pipe];
+
+		if (arguments.count > 0) {
+			[cwTask setArguments:self.arguments];
+		}
+		if (self.directoryPath) {
+			[cwTask setCurrentDirectoryPath:self.directoryPath];
+		}
+
+		@try {
+			[cwTask launch];
+		}
+		@catch (NSException * e) {
+			CWLog(@"caught exception: %@",e);
+		}
+
+		returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
+
+		resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+
+		self.successCode = [cwTask terminationStatus];
+
+		if (inAsynchronous == NO) {
+			self.completionBlock();
+		}
+	});
 
 	return resultsString;
 }
