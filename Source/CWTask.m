@@ -81,4 +81,36 @@ static const NSInteger kCWTaskNotLaunched = -1729;
 	return resultsString;
 }
 
+-(void)launchTaskOnQueue:(NSOperationQueue *)queue 
+	 withCompletionBlock:(void (^)(NSString *output, NSError *error))block
+{
+	[queue addOperationWithBlock:^() {
+		
+		NSError *taskError = nil;
+		NSString *resultsString = nil;
+		
+		resultsString = [self launchTask:&taskError];
+		
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^() {
+			block(resultsString,taskError);
+		}];
+	}];
+}
+
+-(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
+		withCompletionBlock:(void (^)(NSString *output, NSError *error))block
+{
+	dispatch_async(queue, ^{
+		
+		NSError *taskError = nil;
+		NSString *resultsString = nil;
+		
+		resultsString = [self launchTask:&taskError];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block(resultsString, taskError);
+		});
+	});
+}
+
 @end

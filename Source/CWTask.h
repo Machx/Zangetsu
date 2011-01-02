@@ -24,6 +24,11 @@ typedef void (^TaskCompletionBlock)(void);
 -(id)initWithExecutable:(NSString *)exec 
 		   andArguments:(NSArray *)execArgs 
 			atDirectory:(NSString *)path;
+//Synchronous Launch Method
 -(NSString *)launchTask:(NSError **)error;
-
+//Experimental Asynchronous Methods
+-(void)launchTaskOnQueue:(NSOperationQueue *)queue 
+		   withCompletionBlock:(void (^)(NSString *output, NSError *error))block;
+-(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
+		withCompletionBlock:(void (^)(NSString *output, NSError *error))block;
 @end
