@@ -52,7 +52,7 @@ static BOOL inAsynchronous = NO;
 	
 	static dispatch_once_t pred;
 	
-	NSTask *cwTask = [[NSTask alloc] init];
+	__block NSTask *cwTask = [[NSTask alloc] init];
 	__block NSPipe *pipe = [NSPipe pipe];
 	__block NSString *resultsString = nil;
 	__block NSData *returnedData = nil;
@@ -79,9 +79,11 @@ static BOOL inAsynchronous = NO;
 
 		resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
 
-		self.successCode = [cwTask terminationStatus];
+		//if (![cwTask isRunning]) {
+		//	self.successCode = [cwTask terminationStatus];
+		//}
 
-		if (inAsynchronous == NO) {
+		if (inAsynchronous == NO && self.completionBlock) {
 			self.completionBlock();
 		}
 	});
@@ -94,14 +96,14 @@ static BOOL inAsynchronous = NO;
 {
 	inAsynchronous = YES;
 	
-	[queue addOperationWithBlock:^() {
+	[queue addOperationWithBlock:^{
 		
 		NSError *taskError = nil;
 		NSString *resultsString = nil;
 		
 		resultsString = [self launchTask:&taskError];
 		
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^() {
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
 			block(resultsString,taskError);
 		}];
 	}];
