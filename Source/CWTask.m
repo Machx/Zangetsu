@@ -77,11 +77,14 @@ static BOOL inAsynchronous = NO;
 
 		returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
 
-		resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+		if (returnedData) {
+			resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+		}
 
-		//if (![cwTask isRunning]) {
-		//	self.successCode = [cwTask terminationStatus];
-		//}
+		if (![cwTask isRunning]) {
+			//FIXME: should use self.successCode...
+			successCode = [cwTask terminationStatus];
+		}
 
 		if (inAsynchronous == NO && self.completionBlock) {
 			self.completionBlock();

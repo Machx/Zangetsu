@@ -19,7 +19,7 @@
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s\n",__PRETTY_FUNCTION__)
-#	define CWLog(args...) NSLog(@"%s: %@",__PRETTY_FUNCTION__,[NSString stringWithFormat:args])
+#	define CWLog(args...) NSLog(@"%s:%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 #else
 #	define CWPrintClassAndMethod() /**/
 #	define CWLog(args...) /**/
