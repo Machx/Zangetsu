@@ -93,4 +93,12 @@
 	return returnString;
 }
 
+/**
+ Quick test for an empty string
+ */
+- (BOOL) cw_isNotEmptyString
+{
+	return ![self isEqualToString:@""];
+}
+
 @end

@@ -17,4 +17,6 @@
 - (NSString *) cw_stringByAddingPercentEscapesUsingEncoding: (NSStringEncoding) encoding legalURLCharactersToBeEscaped: (NSString *) legalCharacters;
 - (NSString *) cw_stringByReplacingPercentEscapes;
 
+- (BOOL) cw_isNotEmptyString;
+
 @end

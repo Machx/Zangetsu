@@ -19,4 +19,11 @@
 	STAssertTrue((![string1 isEqualToString:string2]),@"String 1 and String shouldn't be the same");
 }
 
+-(void)testEmptyStringMethod
+{
+	NSString *emptyString1 = @"";
+	
+	STAssertTrue(![emptyString1 cw_isNotEmptyString],@"String1 should be empty");
+}
+
 @end
