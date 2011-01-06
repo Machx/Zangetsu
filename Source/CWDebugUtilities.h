@@ -11,5 +11,5 @@
 BOOL CWIsDebugInProgress(void);
 void CWCrash(void);
 
-typedef (^DebugBlock)(void);
+typedef void (^DebugBlock)(void);
 void CWInDebugOnly(DebugBlock block);

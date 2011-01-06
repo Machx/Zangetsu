@@ -44,6 +44,15 @@
 #	define CWAssert5(...) /**/
 #endif
 
+#define CWAssertV(cond, ...) \
+do { \
+	if(!cond) { \
+		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] \
+																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
+														  lineNumber:__LINE__ \
+														 description:__VA_ARGS__]; \
+} while(0);
+
 #pragma mark -
 #pragma mark Garbage Collection
 
