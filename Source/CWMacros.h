@@ -51,6 +51,7 @@ do { \
 																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
 														  lineNumber:__LINE__ \
 														 description:__VA_ARGS__]; \
+	} \
 } while(0);
 
 #pragma mark -
