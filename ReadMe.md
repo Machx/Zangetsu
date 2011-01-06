@@ -37,7 +37,7 @@ The way Zangetsu is structured you need to have Zangetsu in the same directory a
 ## Zangetsu Licence ##
 Zangetsu is licensed under the MIT license
 
-	Copyright (c) 2010 Colin Wheeler
+	Copyright (c) 2011 Colin Wheeler
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal

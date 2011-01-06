@@ -82,7 +82,7 @@ static BOOL inAsynchronous = NO;
 		}
 
 		if (![cwTask isRunning]) {
-			//FIXME: should use self.successCode...
+			//FIXME: when Xcode 4 is released switch to self.successCode = ...
 			successCode = [cwTask terminationStatus];
 		}
 
