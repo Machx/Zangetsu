@@ -52,3 +52,10 @@ void CWCrash()
 {
 	__builtin_trap();
 }
+
+void CWInDebugOnly(DebugBlock block)
+{
+#ifdef DEBUG
+	block();
+#endif
+}
