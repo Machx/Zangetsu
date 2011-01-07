@@ -19,11 +19,13 @@
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s%i:\n",__PRETTY_FUNCTION__,__LINE__)
-#	define CWLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
+#	define CWDebugLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 #else
 #	define CWPrintClassAndMethod() /**/
-#	define CWLog(args...) /**/
+#	define CWDebugLog(args...) /**/
 #endif
+
+#define CWLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 
 #pragma mark -
 #pragma mark NSAssert Functions
