@@ -31,6 +31,9 @@ static BOOL inAsynchronous = NO;
 #pragma mark -
 #pragma mark Public API
 
+/**
+ designated initializer
+ */
 -(id)initWithExecutable:(NSString *)exec 
 		   andArguments:(NSArray *)execArgs 
 			atDirectory:(NSString *)path
@@ -46,6 +49,15 @@ static BOOL inAsynchronous = NO;
 	return self;
 }
 
+/**
+ Launches the task. Uses dispatch_once() to make sure
+ the task is launched only once. You can call this method directly
+ yourself or implicitly via the launchTaskOnQueue* methods. In serial mode
+ you can also set a completion block to fire. If launched asynchronously the
+ completion block is the block you supply via parameters and the completion
+ block property will not fire. I may remove the completion block entirely and
+ just add a block parameter to this method.
+ */
 -(NSString *)launchTask:(NSError **)error
 {
 	NSParameterAssert(executable);
@@ -94,9 +106,16 @@ static BOOL inAsynchronous = NO;
 	return resultsString;
 }
 
+/**
+ adds a operation to the passed in NSOperationQueue and calls
+ -launchTask: then when it is done returns back to the main
+ thread via NSOperationQueue mainQueue and executes the block
+ */
 -(void)launchTaskOnQueue:(NSOperationQueue *)queue 
 	 withCompletionBlock:(void (^)(NSString *output, NSError *error))block
 {
+	NSParameterAssert(queue);
+
 	inAsynchronous = YES;
 	
 	[queue addOperationWithBlock:^{
@@ -112,9 +131,16 @@ static BOOL inAsynchronous = NO;
 	}];
 }
 
+/**
+ adds a operation to the passed in gcd dispatch_qeueue_t queue and calls
+ -launchTask: then when it is done returns back to the main
+ thread via dispatch_get_main_queue() and executes the block
+ */
 -(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
 		withCompletionBlock:(void (^)(NSString *output, NSError *error))block
 {
+	NSParameterAssert(queue);
+
 	inAsynchronous = YES;
 	
 	dispatch_async(queue, ^{
