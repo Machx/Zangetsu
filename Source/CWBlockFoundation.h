@@ -11,3 +11,5 @@
 typedef void (^VoidBlock)(void);
 
 void inAutoreleasePool(VoidBlock block);
+
+void CWKVONotifyAndAssign(NSString *key,VoidBlock block);
