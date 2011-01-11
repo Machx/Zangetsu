@@ -18,17 +18,3 @@ void inAutoreleasePool(VoidBlock block)
 	block();
 	[pool drain];
 }
-
-/**
- Test method for right now.
- Performs the kvo notifications willChangeValueForKey:
- then executes the block where you can do assignment,
- and then performs didChangeValueForKey:
- */
-void CWKVONotifyAndAssign(NSString *key,VoidBlock block)
-{
-	NSParameterAssert(key);
-	[self willChangeValueForKey:key];
-	block();
-	[self didChangeValueForKey:key];
-}

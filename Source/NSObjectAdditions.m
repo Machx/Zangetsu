@@ -11,6 +11,9 @@
 
 @implementation NSObject (CWNSObjectAdditions)
 
+#pragma mark -
+#pragma mark Objective-C Associated Objects
+
 /**
  returns the value associated with a key
  */

@@ -11,6 +11,8 @@
 
 @interface   NSObject (CWNSObjectAdditions) {}
 
+// Objective-C Associated Objects
+
 -(id)cw_valueAssociatedWithKey:(void *)key;
 
 -(void)cw_associateValue:(id)value withKey:(void *)key;
