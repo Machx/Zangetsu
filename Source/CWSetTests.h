@@ -14,4 +14,5 @@
 }
 -(void)testSetFindObjInSet;
 -(void)testSetMapSet;
+-(void)testFindAll;
 @end

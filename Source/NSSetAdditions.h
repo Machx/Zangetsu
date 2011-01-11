@@ -19,7 +19,7 @@
 
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
 
--(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
+-(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
 

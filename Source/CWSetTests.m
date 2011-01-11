@@ -50,4 +50,23 @@
 	STAssertTrue([testSet1 isEqualToSet:testSet2],@"testset1 and testset2 should be equal if using cw_map (NSSet)");
 }
 
+-(void)testFindAll
+{
+	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+	
+	NSSet *testSet2 = [testSet1 cw_findAllWithBlock:^(id obj) {
+		NSString *object = (NSString *)obj;
+		if ([object isEqualToString:@"Fry"] ||
+			[object isEqualToString:@"Leela"]) {
+			return YES;
+		}
+		
+		return NO;
+	}];
+	
+	NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Leela",nil];
+	
+	STAssertTrue([testSet2 isEqualToSet:testSet3],@"Sets should be equal");
+}
+
 @end

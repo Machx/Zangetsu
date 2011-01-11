@@ -82,9 +82,9 @@
  like cw_find but instead uses NSArray to store 
  all objects passing the test of the bool block
  */
--(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block
+-(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block
 {
-	NSMutableArray *results = [[NSMutableArray alloc] init];
+	NSMutableSet *results = [[NSMutableSet alloc] init];
 	
 	for (id obj in self) {
 		if (block(obj)) {
