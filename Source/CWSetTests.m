@@ -32,6 +32,22 @@
 }
 
 /**
+ Testing cw_isObjectInSetWithBlock to make sure it returns
+ the correct BOOL result
+ */
+-(void)testIsObjInSet
+{
+	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+
+	BOOL objInSet = [testSet cw_isObjectInSetWithBlock:^(id obj) {
+
+		return [(NSString *)obj isEqualToString:@"Bender"];
+	}];
+
+	STAssertTrue(objInSet,@"Bender should be in the set");
+}
+
+/**
  Test for cw_map to make sure it correctly maps to another
  array correctly. In this case it should  do a 1 to 1 map
  of another set and the 2 should equal
