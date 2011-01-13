@@ -38,4 +38,17 @@
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
+#pragma mark -
+#pragma mark Exerimental Perform with Block Methods
+
+-(void)cw_performAfterDelay:(dispatch_time_t)delay withBlock:(ObjTimeBlock)block
+{
+	[self cw_performAfterDelay:delay onQueue:dispatch_get_main_queue() withBlock:block];
+}
+
+-(void)cw_performAfterDelay:(dispatch_time_t)delay onQueue:(dispatch_queue_t)queue withBlock:(ObjTimeBlock)block
+{
+	dispatch_after(delay, queue, block);
+}
+
 @end
