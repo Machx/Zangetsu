@@ -23,8 +23,6 @@
 
 typedef void (^ObjTimeBlock)(void);
 
--(void)cw_performAfterDelay:(dispatch_time_t)delay withBlock:(ObjTimeBlock)block;
-
--(void)cw_performAfterDelay:(dispatch_time_t)delay onQueue:(dispatch_queue_t)queue withBlock:(ObjTimeBlock)block;
+-(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block;
 
 @end

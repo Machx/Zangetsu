@@ -9,6 +9,11 @@
 #import "NSObjectAdditions.h"
 #import <objc/runtime.h>
 
+@interface NSObject(CWPrivateNSObjectAdditions)
+-(void)_cw_blockInvokeCallBack;
+@end
+
+
 @implementation NSObject (CWNSObjectAdditions)
 
 #pragma mark -
@@ -41,14 +46,18 @@
 #pragma mark -
 #pragma mark Exerimental Perform with Block Methods
 
--(void)cw_performAfterDelay:(dispatch_time_t)delay withBlock:(ObjTimeBlock)block
+-(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block
 {
-	[self cw_performAfterDelay:delay onQueue:dispatch_get_main_queue() withBlock:block];
+	[block performSelector:@selector(_cw_blockInvokeCallBack) withObject:nil afterDelay:delay];
 }
 
--(void)cw_performAfterDelay:(dispatch_time_t)delay onQueue:(dispatch_queue_t)queue withBlock:(ObjTimeBlock)block
+/**
+ Private - Internal Implementation Method
+ */
+-(void)_cw_blockInvokeCallBack
 {
-	dispatch_after(delay, queue, block);
+	void (^block)(void) = (id)self;
+	block();
 }
 
 @end
