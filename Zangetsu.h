@@ -30,3 +30,4 @@
 #import "CWErrorUtilities.h"
 #import "CWGraphicsFoundation.h"
 #import "CWMD5Utilities.h"
+#import "NSDataAdditions.h"
