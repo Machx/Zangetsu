@@ -11,7 +11,7 @@
 
 @implementation NSData (CWNSDataAdditions)
 
--(NSString *)cw_utf8StringFromData
+-(NSString *)cw_NSStringFromData
 {
 	NSString *_result = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 	

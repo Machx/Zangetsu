@@ -11,6 +11,6 @@
 
 @interface NSData (CWNSDataAdditions)
 
--(NSString *)cw_utf8StringFromData;
+-(NSString *)cw_NSStringFromData;
 
 @end
