@@ -18,4 +18,13 @@
 	return _result;
 }
 
+-(const char *)cw_utf8StringFromData
+{
+	NSString *_result = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+
+	const char *cRep = [_result UTF8String];
+
+	return cRep;
+}
+
 @end

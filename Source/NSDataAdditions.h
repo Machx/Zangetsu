@@ -13,4 +13,6 @@
 
 -(NSString *)cw_NSStringFromData;
 
+-(const char *)cw_utf8StringFromData;
+
 @end
