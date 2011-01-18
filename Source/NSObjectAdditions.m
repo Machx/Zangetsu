@@ -46,6 +46,9 @@
 #pragma mark -
 #pragma mark Exerimental Perform with Block Methods
 
+/**
+ Executes the passed in block after a specified delay time
+ */
 -(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block
 {
 	[block performSelector:@selector(_cw_blockInvokeCallBack) withObject:nil afterDelay:delay];
@@ -58,6 +61,13 @@
 {
 	void (^block)(void) = (id)self;
 	block();
+}
+
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue
+{
+	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:selector object:obj];
+
+	[queue addOperation:op];
 }
 
 @end

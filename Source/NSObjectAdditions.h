@@ -19,10 +19,14 @@
 
 -(void)cw_associateWeakValue:(id)value withKey:(void *)key;
 
-// Block Timing Functions
+// Block Timing Methods
 
 typedef void (^ObjTimeBlock)(void);
 
 -(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block;
+
+// Queueing  Methods
+
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue;
 
 @end
