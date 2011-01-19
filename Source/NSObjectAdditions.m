@@ -63,8 +63,17 @@
 	block();
 }
 
+#pragma mark -
+#pragma mark Perform Selector Methods
+
+/**
+ Creates a NSInvocation operation with self as the target and the passed in selector and
+ adds the operation to the passed in NSOperationQueue.
+ */
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue
 {
+	NSParameterAssert(queue);
+
 	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:selector object:obj];
 
 	[queue addOperation:op];
