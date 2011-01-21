@@ -152,6 +152,13 @@
 	return cwArray;
 }
 
+/**
+ selectivelyMapArray basically maps an array by enumerating
+ over the array to be mapped and executes the block while
+ passing in the object to map. You simply need to either 
+ (1) return the object to be mapped in the new array or
+ (2) return nil if you don't want to map the passed in object
+ */
 -(NSArray *)cw_selectivelyMapArray:(id (^)(id obj))block
 {
     NSMutableArray *cwArray = [[NSMutableArray alloc] init];
