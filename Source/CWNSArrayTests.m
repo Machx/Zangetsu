@@ -110,4 +110,22 @@
 	}];
 }
 
+-(void)testSelectiveMapping
+{
+	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	
+	NSArray *testArray2 = [testArray cw_selectivelyMapArray:^id(id obj) {
+		if([(NSString *)obj isEqualToString:@"Fry"] ||
+		   [(NSString *)obj isEqualToString:@"Leela"]){
+			return obj;
+		}
+		
+		return nil;
+	}];
+	
+	NSArray *testArray3 = [NSArray arrayWithObjects:@"Fry",@"Leela",nil];
+	
+	STAssertTrue([testArray2 isEqualToArray:testArray3], @"TestArray2 should equal testArray3");
+}
+
 @end

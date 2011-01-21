@@ -17,4 +17,5 @@
 -(void)testMapArray;
 -(void)testCWEach;
 -(void)testCWEachWithIndex;
+-(void)testSelectiveMapping;
 @end

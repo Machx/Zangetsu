@@ -548,6 +548,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				TEST_AFTER_BUILD = YES;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -564,6 +565,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				TEST_AFTER_BUILD = YES;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -596,6 +598,7 @@
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx10.6;
+				TEST_AFTER_BUILD = YES;
 				VALID_ARCHS = x86_64;
 			};
 			name = Analyze;
