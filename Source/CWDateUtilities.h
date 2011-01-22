@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define kCWISO8601TimeFormat @"yyyy/mm/dd HH:mm:ss ZZZ"
+static NSString * const kCWISO8601TimeFormat = @"yyyy/mm/dd HH:mm:ss ZZZ";
+static NSString * const kCWISO8601TimeFormat2 = @"yyyy-mm-dd'T'HH:mm:ss'Z'";;
 
 @interface CWDateUtilities : NSObject {}
 
