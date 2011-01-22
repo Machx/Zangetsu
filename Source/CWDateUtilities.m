@@ -25,7 +25,7 @@
 	
 	isoDate = [self dateFromString:dateString withDateFormat:kCWISO8601TimeFormat];
 	if(isoDate == nil)
-		isoDate = [self dateFromISO8601String:kCWISO8601TimeFormat2];
+		isoDate = [self dateFromString:dateString withDateFormat:kCWISO8601TimeFormat2];
 	
 	return isoDate;
 }
