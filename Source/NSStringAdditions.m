@@ -93,6 +93,19 @@
 	return returnString;
 }
 
+-(NSString *)cw_unescapeEntitiesForURL
+{
+	//CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, origString, NULL, NULL, kCFStringEncodingUTF8); CFSTR("!*'();:@&=+$,/?%#[]")
+	
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, NULL, kCFStringEncodingUTF8);
+	
+	NSString *returnString = [NSString stringWithString:(NSString *)str];
+	
+	CFMakeCollectable(str);
+	
+	return returnString;
+}
+
 /**
  Quick test for an empty string
  */

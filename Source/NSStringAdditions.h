@@ -10,13 +10,13 @@
 
 @interface NSString (CWNSStringAdditions) 
 
-+(NSString *)cw_uuidString;
++ (NSString *)cw_uuidString;
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                                  usingBlock:(void (^)(NSString *substring))block;
 - (NSString *) cw_stringByUnescapingEntities: (NSDictionary *) entitiesDictionary;
 - (NSString *) cw_stringByAddingPercentEscapesUsingEncoding: (NSStringEncoding) encoding legalURLCharactersToBeEscaped: (NSString *) legalCharacters;
 - (NSString *) cw_stringByReplacingPercentEscapes;
-
+- (NSString *) cw_unescapeEntitiesForURL;
 - (BOOL) cw_isNotEmptyString;
 
 @end
