@@ -25,4 +25,6 @@
 
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
+-(NSSet *)cw_selectivelyMapSet:(id (^)(id obj))block;
+
 @end

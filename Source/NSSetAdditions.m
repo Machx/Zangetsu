@@ -127,4 +127,25 @@
 	return cwSet;
 }
 
+/**
+ selectivelyMapSet basically maps a set by enumerating
+ over the set to be mapped and executes the block while
+ passing in the object to map. You simply need to either
+ (1) return the object to be mapped in the new set or
+ (2) return nil if you don't want to map the passed in object
+ */
+-(NSSet *)cw_selectivelyMapSet:(id (^)(id obj))block
+{
+    NSMutableSet *cwArray = [[NSMutableSet alloc] init];
+
+    for (id obj in self) {
+        id rObj = block(obj);
+        if(rObj){
+            [cwArray addObject:rObj];
+        }
+    }
+
+    return cwArray;
+}
+
 @end
