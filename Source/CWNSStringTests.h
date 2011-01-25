@@ -9,9 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWNSStringTests : SenTestCase {
-
-}
+@interface CWNSStringTests : SenTestCase {}
 -(void)testUUIDStrings;
 -(void)testEmptyStringMethod;
 @end

@@ -9,9 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <Zangetsu/Zangetsu.h>
 
-@interface CWNArrayTests : SenTestCase {
-
-}
+@interface CWNArrayTests : SenTestCase {}
 -(void)testFirstObject;
 -(void)testFind;
 -(void)testMapArray;
