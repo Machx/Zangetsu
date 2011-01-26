@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
-		B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019712F08E9200E1297F /* CWCoreDataCenter.h */; };
+		B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019712F08E9200E1297F /* CWCoreDataCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019812F08E9200E1297F /* CWCoreDataCenter.m */; };
-		B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019912F08E9200E1297F /* CWSimpleCoreData.h */; };
+		B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019912F08E9200E1297F /* CWSimpleCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019A12F08E9200E1297F /* CWSimpleCoreData.m */; };
 		B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
