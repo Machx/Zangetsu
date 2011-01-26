@@ -31,3 +31,5 @@
 #import "CWGraphicsFoundation.h"
 #import "CWMD5Utilities.h"
 #import "NSDataAdditions.h"
+#import "CWCoreDataCenter.h"
+#import "CWSimpleCoreData.h"

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019712F08E9200E1297F /* CWCoreDataCenter.h */; };
+		B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019812F08E9200E1297F /* CWCoreDataCenter.m */; };
+		B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019912F08E9200E1297F /* CWSimpleCoreData.h */; };
+		B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019A12F08E9200E1297F /* CWSimpleCoreData.m */; };
 		B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
 		B82D252E12AB6962006650B8 /* CWNSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D252D12AB6962006650B8 /* CWNSStringTests.m */; };
@@ -74,6 +78,10 @@
 		32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Zangetsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zangetsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B804019712F08E9200E1297F /* CWCoreDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWCoreDataCenter.h; path = Source/CWCoreDataCenter.h; sourceTree = "<group>"; };
+		B804019812F08E9200E1297F /* CWCoreDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWCoreDataCenter.m; path = Source/CWCoreDataCenter.m; sourceTree = "<group>"; };
+		B804019912F08E9200E1297F /* CWSimpleCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSimpleCoreData.h; path = Source/CWSimpleCoreData.h; sourceTree = "<group>"; };
+		B804019A12F08E9200E1297F /* CWSimpleCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSimpleCoreData.m; path = Source/CWSimpleCoreData.m; sourceTree = "<group>"; };
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B82B955412E24F8E00CABF26 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Source/NSDataAdditions.h; sourceTree = "<group>"; };
 		B82B955512E24F8E00CABF26 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Source/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 				B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
 				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
+				B804019412F08E7200E1297F /* Core Data */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
 			);
@@ -251,6 +260,17 @@
 				32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		B804019412F08E7200E1297F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B804019712F08E9200E1297F /* CWCoreDataCenter.h */,
+				B804019812F08E9200E1297F /* CWCoreDataCenter.m */,
+				B804019912F08E9200E1297F /* CWSimpleCoreData.h */,
+				B804019A12F08E9200E1297F /* CWSimpleCoreData.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		B858897A128DF403002AC417 /* Foundation Additions */ = {
@@ -318,6 +338,8 @@
 				B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */,
 				B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */,
 				B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */,
+				B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */,
+				B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +467,8 @@
 				B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */,
 				B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */,
 				B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */,
+				B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */,
+				B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
