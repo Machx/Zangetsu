@@ -8,11 +8,6 @@
 #import "CWCoreDataCenter.h"
 #import <dispatch/dispatch.h>
 
-#define CWCoreDataSetup() \
-[[CWCoreDataCenter defaultCenter] setManagedObjectModel:[[NSApp delegate] managedObjectModel]]; \
-[[CWCoreDataCenter defaultCenter] setManagedObjectContext:[[NSApp delegate] managedObjectContext]]; \
-[[CWCoreDataCenter defaultCenter] setPersistentStoreCoordinator:[[NSApp delegate] persistentStoreCoordinator]];
-
 @implementation CWCoreDataCenter
 
 @synthesize managedObjectModel;
@@ -26,7 +21,9 @@
 	
 	dispatch_once(&pred, ^{
 		center = [[CWCoreDataCenter alloc] init];
-		CWCoreDataSetup();
+		[center setManagedObjectModel:[[NSApp delegate] managedObjectModel]]; \
+		[center setManagedObjectContext:[[NSApp delegate] managedObjectContext]]; \
+		[center setPersistentStoreCoordinator:[[NSApp delegate] persistentStoreCoordinator]];
 	});
 	
 	return center;

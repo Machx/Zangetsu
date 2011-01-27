@@ -12,11 +12,7 @@
 #define CWCDManagedObjectModel() [[CWCoreDataCenter defaultCenter] managedObjectModel]
 #define CWCDPersistentStoreCoordinator() [[CWCoreDataCenter defaultCenter] persistentStoreCoordinator]
 
-@interface CWCoreDataCenter : NSObject {
-	NSManagedObjectModel *managedObjectModel;
-	NSManagedObjectContext *managedObjectContext;
-	NSPersistentStoreCoordinator *persistentStoreCoordinator;
-}
+@interface CWCoreDataCenter : NSObject {}
 +(CWCoreDataCenter *)defaultCenter;
 @property(nonatomic,assign) NSManagedObjectModel *managedObjectModel;
 @property(nonatomic,assign) NSManagedObjectContext *managedObjectContext;
