@@ -33,3 +33,4 @@
 #import "NSDataAdditions.h"
 #import "CWCoreDataCenter.h"
 #import "CWSimpleCoreData.h"
+#import "NSManagedObjectAdditions.h"

@@ -52,6 +52,9 @@
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
+		B8E8F62212F1ED15001A0BBF /* NSManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8E8F62312F1ED15001A0BBF /* NSManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E8F62112F1ED15001A0BBF /* NSManagedObjectAdditions.m */; };
+		B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E8F62912F1ED30001A0BBF /* CoreData.framework */; };
 		B8E9142F12BD8C7400167AE8 /* CWNSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */; };
 		B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */; };
@@ -125,6 +128,9 @@
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWErrorUtilities.h; path = Source/CWErrorUtilities.h; sourceTree = "<group>"; };
 		B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWErrorUtilities.m; path = Source/CWErrorUtilities.m; sourceTree = "<group>"; };
+		B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSManagedObjectAdditions.h; path = Source/NSManagedObjectAdditions.h; sourceTree = "<group>"; };
+		B8E8F62112F1ED15001A0BBF /* NSManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSManagedObjectAdditions.m; path = Source/NSManagedObjectAdditions.m; sourceTree = "<group>"; };
+		B8E8F62912F1ED30001A0BBF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B8E9141312BD8B0A00167AE8 /* CWNSObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSObjectTests.h; path = Source/CWNSObjectTests.h; sourceTree = "<group>"; };
 		B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSObjectTests.m; path = Source/CWNSObjectTests.m; sourceTree = "<group>"; };
 		B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilities.h; path = Source/CWPathUtilities.h; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F5E6C512A0343900E58C94 /* Zangetsu.framework in Frameworks */,
+				B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +247,7 @@
 			children = (
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				B890142E11D9931C00705CE4 /* Security.framework */,
+				B8E8F62912F1ED30001A0BBF /* CoreData.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -269,6 +277,8 @@
 				B804019812F08E9200E1297F /* CWCoreDataCenter.m */,
 				B804019912F08E9200E1297F /* CWSimpleCoreData.h */,
 				B804019A12F08E9200E1297F /* CWSimpleCoreData.m */,
+				B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */,
+				B8E8F62112F1ED15001A0BBF /* NSManagedObjectAdditions.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -340,6 +350,7 @@
 				B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */,
 				B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */,
 				B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */,
+				B8E8F62212F1ED15001A0BBF /* NSManagedObjectAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +480,7 @@
 				B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */,
 				B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */,
 				B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */,
+				B8E8F62312F1ED15001A0BBF /* NSManagedObjectAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
