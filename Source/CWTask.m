@@ -49,6 +49,14 @@ static BOOL inAsynchronous = NO;
 	return self;
 }
 
+-(NSString *)description
+{
+	NSString * desc = [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
+					   executable,arguments,directoryPath];
+	
+	return desc;
+}
+
 /**
  Launches the task. Uses dispatch_once() to make sure
  the task is launched only once. You can call this method directly

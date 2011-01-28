@@ -30,8 +30,6 @@
 		//*value = @"morvo"; //for testing...
 	}];
 	
-	NSLog(@"dict %@\ndict2 %@",dictionary,d2);
-	
 	STAssertTrue([dictionary isEqualToDictionary:d2],@"Dictionary and Dictionary2 should be equal");
 }
 

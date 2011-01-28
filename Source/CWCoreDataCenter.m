@@ -21,8 +21,8 @@
 	
 	dispatch_once(&pred, ^{
 		center = [[CWCoreDataCenter alloc] init];
-		[center setManagedObjectModel:[[NSApp delegate] managedObjectModel]]; \
-		[center setManagedObjectContext:[[NSApp delegate] managedObjectContext]]; \
+		[center setManagedObjectModel:[[NSApp delegate] managedObjectModel]];
+		[center setManagedObjectContext:[[NSApp delegate] managedObjectContext]];
 		[center setPersistentStoreCoordinator:[[NSApp delegate] persistentStoreCoordinator]];
 	});
 	

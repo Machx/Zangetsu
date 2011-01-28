@@ -213,10 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
-				B890142911D992F000705CE4 /* CWSHA1Utilities.h */,
-				B890142A11D992F000705CE4 /* CWSHA1Utilities.m */,
-				B849522F12CBE1CF00098684 /* CWMD5Utilities.h */,
-				B849523012CBE1CF00098684 /* CWMD5Utilities.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
@@ -235,6 +231,7 @@
 				B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
 				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
+				B8E8F6CF12F34339001A0BBF /* Hashing */,
 				B804019412F08E7200E1297F /* Core Data */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
@@ -302,6 +299,17 @@
 				B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */,
 			);
 			name = "Foundation Additions";
+			sourceTree = "<group>";
+		};
+		B8E8F6CF12F34339001A0BBF /* Hashing */ = {
+			isa = PBXGroup;
+			children = (
+				B890142911D992F000705CE4 /* CWSHA1Utilities.h */,
+				B890142A11D992F000705CE4 /* CWSHA1Utilities.m */,
+				B849522F12CBE1CF00098684 /* CWMD5Utilities.h */,
+				B849523012CBE1CF00098684 /* CWMD5Utilities.m */,
+			);
+			name = Hashing;
 			sourceTree = "<group>";
 		};
 		B8F5E67C12A02F6500E58C94 /* Unit Tests */ = {
