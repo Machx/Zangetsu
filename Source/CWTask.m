@@ -85,6 +85,7 @@ static BOOL inAsynchronous = NO;
 			[cwTask setArguments:self.arguments];
 		}
 		if (self.directoryPath) {
+			CWAssert([[NSFileManager defaultManager] fileExistsAtPath:CWFullPathFromTildeString(self.directoryPath)],@"CWTask:Directory Path is not Valid");
 			[cwTask setCurrentDirectoryPath:self.directoryPath];
 		}
 
