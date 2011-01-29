@@ -49,6 +49,8 @@
 		B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
 		B890149511D99D6A00705CE4 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
@@ -123,6 +125,8 @@
 		B890142A11D992F000705CE4 /* CWSHA1Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1Utilities.m; path = Source/CWSHA1Utilities.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B890149311D99D6A00705CE4 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacros.h; path = Source/CWMacros.h; sourceTree = "<group>"; };
+		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
+		B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWExceptionUtilities.m; path = Source/CWExceptionUtilities.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
@@ -227,10 +231,9 @@
 				B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */,
 				B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */,
 				B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */,
-				B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */,
-				B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
 				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
+				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
 				B8E8F6CF12F34339001A0BBF /* Hashing */,
 				B804019412F08E7200E1297F /* Core Data */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
@@ -301,6 +304,17 @@
 			name = "Foundation Additions";
 			sourceTree = "<group>";
 		};
+		B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */,
+				B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */,
+				B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */,
+				B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */,
+			);
+			name = "Errors and Exceptions";
+			sourceTree = "<group>";
+		};
 		B8E8F6CF12F34339001A0BBF /* Hashing */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +373,7 @@
 				B804019B12F08E9200E1297F /* CWCoreDataCenter.h in Headers */,
 				B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */,
 				B8E8F62212F1ED15001A0BBF /* NSManagedObjectAdditions.h in Headers */,
+				B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +504,7 @@
 				B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */,
 				B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */,
 				B8E8F62312F1ED15001A0BBF /* NSManagedObjectAdditions.m in Sources */,
+				B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
