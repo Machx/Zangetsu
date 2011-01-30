@@ -11,3 +11,10 @@
 void CWReportException(NSException *exception);
 
 void CWShowExceptionAsAlertPanel(NSException *exception);
+
+@interface NSException (CWNSExceptionAdditions)
+
+-(NSString *)cw_stackTrace;
+
+@end
+
