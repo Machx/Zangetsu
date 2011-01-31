@@ -13,3 +13,5 @@ void CWCrash(void);
 
 typedef void (^DebugBlock)(void);
 void CWInDebugOnly(DebugBlock block);
+
+NSString *CWStackTrace(void);

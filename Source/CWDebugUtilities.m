@@ -59,3 +59,17 @@ void CWInDebugOnly(DebugBlock block)
 	block();
 #endif
 }
+
+NSString *CWStackTrace(void)
+{
+	NSMutableString *trace = [NSMutableString string];
+	
+	NSArray *symbols = [NSThread callStackSymbols];
+	
+	for (NSString *symbol in symbols) {
+		[trace appendString:symbol];
+		[trace appendString:@"\n"];
+	}
+	
+	return trace;
+}
