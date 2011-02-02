@@ -56,7 +56,11 @@ do { \
 	} \
 } while(0);
 
-/* Basis of this is from Stack Overflow */
+/* Basis of this is from Stack Overflow
+ http://stackoverflow.com/questions/2283987/xcode-call-stack-trace-on-assert
+ Basically a simple assertion that spits the exact expression that failed out to log and
+ also spits out the stack trace without the assertion handling frames
+ */
 #define CWAssertST(x) \
 do { \
 	if (!(x)) { \
