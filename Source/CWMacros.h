@@ -56,6 +56,15 @@ do { \
 	} \
 } while(0);
 
+/* Basis of this is from Stack Overflow */
+#define CWAssertST(x) \
+do { \
+	if (!(x)) { \
+		NSLog (@"%s:%s failed assertion\n%@",__PRETTY_FUNCTION__, #x, [NSThread callStackSymbols]); \
+		abort(); \
+	} \
+} while(0)
+
 #pragma mark -
 #pragma mark Garbage Collection
 
