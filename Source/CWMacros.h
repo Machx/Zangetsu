@@ -61,10 +61,10 @@ do { \
  Basically a simple assertion that spits the exact expression that failed out to log and
  also spits out the stack trace without the assertion handling frames
  */
-#define CWAssertST(x) \
+#define CWAssertST(x,desc) \
 do { \
 	if (!(x)) { \
-		NSLog (@"%s:%s failed assertion\n%@",__PRETTY_FUNCTION__, #x, [NSThread callStackSymbols]); \
+		NSLog (@"%s:%s failed assertion\nMessage:%@\n%@",__PRETTY_FUNCTION__, #x, desc, [NSThread callStackSymbols]); \
 		abort(); \
 	} \
 } while(0)
