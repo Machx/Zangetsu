@@ -7,12 +7,19 @@
 //
 
 #import "CWDebugUtilities.h"
+
+/*for CWIsDebugInProgress() */
 #include <sys/sysctl.h>
 #include <unistd.h>
 #include <err.h>
 #include <errno.h>
 #include <stdio.h>
 
+/*for the timing block*/
+#import <stdarg.h>
+#import <mach/mach.h>
+#import <mach/mach_time.h>
+#import <unistd.h>
 
 /**
  Returns if the currently running application is being debugged
@@ -58,6 +65,23 @@ void CWInDebugOnly(DebugBlock block)
 #ifdef DEBUG
 	block();
 #endif
+}
+
+uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
+{
+	uint64_t start = mach_absolute_time();
+	
+	block();
+	
+	uint64_t end = mach_absolute_time();
+	
+	uint64_t elapsed = end - start;
+	
+	mach_timebase_info_data_t info;
+	mach_timebase_info(&info);
+	uint64_t nanoSeconds = elapsed * info.numer / info.denom;
+	
+	return nanoSeconds;
 }
 
 NSString *CWStackTrace(void)
