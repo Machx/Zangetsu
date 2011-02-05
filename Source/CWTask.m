@@ -93,7 +93,7 @@ static BOOL inAsynchronous = NO;
 			[cwTask launch];
 		}
 		@catch (NSException * e) {
-			CWLog(@"caught exception: %@",e);
+			CWDebugLog(@"caught exception: %@",e);
 		}
 
 		returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];

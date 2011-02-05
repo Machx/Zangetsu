@@ -576,6 +576,7 @@
 				GCC_PREFIX_HEADER = Zangetsu_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Zangetsu;
 				WRAPPER_EXTENSION = framework;
 			};
