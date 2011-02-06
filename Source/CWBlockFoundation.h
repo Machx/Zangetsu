@@ -10,4 +10,4 @@
 
 typedef void (^VoidBlock)(void);
 
-void inAutoreleasePool(VoidBlock block);
+void CWInAutoreleasePool(VoidBlock block);

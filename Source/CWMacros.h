@@ -67,7 +67,7 @@ do { \
 		NSLog (@"%s:%s failed assertion\nMessage:%@\n%@",__PRETTY_FUNCTION__, #x, desc, [NSThread callStackSymbols]); \
 		abort(); \
 	} \
-} while(0)
+} while(0);
 
 #pragma mark -
 #pragma mark Garbage Collection

@@ -12,7 +12,7 @@
  Runs the passed in block in a NSAutoreleasePool and then
  drains the autoreleasepool
  */
-void inAutoreleasePool(VoidBlock block)
+void CWInAutoreleasePool(VoidBlock block)
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	block();

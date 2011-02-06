@@ -60,6 +60,10 @@ void CWCrash()
 	__builtin_trap();
 }
 
+/**
+ Executes the block only if the debug preprocessor
+ is defined
+ */
 void CWInDebugOnly(DebugBlock block)
 {
 #ifdef DEBUG
@@ -67,6 +71,11 @@ void CWInDebugOnly(DebugBlock block)
 #endif
 }
 
+/**
+ Classic Nanosecond timing code, but now uses a 
+ block to abstract away the details of the timing code
+ so now you can just use the function as is.
+ */
 uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
 {
 	uint64_t start = mach_absolute_time();
@@ -84,6 +93,11 @@ uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
 	return nanoSeconds;
 }
 
+/**
+ Returns the call stack symbols as a NSString instead
+ of a NSArray. If used with an NSException it does not
+ include the Exception handling frames.
+ */
 NSString *CWStackTrace(void)
 {
 	NSMutableString *trace = [NSMutableString string];
