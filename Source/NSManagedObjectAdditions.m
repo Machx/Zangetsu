@@ -15,4 +15,9 @@
 	return [[[self objectID] URIRepresentation] absoluteString];
 }
 
+-(BOOL)cw_isUsingTemporaryObjectID
+{
+	return [[self objectID] isTemporaryID];
+}
+
 @end
