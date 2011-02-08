@@ -8,6 +8,9 @@
 
 #import "CWTask.h"
 
+/* Errors */
+static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
+static const NSInteger kCWTaskInvalidExecutable = 1;
 static const NSInteger kCWTaskNotLaunched = -1729;
 
 @interface CWTask(Private)
@@ -71,7 +74,7 @@ static BOOL inAsynchronous = NO;
 	NSParameterAssert(executable);
 	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
 		if (*error) {
-			*error = CWCreateError(1, @"com.Zangetsu.CWTask", @"Executable Path provided doesn't exist");
+			*error = CWCreateError(kCWTaskInvalidExecutable, kCWTaskErrorDomain, @"Executable Path provided doesn't exist");
 		}
 		return nil;
 	}
