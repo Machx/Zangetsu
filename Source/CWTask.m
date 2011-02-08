@@ -69,6 +69,12 @@ static BOOL inAsynchronous = NO;
 -(NSString *)launchTask:(NSError **)error
 {
 	NSParameterAssert(executable);
+	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
+		if (*error) {
+			*error = CWCreateError(1, @"com.Zangetsu.CWTask", @"Executable Path provided doesn't exist");
+		}
+		return nil;
+	}
 	
 	static dispatch_once_t pred;
 	
