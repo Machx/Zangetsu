@@ -11,6 +11,7 @@
 /* Errors */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 static const NSInteger kCWTaskInvalidExecutable = 1;
+static const NSInteger kCWTaskInvalidDirectory = 2;
 static const NSInteger kCWTaskNotLaunched = -1729;
 
 @interface CWTask(Private)
@@ -94,7 +95,12 @@ static BOOL inAsynchronous = NO;
 			[cwTask setArguments:self.arguments];
 		}
 		if (self.directoryPath) {
-			CWAssert([[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath],@"CWTask:Directory Path is not Valid");
+			if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
+				if (*error) {
+					*error = CWCreateError(kCWTaskInvalidDirectory, kCWTaskErrorDomain, @"The Directory Specified does not exist & is invalid");
+				}
+				return nil;
+			}
 			[cwTask setCurrentDirectoryPath:self.directoryPath];
 		}
 
