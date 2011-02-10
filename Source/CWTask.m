@@ -80,17 +80,21 @@ static BOOL inAsynchronous = NO;
 		return nil;
 	}
 	
-	static dispatch_once_t pred;
+	static BOOL hasRun = NO;
 	
-	__block NSTask *cwTask = [[NSTask alloc] init];
-	__block NSPipe *pipe = [NSPipe pipe];
-	__block NSString *resultsString = nil;
-	__block NSData *returnedData = nil;
+	NSString *resultsString = nil;
 	
-	dispatch_once(&pred, ^{
+	if (hasRun == NO) {
+		
+		hasRun = YES;
+		
+		NSTask *cwTask = [[NSTask alloc] init];
+		NSPipe *pipe = [NSPipe pipe];
+		NSData *returnedData = nil;
+		
 		[cwTask setLaunchPath:self.executable];
 		[cwTask setStandardOutput:pipe];
-
+		
 		if (arguments.count > 0) {
 			[cwTask setArguments:self.arguments];
 		}
@@ -101,31 +105,32 @@ static BOOL inAsynchronous = NO;
 				}
 				return nil;
 			}
+			
 			[cwTask setCurrentDirectoryPath:self.directoryPath];
 		}
-
+		
 		@try {
 			[cwTask launch];
 		}
 		@catch (NSException * e) {
 			CWDebugLog(@"caught exception: %@",e);
 		}
-
+		
 		returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
-
+		
 		if (returnedData) {
 			resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
 		}
-
+		
 		if (![cwTask isRunning]) {
 			//FIXME: when Xcode 4 is released switch to self.successCode = ...
 			successCode = [cwTask terminationStatus];
 		}
-
+		
 		if (inAsynchronous == NO && self.completionBlock) {
 			self.completionBlock();
 		}
-	});
+	}
 
 	return resultsString;
 }
