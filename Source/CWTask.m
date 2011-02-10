@@ -11,8 +11,9 @@
 /* Errors */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 static const NSInteger kCWTaskInvalidExecutable = 1;
-static const NSInteger kCWTaskInvalidDirectory = 2;
-static const NSInteger kCWTaskNotLaunched = -1729;
+static const NSInteger kCWTaskInvalidDirectory =  2;
+static const NSInteger kCWTaskAlreadyRun =        3;
+static const NSInteger kCWTaskNotLaunched =   -1729;
 
 @interface CWTask(Private)
 //Publicly declared
@@ -129,6 +130,12 @@ static BOOL inAsynchronous = NO;
 		
 		if (inAsynchronous == NO && self.completionBlock) {
 			self.completionBlock();
+		}
+	} else {
+		
+		if (*error) {
+			*error = CWCreateError(kCWTaskAlreadyRun,kCWTaskErrorDomain, @"CWTask Object has already been run");
+			return nil;
 		}
 	}
 
