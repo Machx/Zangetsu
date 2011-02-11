@@ -35,3 +35,4 @@
 #import "CWSimpleCoreData.h"
 #import "NSManagedObjectAdditions.h"
 #import "CWExceptionUtilities.h"
+#import "CWURLUtilities.h"

@@ -13,6 +13,8 @@
 		B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019812F08E9200E1297F /* CWCoreDataCenter.m */; };
 		B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019912F08E9200E1297F /* CWSimpleCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019A12F08E9200E1297F /* CWSimpleCoreData.m */; };
+		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
 		B82D252E12AB6962006650B8 /* CWNSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D252D12AB6962006650B8 /* CWNSStringTests.m */; };
@@ -88,6 +90,8 @@
 		B804019912F08E9200E1297F /* CWSimpleCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSimpleCoreData.h; path = Source/CWSimpleCoreData.h; sourceTree = "<group>"; };
 		B804019A12F08E9200E1297F /* CWSimpleCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSimpleCoreData.m; path = Source/CWSimpleCoreData.m; sourceTree = "<group>"; };
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
+		B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWURLUtilities.h; sourceTree = "<group>"; };
+		B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWURLUtilities.m; sourceTree = "<group>"; };
 		B82B955412E24F8E00CABF26 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Source/NSDataAdditions.h; sourceTree = "<group>"; };
 		B82B955512E24F8E00CABF26 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Source/NSDataAdditions.m; sourceTree = "<group>"; };
 		B82D252C12AB6962006650B8 /* CWNSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSStringTests.h; path = Source/CWNSStringTests.h; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
 				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
+				B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */,
+				B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */,
 				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
 				B8E8F6CF12F34339001A0BBF /* Hashing */,
 				B804019412F08E7200E1297F /* Core Data */,
@@ -374,6 +380,7 @@
 				B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */,
 				B8E8F62212F1ED15001A0BBF /* NSManagedObjectAdditions.h in Headers */,
 				B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */,
+				B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +512,7 @@
 				B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */,
 				B8E8F62312F1ED15001A0BBF /* NSManagedObjectAdditions.m in Sources */,
 				B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */,
+				B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
