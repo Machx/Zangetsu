@@ -10,10 +10,6 @@
 
 /* Errors */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
-static const NSInteger kCWTaskInvalidExecutable = 1;
-static const NSInteger kCWTaskInvalidDirectory =  2;
-static const NSInteger kCWTaskAlreadyRun =        3;
-static const NSInteger kCWTaskNotLaunched =   -1729;
 
 @interface CWTask(Private)
 //Publicly declared

@@ -10,6 +10,18 @@
 
 typedef void (^TaskCompletionBlock)(void);
 
+/* Errors */
+/* Invalid Executable Path */
+static const NSInteger kCWTaskInvalidExecutable = 1;
+/* Invalid Directory specified to operate in */
+static const NSInteger kCWTaskInvalidDirectory =  2;
+/* Task can only be run 1 and it has already been launched */
+static const NSInteger kCWTaskAlreadyRun =        3;
+
+/* Task Code */
+/* Task hasn't been launched yet */
+static const NSInteger kCWTaskNotLaunched =   -1729;
+
 @interface CWTask : NSObject {}
 
 //public readonly vars
