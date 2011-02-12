@@ -47,6 +47,8 @@
 		arguments = execArgs;
 		directoryPath = path;
 		successCode = kCWTaskNotLaunched;
+		taskHasRun = NO;
+		inAsynchronous = NO;
 	}
 	
 	return self;
