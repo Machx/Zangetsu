@@ -6,12 +6,11 @@
 //  Copyright 2010. All rights reserved.
 //
 
+// LLVM 2.0+ is required to compile this file as it is
+
 #import "CWTask.h"
 
-/* Errors */
-static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
-
-@interface CWTask(Private)
+@interface CWTask()
 //Publicly declared
 @property(nonatomic, readwrite, retain) NSString *executable;
 @property(nonatomic, readwrite, retain) NSArray *arguments;
@@ -29,6 +28,8 @@ static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 @synthesize directoryPath;
 @synthesize successCode;
 @synthesize completionBlock;
+@synthesize taskHasRun;
+@synthesize inAsynchronous;
 
 #pragma mark -
 #pragma mark Public API

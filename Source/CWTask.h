@@ -11,6 +11,8 @@
 typedef void (^TaskCompletionBlock)(void);
 
 /* Errors */
+/* Error Domain */
+static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 /* Invalid Executable Path */
 static const NSInteger kCWTaskInvalidExecutable = 1;
 /* Invalid Directory specified to operate in */
@@ -25,10 +27,10 @@ static const NSInteger kCWTaskNotLaunched =   -1729;
 @interface CWTask : NSObject {}
 
 //public readonly vars
-@property(nonatomic, readonly) NSString *executable;
-@property(nonatomic, readonly) NSString *directoryPath;
-@property(nonatomic, readonly) NSInteger successCode;
-@property(nonatomic, readonly) NSArray *arguments;
+@property(nonatomic, readonly, retain) NSString *executable;
+@property(nonatomic, readonly, retain) NSString *directoryPath;
+@property(nonatomic, readonly, assign) NSInteger successCode;
+@property(nonatomic, readonly, retain) NSArray *arguments;
 //public read/write vars
 @property(nonatomic, copy) TaskCompletionBlock completionBlock;
 
