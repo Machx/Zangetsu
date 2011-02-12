@@ -17,9 +17,10 @@ static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 @property(nonatomic, readwrite, retain) NSArray *arguments;
 @property(nonatomic, readwrite, retain) NSString *directoryPath;
 @property(nonatomic, readwrite, assign) NSInteger successCode;
+//Privately Declared
+@property(nonatomic, readwrite, assign) BOOL taskHasRun;
+@property(nonatomic, readwrite, assign) BOOL inAsynchronous;
 @end
-
-static BOOL inAsynchronous = NO;
 
 @implementation CWTask
 
@@ -77,13 +78,11 @@ static BOOL inAsynchronous = NO;
 		return nil;
 	}
 	
-	static BOOL hasRun = NO;
-	
 	NSString *resultsString = nil;
 	
-	if (hasRun == NO) {
+	if (self.taskHasRun == NO) {
 		
-		hasRun = YES;
+		self.taskHasRun = YES;
 		
 		NSTask *cwTask = [[NSTask alloc] init];
 		NSPipe *pipe = [NSPipe pipe];
@@ -120,11 +119,10 @@ static BOOL inAsynchronous = NO;
 		}
 		
 		if (![cwTask isRunning]) {
-			//FIXME: when Xcode 4 is released switch to self.successCode = ...
-			successCode = [cwTask terminationStatus];
+			self.successCode = [cwTask terminationStatus];
 		}
 		
-		if (inAsynchronous == NO && self.completionBlock) {
+		if (self.inAsynchronous == NO && self.completionBlock) {
 			self.completionBlock();
 		}
 	} else {
@@ -148,7 +146,7 @@ static BOOL inAsynchronous = NO;
 {
 	NSParameterAssert(queue);
 
-	inAsynchronous = YES;
+	self.inAsynchronous = YES;
 	
 	[queue addOperationWithBlock:^{
 		
@@ -173,7 +171,7 @@ static BOOL inAsynchronous = NO;
 {
 	NSParameterAssert(queue);
 
-	inAsynchronous = YES;
+	self.inAsynchronous = YES;
 	
 	dispatch_async(queue, ^{
 		
