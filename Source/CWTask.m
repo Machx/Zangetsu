@@ -19,6 +19,13 @@
 //Privately Declared
 @property(nonatomic, readwrite, assign) BOOL taskHasRun;
 @property(nonatomic, readwrite, assign) BOOL inAsynchronous;
+@property(nonatomic, readwrite, retain) NSPipe *pipe;
+@property(nonatomic, readwrite, retain) NSTask *cwTask;
+//Private Methods
+-(void)_configureTask;
+-(BOOL)_validateTask:(NSError **)error;
+-(void)_setPostRunStatusIfApplicable;
+-(NSString *)_resultsStringFromLaunchedTask;
 @end
 
 @implementation CWTask
@@ -30,6 +37,8 @@
 @synthesize completionBlock;
 @synthesize taskHasRun;
 @synthesize inAsynchronous;
+@synthesize cwTask;
+@synthesize pipe;
 
 #pragma mark -
 #pragma mark Public API
@@ -49,6 +58,7 @@
 		successCode = kCWTaskNotLaunched;
 		taskHasRun = NO;
 		inAsynchronous = NO;
+		cwTask = [[NSTask alloc] init];
 	}
 	
 	return self;
@@ -62,6 +72,46 @@
 	return desc;
 }
 
+-(void)_configureTask
+{
+	[self.cwTask setLaunchPath:self.executable];
+	self.pipe = [NSPipe pipe];
+	[self.cwTask setStandardOutput:self.pipe];
+	if (arguments.count > 0) {
+		[cwTask setArguments:self.arguments];
+	}
+	if (self.directoryPath) {
+		[cwTask setCurrentDirectoryPath:self.directoryPath];
+	}
+}
+
+-(BOOL)_validateTask:(NSError **)error
+{
+	NSParameterAssert(self.executable);
+	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
+		if (*error) {
+			*error = CWCreateError(kCWTaskInvalidExecutable, kCWTaskErrorDomain, @"Executable Path provided doesn't exist");
+		}
+		return NO;
+	}
+	if (self.directoryPath) {
+		if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
+			if (*error) {
+				*error = CWCreateError(kCWTaskInvalidDirectory, kCWTaskErrorDomain, @"The Directory Specified does not exist & is invalid");
+			}
+			return NO;
+		}
+	}
+	if (self.taskHasRun == YES) {
+		if (*error) {
+			*error = CWCreateError(kCWTaskAlreadyRun,kCWTaskErrorDomain, @"CWTask Object has already been run");
+		}
+		return NO;
+	}
+	
+	return YES;
+}
+
 /**
  Launches the task. Uses dispatch_once() to make sure
  the task is launched only once. You can call this method directly
@@ -73,70 +123,47 @@
  */
 -(NSString *)launchTask:(NSError **)error
 {
-	NSParameterAssert(executable);
-	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
-		if (*error) {
-			*error = CWCreateError(kCWTaskInvalidExecutable, kCWTaskErrorDomain, @"Executable Path provided doesn't exist");
-		}
-		return nil;
-	}
+	if ([self _validateTask:error] == NO) { return nil; }
 	
 	NSString *resultsString = nil;
 	
 	if (self.taskHasRun == NO) {
-		
 		self.taskHasRun = YES;
-		
-		NSTask *cwTask = [[NSTask alloc] init];
-		NSPipe *pipe = [NSPipe pipe];
-		NSData *returnedData = nil;
-		
-		[cwTask setLaunchPath:self.executable];
-		[cwTask setStandardOutput:pipe];
-		
-		if (arguments.count > 0) {
-			[cwTask setArguments:self.arguments];
-		}
-		if (self.directoryPath) {
-			if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
-				if (*error) {
-					*error = CWCreateError(kCWTaskInvalidDirectory, kCWTaskErrorDomain, @"The Directory Specified does not exist & is invalid");
-				}
-				return nil;
-			}
-			
-			[cwTask setCurrentDirectoryPath:self.directoryPath];
-		}
-		
-		@try {
-			[cwTask launch];
-		}
-		@catch (NSException * e) {
-			CWDebugLog(@"caught exception: %@",e);
-		}
-		
-		returnedData = [[pipe fileHandleForReading] readDataToEndOfFile];
-		
-		if (returnedData) {
-			resultsString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
-		}
-		
-		if (![cwTask isRunning]) {
-			self.successCode = [cwTask terminationStatus];
-		}
-		
-		if (self.inAsynchronous == NO && self.completionBlock) {
-			self.completionBlock();
-		}
-	} else {
-		
-		if (*error) {
-			*error = CWCreateError(kCWTaskAlreadyRun,kCWTaskErrorDomain, @"CWTask Object has already been run");
-			return nil;
-		}
+		[self _configureTask];
+		resultsString = [self _resultsStringFromLaunchedTask];
+		[self _setPostRunStatusIfApplicable];
 	}
-
 	return resultsString;
+}
+
+-(NSString *)_resultsStringFromLaunchedTask
+{
+	NSData *returnedData = nil;
+	NSString *taskOutput = nil;
+	
+	@try {
+		[cwTask launch];
+	}
+	@catch (NSException * e) {
+		CWDebugLog(@"caught exception: %@",e);
+	}
+	
+	returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
+	if (returnedData) {
+		taskOutput = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+	}
+	
+	return taskOutput;
+}
+
+-(void)_setPostRunStatusIfApplicable
+{
+	if (![cwTask isRunning]) {
+		self.successCode = [cwTask terminationStatus];
+	}
+	if (self.inAsynchronous == NO && self.completionBlock) {
+		self.completionBlock();
+	}
 }
 
 /**
