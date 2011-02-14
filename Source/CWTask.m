@@ -24,8 +24,11 @@
 //Private Methods
 -(void)_configureTask;
 -(BOOL)_validateTask:(NSError **)error;
--(void)_setPostRunStatusIfApplicable;
+-(void)_performPostRunActionsIfApplicable;
 -(NSString *)_resultsStringFromLaunchedTask;
+-(BOOL)_validateExecutable:(NSError **)error;
+-(BOOL)_validateDirectoryPathIfApplicable:(NSError **)error;
+-(BOOL)_validateTaskHasRun:(NSError **)error;
 @end
 
 @implementation CWTask
@@ -87,6 +90,16 @@
 
 -(BOOL)_validateTask:(NSError **)error
 {
+	if (![self _validateExecutable:error] ||
+		![self _validateDirectoryPathIfApplicable:error] ||
+		![self _validateTaskHasRun:error]) {
+		return NO;
+	}
+	return YES;
+}
+
+-(BOOL)_validateExecutable:(NSError **)error
+{
 	NSParameterAssert(self.executable);
 	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
 		if (*error) {
@@ -94,6 +107,11 @@
 		}
 		return NO;
 	}
+	return YES;
+}
+
+-(BOOL)_validateDirectoryPathIfApplicable:(NSError **)error
+{
 	if (self.directoryPath) {
 		if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
 			if (*error) {
@@ -102,13 +120,17 @@
 			return NO;
 		}
 	}
+	return YES;
+}
+
+-(BOOL)_validateTaskHasRun:(NSError **)error
+{
 	if (self.taskHasRun == YES) {
 		if (*error) {
 			*error = CWCreateError(kCWTaskAlreadyRun,kCWTaskErrorDomain, @"CWTask Object has already been run");
 		}
 		return NO;
 	}
-	
 	return YES;
 }
 
@@ -131,7 +153,7 @@
 		self.taskHasRun = YES;
 		[self _configureTask];
 		resultsString = [self _resultsStringFromLaunchedTask];
-		[self _setPostRunStatusIfApplicable];
+		[self _performPostRunActionsIfApplicable];
 	}
 	return resultsString;
 }
@@ -156,7 +178,7 @@
 	return taskOutput;
 }
 
--(void)_setPostRunStatusIfApplicable
+-(void)_performPostRunActionsIfApplicable
 {
 	if (![cwTask isRunning]) {
 		self.successCode = [cwTask terminationStatus];
