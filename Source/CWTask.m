@@ -63,7 +63,27 @@
 		inAsynchronous = NO;
 		cwTask = [[NSTask alloc] init];
 	}
-	
+	return self;
+}
+
+/**
+ default implementation so if someone calls this and then
+ tries to launch the task the method will immediately see
+ that executable == nil and therefore will return immediatly
+ with an error about the executable.
+ */
+-(id)init
+{
+	self = [super init];
+	if (self) {
+		executable = nil;
+		arguments = nil;
+		directoryPath = nil;
+		successCode = kCWTaskNotLaunched;
+		taskHasRun = NO;
+		inAsynchronous = NO;
+		cwTask = nil;
+	}
 	return self;
 }
 
@@ -100,8 +120,7 @@
 
 -(BOOL)_validateExecutable:(NSError **)error
 {
-	NSParameterAssert(self.executable);
-	if (![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
+	if (self.executable == nil || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
 		if (*error) {
 			*error = CWCreateError(kCWTaskInvalidExecutable, kCWTaskErrorDomain, @"Executable Path provided doesn't exist");
 		}
@@ -135,13 +154,11 @@
 }
 
 /**
- Launches the task. Uses dispatch_once() to make sure
- the task is launched only once. You can call this method directly
- yourself or implicitly via the launchTaskOnQueue* methods. In serial mode
- you can also set a completion block to fire. If launched asynchronously the
- completion block is the block you supply via parameters and the completion
- block property will not fire. I may remove the completion block entirely and
- just add a block parameter to this method.
+ Launches the task. Performs validation on the task to make sure
+ all passed in parameters are good, configures the internal task
+ object and then runs it and gets back the returned data from the 
+ task as a NSString object and then performs post run operations
+ if necessary.
  */
 -(NSString *)launchTask:(NSError **)error
 {
