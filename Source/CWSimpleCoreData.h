@@ -21,8 +21,9 @@
 /* returns the object count for all entities matching
  * the given entity name
  */
-+(NSUInteger)objectCountForEntity:(NSString *)entityName 
-		   inManagedObjectContext:(NSManagedObjectContext *)moc;
++(NSUInteger)objectCountForEntity:(NSString *)entityName
+		   inManagedObjectContext:(NSManagedObjectContext *)moc
+						withError:(NSError **)error;
 
 /* creates a new NSManagedObject with the entity given
  * and optionally a nsmanagedobjectcontext

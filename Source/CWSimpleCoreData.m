@@ -57,6 +57,7 @@
 
 +(NSUInteger)objectCountForEntity:(NSString *)entityName 
 		   inManagedObjectContext:(NSManagedObjectContext *)moc
+						withError:(NSError **)error
 {
 	if (nil == entityName) {
 		return 0;
@@ -75,9 +76,7 @@
 	
 	NSUInteger count;
 	
-	NSError *err = nil;
-	
-	count = [moc countForFetchRequest:request error:&err];
+	count = [moc countForFetchRequest:request error:error];
 	
 	return count;
 }
