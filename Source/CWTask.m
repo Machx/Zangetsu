@@ -95,6 +95,9 @@
 	return desc;
 }
 
+/**
+ Any arguments to the task are set here
+ */
 -(void)_configureTask
 {
 	[self.cwTask setLaunchPath:self.executable];
@@ -108,6 +111,10 @@
 	}
 }
 
+/**
+ Runs all the validation methods and returns NO if any of them fail,
+ returns YES otherwise
+ */
 -(BOOL)_validateTask:(NSError **)error
 {
 	if (![self _validateExecutable:error] ||
@@ -118,6 +125,11 @@
 	return YES;
 }
 
+/**
+ Checks for a non nil value of executable and checks that the executable actually exists
+ if either fail it writes out a kCWTaskInvalidExecutable error to the NSError pointer and
+ returns NO
+ */
 -(BOOL)_validateExecutable:(NSError **)error
 {
 	if (self.executable == nil || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
@@ -129,6 +141,10 @@
 	return YES;
 }
 
+/**
+ if there is a non nil directory path provided it validates that it actually exists
+ if that fails it writes out a kCWTaskInvalidDirectory error and returns NO
+ */
 -(BOOL)_validateDirectoryPathIfApplicable:(NSError **)error
 {
 	if (self.directoryPath) {
@@ -142,6 +158,11 @@
 	return YES;
 }
 
+/**
+ CWTask behaves just like  NSTask in that each task object may only run once. This
+ checks to see if it has already run and if it has write out a kCWTaskAlreadyRun error
+ to the error pointer and then  returns NO
+ */
 -(BOOL)_validateTaskHasRun:(NSError **)error
 {
 	if (self.taskHasRun == YES) {
@@ -175,6 +196,10 @@
 	return resultsString;
 }
 
+/**
+ actual launching of the task and extracting the results from
+ the NSPipe into a NSString object occur here
+ */
 -(NSString *)_resultsStringFromLaunchedTask
 {
 	NSData *returnedData = nil;
@@ -195,6 +220,9 @@
 	return taskOutput;
 }
 
+/**
+ any post run actions after the task have been launched occurr here
+ */
 -(void)_performPostRunActionsIfApplicable
 {
 	if (![cwTask isRunning]) {
