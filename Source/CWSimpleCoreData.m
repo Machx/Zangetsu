@@ -19,6 +19,7 @@
 		inManagedObjectContext:(NSManagedObjectContext *)moc 
 				 withPredicate:(NSPredicate *)predicate 
 			andSortDescriptors:(NSArray *)descriptors
+					  andError:(NSError **)error
 {
 	if (!entityName) {
 		return nil;
@@ -43,12 +44,10 @@
 		[request setSortDescriptors:descriptors];
 	}
 	
-	NSError *fetchErr = nil;
-	
 	NSArray *results = nil;
 	
 	results = [context executeFetchRequest:request 
-									 error:&fetchErr];
+									 error:error];
 	
 	/* assumes garbage collection */
 	

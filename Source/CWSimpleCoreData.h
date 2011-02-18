@@ -16,7 +16,8 @@
 +(NSArray *)allEntitiesForName:(NSString *)entityName 
 		inManagedObjectContext:(NSManagedObjectContext *)moc 
 				 withPredicate:(NSPredicate *)predicate 
-			andSortDescriptors:(NSArray *)descriptors;
+			andSortDescriptors:(NSArray *)descriptors
+					  andError:(NSError **)error;
 
 /* returns the object count for all entities matching
  * the given entity name
