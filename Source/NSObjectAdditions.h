@@ -29,4 +29,6 @@ typedef void (^ObjTimeBlock)(void);
 
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue;
 
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue;
+
 @end

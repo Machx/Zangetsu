@@ -79,4 +79,11 @@
 	[queue addOperation:op];
 }
 
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue
+{
+	dispatch_async(queue, ^{
+		[self performSelector:selector withObject:obj afterDelay:0];
+	});
+}
+
 @end
