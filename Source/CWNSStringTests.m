@@ -26,4 +26,17 @@
 	STAssertTrue(![emptyString1 cw_isNotEmptyString],@"String1 should be empty");
 }
 
+-(void)testURLEscaping
+{
+	NSCharacterSet *illegalURLCharsSet = [NSCharacterSet characterSetWithCharactersInString:@"@!*'()[];:&=+$,/?%#"];
+	
+	NSString *urlCharsString = [NSString stringWithString:@"@!*'()[];:&=+$,/?%#"];
+	
+	NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
+	
+	NSInteger location = [escapedString rangeOfCharacterFromSet:illegalURLCharsSet].location;
+	
+	STAssertFalse(location == NSNotFound, @"chars in set shouldn't be found");
+}
+
 @end

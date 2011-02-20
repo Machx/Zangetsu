@@ -16,7 +16,7 @@
 - (NSString *) cw_stringByUnescapingEntities: (NSDictionary *) entitiesDictionary;
 - (NSString *) cw_stringByAddingPercentEscapesUsingEncoding: (NSStringEncoding) encoding legalURLCharactersToBeEscaped: (NSString *) legalCharacters;
 - (NSString *) cw_stringByReplacingPercentEscapes;
-- (NSString *) cw_unescapeEntitiesForURL;
+- (NSString *) cw_escapeEntitiesForURL;
 - (BOOL) cw_isNotEmptyString;
 
 @end

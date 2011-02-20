@@ -93,7 +93,7 @@
 	return returnString;
 }
 
--(NSString *)cw_unescapeEntitiesForURL
+-(NSString *)cw_escapeEntitiesForURL
 {	
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
 	

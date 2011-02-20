@@ -12,4 +12,5 @@
 @interface CWNSStringTests : SenTestCase {}
 -(void)testUUIDStrings;
 -(void)testEmptyStringMethod;
+-(void)testURLEscaping;
 @end
