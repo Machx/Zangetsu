@@ -3,7 +3,7 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 2/22/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011. All rights reserved.
 //
 
 #import "CWAppImageCache.h"
@@ -21,7 +21,7 @@
     return self;
 }
 
--(NSImage *)imageForName:(NSString *)imageName
++(NSImage *)imageForName:(NSString *)imageName
 {
 	static NSMutableDictionary *imgCache = nil;
 	
@@ -30,7 +30,8 @@
 		imgCache = [[NSMutableDictionary alloc] init];
 	});
 	
-	NSImage *_img = [imgCache valueForKey:imageName];
+	NSImage *_img = nil;
+	_img = [imgCache valueForKey:imageName];
 	
 	if (!_img) {
 		_img = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForImageResource:imageName]]];
