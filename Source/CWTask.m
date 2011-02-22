@@ -188,9 +188,9 @@
 	NSString *resultsString = nil;
 	
 	if (self.taskHasRun == NO) {
-		self.taskHasRun = YES;
 		[self _configureTask];
 		resultsString = [self _resultsStringFromLaunchedTask];
+		self.taskHasRun = YES;
 		[self _performPostRunActionsIfApplicable];
 	}
 	return resultsString;
