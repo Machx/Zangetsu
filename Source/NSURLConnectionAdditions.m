@@ -27,7 +27,7 @@
 	[queue addOperationWithBlock:^() {
 		
 		NSURLResponse *_response = nil;
-		NSError *_urlError = nil;
+		NSError *_urlError;
 		
 		NSData *_data = [NSURLConnection sendSynchronousRequest:request
 											  returningResponse:&_response 
@@ -54,7 +54,7 @@
 	dispatch_async(queue, ^{
 		
 		NSURLResponse *_response = nil;
-		NSError *_urlError = nil;
+		NSError *_urlError;
 		
 		NSData *_data = [NSURLConnection sendSynchronousRequest:request
 											  returningResponse:&_response 
@@ -80,7 +80,7 @@
 	
 	__block NSData *data = nil;
 	__block NSURLResponse *resp = nil;
-	__block NSError *err = nil;
+	__block NSError *err;
 	
 	dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		data = [NSURLConnection sendSynchronousRequest:request 

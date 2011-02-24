@@ -247,7 +247,7 @@
 	
 	[queue addOperationWithBlock:^{
 		
-		NSError *taskError = nil;
+		NSError *taskError;
 		NSString *resultsString = nil;
 		
 		resultsString = [self launchTask:&taskError];
@@ -272,7 +272,7 @@
 	
 	dispatch_async(queue, ^{
 		
-		NSError *taskError = nil;
+		NSError *taskError;
 		NSString *resultsString = nil;
 		
 		resultsString = [self launchTask:&taskError];

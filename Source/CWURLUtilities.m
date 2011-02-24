@@ -14,15 +14,13 @@ static NSString * kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
 +(NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code
 {
-	NSError *httpError = nil;
-	
 	NSString *localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
 	
 	if (localizedMessage) {
-		httpError = CWCreateError(code,kCWURLUtiltyErrorDomain,localizedMessage);
+		return CWCreateError(code,kCWURLUtiltyErrorDomain,localizedMessage);
 	}
 	
-	return httpError;
+	return nil;
 }
 
 @end
