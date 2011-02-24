@@ -44,6 +44,7 @@
 	}
 
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	dispatch_release(group);
 
 	return self;
 }
