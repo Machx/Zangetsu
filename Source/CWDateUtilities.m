@@ -11,6 +11,8 @@
 @implementation CWDateUtilities
 
 /**
+ Converts a NSString with a ISO8601 Date Format to a NSDate object
+ 
  Experimental method for parsing ISO8601 Strings given usually when 
  XML data is given back. This method now tries to use a standard format
  for trying to extract a date from the string. If the 1st ISO8601 format
@@ -18,6 +20,9 @@
  giving up all together. In the short term this will work, however in the
  long run I'll need to design something to parse a date string and return
  a date based on the information given.
+ 
+ @param dateString The String containing a ISO8601 Date
+ @return A NSDate Object if successful or nil if not successful
  */
 +(NSDate *)dateFromISO8601String:(NSString *)dateString
 {
@@ -34,8 +39,14 @@
 }
 
 /**
+ Converts a NSString object containing a date to a NSDate object given a date format
+ 
  Convenience Method to quickly return a NSDate object from a date
  string with a specified date format
+ 
+ @param dateString A NSString Object which the date is to be extracted from
+ @param dateFormat The Format the dateString object is in
+ @return a NSDate object with the date if successful or nil if unsuccessful
  */
 +(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat
 {
