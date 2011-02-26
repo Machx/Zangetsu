@@ -48,6 +48,11 @@
 
 /**
  designated initializer
+ 
+ @param exec a string containing the full path to the executable to be launched
+ @param execArgs a NSArray of NSString objects containing arguments for the executable (optional)
+ @param path a string containing the full path you want the executable the be launched at (optional)
+ @return a CWTask Object
  */
 -(id)initWithExecutable:(NSString *)exec 
 		   andArguments:(NSArray *)execArgs 
@@ -71,6 +76,8 @@
  tries to launch the task the method will immediately see
  that executable == nil and therefore will return immediatly
  with an error about the executable.
+ 
+ @return an invalid CWTask object
  */
 -(id)init
 {
@@ -87,6 +94,9 @@
 	return self;
 }
 
+/**
+ Description for debug information
+ */
 -(NSString *)description
 {
 	NSString * desc = [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
@@ -114,6 +124,9 @@
 /**
  Runs all the validation methods and returns NO if any of them fail,
  returns YES otherwise
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) NO if the task fails any validation test, YES otherwise
  */
 -(BOOL)_validateTask:(NSError **)error
 {
@@ -129,6 +142,9 @@
  Checks for a non nil value of executable and checks that the executable actually exists
  if either fail it writes out a kCWTaskInvalidExecutable error to the NSError pointer and
  returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
  */
 -(BOOL)_validateExecutable:(NSError **)error
 {
@@ -144,6 +160,9 @@
 /**
  if there is a non nil directory path provided it validates that it actually exists
  if that fails it writes out a kCWTaskInvalidDirectory error and returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) YES if the directory path exists otherwise returns NO
  */
 -(BOOL)_validateDirectoryPathIfApplicable:(NSError **)error
 {
@@ -162,6 +181,9 @@
  CWTask behaves just like  NSTask in that each task object may only run once. This
  checks to see if it has already run and if it has write out a kCWTaskAlreadyRun error
  to the error pointer and then  returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) YES if the task has not been run, otherwise returns NO
  */
 -(BOOL)_validateTaskHasRun:(NSError **)error
 {
@@ -180,6 +202,9 @@
  object and then runs it and gets back the returned data from the 
  task as a NSString object and then performs post run operations
  if necessary.
+ 
+ @param error a NSError object to be written to if something fails
+ @return a NSString with the output of the launched task if successful, otherwise the error reference is written to
  */
 -(NSString *)launchTask:(NSError **)error
 {
@@ -199,6 +224,8 @@
 /**
  actual launching of the task and extracting the results from
  the NSPipe into a NSString object occur here
+ 
+ @return a NSString object with the contents of the lauched tasks output
  */
 -(NSString *)_resultsStringFromLaunchedTask
 {
@@ -222,6 +249,8 @@
 
 /**
  any post run actions after the task have been launched occurr here
+ 
+ @param error a NSError object to be written to if something fails
  */
 -(void)_performPostRunActionsIfApplicable
 {
@@ -237,6 +266,10 @@
  adds a operation to the passed in NSOperationQueue and calls
  -launchTask: then when it is done returns back to the main
  thread via NSOperationQueue mainQueue and executes the block
+ 
+ @param queue a NSOperationQueue to launch the task on
+ @param output passed to you in the completion block with the contents of the launched tasks output
+ @param error a NSError object with a error if something went wrong
  */
 -(void)launchTaskOnQueue:(NSOperationQueue *)queue 
 	 withCompletionBlock:(void (^)(NSString *output, NSError *error))block
@@ -262,6 +295,10 @@
  adds a operation to the passed in gcd dispatch_qeueue_t queue and calls
  -launchTask: then when it is done returns back to the main
  thread via dispatch_get_main_queue() and executes the block
+ 
+ @param queue a Grand Central Dispatch Queue (dispatch_queue_t) to launch the task on
+ @param output passed to you in the completion block with the contents of the launched tasks output
+ @param error a NSError object with a error if something went wrong
  */
 -(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
 		withCompletionBlock:(void (^)(NSString *output, NSError *error))block
