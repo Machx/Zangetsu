@@ -11,6 +11,8 @@
 /**
  Runs the passed in block in a NSAutoreleasePool and then
  drains the autoreleasepool
+ 
+ @param block a block to be executed after creation of a autorelease pool and before the pool is released
  */
 void CWInAutoreleasePool(VoidBlock block)
 {

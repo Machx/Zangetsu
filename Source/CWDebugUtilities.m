@@ -26,6 +26,8 @@
  discovered at http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
  this implementation apparently will always say yes when being run
  by Xcode, but no when being run normally in finder
+ 
+ @return a BOOL indicating if the application is being debugged
  */
 BOOL CWIsDebugInProgress()
 {
@@ -63,6 +65,8 @@ void CWCrash()
 /**
  Executes the block only if the debug preprocessor
  is defined
+ 
+ @param block a block to be executed only if the application is being debugged
  */
 void CWInDebugOnly(DebugBlock block)
 {
@@ -75,6 +79,8 @@ void CWInDebugOnly(DebugBlock block)
  Classic Nanosecond timing code, but now uses a 
  block to abstract away the details of the timing code
  so now you can just use the function as is.
+ 
+ @return a uint64_t with the amount of nanoseconds it took to execute the block
  */
 uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
 {
@@ -97,6 +103,8 @@ uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
  Returns the call stack symbols as a NSString instead
  of a NSArray. If used with an NSException it does not
  include the Exception handling frames.
+ 
+ @return a NSString with the stack trace returned from [NSThread callStackSymbols]
  */
 NSString *CWStackTrace(void)
 {
