@@ -20,38 +20,19 @@
 	return [[self objectID] isTemporaryID];
 }
 
-/**
- Experimental method to pass a bunch of key/value pairs
- in and see if they validate for the NSManagedObject
- */
--(NSArray *)cw_validateValuesAndKeys:(NSArray *)values
+-(BOOL)cw_setValue:(id)value ifValidForKey:(id)key error:(NSError **)error
 {
-	NSMutableArray *badValuesArray = nil;
+	BOOL result = NO;
 	
-	if ([values count] == 0) { return badValuesArray; }
+	result = [self validateValue:&value 
+						  forKey:key 
+						   error:error];
 	
-	NSUInteger count = 0;
-	NSUInteger arrayCount = [values count];
-	
-	while (count < arrayCount) {
-		id value = [values objectAtIndex:count++];
-		id key = [values objectAtIndex:count++];
-		
-		NSError *validateError;
-		BOOL isValid = [self validateValue:(id *)value 
-									forKey:key 
-									 error:&validateError];
-		
-		if (isValid == NO && validateError) {
-			if (badValuesArray == nil) {
-				badValuesArray = [[NSMutableArray alloc] init];
-			}
-			
-			[badValuesArray addObject:NSDICT(validateError,key)];
-		}
+	if (result == YES) {
+		[self setValue:value forKey:key];
 	}
 	
-	return badValuesArray;
+	return result;
 }
 
 @end

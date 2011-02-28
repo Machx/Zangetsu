@@ -11,5 +11,5 @@
 @interface NSManagedObject(CWNSManagedObjectAdditions) 
 -(NSString *)cw_objectIDString;
 -(BOOL)cw_isUsingTemporaryObjectID;
--(NSArray *)cw_validateValuesAndKeys:(NSArray *)values;
+-(BOOL)cw_setValue:(id)value ifValidForKey:(id)key error:(NSError **)error;
 @end
