@@ -17,7 +17,7 @@
 
 +(NSArray *)allEntitiesForName:(NSString *)entityName 
 		inManagedObjectContext:(NSManagedObjectContext *)moc 
-				 withPredicate:(NSPredicate *)predicate 
+				 withPredicate:(NSPredicate *)predicate
 			andSortDescriptors:(NSArray *)descriptors
 					  andError:(NSError **)error
 {
@@ -110,6 +110,63 @@
 	}];
 	
 	return newMO;
+}
+
+/**
+ Returns an array of NSDictionary objects containing just the specified
+ properties that you wish to fetch.
+ 
+ @param entityName A NSString containing the name of the entity to fetch
+ @param moc The ManagedObjectContext to execute the fetch on
+ @param predicate (Optional) a NSPredicate to filter the results
+ @param properties the properties you wish to fetch from the entities
+ @param descriptors (Optional) the sort descriptors you wish to apply to the results
+ @param error a NSError object to write to if something goes wrong
+ @return An array of NSDictionary objects with the properties that were specified to be fetched
+ */
+-(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
+		   inManagedObjectContext:(NSManagedObjectContext *)moc 
+					withPredicate:(NSPredicate *)predicate
+					   properties:(NSArray *)properties 
+			   andSortDescriptors:(NSArray *)descriptors 
+							error:(NSError **)error
+{
+	if (!entityName) {
+		return nil;
+	}
+	
+	NSManagedObjectContext *context = nil;
+	context = (moc != nil) ? moc : [[CWCoreDataCenter defaultCenter] managedObjectContext];
+	
+	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
+														 inManagedObjectContext:context];
+	if (nil == entityDescription) {
+		return nil;
+	}
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	
+	[request setEntity:entityDescription];
+	if (nil != predicate) {
+		[request setPredicate:predicate];
+	}
+	if (nil != descriptors) {
+		[request setSortDescriptors:descriptors];
+	}
+	if (nil != properties) {
+		[request setPropertiesToFetch:properties];
+	}
+	
+	[request setResultType:NSDictionaryResultType];
+	
+	NSArray *results = nil;
+	
+	results = [context executeFetchRequest:request 
+									 error:error];
+	
+	/* assumes garbage collection */
+	
+	return results;
 }
 
 @end

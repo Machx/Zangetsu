@@ -33,4 +33,11 @@
 					 inManagedObjectContext:(NSManagedObjectContext *)moc 
 								  andValues:(NSDictionary *)values;
 
+-(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
+		   inManagedObjectContext:(NSManagedObjectContext *)moc 
+					withPredicate:(NSPredicate *)predicate
+					   properties:(NSArray *)properties 
+			   andSortDescriptors:(NSArray *)descriptors 
+							error:(NSError **)error;
+
 @end
