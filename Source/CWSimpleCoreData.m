@@ -15,6 +15,16 @@
 
 @implementation CWSimpleCoreData
 
+/**
+ Fetches all entities in a Managed Object Context with the parameters specified
+ 
+ @param entityName a NSString with the name of the entity you wish to fetch
+ @param moc the Managed Object Context to count the entities on
+ @param predicate (optional) a NSPredicate for the fetch
+ @param descriptors (optional) a NSArray of sort descriptors to apply to the results
+ @param error a NSError object to write to when something goes wrong
+ @return a NSArray with the objects resulting from the fetch with the parameters specified
+ */
 +(NSArray *)allEntitiesForName:(NSString *)entityName 
 		inManagedObjectContext:(NSManagedObjectContext *)moc 
 				 withPredicate:(NSPredicate *)predicate
@@ -54,6 +64,14 @@
 	return results;
 }
 
+/**
+ Returns the # of NSManagedObjects in a managed object context
+ 
+ @param entityName a NSString with the name of the entity whose count you want
+ @param moc the NSManagedObjectContext you wish to query the entity count in
+ @param error a NSError object for information when something goes wrong during fetch
+ @return a NSUInteger value with the count of objects returned from the fetch
+ */
 +(NSUInteger)objectCountForEntity:(NSString *)entityName 
 		   inManagedObjectContext:(NSManagedObjectContext *)moc
 						withError:(NSError **)error
@@ -80,6 +98,16 @@
 	return count;
 }
 
+
+/**
+ Creates a new NSManagedObject in the managed object context specified with
+ the values passed via NSDictionary
+ 
+ @param entityName a NSString with the name of the entity to be created
+ @param moc the NSManagedObject which the entity description will be retrieved & the mo will be inserted
+ @param values a NSDictionary with the keys and values to be set on the managed object
+ @return a NSManagedObject that has been inserted into the specified NSManagedObjectContext with the values specified
+ */
 +(NSManagedObject *)newObjectWithEntityName:(NSString *)entityName 
 					 inManagedObjectContext:(NSManagedObjectContext *)moc 
 								  andValues:(NSDictionary *)values
