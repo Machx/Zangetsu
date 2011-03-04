@@ -573,7 +573,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zangetsu_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Zangetsu;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -591,7 +591,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zangetsu_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Zangetsu;
 				WRAPPER_EXTENSION = framework;
@@ -640,6 +640,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INSTALL_PATH[sdk=*]" = "@rpath";
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 				TEST_AFTER_BUILD = YES;
@@ -695,7 +696,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zangetsu_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Zangetsu;
 				WRAPPER_EXTENSION = framework;
 			};
