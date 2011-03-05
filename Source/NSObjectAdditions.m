@@ -16,8 +16,8 @@
 
 @implementation NSObject (CWNSObjectAdditions)
 
-#pragma mark -
-#pragma mark Objective-C Associated Objects
+//MARK: -
+//MARK: Objective-C Associated Objects
 
 /**
  returns the value associated with a key
@@ -43,8 +43,8 @@
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
-#pragma mark -
-#pragma mark Exerimental Perform with Block Methods
+//MARK: -
+//MARK: Exerimental Perform with Block Methods
 
 /**
  Executes the passed in block after a specified delay time
@@ -63,8 +63,8 @@
 	block();
 }
 
-#pragma mark -
-#pragma mark Perform Selector Methods
+//MARK: -
+//MARK: Perform Selector Methods
 
 /**
  Creates a NSInvocation operation with self as the target and the passed in selector and
@@ -86,6 +86,13 @@
 	});
 }
 
+/**
+ gets a list of all registered classes with the objective-c runtime
+ and then figures out which ones are descended from the current class
+ and adds those to an array and returns them.
+ 
+ @return a NSArray with strings of the classes that are direct subclasses of the current class of the object
+ */
 -(NSArray *)cw_directSubclasses
 {
 	NSMutableArray *array = nil;
