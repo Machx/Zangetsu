@@ -6,8 +6,6 @@
 //  Copyright 2010. All rights reserved.
 //
 
-// LLVM 2.0+ is required to compile this file as it is
-
 #import "CWTask.h"
 
 @interface CWTask()

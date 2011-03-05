@@ -27,6 +27,4 @@
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block;
 
--(NSArray *)cw_selectivelyMapArray:(id (^)(id obj))block;
-
 @end

@@ -140,29 +140,18 @@
 }
 
 /**
- Simple mapping method using a block
- */
--(NSArray *)cw_mapArray:(id (^)(id obj))block
-{
-	NSMutableArray *cwArray = [[NSMutableArray alloc] initWithCapacity:[self count]];
-	
-	for(id obj in self){
-		[cwArray addObject:block(obj)];
-	}
-	
-	return cwArray;
-}
-
-/**
- selectivelyMapArray basically maps an array by enumerating
+ cw_mapArray basically maps an array by enumerating
  over the array to be mapped and executes the block while
  passing in the object to map. You simply need to either 
  (1) return the object to be mapped in the new array or
  (2) return nil if you don't want to map the passed in object
+ 
+ @param block a block in which you return an object to be mapped to a new array or nil to not map it
+ @return a new mapped array
  */
--(NSArray *)cw_selectivelyMapArray:(id (^)(id obj))block
+-(NSArray *)cw_mapArray:(id (^)(id obj))block
 {
-    NSMutableArray *cwArray = [[NSMutableArray alloc] init];
+	NSMutableArray *cwArray = [[NSMutableArray alloc] init];
     
     for (id obj in self) {
         id rObj = block(obj);
