@@ -115,29 +115,18 @@
 }
 
 /**
- Convenient Map method for NSSet
- */
--(NSSet *)cw_mapSet:(id (^)(id obj))block
-{
-	NSMutableSet *cwSet = [[NSMutableSet alloc] initWithCapacity:[self count]];
-	
-	for(id obj in self){
-		[cwSet addObject:block(obj)];
-	}
-	
-	return cwSet;
-}
-
-/**
- selectivelyMapSet basically maps a set by enumerating
+ cw_mapSet basically maps a set by enumerating
  over the set to be mapped and executes the block while
  passing in the object to map. You simply need to either
  (1) return the object to be mapped in the new set or
  (2) return nil if you don't want to map the passed in object
+ 
+ @param block a block returning the object to be mapped or nil if no object is to be mapped
+ @return a NSSet of objects that have been mapped from an original NSSet
  */
--(NSSet *)cw_selectivelyMapSet:(id (^)(id obj))block
+-(NSSet *)cw_mapSet:(id (^)(id obj))block
 {
-    NSMutableSet *cwArray = [[NSMutableSet alloc] init];
+	NSMutableSet *cwArray = [[NSMutableSet alloc] init];
 
     for (id obj in self) {
         id rObj = block(obj);
