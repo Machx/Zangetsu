@@ -11,6 +11,6 @@
 
 @interface CWAppImageCache : NSObject {}
 
-+(NSImage *)imageForName:(NSString *)imageName;
++(NSImage *)imageForName:(NSString *)imageName ofType:(NSString *)type;
 
 @end

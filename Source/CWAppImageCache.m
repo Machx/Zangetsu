@@ -30,7 +30,7 @@
  TODO: Allow images to come from more than 1 bundle
  and keep track of which bundle the image is from
  */
-+(NSImage *)imageForName:(NSString *)imageName
++(NSImage *)imageForName:(NSString *)imageName ofType:(NSString *)type
 {
 	static NSMutableDictionary *imgCache = nil;
 	
@@ -43,9 +43,9 @@
 	_img = [imgCache valueForKey:imageName];
 	
 	if (!_img) {
-		_img = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForImageResource:imageName]]];
+		_img = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForResource:imageName ofType:type]]];
 		if (_img) {
-			[imgCache setValue:_img forKey:imageName];
+			[imgCache setValue:_img forKey:[NSString stringWithFormat:@"%@%@",imageName,type]];
 		}
 	}
 	
