@@ -35,4 +35,8 @@ typedef void (^ObjTimeBlock)(void);
 
 -(NSArray *)cw_directSubclasses;
 
+// Objective-C Method Swizzling
+
+-(BOOL)cw_swizzleMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error;
+
 @end

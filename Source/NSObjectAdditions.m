@@ -126,4 +126,27 @@
 	return array;
 }
 
+-(BOOL)cw_swizzleMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error
+{	
+	Method originalMethod = class_getInstanceMethod([self class],originalSel);
+	if (!originalMethod) {
+		if(*error){
+			*error = CWCreateError(101, @"com.Zangetsu.NSObjectAdditions_objcMethodSwizzling", @"No Original Method to swizzle!");
+		}
+		return NO;
+	}
+	
+	Method newMethod = class_getInstanceMethod([self class], newSel);
+	if (!newMethod) {
+		if (*error) {
+			*error = CWCreateError(102, @"com.Zangetsu.NSObjectAdditions_objcMethodSwizzling", @"No New Method to swizzle!");
+		}
+		return NO;
+	}
+	
+	method_exchangeImplementations(originalMethod, newMethod);
+	
+	return YES;
+}
+
 @end
