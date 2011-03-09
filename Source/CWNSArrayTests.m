@@ -114,7 +114,7 @@
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	NSArray *testArray2 = [testArray cw_selectivelyMapArray:^id(id obj) {
+	NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
 		if([(NSString *)obj isEqualToString:@"Fry"] ||
 		   [(NSString *)obj isEqualToString:@"Leela"]){
 			return obj;

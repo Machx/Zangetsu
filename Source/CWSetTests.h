@@ -14,4 +14,5 @@
 -(void)testSetMapSet;
 -(void)testFindAll;
 -(void)testIsObjInSet;
+-(void)testSelectiveMapping;
 @end

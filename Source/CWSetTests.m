@@ -85,4 +85,22 @@
 	STAssertTrue([testSet2 isEqualToSet:testSet3],@"Sets should be equal");
 }
 
+-(void)testSelectiveMapping;
+{
+	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+	
+	NSSet *testSet2 = [testSet1 cw_mapSet:^id(id obj) {
+		if ([(NSString *)obj isEqualToString:@"Fry"] || 
+			[(NSString *)obj isEqualToString:@"Bender"]) {
+			return obj;
+		}
+		
+		return nil;
+	}];
+	
+	NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Leela",nil];
+	
+	STAssertTrue(![testSet2 isEqualToSet:testSet3], @"TestSet 2 and 3 should be equal in selective mapping");
+}
+
 @end
