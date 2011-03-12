@@ -126,6 +126,9 @@
 	return array;
 }
 
+//MARK: -
+//MARK: Objective-C Runtime swizzling methods
+
 -(BOOL)cw_swizzleMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error
 {	
 	return CWSwizzleInstanceMethods([self class], originalSel, newSel, error);
@@ -133,25 +136,7 @@
 
 +(BOOL)cw_swizzleClassMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error
 {
-	Method originalMethod = class_getClassMethod([self class], originalSel);
-	if (!originalMethod) {
-		if(*error){
-			*error = CWCreateError(101, @"com.Zangetsu.NSObjectAdditions_objcMethodSwizzling", @"No Original Class Method to swizzle!");
-		}
-		return NO;
-	}
-	
-	Method newMethod = class_getClassMethod([self class], newSel);
-	if (!newMethod) {
-		if (*error) {
-			*error = CWCreateError(102, @"com.Zangetsu.NSObjectAdditions_objcMethodSwizzling", @"No New Class Method to swizzle!");
-		}
-		return NO;
-	}
-	
-	method_exchangeImplementations(originalMethod, newMethod);
-	
-	return YES;
+	return CWSwizzleClassMethods([self class], originalSel, newSel, error);
 }
 
 @end

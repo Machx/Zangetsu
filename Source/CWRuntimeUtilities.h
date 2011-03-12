@@ -9,3 +9,5 @@
 #import <Foundation/Foundation.h>
 
 BOOL CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error);
+
+BOOL CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error);
