@@ -12,5 +12,6 @@
 @interface CWNSErrorTests : SenTestCase {}
 
 -(void)testCreateError;
+-(void)testCreateErrorV;
 
 @end
