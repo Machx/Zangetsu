@@ -12,6 +12,11 @@
 
 @implementation CWNSErrorTests
 
+/**
+ Testing CWCreateError()
+ tests to make sure that the values passed in to each NSError object is the same regardless 
+ if a NSError is created with NSError -errorWithDomain:code:... or CWCreateError()
+ */
 -(void)testCreateError
 {	
 	NSError *error1 = CWCreateError(101, @"com.something.something", @"Some Message");
@@ -27,6 +32,11 @@
 	STAssertTrue([error1Message isEqualToString:error2Message], @"Error1 and Error2 Message should be the same");
 }
 
+/**
+ Testing CWCreateErrorV()
+ tests to make sure that the values passed in to each NSError object is the same regardless 
+ if a NSError is created with NSError -errorWithDomain:code:... or CWCreateErrorV()
+ */
 -(void)testCreateErrorV
 {
 	int number = 5;
