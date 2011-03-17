@@ -25,7 +25,6 @@ NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMes
 NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMessageFormat, ...)
 {
 	NSCParameterAssert(errorMessageFormat);
-	NSCParameterAssert(domain);
 	NSCParameterAssert(errorCode);
 	
 	NSString *_domain;
