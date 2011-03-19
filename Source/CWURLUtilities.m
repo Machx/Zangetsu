@@ -8,6 +8,11 @@
 
 #import "CWURLUtilities.h"
 
+NSURL* CWURL(NSString *url)
+{
+	return [NSURL URLWithString:url];
+}
+
 static NSString * kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
 @implementation CWURLUtilities

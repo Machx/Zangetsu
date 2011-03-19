@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define CWURL(_URL_) [NSURL URLWithString:_URL_]
+NSURL* CWURL(NSString *url);
 
 @interface CWURLUtilities : NSObject {}
 
