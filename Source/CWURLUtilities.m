@@ -10,7 +10,7 @@
 
 NSURL* CWURL(NSString *url)
 {
-	return [NSURL URLWithString:url];
+	return [NSURL URLWithString:[url cw_escapeEntitiesForURL]];
 }
 
 static NSString * kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
