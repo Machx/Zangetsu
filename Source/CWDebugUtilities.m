@@ -108,14 +108,7 @@ uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
  */
 NSString *CWStackTrace(void)
 {
-	NSMutableString *trace = [NSMutableString string];
-	
-	NSArray *symbols = [NSThread callStackSymbols];
-	
-	for (NSString *symbol in symbols) {
-		[trace appendString:symbol];
-		[trace appendString:@"\n"];
-	}
+	NSString *trace = [[NSThread callStackSymbols] description];
 	
 	return trace;
 }
