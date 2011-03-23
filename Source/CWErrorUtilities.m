@@ -9,42 +9,40 @@
 #import "CWErrorUtilities.h"
 
 /**
- Easy convenience method to create a NSError Object. It checks for the error message
- and throws an assertion if it's missing
+ * Easy convenience method to create a NSError Object. It checks for the error message
+ * and throws an assertion if it's missing
  */
-NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessage)
-{
-	return CWCreateErrorV(errorCode, domain, errorMessage);
+NSError * CWCreateError(NSInteger errorCode, NSString * domain, NSString * errorMessage){
+    return CWCreateErrorV(errorCode, domain, errorMessage);
 }
 
 /**
- Easy convenience method to create a NSError Object. It checks for the error message
- and throws an assertion if it's missing just like CWCreateError except this one allows
- for a string with formatting and passing arguments for the formatting of a string
+ * Easy convenience method to create a NSError Object. It checks for the error message
+ * and throws an assertion if it's missing just like CWCreateError except this one allows
+ * for a string with formatting and passing arguments for the formatting of a string
  */
-NSError* CWCreateErrorV(NSInteger errorCode, NSString *domain, NSString *errorMessageFormat, ...)
-{
-	NSCParameterAssert(errorMessageFormat);
-	NSCParameterAssert(errorCode);
-	
-	NSString *_domain;
+NSError * CWCreateErrorV(NSInteger errorCode, NSString * domain, NSString * errorMessageFormat, ...){
+    NSCParameterAssert(errorMessageFormat);
+    NSCParameterAssert(errorCode);
 
-	if (domain == nil) {
-		_domain = kCWErrorDomain;
-	} else {
-		_domain = domain;
-	}
+    NSString * _domain;
 
-	va_list args;
-	va_start(args, errorMessageFormat);
+    if (domain == nil) {
+        _domain = kCWErrorDomain;
+    } else {
+        _domain = domain;
+    }	
 
-	NSString *completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
+    va_list args;
+    va_start(args, errorMessageFormat);
 
-	va_end(args);
+    NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
 
-	NSDictionary *_errorDictionary = NSDICT(completeErrorMessage,NSLocalizedDescriptionKey);
+    va_end(args);
 
-	return [NSError errorWithDomain:_domain
-							   code:errorCode
-						   userInfo:_errorDictionary];
+    NSDictionary * _errorDictionary = NSDICT(completeErrorMessage, NSLocalizedDescriptionKey);
+
+    return [NSError errorWithDomain:_domain
+                               code:errorCode
+                           userInfo:_errorDictionary];
 }
