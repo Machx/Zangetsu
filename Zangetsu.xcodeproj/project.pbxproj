@@ -59,6 +59,9 @@
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
+		B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D91938133E3C9D009AC4AC /* CWReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D91939133E3C9D009AC4AC /* CWReachability.m */; };
+		B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */; };
 		B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
 		B8E8F62212F1ED15001A0BBF /* NSManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -145,6 +148,9 @@
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
+		B8D91938133E3C9D009AC4AC /* CWReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWReachability.h; path = Source/CWReachability.h; sourceTree = "<group>"; };
+		B8D91939133E3C9D009AC4AC /* CWReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWReachability.m; path = Source/CWReachability.m; sourceTree = "<group>"; };
+		B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWErrorUtilities.h; path = Source/CWErrorUtilities.h; sourceTree = "<group>"; };
 		B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWErrorUtilities.m; path = Source/CWErrorUtilities.m; sourceTree = "<group>"; };
 		B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSManagedObjectAdditions.h; path = Source/NSManagedObjectAdditions.h; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				B890142F11D9931C00705CE4 /* Security.framework in Frameworks */,
 			);
@@ -254,6 +261,8 @@
 				B87AB1A01314182700CB2793 /* CWAppImageCache.m */,
 				B89418FC132AF54500313534 /* CWRuntimeUtilities.h */,
 				B89418FD132AF54500313534 /* CWRuntimeUtilities.m */,
+				B8D91938133E3C9D009AC4AC /* CWReachability.h */,
+				B8D91939133E3C9D009AC4AC /* CWReachability.m */,
 				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
 				B8E8F6CF12F34339001A0BBF /* Hashing */,
 				B804019412F08E7200E1297F /* Core Data */,
@@ -269,6 +278,7 @@
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				B890142E11D9931C00705CE4 /* Security.framework */,
 				B8E8F62912F1ED30001A0BBF /* CoreData.framework */,
+				B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -400,6 +410,7 @@
 				B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */,
 				B87AB1A11314182700CB2793 /* CWAppImageCache.h in Headers */,
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
+				B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +545,7 @@
 				B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */,
 				B87AB1A21314182700CB2793 /* CWAppImageCache.m in Sources */,
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
+				B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
