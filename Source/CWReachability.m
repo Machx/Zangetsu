@@ -16,11 +16,10 @@
     if (self) {
         // Initialization code here.
     }
-
     return self;
 }
 
-- (BOOL) canReachAddress:(NSString *)address {
++ (BOOL) canReachAddress:(NSString *)address {
     NSParameterAssert(address);
 
     SCNetworkReachabilityFlags flags;
@@ -34,6 +33,7 @@
         if (flags & kSCNetworkReachabilityFlagsReachable) {
             return YES;
         }
+		return NO;
     }
 
     return NO;

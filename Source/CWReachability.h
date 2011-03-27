@@ -11,6 +11,6 @@
 
 @interface CWReachability : NSObject {}
 
--(BOOL) canReachAddress:(NSString *)address;
++(BOOL) canReachAddress:(NSString *)address;
 
 @end
