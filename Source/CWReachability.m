@@ -11,14 +11,12 @@
 
 @implementation CWReachability
 
-- (id) init {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
-}
-
+/**
+ returns a bool indicating if you can reach an address given the current configuration
+ 
+ @param address a NSString with the host address you are trying to reach
+ @return a BOOL with yes if the address is reachable or no if it is not
+ */
 + (BOOL) canReachAddress:(NSString *)address {
     NSParameterAssert(address);
 
