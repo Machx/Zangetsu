@@ -9,6 +9,8 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
+//TODO: Replace the magic error #'s with constants
+
 /**
  Swizzles the Instance Method implementations
  
@@ -20,9 +22,9 @@
  @param originalSel The original method you are swizzling
  @param newSel The New method you are swizzling
  @param error an error object to write to if something goes wrong
- @return a BOOL indicating success (YES) or failure (NO) to swizzle the methods
+ @return a Objective-C Method implementation if successfull or nil if not successfull
  */
-BOOL CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
+Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
 {
 	Method originalMethod, newMethod = nil;
 	
@@ -30,7 +32,7 @@ BOOL CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	if(!originalMethod){
 		if(*error){
 			*error = CWCreateError(101, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Instance Method to swizzle!");
-			return NO;
+			return nil;
 		}
 	}
 	
@@ -38,13 +40,14 @@ BOOL CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	if(!newMethod){
 		if(*error) {
 			*error = CWCreateError(102, @"com.Zangetsu.CWRuntimeUtilities", @"No New Instance Method to swizzle!");
-			return NO;
+			return nil;
 		}
 	}
 	
 	method_exchangeImplementations(originalMethod, newMethod);
 	
-	return YES;
+	//return YES;
+	return originalMethod;
 }
 
 /**
@@ -58,9 +61,9 @@ BOOL CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
  @param originalSel The original method you are swizzling
  @param newSel The New method you are swizzling
  @param error an error object to write to if something goes wrong
- @return a BOOL indicating success (YES) or failure (NO) to swizzle the methods
+ @return a Objective-C Method implementation if successfull or nil if not successfull
  */
-BOOL CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
+Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
 {
 	Method originalMethod, newMethod = nil;
 	
@@ -68,7 +71,7 @@ BOOL CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	if(!originalMethod){
 		if(*error){
 			*error = CWCreateError(103, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Class Method to swizzle!");
-			return NO;
+			return nil;
 		}
 	}
 	
@@ -76,11 +79,12 @@ BOOL CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	if(!newMethod){
 		if(*error){
 			*error = CWCreateError(104 , @"com.Zangetsu.CWRuntimeUtilities", @"No New Class Method to swizzle!");
-			return NO;
+			return nil;
 		}
 	}
 	
 	method_exchangeImplementations(originalMethod, newMethod);
 	
-	return YES;
+	//return YES;
+	return originalMethod;
 }
