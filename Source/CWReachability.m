@@ -28,10 +28,12 @@
     CFMakeCollectable(reachability);
 
     if (gotFlags) {
-        if (flags & kSCNetworkReachabilityFlagsReachable) {
-            return YES;
-        }
-		return NO;
+        
+		BOOL hostIsReachable = flags & kSCNetworkReachabilityFlagsReachable;
+		
+		BOOL connectionCanBeMade = flags & kSCNetworkReachabilityFlagsConnectionRequired;
+		
+		return ((hostIsReachable == YES) && (connectionCanBeMade == YES)) ? YES : NO;
     }
 
     return NO;
