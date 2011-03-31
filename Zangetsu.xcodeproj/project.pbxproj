@@ -23,6 +23,8 @@
 		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
+		B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8380E4013452C18009988F5 /* NSDateAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -109,6 +111,8 @@
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
 		B837BC171284FDC0009215D7 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = Source/NSStringAdditions.h; sourceTree = "<group>"; };
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
+		B8380E4013452C18009988F5 /* NSDateAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateAddtions.h; path = Source/NSDateAddtions.h; sourceTree = "<group>"; };
+		B8380E4113452C18009988F5 /* NSDateAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateAddtions.m; path = Source/NSDateAddtions.m; sourceTree = "<group>"; };
 		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 				B8588976128DF314002AC417 /* NSArrayAdditions.m */,
 				B82B955412E24F8E00CABF26 /* NSDataAdditions.h */,
 				B82B955512E24F8E00CABF26 /* NSDataAdditions.m */,
+				B8380E4013452C18009988F5 /* NSDateAddtions.h */,
+				B8380E4113452C18009988F5 /* NSDateAddtions.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
 				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
@@ -411,6 +417,7 @@
 				B87AB1A11314182700CB2793 /* CWAppImageCache.h in Headers */,
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
 				B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */,
+				B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +553,7 @@
 				B87AB1A21314182700CB2793 /* CWAppImageCache.m in Sources */,
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
 				B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */,
+				B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
