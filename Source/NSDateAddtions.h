@@ -11,6 +11,8 @@
 
 @interface NSDate (CWNSDateAddtions)
 
+-(NSDate *)cw_dateByAddingHours:(NSUInteger)hours;
+
 -(NSDate *)cw_dateByAddingDays:(NSUInteger)days;
 
 @end
