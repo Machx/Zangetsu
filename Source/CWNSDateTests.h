@@ -11,6 +11,8 @@
 
 @interface CWNSDateTests : SenTestCase {}
 
+-(void)testDateByAddingHours;
+
 -(void)testDateByAddingDays;
 
 @end
