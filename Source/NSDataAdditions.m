@@ -26,7 +26,7 @@
 }
 
 // from http://www.cocoadev.com/index.pl?NSDataCategory
-- (NSData *) cw_gzipInflate {
+- (NSData *) cw_gzipDecompress {
     if ([self length] == 0) return self;
 
     unsigned full_length = (unsigned)[self length];
@@ -65,7 +65,7 @@
     } else return nil;
 }
 
-- (NSData *) cw_gzipDeflate {
+- (NSData *) cw_gzipCompress {
     if ([self length] == 0) return self;
 
     z_stream strm;

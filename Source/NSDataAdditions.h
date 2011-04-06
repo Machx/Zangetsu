@@ -15,8 +15,8 @@
 
 -(const char *)cw_utf8StringFromData;
 
-- (NSData *)cw_gzipInflate;
+- (NSData *)cw_gzipDecompress;
 
-- (NSData *)cw_gzipDeflate;
+- (NSData *)cw_gzipCompress;
 
 @end
