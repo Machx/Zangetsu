@@ -34,6 +34,9 @@ There is Doxygen support in the framework. All you need to do is download Doxyge
 ## How do i use Zangetsu? ##
 The way Zangetsu is structured you need to have Zangetsu in the same directory as the project you are using it with. I have a projects directory that the framework is in with all my projects. Additionally it's best that you change Xcode to build to a shared build directory and then drag (from finder) the Zangetsu.xcodeproj file into the source list in Xcode on the project that you whish to use the framework in. The Cocoa project you use it with must be 64 bit and using Garbage Collection (gc).
 
+## Where do I report bugs? ##
+File issues in the issue section on the github project.
+
 ## Zangetsu Licence ##
 Zangetsu is licensed under the MIT license
 
