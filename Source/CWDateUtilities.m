@@ -61,3 +61,32 @@
 }
 
 @end
+
+NSString *CWDateString(NSDate *date) {
+	return [date description];
+}
+
+NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
+									 NSInteger hour,NSInteger minute, NSInteger second) {
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	
+	if(components){
+		[components setYear:year];
+		[components setMonth:month];
+		[components setDay:day];
+		[components setMinute:minute];
+		[components setSecond:second];
+		
+		NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		
+		if(calendar){
+			NSDate *date = [calendar dateFromComponents:components];
+			
+			if(date){
+				return [date description];
+			}
+		}
+	}
+	
+	return nil;
+}

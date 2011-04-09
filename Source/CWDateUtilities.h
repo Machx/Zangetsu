@@ -18,3 +18,8 @@ static NSString * const kCWISO8601TimeFormat2 = @"yyyy-mm-dd'T'HH:mm:ss'Z'";;
 +(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat;
 
 @end
+
+NSString *CWDateString(NSDate *date);
+
+NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
+									 NSInteger hour,NSInteger minute, NSInteger second);
