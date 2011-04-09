@@ -62,10 +62,26 @@
 
 @end
 
+/**
+ Returns a NSString in NSDates description format
+ 
+ @param date a NSDate object
+ @return a NSString with NSDates description format
+ */
 NSString *CWDateString(NSDate *date) {
 	return [date description];
 }
 
+/**
+ Returns a NSString using NSDates description format
+ 
+ @param year a NSInteger with the year value
+ @param month a NSInteger with the month value
+ @param day a NSInteger with the day value
+ @param hour a NSInteger with the hour value
+ @param minute a NSInteger with the minute value
+ @param second a NSInteger with the second value
+ */
 NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
 									 NSInteger hour,NSInteger minute, NSInteger second) {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
