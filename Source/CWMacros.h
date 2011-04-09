@@ -72,7 +72,7 @@ do { \
 #define CWIBOutletAssertion(_x_) \
 do { \
 	if(_x_ == nil) { \
-		NSLog(@"IBOutlet Assertion: %@ is nil and appears to not be hooked up!",_x_); \
+		NSLog(@"IBOutlet Assertion: %s is nil and appears to not be hooked up!",#_x_); \
 	} \
 } while(0);
 

@@ -81,6 +81,7 @@ NSString *CWDateString(NSDate *date) {
  @param hour a NSInteger with the hour value
  @param minute a NSInteger with the minute value
  @param second a NSInteger with the second value
+ @return a NSString with NSDates format
  */
 NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
 									 NSInteger hour,NSInteger minute, NSInteger second) {
