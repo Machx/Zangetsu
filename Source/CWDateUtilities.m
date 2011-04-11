@@ -94,7 +94,7 @@ NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger d
 		[components setMinute:minute];
 		[components setSecond:second];
 		
-		NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		NSCalendar *calendar = [NSCalendar currentCalendar];
 		
 		if(calendar){
 			NSDate *date = [calendar dateFromComponents:components];
