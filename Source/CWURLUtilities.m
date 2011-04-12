@@ -18,7 +18,8 @@
  * @return a NSURL object from the string passed in
  */
 NSURL * CWURL(NSString * url){
-    NSURL * _urlValue = [NSURL URLWithString:[url cw_escapeEntitiesForURL]];
+	
+	NSURL *_urlValue = [NSURL URLWithString:url];
 
     return _urlValue;
 }
