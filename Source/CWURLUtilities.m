@@ -11,8 +11,7 @@
 /**
  * Creates a NSURL with the string passed in
  *
- * Creates a URL with the string passed in and escapes the necessary
- * url characters to create a NSURL object
+ * Creates a URL with the string passed in to create a NSURL object
  *
  * @param url a NSString with the url you want to make a NSURL object from
  * @return a NSURL object from the string passed in
