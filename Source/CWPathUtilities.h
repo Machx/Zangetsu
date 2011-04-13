@@ -14,4 +14,5 @@
 +(NSString *)applicationSupportFolder;
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
 +(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
++(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error;
 @end

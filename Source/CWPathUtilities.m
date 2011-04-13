@@ -46,4 +46,12 @@ static NSString * const kCWAppName = @"CFBundleName";
 	return [NSString stringWithFormat:@"%@/%@",_homeFolder,subPath];
 }
 
++(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error {
+	NSString *resolvedPath = nil;
+	
+	resolvedPath = [[NSFileManager defaultManager] destinationOfSymbolicLinkAtPath:aliasPath error:error];
+	
+	return resolvedPath;
+}
+
 @end

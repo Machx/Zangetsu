@@ -231,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
-				B8DC9A93134A6DF200501FC1 /* libz.dylib */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
 			name = "External Frameworks and Libraries";
@@ -286,6 +285,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8DC9A93134A6DF200501FC1 /* libz.dylib */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				B890142E11D9931C00705CE4 /* Security.framework */,
 				B8E8F62912F1ED30001A0BBF /* CoreData.framework */,
