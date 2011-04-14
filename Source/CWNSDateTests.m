@@ -11,6 +11,16 @@
 
 @implementation CWNSDateTests
 
+-(void)testDateByAddingMinutes {
+	
+	NSDate *now = [NSDate date];
+	
+	NSDate *minutesFromNow1 = [now cw_dateByAddingMinutes:3];
+	NSDate *minutesFromNow2 = [now dateByAddingTimeInterval:180];
+	
+	STAssertTrue([minutesFromNow1 compare:minutesFromNow2] == NSOrderedSame, @"Dates should be the same");
+}
+
 -(void)testDateByAddingHours {
 	
 	NSDate *now = [NSDate date];
