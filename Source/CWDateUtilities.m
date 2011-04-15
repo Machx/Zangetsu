@@ -72,6 +72,29 @@ NSString *CWDateString(NSDate *date) {
 	return [date description];
 }
 
+NSDate *CWDateFromComponents(NSInteger year,NSInteger month, NSInteger day,
+								NSInteger hour,NSInteger minute, NSInteger second) {
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	
+	if(components) {
+		[components setYear:year];
+		[components setMonth:month];
+		[components setDay:day];
+		[components setMinute:minute];
+		[components setSecond:second];
+		
+		NSCalendar *calendar = [NSCalendar currentCalendar];
+		
+		if(calendar) {
+			NSDate *date = [calendar dateFromComponents:components];
+			if(date){
+				return date;
+			}
+		}
+	}
+	return nil;
+}
+
 /**
  Returns a NSString using NSDates description format
  
@@ -85,25 +108,9 @@ NSString *CWDateString(NSDate *date) {
  */
 NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
 									 NSInteger hour,NSInteger minute, NSInteger second) {
-	NSDateComponents *components = [[NSDateComponents alloc] init];
+	NSDate *date = CWDateFromComponents(year, month, day, hour, minute, second);
 	
-	if(components){
-		[components setYear:year];
-		[components setMonth:month];
-		[components setDay:day];
-		[components setMinute:minute];
-		[components setSecond:second];
-		
-		NSCalendar *calendar = [NSCalendar currentCalendar];
-		
-		if(calendar){
-			NSDate *date = [calendar dateFromComponents:components];
-			
-			if(date){
-				return [date description];
-			}
-		}
-	}
+	NSString *dateString = CWDateString(date);
 	
-	return nil;
+	return dateString;
 }
