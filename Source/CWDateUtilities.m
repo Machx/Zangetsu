@@ -72,6 +72,19 @@ NSString *CWDateString(NSDate *date) {
 	return [date description];
 }
 
+/**
+ Creates a NSDate object from the values passed in for date components
+ 
+ Internally this gets a NSDate from the users current calendar 
+ 
+ @param year a NSInteger for the year of the date desired
+ @param month a NSInteger for the month of the date desired
+ @param day a NSInteger for the day of the date desired
+ @param hour a NSInteger for the hour of the date desired
+ @param minute a NSInteger for the minute of the date desired
+ @param second a NSInteger for the second of the date desired
+ @return a NSDate object if successful, nil otherwise
+ */
 NSDate *CWDateFromComponents(NSInteger year,NSInteger month, NSInteger day,
 								NSInteger hour,NSInteger minute, NSInteger second) {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
