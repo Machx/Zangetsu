@@ -36,7 +36,7 @@
 	}
 	
 	NSManagedObjectContext *context = nil;
-	context = (moc != nil) ? moc : [[CWCoreDataCenter defaultCenter] managedObjectContext];
+	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
@@ -81,7 +81,7 @@
 	}
 	
 	NSManagedObjectContext *context = nil;
-	context = (moc != nil) ? moc : [[CWCoreDataCenter defaultCenter] managedObjectContext];
+	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
@@ -119,7 +119,7 @@
 	/* if managedObjectConext is nil the assumption is you want
 	 * the default application context that is [[NSApp delegate] managedObjectContext]
 	 */
-	NSManagedObjectContext *context = (nil != moc) ? moc : [[CWCoreDataCenter defaultCenter] managedObjectContext];
+	NSManagedObjectContext *context = (nil != moc) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription * entityDesc = [NSEntityDescription entityForName:entityName 
 												   inManagedObjectContext:context];
@@ -164,7 +164,7 @@
 	}
 	
 	NSManagedObjectContext *context = nil;
-	context = (moc != nil) ? moc : [[CWCoreDataCenter defaultCenter] managedObjectContext];
+	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
