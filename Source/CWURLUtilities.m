@@ -16,9 +16,16 @@
  * @param url a NSString with the url you want to make a NSURL object from
  * @return a NSURL object from the string passed in
  */
-NSURL * CWURL(NSString * url){
+NSURL *CWURL(NSString * urlFormat,...){
 	
-	NSURL *_urlValue = [NSURL URLWithString:url];
+	va_list args;
+    va_start(args, urlFormat);
+	
+	NSString *urlString = [[NSString alloc] initWithFormat:urlFormat arguments:args];
+	
+	va_end(args);
+	
+	NSURL *_urlValue = [NSURL URLWithString:urlString];
 
     return _urlValue;
 }
