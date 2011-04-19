@@ -13,7 +13,7 @@
  *
  * Creates a URL with the string passed in to create a NSURL object
  *
- * @param url a NSString with the url you want to make a NSURL object from
+ * @param url a NSString containing a url address with any additional formatting options you want to create a NSURL object from
  * @return a NSURL object from the string passed in
  */
 NSURL *CWURL(NSString * urlFormat,...){
