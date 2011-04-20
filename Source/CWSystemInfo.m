@@ -67,4 +67,24 @@
 	return coreCount;
 }
 
++(NSInteger)physicalRamSize {
+	SInt32 kamount;
+	
+	if (Gestalt(gestaltPhysicalRAMSizeInMegabytes, &kamount) == noErr) {
+		return (NSInteger)kamount;
+	}
+	
+	return 0;
+}
+
++(NSInteger)logicalRamSize {
+	SInt32 kamount;
+	
+	if (Gestalt(gestaltLogicalRAMSize, &kamount) == noErr) {
+		return (NSInteger)kamount;
+	}
+	
+	return 0;
+}
+
 @end

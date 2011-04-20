@@ -12,9 +12,11 @@ static NSString * const kCWSystemMajorVersion =  @"majorVersion";
 static NSString * const kCWSystemMinorVersion =  @"minorVersion";
 static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 
-@interface CWSystemInfo : NSObject {}
+@interface CWSystemInfo : NSObject
 
 +(NSDictionary *)hostVersion;
 +(NSString *)hostVersionString;
 +(NSInteger)numberOfCPUCores;
++(NSInteger)physicalRamSize;
++(NSInteger)logicalRamSize;
 @end
