@@ -67,6 +67,9 @@
 	return coreCount;
 }
 
+/**
+ Returns the amount of physical ram in megabytes the host device has
+ */
 +(NSInteger)physicalRamSize {
 	SInt32 kamount;
 	
@@ -77,11 +80,19 @@
 	return 0;
 }
 
+/**
+ Returns the amount of logical ram in megabytes the host device has. This 
+ may be less than the physical ram size because things like the OS/gpu
+ may be using some of the physical ram.
+ */
 +(NSInteger)logicalRamSize {
 	SInt32 kamount;
 	
 	if (Gestalt(gestaltLogicalRAMSize, &kamount) == noErr) {
-		return (NSInteger)kamount;
+		
+		NSInteger amount = (((NSInteger)kamount / 1024) /1024);
+		
+		return amount;
 	}
 	
 	return 0;
