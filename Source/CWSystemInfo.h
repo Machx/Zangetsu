@@ -19,4 +19,5 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 +(NSInteger)numberOfCPUCores;
 +(NSInteger)physicalRamSize;
 +(NSInteger)logicalRamSize;
++(NSInteger)processorSpeed;
 @end

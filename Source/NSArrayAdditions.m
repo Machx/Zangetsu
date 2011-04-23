@@ -59,8 +59,8 @@
         }
 
         dispatch_group_async(group, queue, ^{
-                                 block (object, &_stop);
-                             });
+			block (object, &_stop);
+		});
     }
 
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);

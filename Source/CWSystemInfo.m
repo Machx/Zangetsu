@@ -95,4 +95,14 @@
     return 0;
 }
 
++(NSInteger) processorSpeed {
+	SInt32 speed;
+	
+	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
+		return (NSInteger)speed;
+	}
+	
+	return 0;
+}
+
 @end
