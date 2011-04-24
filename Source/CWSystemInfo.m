@@ -13,6 +13,9 @@
 
 @implementation CWSystemInfo
 
+//MARK: -
+//MARK: Host Version Information
+
 /**
  * Convenience Method to return a dictionary with the Mac OS X version
  * information in a way where you can query a specific part of the version
@@ -48,6 +51,9 @@
     return [NSString stringWithFormat:@"%d.%d.%d", versMaj, versMin, versBugFix];
 }
 
+//MARK: -
+//MARK: CPU System Information
+
 /**
  * Does what it says it does, returns the # of cpu cores on the host Mac
  *
@@ -63,6 +69,22 @@
 
     return coreCount;
 }
+
+/**
+ * Returns the processor speed of the host system in MHz as a NSInteger
+ */
++(NSInteger) processorSpeed {
+	SInt32 speed;
+	
+	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
+		return (NSInteger)speed;
+	}
+	
+	return 0;
+}
+
+//MARK: -
+//MARK: System RAM Information
 
 /**
  * Returns the amount of physical ram in megabytes the host device has
@@ -93,16 +115,6 @@
     }
 
     return 0;
-}
-
-+(NSInteger) processorSpeed {
-	SInt32 speed;
-	
-	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
-		return (NSInteger)speed;
-	}
-	
-	return 0;
 }
 
 @end
