@@ -72,6 +72,8 @@
 
 /**
  * Returns the processor speed of the host system in MHz as a NSInteger
+ * 
+ * @return a NSInteger representing the processor speed in MHz
  */
 +(NSInteger) processorSpeed {
 	SInt32 speed;
@@ -88,6 +90,8 @@
 
 /**
  * Returns the amount of physical ram in megabytes the host device has
+ *
+ * @return a NSInteger representing the physical ram size of the host system
  */
 + (NSInteger) physicalRamSize {
     SInt32 kamount;
@@ -103,6 +107,8 @@
  * Returns the amount of logical ram in megabytes the host device has. This
  * may be less than the physical ram size because things like the OS/gpu
  * may be using some of the physical ram.
+ * 
+ * @return a NSInteger representing the logical ram size of the host system
  */
 + (NSInteger) logicalRamSize {
     SInt32 kamount;
