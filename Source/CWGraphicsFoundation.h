@@ -9,3 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 extern CGContextRef CWCurrentCGContext();
+
+extern void CWAddRoundedRectToPath(CGContextRef context,
+								   CGRect rect,
+								   float ovalWidth,
+								   float ovalHeight);
