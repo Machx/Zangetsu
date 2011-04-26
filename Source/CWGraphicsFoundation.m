@@ -16,6 +16,12 @@ inline CGContextRef CWCurrentCGContext()
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 }
 
+void CWExecuteAndRestoreCGContext(CGContextRef context,ContextBlock block) {
+	CGContextSaveGState(context);
+	block(context);
+	CGContextRestoreGState(context);
+}
+
 void CWAddRoundedRectToPath(CGContextRef context,
 						  CGRect rect,
 						  float ovalWidth,
