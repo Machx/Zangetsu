@@ -24,7 +24,7 @@ inline CGContextRef CWCurrentCGContext()
  */
 void CWExecuteAndRestoreCGContext(CGContextRef context,ContextBlock block) {
 	CGContextSaveGState(context);
-	block(context);
+	block();
 	CGContextRestoreGState(context);
 }
 

@@ -10,7 +10,7 @@
 
 extern CGContextRef CWCurrentCGContext();
 
-typedef void (^ContextBlock)(CGContextRef context);
+typedef void (^ContextBlock)(void);
 void CWExecuteAndRestoreCGContext(CGContextRef context,ContextBlock);
 
 extern void CWAddRoundedRectToPath(CGContextRef context,
