@@ -34,6 +34,16 @@ NS_INLINE CFArrayRef CWNSToCFArray(NSArray *array) {
 	return (CFArrayRef)array;
 }
 
+/* NSSet & CFSetRef */
+
+NS_INLINE NSSet* CWCFToNSSet(CFSetRef set) {
+	return (NSSet *)set;
+}
+
+NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *set) {
+	return (CFSetRef)set;
+}
+
 /* NSData & CFDataRef */
 
 NS_INLINE NSData* CWCFToNSDataRef(CFDataRef data) {
