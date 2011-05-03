@@ -44,6 +44,16 @@ NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *set) {
 	return (CFSetRef)set;
 }
 
+/* NSDictionary & CFDictionaryRef */
+
+NS_INLINE NSDictionary* CWCFToNSDictionary(CFDictionaryRef cfdict) {
+	return (NSDictionary *)cfdict;
+}
+
+NS_INLINE CFDictionaryRef CWNSToCFDictionaryRef(NSDictionary *nsdict) {
+	return (CFDictionaryRef)nsdict;
+}
+
 /* NSData & CFDataRef */
 
 NS_INLINE NSData* CWCFToNSDataRef(CFDataRef data) {
@@ -52,4 +62,14 @@ NS_INLINE NSData* CWCFToNSDataRef(CFDataRef data) {
 
 NS_INLINE CFDataRef CWNSDataToCFDataRef(NSData *data) {
 	return (CFDataRef)data;
+}
+
+/* NSNumber & CFNumberRef */
+
+NS_INLINE NSNumber* CWCFToNSNumber(CFNumberRef cfnumber) {
+	return (NSNumber *)cfnumber;
+}
+
+NS_INLINE CFNumberRef CWNSToCFNumberRef(NSNumber *nsnumber) {
+	return (CFNumberRef)nsnumber;
 }
