@@ -34,6 +34,16 @@ NS_INLINE CFArrayRef CWNSToCFArray(NSArray *array) {
 	return (CFArrayRef)array;
 }
 
+/* NSMutableArray & CFMutableArrayRef */
+
+NS_INLINE NSMutableArray* CWCFToNSMutableArray(CFMutableArrayRef array) {
+	return (NSMutableArray *)array;
+}
+
+NS_INLINE CFMutableArrayRef CWNSToCFMutableArrayRef(NSMutableArray *array) {
+	return (CFMutableArrayRef)array;
+}
+
 /* NSSet & CFSetRef */
 
 NS_INLINE NSSet* CWCFToNSSet(CFSetRef set) {
@@ -72,4 +82,14 @@ NS_INLINE NSNumber* CWCFToNSNumber(CFNumberRef cfnumber) {
 
 NS_INLINE CFNumberRef CWNSToCFNumberRef(NSNumber *nsnumber) {
 	return (CFNumberRef)nsnumber;
+}
+
+/* NSError & CFErrorRef */
+
+NS_INLINE NSError* CWCFToNSError(CFErrorRef cferr) {
+	return (NSError *)cferr;
+}
+
+NS_INLINE CFErrorRef CWNSToCFErrorRef(NSError *nserr) {
+	return (CFErrorRef)nserr;
 }
