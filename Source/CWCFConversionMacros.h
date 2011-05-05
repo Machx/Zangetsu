@@ -93,3 +93,23 @@ NS_INLINE NSError* CWCFToNSError(CFErrorRef cferr) {
 NS_INLINE CFErrorRef CWNSToCFErrorRef(NSError *nserr) {
 	return (CFErrorRef)nserr;
 }
+
+/* CFRunLoopTimerRef & NSTimer */
+
+NS_INLINE CFRunLoopTimerRef CWNSToCFRunLoopTimerRef(NSTimer *nstimer) {
+	return (CFRunLoopTimerRef)nstimer;
+}
+
+NS_INLINE NSTimer* CWCFToNSTimer(CFRunLoopTimerRef cftimer) {
+	return (NSTimer *)cftimer;
+}
+
+/* CFAttributedStringRef & NSAttributedString */
+
+NS_INLINE CFAttributedStringRef CWNSToCFAttributedStringRef(NSAttributedString *nsAttrString) {
+	return (CFAttributedStringRef)nsAttrString;
+}
+
+NS_INLINE NSAttributedString* CWCFToNSAttributedString(CFAttributedStringRef cfAttrString) {
+	return (NSAttributedString *)cfAttrString;
+}
