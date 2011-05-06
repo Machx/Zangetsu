@@ -113,3 +113,13 @@ NS_INLINE CFAttributedStringRef CWNSToCFAttributedStringRef(NSAttributedString *
 NS_INLINE NSAttributedString* CWCFToNSAttributedString(CFAttributedStringRef cfAttrString) {
 	return (NSAttributedString *)cfAttrString;
 }
+
+/* NSCalendar and CFCalendarRef */
+
+NS_INLINE NSCalendar* CWCFToNSCalendar(CFCalendarRef cfcal) {
+	return (NSCalendar*)cfcal;
+}
+
+NS_INLINE CFCalendarRef CFNSToCFCalendarRef(NSCalendar *nscal) {
+	return (CFCalendarRef)nscal;
+}

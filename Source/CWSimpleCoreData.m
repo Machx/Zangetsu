@@ -152,7 +152,7 @@
  @param error a NSError object to write to if something goes wrong
  @return An array of NSDictionary objects with the properties that were specified to be fetched
  */
--(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
++(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
 		   inManagedObjectContext:(NSManagedObjectContext *)moc 
 					withPredicate:(NSPredicate *)predicate
 					   properties:(NSArray *)properties 

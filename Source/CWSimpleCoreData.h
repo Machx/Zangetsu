@@ -33,7 +33,7 @@
 					 inManagedObjectContext:(NSManagedObjectContext *)moc 
 								  andValues:(NSDictionary *)values;
 
--(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
++(NSArray *)fetchEntitiesWithName:(NSString *)entityName 
 		   inManagedObjectContext:(NSManagedObjectContext *)moc 
 					withPredicate:(NSPredicate *)predicate
 					   properties:(NSArray *)properties 
