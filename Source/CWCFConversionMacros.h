@@ -126,7 +126,7 @@ NS_INLINE CFCalendarRef CFNSToCFCalendarRef(NSCalendar *nscal) {
 
 /* NSCharacterSet & CFCharacterSetRef */
 
-NS_INLINE NSCharacterSet CWCFToNSCharacterSet(CFCharacterSetRef cfcharset) {
+NS_INLINE NSCharacterSet* CWCFToNSCharacterSet(CFCharacterSetRef cfcharset) {
 	return (NSCharacterSet *)cfcharset;
 }
 
