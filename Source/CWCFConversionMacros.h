@@ -124,6 +124,16 @@ NS_INLINE CFCalendarRef CFNSToCFCalendarRef(NSCalendar *nscal) {
 	return (CFCalendarRef)nscal;
 }
 
+/* NSDate & CFDateRef */
+
+NS_INLINE NSDate* CWCFToNSDate(CFDateRef cfdate){
+	return (NSDate *)cfdate;
+}
+
+NS_INLINE CFDateRef CWNSToCFDateRef(NSDate *nsdate) {
+	return (CFDateRef)nsdate;
+}
+
 /* NSCharacterSet & CFCharacterSetRef */
 
 NS_INLINE NSCharacterSet* CWCFToNSCharacterSet(CFCharacterSetRef cfcharset) {
@@ -132,4 +142,14 @@ NS_INLINE NSCharacterSet* CWCFToNSCharacterSet(CFCharacterSetRef cfcharset) {
 
 NS_INLINE CFCharacterSetRef CWNSToCFCharacterSetRef(NSCharacterSet *nscharset) {
 	return (CFCharacterSetRef)nscharset;
+}
+
+/* NSLocale & CFLocaleRef */
+
+NS_INLINE NSLocale* CWCFToNSLocale(CFLocaleRef cflocale) {
+	return (NSLocale *)cflocale;
+}
+
+NS_INLINE CFLocaleRef CWNSToLocaleRef(NSLocale *nsloc) {
+	return (CFLocaleRef)nsloc;
 }
