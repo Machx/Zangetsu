@@ -153,3 +153,23 @@ NS_INLINE NSLocale* CWCFToNSLocale(CFLocaleRef cflocale) {
 NS_INLINE CFLocaleRef CWNSToLocaleRef(NSLocale *nsloc) {
 	return (CFLocaleRef)nsloc;
 }
+
+/* NSOutputStream & CFWriteStreamRef */
+
+NS_INLINE NSOutputStream* CWCFToNSOutputStream(CFWriteStreamRef cfstream) {
+	return (NSOutputStream *)cfstream;
+}
+
+NS_INLINE CFWriteStreamRef CWNSToCFWriteStreamRef(NSOutputStream *nsstream){
+	return (CFWriteStreamRef)nsstream;
+}
+
+/* NSTimeZone & CFTimeZoneRef */
+
+NS_INLINE NSTimeZone* CWCFToNSTimeZone(CFTimeZoneRef cftimezone) {
+	return (NSTimeZone *)cftimezone;
+}
+
+NS_INLINE CFTimeZoneRef CWNSToCFTimeZone(NSTimeZone *nstimezone) {
+	return (CFTimeZoneRef)nstimezone;
+}
