@@ -24,6 +24,16 @@ NS_INLINE CFStringRef CWNSToCFStringRef(NSString *nsstr) {
 	return (CFStringRef)nsstr;
 }
 
+/* NSMutableString & CFMutableStringRef */
+
+NS_INLINE NSMutableString* CWCFToNSMutableString(CFMutableStringRef cfmstring) {
+	return (NSMutableString *)cfmstring;
+}
+
+NS_INLINE CFMutableStringRef CWNSToCFMutableStringRef(NSMutableString *nsmstring) {
+	return (CFMutableStringRef)nsmstring;
+}
+
 /* NSArray & CFArrayRef */
 
 NS_INLINE NSArray* CWCFToNSArray(CFArrayRef array) {
@@ -172,4 +182,14 @@ NS_INLINE NSTimeZone* CWCFToNSTimeZone(CFTimeZoneRef cftimezone) {
 
 NS_INLINE CFTimeZoneRef CWNSToCFTimeZone(NSTimeZone *nstimezone) {
 	return (CFTimeZoneRef)nstimezone;
+}
+
+/* NSURL & CFURLRef */
+
+NS_INLINE NSURL* CWCFToNSURL(CFURLRef cfurl) {
+	return (NSURL *)cfurl;
+}
+
+NS_INLINE CFURLRef CWNSToCFURL(NSURL *nsurl) {
+	return (CFURLRef)nsurl;
 }
