@@ -64,6 +64,16 @@ NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *set) {
 	return (CFSetRef)set;
 }
 
+/* NSMutableSet & CFMutableSetRef */
+
+NS_INLINE NSSet* CWCFToNSMutableSet(CFMutableSetRef set) {
+	return (NSMutableSet *)set;
+}
+
+NS_INLINE CFSetRef CWNSToCFMutableSetRef(NSSet *set) {
+	return (CFMutableSetRef)set;
+}
+
 /* NSDictionary & CFDictionaryRef */
 
 NS_INLINE NSDictionary* CWCFToNSDictionary(CFDictionaryRef cfdict) {
@@ -162,6 +172,16 @@ NS_INLINE NSLocale* CWCFToNSLocale(CFLocaleRef cflocale) {
 
 NS_INLINE CFLocaleRef CWNSToLocaleRef(NSLocale *nsloc) {
 	return (CFLocaleRef)nsloc;
+}
+
+/* NSInputStream & CFReadStreamRef */
+
+NS_INLINE NSInputStream* CWCFToNSInputStream(CFReadStreamRef cfinstream) {
+	return (NSInputStream *)cfinstream;
+}
+
+NS_INLINE CFReadStreamRef CWNSToCFReadStreamRef(NSInputStream *nsinstream) {
+	return (CFReadStreamRef)nsinstream;
 }
 
 /* NSOutputStream & CFWriteStreamRef */

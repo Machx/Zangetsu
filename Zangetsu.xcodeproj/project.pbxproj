@@ -88,13 +88,6 @@
 			remoteGlobalIDString = B8F5E66812A02EB400E58C94;
 			remoteInfo = "Unit Tests";
 		};
-		B8C5CAAB12AFEE2600D79B4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Zangetsu;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -476,7 +469,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B8C5CAAC12AFEE2600D79B4E /* PBXTargetDependency */,
 			);
 			name = "Unit Tests";
 			productName = "Unit Tests";
@@ -599,11 +591,6 @@
 			isa = PBXTargetDependency;
 			target = B8F5E66812A02EB400E58C94 /* Unit Tests */;
 			targetProxy = B8679C121379CA2D006C0578 /* PBXContainerItemProxy */;
-		};
-		B8C5CAAC12AFEE2600D79B4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
-			targetProxy = B8C5CAAB12AFEE2600D79B4E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
