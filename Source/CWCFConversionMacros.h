@@ -154,6 +154,16 @@ NS_INLINE NSAttributedString* CWCFToNSAttributedString(CFAttributedStringRef cfA
 	return (NSAttributedString *)cfAttrString;
 }
 
+/* CFAttributedStringRef & NSAttributedString */
+
+NS_INLINE CFMutableAttributedStringRef CWNSToCFMutableAttributedStringRef(NSMutableAttributedString *nsmAttrString) {
+	return (CFMutableAttributedStringRef)nsmAttrString;
+}
+
+NS_INLINE NSMutableAttributedString* CWCFToNSMutableAttributedString(CFMutableAttributedStringRef cfmAttrString) {
+	return (NSMutableAttributedString *)cfmAttrString;
+}
+
 /* NSCalendar and CFCalendarRef */
 
 NS_INLINE NSCalendar* CWCFToNSCalendar(CFCalendarRef cfcal) {
@@ -184,13 +194,23 @@ NS_INLINE CFCharacterSetRef CWNSToCFCharacterSetRef(NSCharacterSet *nscharset) {
 	return (CFCharacterSetRef)nscharset;
 }
 
+/* NSMutableCharacterSet & CFMutableCharacterSetRef */
+
+NS_INLINE NSMutableCharacterSet* CWCFToNSMutableCharacterSet(CFMutableCharacterSetRef cfmcharset) {
+	return (NSMutableCharacterSet *)cfmcharset;
+}
+
+NS_INLINE CFMutableCharacterSetRef CWNSToCFMutableCharacterSetRef(NSMutableCharacterSet *nsmcharset) {
+	return (CFMutableCharacterSetRef)nsmcharset;
+}
+
 /* NSLocale & CFLocaleRef */
 
 NS_INLINE NSLocale* CWCFToNSLocale(CFLocaleRef cflocale) {
 	return (NSLocale *)cflocale;
 }
 
-NS_INLINE CFLocaleRef CWNSToLocaleRef(NSLocale *nsloc) {
+NS_INLINE CFLocaleRef CWNSToCFLocaleRef(NSLocale *nsloc) {
 	return (CFLocaleRef)nsloc;
 }
 
