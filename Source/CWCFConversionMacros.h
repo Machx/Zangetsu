@@ -46,32 +46,32 @@ NS_INLINE CFArrayRef CWNSToCFArray(NSArray *array) {
 
 /* NSMutableArray & CFMutableArrayRef */
 
-NS_INLINE NSMutableArray* CWCFToNSMutableArray(CFMutableArrayRef array) {
-	return (NSMutableArray *)array;
+NS_INLINE NSMutableArray* CWCFToNSMutableArray(CFMutableArrayRef cfMArray) {
+	return (NSMutableArray *)cfMArray;
 }
 
-NS_INLINE CFMutableArrayRef CWNSToCFMutableArrayRef(NSMutableArray *array) {
-	return (CFMutableArrayRef)array;
+NS_INLINE CFMutableArrayRef CWNSToCFMutableArrayRef(NSMutableArray *nsMArray) {
+	return (CFMutableArrayRef)nsMArray;
 }
 
 /* NSSet & CFSetRef */
 
-NS_INLINE NSSet* CWCFToNSSet(CFSetRef set) {
-	return (NSSet *)set;
+NS_INLINE NSSet* CWCFToNSSet(CFSetRef cfSet) {
+	return (NSSet *)cfSet;
 }
 
-NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *set) {
-	return (CFSetRef)set;
+NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *nSet) {
+	return (CFSetRef)nSet;
 }
 
 /* NSMutableSet & CFMutableSetRef */
 
-NS_INLINE NSMutableSet* CWCFToNSMutableSet(CFMutableSetRef set) {
-	return (NSMutableSet *)set;
+NS_INLINE NSMutableSet* CWCFToNSMutableSet(CFMutableSetRef cfmSet) {
+	return (NSMutableSet *)cfmSet;
 }
 
-NS_INLINE CFMutableSetRef CWNSToCFMutableSetRef(NSMutableSet *set) {
-	return (CFMutableSetRef)set;
+NS_INLINE CFMutableSetRef CWNSToCFMutableSetRef(NSMutableSet *nsmSet) {
+	return (CFMutableSetRef)nsmSet;
 }
 
 /* NSDictionary & CFDictionaryRef */
@@ -96,18 +96,18 @@ NS_INLINE CFMutableDictionaryRef CWNSToCFMutableDictionaryRef(NSMutableDictionar
 
 /* NSData & CFDataRef */
 
-NS_INLINE NSData* CWCFToNSDataRef(CFDataRef data) {
-	return (NSData *)data;
+NS_INLINE NSData* CWCFToNSDataRef(CFDataRef cfData) {
+	return (NSData *)cfData;
 }
 
-NS_INLINE CFDataRef CWNSDataToCFDataRef(NSData *data) {
-	return (CFDataRef)data;
+NS_INLINE CFDataRef CWNSDataToCFDataRef(NSData *nData) {
+	return (CFDataRef)nData;
 }
 
 /* NSMutableData & CFMutableDataRef */
 
-NS_INLINE NSMutableData* CWCFToNSMutableDataRef(CFMutableDataRef mutabledata) {
-	return (NSMutableData *)mutabledata;
+NS_INLINE NSMutableData* CWCFToNSMutableDataRef(CFMutableDataRef cfMutableData) {
+	return (NSMutableData *)cfMutableData;
 }
 
 NS_INLINE CFMutableDataRef CWNSDataToCFMutableDataRef(NSMutableData *nsmdata) {
@@ -154,7 +154,7 @@ NS_INLINE NSAttributedString* CWCFToNSAttributedString(CFAttributedStringRef cfA
 	return (NSAttributedString *)cfAttrString;
 }
 
-/* CFAttributedStringRef & NSAttributedString */
+/* CFMutableAttributedStringRef & NSMutableAttributedString */
 
 NS_INLINE CFMutableAttributedStringRef CWNSToCFMutableAttributedStringRef(NSMutableAttributedString *nsmAttrString) {
 	return (CFMutableAttributedStringRef)nsmAttrString;
