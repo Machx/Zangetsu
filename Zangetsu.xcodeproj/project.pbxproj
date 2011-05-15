@@ -52,6 +52,8 @@
 		B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C112C1290D2BA00B49835 /* CWSystemInfo.m */; };
 		B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C1196129239C500B49835 /* NSSetAdditions.m */; };
+		B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B890142C11D992F000705CE4 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B890142F11D9931C00705CE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890142E11D9931C00705CE4 /* Security.framework */; };
@@ -144,6 +146,8 @@
 		B88C112C1290D2BA00B49835 /* CWSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfo.m; path = Source/CWSystemInfo.m; sourceTree = "<group>"; };
 		B88C1195129239C500B49835 /* NSSetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSetAdditions.h; path = Source/NSSetAdditions.h; sourceTree = "<group>"; };
 		B88C1196129239C500B49835 /* NSSetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSSetAdditions.m; path = Source/NSSetAdditions.m; sourceTree = "<group>"; };
+		B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistry.h; path = Source/CWApplicationRegistry.h; sourceTree = "<group>"; };
+		B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistry.m; path = Source/CWApplicationRegistry.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1Utilities.h; path = Source/CWSHA1Utilities.h; sourceTree = "<group>"; };
 		B890142A11D992F000705CE4 /* CWSHA1Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSHA1Utilities.m; path = Source/CWSHA1Utilities.m; sourceTree = "<group>"; };
 		B890142E11D9931C00705CE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -252,6 +256,8 @@
 			children = (
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */,
+				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
+				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
@@ -431,6 +437,7 @@
 				B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */,
 				B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */,
 				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
+				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +574,7 @@
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
 				B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */,
 				B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */,
+				B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

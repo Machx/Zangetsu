@@ -41,3 +41,4 @@
 #import "CWReachability.h"
 #import "NSDateAddtions.h"
 #import "CWCFConversionMacros.h"
+#import "CWApplicationRegistry.h"
