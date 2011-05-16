@@ -35,4 +35,19 @@
 	return isRunning;
 }
 
++(NSInteger)pidForApplication:(NSString *)appName {
+	__block NSInteger pid = kPidNotFound;
+	
+	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+	[applications cw_each:^(id obj){
+		NSRunningApplication *app = (NSRunningApplication *)obj;
+		
+		if ([[app localizedName] isEqualToString:appName]) {
+			pid = [app processIdentifier];
+		}
+	}];
+	
+	return pid;
+}
+
 @end

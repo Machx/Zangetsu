@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+static const NSInteger kPidNotFound = -1982;
 
 @interface CWApplicationRegistry : NSObject
 
 +(BOOL)applicationIsRunning:(NSString *)appName;
++(NSInteger)pidForApplication:(NSString *)appName;
 
 @end
