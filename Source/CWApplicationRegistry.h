@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static const NSInteger kPidNotFound = -1982;
+static const NSInteger kPidNotFound = -1;
 
 @interface CWApplicationRegistry : NSObject
 
