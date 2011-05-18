@@ -53,4 +53,19 @@
 	return pid;
 }
 
++(NSString *)bundleIdentifierForApplication:(NSString *)appName {
+	__block NSString *bundleIdentifier = nil;
+	
+	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+	[applications cw_each:^(id obj){
+		NSRunningApplication *app = (NSRunningApplication *)obj;
+		
+		if ([[app localizedName] isEqualToString:appName]) {
+			bundleIdentifier = [app bundleIdentifier];
+		}
+	}];
+	
+	return bundleIdentifier;
+}
+
 @end
