@@ -14,7 +14,7 @@
 /**
  convenience method to answer if a application is currently running
  
- @param a NSString with the app name you wish to check
+ @param appName a NSString with the app name you wish to check
  @return a BOOL with YES if the app is running, otherwise NO
  */
 +(BOOL)applicationIsRunning:(NSString *)appName {
@@ -35,7 +35,7 @@
 /**
  convenience method to get the pid for a running application
  
- @param a NSString with the name of the app whose pid you want
+ @param appName a NSString with the name of the app whose pid you want
  @return a NSInteger with the pid or kPidNotFound (-1) if not found
  */
 +(NSInteger)pidForApplication:(NSString *)appName {
@@ -53,6 +53,12 @@
 	return pid;
 }
 
+/**
+ returns the bundle identifier for a running application
+ 
+ @param appName a NSString with the name of the application whose bundle identifier you want
+ @return a NSString with the bundle identifier of the app name passed in or nil if the app isn't running
+ */
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName {
 	__block NSString *bundleIdentifier = nil;
 	
