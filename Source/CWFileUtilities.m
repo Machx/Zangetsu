@@ -3,7 +3,7 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 5/20/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011. All rights reserved.
 //
 
 #import "CWFileUtilities.h"
@@ -21,7 +21,7 @@
     return self;
 }
 
-+(NSString *)temporaryFile {
++(NSString *)temporaryFilePath {
 	NSString *temporaryFilePath = nil;
 	
 	NSString *basePath = NSTemporaryDirectory();
