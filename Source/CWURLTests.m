@@ -3,7 +3,7 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 5/22/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011. All rights reserved.
 //
 
 #import "CWURLTests.h"
