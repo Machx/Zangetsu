@@ -13,6 +13,7 @@
 		B804019C12F08E9200E1297F /* CWCoreDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019812F08E9200E1297F /* CWCoreDataCenter.m */; };
 		B804019D12F08E9200E1297F /* CWSimpleCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019912F08E9200E1297F /* CWSimpleCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B804019E12F08E9200E1297F /* CWSimpleCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019A12F08E9200E1297F /* CWSimpleCoreData.m */; };
+		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B81C9F6A1387028A0057978C /* CWFileUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81C9F681387028A0057978C /* CWFileUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -106,6 +107,8 @@
 		B804019812F08E9200E1297F /* CWCoreDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWCoreDataCenter.m; path = Source/CWCoreDataCenter.m; sourceTree = "<group>"; };
 		B804019912F08E9200E1297F /* CWSimpleCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSimpleCoreData.h; path = Source/CWSimpleCoreData.h; sourceTree = "<group>"; };
 		B804019A12F08E9200E1297F /* CWSimpleCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSimpleCoreData.m; path = Source/CWSimpleCoreData.m; sourceTree = "<group>"; };
+		B8072B3213894F81008F7B63 /* CWURLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CWURLTests.h; path = Source/CWURLTests.h; sourceTree = "<group>"; };
+		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilities.h; path = Source/CWURLUtilities.h; sourceTree = "<group>"; };
 		B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilities.m; path = Source/CWURLUtilities.m; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				B82D252D12AB6962006650B8 /* CWNSStringTests.m */,
 				B8F5E6E212A0355900E58C94 /* CWSetTests.h */,
 				B8F5E6E312A0355900E58C94 /* CWSetTests.m */,
+				B8072B3213894F81008F7B63 /* CWURLTests.h */,
+				B8072B3313894F81008F7B63 /* CWURLTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				B8E9142F12BD8C7400167AE8 /* CWNSObjectTests.m in Sources */,
 				B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */,
 				B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */,
+				B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
