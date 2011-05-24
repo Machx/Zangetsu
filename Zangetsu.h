@@ -43,3 +43,4 @@
 #import "CWCFConversionMacros.h"
 #import "CWApplicationRegistry.h"
 #import "CWFileUtilities.h"
+#import "CWStack.h"
