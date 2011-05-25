@@ -41,15 +41,32 @@
 }
 
 -(id)pop {
-	id lastObject = [[[self stack] lastObject] copy];
+	id lastObject = [[self stack] lastObject];
 	
 	[[self stack] removeLastObject];
 	
 	return lastObject;
 }
 
+-(id)popToObject:(id)object {
+	if (![[self stack] containsObject:object]) {
+		return nil;
+	}
+	
+	id currentObject = nil;
+	while (![[self topOfStackObject] isEqual:object]) {
+		currentObject = [self pop];
+	}
+	
+	return currentObject;
+}
+
 -(id)topOfStackObject {
 	return [[self stack] lastObject];
+}
+
+-(NSString *)description {
+	return [[self stack] description];
 }
 
 @end

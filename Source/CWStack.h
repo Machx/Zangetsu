@@ -17,6 +17,8 @@
 
 -(id)pop;
 
+-(id)popToObject:(id)object;
+
 -(id)topOfStackObject;
 
 @end
