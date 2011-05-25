@@ -37,7 +37,7 @@
 }
 
 -(void)push:(id)object {
-	[stack addObject:object];
+	[[self stack] addObject:object];
 }
 
 -(id)pop {
