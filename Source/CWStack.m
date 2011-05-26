@@ -48,21 +48,37 @@
 	return lastObject;
 }
 
--(id)popToObject:(id)object {
+-(NSArray *)popToObject:(id)object {
 	if (![[self stack] containsObject:object]) {
 		return nil;
 	}
 	
+	NSMutableArray *stackArray = [[NSMutableArray alloc] init];
 	id currentObject = nil;
 	while (![[self topOfStackObject] isEqual:object]) {
 		currentObject = [self pop];
+		[stackArray addObject:currentObject];
 	}
 	
-	return currentObject;
+	return stackArray;
+}
+
+-(NSArray *)popToBottomOfStack {	
+	NSArray *stackArray = [self popToObject:[[self stack] cw_firstObject]];
+	
+	return stackArray;
 }
 
 -(id)topOfStackObject {
 	return [[self stack] lastObject];
+}
+
+-(id)bottomOfStackObject {
+	return [[self stack] cw_firstObject];
+}
+
+-(void)clearStack {
+	[[self stack] removeAllObjects];
 }
 
 -(NSString *)description {

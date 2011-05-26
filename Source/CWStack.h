@@ -17,8 +17,14 @@
 
 -(id)pop;
 
--(id)popToObject:(id)object;
+-(NSArray *)popToObject:(id)object;
+
+-(NSArray *)popToBottomOfStack;
 
 -(id)topOfStackObject;
+
+-(id)bottomOfStackObject;
+
+-(void)clearStack;
 
 @end
