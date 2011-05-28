@@ -94,6 +94,17 @@
 	return stackArray;
 }
 
+-(void)popToObject:(id)object withBlock:(stackBlock)block {
+	if (![[self stack] containsObject:object]) {
+		return;
+	}
+	
+	while (![[self topOfStackObject] isEqual:object]) {
+		id obj = [self pop];
+		block(obj);
+	}
+}
+
 /**
  pops all objects off the stack except for the bottom object
  
