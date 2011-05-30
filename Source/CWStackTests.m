@@ -31,26 +31,7 @@
 	[stack1 push:[array objectAtIndex:2]];
 	[stack1 push:[array objectAtIndex:3]];
 	
-	/**
-	 TODO: implement isEqual in CWStack
-	 This is a crappy test but it works for now, will be implementing a better one later on
-	 */
-	
-	NSString * stack1Obj = [stack1 pop];
-	NSString * stack2Obj = [stack2 pop];
-	STAssertTrue([stack1Obj isEqualToString:stack2Obj], @"objects should be equal");
-	
-	stack1Obj = [stack1 pop];
-	stack2Obj = [stack2 pop];
-	STAssertTrue([stack1Obj isEqualToString:stack2Obj], @"objects should be equal");
-	
-	stack1Obj = [stack1 pop];
-	stack2Obj = [stack2 pop];
-	STAssertTrue([stack1Obj isEqualToString:stack2Obj], @"objects should be equal");
-	
-	stack1Obj = [stack1 pop];
-	stack2Obj = [stack2 pop];
-	STAssertTrue([stack1Obj isEqualToString:stack2Obj], @"objects should be equal");
+	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
 - (void)tearDown
