@@ -149,6 +149,18 @@
 	[[self stack] removeAllObjects];
 }
 
+-(BOOL)isEqualTo:(id)object {
+	if (![object isMemberOfClass:[CWStack class]]) {
+		return NO;
+	}
+	
+	if ([[object description] isEqualToString:[self description]]) {
+		return YES;
+	}
+	
+	return NO;
+}
+
 -(NSString *)description {
 	return [[self stack] description];
 }

@@ -89,12 +89,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B8ECF799138C20DE0069905C /* PBXContainerItemProxy */ = {
+		B8F6C84C13954DB2007ED6AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B8F5E66812A02EB400E58C94;
-			remoteInfo = "Unit Tests";
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Zangetsu;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -480,7 +480,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B8ECF79A138C20DE0069905C /* PBXTargetDependency */,
 			);
 			name = Zangetsu;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -500,6 +499,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B8F6C84D13954DB2007ED6AB /* PBXTargetDependency */,
 			);
 			name = "Unit Tests";
 			productName = "Unit Tests";
@@ -623,10 +623,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B8ECF79A138C20DE0069905C /* PBXTargetDependency */ = {
+		B8F6C84D13954DB2007ED6AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8F5E66812A02EB400E58C94 /* Unit Tests */;
-			targetProxy = B8ECF799138C20DE0069905C /* PBXContainerItemProxy */;
+			target = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
+			targetProxy = B8F6C84C13954DB2007ED6AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

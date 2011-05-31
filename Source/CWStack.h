@@ -31,4 +31,6 @@ typedef void(^stackBlock)(id obj);
 
 -(void)clearStack;
 
+-(BOOL)isEqualTo:(id)object;
+
 @end
