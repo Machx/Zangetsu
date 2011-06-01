@@ -149,6 +149,18 @@
 	[[self stack] removeAllObjects];
 }
 
+/**
+ checks to see if the stack contents of another CWStack object are the same compared to the receiver
+ 
+ first checks to see if the other object is a CWStack Object and then checks to see if their contents
+ are the same. This method does this by comparing the string description of the contents to the receivers
+ string description of its contents. This way is used currently because the private ivar that holds the 
+ contents is hidden and never exposed in the public header for CWStack. This is as close to direct ivar
+ access to private contents that you will get in CWStack.
+ 
+ @param object another CWStack object which you wish to compare its contents to against the receiver object
+ @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
+ */
 -(BOOL)isEqualTo:(id)object {
 	if (![object isMemberOfClass:[CWStack class]]) {
 		return NO;
