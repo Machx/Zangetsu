@@ -21,6 +21,14 @@
     return self;
 }
 
+/**
+ Returns a NSString path to a temporary file
+ 
+ Uses NSTemporaryDirectory() and the cw_uuidString method to create a unique
+ path for a temporary file. 
+ 
+ @return a NSString with the full path to a temporary file with a unique name and .temp extension
+ */
 +(NSString *)temporaryFilePath {
 	NSString *temporaryFilePath = nil;
 	
