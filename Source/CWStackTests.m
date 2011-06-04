@@ -58,6 +58,17 @@
 	}];
 }
 
+-(void)testClearStack {
+	
+	CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"one",@"and",@"two", nil]];
+	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"foo",@"bar",nil]];
+	
+	[stack1 clearStack];
+	[stack2 clearStack];
+	
+	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
