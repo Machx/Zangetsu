@@ -69,6 +69,15 @@
 	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
+-(void)testBottomStackObject {
+	
+	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
+	
+	STAssertTrue([(NSString *)[stack bottomOfStackObject] isEqualToString:@"This"], @"Bottom stack object should be equal");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
