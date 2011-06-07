@@ -79,6 +79,19 @@
 	STAssertTrue([(NSString *)[stack topOfStackObject] isEqualToString:@"sentence"], @"Top of stack object should be equal");
 }
 
+-(void)testPopToBottomOfStack {
+	
+	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
+	
+	[stack popToBottomOfStack];
+	
+	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"This"]];
+	
+	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
