@@ -173,6 +173,11 @@
 	return NO;
 }
 
+/**
+ returns a NSString with the contents of the stack
+ 
+ @return a NSString object with the description of the stack contents
+ */
 -(NSString *)description {
 	return [[self stack] description];
 }
