@@ -52,6 +52,7 @@
 		B8806A2E12B3D44D00F85BCE /* CWBlockFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */; };
 		B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
+		B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B884940013A13D700046194D /* CWApplicationRegistryTests.m */; };
 		B88C112D1290D2BA00B49835 /* CWSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C112B1290D2BA00B49835 /* CWSystemInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C112C1290D2BA00B49835 /* CWSystemInfo.m */; };
 		B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -154,6 +155,8 @@
 		B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockFoundation.m; path = Source/CWBlockFoundation.m; sourceTree = "<group>"; };
 		B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugUtilities.h; path = Source/CWDebugUtilities.h; sourceTree = "<group>"; };
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
+		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
+		B884940013A13D700046194D /* CWApplicationRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistryTests.m; path = Source/CWApplicationRegistryTests.m; sourceTree = "<group>"; };
 		B88C112B1290D2BA00B49835 /* CWSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSystemInfo.h; path = Source/CWSystemInfo.h; sourceTree = "<group>"; };
 		B88C112C1290D2BA00B49835 /* CWSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfo.m; path = Source/CWSystemInfo.m; sourceTree = "<group>"; };
 		B88C1195129239C500B49835 /* NSSetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSetAdditions.h; path = Source/NSSetAdditions.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				B8072B3313894F81008F7B63 /* CWURLTests.m */,
 				B867BBF713944FE0009BEB98 /* CWStackTests.h */,
 				B867BBF813944FE1009BEB98 /* CWStackTests.m */,
+				B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */,
+				B884940013A13D700046194D /* CWApplicationRegistryTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */,
 				B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */,
 				B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */,
+				B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
