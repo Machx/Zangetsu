@@ -128,4 +128,19 @@
 	STAssertTrue([testArray2 isEqualToArray:testArray3], @"TestArray2 should equal testArray3");
 }
 
+-(void)testEachConcurrently {
+	
+	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	
+	__block NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:[testArray count]];
+	
+	[testArray cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
+		@synchronized(results) {
+			[results addObject:obj];
+		}
+	}];
+	
+	STAssertTrue([results count] == [testArray count], @"2 arrays should have the same count");
+}
+
 @end
