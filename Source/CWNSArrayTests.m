@@ -132,7 +132,7 @@
 	
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	__block NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:[testArray count]];
+	__block NSMutableArray *results = [[NSMutableArray alloc] init];
 	
 	[testArray cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
 		@synchronized(results) {
