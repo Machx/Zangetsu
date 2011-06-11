@@ -143,4 +143,15 @@
 	STAssertTrue([results count] == [testArray count], @"2 arrays should have the same count");
 }
 
+-(void)testIsObjectInArrayWithBlock {
+	
+	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
+	
+	BOOL objectIsInArray = [testArray cw_isObjectInArrayWithBlock:^BOOL(id obj) {
+		return [(NSString *)obj isEqualToString:@"Bender"];
+	}];
+	
+	STAssertTrue(objectIsInArray, @"Bender should be in the array");
+}
+
 @end
