@@ -154,4 +154,22 @@
 	STAssertTrue(objectIsInArray, @"Bender should be in the array");
 }
 
+-(void)testFindAllWithBlock {
+	
+	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
+	
+	NSArray *resultArray1 = [testArray cw_findAllWithBlock:^BOOL(id obj) {
+		if ([(NSString *)obj isEqualToString:@"Fry"] ||
+			[(NSString *)obj isEqualToString:@"Leela"]) {
+			return YES;
+		}
+		
+		return NO;
+	}];
+	
+	NSArray *resultArray2 = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
+	
+	STAssertTrue([resultArray1 isEqualTo:resultArray2], @"arrays should be equal");
+}
+
 @end
