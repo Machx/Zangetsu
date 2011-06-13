@@ -33,4 +33,18 @@
 	STAssertTrue([dictionary isEqualToDictionary:d2],@"Dictionary and Dictionary2 should be equal");
 }
 
+-(void)testEach {
+	
+	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
+								@"McCloud",@"Highlander", nil];
+	
+	__block NSMutableDictionary *dictionary2 = [[NSMutableDictionary alloc] init];
+	
+	[dictionary cw_each:^(id key, id value) {
+		[dictionary2 setValue:value forKey:key];
+	}];
+	
+	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
+}
+
 @end
