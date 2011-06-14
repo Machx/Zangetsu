@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NSRect CWCenterRect(NSRect smallRect, NSRect largeRect);
+
 extern CGContextRef CWCurrentCGContext();
 
 typedef void (^ContextBlock)(void);

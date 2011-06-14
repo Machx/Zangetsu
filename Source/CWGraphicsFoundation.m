@@ -8,6 +8,17 @@
 
 #import "CWGraphicsFoundation.h"
 
+NSRect CWCenterRect(NSRect smallRect, NSRect largeRect) {
+	
+	NSRect centeredRect;
+	centeredRect.size = smallRect.size;
+	
+	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) / 2.0;
+	centeredRect.origin.y = (largeRect.size.height - smallRect.size.height) / 2.0;
+	
+	return centeredRect;
+}
+
 /**
  Easy way to return the CGContextRef inside a NSView
  */
