@@ -8,7 +8,7 @@
 
 #import "CWGraphicsFoundation.h"
 
-NSRect CWCenterRect(NSRect smallRect, NSRect largeRect) {
+NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect) {
 	
 	NSRect centeredRect;
 	centeredRect.size = smallRect.size;

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-NSRect CWCenterRect(NSRect smallRect, NSRect largeRect);
+NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect);
 
 extern CGContextRef CWCurrentCGContext();
 
