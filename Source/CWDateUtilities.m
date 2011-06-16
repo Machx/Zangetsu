@@ -91,6 +91,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
         [components setYear:year];
         [components setMonth:month];
         [components setDay:day];
+		[components setHour:hour];
         [components setMinute:minute];
         [components setSecond:second];
 
