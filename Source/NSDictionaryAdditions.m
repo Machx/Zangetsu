@@ -37,7 +37,7 @@
 
 	for (id key in self) {
 
-		if(_stop == NO) { break; }
+		if(_stop == YES) { break; }
 
 		dispatch_group_async(group, queue, ^{
 			block(key,[self valueForKey:key],&_stop);

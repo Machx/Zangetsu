@@ -47,4 +47,18 @@
 	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
 }
 
+-(void)testEachConcurrent {
+	
+	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
+								@"McCloud",@"Highlander", nil];
+	
+	__block NSMutableDictionary *dictionary2 = [[NSMutableDictionary alloc] init];
+	
+	[dictionary cw_eachConcurrentlyWithBlock:^(id key, id value, BOOL *stop) {
+		[dictionary2 setValue:value forKey:key];
+	}];
+	
+	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
+}
+
 @end
