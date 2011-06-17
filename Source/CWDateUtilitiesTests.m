@@ -35,6 +35,26 @@
 	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
 }
 
+-(void)testDateFromComponents {
+	
+	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0);
+	
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	
+	[components setYear:2011];
+	[components setMonth:06];
+	[components setDay:06];
+	[components setHour:10];
+	[components setMinute:0];
+	[components setSecond:0];
+	
+	NSCalendar *calendar = [NSCalendar currentCalendar];
+	
+	NSDate *date2 = [calendar dateFromComponents:components];
+	
+	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
