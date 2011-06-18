@@ -9,6 +9,8 @@
 #import "CWDateUtilitiesTests.h"
 #import "CWDateUtilities.h"
 
+//TODO: test the "1994-11-05T08:15:30-05:00" format for ISO8601...
+
 @implementation CWDateUtilitiesTests
 
 - (void)setUp
@@ -53,6 +55,19 @@
 	NSDate *date2 = [calendar dateFromComponents:components];
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
+}
+
+-(void)test8601DateFormat1 {
+	
+	NSString *data = @"1994-11-05T13:15:30Z";
+	
+	NSDate *date1 = [CWDateUtilities dateFromISO8601String:data];
+	
+	NSLog(@"iso8601 date is %@",date1);
+	
+	STAssertNotNil(date1, @"should have a valid NSDate object");
+	
+	//TODO: test that the date is correct, which it doesn't appear to be right now...
 }
 
 - (void)tearDown
