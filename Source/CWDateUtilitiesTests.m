@@ -37,6 +37,16 @@
 	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
 }
 
+-(void)testDateFromStringWithFormat {
+	//TODO: test the time/min/sec
+	
+	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01" withDateFormat:@"yyyy-M-dd"];
+	
+	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 00, 00, 00);
+	
+	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
+}
+
 -(void)testDateFromComponents {
 	
 	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0);
@@ -63,7 +73,7 @@
 	
 	NSDate *date1 = [CWDateUtilities dateFromISO8601String:data];
 	
-	NSLog(@"iso8601 date is %@",date1);
+	//NSLog(@"iso8601 date is %@",date1);
 	
 	STAssertNotNil(date1, @"should have a valid NSDate object");
 	
