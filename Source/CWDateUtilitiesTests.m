@@ -37,8 +37,7 @@
 	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
 }
 
--(void)testDateFromStringWithFormat {
-	//TODO: test the time/min/sec
+-(void)testDateFromStringWithFormat {	
 	
 	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
 	
