@@ -40,9 +40,9 @@
 -(void)testDateFromStringWithFormat {
 	//TODO: test the time/min/sec
 	
-	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01" withDateFormat:@"yyyy-M-dd"];
+	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
 	
-	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 00, 00, 00);
+	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
