@@ -20,12 +20,19 @@
     // Set-up code here.
 }
 
+/**
+ tests the CWDateString function which should output the description of the date
+ */
 -(void)testDateString {
 	NSDate *now = [NSDate date];
 	
 	STAssertTrue([[now description] isEqualToString:CWDateString(now)],@"descriptions should be the same");
 }
 
+/**
+ tests the CWDateStringFromComponents function to make sure we are getting an
+ appropriate description back
+ */
 -(void)testDateStringFromComponents {
 	
 	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 5, 0, 0);
