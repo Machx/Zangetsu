@@ -30,7 +30,7 @@
 							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],
 							   md5Hash[5], md5Hash[6], md5Hash[7], md5Hash[8], md5Hash[9],
 							   md5Hash[10], md5Hash[11], md5Hash[12], md5Hash[13], md5Hash[14],
-							   md5Hash[15],md5Hash[16]];
+							   md5Hash[15]];
 	
 	return [md5HashString lowercaseString];
 }
@@ -55,7 +55,7 @@
 							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],
 							   md5Hash[5], md5Hash[6], md5Hash[7], md5Hash[8], md5Hash[9],
 							   md5Hash[10], md5Hash[11], md5Hash[12], md5Hash[13], md5Hash[14],
-							   md5Hash[15],md5Hash[16]];
+							   md5Hash[15]];
 	
 	return [md5HashString lowercaseString];
 }
