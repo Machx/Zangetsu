@@ -10,4 +10,6 @@
 
 @interface CWFileUtilitiesTests : SenTestCase
 
+-(void)testTemporaryFilePath;
+
 @end
