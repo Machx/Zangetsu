@@ -9,11 +9,14 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <Zangetsu/Zangetsu.h>
 
-@interface CWNArrayTests : SenTestCase {}
+@interface CWNArrayTests : SenTestCase
 -(void)testFirstObject;
 -(void)testFind;
 -(void)testMapArray;
 -(void)testCWEach;
 -(void)testCWEachWithIndex;
 -(void)testSelectiveMapping;
+-(void)testEachConcurrently;
+-(void)testIsObjectInArrayWithBlock;
+-(void)testFindAllWithBlock;
 @end

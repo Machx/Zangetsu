@@ -9,7 +9,9 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWDictionaryTests : SenTestCase {}
+@interface CWDictionaryTests : SenTestCase
 -(void)testContainsKey;
 -(void)testDictionaryMapping;
+-(void)testEach;
+-(void)testEachConcurrent;
 @end

@@ -9,9 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWApplicationRegistryTests : SenTestCase {
-@private
-    
-}
-
+@interface CWApplicationRegistryTests : SenTestCase
+-(void)testIsAppRunning;
+-(void)testBundleIdentifierForApp;
 @end

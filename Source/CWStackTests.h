@@ -9,9 +9,10 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWStackTests : SenTestCase {
-@private
-    
-}
-
+@interface CWStackTests : SenTestCase
+-(void)testBasicPush;
+-(void)testBasicEnumeration;
+-(void)testClearStack;
+-(void)testBottomAndTopStackObjects;
+-(void)testPopToBottomOfStack;
 @end

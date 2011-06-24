@@ -10,5 +10,9 @@
 
 
 @interface CWDateUtilitiesTests : SenTestCase
-
+-(void)testDateString;
+-(void)testDateStringFromComponents;
+-(void)testDateFromStringWithFormat;
+-(void)testDateFromComponents;
+-(void)test8601DateFormat1;
 @end

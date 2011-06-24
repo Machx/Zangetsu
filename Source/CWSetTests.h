@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWSetTests : SenTestCase {}
+@interface CWSetTests : SenTestCase
 -(void)testSetFindObjInSet;
 -(void)testSetMapSet;
 -(void)testFindAll;
