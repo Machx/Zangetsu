@@ -16,8 +16,12 @@ static NSString * const kCWAppName = @"CFBundleName";
  * Conveince method for returing the apps Application Support folder
  */
 + (NSString *) applicationSupportFolder {
-    NSString * _path = [NSSearchPathForDirectoriesInDomains (NSApplicationSupportDirectory, NSUserDomainMask, YES)cw_firstObject];
-
+    NSString * _path = nil;
+    _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
+    if (!_path) {
+        return nil;
+    }
+    
     NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
 
     return [NSString stringWithFormat:@"%@/%@", _path, _appName];
@@ -27,7 +31,11 @@ static NSString * const kCWAppName = @"CFBundleName";
  * Gets the application support folder and appends the string onto it
  */
 + (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
-    NSString * _appSupportPath = [CWPathUtilities applicationSupportFolder];
+    NSString * _appSupportPath = nil;
+    _appSupportPath = [CWPathUtilities applicationSupportFolder];
+    if (!_appSupportPath) {
+        return nil;
+    }
 
     NSString * _result = [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];
 
