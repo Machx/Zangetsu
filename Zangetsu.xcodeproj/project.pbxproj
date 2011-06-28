@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
+		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
 		178C927413B3A45000330AD4 /* CWFileUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */; };
 		17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
@@ -108,6 +109,8 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		17395C7213B280EE00C900BD /* Zangetsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zangetsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilitiesTests.h; path = Source/CWPathUtilitiesTests.h; sourceTree = "<group>"; };
+		174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilitiesTests.m; path = Source/CWPathUtilitiesTests.m; sourceTree = "<group>"; };
 		178C927213B3A45000330AD4 /* CWFileUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFileUtilitiesTests.h; path = Source/CWFileUtilitiesTests.h; sourceTree = "<group>"; };
 		178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFileUtilitiesTests.m; path = Source/CWFileUtilitiesTests.m; sourceTree = "<group>"; };
 		17990CBB13B62D1A001DCD83 /* CWFoundationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFoundationTests.h; path = Source/CWFoundationTests.h; sourceTree = "<group>"; };
@@ -438,6 +441,8 @@
 				178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */,
 				17990CBB13B62D1A001DCD83 /* CWFoundationTests.h */,
 				17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */,
+				174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */,
+				174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */,
 				178C927413B3A45000330AD4 /* CWFileUtilitiesTests.m in Sources */,
 				17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */,
+				174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
