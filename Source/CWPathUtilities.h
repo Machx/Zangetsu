@@ -10,9 +10,10 @@
 
 #define CWFullPathFromTildeString(_X_) [_X_ stringByExpandingTildeInPath]
 
-@interface CWPathUtilities : NSObject {}
+@interface CWPathUtilities : NSObject
 +(NSString *)applicationSupportFolder;
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
++(NSString *)documentsFolderPathForFile:(NSString *)file;
 +(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
 +(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error;
 @end

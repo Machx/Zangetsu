@@ -27,6 +27,18 @@ static NSString * const kCWAppName = @"CFBundleName";
     return [NSString stringWithFormat:@"%@/%@", _path, _appName];
 }
 
++ (NSString *) documentsFolderPathForFile:(NSString *)file {
+    NSParameterAssert(file);
+    
+    NSString *_path = nil;
+    _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
+    if (!_path) {
+        return nil;
+    }
+    
+    return [NSString stringWithFormat:@"%@/%@",_path,file];
+}
+
 /**
  * Gets the application support folder and appends the string onto it
  */
