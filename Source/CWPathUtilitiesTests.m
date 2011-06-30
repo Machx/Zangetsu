@@ -26,6 +26,14 @@
     STAssertTrue([homePath1 isEqualToString:homePath2], @"paths should be equal");
 }
 
+-(void)testDocumentFolderPath {
+    
+    NSString *documentPath1 = [@"~/Documents/Test.txt" stringByExpandingTildeInPath];
+    NSString *documentPath2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
+    
+    STAssertTrue([documentPath1 isEqualToString:documentPath2], @"paths should be equal");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
