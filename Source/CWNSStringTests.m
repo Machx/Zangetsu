@@ -45,7 +45,7 @@
     
     __block NSInteger count = 0;
     
-    [string cw_enumerateConcurrentlyWithOptions:NSEnumerationConcurrent usingBlock:^(NSString *substring) {
+    [string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines usingBlock:^(NSString *substring) {
         count++;
     }];
     
