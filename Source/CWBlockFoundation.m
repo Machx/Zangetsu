@@ -9,6 +9,9 @@
 #import "CWBlockFoundation.h"
 
 /**
+ WARNING: THIS API WILL BE REMOVED WHEN THE PROJECT SWITCHES TO 10.7
+ AS THE SDK BECAUSE OF THE NEW @AUTORELEASEPOOL{} SYNTAX
+ 
  Runs the passed in block in a NSAutoreleasePool and then
  drains the autoreleasepool
  
