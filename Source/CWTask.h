@@ -24,7 +24,7 @@ static const NSInteger kCWTaskAlreadyRun =        3;
 /* Task hasn't been launched yet */
 static const NSInteger kCWTaskNotLaunched =   -1729;
 
-@interface CWTask : NSObject {}
+@interface CWTask : NSObject
 
 //public readonly vars
 @property(nonatomic, readonly, retain) NSString *executable;

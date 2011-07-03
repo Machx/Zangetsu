@@ -19,7 +19,7 @@
  managed object context/model/coordinator for common core data operations
  */
 
-@interface CWCoreDataCenter : NSObject {}
+@interface CWCoreDataCenter : NSObject
 +(CWCoreDataCenter *)defaultCenter;
 @property(nonatomic,assign) NSManagedObjectModel *managedObjectModel;
 @property(nonatomic,assign) NSManagedObjectContext *managedObjectContext;

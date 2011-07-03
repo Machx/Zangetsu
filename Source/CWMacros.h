@@ -76,6 +76,9 @@ do { \
 	} \
 } while(0);
 
+//CW_10_7_REMOVE_API
+//Framework will switch from GC to ARC
+
 #pragma mark -
 #pragma mark Garbage Collection
 

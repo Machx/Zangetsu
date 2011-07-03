@@ -11,7 +11,7 @@
 static NSString * const kCWISO8601TimeFormat = @"yyyy/MM/dd HH:mm:ss ZZZ";
 static NSString * const kCWISO8601TimeFormat2 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";;
 
-@interface CWDateUtilities : NSObject {}
+@interface CWDateUtilities : NSObject
 
 +(NSDate *)dateFromISO8601String:(NSString *)dateString;
 

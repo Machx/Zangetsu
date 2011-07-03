@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CWAppImageCache : NSObject {}
+@interface CWAppImageCache : NSObject
 
 +(NSImage *)imageForName:(NSString *)imageName ofType:(NSString *)type;
 

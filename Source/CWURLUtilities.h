@@ -10,7 +10,7 @@
 
 NSURL *CWURL(NSString * urlFormat,...);
 
-@interface CWURLUtilities : NSObject {}
+@interface CWURLUtilities : NSObject
 
 +(NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code;
 	

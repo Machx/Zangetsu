@@ -12,6 +12,10 @@
  (2) a easy way to ensure that objects of the correct type are toll free bridged
  */
 
+/**
+ TODO: Will need to update all functions so that they work with ARC
+ */
+
 #import <Cocoa/Cocoa.h>
 
 /* NSString & CFStringRef */

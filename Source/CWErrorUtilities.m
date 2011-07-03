@@ -8,6 +8,8 @@
 
 #import "CWErrorUtilities.h"
 
+//TODO: Remove CWCreateErrorV and put CWCreateErrorV's implementation in CWCreateError
+
 /**
  * Easy convenience method to create a NSError Object. It checks for the error message
  * and throws an assertion if it's missing

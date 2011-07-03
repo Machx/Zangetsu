@@ -8,7 +8,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface CWSimpleCoreData : NSObject {}
+@interface CWSimpleCoreData : NSObject
 
 /* returns all entities matching the entity name and
  * (if applicable) the predicate given 
