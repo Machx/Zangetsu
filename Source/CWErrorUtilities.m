@@ -11,19 +11,19 @@
 //TODO: Remove CWCreateErrorV and put CWCreateErrorV's implementation in CWCreateError
 
 /**
+ * Convenience method for creating a NSError Object
+ *
  * Easy convenience method to create a NSError Object. It checks for the error message
- * and throws an assertion if it's missing
+ * and throws an assertion if it's missing, allows for a string with formatting and 
+ * passing arguments for the formatting of a string. If no domain is passed in it defaults
+ * to kCWErrorDomain.
+ * 
+ * @param errorCode a NSInteger for the error code in a NSError object
+ * @param domain a NSString specifying the domain for a NSError object
+ * @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
+ * @return a NSError object with the values passed in
  */
-NSError * CWCreateError(NSInteger errorCode, NSString * domain, NSString * errorMessage){
-    return CWCreateErrorV(errorCode, domain, errorMessage);
-}
-
-/**
- * Easy convenience method to create a NSError Object. It checks for the error message
- * and throws an assertion if it's missing just like CWCreateError except this one allows
- * for a string with formatting and passing arguments for the formatting of a string
- */
-NSError * CWCreateErrorV(NSInteger errorCode, NSString * domain, NSString * errorMessageFormat, ...){
+NSError * CWCreateError(NSInteger errorCode, NSString * domain, NSString * errorMessageFormat, ...){
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
 
