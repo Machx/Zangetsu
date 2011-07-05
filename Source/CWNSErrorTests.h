@@ -9,9 +9,8 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWNSErrorTests : SenTestCase {}
+@interface CWNSErrorTests : SenTestCase
 
 -(void)testCreateError;
--(void)testCreateErrorV;
 
 @end

@@ -8,8 +8,6 @@
 
 #import "CWErrorUtilities.h"
 
-//TODO: Remove CWCreateErrorV and put CWCreateErrorV's implementation in CWCreateError
-
 /**
  * Convenience method for creating a NSError Object
  *
