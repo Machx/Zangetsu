@@ -9,8 +9,6 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
-//TODO: Replace the magic error #'s with constants
-
 /**
  Swizzles the Instance Method implementations
  
@@ -31,7 +29,7 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(101, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Instance Method to swizzle!");
+			*error = CWCreateError(kCWErrorNoOriginalInstanceMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Instance Method to swizzle!");
 			return nil;
 		}
 	}
@@ -39,7 +37,7 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	newMethod = class_getInstanceMethod(instanceClass, newSel);
 	if(!newMethod){
 		if(*error) {
-			*error = CWCreateError(102, @"com.Zangetsu.CWRuntimeUtilities", @"No New Instance Method to swizzle!");
+			*error = CWCreateError(kCWErrorNoNewInstanceMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No New Instance Method to swizzle!");
 			return nil;
 		}
 	}
@@ -70,7 +68,7 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	originalMethod = class_getClassMethod(methodClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(103, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Class Method to swizzle!");
+			*error = CWCreateError(kCWErrorNoOriginalClassMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Class Method to swizzle!");
 			return nil;
 		}
 	}
@@ -78,7 +76,7 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	newMethod = class_getClassMethod(methodClass, newSel);
 	if(!newMethod){
 		if(*error){
-			*error = CWCreateError(104 , @"com.Zangetsu.CWRuntimeUtilities", @"No New Class Method to swizzle!");
+			*error = CWCreateError(kCWErrorNoNewClassMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No New Class Method to swizzle!");
 			return nil;
 		}
 	}
