@@ -2,6 +2,10 @@
 
 Zangetsu is a general purpose 64 bit Garbage Collected Framework for Mac OS X 10.6 and later. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License.
 
+## Lion & ARC Plans ##
+
+Zangetsu will switch to 10.7 as the SDK when it is available. A 10.6 branch will be available, but will no longer be in active development. When ARC is publicly made available on the Mac OS X SDK, Zangetsu will switch over to it and no longer support Garbage Collection. GC will only be left on the 10.6 branch. So in short if you need 10.6 & GC on Zangetsu a branch will be made available, but no longer maintained.
+
 ## What's in Zangetsu? ##
 
 Zangetsu contains
