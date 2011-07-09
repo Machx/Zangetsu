@@ -14,6 +14,11 @@ static NSString * const kCWAppName = @"CFBundleName";
 
 /**
  * Conveince method for returing the apps Application Support folder
+ * 
+ * Gets the application support folder path & appends the bundle name to get the app support folder path
+ * for the application its being used in. The path returned is not guaranteed to exist.
+ * 
+ * @return a NSString with the Application Support Folder Path for this application
  */
 + (NSString *) applicationSupportFolder {
     NSString * _path = nil;
@@ -27,6 +32,15 @@ static NSString * const kCWAppName = @"CFBundleName";
     return [NSString stringWithFormat:@"%@/%@", _path, _appName];
 }
 
+/**
+ * Convenience method for returning the path for a document in the Documents folder
+ *
+ * Returns the document file path for a document in the users document folder. The path 
+ * returned is not guaranteed to exist. If file is nil then this api will throw an assertion.
+ *
+ * @param file the file in the document folder you are getting a path to
+ * @return a NSString with the path to file inside the documents folder.
+ */
 + (NSString *) documentsFolderPathForFile:(NSString *)file {
     NSParameterAssert(file);
     
