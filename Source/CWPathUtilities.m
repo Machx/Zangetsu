@@ -54,7 +54,13 @@ static NSString * const kCWAppName = @"CFBundleName";
 }
 
 /**
- * Gets the application support folder and appends the string onto it
+ * Convenience method for returning a path including a subpath (path) in the app support folder
+ *
+ * Returns the path including a subpath in the application support folder for the current app. The
+ * path returned is not guaranteed to exist. 
+ *
+ * @param path a subpath to be appended on to the Application Support Folder Path
+ * @return a NSString with the path within the app support folder path to the specified sub path
  */
 + (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
     NSString * _appSupportPath = nil;
@@ -69,7 +75,12 @@ static NSString * const kCWAppName = @"CFBundleName";
 }
 
 /**
- * Gets the home folder path & appends the subpath onto it
+ * Convenience Method for returning a subpath within the home folder path
+ *
+ * Returns the home folder path with a subpath appended onto the home folder path
+ *
+ * @param subpath the path to be appended onto the home folder path
+ * @return a NSString with the path within the home folder path
  */
 + (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath {
     NSString * _homeFolder = NSHomeDirectory();
@@ -77,6 +88,10 @@ static NSString * const kCWAppName = @"CFBundleName";
     return [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
 }
 
+/**
+ * Resolves a file alias
+ * This method is being considered for removal
+ */
 +(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error {
 	NSString *resolvedPath = nil;
 	
