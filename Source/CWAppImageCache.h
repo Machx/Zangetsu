@@ -11,6 +11,10 @@
 
 @interface CWAppImageCache : NSObject
 
-+(NSImage *)imageForName:(NSString *)imageName ofType:(NSString *)type;
+-(id)initWithCapacityCount:(NSUInteger)capacity;
+
+@property(nonatomic, assign) NSUInteger cacheCapacity;
+
+-(NSImage *)imageForName:(NSString *)imageName ofType:(NSString *)type;
 
 @end
