@@ -20,3 +20,8 @@
 -(void)addChild:(CWTreeNode *)node;
 -(void)removeChild:(CWTreeNode *)node;
 @end
+
+@interface CWTree : NSObject
+-(id)initWithRootNodeValue:(id)value;
+@property(nonatomic,readonly, retain) CWTreeNode *rootNode;
+@end

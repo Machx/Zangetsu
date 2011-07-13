@@ -53,3 +53,23 @@
 }
 
 @end
+
+@interface CWTree()
+@property(nonatomic,readwrite, retain) CWTreeNode *rootNode;
+@end
+
+@implementation CWTree
+
+@synthesize rootNode;
+
+-(id)initWithRootNodeValue:(id)value {
+    self = [super init];
+    if (self) {
+        CWTreeNode *aRootNode = [[CWTreeNode alloc] initWithValue:value];
+        rootNode = aRootNode;
+    }
+    
+    return self;
+}
+
+@end
