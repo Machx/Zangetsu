@@ -54,10 +54,6 @@
 
 @end
 
-@interface CWTree()
-@property(nonatomic,readwrite, retain) CWTreeNode *rootNode;
-@end
-
 @implementation CWTree
 
 @synthesize rootNode;

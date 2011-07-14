@@ -23,5 +23,5 @@
 
 @interface CWTree : NSObject
 -(id)initWithRootNodeValue:(id)value;
-@property(nonatomic,readonly, retain) CWTreeNode *rootNode;
+@property(nonatomic, retain) CWTreeNode *rootNode;
 @end
