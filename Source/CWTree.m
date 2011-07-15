@@ -52,6 +52,26 @@
     }
 }
 
+-(BOOL)isEqualTo:(CWTreeNode *)node {
+    if ([[node value] isEqualTo:[self value]]) {
+        if ([[node parent] isEqualTo:[self parent]]) {
+            if ([[node children] isEqualTo:[self children]]) {
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
+
+-(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
+    if ([[node value] isEqualTo:[self value]]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 @end
 
 @implementation CWTree
