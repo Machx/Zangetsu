@@ -29,6 +29,8 @@
     CWTree *tree2 = [[CWTree alloc] initWithRootNodeValue:aString];
     
     STAssertTrue([[tree1 rootNode] isNodeValueEqualTo:[tree2 rootNode]], @"Nodes should be equal");
+    
+    STAssertFalse([[tree1 rootNode] isEqual:[tree2 rootNode]], @"The Root nodes should not be equal because they are in different trees");
 }
 
 - (void)tearDown
