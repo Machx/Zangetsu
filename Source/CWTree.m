@@ -52,11 +52,13 @@
     }
 }
 
--(BOOL)isEqualTo:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
-        if ([[node parent] isEqualTo:[self parent]]) {
-            if ([[node children] isEqualTo:[self children]]) {
-                return YES;
+-(BOOL)isEqualTo:(id)node {
+    if ([node isMemberOfClass:[self class]]) {
+        if ([[node value] isEqualTo:[self value]]) {
+            if ([[node parent] isEqualTo:[self parent]]) {
+                if ([[node children] isEqualTo:[self children]]) {
+                    return YES;
+                }
             }
         }
     }
@@ -64,9 +66,11 @@
     return NO;
 }
 
--(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
-        return YES;
+-(BOOL)isNodeValueEqualTo:(id)node {
+    if ([node isMemberOfClass:[self class]]) {
+        if ([[node value] isEqualTo:[self value]]) {
+            return YES;
+        }
     }
     
     return NO;
@@ -86,6 +90,16 @@
     }
     
     return self;
+}
+
+-(BOOL)isEqual:(id)tree {
+    if ([tree isMemberOfClass:[self class]]) {
+        if ([[[self rootNode] children] isEqualTo:[[tree rootNode] children]]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end
