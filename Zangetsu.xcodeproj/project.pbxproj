@@ -77,6 +77,7 @@
 		B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897240E1347946C00BB67CF /* CWNSDateTests.m */; };
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
+		B8A9346F13D47BB2001209BF /* CWBTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A9346E13D47BB2001209BF /* CWBTreeTests.m */; };
 		B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18301138C1AF900A7EF7C /* CWStack.m */; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
@@ -194,6 +195,8 @@
 		B897240E1347946C00BB67CF /* CWNSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSDateTests.m; path = Source/CWNSDateTests.m; sourceTree = "<group>"; };
 		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
 		B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWExceptionUtilities.m; path = Source/CWExceptionUtilities.m; sourceTree = "<group>"; };
+		B8A9346D13D47BB2001209BF /* CWBTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBTreeTests.h; path = Source/CWBTreeTests.h; sourceTree = "<group>"; };
+		B8A9346E13D47BB2001209BF /* CWBTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBTreeTests.m; path = Source/CWBTreeTests.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8C18300138C1AF900A7EF7C /* CWStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStack.h; path = Source/CWStack.h; sourceTree = "<group>"; };
 		B8C18301138C1AF900A7EF7C /* CWStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStack.m; path = Source/CWStack.m; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */,
 				17967DCC13D09C590023DCCB /* CWTreeTests.h */,
 				17967DCD13D09C590023DCCB /* CWTreeTests.m */,
+				B8A9346D13D47BB2001209BF /* CWBTreeTests.h */,
+				B8A9346E13D47BB2001209BF /* CWBTreeTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 				17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */,
 				174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */,
 				17967DCE13D09C590023DCCB /* CWTreeTests.m in Sources */,
+				B8A9346F13D47BB2001209BF /* CWBTreeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
