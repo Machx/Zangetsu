@@ -1,10 +1,10 @@
 # Zangetsu Framework #
 
-Zangetsu is a general purpose 64 bit Garbage Collected Framework for Mac OS X 10.6 and later. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License.
+Zangetsu is a general purpose 64 bit Garbage Collected Framework for Mac OS X 10.7 and later with preserved snapshots available for those who need 10.6 Snow Leopard support in the downloads. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License.
 
-## Lion & ARC Plans ##
+## ARC Plans ##
 
-Zangetsu will switch to 10.7 as the SDK when it is available. A 10.6 branch will be available, but will no longer be in active development. When ARC is publicly made available on the Mac OS X SDK, Zangetsu will switch over to it and no longer support Garbage Collection. GC will only be left on the 10.6 branch. So in short if you need 10.6 & GC on Zangetsu a branch will be made available, but no longer maintained.
+When ARC is publicly made available on the Mac OS X SDK, Zangetsu will switch over to it and no longer support Garbage Collection. A final Garbage Collection Snapshot & information on what commit to revert to for GC support will be provided.
 
 ## What's in Zangetsu? ##
 
@@ -18,6 +18,8 @@ Zangetsu contains
 
 * SHA1 & MD5 Convenience APIs
 
+* Objective-C Data Structures like Stacks,Trees,etc.
+
 * NSTask Conveience APIs
 
 * Host Version Info Convenience APIs
@@ -30,16 +32,16 @@ Zangetsu contains
 
 ## What does Zangetsu mean? ##
 
-Zangetsu ( 斬月 ) is Japanese and means Slaying Moon. The inspiration for the name for this project comes from the Japanese Anime Bleach. Specifically a character called Ichigo Kurosaki and his zanpakutō ((斬魄刀) literally "soul-cutter sword"). It is a sword that takes many shapes. In the same way I intend this framework to do the same.
+Zangetsu ( 斬月 ) is Japanese and means Slaying Moon. The inspiration for the name for this project comes from the Japanese Anime Bleach. Specifically a character called Ichigo Kurosaki and his zanpakutō ( 斬魄刀 literally "soul-cutter sword" ). It is a sword that takes many shapes. In the same way I intend this framework to do the same.
 
 ## Where is the Documentation ##
 There is Doxygen support in the framework. All you need to do is download Doxygen and generate the documentation from the Doxyfile
 
-## How do i use Zangetsu? ##
-The way Zangetsu is structured you need to have Zangetsu in the same directory as the project you are using it with. I have a projects directory that the framework is in with all my projects. Additionally it's best that you change Xcode to build to a shared build directory and then drag (from finder) the Zangetsu.xcodeproj file into the source list in Xcode on the project that you whish to use the framework in. The Cocoa project you use it with must be 64 bit and using Garbage Collection (gc).
-
 ## Where do I report bugs? ##
 File issues in the issue section on the github project.
+
+## I need to use Zangetsu on 10.6 Snow Leopard ##
+Download the [Zangetsu 10.6 SDK Snapshot](https://github.com/downloads/Machx/Zangetsu/Machx-Zangetsu-10_6.zip) and feel free to use it within the terms of the MIT License. Alternatively you may fork the project and revert it to the last commit before settings where updated for 10.7 which is commit 4c1feb41487720d4ae8101796d5cc8f88b542668 on the master branch.
 
 ## Zangetsu Licence ##
 Zangetsu is licensed under the MIT license
