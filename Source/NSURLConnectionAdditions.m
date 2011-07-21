@@ -16,6 +16,9 @@
  a block onto the passed in queue and executes a synchronous request
  once the request is complete the method adds a block opertaion back
  on the main thread and executes the block
+ 
+ NSURLConnection has an equivalent method for this in Lion
+ CONSIDER_10_7_SDK_REMOVAL
  */
 +(void)cw_performAsynchronousRequest:(NSURLRequest *)request 
 						   onNSQueue:(NSOperationQueue *)queue 

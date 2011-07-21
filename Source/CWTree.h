@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//TODO: Future idea, subclass CWTreeNode & turn it into CWBTreeNode (left/right) children only
-
 @interface CWTreeNode : NSObject
 //vars
 @property(nonatomic, retain) id value;
