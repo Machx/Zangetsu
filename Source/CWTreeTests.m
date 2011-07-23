@@ -30,7 +30,24 @@
     
     STAssertTrue([[tree1 rootNode] isNodeValueEqualTo:[tree2 rootNode]], @"Nodes should be equal");
     
-    STAssertFalse([[tree1 rootNode] isEqual:[tree2 rootNode]], @"The Root nodes should not be equal because they are in different trees");
+    STAssertFalse([[tree1 rootNode] isEqualTo:[tree2 rootNode]], @"The Root nodes should not be equal because they are in different trees");
+}
+
+-(void)testTreeEquality {
+    
+    NSString *aStringVal = [[NSString alloc] initWithString:@"Hynotoad"];
+    
+    CWTree *tree1 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
+    
+    CWTree *tree2 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
+    
+    STAssertTrue([tree1 isEqualTo:tree2], @"Trees should be equal");
+    
+    CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"Cheez it!"];
+    
+    [[tree1 rootNode] addChild:node2];
+    
+    STAssertFalse([tree1 isEqualTo:tree2], @"Trees should not be equal now");
 }
 
 - (void)tearDown

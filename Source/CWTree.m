@@ -92,7 +92,7 @@
     return self;
 }
 
--(BOOL)isEqual:(id)tree {
+-(BOOL)isEqualTo:(id)tree {
     if ([tree isMemberOfClass:[self class]]) {
         if ([[[self rootNode] children] isEqualTo:[[tree rootNode] children]]) {
             return YES;
