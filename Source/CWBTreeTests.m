@@ -36,7 +36,6 @@
     NSString *string1 = @"Hypnotoad";
     
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
-    
     CWBTreeNode *node2 = node1;
     
     STAssertTrue([node1 isEqualTo:node2], @"Nodes should be equivalent");

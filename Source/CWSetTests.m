@@ -85,6 +85,9 @@
 	STAssertTrue([testSet2 isEqualToSet:testSet3],@"Sets should be equal");
 }
 
+/**
+ Test for selective mapping in cw_mapSet.
+ */
 -(void)testSelectiveMapping;
 {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
@@ -100,7 +103,11 @@
 	
 	NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Leela",nil];
 	
-	STAssertTrue(![testSet2 isEqualToSet:testSet3], @"TestSet 2 and 3 should be equal in selective mapping");
+	STAssertFalse([testSet2 isEqualToSet:testSet3], @"TestSet 2 and 3 should be equal in selective mapping");
+    
+    NSSet *testSet4 = [NSSet setWithObjects:@"Fry",@"Bender", nil];
+    
+    STAssertTrue([testSet4 isEqualToSet:testSet2], @"The 2 test sets should have equal contents");
 }
 
 @end

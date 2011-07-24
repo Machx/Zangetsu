@@ -38,13 +38,11 @@
     NSString *aStringVal = [[NSString alloc] initWithString:@"Hynotoad"];
     
     CWTree *tree1 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
-    
     CWTree *tree2 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
     
     STAssertTrue([tree1 isEqualTo:tree2], @"Trees should be equal");
     
     CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"Cheez it!"];
-    
     [[tree1 rootNode] addChild:node2];
     
     STAssertFalse([tree1 isEqualTo:tree2], @"Trees should not be equal now");
