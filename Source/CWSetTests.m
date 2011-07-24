@@ -100,14 +100,10 @@
 		
 		return nil;
 	}];
-	
-	NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Leela",nil];
-	
-	STAssertFalse([testSet2 isEqualToSet:testSet3], @"TestSet 2 and 3 should be equal in selective mapping");
     
-    NSSet *testSet4 = [NSSet setWithObjects:@"Fry",@"Bender", nil];
+    NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Bender", nil];
     
-    STAssertTrue([testSet4 isEqualToSet:testSet2], @"The 2 test sets should have equal contents");
+    STAssertTrue([testSet3 isEqualToSet:testSet2], @"The 2 test sets should have equal contents");
 }
 
 @end
