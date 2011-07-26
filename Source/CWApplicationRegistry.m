@@ -74,4 +74,34 @@
 	return bundleIdentifier;
 }
 
++(NSInteger)executableArchitectureForApplication:(NSString *)appName {
+    __block NSInteger architecture = 0;
+    
+    NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+	[applications cw_each:^(id obj){
+		NSRunningApplication *app = (NSRunningApplication *)obj;
+		
+		if ([[app localizedName] isEqualToString:appName]) {
+			architecture = [app executableArchitecture];
+		}
+	}];
+    
+    return  architecture;
+}
+
++(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName {
+    __block NSRunningApplication *appInstance = nil;
+    
+    NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+	[applications cw_each:^(id obj){
+		NSRunningApplication *app = (NSRunningApplication *)obj;
+		
+		if ([[app localizedName] isEqualToString:appName]) {
+			appInstance = app;
+		}
+	}];
+    
+    return appInstance;
+}
+
 @end
