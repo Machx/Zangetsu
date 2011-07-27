@@ -12,37 +12,6 @@
 @implementation NSURLConnection (CWNSURLConnectionAdditions)
 
 /**
- Checks the request & Queue parameters then adds an operation with
- a block onto the passed in queue and executes a synchronous request
- once the request is complete the method adds a block opertaion back
- on the main thread and executes the block
- 
- NSURLConnection has an equivalent method for this in Lion
- CONSIDER_10_7_SDK_REMOVAL
- */
-+(void)cw_performAsynchronousRequest:(NSURLRequest *)request 
-						   onNSQueue:(NSOperationQueue *)queue 
-					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block
-{
-	NSParameterAssert(request);
-	NSParameterAssert(queue);
-	
-	[queue addOperationWithBlock:^() {
-		
-		NSURLResponse *_response = nil;
-		NSError *_urlError;
-		
-		NSData *_data = [NSURLConnection sendSynchronousRequest:request
-											  returningResponse:&_response 
-														  error:&_urlError];
-		
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^() {
-			block(_data,_response,_urlError);
-		}];
-	}];
-}
-
-/**
  Checks the Queue and request parameters then dispatches a block onto
  the passed in queue, executes a synchronous request and then dispatches
  a block back onto the main thread and executes the block passed in
