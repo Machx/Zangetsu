@@ -33,4 +33,8 @@ typedef void(^stackBlock)(id obj);
 
 -(BOOL)isEqualTo:(id)object;
 
+-(BOOL)isEmpty;
+
+-(NSInteger)count;
+
 @end

@@ -182,4 +182,12 @@
 	return [[self stack] description];
 }
 
+-(BOOL)isEmpty {
+    return !([[self stack] count] != 0);
+}
+
+-(NSInteger)count {
+    return [[self stack] count];
+}
+
 @end

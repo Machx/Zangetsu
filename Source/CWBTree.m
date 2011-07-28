@@ -8,6 +8,11 @@
 
 #import "CWBTree.h"
 
+@interface CWBTreeNode()
+@property(nonatomic, retain, readwrite) CWBTreeNode *leftNode;
+@property(nonatomic, retain, readwrite) CWBTreeNode *rightNode;
+@end
+
 @implementation CWBTreeNode
 
 @synthesize value;
@@ -55,6 +60,16 @@
     }
     
     return NO;
+}
+
+-(void)assignLeftNode:(CWBTreeNode *)node {
+    [node setParent:self];
+    [self setLeftNode:node];
+}
+
+-(void)assignRightNode:(CWBTreeNode *)node {
+    [node setParent:self];
+    [self setRightNode:node];
 }
 
 @end

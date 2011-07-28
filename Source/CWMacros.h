@@ -78,6 +78,7 @@ do { \
 
 //CW_10_7_REMOVE_API
 //Framework will switch from GC to ARC
+//TODO: Remove upon switch to ARC
 
 #pragma mark -
 #pragma mark Garbage Collection
