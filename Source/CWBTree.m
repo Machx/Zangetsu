@@ -78,6 +78,15 @@
 
 @synthesize rootNode;
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        rootNode = nil;
+    }
+    
+    return self;
+}
+
 -(id)initWithRootNodeValue:(id)value
 {
     self = [super init];
@@ -87,6 +96,38 @@
     }
     
     return self;
+}
+
+-(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
+    
+    //1st implementation of a iterative preorder traversal...
+    
+    if ([self rootNode] == nil) {
+        return;
+    }
+    
+    __block BOOL shouldStop = NO;
+    
+    CWStack *nodes = [[CWStack alloc] init];
+    [nodes push:[self rootNode]];
+    
+    CWBTreeNode *currentNode = nil;
+    
+    while (![nodes isEmpty]) {
+        currentNode = [nodes pop];
+        
+        if ([currentNode rightNode] != nil) {
+            [nodes push:[currentNode rightNode]];
+        }
+        if ([currentNode leftNode] != nil) {
+            [nodes push:[currentNode leftNode]];
+        }
+        
+        block([currentNode value],currentNode,&shouldStop);
+        if (shouldStop == YES) {
+            return;
+        }
+    }
 }
 
 @end
