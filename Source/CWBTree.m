@@ -63,17 +63,21 @@
 }
 
 -(void)assignLeftNode:(CWBTreeNode *)node {
-    if (node != nil) {
-        [node setParent:self];
+    if (node != self) {
+        if (node != nil) {
+            [node setParent:self];
+        }
+        [self setLeftNode:node];
     }
-    [self setLeftNode:node];
 }
 
 -(void)assignRightNode:(CWBTreeNode *)node {
-    if (node != nil) {
-        [node setParent:self];
+    if (node != self) {
+        if (node != nil) {
+            [node setParent:self];
+        }
+        [self setRightNode:node];
     }
-    [self setRightNode:node];
 }
 
 @end
