@@ -100,6 +100,42 @@
     STAssertTrue([testString isEqualToString:truthString], @"The Strings should be the same if the tree was traversed correctly");
 }
 
+-(void)testStopPointer {
+    
+    /**
+     same tree structure as the testEnumeration test...
+     we should visit node 4 then 2 and then stop...
+     */
+    
+    CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
+    
+    CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
+    [rNode assignRightNode:rRNode];
+    
+    CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
+    [rNode assignLeftNode:rLNode];
+    
+    CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
+    [rLNode assignLeftNode:node2L];
+    
+    CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
+    [rLNode assignRightNode:node2R];
+    
+    CWBTree *tree = [[CWBTree alloc] init];
+    [tree setRootNode:rNode];
+    
+    __block NSMutableString *currentString = [[NSMutableString alloc] init];
+    
+    [tree enumerateBTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
+        [currentString appendString:(NSString *)nodeValue];
+        if ([(NSString *)nodeValue isEqualToString:@"2"]) {
+            *stop = YES;
+        }
+    }];
+    
+    STAssertTrue([currentString isEqualToString:@"42"], @"the String should equal 42 if it stopped correctly");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
