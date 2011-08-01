@@ -18,6 +18,10 @@
     // Set-up code here.
 }
 
+/**
+ test that the CWTree objects are being created and correctly
+ assigning their root nodes
+ */
 -(void)testBasicTreeCreation {
     
     NSString *string1 = @"Hypnotoad";
@@ -31,6 +35,9 @@
     STAssertTrue([[[tree1 rootNode] value] isEqual:[[tree2 rootNode] value]], @"Root nodes should be equal");
 }
 
+/**
+ test for node equality
+ */
 -(void)testNodeIsEqual {
     
     NSString *string1 = @"Hypnotoad";
@@ -45,6 +52,9 @@
     STAssertFalse([node1 isEqualTo:node3], @"The 2 nodes have different values and should always be false");
 }
 
+/**
+ Test that we are running the iterative preorder traversal in the correct order...
+ */
 -(void)testEnumeration {
     
     /**
@@ -100,6 +110,9 @@
     STAssertTrue([testString isEqualToString:truthString], @"The Strings should be the same if the tree was traversed correctly");
 }
 
+/**
+ Test that the bool pointer in the block correctly stops enumation
+ */
 -(void)testStopPointer {
     
     /**
