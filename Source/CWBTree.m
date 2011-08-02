@@ -36,10 +36,12 @@
  checks if the node values & their left/right node pointers are equal
  */
 -(BOOL)isEqualToNode:(CWBTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]] &&
-        [[node leftNode] isEqualTo:[self leftNode]] &&
-        [[node rightNode] isEqualTo:[self rightNode]]) {
-        return YES;
+    if ([[node value] isEqualTo:[self value]]){
+        if ([[node leftNode] isEqualTo:[self leftNode]]) {
+            if ([[node rightNode] isEqualTo:[self rightNode]]) {
+                return YES;
+            }
+        }
     }
     
     return NO;
