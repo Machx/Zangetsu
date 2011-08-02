@@ -16,6 +16,7 @@
 -(id)initWithValue:(id)aValue;
 -(void)assignLeftNode:(CWBTreeNode *)node;
 -(void)assignRightNode:(CWBTreeNode *)node;
+-(BOOL)isEqualToNode:(CWBTreeNode *)node;
 @end
 
 @interface CWBTree : NSObject

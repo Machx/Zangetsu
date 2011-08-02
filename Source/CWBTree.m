@@ -35,15 +35,11 @@
 /**
  checks if the node values & their left/right node pointers are equal
  */
--(BOOL)isEqual:(id)object {
-    if ([object isMemberOfClass:[self class]]) {
-        CWBTreeNode *node = (CWBTreeNode *)object;
-        
-        if ([[node value] isEqualTo:[self value]] &&
-            [[node leftNode] isEqualTo:[self leftNode]] &&
-            [[node rightNode] isEqualTo:[self rightNode]]) {
-            return YES;
-        }
+-(BOOL)isEqualToNode:(CWBTreeNode *)node {
+    if ([[node value] isEqualTo:[self value]] &&
+        [[node leftNode] isEqualTo:[self leftNode]] &&
+        [[node rightNode] isEqualTo:[self rightNode]]) {
+        return YES;
     }
     
     return NO;
