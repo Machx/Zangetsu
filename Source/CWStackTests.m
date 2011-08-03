@@ -31,7 +31,8 @@
 	[stack1 push:[array objectAtIndex:2]];
 	[stack1 push:[array objectAtIndex:3]];
 	
-	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
+    STAssertTrue([stack1 isEqualToStack:stack2], @"stack contents should be equal");
+    STAssertFalse([stack1 isEqualTo:stack2], @"stacks shouldnt be the same object");
 }
 
 -(void)testBasicEnumeration {

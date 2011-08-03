@@ -161,12 +161,9 @@
  @param object another CWStack object which you wish to compare its contents to against the receiver object
  @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
  */
--(BOOL)isEqualTo:(id)object {
-	if (![object isMemberOfClass:[CWStack class]]) {
-		return NO;
-	}
+-(BOOL)isEqualToStack:(CWStack *)aStack {
 	
-	if ([[object description] isEqualToString:[self description]]) {
+	if ([[aStack description] isEqualToString:[self description]]) {
 		return YES;
 	}
 	
