@@ -17,5 +17,6 @@ static const NSInteger kPidNotFound = -1;
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName;
 +(NSInteger)executableArchitectureForApplication:(NSString *)appName;
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
++(NSImage *)iconForApplication:(NSString *)appName;
 
 @end
