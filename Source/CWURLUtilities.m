@@ -17,6 +17,7 @@
  * @return a NSURL object from the string passed in
  */
 NSURL *CWURL(NSString * urlFormat,...){
+    NSCParameterAssert(urlFormat);
 	
 	va_list args;
     va_start(args, urlFormat);
