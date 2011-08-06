@@ -18,8 +18,8 @@
 -(void)addChild:(CWTreeNode *)node;
 -(void)removeChild:(CWTreeNode *)node;
 //comparisons
--(BOOL)isEqualTo:(id)node;
--(BOOL)isNodeValueEqualTo:(id)node;
+-(BOOL)isEqualToNode:(CWTreeNode *)node
+-(BOOL)isNodeValueEqualTo:(CWTreeNode *)node;
 @end
 
 @interface CWTree : NSObject
