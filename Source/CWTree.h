@@ -13,6 +13,7 @@
 @property(nonatomic, retain) id value;
 @property(nonatomic, assign) __weak id parent;
 @property(nonatomic, readonly, retain) NSMutableArray *children;
+@property(nonatomic, assign) BOOL allowsDuplicates;
 //methods
 -(id)initWithValue:(id)aValue;
 -(void)addChild:(CWTreeNode *)node;

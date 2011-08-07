@@ -17,6 +17,7 @@
 @synthesize value;
 @synthesize children;
 @synthesize parent;
+@synthesize allowsDuplicates;
 
 -(id)init {
     self = [super init];
@@ -24,6 +25,7 @@
         value = nil;
         children = [[NSMutableArray alloc] init];
         parent = nil;
+        allowsDuplicates = YES;
     }
     
     return self;
@@ -41,8 +43,17 @@
 }
 
 -(void)addChild:(CWTreeNode *)node {
-    [node setParent:self];
-    [[self children] addObject:node];
+    if (self->allowsDuplicates == YES) {
+        [node setParent:self];
+        [[self children] addObject:node];
+    }
+    else {
+        if (![self->children containsObject:node]) {
+            [node setParent:self];
+            [node setAllowsDuplicates:NO];
+            [[self children] addObject:node];
+        }
+    }
 }
 
 -(void)removeChild:(CWTreeNode *)node {
