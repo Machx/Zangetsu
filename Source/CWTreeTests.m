@@ -48,6 +48,28 @@
     STAssertFalse([tree1 isEqualTo:tree2], @"Trees should not be equal now");
 }
 
+-(void)testTreeNodeDoesNotAddDupes {
+    
+    NSString *myString = @"hello I am your string";
+    
+    CWTreeNode *node = [[CWTreeNode alloc] initWithValue:myString];
+    [node setAllowsDuplicates:NO];
+    
+    STAssertTrue([[node children] count] == 0, @"Node should't have any children");
+    
+    NSString *myString1 = @"Obey Hyponotoad";
+    
+    CWTreeNode *node1 = [[CWTreeNode alloc] initWithValue:myString1];
+    
+    [node addChild:node1];
+    
+    STAssertTrue([[node children] count] == 1, @"node should only have 1 child");
+    
+    [node addChild:node1];
+    
+    STAssertTrue([[node children] count] == 1, @"node should not have added the node again");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
