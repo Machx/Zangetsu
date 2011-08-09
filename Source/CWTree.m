@@ -49,9 +49,19 @@
     }
     else {
         if (![self->children containsObject:node]) {
-            [node setParent:self];
-            [node setAllowsDuplicates:NO];
-            [[self children] addObject:node];
+            __block BOOL anyNodeContainsValue = NO;
+            [[self children] cw_each:^(id obj) {
+                id nodeValue = [(CWTreeNode *)obj value];
+                if ([nodeValue isEqualTo:[node value]]) {
+                    anyNodeContainsValue = YES;
+                }
+            }];
+            
+            if (anyNodeContainsValue == NO) {
+                [node setParent:self];
+                [node setAllowsDuplicates:NO];
+                [[self children] addObject:node];
+            }
         }
     }
 }

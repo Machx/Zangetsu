@@ -68,6 +68,11 @@
     [node addChild:node1];
     
     STAssertTrue([[node children] count] == 1, @"node should not have added the node again");
+    
+    CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:myString1];
+    [node addChild:node2];
+    
+    STAssertTrue([[node children] count] == 1, @"node should not have added the node again");
 }
 
 - (void)tearDown
