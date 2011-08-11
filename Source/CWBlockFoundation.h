@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CWCommonBlockTypes.h"
 
-typedef void (^VoidBlock)(void);
-
-void CWInAutoreleasePool(VoidBlock block);
+void CWInAutoreleasePool(CWVoidBlock block);

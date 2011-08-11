@@ -18,7 +18,7 @@
  
  @param block a block to be executed after creation of a autorelease pool and before the pool is released
  */
-void CWInAutoreleasePool(VoidBlock block)
+void CWInAutoreleasePool(CWVoidBlock block)
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	block();

@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//
-typedef void(^stackBlock)(id obj);
-
 @interface CWStack : NSObject
 
 -(id)initWithObjectsFromArray:(NSArray *)objects;
@@ -21,7 +18,7 @@ typedef void(^stackBlock)(id obj);
 
 -(NSArray *)popToObject:(id)object;
 
--(void)popToObject:(id)object withBlock:(stackBlock)block;
+-(void)popToObject:(id)object withBlock:(void (^)(id obj))block;
 
 -(NSArray *)popToBottomOfStack;
 

@@ -49,7 +49,7 @@
 /**
  Executes the passed in block after a specified delay time
  */
--(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block
+-(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block
 {
 	[block performSelector:@selector(_cw_blockInvokeCallBack) withObject:nil afterDelay:delay];
 }

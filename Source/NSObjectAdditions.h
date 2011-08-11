@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface   NSObject (CWNSObjectAdditions) {}
 
 // Objective-C Associated Objects
@@ -21,9 +20,7 @@
 
 // Block Timing Methods
 
-typedef void (^ObjTimeBlock)(void);
-
--(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(ObjTimeBlock)block;
+-(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block;
 
 // Queueing  Methods
 

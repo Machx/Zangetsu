@@ -102,7 +102,7 @@
  @param object The object you wish to pop the stack to
  @param block the block that will be executed upon encountering each object in the stack until the object specified is found
  */
--(void)popToObject:(id)object withBlock:(stackBlock)block {
+-(void)popToObject:(id)object withBlock:(void (^)(id obj))block {
 	if (![[self stack] containsObject:object]) {
 		return;
 	}

@@ -37,6 +37,7 @@
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
 		B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8380E4013452C18009988F5 /* NSDateAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
+		B838AB0A13F43FF200A1BB2E /* CWCommonBlockTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = B838AB0913F43FF200A1BB2E /* CWCommonBlockTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -151,6 +152,7 @@
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
 		B8380E4013452C18009988F5 /* NSDateAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateAddtions.h; path = Source/NSDateAddtions.h; sourceTree = "<group>"; };
 		B8380E4113452C18009988F5 /* NSDateAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateAddtions.m; path = Source/NSDateAddtions.m; sourceTree = "<group>"; };
+		B838AB0913F43FF200A1BB2E /* CWCommonBlockTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWCommonBlockTypes.h; path = Source/CWCommonBlockTypes.h; sourceTree = "<group>"; };
 		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B838AB0913F43FF200A1BB2E /* CWCommonBlockTypes.h */,
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
@@ -511,6 +514,7 @@
 				B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */,
 				1701DA1A13CC9285007EE513 /* CWTree.h in Headers */,
 				17967DC513CF3CBE0023DCCB /* CWBTree.h in Headers */,
+				B838AB0A13F43FF200A1BB2E /* CWCommonBlockTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
