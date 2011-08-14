@@ -56,6 +56,8 @@
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
 		B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B867BBF813944FE1009BEB98 /* CWStackTests.m */; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
+		B869C85A13F787C300739DE4 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B869C85813F787C300739DE4 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869C85B13F787C300739DE4 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85913F787C300739DE4 /* CWURLRequest.m */; };
 		B87AB1A11314182700CB2793 /* CWAppImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B87AB19F1314182600CB2793 /* CWAppImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B87AB1A21314182700CB2793 /* CWAppImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B87AB1A01314182700CB2793 /* CWAppImageCache.m */; };
 		B8806A2D12B3D44D00F85BCE /* CWBlockFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -174,6 +176,8 @@
 		B867BBF813944FE1009BEB98 /* CWStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStackTests.m; path = Source/CWStackTests.m; sourceTree = "<group>"; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
+		B869C85813F787C300739DE4 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
+		B869C85913F787C300739DE4 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B87AB19F1314182600CB2793 /* CWAppImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAppImageCache.h; path = Source/CWAppImageCache.h; sourceTree = "<group>"; };
 		B87AB1A01314182700CB2793 /* CWAppImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAppImageCache.m; path = Source/CWAppImageCache.m; sourceTree = "<group>"; };
 		B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockFoundation.h; path = Source/CWBlockFoundation.h; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				B87AB1A01314182700CB2793 /* CWAppImageCache.m */,
 				B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */,
 				B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */,
+				17967DC313CF3CBE0023DCCB /* CWBTree.h */,
+				17967DC413CF3CBE0023DCCB /* CWBTree.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */,
@@ -332,8 +338,8 @@
 				B84994A8128210D6001206E1 /* CWTask.m */,
 				1701DA1813CC9285007EE513 /* CWTree.h */,
 				1701DA1913CC9285007EE513 /* CWTree.m */,
-				17967DC313CF3CBE0023DCCB /* CWBTree.h */,
-				17967DC413CF3CBE0023DCCB /* CWBTree.m */,
+				B869C85813F787C300739DE4 /* CWURLRequest.h */,
+				B869C85913F787C300739DE4 /* CWURLRequest.m */,
 				B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */,
 				B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */,
 				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
@@ -516,6 +522,7 @@
 				B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */,
 				1701DA1A13CC9285007EE513 /* CWTree.h in Headers */,
 				17967DC513CF3CBE0023DCCB /* CWBTree.h in Headers */,
+				B869C85A13F787C300739DE4 /* CWURLRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +667,7 @@
 				B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */,
 				1701DA1B13CC9285007EE513 /* CWTree.m in Sources */,
 				17967DC613CF3CBE0023DCCB /* CWBTree.m in Sources */,
+				B869C85B13F787C300739DE4 /* CWURLRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
