@@ -47,6 +47,13 @@
     BOOL bool2 = YES;
     
     STAssertTrue([bool1 boolValue] == bool2, @"BOOL values should be the same");
+    
+    NSNumber *bool3 = NSBOOL(NO);
+    BOOL bool4 = NO;
+    
+    STAssertTrue([bool3 boolValue] == bool4, @"Bool values should be the same");
+    
+    STAssertFalse([bool3 boolValue] == [bool1 boolValue], @"bools formed from NSNumber should have different values");
 }
 
 -(void)testSetMacro {
