@@ -82,6 +82,7 @@ do { \
 #define CWGCDQueueLow() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0)
 #define CWGCDQueueNormal() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)
 #define CWGCDQueueHigh() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,0)
+#define CWGCDQueueBackground() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0)
 
 //CW_10_7_REMOVE_API
 //Framework will switch from GC to ARC
