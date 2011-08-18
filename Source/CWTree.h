@@ -21,6 +21,8 @@
 //comparisons
 -(BOOL)isEqualToNode:(CWTreeNode *)node;
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node;
+//
+-(NSUInteger)nodeLevel;
 @end
 
 @interface CWTree : NSObject

@@ -75,6 +75,18 @@
     STAssertTrue([[node children] count] == 1, @"node should not have added the node again");
 }
 
+-(void)testNodeLevel {
+    
+    CWTreeNode *node1 = [[CWTreeNode alloc] initWithValue:@"hello"];
+    
+    STAssertTrue([node1 nodeLevel] == 1, @"Node is the only object in a graph so its level should be 1");
+    
+    CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"world"];
+    [node1 addChild:node2];
+    
+    STAssertTrue([node2 nodeLevel] == 2, @"node2 was added to 1 so its level should be 2");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.

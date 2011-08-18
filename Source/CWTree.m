@@ -93,6 +93,18 @@
     return NO;
 }
 
+-(NSUInteger)nodeLevel {
+    NSUInteger level = 1;
+    
+    CWTreeNode *currentNode = [self parent];
+    while (currentNode != nil) {
+        level++;
+        currentNode = [currentNode parent];
+    }
+    
+    return level;
+}
+
 @end
 
 @implementation CWTree
