@@ -36,7 +36,6 @@
 #import "NSManagedObjectAdditions.h"
 #import "CWExceptionUtilities.h"
 #import "CWURLUtilities.h"
-#import "CWAppImageCache.h"
 #import "CWRuntimeUtilities.h"
 #import "CWReachability.h"
 #import "NSDateAddtions.h"
