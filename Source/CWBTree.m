@@ -47,19 +47,6 @@
     return NO;
 }
 
-/**
- checks if the node values are equal
- */
--(BOOL)isEqualTo:(id)object {
-    if ([object isMemberOfClass:[self class]]) {
-        if ([[(CWBTreeNode *)object value] isEqualTo:[self value]]) {
-            return YES;
-        }
-    }
-    
-    return NO;
-}
-
 -(void)assignLeftNode:(CWBTreeNode *)node {
     if (node != self) {
         if (node != nil) {
