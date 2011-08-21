@@ -33,7 +33,7 @@ inline CGContextRef CWCurrentCGContext()
  @param context the CGContextRef you want to operate on
  @param block the block to be executed after saving the current state of the context & before restoring the previous state
  */
-void CWExecuteAndRestoreCGContext(CGContextRef context,ContextBlock block) {
+void CWExecuteAndRestoreCGContext(CGContextRef context,void (^block)(void)) {
 	CGContextSaveGState(context);
 	block();
 	CGContextRestoreGState(context);

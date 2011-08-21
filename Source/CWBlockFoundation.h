@@ -8,4 +8,4 @@
 
 #import <Cocoa/Cocoa.h>
 
-void CWInAutoreleasePool(dispatch_block_t block);
+void CWInAutoreleasePool(void (^block)(void));

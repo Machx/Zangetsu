@@ -12,8 +12,7 @@ NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect);
 
 extern CGContextRef CWCurrentCGContext();
 
-typedef void (^ContextBlock)(void);
-void CWExecuteAndRestoreCGContext(CGContextRef context,ContextBlock);
+void CWExecuteAndRestoreCGContext(CGContextRef context,void (^block)(void));
 
 extern void CWAddRoundedRectToPath(CGContextRef context,
 								   CGRect rect,
