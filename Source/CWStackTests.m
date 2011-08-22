@@ -93,6 +93,17 @@
 	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
+-(void)testEmptyStack {
+    
+    CWStack *stack = [[CWStack alloc] init];
+    
+    STAssertTrue([stack isEmpty], @"stack should be empty");
+    
+    [stack push:@"All Glory to the Hypnotoad"];
+    
+    STAssertFalse([stack isEmpty], @"stack should not be empty");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.

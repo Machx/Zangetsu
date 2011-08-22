@@ -72,8 +72,8 @@
     block([self urlData],[self urlError]);
 }
 
-#pragma mark -
-#pragma NSURLConnection Delegate Methods
+//MARK: -
+//MARK: NSURLConnection Delegate Methods
 
 - (NSURLRequest *)connection:(NSURLConnection *)inConnection 
              willSendRequest:(NSURLRequest *)request 

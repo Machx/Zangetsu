@@ -179,10 +179,20 @@
 	return [[self stack] description];
 }
 
+/**
+ returns if the stack is currently empty
+ 
+ @return a BOOL indicating if the stack is empty
+ */
 -(BOOL)isEmpty {
     return !([[self stack] count] != 0);
 }
 
+/**
+ returns a count of objects in the current stack object
+ 
+ @return a NSInteger indicating how many objects are currently in the stack
+ */
 -(NSInteger)count {
     return [[self stack] count];
 }
