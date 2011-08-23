@@ -72,6 +72,29 @@
     block([self urlData],[self urlError]);
 }
 
+-(void)startSynchronousDownloadOnQueue:(dispatch_queue_t)queue
+                   withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
+    NSParameterAssert([self host]);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:CWURL([self host])];
+    [self setUrlRequest:request];
+    
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [self setConnection:urlConnection];
+    
+    dispatch_async(queue, ^(void) {
+        [urlConnection start];
+        
+        while ([self isFinished] == NO) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            block([self urlData],[self urlError]);
+        });
+    });
+}
+
 //MARK: -
 //MARK: NSURLConnection Delegate Methods
 
