@@ -72,8 +72,8 @@
     block([self urlData],[self urlError]);
 }
 
--(void)startSynchronousDownloadOnQueue:(dispatch_queue_t)queue
-                   withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
+-(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
+                    withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
     NSURLRequest *request = [NSURLRequest requestWithURL:CWURL([self host])];

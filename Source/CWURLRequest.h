@@ -20,7 +20,7 @@
 
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block;
 
--(void)startSynchronousDownloadOnQueue:(dispatch_queue_t)queue 
-                   withCompletionBlock:(void (^)(NSData *data, NSError *error))block;
+-(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
+                    withCompletionBlock:(void (^)(NSData *data, NSError *error))block;
 
 @end
