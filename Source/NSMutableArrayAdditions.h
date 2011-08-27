@@ -10,6 +10,6 @@
 
 @interface NSMutableArray (CWNSMutableArrayAdditions)
 
--(void)cw_addObjectsFromArray:(NSArray *)otherArray copyItems:(BOOL)copy;
+-(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray;
 
 @end
