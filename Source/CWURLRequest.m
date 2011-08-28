@@ -147,6 +147,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [self setUrlError:[error copy]];
+    [self setIsFinished:YES];
 }
 
 @end
