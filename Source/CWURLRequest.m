@@ -54,6 +54,12 @@
     return self;
 }
 
+/**
+ synchronously starts the connection and waits for it to finish setting ourself as the delegate
+ then executes the block when completed
+ 
+ @param block the block to be executed once the NSURLRequest has completed
+ */
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
@@ -72,6 +78,13 @@
     block([self urlData],[self urlError]);
 }
 
+/**
+ creates the urlrequest and then starts the connection on a gcd queue and waits till it has
+ finished and then executes the block on the main thread
+ 
+ @param queue a gcd queue ( dispatch_queue_t ) to execute the block on, must not be NULL
+ @param block a block to be executed on the main thread once the connection has finished
+ */
 -(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
                     withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
@@ -95,6 +108,13 @@
     });
 }
 
+/**
+ creates the urlrequest and then starts the connection on a NSOperationQueue and waits till it has
+ finished and then executes the block on the main thread
+ 
+ @param queue a NSOperationQueue to execute the block on, must not be NULL
+ @param block a block to be executed on the main thread once the connection has finished
+ */
 -(void)startAsynchronousDownloadOnNSOperationQueue:(NSOperationQueue *)queue
                                withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
@@ -139,12 +159,18 @@
     [[self urlData] appendData:data];
 }
 
+/**
+ if the connection is ours then mark ourselfs as finished and exit
+ */
 - (void)connectionDidFinishLoading:(NSURLConnection *)inConnection {
     if ([[self connection] isEqual:inConnection]) {
         [self setIsFinished:YES];
     }
 }
 
+/**
+ mark ourself as finished and copy the error before we finish....
+ */
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [self setUrlError:[error copy]];
     [self setIsFinished:YES];
