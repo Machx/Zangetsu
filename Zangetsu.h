@@ -5,9 +5,7 @@
  *  Created by Colin Wheeler on 6/29/10.
  *  Copyright 2010. All rights reserved.
  *
- */
-
-/**
+ 
  Copyright (c) 2011 Colin Wheeler
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
