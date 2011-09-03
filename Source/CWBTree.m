@@ -92,6 +92,11 @@
 
 @synthesize rootNode;
 
+/**
+ initialzes a CWBTree with the root node set to nil
+ 
+ @return a fully iniitalized CWBTree with rootNode set to nil
+ */
 -(id)init {
     self = [super init];
     if (self) {
@@ -101,20 +106,39 @@
     return self;
 }
 
+/**
+ initializes the CWBTree with a root node value
+ 
+ Internally it create a CWBTreeNode with the value if it is non nil. Otherwise
+ the root node is never created and set to nil.
+ 
+ @param value a non nil value to be used in creating a CWBTreeNode
+ @return a CWBTree with a root node assigned and wrapped in the value provided if value is non nil
+ */
 -(id)initWithRootNodeValue:(id)value
 {
     self = [super init];
     if (self) {
-        CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:value];
-        rootNode = node;
+        if (value) {
+            CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:value];
+            rootNode = node;
+        }
     }
     
     return self;
 }
 
+/**
+ eumerates the CWBTree in a iterative preorder traversal pattern. 
+ 
+ Internally it uses a stack to navigate each node  and then calls the block on 
+ each node it visits. If there is no root node this method throws an assertion
+ upon detecting this.
+ 
+ @param block a block to be called when visiting each node in the tree
+ */
 -(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
-    
-    //1st implementation of a iterative preorder traversal...
+    NSParameterAssert([self rootNode]);
     
     if ([self rootNode] == nil) {
         return;
