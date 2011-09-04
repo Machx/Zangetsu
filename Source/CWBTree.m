@@ -55,6 +55,8 @@
 
 /**
  checks if the node values & their left/right node pointers are equal
+ 
+ @return a BOOL indicating if the nove value and its pointers are equal
  */
 -(BOOL)isEqualToNode:(CWBTreeNode *)node {
     if ([[node value] isEqualTo:[self value]]){
@@ -68,6 +70,9 @@
     return NO;
 }
 
+/**
+ Performs the necessary validation before assigning the nodes left pointer value
+ */
 -(void)assignLeftNode:(CWBTreeNode *)node {
     if (node != self) {
         if (node != nil) {
@@ -77,6 +82,9 @@
     }
 }
 
+/**
+ Performs the necessary validation before assigning the nodes right pointer value
+ */
 -(void)assignRightNode:(CWBTreeNode *)node {
     if (node != self) {
         if (node != nil) {
