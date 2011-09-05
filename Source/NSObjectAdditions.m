@@ -147,17 +147,4 @@
 	return array;
 }
 
-//MARK: -
-//MARK: Objective-C Runtime swizzling methods
-
--(BOOL)cw_swizzleMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error
-{	
-	return CWSwizzleInstanceMethods([self class], originalSel, newSel, error) != nil;
-}
-
-+(BOOL)cw_swizzleClassMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error
-{
-	return CWSwizzleClassMethods([self class], originalSel, newSel, error) != nil;
-}
-
 @end

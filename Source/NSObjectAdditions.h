@@ -53,10 +53,4 @@
 
 -(NSArray *)cw_directSubclasses;
 
-// Objective-C Method Swizzling
-
--(BOOL)cw_swizzleMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error;
-
-+(BOOL)cw_swizzleClassMethod:(SEL)originalSel withNewMethod:(SEL)newSel error:(NSError **)error;
-
 @end
