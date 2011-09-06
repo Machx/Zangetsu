@@ -44,7 +44,7 @@
 - (void) _configureTask;
 - (BOOL) _validateTask:(NSError **)error;
 - (void) _performPostRunActionsIfApplicable;
-- (NSString *) _resultsStringFromLaunchedTask;
+- (NSString *) _resultsStringFromLaunchedTask:(NSError **)error;
 - (BOOL) _validateExecutable:(NSError **)error;
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error;
 - (BOOL) _validateTaskHasRun:(NSError **)error;
@@ -226,7 +226,7 @@
 
     if (self.taskHasRun == NO) {
         [self _configureTask];
-        resultsString = [self _resultsStringFromLaunchedTask];
+        resultsString = [self _resultsStringFromLaunchedTask:error];
         self.taskHasRun = YES;
         [self _performPostRunActionsIfApplicable];
     }
@@ -239,7 +239,7 @@
  *
  * @return a NSString object with the contents of the lauched tasks output
  */
-- (NSString *) _resultsStringFromLaunchedTask {
+- (NSString *) _resultsStringFromLaunchedTask:(NSError **)error {
     NSData * returnedData = nil;
     NSString * taskOutput = nil;
 
@@ -248,6 +248,7 @@
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
+        *error = CWCreateError(111, @"com.Zangetsu.CWTask", [e description]);
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
