@@ -35,17 +35,17 @@ typedef void (^TaskCompletionBlock)(void);
 /* Error Domain */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 /* Invalid Executable Path */
-static const NSInteger kCWTaskInvalidExecutable = 1;
+static const NSInteger kCWTaskInvalidExecutable =         1;
 /* Invalid Directory specified to operate in */
-static const NSInteger kCWTaskInvalidDirectory =  2;
+static const NSInteger kCWTaskInvalidDirectory =          2;
 /* Task can only be run 1 and it has already been launched */
-static const NSInteger kCWTaskAlreadyRun =        3;
+static const NSInteger kCWTaskAlreadyRun =                3;
 /* Task encountered an exception when run */
 static const NSInteger kCWTaskEncounteredExceptionOnRun = 4;
 
 /* Task Code */
 /* Task hasn't been launched yet */
-static const NSInteger kCWTaskNotLaunched =   -1729;
+static const NSInteger kCWTaskNotLaunched =           -1729;
 
 @interface CWTask : NSObject
 
