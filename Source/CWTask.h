@@ -40,6 +40,8 @@ static const NSInteger kCWTaskInvalidExecutable = 1;
 static const NSInteger kCWTaskInvalidDirectory =  2;
 /* Task can only be run 1 and it has already been launched */
 static const NSInteger kCWTaskAlreadyRun =        3;
+/* Task encountered an exception when run */
+static const NSInteger kCWTaskEncounteredExceptionOnRun = 4;
 
 /* Task Code */
 /* Task hasn't been launched yet */

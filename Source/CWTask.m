@@ -248,7 +248,7 @@
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
-        *error = CWCreateError(111, @"com.Zangetsu.CWTask", [e description]);
+        *error = CWCreateError(kCWTaskEncounteredExceptionOnRun, @"com.Zangetsu.CWTask", [e description]);
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
