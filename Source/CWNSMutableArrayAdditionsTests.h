@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface NSMutableArrayAdditionsTests : SenTestCase
+@interface CWNSMutableArrayAdditionsTests : SenTestCase
 
 @end

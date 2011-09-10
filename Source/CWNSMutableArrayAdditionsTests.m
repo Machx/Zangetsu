@@ -6,10 +6,10 @@
 //  Copyright 2011. All rights reserved.
 //
 
-#import "NSMutableArrayAdditionsTests.h"
+#import "CWNSMutableArrayAdditionsTests.h"
 #import "NSMutableArrayAdditions.h"
 
-@implementation NSMutableArrayAdditionsTests
+@implementation CWNSMutableArrayAdditionsTests
 
 - (void)setUp
 {
