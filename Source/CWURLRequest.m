@@ -47,6 +47,16 @@
 @synthesize isFinished;
 @synthesize urlError;
 
+/**
+ initializes a CWURLRequest object
+ 
+ Initializes a CWURLRequest object with appropriate values and sets the host to nil. 
+ If you call this on a CWURLRequest instance you will have to call setHost on it or 
+ call -initWithURLString which you should call instead of this method. This method 
+ only exists to properly initialize a CWURLRequest object that doesn't have a host
+ 
+ @return a fully initialized CWURLRequest object with no url host set
+ */
 -(id)init {
     self = [super init];
     if (self) {
@@ -60,6 +70,14 @@
     return self;
 }
 
+/**
+ Designated initializer 
+ 
+ Initializes the CWURLRequest object with the host 
+ 
+ @param the URL you want to request data from (should not be nil)
+ @return a fully initialized CWURLRequest oject
+ */
 -(id)initWithURLString:(NSString *)urlHost
 {
     self = [super init];
