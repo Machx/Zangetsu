@@ -155,7 +155,7 @@
 	
 	__block NSMutableArray *results = [[NSMutableArray alloc] init];
 	
-	[testArray cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
+	[testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
 		@synchronized(results) {
 			[results addObject:obj];
 		}

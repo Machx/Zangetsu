@@ -36,7 +36,7 @@
 
 -(NSArray *)cw_eachWithIndex:(void (^)(id obj,NSInteger index))block;
 
--(NSArray *)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block;
+-(NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block;
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 

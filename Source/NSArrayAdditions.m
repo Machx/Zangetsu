@@ -66,12 +66,13 @@
 /**
  * Experimental each method that runs concurrently
  */
-- (NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(id obj, BOOL * stop))block {
+- (NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
     dispatch_group_t group = dispatch_group_create();
 
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     __block BOOL _stop = NO;
+    __block NSInteger idx = 0;
 
     for (id object in self) {
 
@@ -80,8 +81,10 @@
         }
 
         dispatch_group_async(group, queue, ^{
-			block (object, &_stop);
+			block (idx,object, &_stop);
 		});
+        
+        idx++;
     }
 
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
