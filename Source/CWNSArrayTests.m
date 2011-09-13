@@ -162,6 +162,20 @@
 	}];
 	
 	STAssertTrue([results count] == [testArray count], @"2 arrays should have the same count");
+    
+    [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
+        switch (index) {
+            case 0:
+                STAssertTrue([(NSString *)obj isEqualToString:@"Fry"], @"String 0 should be equal to 'Fry'");
+                break;
+            case 1:
+                STAssertTrue([(NSString *)obj isEqualToString:@"Leela"], @"String 1 should be Leela");
+                break;
+            case 2:
+                STAssertTrue([(NSString *)obj isEqualToString:@"Bender"], @"String 2 should be Bender");
+                break;
+        }
+    }];
 }
 
 -(void)testIsObjectInArrayWithBlock {
