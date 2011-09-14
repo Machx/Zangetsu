@@ -93,6 +93,10 @@
     return self;
 }
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@"CWURLRequest Host: %@",self->host];
+}
+
 /**
  synchronously starts the connection and waits for it to finish setting ourself as the delegate
  then executes the block when completed
