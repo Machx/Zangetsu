@@ -36,6 +36,8 @@
 @property(nonatomic, retain) NSMutableData *urlData;
 @property(nonatomic, assign) BOOL isFinished;
 @property(nonatomic, retain) NSError *urlError;
+@property(nonatomic, retain) NSString *authName;
+@property(nonatomic, retain) NSString *authPassword;
 @end
 
 @implementation CWURLRequest
@@ -46,6 +48,8 @@
 @synthesize urlData;
 @synthesize isFinished;
 @synthesize urlError;
+@synthesize authName;
+@synthesize authPassword;
 
 /**
  initializes a CWURLRequest object
@@ -66,6 +70,8 @@
         urlData = nil;
         isFinished = NO;
         urlError = nil;
+        authName = nil;
+        authPassword = nil;
     }
     return self;
 }
@@ -88,6 +94,8 @@
         urlData = [[NSMutableData alloc] init];
         isFinished = NO;
         urlError = nil;
+        authName = nil;
+        authPassword = nil;
     }
     
     return self;
@@ -97,6 +105,19 @@
     NSString *_isFinished = (self->isFinished) ? @"YES" : @"NO";
     
     return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@",self->host,_isFinished];
+}
+
+/**
+ Check to make sure we have our vars and set our private only vars to use
+ in the authentication challenge should we receive one
+ */
+-(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
+                           andPassword:(NSString *)uPassword {
+    NSParameterAssert(uLogin);
+    NSParameterAssert(uPassword);
+    
+    [self setAuthName:uLogin];
+    [self setAuthPassword:uPassword];
 }
 
 /**
@@ -219,6 +240,23 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [self setUrlError:[error copy]];
     [self setIsFinished:YES];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if ([challenge previousFailureCount] == 0) {
+        if ([self authName] && [self authPassword]) {
+            NSURLCredential *urlCredential = nil;
+            urlCredential = [NSURLCredential credentialWithUser:[self authName]
+                                                       password:[self authPassword]
+                                                    persistence:NSURLCredentialPersistenceNone];
+            
+            [[challenge sender] useCredential:urlCredential 
+                   forAuthenticationChallenge:challenge];
+        }
+    } else {
+        [[challenge sender] cancelAuthenticationChallenge:challenge];
+        //TODO: store error with bad user/password for authentication challenge
+    }
 }
 
 @end

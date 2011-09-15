@@ -39,6 +39,9 @@
 
 -(id)initWithURLString:(NSString *)urlHost;
 
+-(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
+                           andPassword:(NSString *)uPassword;
+
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block;
 
 -(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
