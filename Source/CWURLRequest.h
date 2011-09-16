@@ -36,6 +36,7 @@
 @interface CWURLRequest : NSObject
 
 @property(nonatomic, retain, readonly) NSString *host;
+@property(nonatomic, readonly, retain) NSError *urlError;
 
 -(id)initWithURLString:(NSString *)urlHost;
 

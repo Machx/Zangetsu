@@ -35,7 +35,7 @@
 @property(nonatomic, retain) NSURLRequest *urlRequest;
 @property(nonatomic, retain) NSMutableData *urlData;
 @property(nonatomic, assign) BOOL isFinished;
-@property(nonatomic, retain) NSError *urlError;
+@property(nonatomic, retain, readwrite) NSError *urlError;
 @property(nonatomic, retain) NSString *authName;
 @property(nonatomic, retain) NSString *authPassword;
 @end
@@ -242,6 +242,10 @@
     [self setIsFinished:YES];
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return YES;
+}
+
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge previousFailureCount] == 0) {
         if ([self authName] && [self authPassword]) {
@@ -252,6 +256,8 @@
             
             [[challenge sender] useCredential:urlCredential 
                    forAuthenticationChallenge:challenge];
+            
+            CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
         }
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
