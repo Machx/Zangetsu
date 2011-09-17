@@ -262,6 +262,8 @@
                    forAuthenticationChallenge:challenge];
             
             CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
+        } else {
+            [[challenge sender] cancelAuthenticationChallenge:challenge];
         }
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
