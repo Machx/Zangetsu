@@ -243,7 +243,11 @@
 }
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
-    return YES;
+    CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
+    if ([self authName] && [self authPassword]) {
+        return YES;
+    }
+    return NO;
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {

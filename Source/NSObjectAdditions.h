@@ -29,7 +29,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface   NSObject (CWNSObjectAdditions) {}
+@interface   NSObject (CWNSObjectAdditions)
 
 // Objective-C Associated Objects
 
