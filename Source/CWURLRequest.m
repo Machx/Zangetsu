@@ -263,10 +263,10 @@
             
             CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
         } else {
-            [[challenge sender] cancelAuthenticationChallenge:challenge];
+            [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
         }
     } else {
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
+        [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
         //TODO: store error with bad user/password for authentication challenge
     }
 }
