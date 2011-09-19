@@ -70,6 +70,8 @@
 		B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C112C1290D2BA00B49835 /* CWSystemInfo.m */; };
 		B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSetAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B88C1196129239C500B49835 /* NSSetAdditions.m */; };
+		B88EA5E81426D73B002F327B /* CWBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = B88EA5E61426D73B002F327B /* CWBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B88EA5E91426D73B002F327B /* CWBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EA5E71426D73B002F327B /* CWBase64.m */; };
 		B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */; };
 		B890142B11D992F000705CE4 /* CWSHA1Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,6 +86,7 @@
 		B8A9346F13D47BB2001209BF /* CWBTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A9346E13D47BB2001209BF /* CWBTreeTests.m */; };
 		B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18301138C1AF900A7EF7C /* CWStack.m */; };
+		B8C1F9BE1426F27F0065369B /* CWBase64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
 		B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D91938133E3C9D009AC4AC /* CWReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,7 +156,7 @@
 		B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLConnectionAdditions.h; path = Source/NSURLConnectionAdditions.h; sourceTree = "<group>"; };
 		B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLConnectionAdditions.m; path = Source/NSURLConnectionAdditions.m; sourceTree = "<group>"; };
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
-		B836F41314196816007B412E /* CWNSMutableArrayAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CWNSMutableArrayAdditionsTests.h; path = Source/CWNSMutableArrayAdditionsTests.h; sourceTree = "<group>"; };
+		B836F41314196816007B412E /* CWNSMutableArrayAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSMutableArrayAdditionsTests.h; path = Source/CWNSMutableArrayAdditionsTests.h; sourceTree = "<group>"; };
 		B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSMutableArrayAdditionsTests.m; path = Source/CWNSMutableArrayAdditionsTests.m; sourceTree = "<group>"; };
 		B837BC171284FDC0009215D7 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = Source/NSStringAdditions.h; sourceTree = "<group>"; };
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 		B88C112C1290D2BA00B49835 /* CWSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfo.m; path = Source/CWSystemInfo.m; sourceTree = "<group>"; };
 		B88C1195129239C500B49835 /* NSSetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSetAdditions.h; path = Source/NSSetAdditions.h; sourceTree = "<group>"; };
 		B88C1196129239C500B49835 /* NSSetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSSetAdditions.m; path = Source/NSSetAdditions.m; sourceTree = "<group>"; };
+		B88EA5E61426D73B002F327B /* CWBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64.h; path = Source/CWBase64.h; sourceTree = "<group>"; };
+		B88EA5E71426D73B002F327B /* CWBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64.m; path = Source/CWBase64.m; sourceTree = "<group>"; };
 		B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistry.h; path = Source/CWApplicationRegistry.h; sourceTree = "<group>"; };
 		B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistry.m; path = Source/CWApplicationRegistry.m; sourceTree = "<group>"; };
 		B890142911D992F000705CE4 /* CWSHA1Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSHA1Utilities.h; path = Source/CWSHA1Utilities.h; sourceTree = "<group>"; };
@@ -210,6 +215,8 @@
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8C18300138C1AF900A7EF7C /* CWStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStack.h; path = Source/CWStack.h; sourceTree = "<group>"; };
 		B8C18301138C1AF900A7EF7C /* CWStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStack.m; path = Source/CWStack.m; sourceTree = "<group>"; };
+		B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64Tests.h; path = Source/CWBase64Tests.h; sourceTree = "<group>"; };
+		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilitiesTests.h; path = Source/CWDateUtilitiesTests.h; sourceTree = "<group>"; };
@@ -339,7 +346,7 @@
 				B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */,
 				B8AFE82314119D4000616FA4 /* Data Structures */,
 				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
-				B8E8F6CF12F34339001A0BBF /* Hashing */,
+				B8E8F6CF12F34339001A0BBF /* Hashing and Encoding */,
 				B804019412F08E7200E1297F /* Core Data */,
 				B858897A128DF403002AC417 /* Foundation Additions */,
 				B8F5E67C12A02F6500E58C94 /* Unit Tests */,
@@ -439,15 +446,17 @@
 			name = "Data Structures";
 			sourceTree = "<group>";
 		};
-		B8E8F6CF12F34339001A0BBF /* Hashing */ = {
+		B8E8F6CF12F34339001A0BBF /* Hashing and Encoding */ = {
 			isa = PBXGroup;
 			children = (
 				B890142911D992F000705CE4 /* CWSHA1Utilities.h */,
 				B890142A11D992F000705CE4 /* CWSHA1Utilities.m */,
 				B849522F12CBE1CF00098684 /* CWMD5Utilities.h */,
 				B849523012CBE1CF00098684 /* CWMD5Utilities.m */,
+				B88EA5E61426D73B002F327B /* CWBase64.h */,
+				B88EA5E71426D73B002F327B /* CWBase64.m */,
 			);
-			name = Hashing;
+			name = "Hashing and Encoding";
 			sourceTree = "<group>";
 		};
 		B8F5E67C12A02F6500E58C94 /* Unit Tests */ = {
@@ -489,6 +498,8 @@
 				17967DCD13D09C590023DCCB /* CWTreeTests.m */,
 				B8A9346D13D47BB2001209BF /* CWBTreeTests.h */,
 				B8A9346E13D47BB2001209BF /* CWBTreeTests.m */,
+				B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */,
+				B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -536,6 +547,7 @@
 				17967DC513CF3CBE0023DCCB /* CWBTree.h in Headers */,
 				B869C85A13F787C300739DE4 /* CWURLRequest.h in Headers */,
 				B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */,
+				B88EA5E81426D73B002F327B /* CWBase64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +693,7 @@
 				17967DC613CF3CBE0023DCCB /* CWBTree.m in Sources */,
 				B869C85B13F787C300739DE4 /* CWURLRequest.m in Sources */,
 				B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */,
+				B88EA5E91426D73B002F327B /* CWBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +719,7 @@
 				B8A9346F13D47BB2001209BF /* CWBTreeTests.m in Sources */,
 				B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */,
 				B836F41514196817007B412E /* CWNSMutableArrayAdditionsTests.m in Sources */,
+				B8C1F9BE1426F27F0065369B /* CWBase64Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,7 +813,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.7;
 				TEST_AFTER_BUILD = YES;
@@ -818,7 +832,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				"INSTALL_PATH[sdk=*]" = "@rpath";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx10.7;
 				TEST_AFTER_BUILD = YES;
 				VALID_ARCHS = x86_64;
@@ -849,7 +863,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx10.7;

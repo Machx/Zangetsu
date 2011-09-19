@@ -67,3 +67,4 @@
 #import "CWBTree.h"
 #import "CWURLRequest.h"
 #import "NSMutableArrayAdditions.h"
+#import "CWBase64.h"
