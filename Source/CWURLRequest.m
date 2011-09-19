@@ -104,7 +104,7 @@
 -(NSString *)description {
     NSString *_isFinished = (self->isFinished) ? @"YES" : @"NO";
     
-    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@",self->host,_isFinished];
+    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nError: %@",self->host,_isFinished,self->urlError];
 }
 
 /**
