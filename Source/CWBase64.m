@@ -42,10 +42,22 @@
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
+    if (error) {
+        CFShow(error);
+        return nil;
+    }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
+    if (error) {
+        CFShow(error);
+        return nil;
+    }
     
     CFDataRef encodedData = SecTransformExecute(encoder, &error);
+    if (!encodedData && error) {
+        CFShow(error);
+        return nil;
+    }
     
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(NSData *)encodedData encoding:NSUTF8StringEncoding];
