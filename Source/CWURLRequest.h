@@ -40,6 +40,9 @@
 
 -(id)initWithURLString:(NSString *)urlHost;
 
+-(void)setAuthenticationHTTPHeaderLogin:(NSString *)login 
+                            andPassword:(NSString *)password;
+
 -(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
                            andPassword:(NSString *)uPassword;
 

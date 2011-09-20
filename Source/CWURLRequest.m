@@ -38,6 +38,8 @@
 @property(nonatomic, retain, readwrite) NSError *urlError;
 @property(nonatomic, retain) NSString *authName;
 @property(nonatomic, retain) NSString *authPassword;
+@property(nonatomic, assign) BOOL authHeader;
+-(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request;
 @end
 
 @implementation CWURLRequest
@@ -50,6 +52,7 @@
 @synthesize urlError;
 @synthesize authName;
 @synthesize authPassword;
+@synthesize authHeader;
 
 /**
  initializes a CWURLRequest object
@@ -72,6 +75,7 @@
         urlError = nil;
         authName = nil;
         authPassword = nil;
+        authHeader = NO;
     }
     return self;
 }
@@ -96,6 +100,7 @@
         urlError = nil;
         authName = nil;
         authPassword = nil;
+        authHeader = NO;
     }
     
     return self;
@@ -118,6 +123,27 @@
     
     [self setAuthName:uLogin];
     [self setAuthPassword:uPassword];
+    [self setAuthHeader:NO];
+}
+
+-(void)setAuthenticationHTTPHeaderLogin:(NSString *)login 
+                            andPassword:(NSString *)password {
+    NSParameterAssert(login);
+    NSParameterAssert(password);
+    
+    [self setAuthName:login];
+    [self setAuthPassword:password];
+    [self setAuthHeader:YES];
+}
+
+-(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request {
+    if ([self authHeader]) {
+        NSString *nameAndPass = [NSString stringWithFormat:@"%@:%@",self->authName,self->authPassword];
+        NSString *loginBase64 = [nameAndPass cw_base64EncodedString];
+        
+        NSString *credentialsString = [NSString stringWithFormat:@"Basic %@",loginBase64];
+        [request addValue:credentialsString forHTTPHeaderField:@"Authorization"];
+    }
 }
 
 /**
@@ -129,7 +155,7 @@
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -155,7 +181,7 @@
                     withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -185,7 +211,7 @@
                                withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -244,7 +270,7 @@
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
-    if ([self authName] && [self authPassword]) {
+    if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
         return YES;
     }
     return NO;
@@ -252,7 +278,7 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge previousFailureCount] == 0) {
-        if ([self authName] && [self authPassword]) {
+        if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
             NSURLCredential *urlCredential = nil;
             urlCredential = [NSURLCredential credentialWithUser:[self authName]
                                                        password:[self authPassword]
