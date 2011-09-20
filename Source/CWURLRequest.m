@@ -156,6 +156,7 @@
     NSParameterAssert([self host]);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -185,6 +186,7 @@
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setConnection:urlConnection];
     
     dispatch_async(queue, ^(void) {
@@ -212,6 +214,7 @@
     NSParameterAssert([self host]);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
