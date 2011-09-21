@@ -33,4 +33,6 @@
 
 - (NSString *)cw_base64EncodedString;
 
+- (NSString *)cw_base64DecodedString;
+
 @end

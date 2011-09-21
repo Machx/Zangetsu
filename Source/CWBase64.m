@@ -32,12 +32,11 @@
 
 @implementation NSString (CWBase64Encoding)
 
-- (NSString *)cw_base64EncodedString
-{
+- (NSString *)cw_base64EncodedString {
     SecTransformRef encoder;
     CFErrorRef error = NULL;
     
-    const char* string = [self UTF8String];
+    const char *string = [self UTF8String];
     
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
     
@@ -63,6 +62,38 @@
     base64String = [[NSString alloc] initWithData:(NSData *)encodedData encoding:NSUTF8StringEncoding];
     
     return base64String;
+}
+
+- (NSString *)cw_base64DecodedString {
+    SecTransformRef decoder;
+    CFErrorRef error = NULL;
+    
+    const char *string = [self UTF8String];
+    
+    CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    
+    decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
+    if (error) {
+        CFShow(error);
+        return nil;
+    }
+    
+    SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
+    if (error) {
+        CFShow(error);
+        return nil;
+    }
+    
+    CFDataRef decodedData = SecTransformExecute(decoder, &error);
+    if (error) {
+        CFShow(error);
+        return nil;
+    }
+    
+    NSString *base64DecodedString = nil;
+    base64DecodedString = [[NSString alloc] initWithData:(NSData *)decodedData encoding:NSUTF8StringEncoding];
+    
+    return base64DecodedString;
 }
 
 @end
