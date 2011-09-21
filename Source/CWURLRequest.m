@@ -183,10 +183,10 @@
     NSParameterAssert([self host]);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setConnection:urlConnection];
     
     dispatch_async(queue, ^(void) {
@@ -272,7 +272,7 @@
 }
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
-    CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
+    //CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
     if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
         return YES;
     }
@@ -290,13 +290,12 @@
             [[challenge sender] useCredential:urlCredential 
                    forAuthenticationChallenge:challenge];
             
-            CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
+            //CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
         } else {
             [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
         }
     } else {
         [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-        //TODO: store error with bad user/password for authentication challenge
     }
 }
 
