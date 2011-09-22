@@ -34,7 +34,10 @@
  * a NSArray
  */
 - (id) cw_firstObject {
-    return [(NSArray *) self objectAtIndex:0];
+    if ([self count] > 0) {
+        return [self objectAtIndex:0];
+    }
+    return nil;
 }
 
 /**
