@@ -32,6 +32,11 @@
 
 @implementation NSString (CWBase64Encoding)
 
+/**
+ takea a NSStrings contents and converts them to Base 64 encoding and returns a new NSString object
+ 
+ @return a new NSString object with the contents of the receiver string encoded in Base 64 encoding
+ */
 - (NSString *)cw_base64EncodedString {
     SecTransformRef encoder;
     CFErrorRef error = NULL;
@@ -61,9 +66,18 @@
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(NSData *)encodedData encoding:NSUTF8StringEncoding];
     
+    CFMakeCollectable(data);
+    CFMakeCollectable(encodedData);
+    CFMakeCollectable(encoder);
+    
     return base64String;
 }
 
+/**
+ takea a NSStrings contents and converts them from Base 64 encoding and returns a new NSString object
+ 
+ @return a new NSString object with the contents of the receiver string decoded from Base 64 encoding
+ */
 - (NSString *)cw_base64DecodedString {
     SecTransformRef decoder;
     CFErrorRef error = NULL;
@@ -92,6 +106,10 @@
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(NSData *)decodedData encoding:NSUTF8StringEncoding];
+    
+    CFMakeCollectable(data);
+    CFMakeCollectable(decodedData);
+    CFMakeCollectable(decoder);
     
     return base64DecodedString;
 }
