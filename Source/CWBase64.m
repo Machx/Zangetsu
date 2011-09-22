@@ -38,6 +38,8 @@
  @return a new NSString object with the contents of the receiver string encoded in Base 64 encoding
  */
 - (NSString *)cw_base64EncodedString {
+    if (self == nil) { return nil; }
+    
     SecTransformRef encoder;
     CFErrorRef error = NULL;
     
@@ -79,6 +81,8 @@
  @return a new NSString object with the contents of the receiver string decoded from Base 64 encoding
  */
 - (NSString *)cw_base64DecodedString {
+    if (self == nil) { return nil; }
+    
     SecTransformRef decoder;
     CFErrorRef error = NULL;
     
