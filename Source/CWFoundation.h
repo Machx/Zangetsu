@@ -30,3 +30,5 @@
 #import <Cocoa/Cocoa.h>
 
 BOOL CWClassExists(NSString * class);
+
+NSString *CWBOOLString(BOOL value);

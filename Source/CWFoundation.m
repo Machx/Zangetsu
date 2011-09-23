@@ -46,3 +46,13 @@ BOOL CWClassExists(NSString * class)
 	
 	return (_class) ? YES : NO;
 }
+
+/**
+ Returns a NSString value of 'YES' or 'NO' corresponding to the bool value passed in
+ 
+ @param value a BOOL value of YES or NO
+ @return a NSString value of @"YES" if YES was passed in or @"NO" if NO was passed in
+ */
+NSString *CWBOOLString(BOOL value) {
+    return (value) ? @"YES" : @"NO";
+}
