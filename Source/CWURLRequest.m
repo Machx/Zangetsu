@@ -107,9 +107,10 @@
 }
 
 -(NSString *)description {
-    NSString *_isFinished = (self->isFinished) ? @"YES" : @"NO";
+    NSString *_isFinished = CWBOOLString(self->isFinished);
+    NSString *_usesHTTPAuthHeader = CWBOOLString(self->authHeader);
     
-    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nError: %@",self->host,_isFinished,self->urlError];
+    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nError: %@",self->host,_isFinished,_usesHTTPAuthHeader,self->urlError];
 }
 
 /**
