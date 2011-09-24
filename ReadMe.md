@@ -18,6 +18,8 @@ Zangetsu contains
 
 * SHA1 & MD5 Convenience APIs
 
+* Base64 encoding/decoding
+
 * Objective-C Data Structures like Stacks,Trees,etc.
 
 * NSTask Conveience APIs
@@ -25,6 +27,8 @@ Zangetsu contains
 * Host Version Info Convenience APIs
 
 * Additional methods for NSArray, NSDictionary, NSSet & NSString to make using & enumerating over them easier.
+
+* Networking classes like CWURLRequest to handle authentication/redirects/etc...
 
 * Asynchronous & Synchronous NSURLConnection download APIs
 
