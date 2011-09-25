@@ -40,6 +40,9 @@
     CFErrorRef error = NULL;
     
     CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
+    if (inputData == NULL) {
+        return nil;
+    }
     
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
     if(error) { 
@@ -54,7 +57,7 @@
     }
     
     CFDataRef data = SecTransformExecute(encoder, &error);
-    if (!data && error) {
+    if (error) {
         CFShow(error);
         return nil;
     }
@@ -64,6 +67,7 @@
     
     CFMakeCollectable(inputData);
     CFMakeCollectable(encoder);
+    CFMakeCollectable(data);
     
     return compressedData; 
 }
@@ -99,8 +103,11 @@
         return nil;
     }
     
-    NSData *nsDecodedData = nil;
-    nsDecodedData = (NSData *)decodedData;
+    NSData *nsDecodedData = [[NSData alloc] initWithData:(NSData *)decodedData];
+    
+    CFMakeCollectable(decoder);
+    CFMakeCollectable(inputData);
+    CFMakeCollectable(decodedData);
     
     return nsDecodedData;
 }
