@@ -113,6 +113,9 @@
     return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nError: %@",self->host,_isFinished,_usesHTTPAuthHeader,self->urlError];
 }
 
+//MARK: -
+//MARK: Authorization Attribute Methods
+
 /**
  Check to make sure we have our vars and set our private only vars to use
  in the authentication challenge should we receive one
@@ -146,6 +149,9 @@
         [request addValue:credentialsString forHTTPHeaderField:@"Authorization"];
     }
 }
+
+//MARK: -
+//MARK: Download Methods
 
 /**
  synchronously starts the connection and waits for it to finish setting ourself as the delegate
@@ -272,6 +278,9 @@
     [self setIsFinished:YES];
 }
 
+//MARK: -
+//MARK: Authentication Challenge Methods
+
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     //CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
     if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
@@ -280,6 +289,9 @@
     return NO;
 }
 
+/**
+ respond to authentication challenges here...
+ */
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge previousFailureCount] == 0) {
         if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
