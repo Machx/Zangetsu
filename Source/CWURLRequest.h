@@ -38,6 +38,9 @@
 @property(nonatomic, retain, readonly) NSString *host;
 @property(nonatomic, readonly, retain) NSError *urlError;
 
+@property(nonatomic, assign) NSURLRequestCachePolicy cachePolicy;
+@property(nonatomic, assign) NSTimeInterval timeoutInterval;
+
 -(id)initWithURLString:(NSString *)urlHost;
 
 -(void)setAuthenticationHTTPHeaderLogin:(NSString *)login 

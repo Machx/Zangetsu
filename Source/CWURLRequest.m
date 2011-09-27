@@ -53,6 +53,8 @@
 @synthesize authName;
 @synthesize authPassword;
 @synthesize authHeader;
+@synthesize cachePolicy;
+@synthesize timeoutInterval;
 
 /**
  initializes a CWURLRequest object
@@ -76,6 +78,8 @@
         authName = nil;
         authPassword = nil;
         authHeader = NO;
+        cachePolicy = NSURLRequestUseProtocolCachePolicy;
+        timeoutInterval = 30.0;
     }
     return self;
 }
@@ -101,6 +105,8 @@
         authName = nil;
         authPassword = nil;
         authHeader = NO;
+        cachePolicy = NSURLRequestUseProtocolCachePolicy;
+        timeoutInterval = 30.0;
     }
     
     return self;
@@ -141,6 +147,7 @@
 }
 
 -(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request {
+    NSParameterAssert(request);
     if ([self authHeader]) {
         NSString *nameAndPass = [NSString stringWithFormat:@"%@:%@",self->authName,self->authPassword];
         NSString *loginBase64 = [nameAndPass cw_base64EncodedString];
@@ -162,7 +169,9 @@
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
+                                                                cachePolicy:[self cachePolicy]
+                                                            timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
@@ -189,7 +198,9 @@
                     withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
+                                                                cachePolicy:[self cachePolicy]
+                                                            timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
@@ -220,7 +231,9 @@
                                withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
     NSParameterAssert([self host]);
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:CWURL([self host])];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
+                                                                cachePolicy:[self cachePolicy]
+                                                            timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
