@@ -46,6 +46,9 @@
     const char *string = [self UTF8String];
     
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    if (data == NULL) {
+        return nil;
+    }
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
@@ -89,6 +92,9 @@
     const char *string = [self UTF8String];
     
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    if (data == NULL) {
+        return nil;
+    }
     
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
