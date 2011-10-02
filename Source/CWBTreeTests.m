@@ -172,7 +172,7 @@
 
 -(void)testNodeLevel {
     
-    static NSString *const kTestValue = @"Now look Ia m not evil, my Loan officer told me so";
+    static NSString *const kTestValue = @"Now look I am not evil, my Loan officer told me so";
     
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:kTestValue];
     
