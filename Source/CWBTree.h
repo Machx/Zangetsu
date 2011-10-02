@@ -38,6 +38,7 @@
 -(void)assignLeftNode:(CWBTreeNode *)node;
 -(void)assignRightNode:(CWBTreeNode *)node;
 -(BOOL)isEqualToNode:(CWBTreeNode *)node;
+-(NSUInteger)nodeLevel;
 @end
 
 @interface CWBTree : NSObject

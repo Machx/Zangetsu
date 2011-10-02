@@ -94,6 +94,16 @@
     }
 }
 
+-(NSUInteger)nodeLevel {
+    NSUInteger level = 1;
+    CWBTreeNode *currentParrent = [self parent];
+    while (currentParrent != nil) {
+        level++;
+        currentParrent = [currentParrent parent];
+    }
+    return level;
+}
+
 @end
 
 @implementation CWBTree

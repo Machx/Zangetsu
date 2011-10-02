@@ -170,6 +170,27 @@
     STAssertTrue([currentString isEqualToString:@"42"], @"the String should equal 42 if it stopped correctly");
 }
 
+-(void)testNodeLevel {
+    
+    static NSString *const kTestValue = @"Now look Ia m not evil, my Loan officer told me so";
+    
+    CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    
+    CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    [node1 assignRightNode:node2];
+    
+    CWBTreeNode *node3 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    [node2 assignRightNode:node3];
+    
+    CWBTreeNode *node4 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    [node3 assignRightNode:node4];
+    
+    STAssertTrue([node1 nodeLevel] == 1, @"Node1 should be at Level 1");
+    STAssertTrue([node2 nodeLevel] == 2, @"Node1 should be at Level 2");
+    STAssertTrue([node3 nodeLevel] == 3, @"Node1 should be at Level 3");
+    STAssertTrue([node4 nodeLevel] == 4, @"Node1 should be at Level 4");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
