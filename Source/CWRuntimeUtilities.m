@@ -65,7 +65,6 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	
 	method_exchangeImplementations(originalMethod, newMethod);
 	
-	//return YES;
 	return originalMethod;
 }
 
@@ -104,6 +103,5 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	
 	method_exchangeImplementations(originalMethod, newMethod);
 	
-	//return YES;
 	return originalMethod;
 }

@@ -27,15 +27,15 @@
  THE SOFTWARE.
  */
 
-#pragma mark General Functions
+//MARK: General Functions
 
 #define NSDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
 #define NSARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
 #define NSBOOL(_X_) [NSNumber numberWithBool:(_X_)]
 #define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
-#pragma mark -
-#pragma mark Log Functions
+//MARK: -
+//MARK: Log Functions
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s%i:\n",__PRETTY_FUNCTION__,__LINE__)
@@ -47,8 +47,8 @@
 
 #define CWLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 
-#pragma mark -
-#pragma mark NSAssert Functions
+//MARK: -
+//MARK: NSAssert Functions
 
 #ifdef DEBUG
 #	define CWAssert(cond,desc) NSAssert(cond,desc)
@@ -96,8 +96,8 @@ do { \
 	} \
 } while(0);
 
-#pragma mark -
-#pragma mark GCD Macros
+//MARK: -
+//MARK: GCD Macros
 
 #define CWGCDQueueLow() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0)
 #define CWGCDQueueNormal() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)
@@ -108,8 +108,8 @@ do { \
 //Framework will switch from GC to ARC
 //TODO: Remove upon switch to ARC
 
-#pragma mark -
-#pragma mark Garbage Collection
+//MARK: -
+//MARK: Garbage Collection
 
 #define CWDefaultCollector() [NSGarbageCollector defaultCollector]
 #define CWGCCollectIfNeeded() [[NSGarbageCollector defaultCollector] collectIfNeeded]

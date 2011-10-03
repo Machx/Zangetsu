@@ -62,8 +62,8 @@
 @synthesize cwTask;
 @synthesize pipe;
 
-#pragma mark -
-#pragma mark Public API
+//MARK: -
+//MARK: Public API
 
 /**
  * designated initializer
