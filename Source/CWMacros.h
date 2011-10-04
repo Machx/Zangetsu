@@ -34,6 +34,9 @@
 #define NSBOOL(_X_) [NSNumber numberWithBool:(_X_)]
 #define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
+#define NSCOLOR(r,g,b,a) [NSColor colorWithCalibratedRed:r green:g blue:b alpha:a]
+#define NSDEVICECOLOR(r,g,b,a) [NSColor colorWithDeviceRed:r green:g blue:b alpha:a]
+
 //MARK: -
 //MARK: Log Functions
 
