@@ -119,6 +119,15 @@
     return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nTimeout Interval:%f\nError: %@",self->host,_isFinished,_usesHTTPAuthHeader,self->timeoutInterval,self->urlError];
 }
 
+-(BOOL)canHandleRequest {
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:CWURL(self->host)
+												  cachePolicy:self->cachePolicy
+											  timeoutInterval:self->timeoutInterval];
+	BOOL ableToHandleRequest = [NSURLConnection canHandleRequest:request];
+	
+	return ableToHandleRequest;
+}
+
 //MARK: -
 //MARK: Authorization Attribute Methods
 

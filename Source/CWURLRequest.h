@@ -49,6 +49,8 @@
 -(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
                            andPassword:(NSString *)uPassword;
 
+-(BOOL)canHandleRequest;
+
 -(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block;
 
 -(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
