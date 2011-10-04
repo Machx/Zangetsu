@@ -116,7 +116,12 @@
     NSString *_isFinished = CWBOOLString(self->isFinished);
     NSString *_usesHTTPAuthHeader = CWBOOLString(self->authHeader);
     
-    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nTimeout Interval:%f\nError: %@",self->host,_isFinished,_usesHTTPAuthHeader,self->timeoutInterval,self->urlError];
+    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nTimeout Interval:%f\nError: %@",
+			self->host,
+			_isFinished,
+			_usesHTTPAuthHeader,
+			self->timeoutInterval,
+			self->urlError];
 }
 
 -(BOOL)canHandleRequest {
