@@ -69,11 +69,7 @@
     }
     
     NSString *base64String = nil;
-    base64String = [[NSString alloc] initWithData:(NSData *)encodedData encoding:NSUTF8StringEncoding];
-    
-    CFMakeCollectable(data);
-    CFMakeCollectable(encodedData);
-    CFMakeCollectable(encoder);
+    base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData encoding:NSUTF8StringEncoding];
     
     return base64String;
 }
@@ -115,11 +111,7 @@
     }
     
     NSString *base64DecodedString = nil;
-    base64DecodedString = [[NSString alloc] initWithData:(NSData *)decodedData encoding:NSUTF8StringEncoding];
-    
-    CFMakeCollectable(data);
-    CFMakeCollectable(decodedData);
-    CFMakeCollectable(decoder);
+    base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData encoding:NSUTF8StringEncoding];
     
     return base64DecodedString;
 }

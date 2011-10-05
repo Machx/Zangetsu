@@ -310,7 +310,7 @@
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     //CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
-    if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
+    if ([self authName] && [self authPassword] && ([self authHeader] == NO)) {
         return YES;
     }
     return NO;
@@ -321,7 +321,7 @@
  */
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge previousFailureCount] == 0) {
-        if ([self authName] && [self authPassword] && ([self authPassword] == NO)) {
+        if ([self authName] && [self authPassword] && ([self authHeader] == NO)) {
             NSURLCredential *urlCredential = nil;
             urlCredential = [NSURLCredential credentialWithUser:[self authName]
                                                        password:[self authPassword]

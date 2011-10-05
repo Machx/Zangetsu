@@ -51,6 +51,6 @@
 
 // Objective-C Class lookup methods
 
--(NSArray *)cw_directSubclasses;
+//-(NSArray *)cw_directSubclasses;
 
 @end

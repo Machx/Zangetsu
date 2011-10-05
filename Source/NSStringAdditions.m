@@ -39,10 +39,7 @@
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
 	
-	returnedString = [[NSString alloc] initWithString:(NSString *)tmpString];
-	
-	CFMakeCollectable(uid);
-	CFMakeCollectable(tmpString);
+	returnedString = [[NSString alloc] initWithString:(__bridge NSString *)tmpString];
 	
 	return returnedString;
 }
@@ -78,11 +75,9 @@
  */
 - (NSString *) cw_stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
 {
-	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL, (CFStringRef)self, (CFDictionaryRef) entitiesDictionary);
+	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL, (__bridge CFStringRef)self, (__bridge CFDictionaryRef) entitiesDictionary);
 	
-	NSString *returnString = [NSString stringWithString:(NSString *)str];
-	
-	CFMakeCollectable(str);
+	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
 	
 	return returnString;
 }
@@ -92,11 +87,9 @@
  */
 - (NSString *) cw_stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
 {
-	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self, NULL, (__bridge CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
 	
-	NSString *returnString = [NSString stringWithString:(NSString *)str];
-	
-	CFMakeCollectable(str);
+	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
 	
 	return returnString;
 }
@@ -106,22 +99,18 @@
  */
 - (NSString *) cw_stringByReplacingPercentEscapes 
 {
-	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)self, CFMakeCollectable(CFSTR("")));
+	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (__bridge CFStringRef)self, CFSTR(""));
 	
-	NSString *returnString = [NSString stringWithString:(NSString *)str];
-	
-	CFMakeCollectable(str);
+	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
 	
 	return returnString;
 }
 
 -(NSString *)cw_escapeEntitiesForURL
 {	
-	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
 	
-	NSString *returnString = [NSString stringWithString:(NSString *)str];
-	
-	CFMakeCollectable(str);
+	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
 	
 	return returnString;
 }

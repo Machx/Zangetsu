@@ -64,8 +64,6 @@
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B869C85A13F787C300739DE4 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B869C85813F787C300739DE4 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869C85B13F787C300739DE4 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85913F787C300739DE4 /* CWURLRequest.m */; };
-		B8806A2D12B3D44D00F85BCE /* CWBlockFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8806A2E12B3D44D00F85BCE /* CWBlockFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */; };
 		B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
 		B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B884940013A13D700046194D /* CWApplicationRegistryTests.m */; };
@@ -195,8 +193,6 @@
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
 		B869C85813F787C300739DE4 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B869C85913F787C300739DE4 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
-		B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockFoundation.h; path = Source/CWBlockFoundation.h; sourceTree = "<group>"; };
-		B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockFoundation.m; path = Source/CWBlockFoundation.m; sourceTree = "<group>"; };
 		B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugUtilities.h; path = Source/CWDebugUtilities.h; sourceTree = "<group>"; };
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
 		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
@@ -329,8 +325,6 @@
 				B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
 				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
-				B8806A2B12B3D44D00F85BCE /* CWBlockFoundation.h */,
-				B8806A2C12B3D44D00F85BCE /* CWBlockFoundation.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */,
@@ -539,7 +533,6 @@
 				B88C112D1290D2BA00B49835 /* CWSystemInfo.h in Headers */,
 				B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */,
 				B82D263212ADD557006650B8 /* NSURLConnectionAdditions.h in Headers */,
-				B8806A2D12B3D44D00F85BCE /* CWBlockFoundation.h in Headers */,
 				B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */,
 				B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */,
 				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
@@ -688,7 +681,6 @@
 				B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */,
 				B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */,
 				B82D263312ADD557006650B8 /* NSURLConnectionAdditions.m in Sources */,
-				B8806A2E12B3D44D00F85BCE /* CWBlockFoundation.m in Sources */,
 				B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */,
 				B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */,
 				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
@@ -771,12 +763,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -794,10 +788,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zangetsu_Prefix.pch;
@@ -815,8 +811,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -847,8 +845,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -865,8 +865,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -898,12 +900,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -921,10 +925,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -947,8 +953,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
@@ -970,10 +978,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";

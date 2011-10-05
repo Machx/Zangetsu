@@ -38,7 +38,7 @@
  */
 -(void)testStrongReferenceObjcAssociation
 {
-	NSString *key1 = @"key1";
+	char *key1 = "key1";
 	
 	NSObject *object = [[NSObject alloc] init];
 	
@@ -50,7 +50,7 @@
 
 -(void)testWeakObjcAssociation
 {
-	NSString *key3 = @"key3";
+	char *key3 = "key3";
 	
 	NSObject *object = [[NSObject alloc] init];
 	

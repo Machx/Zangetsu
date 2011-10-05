@@ -114,37 +114,40 @@
  
  @return a NSArray with strings of the classes that are direct subclasses of the current class of the object
  */
--(NSArray *)cw_directSubclasses
-{
-	NSMutableArray *array = nil;
-	
-	Class *classes = nil;
-	int numClasses = 0;
-	
-	numClasses = objc_getClassList(NULL, 0);
-	
-	if (numClasses > 0) {
-		classes = NSAllocateCollectable(sizeof(Class) * numClasses,0);
-		
-		if (classes) {
-			numClasses = objc_getClassList(classes, numClasses);
-			
-			Class const selfClass = [self class];
-			int count = numClasses;
-			
-			for (int index = 0; index < count; ++index) {
-				
-				Class currClass = class_getSuperclass(classes[index]);
-				
-				if (currClass == selfClass) {
-					if (array == nil) { array = [[NSMutableArray alloc] init]; }
-					[array addObject:NSStringFromClass(classes[index])];
-				}
-			}
-		}
-	}
-	
-	return array;
-}
+//temporarily disabling...
+//-(NSArray *)cw_directSubclasses
+//{
+//	NSMutableArray *array = nil;
+//	
+//	Class *classes = nil;
+//	int numClasses = 0;
+//	
+//	numClasses = objc_getClassList(NULL, 0);
+//	
+//	if (numClasses > 0) {
+//		classes = malloc(sizeof(Class) * numClasses);
+//		
+//		if (classes) {
+//			numClasses = objc_getClassList(classes, numClasses);
+//			
+//			Class const selfClass = [self class];
+//			int count = numClasses;
+//			
+//			for (int index = 0; index < count; ++index) {
+//				
+//				Class currClass = class_getSuperclass(classes[index]);
+//				
+//				if (currClass == selfClass) {
+//					if (array == nil) { array = [[NSMutableArray alloc] init]; }
+//					[array addObject:NSStringFromClass(classes[index])];
+//				}
+//			}
+//		}
+//		
+//		free(classes);
+//	}
+//	
+//	return array;
+//}
 
 @end

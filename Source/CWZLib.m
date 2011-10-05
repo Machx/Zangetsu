@@ -63,11 +63,7 @@
     }
     
     NSData *compressedData = nil;
-    compressedData = [[NSData alloc] initWithData:(NSData *)data];
-    
-    CFMakeCollectable(inputData);
-    CFMakeCollectable(encoder);
-    CFMakeCollectable(data);
+    compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
     
     return compressedData; 
 }
@@ -103,11 +99,7 @@
         return nil;
     }
     
-    NSData *nsDecodedData = [[NSData alloc] initWithData:(NSData *)decodedData];
-    
-    CFMakeCollectable(decoder);
-    CFMakeCollectable(inputData);
-    CFMakeCollectable(decodedData);
+    NSData *nsDecodedData = [[NSData alloc] initWithData:(__bridge NSData *)decodedData];
     
     return nsDecodedData;
 }

@@ -46,8 +46,6 @@
 
     BOOL gotFlags = SCNetworkReachabilityGetFlags(reachability, &flags);
 
-    CFMakeCollectable(reachability);
-
     if (gotFlags) {
         
 		BOOL hostIsReachable = flags & kSCNetworkReachabilityFlagsReachable;

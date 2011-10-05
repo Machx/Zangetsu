@@ -31,7 +31,7 @@
 
 @interface CWBTreeNode : NSObject
 @property(nonatomic, retain) id value;
-@property(nonatomic, assign) __weak CWBTreeNode *parent;
+@property(nonatomic, weak) CWBTreeNode *parent;
 @property(nonatomic, retain, readonly) CWBTreeNode *leftNode;
 @property(nonatomic, retain, readonly) CWBTreeNode *rightNode;
 -(id)initWithValue:(id)aValue;

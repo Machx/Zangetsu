@@ -42,239 +42,239 @@
 /* NSString & CFStringRef */
 
 NS_INLINE NSString* CWCFToNSString(CFStringRef cfstr) {
-	return (NSString *)cfstr;
+	return (__bridge NSString *)cfstr;
 }
 
 NS_INLINE CFStringRef CWNSToCFStringRef(NSString *nsstr) {
-	return (CFStringRef)nsstr;
+	return (__bridge CFStringRef)nsstr;
 }
 
 /* NSMutableString & CFMutableStringRef */
 
 NS_INLINE NSMutableString* CWCFToNSMutableString(CFMutableStringRef cfmstring) {
-	return (NSMutableString *)cfmstring;
+	return (__bridge NSMutableString *)cfmstring;
 }
 
 NS_INLINE CFMutableStringRef CWNSToCFMutableStringRef(NSMutableString *nsmstring) {
-	return (CFMutableStringRef)nsmstring;
+	return (__bridge CFMutableStringRef)nsmstring;
 }
 
 /* NSArray & CFArrayRef */
 
 NS_INLINE NSArray* CWCFToNSArray(CFArrayRef array) {
-	return (NSArray *)array;
+	return (__bridge NSArray *)array;
 }
 
 NS_INLINE CFArrayRef CWNSToCFArray(NSArray *array) {
-	return (CFArrayRef)array;
+	return (__bridge CFArrayRef)array;
 }
 
 /* NSMutableArray & CFMutableArrayRef */
 
 NS_INLINE NSMutableArray* CWCFToNSMutableArray(CFMutableArrayRef cfMArray) {
-	return (NSMutableArray *)cfMArray;
+	return (__bridge NSMutableArray *)cfMArray;
 }
 
 NS_INLINE CFMutableArrayRef CWNSToCFMutableArrayRef(NSMutableArray *nsMArray) {
-	return (CFMutableArrayRef)nsMArray;
+	return (__bridge CFMutableArrayRef)nsMArray;
 }
 
 /* NSSet & CFSetRef */
 
 NS_INLINE NSSet* CWCFToNSSet(CFSetRef cfSet) {
-	return (NSSet *)cfSet;
+	return (__bridge NSSet *)cfSet;
 }
 
 NS_INLINE CFSetRef CWNSToCFSetRef(NSSet *nSet) {
-	return (CFSetRef)nSet;
+	return (__bridge CFSetRef)nSet;
 }
 
 /* NSMutableSet & CFMutableSetRef */
 
 NS_INLINE NSMutableSet* CWCFToNSMutableSet(CFMutableSetRef cfmSet) {
-	return (NSMutableSet *)cfmSet;
+	return (__bridge NSMutableSet *)cfmSet;
 }
 
 NS_INLINE CFMutableSetRef CWNSToCFMutableSetRef(NSMutableSet *nsmSet) {
-	return (CFMutableSetRef)nsmSet;
+	return (__bridge CFMutableSetRef)nsmSet;
 }
 
 /* NSDictionary & CFDictionaryRef */
 
 NS_INLINE NSDictionary* CWCFToNSDictionary(CFDictionaryRef cfdict) {
-	return (NSDictionary *)cfdict;
+	return (__bridge NSDictionary *)cfdict;
 }
 
 NS_INLINE CFDictionaryRef CWNSToCFDictionaryRef(NSDictionary *nsdict) {
-	return (CFDictionaryRef)nsdict;
+	return (__bridge CFDictionaryRef)nsdict;
 }
 
 /* NSMutableDictionary & CFMutableDictionaryRef */
 
 NS_INLINE NSMutableDictionary* CWCFToNSMutableDictionary(CFMutableDictionaryRef cfmutabledict) {
-	return (NSMutableDictionary *)cfmutabledict;
+	return (__bridge NSMutableDictionary *)cfmutabledict;
 }
 
 NS_INLINE CFMutableDictionaryRef CWNSToCFMutableDictionaryRef(NSMutableDictionary *nsmutabledict) {
-	return (CFMutableDictionaryRef)nsmutabledict;
+	return (__bridge CFMutableDictionaryRef)nsmutabledict;
 }
 
 /* NSData & CFDataRef */
 
 NS_INLINE NSData* CWCFToNSDataRef(CFDataRef cfData) {
-	return (NSData *)cfData;
+	return (__bridge NSData *)cfData;
 }
 
 NS_INLINE CFDataRef CWNSDataToCFDataRef(NSData *nData) {
-	return (CFDataRef)nData;
+	return (__bridge CFDataRef)nData;
 }
 
 /* NSMutableData & CFMutableDataRef */
 
 NS_INLINE NSMutableData* CWCFToNSMutableDataRef(CFMutableDataRef cfMutableData) {
-	return (NSMutableData *)cfMutableData;
+	return (__bridge NSMutableData *)cfMutableData;
 }
 
 NS_INLINE CFMutableDataRef CWNSDataToCFMutableDataRef(NSMutableData *nsmdata) {
-	return (CFMutableDataRef)nsmdata;
+	return (__bridge CFMutableDataRef)nsmdata;
 }
 
 /* NSNumber & CFNumberRef */
 
 NS_INLINE NSNumber* CWCFToNSNumber(CFNumberRef cfnumber) {
-	return (NSNumber *)cfnumber;
+	return (__bridge NSNumber *)cfnumber;
 }
 
 NS_INLINE CFNumberRef CWNSToCFNumberRef(NSNumber *nsnumber) {
-	return (CFNumberRef)nsnumber;
+	return (__bridge CFNumberRef)nsnumber;
 }
 
 /* NSError & CFErrorRef */
 
 NS_INLINE NSError* CWCFToNSError(CFErrorRef cferr) {
-	return (NSError *)cferr;
+	return (__bridge NSError *)cferr;
 }
 
 NS_INLINE CFErrorRef CWNSToCFErrorRef(NSError *nserr) {
-	return (CFErrorRef)nserr;
+	return (__bridge CFErrorRef)nserr;
 }
 
 /* CFRunLoopTimerRef & NSTimer */
 
 NS_INLINE CFRunLoopTimerRef CWNSToCFRunLoopTimerRef(NSTimer *nstimer) {
-	return (CFRunLoopTimerRef)nstimer;
+	return (__bridge CFRunLoopTimerRef)nstimer;
 }
 
 NS_INLINE NSTimer* CWCFToNSTimer(CFRunLoopTimerRef cftimer) {
-	return (NSTimer *)cftimer;
+	return (__bridge NSTimer *)cftimer;
 }
 
 /* CFAttributedStringRef & NSAttributedString */
 
 NS_INLINE CFAttributedStringRef CWNSToCFAttributedStringRef(NSAttributedString *nsAttrString) {
-	return (CFAttributedStringRef)nsAttrString;
+	return (__bridge CFAttributedStringRef)nsAttrString;
 }
 
 NS_INLINE NSAttributedString* CWCFToNSAttributedString(CFAttributedStringRef cfAttrString) {
-	return (NSAttributedString *)cfAttrString;
+	return (__bridge NSAttributedString *)cfAttrString;
 }
 
 /* CFMutableAttributedStringRef & NSMutableAttributedString */
 
 NS_INLINE CFMutableAttributedStringRef CWNSToCFMutableAttributedStringRef(NSMutableAttributedString *nsmAttrString) {
-	return (CFMutableAttributedStringRef)nsmAttrString;
+	return (__bridge CFMutableAttributedStringRef)nsmAttrString;
 }
 
 NS_INLINE NSMutableAttributedString* CWCFToNSMutableAttributedString(CFMutableAttributedStringRef cfmAttrString) {
-	return (NSMutableAttributedString *)cfmAttrString;
+	return (__bridge NSMutableAttributedString *)cfmAttrString;
 }
 
 /* NSCalendar and CFCalendarRef */
 
 NS_INLINE NSCalendar* CWCFToNSCalendar(CFCalendarRef cfcal) {
-	return (NSCalendar*)cfcal;
+	return (__bridge NSCalendar*)cfcal;
 }
 
 NS_INLINE CFCalendarRef CFNSToCFCalendarRef(NSCalendar *nscal) {
-	return (CFCalendarRef)nscal;
+	return (__bridge CFCalendarRef)nscal;
 }
 
 /* NSDate & CFDateRef */
 
 NS_INLINE NSDate* CWCFToNSDate(CFDateRef cfdate){
-	return (NSDate *)cfdate;
+	return (__bridge NSDate *)cfdate;
 }
 
 NS_INLINE CFDateRef CWNSToCFDateRef(NSDate *nsdate) {
-	return (CFDateRef)nsdate;
+	return (__bridge CFDateRef)nsdate;
 }
 
 /* NSCharacterSet & CFCharacterSetRef */
 
 NS_INLINE NSCharacterSet* CWCFToNSCharacterSet(CFCharacterSetRef cfcharset) {
-	return (NSCharacterSet *)cfcharset;
+	return (__bridge NSCharacterSet *)cfcharset;
 }
 
 NS_INLINE CFCharacterSetRef CWNSToCFCharacterSetRef(NSCharacterSet *nscharset) {
-	return (CFCharacterSetRef)nscharset;
+	return (__bridge CFCharacterSetRef)nscharset;
 }
 
 /* NSMutableCharacterSet & CFMutableCharacterSetRef */
 
 NS_INLINE NSMutableCharacterSet* CWCFToNSMutableCharacterSet(CFMutableCharacterSetRef cfmcharset) {
-	return (NSMutableCharacterSet *)cfmcharset;
+	return (__bridge NSMutableCharacterSet *)cfmcharset;
 }
 
 NS_INLINE CFMutableCharacterSetRef CWNSToCFMutableCharacterSetRef(NSMutableCharacterSet *nsmcharset) {
-	return (CFMutableCharacterSetRef)nsmcharset;
+	return (__bridge CFMutableCharacterSetRef)nsmcharset;
 }
 
 /* NSLocale & CFLocaleRef */
 
 NS_INLINE NSLocale* CWCFToNSLocale(CFLocaleRef cflocale) {
-	return (NSLocale *)cflocale;
+	return (__bridge NSLocale *)cflocale;
 }
 
 NS_INLINE CFLocaleRef CWNSToCFLocaleRef(NSLocale *nsloc) {
-	return (CFLocaleRef)nsloc;
+	return (__bridge CFLocaleRef)nsloc;
 }
 
 /* NSInputStream & CFReadStreamRef */
 
 NS_INLINE NSInputStream* CWCFToNSInputStream(CFReadStreamRef cfinstream) {
-	return (NSInputStream *)cfinstream;
+	return (__bridge NSInputStream *)cfinstream;
 }
 
 NS_INLINE CFReadStreamRef CWNSToCFReadStreamRef(NSInputStream *nsinstream) {
-	return (CFReadStreamRef)nsinstream;
+	return (__bridge CFReadStreamRef)nsinstream;
 }
 
 /* NSOutputStream & CFWriteStreamRef */
 
 NS_INLINE NSOutputStream* CWCFToNSOutputStream(CFWriteStreamRef cfstream) {
-	return (NSOutputStream *)cfstream;
+	return (__bridge NSOutputStream *)cfstream;
 }
 
 NS_INLINE CFWriteStreamRef CWNSToCFWriteStreamRef(NSOutputStream *nsstream){
-	return (CFWriteStreamRef)nsstream;
+	return (__bridge CFWriteStreamRef)nsstream;
 }
 
 /* NSTimeZone & CFTimeZoneRef */
 
 NS_INLINE NSTimeZone* CWCFToNSTimeZone(CFTimeZoneRef cftimezone) {
-	return (NSTimeZone *)cftimezone;
+	return (__bridge NSTimeZone *)cftimezone;
 }
 
 NS_INLINE CFTimeZoneRef CWNSToCFTimeZone(NSTimeZone *nstimezone) {
-	return (CFTimeZoneRef)nstimezone;
+	return (__bridge CFTimeZoneRef)nstimezone;
 }
 
 /* NSURL & CFURLRef */
 
 NS_INLINE NSURL* CWCFToNSURL(CFURLRef cfurl) {
-	return (NSURL *)cfurl;
+	return (__bridge NSURL *)cfurl;
 }
 
 NS_INLINE CFURLRef CWNSToCFURL(NSURL *nsurl) {
-	return (CFURLRef)nsurl;
+	return (__bridge CFURLRef)nsurl;
 }
