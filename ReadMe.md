@@ -1,10 +1,10 @@
 # Zangetsu Framework #
 
-Zangetsu is a general purpose 64 bit Garbage Collected Framework for Mac OS X 10.7 and later with preserved snapshots available for those who need 10.6 Snow Leopard support in the downloads. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License. Although it is not required, if you do use this I'd love it if you let me know what apps you use this in. Thanks!
+Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.7 and later with preserved snapshots available for those who need 10.6 Snow Leopard support in the downloads. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License. Although it is not required, if you do use this I'd love it if you let me know what apps you use this in. Thanks!
 
-## ARC Plans ##
+## GC Support ##
 
-When ARC is publicly made available on the Mac OS X SDK, Zangetsu will switch over to it and no longer support Garbage Collection. A final Garbage Collection Snapshot & information on what commit to revert to for GC support will be provided.
+There is no more Garbage Collection Support. If you need GC Support you can fork this repo and revert it back to commit 4e211f890b777ac6d551f29a1f918331fb168fb9 or download [the Garbage Collection Snapshot](https://github.com/downloads/Machx/Zangetsu/Zangetsu-GCSnapshot.zip).
 
 ## What's in Zangetsu? ##
 
