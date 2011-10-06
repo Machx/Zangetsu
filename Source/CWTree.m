@@ -77,6 +77,23 @@
 }
 
 /**
+ Returns a NSString with the description of the receiving CWTreeNode Object
+ 
+ @return a NSString with debug information on the CWTreeNode Object
+ */
+-(NSString *)description {
+	NSString *allowsDupes = CWBOOLString(self->allowsDuplicates);
+	NSString *desc = [NSString stringWithFormat:@"%@ Node\nValue: %@\nParent: %@\nChildren: %@\nAllows Duplicates: %@",
+					  NSStringFromClass([self class]),
+					  self->value,
+					  self->parent,
+					  self->children,
+					  allowsDupes];
+	
+	return desc;
+}
+
+/**
  Adds node to the receivers children
  
  If the receiver allows duplicates it simply adds node to the receivers children
