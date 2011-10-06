@@ -85,9 +85,9 @@
 	NSString *allowsDupes = CWBOOLString(self->allowsDuplicates);
 	NSString *desc = [NSString stringWithFormat:@"%@ Node\nValue: %@\nParent: %@\nChildren: %@\nAllows Duplicates: %@",
 					  NSStringFromClass([self class]),
-					  self->value,
-					  self->parent,
-					  self->children,
+					  [self->value description],
+					  [self->parent description],
+					  [self->children description],
 					  allowsDupes];
 	
 	return desc;
