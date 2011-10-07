@@ -79,7 +79,7 @@
 /**
  Returns a NSString with the description of the receiving CWTreeNode Object
  
- @return a NSString with debug information on the CWTreeNode Object
+ @return a NSString with debug information on the receiving CWTreeNode Object
  */
 -(NSString *)description {
 	NSString *allowsDupes = CWBOOLString(self->allowsDuplicates);

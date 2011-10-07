@@ -2,10 +2,6 @@
 
 Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.7 and later with preserved snapshots available for those who need 10.6 Snow Leopard support in the downloads. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License. Although it is not required, if you do use this I'd love it if you let me know what apps you use this in. Thanks!
 
-## GC Support ##
-
-There is no more Garbage Collection Support. If you need GC Support you can fork this repo and revert it back to commit 4e211f890b777ac6d551f29a1f918331fb168fb9 or download [the Garbage Collection Snapshot](https://github.com/downloads/Machx/Zangetsu/Zangetsu-GCSnapshot.zip).
-
 ## What's in Zangetsu? ##
 
 Zangetsu contains
@@ -43,6 +39,10 @@ There is Doxygen support in the framework. All you need to do is download Doxyge
 
 ## Where do I report bugs? ##
 File issues in the issue section on the github project.
+
+## GC Support ##
+
+There is no more Garbage Collection Support. If you need GC Support you can fork this repo and revert it back to commit 4e211f890b777ac6d551f29a1f918331fb168fb9 or download [the Garbage Collection Snapshot](https://github.com/downloads/Machx/Zangetsu/Zangetsu-GCSnapshot.zip).
 
 ## I need to use Zangetsu on 10.6 Snow Leopard ##
 Download the [Zangetsu 10.6 SDK Snapshot](https://github.com/downloads/Machx/Zangetsu/Machx-Zangetsu-10_6.zip) and feel free to use it within the terms of the MIT License. Alternatively you may fork the project and revert it to the last commit before settings where updated for 10.7 which is commit 4c1feb41487720d4ae8101796d5cc8f88b542668 on the master branch.
