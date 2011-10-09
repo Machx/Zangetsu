@@ -150,6 +150,12 @@
 }
 
 -(void)testEachConcurrently {
+	/**
+	 Tests the API cw_eachConcurrentlyWithBlock. In this test we are making sure
+	 that all objects are enumerated over and thus our original array and results
+	 array should have the same contents. We then enumerate over the original array
+	 and make sure that the objects have the correct indexes passed in the block.
+	 */
 	
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
@@ -161,7 +167,7 @@
 		}
 	}];
 	
-	STAssertTrue([results count] == [testArray count], @"2 arrays should have the same count");
+	STAssertTrue([results isEqualToArray:testArray], @"The 2 arrays should have the same contents");
     
     [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
         switch (index) {
@@ -179,6 +185,11 @@
 }
 
 -(void)testIsObjectInArrayWithBlock {
+	/**
+	 tests the cw_isObjectInArrayWithBlock API. The API simply returns a BOOL 
+	 indicating if the object is in the array. This test should always return
+	 YES because we know the object is in the array.
+	 */
 	
 	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
 	
@@ -190,6 +201,11 @@
 }
 
 -(void)testFindAllWithBlock {
+	/**
+	 Testing the cw_findAllWithBlock api. This should find all ojbects we are looking 
+	 for in an array and then compare it to another array that has the objects we 
+	 know the api should return. If the 2 arrays are the same the API works as desired...
+	 */
 	
 	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
 	
@@ -204,7 +220,7 @@
 	
 	NSArray *resultArray2 = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
 	
-	STAssertTrue([resultArray1 isEqualTo:resultArray2], @"arrays should be equal");
+	STAssertTrue([resultArray1 isEqualToArray:resultArray2], @"arrays should be equal");
 }
 
 @end
