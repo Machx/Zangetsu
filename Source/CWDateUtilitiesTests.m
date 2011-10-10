@@ -61,8 +61,6 @@
 	NSString *trimmedDateString = [dateString substringWithRange:NSMakeRange(0, 10)];
 	
 	NSString *dateString2 = @"2011-06-09";
-    
-    NSLog(@"date %@ date %@",dateString2,trimmedDateString);
 	
 	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
 }
@@ -80,6 +78,7 @@
 	
 	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0);
 	
+	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	
 	[components setYear:2011];
@@ -88,10 +87,11 @@
 	[components setHour:10];
 	[components setMinute:0];
 	[components setSecond:0];
-	
-	NSCalendar *calendar = [NSCalendar currentCalendar];
+	[components setTimeZone:[calendar timeZone]];
 	
 	NSDate *date2 = [calendar dateFromComponents:components];
+	
+	NSLog(@"Date1: %@\nDate2: %@",date1,date2);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
