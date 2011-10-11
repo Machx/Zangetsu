@@ -60,26 +60,20 @@
 	//we are testing the date string not the time zone...
 	NSString *trimmedDateString = [dateString substringWithRange:NSMakeRange(0, 10)];
 	
-	//NSString *dateString2 = @"2011-06-09";
+	NSString *dateString2 = @"2011-06-09";
 	
 	NSLog(@"DateString: %@ - TrimString: %@",dateString,trimmedDateString);
 	
-	//STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
+	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
 }
 
 -(void)testDateFromStringWithFormat {	
 	
 	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
-	if (date1) {
-		NSLog(@"Date1 is %@",date1);
-	}
 	
 	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00);
-	if (date2) {
-		NSLog(@"Date2 is %@",date2);
-	}
 	
-	//STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
+	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
 -(void)testDateFromComponents {
