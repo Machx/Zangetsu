@@ -105,34 +105,25 @@ NSString * CWDateString(NSDate * date) {
  */
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second) {
-//	NSCalendar * calendar = [NSCalendar currentCalendar];
-//    NSDateComponents * components = [[NSDateComponents alloc] init];
-//
-//    if (components) {
-//		[components setTimeZone:[NSTimeZone systemTimeZone]];
-//        [components setYear:year];
-//        [components setMonth:month];
-//        [components setDay:day];
-//		[components setHour:hour];
-//        [components setMinute:minute];
-//        [components setSecond:second];
-//
-//        if (calendar) {
-//            NSDate * date = [calendar dateFromComponents:components];
-//            if (date) {
-//                return date;
-//            }
-//        }
-//    }
-	NSString *_dString = [NSString stringWithFormat:@"%ld %ld %ld %ld %ld %ld",
-						  year, month, day, hour, minute, second];
-	NSDateFormatter *dFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"yyyy MM dd hh mm SS" 
-														 allowNaturalLanguage:NO];
-	[dFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-	NSDate *date =  [dFormatter dateFromString:_dString];
-	if (date) {
-		return date;
-	}
+	NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDateComponents * components = [[NSDateComponents alloc] init];
+
+    if (components) {
+		[components setTimeZone:[NSTimeZone systemTimeZone]];
+        [components setYear:year];
+        [components setMonth:month];
+        [components setDay:day];
+		[components setHour:hour];
+        [components setMinute:minute];
+        [components setSecond:second];
+
+        if (calendar) {
+            NSDate * date = [calendar dateFromComponents:components];
+            if (date) {
+                return date;
+            }
+        }
+    }
 	
     return nil;
 }
