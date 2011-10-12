@@ -81,14 +81,21 @@ THE SOFTWARE.
 @end
 
 /**
- * Returns a NSString in NSDates description format
+ * Returns a NSString with a description of the NSDate object
+ *
+ * Currently this method uses the "%Y-%m-%d %H:%M:%S %z" format to
+ * describe the passed in NSDate object. If the passed in NSDate object is
+ * nil then this method will throw an assertion.
  *
  * @param date a NSDate object
- * @return a NSString with NSDates description format
+ * @return a NSString with describing the NSDate object
  */
 NSString * CWDateString(NSDate * date) {
 	NSCParameterAssert(date);
-	NSString *desc = [date descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S %z" timeZone:[[NSCalendar currentCalendar] timeZone] locale:nil];
+	NSString *desc = nil;
+	desc = [date descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S %z" 
+									  timeZone:[[NSCalendar currentCalendar] timeZone] 
+										locale:nil];
 	return desc;
 }
 
