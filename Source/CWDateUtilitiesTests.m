@@ -41,30 +41,16 @@
     // Set-up code here.
 }
 
-/**
- tests the CWDateString function which should output the description of the date
- */
--(void)testDateString {
-	NSDate *now = [NSDate date];
-	
-	STAssertTrue([[now description] isEqualToString:CWDateString(now)],@"descriptions should be the same");
-}
-
-/**
- tests the CWDateStringFromComponents function to make sure we are getting an
- appropriate description back
- */
 -(void)testDateStringFromComponents {
-	//TOFIX: apparently in Lion the hour changes for some odd reason, need to fix this
-	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 5, 0, 0);
-	//we are testing the date string not the time zone...
-	NSString *trimmedDateString = [dateString substringWithRange:NSMakeRange(0, 10)];
+	/**
+	 tests the CWDateStringFromComponents function to make sure we are getting an
+	 appropriate description back
+	 */
+	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 14, 0, 0);
 	
-	NSString *dateString2 = @"2011-06-09";
+	NSString *dateString2 = @"2011-06-09 14:00:00 -0500";
 	
-	NSLog(@"DateString: %@ - TrimString: %@",dateString,trimmedDateString);
-	
-	STAssertTrue([trimmedDateString isEqualToString:dateString2],@"strings should be equal");
+	STAssertTrue([dateString isEqualToString:dateString2],@"strings should be equal");
 }
 
 -(void)testDateFromStringWithFormat {	
@@ -95,7 +81,7 @@
 	
 	NSLog(@"Date1: %@\nDate2: %@",date1,date2);
 	
-	//STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
+	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
 -(void)test8601DateFormat1 {

@@ -87,7 +87,9 @@ THE SOFTWARE.
  * @return a NSString with NSDates description format
  */
 NSString * CWDateString(NSDate * date) {
-    return [date description];
+	NSCParameterAssert(date);
+	NSString *desc = [date descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S %z" timeZone:[[NSCalendar currentCalendar] timeZone] locale:nil];
+	return desc;
 }
 
 /**
