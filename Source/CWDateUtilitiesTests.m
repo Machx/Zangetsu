@@ -54,7 +54,10 @@
 }
 
 -(void)testDateFromStringWithFormat {	
-	
+	/**
+	 make sure that the -dateFromString:withDateFormat: api returns the correct date
+	 from the passed in string it is given
+	 */
 	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
 	
 	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00);
@@ -63,7 +66,10 @@
 }
 
 -(void)testDateFromComponents {
-	
+	/**
+	 make sure that the CWDateFromComponents() api works as it should
+	 in giving a correct date from the components passed into it.
+	 */
 	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0);
 	
 	NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -79,22 +85,23 @@
 	
 	NSDate *date2 = [calendar dateFromComponents:components];
 	
-	NSLog(@"Date1: %@\nDate2: %@",date1,date2);
-	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
 -(void)test8601DateFormat1 {
-	
+	/**
+	 test that we are getting a date from the -dateFromISO8601String API
+	 and that the value is correct.
+	 */
 	NSString *data = @"1994-11-05T13:15:30Z";
 	
 	NSDate *date1 = [CWDateUtilities dateFromISO8601String:data];
 	
-	NSLog(@"iso8601 date is %@",date1);
-	
 	STAssertNotNil(date1, @"should have a valid NSDate object");
 	
-	//TODO: test that the date is correct, which it doesn't appear to be right now...
+	NSDate *date2 = CWDateFromComponents(1994, 11, 05, 13, 15, 30);
+	
+	STAssertTrue([date1 isEqualToDate:date2], @"Dates should be equal");
 }
 
 - (void)tearDown
