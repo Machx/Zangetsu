@@ -110,15 +110,21 @@ NSString * CWDateString(NSDate * date) {
  * @param hour a NSInteger for the hour of the date desired
  * @param minute a NSInteger for the minute of the date desired
  * @param second a NSInteger for the second of the date desired
+ * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
  * @return a NSDate object if successful, nil otherwise
  */
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
-                              NSInteger hour, NSInteger minute, NSInteger second) {
+                              NSInteger hour, NSInteger minute, NSInteger second,
+							  NSTimeZone *timeZone) {
 	NSCalendar * calendar = [NSCalendar currentCalendar];
     NSDateComponents * components = [[NSDateComponents alloc] init];
 
     if (components) {
-		[components setTimeZone:[NSTimeZone systemTimeZone]];
+		if (timeZone) {
+			[components setTimeZone:timeZone];
+		} else {
+			[components setTimeZone:[NSTimeZone systemTimeZone]];
+		}
         [components setYear:year];
         [components setMonth:month];
         [components setDay:day];
@@ -146,11 +152,13 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
  * @param hour a NSInteger with the hour value
  * @param minute a NSInteger with the minute value
  * @param second a NSInteger with the second value
+ * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
  * @return a NSString with NSDates format
  */
 NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
-                                      NSInteger hour, NSInteger minute, NSInteger second) {
-    NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second);
+                                      NSInteger hour, NSInteger minute, NSInteger second,
+									  NSTimeZone *timeZone) {
+    NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second,timeZone);
 
     NSString * dateString = CWDateString(date);
 

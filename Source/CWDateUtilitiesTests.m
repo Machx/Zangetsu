@@ -46,7 +46,7 @@
 	 tests the CWDateStringFromComponents function to make sure we are getting an
 	 appropriate description back
 	 */
-	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 14, 0, 0);
+	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 14, 0, 0, nil);
 	
 	NSString *dateString2 = @"2011-06-09 14:00:00 -0500";
 	
@@ -60,7 +60,7 @@
 	 */
 	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
 	
-	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00);
+	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00, nil);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
@@ -70,7 +70,7 @@
 	 make sure that the CWDateFromComponents() api works as it should
 	 in giving a correct date from the components passed into it.
 	 */
-	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0);
+	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0, nil);
 	
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -99,7 +99,7 @@
 	
 	STAssertNotNil(date1, @"should have a valid NSDate object");
 	
-	NSDate *date2 = CWDateFromComponents(1994, 11, 05, 13, 15, 30);
+	NSDate *date2 = CWDateFromComponents(1994, 11, 05, 13, 15, 30, nil);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"Dates should be equal");
 }
