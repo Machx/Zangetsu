@@ -88,6 +88,27 @@
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
+-(void)testTimeZoneDateFromComponents {
+	/**
+	 testing passing in the timezone to make sure that the returned NSDate
+	 objects are different when different timezones are passed in
+	 */
+	
+	/**
+	 this date should grab the current timezone that the host system
+	 is setup with and currently using
+	 */
+	NSDate *date1 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, nil);
+	
+	/**
+	 when the timezone is non nil then the method should grab the passed
+	 in timezone and use that for the date.
+	 */
+	NSDate *date2 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, [NSTimeZone timeZoneForSecondsFromGMT:0]);
+	
+	STAssertFalse([date1 isEqualToDate:date2], @"Dates should not be the same");
+}
+
 -(void)test8601DateFormat1 {
 	/**
 	 test that we are getting a date from the -dateFromISO8601String API
