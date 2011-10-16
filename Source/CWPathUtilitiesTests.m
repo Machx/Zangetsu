@@ -30,8 +30,6 @@
 #import "CWPathUtilitiesTests.h"
 #import "CWPathUtilities.h"
 
-//TODO: These tests will need to be updated when Zangetsu switches to Lion
-
 @implementation CWPathUtilitiesTests
 
 - (void)setUp

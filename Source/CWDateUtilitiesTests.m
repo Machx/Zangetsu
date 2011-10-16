@@ -30,8 +30,6 @@
 #import "CWDateUtilitiesTests.h"
 #import "CWDateUtilities.h"
 
-//TODO: test the "1994-11-05T08:15:30-05:00" format for ISO8601...
-
 @implementation CWDateUtilitiesTests
 
 - (void)setUp
