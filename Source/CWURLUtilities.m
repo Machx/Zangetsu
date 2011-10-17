@@ -52,6 +52,19 @@ NSURL *CWURL(NSString * urlFormat,...){
     return _urlValue;
 }
 
+NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
+	NSCParameterAssert(login);
+	NSCParameterAssert(password);
+	
+	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
+	NSString *encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
+	if (encodedAuth) {
+		NSString *authString = [[NSString alloc] initWithFormat:@"Basic %@",encodedAuth];
+		return authString;
+	}
+	return nil;
+}
+
 static NSString * kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
 @implementation CWURLUtilities

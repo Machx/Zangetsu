@@ -31,6 +31,8 @@
 
 NSURL *CWURL(NSString * urlFormat,...);
 
+NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password);
+
 @interface CWURLUtilities : NSObject
 
 +(NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code;
