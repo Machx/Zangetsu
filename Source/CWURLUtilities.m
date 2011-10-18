@@ -52,12 +52,24 @@ NSURL *CWURL(NSString * urlFormat,...){
     return _urlValue;
 }
 
+/**
+ Creates a authorization header string like "Basic {base64encodedlogin}"
+ 
+ where "{base64encodedlogin}" is your login and password encoded via base64
+ encoding. If either the passed in login or password are nil the function
+ will throw an assertion.
+ 
+ @param login a NSString with your login identity
+ @param password a NSString with the password corresponding to the login identity
+ @return a NSString with a value that can be set as the authorization header value or nil if there was a problem
+ */
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	NSCParameterAssert(login);
 	NSCParameterAssert(password);
 	
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
-	NSString *encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
+	NSString *encodedAuth = nil;
+	encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
 	if (encodedAuth) {
 		NSString *authString = [[NSString alloc] initWithFormat:@"Basic %@",encodedAuth];
 		return authString;

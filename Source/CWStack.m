@@ -74,6 +74,7 @@
  @param object the object you want pushed onto the stack
  */
 -(void)push:(id)object {
+	NSParameterAssert(object);
 	[[self stack] addObject:object];
 }
 
