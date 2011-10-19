@@ -163,11 +163,10 @@
 -(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request {
     NSParameterAssert(request);
     if ([self authHeader]) {
-        NSString *nameAndPass = [NSString stringWithFormat:@"%@:%@",self->authName,self->authPassword];
-        NSString *loginBase64 = [nameAndPass cw_base64EncodedString];
-        
-        NSString *credentialsString = [NSString stringWithFormat:@"Basic %@",loginBase64];
-        [request addValue:credentialsString forHTTPHeaderField:@"Authorization"];
+		NSString *credentialsString = CWURLAuthorizationHeaderString(self->authName, self->authPassword);
+        if (credentialsString) {
+			[request addValue:credentialsString forHTTPHeaderField:@"Authorization"];
+		}
     }
 }
 
