@@ -171,6 +171,11 @@
 }
 
 -(void)testNodeLevel {
+	/**
+	 test the node level of nodes at various levels, nodes should report
+	 that their level is 1 + N  where N is the amount of parent nodes they
+	 have. 
+	 */
     
     static NSString *const kTestValue = @"Now look I am not evil, my Loan officer told me so";
     
