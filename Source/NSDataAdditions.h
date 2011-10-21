@@ -36,6 +36,8 @@
 
 -(const char *)cw_utf8StringFromData;
 
+-(NSString *)cw_hexString;
+
 - (NSData *)cw_gzipDecompress;
 
 - (NSData *)cw_gzipCompress;

@@ -46,6 +46,24 @@
     return cRep;
 }
 
+-(NSString *)cw_hexString {
+	if (self == nil || [self length] == 0) {
+		return nil;
+	}
+	
+	NSUInteger capacity = [self length] * 2;
+	NSMutableString *stringBuffer = [NSMutableString stringWithCapacity:capacity];
+	const unsigned char *dataBuffer = [self bytes];
+	
+	for (NSUInteger i = 0; i < [self length]; ++i) {
+		[stringBuffer appendFormat:@"%02X ",(NSUInteger)dataBuffer[i]];
+	}
+	if (stringBuffer) {
+		return stringBuffer;
+	}
+	return nil;
+}
+
 // from http://www.cocoadev.com/index.pl?NSDataCategory
 - (NSData *) cw_gzipDecompress {
     if ([self length] == 0) return self;
