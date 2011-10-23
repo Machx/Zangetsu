@@ -49,8 +49,4 @@
 
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue;
 
-// Objective-C Class lookup methods
-
-//-(NSArray *)cw_directSubclasses;
-
 @end

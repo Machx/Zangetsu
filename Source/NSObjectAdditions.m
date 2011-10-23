@@ -107,47 +107,4 @@
 	});
 }
 
-/**
- gets a list of all registered classes with the objective-c runtime
- and then figures out which ones are descended from the current class
- and adds those to an array and returns them.
- 
- @return a NSArray with strings of the classes that are direct subclasses of the current class of the object
- */
-//temporarily disabling...
-//-(NSArray *)cw_directSubclasses
-//{
-//	NSMutableArray *array = nil;
-//	
-//	Class *classes = nil;
-//	int numClasses = 0;
-//	
-//	numClasses = objc_getClassList(NULL, 0);
-//	
-//	if (numClasses > 0) {
-//		classes = malloc(sizeof(Class) * numClasses);
-//		
-//		if (classes) {
-//			numClasses = objc_getClassList(classes, numClasses);
-//			
-//			Class const selfClass = [self class];
-//			int count = numClasses;
-//			
-//			for (int index = 0; index < count; ++index) {
-//				
-//				Class currClass = class_getSuperclass(classes[index]);
-//				
-//				if (currClass == selfClass) {
-//					if (array == nil) { array = [[NSMutableArray alloc] init]; }
-//					[array addObject:NSStringFromClass(classes[index])];
-//				}
-//			}
-//		}
-//		
-//		free(classes);
-//	}
-//	
-//	return array;
-//}
-
 @end
