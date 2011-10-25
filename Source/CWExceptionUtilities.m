@@ -30,14 +30,6 @@
 #import "CWExceptionUtilities.h"
 
 /**
- Quick method to make the NSApp report the exception
- */
-void CWReportException(NSException *exception)
-{
-	[NSApp reportException:exception];
-}
-
-/**
  Takes a NSException object and runs an Critical Alert Panel with the Exception 
  information as well as the stack trace of where the stack trace occurred minus
  the exception handling frames.

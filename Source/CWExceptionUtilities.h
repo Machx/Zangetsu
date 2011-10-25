@@ -29,8 +29,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-void CWReportException(NSException *exception);
-
 void CWShowExceptionAsAlertPanel(NSException *exception);
 
 @interface NSException (CWNSExceptionAdditions)
