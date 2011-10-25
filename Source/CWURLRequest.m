@@ -112,6 +112,11 @@
     return self;
 }
 
+/**
+ Returns a debug description of the CWURLRequest object
+ 
+ @return a NSString describing the current state & even some private internal information for the CWURLRequest instance
+ */
 -(NSString *)description {
     NSString *_isFinished = CWBOOLString(self->isFinished);
     NSString *_usesHTTPAuthHeader = CWBOOLString(self->authHeader);
@@ -124,6 +129,11 @@
 			self->urlError];
 }
 
+/**
+ Exposes NSURLConnection API to CWURLRequest allowing you to see if a CWURLRequest can handle a request
+ 
+ @return a BOOL indicating if a CWURLRequest instance can handle a request
+ */
 -(BOOL)canHandleRequest {
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:CWURL(self->host)
 												  cachePolicy:self->cachePolicy
@@ -137,8 +147,13 @@
 //MARK: Authorization Attribute Methods
 
 /**
- Check to make sure we have our vars and set our private only vars to use
- in the authentication challenge should we receive one
+ Sets the login and password credentials for the Authentication Challenge
+ 
+ If you set this then the CWURLRequest will not use the http authorization header if 
+ it was previously turned on.
+ 
+ @param uLogin a NSString with the login
+ @param uPassword a NSString containing the password
  */
 -(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
                            andPassword:(NSString *)uPassword {
@@ -150,6 +165,16 @@
     [self setAuthHeader:NO];
 }
 
+/**
+ Sets the credentials for the http authorization header
+ 
+ If you set this then CWURLRequest will (when it starts its NSURLConnection) create a
+ http authorization header with Base64 encoding and will not respond to authentication
+ challenges if that was previously turned on.
+ 
+ @param uLogin a NSString with the login
+ @param uPassword a NSString containing the password
+ */
 -(void)setAuthenticationHTTPHeaderLogin:(NSString *)login 
                             andPassword:(NSString *)password {
     NSParameterAssert(login);
@@ -160,6 +185,12 @@
     [self setAuthHeader:YES];
 }
 
+/**
+ private internal method
+ 
+ sets the httpd authorization header if the credentials are set and if 
+ the CWURLReqeust is supposed to use the http authorization header
+ */
 -(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request {
     NSParameterAssert(request);
     if ([self authHeader]) {
