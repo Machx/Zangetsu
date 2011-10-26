@@ -225,7 +225,7 @@
     [urlConnection start];
     
     while ([self isFinished] == NO) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
     
     block([self urlData],[self urlError]);
@@ -255,7 +255,7 @@
         [urlConnection start];
         
         while ([self isFinished] == NO) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -289,7 +289,7 @@
         [urlConnection start];
         
         while ([self isFinished] == NO) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         }
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
