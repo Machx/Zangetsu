@@ -40,22 +40,16 @@
  */
 + (BOOL) canReachAddress:(NSString *)address {
     NSParameterAssert(address);
-
-    SCNetworkReachabilityFlags flags;
-    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [address UTF8String]);
-
-    BOOL gotFlags = SCNetworkReachabilityGetFlags(reachability, &flags);
-
-    if (gotFlags) {
-        
-		BOOL hostIsReachable = flags & kSCNetworkReachabilityFlagsReachable;
-		
-		BOOL connectionCanBeMade = flags & kSCNetworkReachabilityFlagsConnectionRequired;
-		
-		return ((hostIsReachable == YES) && (connectionCanBeMade == YES)) ? YES : NO;
-    }
-
-    return NO;
+	
+	bool available = false;
+	bool success = false;
+	SCNetworkReachabilityFlags flags;
+	SCNetworkReachabilityRef reachable = SCNetworkReachabilityCreateWithName(NULL, [address UTF8String]);
+	
+	success = SCNetworkReachabilityGetFlags(reachable, &flags);
+	available = success && (flags & kSCNetworkFlagsReachable) && !(flags & kSCNetworkFlagsConnectionRequired);
+	
+	return (available) ? YES : NO;
 }
 
 @end
