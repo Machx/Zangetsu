@@ -82,7 +82,9 @@
 	});
 	
 	*response = resp;
-	*error = err;
+	if (*error) {
+		*error = err;
+	}
 	
 	return data;
 }

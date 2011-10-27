@@ -47,24 +47,33 @@
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
     if(error) { 
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(encoder);
         return nil; 
     }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, inputData, &error);
     if (error) {
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(encoder);
         return nil;
     }
     
-    CFDataRef data = SecTransformExecute(encoder, &error);
+    CFDataRef data = NULL;
+	data = SecTransformExecute(encoder, &error);
     if (error) {
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(encoder);
         return nil;
     }
     
+	CFRelease(encoder);
+	CFRelease(inputData);
     NSData *compressedData = nil;
     compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
-    
+	
     return compressedData; 
 }
 
@@ -83,15 +92,21 @@
     decoder = SecDecodeTransformCreate(kSecZLibEncoding, &error);
     if (error) {
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(decoder);
         return nil;
     }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, inputData, &error);
     if (error) {
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(decoder);
         return nil;
     }
     
+	CFRelease(inputData);
+	CFRelease(decoder);
     CFDataRef decodedData = NULL;
     decodedData = SecTransformExecute(decoder, &error);
     if (error) {

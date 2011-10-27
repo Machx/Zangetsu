@@ -53,23 +53,32 @@
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(encoder);
         return nil;
     }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
     if (error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(encoder);
         return nil;
     }
     
     CFDataRef encodedData = SecTransformExecute(encoder, &error);
     if (!encodedData && error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(encoder);
         return nil;
     }
     
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData encoding:NSUTF8StringEncoding];
+	
+	CFRelease(data);
+	CFRelease(encoder);
     
     return base64String;
 }
@@ -95,23 +104,31 @@
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(decoder);
         return nil;
     }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
     if (error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(decoder);
         return nil;
     }
     
     CFDataRef decodedData = SecTransformExecute(decoder, &error);
     if (error) {
         CFShow(error);
+		CFRelease(data);
+		CFRelease(decoder);
         return nil;
     }
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData encoding:NSUTF8StringEncoding];
+	CFRelease(data);
+	CFRelease(decoder);
     
     return base64DecodedString;
 }
