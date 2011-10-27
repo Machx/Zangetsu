@@ -105,16 +105,18 @@
         return nil;
     }
     
-	CFRelease(inputData);
-	CFRelease(decoder);
     CFDataRef decodedData = NULL;
     decodedData = SecTransformExecute(decoder, &error);
     if (error) {
         CFShow(error);
+		CFRelease(inputData);
+		CFRelease(decoder);
         return nil;
     }
     
     NSData *nsDecodedData = [[NSData alloc] initWithData:(__bridge NSData *)decodedData];
+	CFRelease(inputData);
+	CFRelease(decoder);
     
     return nsDecodedData;
 }
