@@ -53,6 +53,18 @@
     
     NSString *noString = CWBOOLString(NO);
     STAssertTrue([noString isEqualToString:@"NO"], @"Both strings should be 'NO'");
+	
+	NSString *str = [[NSString alloc] initWithString:@"Yes"];
+	
+	NSString *str2 = CWBOOLString([str boolValue]);
+	
+	STAssertTrue([str2 isEqualToString:@"YES"], @"A valid object should return YES");
+	
+	NSString *str3 = [[NSString alloc] initWithString:@"NO"];
+	
+	NSString *str4 = CWBOOLString([str3 boolValue]);
+	
+	STAssertTrue([str4 isEqualToString:@"NO"], @"A valid object should return YES");
 }
 
 - (void)tearDown
