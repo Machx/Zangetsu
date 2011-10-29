@@ -29,6 +29,7 @@
 
 #import "CWFoundationTests.h"
 #import "CWFoundation.h"
+#import "CWMacros.h"
 
 @implementation CWFoundationTests
 
@@ -56,13 +57,13 @@
 	
 	NSString *str = [[NSString alloc] initWithString:@"Yes"];
 	
-	NSString *str2 = CWBOOLString([str boolValue]);
+	NSString *str2 = CWBOOLString((BOOL)str);
 	
 	STAssertTrue([str2 isEqualToString:@"YES"], @"A valid object should return YES");
 	
-	NSString *str3 = [[NSString alloc] initWithString:@"NO"];
+	NSString *str3 = nil;
 	
-	NSString *str4 = CWBOOLString([str3 boolValue]);
+	NSString *str4 = CWBOOLString((BOOL)str3);
 	
 	STAssertTrue([str4 isEqualToString:@"NO"], @"A valid object should return YES");
 }
