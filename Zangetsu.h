@@ -69,3 +69,4 @@
 #import "CWBase64.h"
 #import "CWZLib.h"
 #import "NSOperationQueueAdditions.h"
+#import "CWQueue.h"
