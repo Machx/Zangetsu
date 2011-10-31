@@ -16,6 +16,9 @@
 
 @synthesize queue;
 
+//MARK: -
+//MARK: Initiailziation
+
 -(id)init {
 	self = [super init];
 	if (self) {
@@ -32,6 +35,9 @@
 	return self;
 }
 
+//MARK: -
+//MARK: Add & Remove Objects
+
 -(id)dequeueTopObject {
 	id topObject = [[self queue] cw_firstObject];
 	[[self queue] removeObjectAtIndex:0];
@@ -47,11 +53,21 @@
 	[[self queue] removeAllObjects];
 }
 
-//add enumerate objects with block?
+-(void)enumerateObjectsInQueue:(void(^)(id object))block {
+	for (id object in queue) {
+		block(object);
+	}
+}
+
+//MARK: -
+//MARK: Debug Information
 
 -(NSString *)description {
 	return [[self queue] description];
 }
+
+//MARK: -
+//MARK: Comparison
 
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue {
 	return [[[self queue] description] isEqualToString:[aQueue description]];

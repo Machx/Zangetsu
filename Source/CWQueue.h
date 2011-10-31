@@ -18,4 +18,6 @@
 
 -(void)removeAllObjects;
 
+-(void)enumerateObjectsInQueue:(void(^)(id object))block;
+
 @end
