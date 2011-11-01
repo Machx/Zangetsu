@@ -49,4 +49,5 @@
 @interface CWTree : NSObject
 -(id)initWithRootNodeValue:(id)value;
 @property(nonatomic, retain) CWTreeNode *rootNode;
+-(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;
 @end

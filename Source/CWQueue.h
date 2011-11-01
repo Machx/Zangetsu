@@ -20,4 +20,6 @@
 
 -(void)enumerateObjectsInQueue:(void(^)(id object))block;
 
+-(NSUInteger)count;
+
 @end

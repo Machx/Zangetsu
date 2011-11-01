@@ -54,7 +54,7 @@
 }
 
 -(void)enumerateObjectsInQueue:(void(^)(id object))block {
-	for (id object in queue) {
+	for (id object in [self queue]) {
 		block(object);
 	}
 }
@@ -64,6 +64,10 @@
 
 -(NSString *)description {
 	return [[self queue] description];
+}
+
+-(NSUInteger)count {
+	return [[self queue] count];
 }
 
 //MARK: -

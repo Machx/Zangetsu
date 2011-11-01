@@ -233,4 +233,27 @@
     return NO;
 }
 
+-(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
+	if ([self rootNode] == nil) { return; }
+	
+	CWQueue *queue = [[CWQueue alloc] init];
+	__block BOOL shouldStop = NO;
+	
+	[queue addObject:[self rootNode]];
+	
+	while ([queue count] != 0) {
+		CWTreeNode *node = (CWTreeNode *)[queue dequeueTopObject];
+		
+		block([node value],node,&shouldStop);
+		
+		if (shouldStop == YES) { break; }
+		
+		if ([[node children] count] > 0) {
+			for (CWTreeNode *childNode in [node children]) {
+				[queue addObject:childNode];
+			}
+		}
+	}
+}
+
 @end

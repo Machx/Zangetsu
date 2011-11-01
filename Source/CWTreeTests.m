@@ -108,6 +108,49 @@
     STAssertTrue([node2 nodeLevel] == 2, @"node2 was added to 1 so its level should be 2");
 }
 
+-(void)testTreeEnumeration {
+	static NSString * const kTreeEnumerationGoodResult = @"123456";
+	
+	/**
+	 enumerate tree on a level by level basis. The Tree should look like...
+	           1
+		   ----|----
+	       2       3
+		 --|--     |
+	     4   5     6
+	 
+	 The enumeration should proceed by visiting all the nodes on a level then
+	 proceed down to the nodes on the next node level. The enumation starts by 
+	 visiting the root node in the Tree and then (if stop isn't set to YES) proceeds
+	 to that nodes children. The nodes are all placed on a queue internally and 
+	 processed in the order they are visited which should be on level by level 
+	 basis and from left to right on each level.
+	 */
+	
+	CWTree *tree = [[CWTree alloc] initWithRootNodeValue:@"1"];
+	
+	CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"2"];
+	[[tree rootNode] addChild:node2];
+	CWTreeNode *node3 = [[CWTreeNode alloc] initWithValue:@"3"];
+	[[tree rootNode] addChild:node3];
+	
+	CWTreeNode *node4 = [[CWTreeNode alloc] initWithValue:@"4"];
+	[node2 addChild:node4];
+	CWTreeNode *node5 = [[CWTreeNode alloc] initWithValue:@"5"];
+	[node2 addChild:node5];
+	
+	CWTreeNode *node6 = [[CWTreeNode alloc] initWithValue:@"6"];
+	[node3 addChild:node6];
+	
+	__block NSMutableString *resultString = [[NSMutableString alloc] init];
+	
+	[tree enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
+		[resultString appendString:(NSString *)nodeValue];
+	}];
+	
+	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"The Tree Enumeration Did not work correctly");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
