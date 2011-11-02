@@ -151,6 +151,46 @@
 	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"The Tree Enumeration Did not work correctly");
 }
 
+-(void)testStopArgument {
+	
+	/**
+	 make sure that the stop pointer in the block argument is respected
+	 and when it is set to YES then the enumeration stops and the block
+	 is not called anymore. The Tree structure in this test is exactly 
+	 the same as the testTreeEnumeration test but instead of enumerating
+	 over all nodes we are stopping at a specific point.
+	 */
+	
+	//we are going to halt enumeration when we reach the node with 3
+	static NSString * const kTreeEnumerationGoodResult = @"123";
+	
+	CWTree *tree = [[CWTree alloc] initWithRootNodeValue:@"1"];
+	
+	CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"2"];
+	[[tree rootNode] addChild:node2];
+	CWTreeNode *node3 = [[CWTreeNode alloc] initWithValue:@"3"];
+	[[tree rootNode] addChild:node3];
+	
+	CWTreeNode *node4 = [[CWTreeNode alloc] initWithValue:@"4"];
+	[node2 addChild:node4];
+	CWTreeNode *node5 = [[CWTreeNode alloc] initWithValue:@"5"];
+	[node2 addChild:node5];
+	
+	CWTreeNode *node6 = [[CWTreeNode alloc] initWithValue:@"6"];
+	[node3 addChild:node6];
+	
+	__block NSMutableString *resultString = [[NSMutableString alloc] init];
+	
+	[tree enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
+		[resultString appendString:(NSString *)nodeValue];
+		if ([(NSString *)nodeValue isEqualToString:@"3"]) {
+			*stop = YES;
+		}
+	}];
+	
+	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"Strings should match if tree was enumerated correctly");
+}
+
 - (void)tearDown
 {
     // Tear-down code here.
