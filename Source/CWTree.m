@@ -241,7 +241,7 @@
 	
 	[queue addObject:[self rootNode]];
 	
-	while ([queue count] != 0) {
+	while ([queue count] > 0) {
 		CWTreeNode *node = (CWTreeNode *)[queue dequeueTopObject];
 		
 		block([node value],node,&shouldStop);
