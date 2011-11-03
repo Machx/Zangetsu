@@ -233,6 +233,19 @@
     return NO;
 }
 
+/**
+ Enumerates a CWTree object object on a level by level basis.
+ 
+ Enumerates a CWTree object by starting with the root node and then visiting 
+ the children. It visits eash level going from left to right and then visiting
+ the next level until it has visited all nodes in the tree or until the BOOL 
+ stop pointer in the block has been set to YES.
+ 
+ Block values passed back to you are as follows
+ @param nodeValue a convenience to accessing (CWTreeNode *)[node nodeValue]
+ @param node a pointer to the node being enumerated over
+ @param stop a BOOL pointer which you can set to YES to stop enumeration, otherwise it will continue until all nodes have been enumerated over
+ */
 -(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
 	if ([self rootNode] == nil) { return; }
 	
