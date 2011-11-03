@@ -76,4 +76,19 @@
 	}];
 }
 
+-(void)testNilDequeuedObject {
+	
+	CWQueue *queue = [[CWQueue alloc] init];
+	
+	STAssertNil([queue dequeueTopObject], @"There are no objects in the queue so dequeued object should be nil");
+	
+	[queue addObject:@"Fishy Joes"];
+	
+	STAssertTrue([queue count] == 1, @"Queue should have an object count of 1 now");
+	
+	[queue dequeueTopObject];
+	
+	STAssertNil([queue dequeueTopObject], @"There should be no objects in the queue so the dequeued object should be nil");
+}
+
 @end
