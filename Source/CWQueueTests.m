@@ -91,4 +91,18 @@
 	STAssertNil([queue dequeueTopObject], @"There should be no objects in the queue so the dequeued object should be nil");
 }
 
+-(void)testEqualCWQueues {
+	
+	NSArray *array = [NSArray arrayWithObject:@"Hypnotoad"];
+	
+	CWQueue *queue1 = [[CWQueue alloc] initWithObjectsFromArray:array];
+	CWQueue *queue2 = [[CWQueue alloc] initWithObjectsFromArray:array];
+	
+	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
+	
+	CWQueue *queue3 = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Nibbler"]];
+	
+	STAssertFalse([queue3 isEqualToQueue:queue1], @"Queues should not be equal");
+}
+
 @end
