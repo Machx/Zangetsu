@@ -22,4 +22,6 @@
 
 -(NSUInteger)count;
 
+-(BOOL)isEqualToQueue:(CWQueue *)aQueue;
+
 @end
