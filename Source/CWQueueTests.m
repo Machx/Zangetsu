@@ -86,7 +86,7 @@
 	
 	STAssertTrue([queue count] == 1, @"Queue should have an object count of 1 now");
 	
-	[queue dequeueTopObject];
+	STAssertNotNil([queue dequeueTopObject], @"Dequing a queue with 1 object on it should return a non nil object");
 	
 	STAssertNil([queue dequeueTopObject], @"There should be no objects in the queue so the dequeued object should be nil");
 }
