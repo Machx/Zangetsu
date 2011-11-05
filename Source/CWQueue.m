@@ -90,6 +90,13 @@
 	[[self queue] addObject:object];
 }
 
+-(void)addObjectsFromArray:(NSArray *)objects {
+	NSParameterAssert(objects);
+	if ([objects count] > 0) {
+		[[self queue] addObjectsFromArray:objects];
+	}
+}
+
 /**
  Removes all objects from the receiving queues storage
  */

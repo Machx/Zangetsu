@@ -40,6 +40,7 @@
 	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Sixth"], @"Should be fourth item dequeued");
 	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Seventh"], @"Should be fourth item dequeued");
 	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Eight"], @"Should be fourth item dequeued");
+	STAssertNil([queue dequeueTopObject], @"There should be no more objects and therefore the object should be nil");
 }
 
 -(void)testEnumeration {
@@ -103,6 +104,24 @@
 	CWQueue *queue3 = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Nibbler"]];
 	
 	STAssertFalse([queue3 isEqualToQueue:queue1], @"Queues should not be equal");
+}
+
+-(void)testAddObjectsFromArray {
+	
+	NSArray *array1 = [NSArray arrayWithObjects:@"Cheeze it!", nil];
+	NSArray *array2 = [NSArray arrayWithObjects:@"Why not Zoidberg?", nil];
+	
+	CWQueue *queue1 = [[CWQueue alloc] initWithObjectsFromArray:array1];
+	CWQueue *queue2 = [[CWQueue alloc] init];
+	
+	STAssertFalse([queue1 isEqualToQueue:queue2], @"Queues should not have the same contents");
+	
+	[queue2 addObjectsFromArray:array1];
+	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
+	
+	[queue1 addObjectsFromArray:array2];
+	[queue2 addObjectsFromArray:array2];
+	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 }
 
 @end

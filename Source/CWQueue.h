@@ -14,6 +14,8 @@
 
 -(void)addObject:(id)object;
 
+-(void)addObjectsFromArray:(NSArray *)objects;
+
 -(id)dequeueTopObject;
 
 -(void)removeAllObjects;
