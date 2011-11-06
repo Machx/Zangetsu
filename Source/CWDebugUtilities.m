@@ -75,7 +75,7 @@ BOOL CWIsDebugInProgress()
  Intentionally crashes the application
  ONLY USE THIS IN DEBUGGING YOUR APP!!! 
  NEVER INCLUDE THIS IN A SHIPPING PRODUCTION APP IN RELEASE MODE!!!
- When run from within Xcode this actually triggers gdb breaking on
+ When run from within Xcode this actually triggers lldb breaking on
  the line that intentionally caused the crash.
  */
 void CWCrash()
