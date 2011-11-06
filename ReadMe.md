@@ -6,7 +6,7 @@ Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.7 and
 
 Zangetsu contains
 
-* Macros to make creating NSDictionaries, NSArrays, etc easy
+* Macros to make creating NSDictionaries, NSArrays, etc easy, check for nil IBOutlets, asserts with stack trace,etc...
 
 * Objective-C Associated Objects
 
@@ -14,11 +14,11 @@ Zangetsu contains
 
 * SHA1 & MD5 Convenience APIs
 
-* Base64 encoding/decoding
+* Base64 & ZLib encoding & decoding
 
-* Objective-C Data Structures like Stacks,Trees,etc.
+* Objective-C Data Structures like Stacks,Trees,Queues,etc.
 
-* NSTask Conveience APIs
+* CWTask a wrapper around NSTask that makes it easy to configure & launch NSTasks...
 
 * Host Version Info Convenience APIs
 
