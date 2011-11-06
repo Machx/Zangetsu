@@ -90,6 +90,16 @@
 	[[self queue] addObject:object];
 }
 
+/**
+ Adds the objects from the objects array to the receiving queue
+ 
+ This takes the objects in order they are in the objects array and 
+ appends them onto the receiving queues storage. This will throw
+ an assertion if the passed in array is nil. If the object array 
+ is empty (0 objects) then this method simply does nothing.
+ 
+ @param a NSArray of objects to be appended onto the receiving queues storage
+ */
 -(void)addObjectsFromArray:(NSArray *)objects {
 	NSParameterAssert(objects);
 	if ([objects count] > 0) {
