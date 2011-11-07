@@ -44,6 +44,10 @@
  * Ruby inspired iterator for NSArray in Objective-C
  */
 - (NSArray *) cw_each:(void (^)(id obj))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     for (id object in self) {
         block(object);
     }
@@ -56,6 +60,10 @@
  * like cw_each except this one also passes in the index
  */
 - (NSArray *) cw_eachWithIndex:(void (^)(id obj, NSInteger index))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     NSInteger i = 0;
 
     for (id object in self) {
@@ -67,9 +75,22 @@
 }
 
 /**
- * Experimental each method that runs concurrently
+ Enumerates over the receiving arrays objects concurrently in a synchronous method.
+ 
+ Enumerates over all the objects in the receiving array concurrently. That is it will
+ go over each object and execute a block passing that object in the array as a parameter 
+ in the block. This methods asynchronously executes a block for all objects in the array
+ but waits for all blocks to finish executing before going on.
+ 
+ @param index (Block Parameter) the position of the object in the array
+ @param obj (Block Parameter) the object being enumerated over
+ @param stop (Block Parameter) if you need to stop the enumeration set this to YES otherwise do nothing
  */
 - (NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
@@ -100,6 +121,10 @@
  * via a block (returning a bool) you are looking for
  */
 - (id) cw_findWithBlock:(BOOL (^)(id obj))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     for (id obj in self) {
         if (block(obj)) {
             return obj;
@@ -113,6 +138,9 @@
  * Exactly like cw_findWithBlock except it returns a BOOL
  */
 - (BOOL) cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block {
+	if (self == nil || [self count] == 0) {
+		return NO;
+	}
     for (id obj in self) {
         if (block(obj)) {
             return YES;
@@ -128,6 +156,10 @@
  * bool block test
  */
 - (NSArray *) cw_findAllWithBlock:(BOOL (^)(id obj))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     NSMutableArray * results = [[NSMutableArray alloc] init];
 
     for (id obj in self) {
@@ -148,6 +180,10 @@
  * structure this is as good as I can do for now
  */
 - (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
 
     for (id obj in self) {
@@ -170,6 +206,10 @@
  * @return a new mapped array
  */
 - (NSArray *) cw_mapArray:(id (^)(id obj))block {
+	if (self == nil || [self count] == 0) {
+		return nil;
+	}
+	
     NSMutableArray * cwArray = [[NSMutableArray alloc] init];
 
     for (id obj in self) {
