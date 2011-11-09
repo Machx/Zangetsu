@@ -127,6 +127,21 @@
 	}
 }
 
+-(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block {
+	if([[self queue] count] == 0) { return; }
+	
+	__block BOOL shouldStop = NO;
+	
+	id dequeuedObject = nil;
+	
+	do {
+		dequeuedObject = [self dequeueTopObject];
+		if(dequeuedObject != nil){
+			block(dequeuedObject,&shouldStop);
+		}
+	} while (shouldStop == NO && dequeuedObject != nil);
+}
+
 //MARK: -
 //MARK: Debug Information
 

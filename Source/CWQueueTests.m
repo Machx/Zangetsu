@@ -124,4 +124,45 @@
 	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 }
 
+-(void)testDequeueWithBlock {
+	/**
+	 Test to make sure all the objects are being correctly enumerated over and dequeued
+	 */
+	
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
+	__block NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:3];
+	
+	[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
+		[testArray addObject:object];
+	}];
+	
+	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil];
+	
+	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if enumerated correctly");
+	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
+}
+
+-(void)testDequeueBlockStop {
+	/**
+	 Test to make sure the BOOL pointer in the block is being respected and we
+	 end up with what we expect in the queue.
+	 */
+	
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
+	__block NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:2];
+	
+	[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
+		[testArray addObject:object];
+		if ([(NSString *)object isEqualToString:@"Bender"]) {
+			*stop = YES;
+		}
+	}];
+	
+	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender", nil];
+	
+	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if the stop pointer was respected");
+	STAssertNotNil([queue dequeueTopObject], @"This should be the last object on the queue");
+	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
+}
+
 @end

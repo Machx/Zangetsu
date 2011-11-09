@@ -22,6 +22,8 @@
 
 -(void)enumerateObjectsInQueue:(void(^)(id object))block;
 
+-(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
+
 -(NSUInteger)count;
 
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue;
