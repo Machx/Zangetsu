@@ -114,6 +114,9 @@
 	[[self queue] removeAllObjects];
 }
 
+//MARK: -
+//MARK: Enumeration Methods
+
 /**
  Enumerates over the objects in the receiving queues storage in order
  
@@ -127,6 +130,15 @@
 	}
 }
 
+/**
+ Dequeues the queue with a block until the queue is empty or stop is set to YES
+ 
+ Dequeues the receiving queue, until the queue is empty or until the BOOL pointer
+ in the block is set to YES. If the receiving queue is empty then this method 
+ will immediately return, otherwise it will dequeue the first object in the queue
+ and return to your code (via the block) and pass to you the object being dequeued
+ and the BOOL pointer to stop further dequeueing if you desire.
+ */
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block {
 	if([[self queue] count] == 0) { return; }
 	
