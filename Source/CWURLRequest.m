@@ -219,16 +219,22 @@
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [self setConnection:urlConnection];
-    
-    [urlConnection start];
-    
-    while ([self isFinished] == NO) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-    
-    block([self urlData],[self urlError]);
+    if (request) {
+		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] 
+																		 delegate:self];
+		[self setConnection:urlConnection];
+		
+		[urlConnection start];
+		
+		while ([self isFinished] == NO) {
+			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+		}
+		
+		block([self urlData],[self urlError]);
+	} else {
+		//TODO: make name & document CWURLRequestErrors in the public header...
+		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
+	}
 }
 
 /**
@@ -248,7 +254,7 @@
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
     [self setConnection:urlConnection];
     
     dispatch_async(queue, ^(void) {
@@ -281,7 +287,7 @@
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
     
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
     [self setConnection:urlConnection];
     
     [queue addOperationWithBlock:^(void) {
