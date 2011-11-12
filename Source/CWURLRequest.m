@@ -33,9 +33,9 @@
 @property(nonatomic, retain, readwrite) NSString *host;
 @property(nonatomic, retain) NSURLConnection *connection;
 @property(nonatomic, retain) NSURLRequest *urlRequest;
-@property(nonatomic, retain) NSMutableData *urlData;
-@property(nonatomic, assign) BOOL isFinished;
-@property(nonatomic, retain, readwrite) NSError *urlError;
+@property(nonatomic, retain) __block NSMutableData *urlData;
+@property(nonatomic, assign) __block BOOL isFinished;
+@property(nonatomic, retain, readwrite) __block  NSError *urlError;
 @property(nonatomic, retain) NSString *authName;
 @property(nonatomic, retain) NSString *authPassword;
 @property(nonatomic, assign) BOOL authHeader;
@@ -218,10 +218,10 @@
                                                             timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
-    
+	
     if (request) {
-		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] 
-																		 delegate:self];
+		NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:[self urlRequest] 
+																	   delegate:self];
 		[self setConnection:urlConnection];
 		
 		[urlConnection start];
@@ -253,7 +253,7 @@
                                                             timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
-    
+	
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
     [self setConnection:urlConnection];
     
@@ -286,7 +286,7 @@
                                                             timeoutInterval:[self timeoutInterval]];
     [self setAuthorizationHeaderIfApplicableWithRequest:request];
     [self setUrlRequest:request];
-    
+	
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
     [self setConnection:urlConnection];
     
