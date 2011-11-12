@@ -77,7 +77,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	return nil;
 }
 
-static NSString * kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
+static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
 @implementation CWURLUtilities
 
