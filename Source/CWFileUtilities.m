@@ -32,16 +32,6 @@
 
 @implementation CWFileUtilities
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 /**
  Returns a NSString path to a temporary file
  
