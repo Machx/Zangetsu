@@ -216,10 +216,11 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
                                                                 cachePolicy:[self cachePolicy]
                                                             timeoutInterval:[self timeoutInterval]];
-    [self setAuthorizationHeaderIfApplicableWithRequest:request];
-    [self setUrlRequest:request];
 	
     if (request) {
+		[self setAuthorizationHeaderIfApplicableWithRequest:request];
+		[self setUrlRequest:request];
+		
 		NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:[self urlRequest] 
 																	   delegate:self];
 		[self setConnection:urlConnection];
@@ -251,23 +252,28 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
                                                                 cachePolicy:[self cachePolicy]
                                                             timeoutInterval:[self timeoutInterval]];
-    [self setAuthorizationHeaderIfApplicableWithRequest:request];
-    [self setUrlRequest:request];
-	
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
-    [self setConnection:urlConnection];
-    
-    dispatch_async(queue, ^(void) {
-        [urlConnection start];
-        
-        while ([self isFinished] == NO) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            block([self urlData],[self urlError]);
-        });
-    });
+    if (request) {
+		[self setAuthorizationHeaderIfApplicableWithRequest:request];
+		[self setUrlRequest:request];
+		
+		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
+		[self setConnection:urlConnection];
+		
+		dispatch_async(queue, ^(void) {
+			[urlConnection start];
+			
+			while ([self isFinished] == NO) {
+				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+			}
+			
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				block([self urlData],[self urlError]);
+			});
+		});
+	} else {
+		//TODO: make name & document CWURLRequestErrors in the public header...
+		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
+	}
 }
 
 /**
@@ -284,24 +290,29 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
                                                                 cachePolicy:[self cachePolicy]
                                                             timeoutInterval:[self timeoutInterval]];
-    [self setAuthorizationHeaderIfApplicableWithRequest:request];
-    [self setUrlRequest:request];
-	
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
-    [self setConnection:urlConnection];
-    
-    [queue addOperationWithBlock:^(void) {
-        
-        [urlConnection start];
-        
-        while ([self isFinished] == NO) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-        }
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-            block([self urlData],[self urlError]);
-        }];
-    }];
+    if (request) {
+		[self setAuthorizationHeaderIfApplicableWithRequest:request];
+		[self setUrlRequest:request];
+		
+		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
+		[self setConnection:urlConnection];
+		
+		[queue addOperationWithBlock:^(void) {
+			
+			[urlConnection start];
+			
+			while ([self isFinished] == NO) {
+				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+			}
+			
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+				block([self urlData],[self urlError]);
+			}];
+		}];
+	} else {
+		//TODO: make name & document CWURLRequestErrors in the public header...
+		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
+	}
 }
 
 //MARK: -
