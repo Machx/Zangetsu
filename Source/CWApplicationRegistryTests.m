@@ -46,8 +46,8 @@
 }
 
 -(void)testIsAppRunning {
-	
 	STAssertTrue([CWApplicationRegistry applicationIsRunning:@"Xcode"], @"Xcode should be running");
+	STAssertFalse([CWApplicationRegistry applicationIsRunning:@"Hypnotoad33333345555"], @"Pretty good chance there will never be an app named this");
 }
 
 -(void)testBundleIdentifierForApp {

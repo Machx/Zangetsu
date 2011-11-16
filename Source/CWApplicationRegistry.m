@@ -39,14 +39,14 @@
  @return a BOOL with YES if the app is running, otherwise NO
  */
 +(BOOL)applicationIsRunning:(NSString *)appName {
-	BOOL isRunning = NO;
+	__block BOOL isRunning = NO;
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 	
-	isRunning = [applications cw_isObjectInArrayWithBlock:^BOOL(id obj) {
+	[applications cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
 		if ([[obj localizedName] isEqualToString:appName]) {
-			return YES;
+			isRunning = YES;
+			*stop = YES;
 		}
-		return NO;
 	}];
 	
 	return isRunning;
