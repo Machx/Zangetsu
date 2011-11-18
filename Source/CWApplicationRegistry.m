@@ -33,7 +33,10 @@
 @implementation CWApplicationRegistry
 
 /**
- convenience method to answer if a application is currently running
+ Returns a BOOL indicating if a given application is running
+ 
+ Searches all the applications listed as running and if the application is 
+ found then returns YES, otherwise returns NO.
  
  @param appName a NSString with the app name you wish to check
  @return a BOOL with YES if the app is running, otherwise NO
@@ -54,7 +57,10 @@
 
 
 /**
- convenience method to get the pid for a running application
+ Returns the pid for a running application
+ 
+ Searches all the applications listed as running and if the application is 
+ found then returns its pid, otherwise returns kPidNotFound (-1).
  
  @param appName a NSString with the name of the app whose pid you want
  @return a NSInteger with the pid or kPidNotFound (-1) if not found
@@ -75,7 +81,10 @@
 }
 
 /**
- returns the bundle identifier for a running application
+ Returns the bundle identifier for a running application
+ 
+ Searches for all the applications listed as running and if the application is
+ running then it returns the apps bundle identifier, otherwise returns nil.
  
  @param appName a NSString with the name of the application whose bundle identifier you want
  @return a NSString with the bundle identifier of the app name passed in or nil if the app isn't running
@@ -95,6 +104,17 @@
 	return bundleIdentifier;
 }
 
+/**
+ Returns the executable architecture for a running application
+ 
+ Searches for all the applications listed as running and if the application is
+ running then it returns the apps executable architecture as a NSInteger number. This
+ number will match up to one of the Mach-O Architecture constants listed in the NSBundle
+ class reference.
+ 
+ @param appName a NSString with the name of the application whose executable architecture you want
+ @return a NSInteger representing a Mach-O Architecture constant listed in NSBundles class reference
+ */
 +(NSInteger)executableArchitectureForApplication:(NSString *)appName {
     __block NSInteger architecture = 0;
     
@@ -110,6 +130,16 @@
     return  architecture;
 }
 
+/**
+ Returns the NSRunningApplication instance for an App
+ 
+ Search all the applications running and if the application is found then 
+ this returns the NSRunningApplication intance corresponding to that particular
+ application.
+ 
+ @param appName a NSString with the name of the application whose corresponding NSRunningApplication you want
+ @return the NSRunningApplication instance corresponding to appName, otherwise nil
+ */
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName {
     __block NSRunningApplication *appInstance = nil;
     
@@ -125,6 +155,15 @@
     return appInstance;
 }
 
+/**
+ Returns the NSImage Icon for the Application corresponding to appname if its running
+ 
+ Searches all the running applications and if it finds an application with the same name
+ returns a reference to the particular applications icon in NSImage form.
+ 
+ @param appName a NSString representing the application whose instance you want its icon data
+ @return a NSImage corresponding to appName, otherwise nil
+ */
 +(NSImage *)iconForApplication:(NSString *)appName {
     
     __block NSImage *appIcon = nil;
