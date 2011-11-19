@@ -36,9 +36,7 @@
  * @return a NSString containing the SHA1 hash (in lowercase form)
  */
 + (NSString *) cw_sha1HashFromString:(NSString *)str {
-    if (str == nil) {
-        return nil;
-    }
+    NSParameterAssert(str);
 
     const char * cStringRep = [str UTF8String];
     unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
@@ -65,6 +63,8 @@
  * @return a NSString object with the SHA1 hash of the NSData objects contents
  */
 - (NSString *) cw_sha1StringFromData {
+	if (self == nil || ([self length] == 0)) { return nil; }
+	
     NSString * str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
     const char * cStringRep = [str UTF8String];
     unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
