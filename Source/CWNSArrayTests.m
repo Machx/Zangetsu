@@ -38,7 +38,6 @@
 -(void)testFirstObject
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
-	
 	NSString *firstObject = [testArray cw_firstObject];
 	
 	STAssertTrue([firstObject isEqualToString:@"Fry"],@"First object should be fry for cw_firstObject (NSArray)");
@@ -53,11 +52,9 @@
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSString *string = [testArray cw_findWithBlock:^(id obj) {
-		
 		if ([(NSString *)obj isEqualToString:@"Bender"]) {
 			return YES;
 		}
-		
 		return NO;
 	}];
 	
@@ -72,11 +69,7 @@
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSArray *myArray = [testArray cw_mapArray:^(id obj) {
-		
-		NSString *string = (NSString *)obj;
-		
-		return string;
-		
+		return obj;
 	}];
 	
 	STAssertTrue([testArray isEqualToArray:myArray],@"The 2 arrays should be the same for cw_mapArray");
@@ -93,10 +86,7 @@
 	__block NSMutableArray *testArray2 = [[NSMutableArray alloc] init];
 	
 	[testArray cw_each:^(id obj) {
-		
-		NSString *stringObj = (NSString *)obj;
-		
-		[testArray2 addObject:stringObj];
+		[testArray2 addObject:obj];
 	}];
 	
 	STAssertTrue([testArray isEqualToArray:testArray2],@"TestArray and TestArray 2 should be equal using cw_each");
@@ -111,18 +101,15 @@
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	[testArray cw_eachWithIndex:^(id obj, NSInteger index) {
-		
-		NSString *testString = (NSString *)obj;
-		
 		switch (index) {
 			case 0:
-				STAssertTrue([testString isEqualToString:@"Fry"],@"Index 0 should be Fry cw_eachWithIndex");
+				STAssertTrue([(NSString *)obj isEqualToString:@"Fry"],@"Index 0 should be Fry cw_eachWithIndex");
 				break;
 			case 1:
-				STAssertTrue([testString isEqualToString:@"Leela"],@"Index 1 should be Leela cw_eachWithIndex");
+				STAssertTrue([(NSString *)obj isEqualToString:@"Leela"],@"Index 1 should be Leela cw_eachWithIndex");
 				break;
 			case 2:
-				STAssertTrue([testString isEqualToString:@"Bender"],@"Index 2 should be Bender cw_eachWithIndex");
+				STAssertTrue([(NSString *)obj isEqualToString:@"Bender"],@"Index 2 should be Bender cw_eachWithIndex");
 				break;
 			default:
 				STAssertTrue(FALSE,@"cw_eachWithIndex should not reach this point");
@@ -140,7 +127,6 @@
 		   [(NSString *)obj isEqualToString:@"Leela"]){
 			return obj;
 		}
-		
 		return nil;
 	}];
 	
@@ -214,7 +200,6 @@
 			[(NSString *)obj isEqualToString:@"Leela"]) {
 			return YES;
 		}
-		
 		return NO;
 	}];
 	
