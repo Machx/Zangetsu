@@ -109,16 +109,4 @@ static NSString * const kCWAppName = @"CFBundleName";
     return [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
 }
 
-/**
- * Resolves a file alias
- * This method is being considered for removal
- */
-+(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error {
-	NSString *resolvedPath = nil;
-	
-	resolvedPath = [[NSFileManager defaultManager] destinationOfSymbolicLinkAtPath:aliasPath error:error];
-	
-	return resolvedPath;
-}
-
 @end

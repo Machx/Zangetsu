@@ -36,5 +36,4 @@
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
 +(NSString *)documentsFolderPathForFile:(NSString *)file;
 +(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
-+(NSString *)resolveFileAliasPathAtPath:(NSString *)aliasPath error:(NSError **)error;
 @end
