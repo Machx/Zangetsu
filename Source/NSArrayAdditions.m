@@ -41,33 +41,30 @@
 }
 
 /**
- * Ruby inspired iterator for NSArray in Objective-C
+ Iterates over all the objects in an array and calls the block on each object
+ 
+ This iterates over all the objects in an array calling the block on each object
+ until it reaches the end of the array or until the BOOL *stop pointer is set to YES.
+ This method was inspired by Ruby's each method and works very similarly to it, while
+ at the same time staying close to existing ObjC standards for block arguments which
+ is why it passes a BOOL *stop pointer allowing you to signal for enumeration to end.
+ 
+ Important! If block is nil then this method will throw an exception.
+ 
+ @param obj (Block Parameter) this is the object in the array currently being enumerated over
+ @param index (Block Parameter) this is the index of obj in the array
+ @param stop (Block Parameter) set this to YES to stop enumeration, otherwise there is no need to use this
  */
-- (NSArray *) cw_each:(void (^)(id obj))block {
-	if (self == nil || [self count] == 0) { return nil; }
+- (void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
+	if ((self == nil) || ([self count] == 0)) { return; }
+	
+	NSUInteger i = 0;
+	BOOL shouldStop = NO;
 	
     for (id object in self) {
-        block(object);
+		if (shouldStop == YES) { break; }
+        block(object,i++,&shouldStop);
     }
-
-    return self;
-}
-
-/**
- * Ruby Inspired Iterator for NSArray in Objective-C
- * like cw_each except this one also passes in the index
- */
-- (NSArray *) cw_eachWithIndex:(void (^)(id obj, NSInteger index))block {
-	if (self == nil || [self count] == 0) { return nil; }
-	
-    NSInteger i = 0;
-
-    for (id object in self) {
-        block(object, i);
-        i++;
-    }
-
-    return self;
 }
 
 /**
@@ -82,32 +79,25 @@
  @param obj (Block Parameter) the object being enumerated over
  @param stop (Block Parameter) if you need to stop the enumeration set this to YES otherwise do nothing
  */
-- (NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
-	if (self == nil || [self count] == 0) { return nil; }
+- (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
+	if ((self == nil) || ([self count] == 0)) { return; }
 	
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
     __block BOOL _stop = NO;
     NSInteger idx = 0;
 
     for (id object in self) {
-
-        if (_stop == YES) {
-            break;
-        }
-
+        if (_stop == YES) { break; }
         dispatch_group_async(group, queue, ^{
 			block (idx,object, &_stop);
 		});
-        
         idx++;
     }
 
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     dispatch_release(group);
-
-    return self;
+    return;
 }
 
 /**

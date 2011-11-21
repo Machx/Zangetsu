@@ -32,11 +32,9 @@
 
 -(id)cw_firstObject;
 
--(NSArray *)cw_each:(void (^)(id obj))block;
+-(void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block;
 
--(NSArray *)cw_eachWithIndex:(void (^)(id obj,NSInteger index))block;
-
--(NSArray *) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block;
+-(void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block;
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
