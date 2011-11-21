@@ -85,7 +85,7 @@
 	
 	__block NSMutableArray *testArray2 = [[NSMutableArray alloc] init];
 	
-	[testArray cw_each:^(id obj) {
+	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		[testArray2 addObject:obj];
 	}];
 	
@@ -93,14 +93,33 @@
 }
 
 /**
+ tests to make sure that the stop pointer in the cw_each method is respected
+ 
+ in this exercise we have an item with 3 elements and 
+ */
+-(void)testEachStopPointer {
+	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSMutableArray *results = [[NSMutableArray alloc] init];
+	
+	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		[results addObject:obj];
+		if ([(NSString *)obj isEqualToString:@"Leela"]) { *stop = YES; }
+	}];
+	
+	NSArray *goodResults = [NSArray arrayWithObjects:@"Fry",@"Leela", nil];
+	
+	STAssertTrue([goodResults isEqualToArray:results], @"Arrays should be equal if the stop pointer was respected");
+}
+
+/**
  Testing cw_eachWithIndex by getting the index and then testing the object for the value that
  is supposed to be at that location
  */
--(void)testCWEachWithIndex
+-(void)testCWEachIndex
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	[testArray cw_eachWithIndex:^(id obj, NSInteger index) {
+	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		switch (index) {
 			case 0:
 				STAssertTrue([(NSString *)obj isEqualToString:@"Fry"],@"Index 0 should be Fry cw_eachWithIndex");

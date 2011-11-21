@@ -31,6 +31,5 @@
 
 
 @interface CWApplicationRegistryTests : SenTestCase
--(void)testIsAppRunning;
--(void)testBundleIdentifierForApp;
+
 @end
