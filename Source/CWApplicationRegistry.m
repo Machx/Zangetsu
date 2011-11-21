@@ -69,7 +69,7 @@
 	__block NSInteger pid = kPidNotFound;
 	
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj){
+	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		NSRunningApplication *app = (NSRunningApplication *)obj;
 		
 		if ([[app localizedName] isEqualToString:appName]) {
@@ -91,9 +91,8 @@
  */
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName {
 	__block NSString *bundleIdentifier = nil;
-	
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj){
+	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		NSRunningApplication *app = (NSRunningApplication *)obj;
 		
 		if ([[app localizedName] isEqualToString:appName]) {
@@ -117,9 +116,8 @@
  */
 +(NSInteger)executableArchitectureForApplication:(NSString *)appName {
     __block NSInteger architecture = 0;
-    
     NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj){
+	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		NSRunningApplication *app = (NSRunningApplication *)obj;
 		
 		if ([[app localizedName] isEqualToString:appName]) {
@@ -142,9 +140,8 @@
  */
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName {
     __block NSRunningApplication *appInstance = nil;
-    
     NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj){
+	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		NSRunningApplication *app = (NSRunningApplication *)obj;
 		
 		if ([[app localizedName] isEqualToString:appName]) {
@@ -169,7 +166,7 @@
     __block NSImage *appIcon = nil;
     
     NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj){
+	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		NSRunningApplication *app = (NSRunningApplication *)obj;
 		
 		if ([[app localizedName] isEqualToString:appName]) {

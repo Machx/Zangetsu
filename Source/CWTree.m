@@ -113,7 +113,7 @@
     else {
         if (![self->children containsObject:node]) {
             __block BOOL anyNodeContainsValue = NO;
-            [[self children] cw_each:^(id obj) {
+            [[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
                 id nodeValue = [(CWTreeNode *)obj value];
                 if ([nodeValue isEqualTo:[node value]]) {
                     anyNodeContainsValue = YES;
