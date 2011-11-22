@@ -32,6 +32,31 @@
 
 @implementation CWSetTests
 
+-(void)testNSSetEach {
+	
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	NSMutableSet *resultSet = [[NSMutableSet alloc] init];
+	
+	[set1 cw_each:^(id obj, BOOL *stop) {
+		[resultSet addObject:obj];
+	}];
+	
+	STAssertTrue([resultSet isEqualToSet:set1], @"Sets should be equal if enumerated correctly");
+}
+
+-(void)testEachStopPointer {
+	
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	NSMutableSet *resultSet = [[NSMutableSet alloc] init];
+	
+	[set1 cw_each:^(id obj, BOOL *stop) {
+		[resultSet addObject:obj];
+		*stop = YES;
+	}];
+	
+	STAssertTrue(([resultSet count] == 1), @"Set should only have 1 object if the stop pointer was respected");
+}
+
 /**
  Test for cw_find to make sure it works correctly. It should
  correctly return YES for finding the desired object in the set
