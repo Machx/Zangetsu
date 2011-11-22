@@ -32,9 +32,9 @@
 
 @interface NSSet (CWNSSetAdditions) 
 
--(NSSet *)cw_each:(void (^)(id obj))block;
+-(void)cw_each:(void (^)(id obj, BOOL *stop))block;
 
--(NSSet *)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block;
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block;
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 

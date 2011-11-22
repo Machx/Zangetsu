@@ -35,24 +35,25 @@
 /**
  Ruby inspired iterator
  */
--(NSSet *)cw_each:(void (^)(id obj))block
-{
-	for (id obj in self) {
-		block(obj);
-	}
+-(void)cw_each:(void (^)(id obj, BOOL *stop))block {
+	if ((self == nil) || ([self count] == 0)) { return; }
 	
-	return self;
+	__block BOOL stop = NO;
+	
+	for (id obj in self) {
+		if(stop == YES) { break; }
+		block(obj,&stop);
+	}
 }
 
 /**
  Experimental each method that runs concurrently
  */
--(NSSet *)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block
-{
-	dispatch_group_t group = dispatch_group_create();
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block {
+	if ((self == nil) || ([self count] == 0)) { return; }
 	
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_queue_t queue = dispatch_queue_create("com.zangetsu.nssetadditions_conncurrenteach", 0);
 	__block BOOL _stop = NO;
 
 	for(id object in self){
@@ -66,8 +67,7 @@
 
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 	dispatch_release(group);
-
-	return self;
+	dispatch_release(queue);
 }
 
 
@@ -75,8 +75,9 @@
  Simple convenience method to find a object in
  a NSSet using a block
  */
--(id)cw_findWithBlock:(BOOL (^)(id obj))block
-{
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block {
+	if ((self == nil) || ([self count] == 0)) { return nil; }
+	
 	for(id obj in self){
 		if(block(obj)){
 			return obj;
@@ -89,8 +90,9 @@
 /**
  Exactly like cw_findWithBlock except it returns a BOOL
  */
--(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
-{
+-(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block {
+	if ((self == nil) || ([self count] == 0)) { return NO; }
+	
 	for (id obj in self) {
 		if (block(obj)) {
 			return YES;
@@ -104,8 +106,9 @@
  like cw_find but instead uses NSArray to store 
  all objects passing the test of the bool block
  */
--(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block
-{
+-(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
+	if ((self == nil) || ([self count] == 0)) { return nil; }
+	
 	NSMutableSet *results = [[NSMutableSet alloc] init];
 	
 	for (id obj in self) {
@@ -122,8 +125,9 @@
  like cw_find but instead uses NSHashTable to store pointers to 
  all objects passing the test of the bool block
  */
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
-{
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
+	if ((self == nil) || ([self count] == 0)) { return nil; }
+	
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
 	
 	for (id obj in self) {
@@ -145,8 +149,9 @@
  @param block a block returning the object to be mapped or nil if no object is to be mapped
  @return a NSSet of objects that have been mapped from an original NSSet
  */
--(NSSet *)cw_mapSet:(id (^)(id obj))block
-{
+-(NSSet *)cw_mapSet:(id (^)(id obj))block {
+	if ((self == nil) || ([self count] == 0)) { return nil; }
+	
 	NSMutableSet *cwArray = [[NSMutableSet alloc] init];
 
     for (id obj in self) {
