@@ -57,6 +57,36 @@
 	STAssertTrue(([resultSet count] == 1), @"Set should only have 1 object if the stop pointer was respected");
 }
 
+-(void)testEachConcurrently {
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	__block NSMutableSet *set2 = [[NSMutableSet alloc] init];
+	
+	[set1 cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
+		@synchronized(set2){
+			[set2 addObject:obj];
+		}
+	}];
+	
+	STAssertTrue([set1 isEqualToSet:set2], @"sets should be equal if enumerated correctly");
+}
+
+-(void)testEachConcurrentlyStopPointer {
+	
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	__block NSMutableSet *set2 = [[NSMutableSet alloc] init];
+	
+	[set1 cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
+		@synchronized(set2) {
+			if (*stop == NO) {
+				[set2 addObject:obj];
+				*stop = YES;
+			}
+		}
+	}];
+	
+	STAssertTrue([set2 count] == 1, @"The set should only have 1 object if the stop pointer was respected");
+}
+
 /**
  Test for cw_find to make sure it works correctly. It should
  correctly return YES for finding the desired object in the set
