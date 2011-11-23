@@ -87,11 +87,10 @@ do { \
 #define CWAssertST(x,desc) \
 do { \
 	if (!(x)) { \
-		NSLog (@"%s:%s failed assertion\nMessage:%@\n%@",__PRETTY_FUNCTION__, #x, desc, [NSThread callStackSymbols]); \
 		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] \
 																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
 														  lineNumber:__LINE__ \
-														 description:__VA_ARGS__]; \
+														 description:[NSString stringWithFormat:@"%s:%s failed assertion\nMessage:%@\n%@",__PRETTY_FUNCTION__, #x, desc, [NSThread callStackSymbols]]]; \
 	} \
 } while(0);
 
