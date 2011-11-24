@@ -32,19 +32,28 @@
 
 @implementation CWDictionaryTests
 
-/**
- Test for cw_dictionaryContainsKey to make sure it works properly. In this
- case it should return true for finding the object in the dictionary.
- */
 -(void)testContainsKey
 {
+	/**
+	 Test for cw_dictionaryContainsKey to make sure it works properly. In this
+	 case it should return true for finding the object in the dictionary.
+	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
 	STAssertTrue([dictionary cw_dictionaryContainsKey:@"bar"],@"Dictionary should contain key bar");
+	
+	/**
+	 also make sure we correctly detect keys not present in a dictionary
+	 */
+	STAssertFalse([dictionary cw_dictionaryContainsKey:@"Zapp Brannigan"],@"Dictionary should not contain the key Zapp Brannigan");
 }
 
 -(void)testDictionaryMapping
 {
+	/**
+	 make sure that mapping goes correctly. Again this test does 1-to-1 mapping of
+	 1 dictionary from another so if it goes correctly the dictionaries should be identical.
+	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
 	NSDictionary *d2 = [dictionary cw_mapDictionary:^(id *key,id *value) {
@@ -55,7 +64,11 @@
 }
 
 -(void)testEach {
-	
+	/**
+	 test cw_each for NSDictionary by enumerating all values in 1 dictioanry &
+	 settings those values in another dictionary. If enumeration was done correctly
+	 those values should be exactly the same.
+	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
 								@"McCloud",@"Highlander", nil];
 	
@@ -69,6 +82,11 @@
 }
 
 -(void)testEachStopPointer {
+	/**
+	 make sure the BOOL *stop pointer is respected in cw_each and so we start enumeration
+	 & quit immediately after incrementing a counter. If done correclty the counter should
+	 only increment once.
+	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
 								@"McCloud",@"Highlander", nil];
 	__block NSUInteger count = 0;
@@ -82,7 +100,10 @@
 }
 
 -(void)testEachConcurrent {
-	
+	/**
+	 make sure that concurrent each is working correctly by mapping a dictionary 
+	 and comparing them to make sure that the contents are identical.
+	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
 								@"McCloud",@"Highlander", nil];
 	
