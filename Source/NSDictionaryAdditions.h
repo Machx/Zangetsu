@@ -34,7 +34,7 @@
 
 -(void)cw_each:(void (^)(id key, id value, BOOL *stop))block;
 
--(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block;
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block;
 
 -(BOOL)cw_dictionaryContainsKey:(NSString *)key;
 

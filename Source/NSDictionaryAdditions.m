@@ -49,7 +49,7 @@
  Same as cw_each but operates concurrently and passes in a bool
  pointer allowing you to stop the enumeration
  */
--(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
 {
 	dispatch_group_t group = dispatch_group_create();
 	
@@ -68,8 +68,6 @@
 
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 	dispatch_release(group);
-
-	return self;
 }
 
 /**
