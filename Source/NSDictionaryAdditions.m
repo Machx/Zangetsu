@@ -35,13 +35,14 @@
 /**
  Ruby Inspired Iterator for NSDictionary in Objective-C
  */
--(NSDictionary *)cw_each:(void (^)(id key, id value))block
+-(void)cw_each:(void (^)(id key, id value, BOOL *stop))block
 {
-	for(id key in self) {
-		block(key,[self valueForKey:key]);
-	}
+	BOOL shouldStop = NO;
 	
-	return self;
+	for(id key in self) {
+		if(shouldStop == YES) { break; }
+		block(key,[self valueForKey:key],&shouldStop);
+	}
 }
 
 /**

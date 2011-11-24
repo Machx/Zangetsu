@@ -32,7 +32,7 @@
 
 @interface NSDictionary (CWNSDictionaryAdditions)
 
--(NSDictionary *)cw_each:(void (^)(id key, id value))block;
+-(void)cw_each:(void (^)(id key, id value, BOOL *stop))block;
 
 -(NSDictionary *)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block;
 
