@@ -61,11 +61,24 @@
 	
 	__block NSMutableDictionary *dictionary2 = [[NSMutableDictionary alloc] init];
 	
-	[dictionary cw_each:^(id key, id value) {
+	[dictionary cw_each:^(id key, id value, BOOL *stop) {
 		[dictionary2 setValue:value forKey:key];
 	}];
 	
 	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
+}
+
+-(void)testEachStopPointer {
+	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
+								@"McCloud",@"Highlander", nil];
+	__block NSUInteger count = 0;
+	
+	[dictionary cw_each:^(id key, id value, BOOL *stop) {
+		count++;
+		*stop = YES;
+	}];
+	
+	STAssertTrue(count == 1, @"Count should only be 1 if the stop pointer was respected");
 }
 
 -(void)testEachConcurrent {
