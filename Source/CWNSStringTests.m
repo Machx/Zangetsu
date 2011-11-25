@@ -59,8 +59,13 @@
 	NSInteger location = [escapedString rangeOfCharacterFromSet:testIllegalCharSet].location;
 	
 	STAssertTrue(location == NSNotFound, @"chars in set shouldn't be found");
+}
+
+-(void)testURLEscapingPercentString {
+	NSString *testCharString = @"%";
+	NSString *escapedString = [testCharString cw_escapeEntitiesForURL];
 	
-	STAssertFalse(location == NSNotFound, @"chars in set shouldn't be found");
+	STAssertTrue([escapedString isEqualToString:@"%25"], @"Strings should equal if escaped properly");
 }
 
 -(void)testEnumerateSubStrings {
