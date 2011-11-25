@@ -32,16 +32,14 @@
 
 @implementation CWNSStringTests
 
--(void)testUUIDStrings
-{
+-(void)testUUIDStrings {
 	NSString *string1 = [NSString cw_uuidString];
 	NSString *string2 = [NSString cw_uuidString];
 	
 	STAssertTrue((![string1 isEqualToString:string2]),@"String 1 and String shouldn't be the same");
 }
 
--(void)testEmptyStringMethod
-{
+-(void)testEmptyStringMethod {
 	//test data that should be empty
 	NSString *emptyString1 = @"";
 	STAssertFalse([emptyString1 cw_isNotEmptyString],@"String1 should be empty");
@@ -51,15 +49,16 @@
 	STAssertTrue([testString2 cw_isNotEmptyString],@"TestString should not be empty");
 }
 
--(void)testURLEscaping
-{
-	NSCharacterSet *illegalURLCharsSet = [NSCharacterSet characterSetWithCharactersInString:@"@!*'()[];:&=+$,/?%#"];
-	
+-(void)testURLEscaping {	
 	NSString *urlCharsString = [NSString stringWithString:@"@!*'()[];:&=+$,/?%#"];
 	
 	NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
 	
-	NSInteger location = [escapedString rangeOfCharacterFromSet:illegalURLCharsSet].location;
+	NSCharacterSet *testIllegalCharSet = [NSCharacterSet characterSetWithCharactersInString:@"@!*'()[];:&=+$,/?#"];
+	
+	NSInteger location = [escapedString rangeOfCharacterFromSet:testIllegalCharSet].location;
+	
+	STAssertTrue(location == NSNotFound, @"chars in set shouldn't be found");
 	
 	STAssertFalse(location == NSNotFound, @"chars in set shouldn't be found");
 }
