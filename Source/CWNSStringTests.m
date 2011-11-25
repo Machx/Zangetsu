@@ -42,9 +42,13 @@
 
 -(void)testEmptyStringMethod
 {
+	//test data that should be empty
 	NSString *emptyString1 = @"";
+	STAssertFalse([emptyString1 cw_isNotEmptyString],@"String1 should be empty");
 	
-	STAssertTrue(![emptyString1 cw_isNotEmptyString],@"String1 should be empty");
+	//test data that should not return empty
+	NSString *testString2 = @"Fry";
+	STAssertTrue([testString2 cw_isNotEmptyString],@"TestString should not be empty");
 }
 
 -(void)testURLEscaping
