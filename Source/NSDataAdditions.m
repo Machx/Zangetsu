@@ -50,7 +50,7 @@
  @return a const char * from the contents of the NSData object, if the data object is nil this returns nil
  */
 - (const char *) cw_utf8StringFromData {
-	if (self == nil || [self length] == 0) { return nil; }
+	if (self == nil || [self length] == 0) { return NULL; }
     NSString * _result = [[NSString alloc] initWithData:self 
 											   encoding:NSUTF8StringEncoding];
     const char * cRep = [_result UTF8String];
