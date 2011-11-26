@@ -35,7 +35,7 @@
 -(void)testNSSetEach {
 	
 	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
-	NSMutableSet *resultSet = [[NSMutableSet alloc] init];
+	__block NSMutableSet *resultSet = [[NSMutableSet alloc] init];
 	
 	[set1 cw_each:^(id obj, BOOL *stop) {
 		[resultSet addObject:obj];
@@ -47,7 +47,7 @@
 -(void)testEachStopPointer {
 	
 	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
-	NSMutableSet *resultSet = [[NSMutableSet alloc] init];
+	__block NSMutableSet *resultSet = [[NSMutableSet alloc] init];
 	
 	[set1 cw_each:^(id obj, BOOL *stop) {
 		[resultSet addObject:obj];
@@ -116,7 +116,6 @@
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 
 	BOOL objInSet = [testSet cw_isObjectInSetWithBlock:^(id obj) {
-
 		return [(NSString *)obj isEqualToString:@"Bender"];
 	}];
 
