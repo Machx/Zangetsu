@@ -156,11 +156,7 @@
  @param block a block to be called when visiting each node in the tree
  */
 -(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
-    NSParameterAssert([self rootNode]);
-    
-    if ([self rootNode] == nil) {
-        return;
-    }
+    if ([self rootNode] == nil) { return; }
     
     __block BOOL shouldStop = NO;
     
