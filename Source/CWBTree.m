@@ -150,8 +150,8 @@
  eumerates the CWBTree in a iterative preorder traversal pattern. 
  
  Internally it uses a stack to navigate each node  and then calls the block on 
- each node it visits. If there is no root node this method throws an assertion
- upon detecting this.
+ each node it visits. If there is no root node this method detects that and 
+ simply returns having done nothing.
  
  @param block a block to be called when visiting each node in the tree
  */
