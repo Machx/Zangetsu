@@ -35,11 +35,8 @@
 /**
  Return the MD5 value of the string passed in
  */
-+(NSString *)cw_md5HashFromString:(NSString *)str 
-{
-	if(str == nil){
-		return nil;
-	}
++(NSString *)cw_md5HashFromString:(NSString *)str {
+	if(str == nil){ return nil; }
 	
 	const char *cStringRep = [str UTF8String];
 	unsigned char md5Hash[CC_MD5_DIGEST_LENGTH];
@@ -63,8 +60,9 @@
 /**
  Convience method to return the MD5 value of the contents of a NSData object given
  */
--(NSString *)cw_md5StringFromData
-{
+-(NSString *)cw_md5StringFromData {
+	if((self == nil) || ([self length] <= 0)) { return nil; }
+	
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 	const char *cStringRep = [str UTF8String];
 	unsigned char md5Hash[CC_MD5_DIGEST_LENGTH];
