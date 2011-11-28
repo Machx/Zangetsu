@@ -42,6 +42,7 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @return a new NSDate object advanced forward by n minutes
  */
 -(NSDate *)cw_dateByAddingMinutes:(NSUInteger)minutes {
+	if(self == nil) { return nil; }
 	return [self dateByAddingTimeInterval:(kCWSecondsIn1Minute * minutes)];
 }
 
@@ -52,6 +53,7 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @return a new NSDate object advanced forward by n hours
  */
 -(NSDate *)cw_dateByAddingHours:(NSUInteger)hours {
+	if(self == nil) { return nil; }
 	return [self dateByAddingTimeInterval:(kCWSecondsIn1Hour * hours)];
 }
 
@@ -62,6 +64,7 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @return a new NSDate object advanced forward by n days
  */
 -(NSDate *)cw_dateByAddingDays:(NSUInteger)days {
+	if(self == nil) { return nil; }
 	return [self dateByAddingTimeInterval:(kCWSecondsIn1Day * days)];
 }
 
