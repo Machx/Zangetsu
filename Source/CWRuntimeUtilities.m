@@ -43,8 +43,7 @@
  @param error an error object to write to if something goes wrong
  @return a Objective-C Method implementation if successfull or nil if not successfull
  */
-Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
-{
+Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error) {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
@@ -81,8 +80,7 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
  @param error an error object to write to if something goes wrong
  @return a Objective-C Method implementation if successfull or nil if not successfull
  */
-Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
-{
+Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error) {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getClassMethod(methodClass, originalSel);

@@ -50,8 +50,7 @@ THE SOFTWARE.
  
  @return a BOOL indicating if the application is being debugged
  */
-BOOL CWIsDebugInProgress()
-{
+BOOL CWIsDebugInProgress() {
 	int mib[4];
 	size_t bufSize = 0;
 	struct kinfo_proc kp;
@@ -78,8 +77,7 @@ BOOL CWIsDebugInProgress()
  When run from within Xcode this actually triggers lldb breaking on
  the line that intentionally caused the crash.
  */
-void CWCrash()
-{
+void CWCrash() {
 	__builtin_trap();
 }
 
@@ -89,8 +87,7 @@ void CWCrash()
  
  @param block a block to be executed only if the application is being debugged
  */
-void CWInDebugOnly(DebugBlock block)
-{
+void CWInDebugOnly(DebugBlock block) {
 #ifdef DEBUG
 	block();
 #endif
@@ -103,8 +100,7 @@ void CWInDebugOnly(DebugBlock block)
  
  @return a uint64_t with the amount of nanoseconds it took to execute the block
  */
-uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
-{
+uint64_t CWNanoSecondsToExecuteCode(DebugBlock block) {
 	uint64_t start = mach_absolute_time();
 	
 	block();
@@ -127,9 +123,7 @@ uint64_t CWNanoSecondsToExecuteCode(DebugBlock block)
  
  @return a NSString with the stack trace returned from [NSThread callStackSymbols]
  */
-NSString *CWStackTrace(void)
-{
+NSString *CWStackTrace(void) {
 	NSString *trace = [[NSThread callStackSymbols] description];
-	
 	return trace;
 }

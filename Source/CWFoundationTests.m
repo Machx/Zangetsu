@@ -33,15 +33,13 @@
 
 @implementation CWFoundationTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
 }
 
 -(void)testClassExists {
-    
     STAssertTrue(CWClassExists(@"NSString"), @"NSString should exist");
     STAssertFalse(CWClassExists(@"Hypnotoad"), @"Hypnotoad class shouldn't exist");
 }
@@ -64,8 +62,7 @@
 	STAssertTrue([str4 isEqualToString:@"NO"], @"A valid object should return YES");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

@@ -38,8 +38,7 @@
  tests to make sure that the values passed in to each NSError object is the same regardless 
  if a NSError is created with NSError -errorWithDomain:code:... or CWCreateError()
  */
--(void)testCreateError
-{	
+-(void)testCreateError {	
 	NSError *error1 = CWCreateError(101, @"com.something.something", @"Some Message");
 	
 	NSError *error2 = [NSError errorWithDomain:@"com.something.something" code:101 userInfo:NSDICT(@"Some Message",NSLocalizedDescriptionKey)];

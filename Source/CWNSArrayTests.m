@@ -35,8 +35,7 @@
 /**
  Testing the cw_fisrtObject method should return the correct object
  */
--(void)testFirstObject
-{
+-(void)testFirstObject {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	NSString *firstObject = [testArray cw_firstObject];
 	
@@ -47,8 +46,7 @@
  Testing the cw_find api to make sure that inspecting objects works and correctly returns 
  the correct object
  */
--(void)testFind
-{
+-(void)testFind {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSString *string = [testArray cw_findWithBlock:^(id obj) {
@@ -64,8 +62,7 @@
 /**
  Testing the array map method, the 2 arrays should be the same
  */
--(void)testMapArray
-{
+-(void)testMapArray {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSArray *myArray = [testArray cw_mapArray:^(id obj) {
@@ -79,8 +76,7 @@
  Testing the each method by using it to map 1 array to another one and then testing 
  to see if the 2 arrays are equal
  */
--(void)testCWEach
-{
+-(void)testCWEach {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	__block NSMutableArray *testArray2 = [[NSMutableArray alloc] init];
@@ -115,8 +111,7 @@
  Testing cw_eachWithIndex by getting the index and then testing the object for the value that
  is supposed to be at that location
  */
--(void)testCWEachIndex
-{
+-(void)testCWEachIndex {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
@@ -137,8 +132,7 @@
 	}];
 }
 
--(void)testSelectiveMapping
-{
+-(void)testSelectiveMapping {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
@@ -150,7 +144,6 @@
 	}];
 	
 	NSArray *testArray3 = [NSArray arrayWithObjects:@"Fry",@"Leela",nil];
-	
 	STAssertTrue([testArray2 isEqualToArray:testArray3], @"TestArray2 should equal testArray3");
 }
 
@@ -223,7 +216,6 @@
 	}];
 	
 	NSArray *resultArray2 = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
-	
 	STAssertTrue([resultArray1 isEqualToArray:resultArray2], @"arrays should be equal");
 }
 

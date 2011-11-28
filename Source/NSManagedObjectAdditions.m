@@ -31,18 +31,15 @@
 
 @implementation NSManagedObject(CWNSManagedObjectAdditions)
 
--(NSString *)cw_objectIDString
-{
+-(NSString *)cw_objectIDString {
 	return [[[self objectID] URIRepresentation] absoluteString];
 }
 
--(BOOL)cw_isUsingTemporaryObjectID
-{
+-(BOOL)cw_isUsingTemporaryObjectID {
 	return [[self objectID] isTemporaryID];
 }
 
--(BOOL)cw_setValue:(id)value ifValidForKey:(id)key error:(NSError **)error
-{
+-(BOOL)cw_setValue:(id)value ifValidForKey:(id)key error:(NSError **)error {
 	BOOL result = NO;
 	
 	result = [self validateValue:&value 

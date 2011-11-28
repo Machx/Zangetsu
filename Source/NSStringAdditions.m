@@ -32,8 +32,7 @@
 /**
  Convenience method for Core Foundations CFUUIDCreate() function
  */
-+(NSString *)cw_uuidString
-{
++(NSString *)cw_uuidString {
 	NSString *returnedString = nil;
 	
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
@@ -54,16 +53,13 @@
  over all the lines, synchronous
  */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                              usingBlock:(void (^)(NSString *substring))block
-{
+                              usingBlock:(void (^)(NSString *substring))block {
 	dispatch_group_t group = dispatch_group_create();
-	
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
 							 options:options
 						  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclRange, BOOL *stop){
-							  
 							  dispatch_group_async(group, queue, ^ {
 								  block(substring);
 							  });
@@ -76,53 +72,40 @@
 /**
  NSString wrapper for the function CFXMLCreateStringByUnescapingEntities in Core Foundation
  */
-- (NSString *) cw_stringByUnescapingEntities:(NSDictionary *)entitiesDictionary 
-{
+- (NSString *) cw_stringByUnescapingEntities:(NSDictionary *)entitiesDictionary {
 	CFStringRef str = CFXMLCreateStringByUnescapingEntities(NULL, (__bridge CFStringRef)self, (__bridge CFDictionaryRef) entitiesDictionary);
-	
 	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
-	
 	return returnString;
 }
 
 /**
  NSString wrapper for the function CFURLCreateStringByAddingPercentEscapes in Core Foundation
  */
-- (NSString *) cw_stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters 
-{
+- (NSString *) cw_stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalCharacters  {
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self, NULL, (__bridge CFStringRef)legalCharacters, CFStringConvertNSStringEncodingToEncoding(encoding));
-	
 	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
-	
 	return returnString;
 }
 
 /**
  NSString wrapper for the function CFURLCreateStringByReplacingPercentEscapes in Core Foundation
  */
-- (NSString *) cw_stringByReplacingPercentEscapes 
-{
+- (NSString *) cw_stringByReplacingPercentEscapes {
 	CFStringRef str = CFURLCreateStringByReplacingPercentEscapes(NULL, (__bridge CFStringRef)self, CFSTR(""));
-	
 	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
-	
 	return returnString;
 }
 
--(NSString *)cw_escapeEntitiesForURL
-{	
+-(NSString *)cw_escapeEntitiesForURL {	
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
-	
 	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
-	
 	return returnString;
 }
 
 /**
  Quick test for an empty string
  */
-- (BOOL) cw_isNotEmptyString
-{
+- (BOOL) cw_isNotEmptyString {
 	return ( [self length] > 0 );
 }
 

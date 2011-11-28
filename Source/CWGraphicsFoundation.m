@@ -43,8 +43,7 @@ NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect) {
 /**
  Easy way to return the CGContextRef inside a NSView
  */
-inline CGContextRef CWCurrentCGContext()
-{
+inline CGContextRef CWCurrentCGContext() {
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 }
 
@@ -54,8 +53,7 @@ inline CGContextRef CWCurrentCGContext()
 void CWAddRoundedRectToPath(CGContextRef context,
 						  CGRect rect,
 						  float ovalWidth,
-						  float ovalHeight)
-{
+						  float ovalHeight) {
     float fw, fh;
 	
     if (ovalWidth == 0 || ovalHeight == 0) {

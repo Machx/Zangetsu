@@ -34,8 +34,7 @@
  information as well as the stack trace of where the stack trace occurred minus
  the exception handling frames.
  */
-void CWShowExceptionAsAlertPanel(NSException *exception)
-{
+void CWShowExceptionAsAlertPanel(NSException *exception) {
 	NSInteger result = NSRunCriticalAlertPanel(@"Application Error Occurred",
 											   [NSString stringWithFormat:@"Uncaught Exception: %@\n%@\n%@",[exception name], [exception reason],[exception cw_stackTrace]],
 											   @"Continue", @"Quit", nil);
@@ -50,8 +49,7 @@ void CWShowExceptionAsAlertPanel(NSException *exception)
  Calls CWStackTrace() to return NSThreads callStackSymbols
  and put them in string form.
  */
--(NSString *)cw_stackTrace
-{
+-(NSString *)cw_stackTrace {
 	return CWStackTrace();
 }
 

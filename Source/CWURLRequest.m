@@ -92,8 +92,7 @@
  @param the URL you want to request data from (should not be nil)
  @return a fully initialized CWURLRequest oject
  */
--(id)initWithURLString:(NSString *)urlHost
-{
+-(id)initWithURLString:(NSString *)urlHost {
     self = [super init];
     if (self) {
         host = urlHost;

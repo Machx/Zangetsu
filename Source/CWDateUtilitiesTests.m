@@ -32,8 +32,7 @@
 
 @implementation CWDateUtilitiesTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -123,8 +122,7 @@
 	STAssertTrue([date1 isEqualToDate:date2], @"Dates should be equal");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

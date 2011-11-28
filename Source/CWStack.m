@@ -38,13 +38,11 @@
 
 @synthesize stack;
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
 		stack = [[NSMutableArray alloc] init];
     }
-    
     return self;
 }
 
@@ -64,7 +62,6 @@
 			[stack addObjectsFromArray:objects];
 		}
 	}
-	
 	return self;
 }
 
@@ -85,9 +82,7 @@
  */
 -(id)pop {
 	id lastObject = [[self stack] lastObject];
-	
 	[[self stack] removeLastObject];
-	
 	return lastObject;
 }
 
@@ -102,9 +97,7 @@
  @return nil if the object is not in the array otherwise a NSArray of all popped off objects
  */
 -(NSArray *)popToObject:(id)object {
-	if (![[self stack] containsObject:object]) {
-		return nil;
-	}
+	if (![[self stack] containsObject:object]) { return nil; }
 	
 	NSMutableArray *stackArray = [[NSMutableArray alloc] init];
 	id currentObject = nil;
@@ -125,9 +118,7 @@
  @param block the block that will be executed upon encountering each object in the stack until the object specified is found
  */
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block {
-	if (![[self stack] containsObject:object]) {
-		return;
-	}
+	if (![[self stack] containsObject:object]) { return; }
 	
 	while (![[self topOfStackObject] isEqual:object]) {
 		id obj = [self pop];

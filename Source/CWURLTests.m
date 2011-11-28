@@ -34,8 +34,7 @@ static NSString * const kAppleURLString = @"http://www.apple.com";
 
 @implementation CWURLAdditionTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -55,8 +54,7 @@ static NSString * const kAppleURLString = @"http://www.apple.com";
 	STAssertTrue([appleURL2 isEqual:[NSURL URLWithString:urlString]], @"2 URL objects should have the same value");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

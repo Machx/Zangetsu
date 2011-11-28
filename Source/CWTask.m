@@ -218,9 +218,7 @@
  * @return a NSString with the output of the launched task if successful, otherwise the error reference is written to
  */
 - (NSString *) launchTask:(NSError **)error {
-    if ([self _validateTask:error] == NO) {
-        return nil;
-    }
+    if ([self _validateTask:error] == NO) { return nil; }
 
     NSString * resultsString = nil;
 

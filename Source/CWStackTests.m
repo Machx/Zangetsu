@@ -32,8 +32,7 @@
 
 @implementation CWStackTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -125,8 +124,7 @@
     STAssertFalse([stack isEmpty], @"stack should not be empty");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

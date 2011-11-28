@@ -35,8 +35,7 @@
 /**
  Ruby Inspired Iterator for NSDictionary in Objective-C
  */
--(void)cw_each:(void (^)(id key, id value, BOOL *stop))block
-{
+-(void)cw_each:(void (^)(id key, id value, BOOL *stop))block {
 	BOOL shouldStop = NO;
 	
 	for(id key in self) {
@@ -49,12 +48,9 @@
  Same as cw_each but operates concurrently and passes in a bool
  pointer allowing you to stop the enumeration
  */
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
-{
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block {
 	dispatch_group_t group = dispatch_group_create();
-	
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
 	__block BOOL _stop = NO;
 
 	for (id key in self) {
@@ -74,18 +70,15 @@
  Simple Convenience method to tell if the dictionary
  contains a particular key
  */
--(BOOL)cw_dictionaryContainsKey:(NSString *)key
-{
+-(BOOL)cw_dictionaryContainsKey:(NSString *)key {
 	NSArray *keys = [self allKeys];
-	
 	return [keys containsObject:key];
 }
 
 /**
  An dictionary mapping method using only 1 block
  */
--(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block
-{
+-(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	
 	__block id _intKey;

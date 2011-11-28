@@ -164,7 +164,6 @@
 	if([[self queue] count] == 0) { return; }
 	
 	__block BOOL shouldStop = NO;
-	
 	id dequeuedObject = nil;
 	
 	do {

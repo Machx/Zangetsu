@@ -32,8 +32,7 @@
 
 @implementation CWFileUtilitiesTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -47,8 +46,7 @@
     STAssertFalse([path1 isEqualToString:path2], @"paths should not be the same");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

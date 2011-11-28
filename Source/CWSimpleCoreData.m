@@ -50,20 +50,15 @@
 		inManagedObjectContext:(NSManagedObjectContext *)moc 
 				 withPredicate:(NSPredicate *)predicate
 			andSortDescriptors:(NSArray *)descriptors
-					  andError:(NSError **)error
-{
-	if (!entityName) {
-		return nil;
-	}
+					  andError:(NSError **)error {
+	if (!entityName) { return nil; }
 	
 	NSManagedObjectContext *context = nil;
 	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
-	if (nil == entityDescription) {
-		return nil;
-	}
+	if (nil == entityDescription) { return nil; }
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	
@@ -95,17 +90,15 @@
  */
 +(NSUInteger)objectCountForEntity:(NSString *)entityName 
 		   inManagedObjectContext:(NSManagedObjectContext *)moc
-						withError:(NSError **)error
-{
-	if (nil == entityName) {
-		return 0;
-	}
+						withError:(NSError **)error {
+	if (nil == entityName) { return 0; }
 	
 	NSManagedObjectContext *context = nil;
 	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
+	if (nil == entityDescription) { return 0; }
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	
@@ -131,11 +124,8 @@
  */
 +(NSManagedObject *)newObjectWithEntityName:(NSString *)entityName 
 					 inManagedObjectContext:(NSManagedObjectContext *)moc 
-								  andValues:(NSDictionary *)values
-{
-	if (!entityName || entityName == nil) {
-		return nil;
-	}
+								  andValues:(NSDictionary *)values {
+	if (!entityName || entityName == nil) { return nil; }
 	
 	/* if managedObjectConext is nil the assumption is you want
 	 * the default application context that is [[NSApp delegate] managedObjectContext]
@@ -144,15 +134,11 @@
 	
 	NSEntityDescription * entityDesc = [NSEntityDescription entityForName:entityName 
 												   inManagedObjectContext:context];
-	if (nil == entityDesc) {
-		return nil;
-	}
+	if (nil == entityDesc) { return nil; }
 	
 	__block NSManagedObject *newMO = [[NSManagedObject alloc] initWithEntity:entityDesc 
 										      insertIntoManagedObjectContext:context];
-	if (!newMO) {
-		return nil;
-	}
+	if (!newMO) { return nil; }
 	
 	[values enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
 		[newMO setValue:obj forKey:key];
@@ -178,20 +164,15 @@
 					withPredicate:(NSPredicate *)predicate
 					   properties:(NSArray *)properties 
 			   andSortDescriptors:(NSArray *)descriptors 
-							error:(NSError **)error
-{
-	if (!entityName) {
-		return nil;
-	}
+							error:(NSError **)error {
+	if (!entityName) { return nil; }
 	
 	NSManagedObjectContext *context = nil;
 	context = (moc != nil) ? moc : CWCDManagedObjectContext();
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName 
 														 inManagedObjectContext:context];
-	if (nil == entityDescription) {
-		return nil;
-	}
+	if (nil == entityDescription) { return nil; }
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	
@@ -209,11 +190,7 @@
 	[request setResultType:NSDictionaryResultType];
 	
 	NSArray *results = nil;
-	
-	results = [context executeFetchRequest:request 
-									 error:error];
-	
-	/* assumes garbage collection */
+	results = [context executeFetchRequest:request error:error];
 	
 	return results;
 }

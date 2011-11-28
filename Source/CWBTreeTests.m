@@ -32,8 +32,7 @@
 
 @implementation CWBTreeTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -196,8 +195,7 @@
     STAssertTrue([node4 nodeLevel] == 4, @"Node1 should be at Level 4");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

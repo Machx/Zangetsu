@@ -32,8 +32,7 @@
 
 @implementation CWDictionaryTests
 
--(void)testContainsKey
-{
+-(void)testContainsKey {
 	/**
 	 Test for cw_dictionaryContainsKey to make sure it works properly. In this
 	 case it should return true for finding the object in the dictionary.
@@ -48,8 +47,7 @@
 	STAssertFalse([dictionary cw_dictionaryContainsKey:@"Zapp Brannigan"],@"Dictionary should not contain the key Zapp Brannigan");
 }
 
--(void)testDictionaryMapping
-{
+-(void)testDictionaryMapping {
 	/**
 	 make sure that mapping goes correctly. Again this test does 1-to-1 mapping of
 	 1 dictionary from another so if it goes correctly the dictionaries should be identical.

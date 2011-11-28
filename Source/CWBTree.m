@@ -133,8 +133,7 @@
  @param value a non nil value to be used in creating a CWBTreeNode
  @return a CWBTree with a root node assigned and wrapped in the value provided if value is non nil
  */
--(id)initWithRootNodeValue:(id)value
-{
+-(id)initWithRootNodeValue:(id)value {
     self = [super init];
     if (self) {
         if (value) {

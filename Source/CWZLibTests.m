@@ -11,8 +11,7 @@
 
 @implementation CWZLibTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -49,8 +48,7 @@
     STAssertTrue([testString isEqualToString:finalResultString],@"Strings should be the same");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

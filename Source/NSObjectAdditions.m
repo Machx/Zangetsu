@@ -43,24 +43,21 @@
 /**
  returns the value associated with a key
  */
--(id)cw_valueAssociatedWithKey:(void *)key
-{
+-(id)cw_valueAssociatedWithKey:(void *)key {
 	return objc_getAssociatedObject(self, key);
 }
 
 /**
  Associates the value with a key using a strong reference
  */
--(void)cw_associateValue:(id)value withKey:(void *)key
-{
+-(void)cw_associateValue:(id)value withKey:(void *)key {
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN);
 }
 
 /**
  Associates the value with a key using a weak reference
  */
--(void)cw_associateWeakValue:(id)value withKey:(void *)key
-{
+-(void)cw_associateWeakValue:(id)value withKey:(void *)key {
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
@@ -70,16 +67,14 @@
 /**
  Executes the passed in block after a specified delay time
  */
--(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block
-{
+-(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block {
 	[block performSelector:@selector(_cw_blockInvokeCallBack) withObject:nil afterDelay:delay];
 }
 
 /**
  Private - Internal Implementation Method
  */
--(void)_cw_blockInvokeCallBack
-{
+-(void)_cw_blockInvokeCallBack {
 	void (^block)(void) = (id)self;
 	block();
 }
@@ -91,17 +86,13 @@
  Creates a NSInvocation operation with self as the target and the passed in selector and
  adds the operation to the passed in NSOperationQueue.
  */
--(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue
-{
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue {
 	NSParameterAssert(queue);
-
 	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:selector object:obj];
-
 	[queue addOperation:op];
 }
 
--(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue
-{
+-(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue {
 	dispatch_async(queue, ^{
 		[self performSelector:selector withObject:obj afterDelay:0];
 	});

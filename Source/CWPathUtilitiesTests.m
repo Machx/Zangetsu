@@ -32,8 +32,7 @@
 
 @implementation CWPathUtilitiesTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -63,8 +62,7 @@
     STAssertTrue([path1 isEqualToString:path2], @"paths should be equal");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

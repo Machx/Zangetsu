@@ -91,8 +91,7 @@
  Test for cw_find to make sure it works correctly. It should
  correctly return YES for finding the desired object in the set
  */
--(void)testSetFindObjInSet
-{
+-(void)testSetFindObjInSet {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	id testobj = [testSet cw_findWithBlock:^(id obj) {
@@ -111,8 +110,7 @@
  Testing cw_isObjectInSetWithBlock to make sure it returns
  the correct BOOL result
  */
--(void)testIsObjInSet
-{
+-(void)testIsObjInSet {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 
 	BOOL objInSet = [testSet cw_isObjectInSetWithBlock:^(id obj) {
@@ -127,8 +125,7 @@
  array correctly. In this case it should  do a 1 to 1 map
  of another set and the 2 should equal
  */
--(void)testSetMapSet
-{
+-(void)testSetMapSet {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	NSSet *testSet2 = [testSet1 cw_mapSet:^(id obj) {
@@ -141,8 +138,7 @@
 	STAssertTrue([testSet1 isEqualToSet:testSet2],@"testset1 and testset2 should be equal if using cw_map (NSSet)");
 }
 
--(void)testFindAll
-{
+-(void)testFindAll {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	NSSet *testSet2 = [testSet1 cw_findAllWithBlock:^(id obj) {
@@ -163,8 +159,7 @@
 /**
  Test for selective mapping in cw_mapSet.
  */
--(void)testSelectiveMapping;
-{
+-(void)testSelectiveMapping; {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	NSSet *testSet2 = [testSet1 cw_mapSet:^id(id obj) {

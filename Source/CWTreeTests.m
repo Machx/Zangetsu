@@ -32,8 +32,7 @@
 
 @implementation CWTreeTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
@@ -191,8 +190,7 @@
 	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"Strings should match if tree was enumerated correctly");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];

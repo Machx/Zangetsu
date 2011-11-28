@@ -36,8 +36,7 @@
 /**
  Testing the strong associated reference to make sure it works
  */
--(void)testStrongReferenceObjcAssociation
-{
+-(void)testStrongReferenceObjcAssociation {
 	char *key1 = "key1";
 	
 	NSObject *object = [[NSObject alloc] init];
@@ -48,8 +47,7 @@
 				 @"ObjC Associated Objects should be equal but are not!");
 }
 
--(void)testWeakObjcAssociation
-{
+-(void)testWeakObjcAssociation {
 	char *key3 = "key3";
 	
 	NSObject *object = [[NSObject alloc] init];
