@@ -94,6 +94,15 @@
     }
 }
 
+/**
+ Returns the nodes depth in the CWBTree its contained in
+ 
+ Returns N + 1 where N is the number of parent nodes the receiving node
+ has. If the node has no parent notes it simply returns 1. The number 
+ returned from this will always be >= 1.
+ 
+ @return a NSUInteger with the node Level the receive node is at in its containing CWBTree
+ */
 -(NSUInteger)nodeLevel {
     NSUInteger level = 1;
     CWBTreeNode *currentParrent = [self parent];
