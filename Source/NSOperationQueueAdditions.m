@@ -18,10 +18,12 @@
 -(void)cw_addOperationAfterDelay:(double)delay 
                        withBlock:(void (^)(void))block {
     NSParameterAssert(block);
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,(delay * NSEC_PER_SEC));
+	dispatch_queue_t queue = dispatch_queue_create("com.Zangetsu.NSOperationQueueAdditions", 0);
+    dispatch_after(popTime, queue, ^(void){
         [self addOperationWithBlock:block];
     });
+	dispatch_release(queue);
 }
 
 @end
