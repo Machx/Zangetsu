@@ -131,9 +131,9 @@
  
  @return a NSArray of all popped off objects
  */
--(NSArray *)popToBottomOfStack {	
+-(NSArray *)popToBottomOfStack {
+	if([[self stack] count] == 0) { return nil; }
 	NSArray *stackArray = [self popToObject:[[self stack] cw_firstObject]];
-	
 	return stackArray;
 }
 
@@ -143,6 +143,7 @@
  @return the objct at the top of the stack
  */
 -(id)topOfStackObject {
+	if([[self stack] count] == 0) { return nil; }
 	return [[self stack] lastObject];
 }
 
@@ -152,6 +153,7 @@
  @return the objct at the bottom of the stack
  */
 -(id)bottomOfStackObject {
+	if([[self stack] count] == 0) { return nil; }
 	return [[self stack] cw_firstObject];
 }
 
