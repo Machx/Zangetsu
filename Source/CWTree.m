@@ -106,27 +106,29 @@
  @param node a CWTreeNode object
  */
 -(void)addChild:(CWTreeNode *)node {
-    if (self->allowsDuplicates == YES) {
-        [node setParent:self];
-        [[self children] addObject:node];
-    }
-    else {
-        if (![self->children containsObject:node]) {
-            __block BOOL anyNodeContainsValue = NO;
-            [[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-                id nodeValue = [(CWTreeNode *)obj value];
-                if ([nodeValue isEqualTo:[node value]]) {
-                    anyNodeContainsValue = YES;
-                }
-            }];
-            
-            if (anyNodeContainsValue == NO) {
-                [node setParent:self];
-                [node setAllowsDuplicates:NO];
-                [[self children] addObject:node];
-            }
-        }
-    }
+	if (node) {
+		if (self->allowsDuplicates == YES) {
+			[node setParent:self];
+			[[self children] addObject:node];
+		}
+		else {
+			if (![self->children containsObject:node]) {
+				__block BOOL anyNodeContainsValue = NO;
+				[[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+					id nodeValue = [(CWTreeNode *)obj value];
+					if ([nodeValue isEqualTo:[node value]]) {
+						anyNodeContainsValue = YES;
+					}
+				}];
+				
+				if (anyNodeContainsValue == NO) {
+					[node setParent:self];
+					[node setAllowsDuplicates:NO];
+					[[self children] addObject:node];
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -138,7 +140,7 @@
  @param a CWTreeNode object
  */
 -(void)removeChild:(CWTreeNode *)node {
-    if ([[self children] containsObject:node]) {
+    if (node && ([[self children] containsObject:node])) {
         [node setParent:nil];
         [[self children] removeObject:node];
     }
@@ -154,14 +156,13 @@
  @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
  */
 -(BOOL)isEqualToNode:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
-        if ([[node parent] isEqualTo:[self parent]]) {
-            if ([[node children] isEqualTo:[self children]]) {
-                return YES;
-            }
-        }
-    }
-    
+    if (node && ([[node value] isEqualTo:[self value]])) {
+		if ([[node parent] isEqualTo:[self parent]]) {
+			if ([[node children] isEqualTo:[self children]]) {
+				return YES;
+			}
+		}
+	}
     return NO;
 }
 
@@ -172,10 +173,9 @@
  @return a BOOL with yes if the node values are equal, otherwise no.
  */
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
+    if (node && ([[node value] isEqualTo:[self value]])) {
         return YES;
     }
-    
     return NO;
 }
 
@@ -223,12 +223,11 @@
  @return a BOOL if the receivers children objects are equal to tree's children objects
  */
 -(BOOL)isEqualTo:(id)tree {
-    if ([tree isMemberOfClass:[self class]]) {
+    if (tree && ([tree isMemberOfClass:[self class]])) {
         if ([[[self rootNode] children] isEqualTo:[[tree rootNode] children]]) {
             return YES;
         }
     }
-    
     return NO;
 }
 
