@@ -29,11 +29,6 @@
 
 #import "CWBTree.h"
 
-@interface CWBTreeNode()
-@property(nonatomic, retain, readwrite) CWBTreeNode *leftNode;
-@property(nonatomic, retain, readwrite) CWBTreeNode *rightNode;
-@end
-
 @implementation CWBTreeNode
 
 @synthesize value;
@@ -72,20 +67,20 @@
 /**
  Performs the necessary validation before assigning the nodes left pointer value
  */
--(void)assignLeftNode:(CWBTreeNode *)node {
-    if (node && (node != self)) {
-		[node setParent:self];
-        [self setLeftNode:node];
+-(void)setLeftNode:(CWBTreeNode *)node {
+    if (![node isEqualTo:self]) {
+		if (node) { [node setParent:self]; }
+		leftNode = node;
     }
 }
 
 /**
  Performs the necessary validation before assigning the nodes right pointer value
  */
--(void)assignRightNode:(CWBTreeNode *)node {
-    if (node && (node != self)) {
-		[node setParent:self];
-        [self setRightNode:node];
+-(void)setRightNode:(CWBTreeNode *)node {
+    if (![node isEqualTo:self]) {
+		if (node) { [node setParent:self]; }
+		rightNode = node;
     }
 }
 
