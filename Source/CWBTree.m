@@ -59,14 +59,13 @@
  @return a BOOL indicating if the nove value and its pointers are equal
  */
 -(BOOL)isEqualToNode:(CWBTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]){
-        if ([[node leftNode] isEqualTo:[self leftNode]]) {
-            if ([[node rightNode] isEqualTo:[self rightNode]]) {
-                return YES;
-            }
-        }
-    }
-    
+	if (node && ([[node value] isEqualTo:[self value]])){
+		if ([[node leftNode] isEqualTo:[self leftNode]]) {
+			if ([[node rightNode] isEqualTo:[self rightNode]]) {
+				return YES;
+			}
+		}
+	}
     return NO;
 }
 
@@ -74,10 +73,8 @@
  Performs the necessary validation before assigning the nodes left pointer value
  */
 -(void)assignLeftNode:(CWBTreeNode *)node {
-    if (node != self) {
-        if (node != nil) {
-            [node setParent:self];
-        }
+    if (node && (node != self)) {
+		[node setParent:self];
         [self setLeftNode:node];
     }
 }
@@ -86,10 +83,8 @@
  Performs the necessary validation before assigning the nodes right pointer value
  */
 -(void)assignRightNode:(CWBTreeNode *)node {
-    if (node != self) {
-        if (node != nil) {
-            [node setParent:self];
-        }
+    if (node && (node != self)) {
+		[node setParent:self];
         [self setRightNode:node];
     }
 }
@@ -129,7 +124,6 @@
     if (self) {
         rootNode = nil;
     }
-    
     return self;
 }
 
@@ -150,7 +144,6 @@
             rootNode = node;
         }
     }
-    
     return self;
 }
 
