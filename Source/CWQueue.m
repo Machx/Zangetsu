@@ -102,28 +102,28 @@
 /**
  Adds a object to the receiving objects queue
  
- Adds object to the receiving CWQueues internal storage.
+ Adds object to the receiving CWQueues internal storage. If the object is
+ nil then this method simply does nothing.
  
  @param object a Objective-C object you want to add to the receivng queues storage. Must be non-nil or an assertion will be thrown.
  */
 -(void)addObject:(id)object {
-	NSParameterAssert(object);
-	[[self queue] addObject:object];
+	if (object) {
+		[[self queue] addObject:object];
+	}
 }
 
 /**
  Adds the objects from the objects array to the receiving queue
  
  This takes the objects in order they are in the objects array and 
- appends them onto the receiving queues storage. This will throw
- an assertion if the passed in array is nil. If the object array 
- is empty (0 objects) then this method simply does nothing.
+ appends them onto the receiving queues storage. If the object array 
+ is empty(0 objects) or nil then this method simply does nothing.
  
  @param a NSArray of objects to be appended onto the receiving queues storage
  */
 -(void)addObjectsFromArray:(NSArray *)objects {
-	NSParameterAssert(objects);
-	if ([objects count] > 0) {
+	if (objects && ([objects count] > 0)) {
 		[[self queue] addObjectsFromArray:objects];
 	}
 }
