@@ -105,16 +105,16 @@
     CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
     
     CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
-    [rNode assignRightNode:rRNode];
+	[rNode setRightNode:rRNode];
     
     CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
-    [rNode assignLeftNode:rLNode];
+	[rNode setLeftNode:rLNode];
     
     CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
-    [rLNode assignLeftNode:node2L];
+	[rLNode setLeftNode:node2L];
     
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
-    [rLNode assignRightNode:node2R];
+	[rLNode setRightNode:node2R];
     
     CWBTree *tree = [[CWBTree alloc] init];
     [tree setRootNode:rNode];
@@ -143,16 +143,16 @@
     CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
     
     CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
-    [rNode assignRightNode:rRNode];
+	[rNode setRightNode:rRNode];
     
     CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
-    [rNode assignLeftNode:rLNode];
+	[rNode setLeftNode:rLNode];
     
     CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
-    [rLNode assignLeftNode:node2L];
+	[rLNode setLeftNode:node2L];
     
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
-    [rLNode assignRightNode:node2R];
+	[rLNode setRightNode:node2R];
     
     CWBTree *tree = [[CWBTree alloc] init];
     [tree setRootNode:rNode];
@@ -181,13 +181,13 @@
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:kTestValue];
     
     CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-    [node1 assignRightNode:node2];
+	[node1 setRightNode:node2];
     
     CWBTreeNode *node3 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-    [node2 assignRightNode:node3];
+	[node2 setRightNode:node3];
     
     CWBTreeNode *node4 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-    [node3 assignRightNode:node4];
+	[node3 setRightNode:node4];
     
     STAssertTrue([node1 nodeLevel] == 1, @"Node1 should be at Level 1");
     STAssertTrue([node2 nodeLevel] == 2, @"Node1 should be at Level 2");
