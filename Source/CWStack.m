@@ -66,13 +66,17 @@
 }
 
 /**
- pushes an object onto the stack
+ Pushes an object onto the stack
+ 
+ Pushes the object onto the stack instance. If the object
+ is nil then this method does nothing.
  
  @param object the object you want pushed onto the stack
  */
 -(void)push:(id)object {
-	NSParameterAssert(object);
-	[[self stack] addObject:object];
+	if (object) {
+		[[self stack] addObject:object];
+	}
 }
 
 /**
@@ -81,6 +85,7 @@
  @return the object at the top of the stack
  */
 -(id)pop {
+	if([[self stack] count] == 0) { return nil; }
 	id lastObject = [[self stack] lastObject];
 	[[self stack] removeLastObject];
 	return lastObject;
@@ -177,11 +182,9 @@
  @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
  */
 -(BOOL)isEqualToStack:(CWStack *)aStack {
-	
-	if ([[aStack description] isEqualToString:[self description]]) {
+	if (aStack && ([[aStack description] isEqualToString:[self description]])) {
 		return YES;
 	}
-	
 	return NO;
 }
 
