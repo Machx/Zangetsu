@@ -53,7 +53,6 @@
         parent = nil;
         allowsDuplicates = YES;
     }
-    
     return self;
 }
 
@@ -72,7 +71,6 @@
         children = [[NSMutableArray alloc] init];
         parent = nil;
     }
-    
     return self;
 }
 
@@ -156,7 +154,7 @@
  @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
  */
 -(BOOL)isEqualToNode:(CWTreeNode *)node {
-    if (node && ([[node value] isEqualTo:[self value]])) {
+    if ([[node value] isEqualTo:[self value]]) {
 		if ([[node parent] isEqualTo:[self parent]]) {
 			if ([[node children] isEqualTo:[self children]]) {
 				return YES;
@@ -173,7 +171,7 @@
  @return a BOOL with yes if the node values are equal, otherwise no.
  */
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
-    if (node && ([[node value] isEqualTo:[self value]])) {
+    if ([[node value] isEqualTo:[self value]]) {
         return YES;
     }
     return NO;
@@ -222,12 +220,12 @@
  
  @return a BOOL if the receivers children objects are equal to tree's children objects
  */
--(BOOL)isEqualTo:(id)tree {
-    if (tree && ([tree isMemberOfClass:[self class]])) {
-        if ([[[self rootNode] children] isEqualTo:[[tree rootNode] children]]) {
-            return YES;
-        }
-    }
+-(BOOL)isEqualToTree:(CWTree *)tree {
+	if ([[self rootNode] isNodeValueEqualTo:[tree rootNode]]) {
+		if ([[[self rootNode] description] isEqualToString:[[tree rootNode] description]]) {
+			return YES;
+		}
+	}
     return NO;
 }
 

@@ -42,7 +42,7 @@
 //comparisons
 -(BOOL)isEqualToNode:(CWTreeNode *)node;
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node;
-//
+//other properties
 -(NSUInteger)nodeLevel;
 @end
 
@@ -50,4 +50,5 @@
 -(id)initWithRootNodeValue:(id)value;
 @property(nonatomic, retain) CWTreeNode *rootNode;
 -(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;
+-(BOOL)isEqualToTree:(CWTree *)tree;
 @end
