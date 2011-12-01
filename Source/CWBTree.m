@@ -54,7 +54,7 @@
  @return a BOOL indicating if the nove value and its pointers are equal
  */
 -(BOOL)isEqualToNode:(CWBTreeNode *)node {
-	if (node && ([[node value] isEqualTo:[self value]])){
+	if ([[node value] isEqualTo:[self value]]){
 		if ([[node leftNode] isEqualTo:[self leftNode]]) {
 			if ([[node rightNode] isEqualTo:[self rightNode]]) {
 				return YES;
