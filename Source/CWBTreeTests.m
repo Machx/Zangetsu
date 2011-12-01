@@ -195,6 +195,22 @@
     STAssertTrue([node4 nodeLevel] == 4, @"Node1 should be at Level 4");
 }
 
+-(void)testSetPointerToNil {
+	
+	CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:@"Hypnotoad"];
+	STAssertNil([node rightNode], @"Node should be nil now");
+	
+	CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:@"Nibbler"];
+	[node setRightNode:node2];
+	STAssertNotNil([node rightNode], @"Node should be non nil");
+	
+	[node setRightNode:nil];
+	STAssertNil([node rightNode], @"Node should be nil now");
+	
+	[node setRightNode:node];
+	STAssertNil([node rightNode], @"Node should not allow setting itself as a child node");
+}
+
 - (void)tearDown {
     // Tear-down code here.
     
