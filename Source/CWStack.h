@@ -30,25 +30,21 @@
 #import <Foundation/Foundation.h>
 
 @interface CWStack : NSObject
-
 -(id)initWithObjectsFromArray:(NSArray *)objects;
-
+// Push & Pop
 -(void)push:(id)object;
-
 -(id)pop;
 -(NSArray *)popToObject:(id)object;
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block;
 -(NSArray *)popToBottomOfStack;
-
+// Top & Bottom Objects
 -(id)topOfStackObject;
 -(id)bottomOfStackObject;
-
+//Stack Operations
 -(void)clearStack;
-
+//Equality
 -(BOOL)isEqualToStack:(CWStack *)aStack;
-
+//Other Properties
 -(BOOL)isEmpty;
-
 -(NSInteger)count;
-
 @end

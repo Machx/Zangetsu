@@ -30,23 +30,19 @@
 #import <Foundation/Foundation.h>
 
 @interface CWQueue : NSObject
-
+//Init
 -(id)initWithObjectsFromArray:(NSArray *)array;
-
+//Add Objects
 -(void)addObject:(id)object;
-
 -(void)addObjectsFromArray:(NSArray *)objects;
-
+//Dequeue/Remove Objects
 -(id)dequeueTopObject;
-
 -(void)removeAllObjects;
-
--(void)enumerateObjectsInQueue:(void(^)(id object))block;
-
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
-
+//Enumeration
+-(void)enumerateObjectsInQueue:(void(^)(id object))block;
+//Other Properties
 -(NSUInteger)count;
-
+//Equality
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue;
-
 @end
