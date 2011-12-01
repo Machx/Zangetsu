@@ -171,7 +171,7 @@
 		if(dequeuedObject != nil){
 			block(dequeuedObject,&shouldStop);
 		}
-	} while (shouldStop == NO && dequeuedObject != nil);
+	} while ((shouldStop == NO) && (dequeuedObject));
 }
 
 //MARK: -
