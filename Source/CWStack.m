@@ -182,7 +182,7 @@
  @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
  */
 -(BOOL)isEqualToStack:(CWStack *)aStack {
-	if (aStack && ([[aStack description] isEqualToString:[self description]])) {
+	if ([[aStack description] isEqualToString:[self description]]) {
 		return YES;
 	}
 	return NO;
@@ -203,7 +203,7 @@
  @return a BOOL indicating if the stack is empty
  */
 -(BOOL)isEmpty {
-    return !([[self stack] count] != 0);
+    return ([[self stack] count] <= 0);
 }
 
 /**
