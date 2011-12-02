@@ -140,6 +140,14 @@
 	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
+-(void)testPoptoNonExistantObject {
+	
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Bender"]];
+	
+	NSArray *results = [stack popToObject:@"Zapf"];
+	STAssertNil(results, @"Since the stack didn't contain this object it, the returned reference should be nil");
+}
+
 -(void)testEmptyStack {
     
     CWStack *stack = [[CWStack alloc] init];
