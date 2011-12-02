@@ -109,6 +109,24 @@
 	STAssertTrue([(NSString *)[stack topOfStackObject] isEqualToString:@"sentence"], @"Top of stack object should be equal");
 }
 
+-(void)testNilBottomAndTopStackObjects {
+	
+	CWStack *stack = [[CWStack alloc] init];
+	
+	STAssertNil([stack bottomOfStackObject], @"Since there are no objects on the stack it should return a nil reference");
+	STAssertNil([stack topOfStackObject], @"Since there are no objects on the stack it should return nil");
+	
+	[stack push:@"Why not Zoidberg?"];
+	STAssertTrue([stack count] == 1, @"Stack should have an object");
+	STAssertNotNil([stack bottomOfStackObject], @"Since there is an object on the stack it should return a non nil reference");
+	STAssertNotNil([stack topOfStackObject], @"Since there is an object on the stack it should return non nil");
+	
+	[stack pop];
+	STAssertTrue([stack count] == 0, @"Stack should not have an object");
+	STAssertNil([stack bottomOfStackObject], @"Since there are no objects on the stack it should return a nil reference");
+	STAssertNil([stack topOfStackObject], @"Since there are no objects on the stack it should return nil");
+}
+
 -(void)testPopToBottomOfStack {
 	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
