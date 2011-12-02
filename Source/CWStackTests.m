@@ -55,6 +55,15 @@
     STAssertFalse([stack1 isEqualTo:stack2], @"stacks shouldnt be the same object");
 }
 
+-(void)testPushNil {
+	
+	CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Nibbler"]];
+	STAssertTrue([testStack count] == 1, @"Stack should only have 1 object contained in it");
+	
+	[testStack push:nil];
+	STAssertTrue([testStack count] == 1, @"Stack have ignored nil and done nothing");
+}
+
 -(void)testBasicEnumeration {
 	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
