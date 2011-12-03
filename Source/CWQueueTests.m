@@ -124,6 +124,19 @@
 	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 }
 
+-(void)testAddNilObject {
+	CWQueue *queue = [[CWQueue alloc] init];
+	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
+	
+	id obj = nil;
+	[queue addObject:obj];
+	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
+	
+	NSArray *anArray = [[NSArray alloc] init];
+	[queue addObjectsFromArray:anArray];
+	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
+}
+
 -(void)testDequeueWithBlock {
 	/**
 	 Test to make sure all the objects are being correctly enumerated over and dequeued
