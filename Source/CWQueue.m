@@ -136,6 +136,16 @@
 }
 
 //MARK: -
+//MARK: Query Methods
+
+-(BOOL)containsObject:(id)object {
+	if (object && [[self queue] containsObject:object]) {
+		return YES;
+	}
+	return NO;
+}
+
+//MARK: -
 //MARK: Enumeration Methods
 
 /**

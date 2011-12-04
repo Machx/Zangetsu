@@ -41,6 +41,8 @@
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
 //Enumeration
 -(void)enumerateObjectsInQueue:(void(^)(id object))block;
+//Query
+-(BOOL)containsObject:(id)object;
 //Other Properties
 -(NSUInteger)count;
 //Equality
