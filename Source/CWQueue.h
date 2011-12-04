@@ -43,6 +43,7 @@
 -(void)enumerateObjectsInQueue:(void(^)(id object))block;
 //Query
 -(BOOL)containsObject:(id)object;
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
 //Other Properties
 -(NSUInteger)count;
 //Equality

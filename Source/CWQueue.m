@@ -145,6 +145,15 @@
 	return NO;
 }
 
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block {
+	for (id obj in [self queue]) {
+		if (block(obj)) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
 //MARK: -
 //MARK: Enumeration Methods
 
