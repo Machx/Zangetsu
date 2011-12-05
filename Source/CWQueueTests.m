@@ -178,4 +178,14 @@
 	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
 }
 
+-(void)testContainsObject {
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
+	
+	BOOL result1 = [queue containsObject:@"Bender"];
+	STAssertTrue(result1 == YES, @"Bender should be contained within the queue");
+	
+	BOOL result2 = [queue containsObject:@"Cthulhu"];
+	STAssertTrue(result2 == NO, @"Cthulhu isn't in the queue and thus shouldn't be found");
+}
+
 @end
