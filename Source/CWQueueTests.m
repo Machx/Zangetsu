@@ -188,4 +188,24 @@
 	STAssertTrue(result2 == NO, @"Cthulhu isn't in the queue and thus shouldn't be found");
 }
 
+-(void)testContainsObjectWithBlock {
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
+	
+	BOOL result = [queue containsObjectWithBlock:^BOOL(id obj) {
+		if ([(NSString *)obj isEqualToString:@"Bender"]) {
+			return YES;
+		}
+		return NO;
+	}];
+	STAssertTrue(result == YES, @"Bender should be in the queue");
+	
+	BOOL result2 = [queue containsObjectWithBlock:^BOOL(id obj) {
+		if ([(NSString *)obj isEqualToString:@"Cthulhu"]) {
+			return YES;
+		}
+		return NO;
+	}];
+	STAssertTrue(result2 == NO, @"Cthulhu should not be in the queue");
+}
+
 @end
