@@ -138,6 +138,15 @@
 //MARK: -
 //MARK: Query Methods
 
+/**
+ Returns a BOOL value if the object passed in exists in the queue
+ 
+ If the passed in object is non nil then this method queries the internal
+ storage and returns a bool if the object is contained in the queue instance.
+ 
+ @param object a non nil object you wish to query if it exists in the queue instance
+ @return a BOOL with YES if the object is in the queue or NO if it isn't
+ */
 -(BOOL)containsObject:(id)object {
 	if (object && [[self queue] containsObject:object]) {
 		return YES;
@@ -145,6 +154,18 @@
 	return NO;
 }
 
+/**
+ Returns a BOOL value with the result of using the block on the queue data
+ 
+ This method calls the block passing in an object in the receiving queue. When
+ any block returns a YES result instead of NO then this method stops enumerating
+ over the qeueue and returns the result. Otherwise all the queue is enumerated over
+ and the final result is returned. This method allows better inspection of all 
+ objects in the queue.
+ 
+ @param a block taking a id obj argument which will the an object in the queue, and returning a BOOL value of YES or NO
+ @return a BOOL value with YES if the block at any time 
+ */
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block {
 	for (id obj in [self queue]) {
 		if (block(obj)) {
