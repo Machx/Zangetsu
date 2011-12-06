@@ -14,7 +14,8 @@
 -(void)testBasicBase64AuthHeader {
 	NSString *authorizationHeaderString = CWURLAuthorizationHeaderString(@"TestAccount", @"TestPassword");
 	NSString *const goodResultString = @"Basic VGVzdEFjY291bnQ6VGVzdFBhc3N3b3Jk";
-	STAssertTrue([authorizationHeaderString isEqualToString:goodResultString], @"Strings Should match given the input");
+	
+	STAssertEqualObjects(authorizationHeaderString, goodResultString, @"Strings Should match given the input");
 }
 
 @end

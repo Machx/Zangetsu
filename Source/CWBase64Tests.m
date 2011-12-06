@@ -30,7 +30,7 @@
     NSString *resultString = [testData cw_base64EncodedString];
     NSString *goodResult = @"QWxsIEhhaWwgdGhlIEh5cG5vdG9hZCE=";
     
-    STAssertTrue([resultString isEqualToString:goodResult], @"Strings should match");
+	STAssertEqualObjects(resultString, goodResult, @"Strings should match if encoded correctly");
 }
 
 -(void)testBasicBase64Decoding {
@@ -45,7 +45,7 @@
     NSString *resultString = [testData cw_base64DecodedString];
     NSString *goodResult =  @"All Hail the Hypnotoad!";
     
-    STAssertTrue([resultString isEqualToString:goodResult], @"Base64 decoded string should equal the good result string");
+	STAssertEqualObjects(resultString, goodResult, @"Base64 decoded string should equal the good result string");
 }
 
 - (void)tearDown {
