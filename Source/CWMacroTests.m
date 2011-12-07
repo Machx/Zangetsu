@@ -40,18 +40,16 @@
 }
 
 -(void)testDictionaryMacro {
-    
     const NSString *value1 = @"I'll be in the dome of understanding";
     const NSString *key1 = @"aKey";
     
     NSDictionary *dict1 = NSDICT(value1,key1);
     NSDictionary *dict2 = [NSDictionary dictionaryWithObject:value1 forKey:key1];
     
-    STAssertTrue([dict1 isEqualToDictionary:dict2], @"Dictionaries should be the same");
+	STAssertEqualObjects(dict1, dict2, @"Dictionaries should be the same if created correctly");
 }
 
 -(void)testArrayMacro {
-    
     const NSString *value1 = @"Fry";
     const NSString *value2 = @"Bender";
     const NSString *value3 = @"Leela";
@@ -59,7 +57,7 @@
     NSArray *array1 = NSARRAY(value1,value2,value3);
     NSArray *array2 = [NSArray arrayWithObjects:value1,value2,value3, nil];
     
-    STAssertTrue([array1 isEqualToArray:array2], @"Arrays should be equal");
+	STAssertEqualObjects(array1, array2, @"Arrays should be equal if created correctly");
 }
 
 -(void)testBoolMacro {
@@ -67,13 +65,12 @@
     NSNumber *bool1 = NSBOOL(YES);
     BOOL bool2 = YES;
     
-    STAssertTrue([bool1 boolValue] == bool2, @"BOOL values should be the same");
+	STAssertEquals([bool1 boolValue], bool2, @"BOOL values should be the same");
     
     NSNumber *bool3 = NSBOOL(NO);
     BOOL bool4 = NO;
     
-    STAssertTrue([bool3 boolValue] == bool4, @"Bool values should be the same");
-    
+    STAssertEquals([bool3 boolValue], bool4, @"BOOL values should be the same");
     STAssertFalse([bool3 boolValue] == [bool1 boolValue], @"bools formed from NSNumber should have different values");
 }
 
@@ -85,7 +82,7 @@
     NSSet *set1 = NSSET(q1,q2);
     NSSet *set2 = [NSSet setWithObjects:q1,q2, nil];
     
-    STAssertTrue([set1 isEqualToSet:set2], @"The 2 sets should be equal in content");
+	STAssertEqualObjects(set1, set2, @"The 2 sets should have the same content");
 }
 
 -(void)testGCDQueueMacros {
