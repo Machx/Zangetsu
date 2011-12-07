@@ -32,8 +32,7 @@
 BOOL CWIsDebugInProgress(void);
 void CWCrash(void);
 
-typedef void (^DebugBlock)(void);
-void CWInDebugOnly(DebugBlock block);
-uint64_t CWNanoSecondsToExecuteCode(DebugBlock block);
+void CWInDebugOnly(void(^DebugBlock)(void));
+uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
 
 NSString *CWStackTrace(void);

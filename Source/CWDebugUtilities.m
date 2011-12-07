@@ -87,9 +87,9 @@ void CWCrash() {
  
  @param block a block to be executed only if the application is being debugged
  */
-void CWInDebugOnly(DebugBlock block) {
+void CWInDebugOnly(void(^DebugBlock)(void)) {
 #ifdef DEBUG
-	block();
+	DebugBlock();
 #endif
 }
 
@@ -100,10 +100,10 @@ void CWInDebugOnly(DebugBlock block) {
  
  @return a uint64_t with the amount of nanoseconds it took to execute the block
  */
-uint64_t CWNanoSecondsToExecuteCode(DebugBlock block) {
+uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
 	uint64_t start = mach_absolute_time();
 	
-	block();
+	TimeBlock();
 	
 	uint64_t end = mach_absolute_time();
 	
