@@ -61,7 +61,6 @@
 }
 
 -(void)testBoolMacro {
-    
     NSNumber *bool1 = NSBOOL(YES);
     BOOL bool2 = YES;
     

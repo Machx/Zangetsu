@@ -54,11 +54,11 @@
 	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
-	NSDictionary *d2 = [dictionary cw_mapDictionary:^(id *key,id *value) {
+	NSDictionary *results = [dictionary cw_mapDictionary:^(id *key,id *value) {
 		//*value = @"morvo"; //for testing...
 	}];
 	
-	STAssertTrue([dictionary isEqualToDictionary:d2],@"Dictionary and Dictionary2 should be equal");
+	STAssertEqualObjects(dictionary, results, @"Dictionary and Dictionary2 should be equal");
 }
 
 -(void)testEach {
@@ -70,13 +70,13 @@
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
 								@"McCloud",@"Highlander", nil];
 	
-	__block NSMutableDictionary *dictionary2 = [[NSMutableDictionary alloc] init];
+	__block NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
 	
 	[dictionary cw_each:^(id key, id value, BOOL *stop) {
-		[dictionary2 setValue:value forKey:key];
+		[results setValue:value forKey:key];
 	}];
 	
-	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
+	STAssertEqualObjects(dictionary, results, @"Dictionaries should have the same contents if enumerated correctly");
 }
 
 -(void)testEachStopPointer {
@@ -105,13 +105,13 @@
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Futurama",
 								@"McCloud",@"Highlander", nil];
 	
-	__block NSMutableDictionary *dictionary2 = [[NSMutableDictionary alloc] init];
+	__block NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
 	
 	[dictionary cw_eachConcurrentlyWithBlock:^(id key, id value, BOOL *stop) {
-		[dictionary2 setValue:value forKey:key];
+		[results setValue:value forKey:key];
 	}];
 	
-	STAssertTrue([dictionary isEqualToDictionary:dictionary2], @"Dictionaries should be the same");
+	STAssertEqualObjects(dictionary, results, @"Dictionaries should be the same if enumerated correctly");
 }
 
 @end

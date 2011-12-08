@@ -39,7 +39,7 @@
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	NSString *firstObject = [testArray cw_firstObject];
 	
-	STAssertTrue([firstObject isEqualToString:@"Fry"],@"First object should be fry for cw_firstObject (NSArray)");
+	STAssertEqualObjects(firstObject, @"Fry", @"First object should be fry for cw_firstObject (NSArray)");
 }
 
 /**
@@ -69,7 +69,7 @@
 		return obj;
 	}];
 	
-	STAssertTrue([testArray isEqualToArray:myArray],@"The 2 arrays should be the same for cw_mapArray");
+	STAssertEqualObjects(testArray, myArray, @"The 2 arrays should be the same for cw_mapArray");
 }
 
 /**
@@ -79,13 +79,13 @@
 -(void)testCWEach {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	__block NSMutableArray *testArray2 = [[NSMutableArray alloc] init];
+	__block NSMutableArray *results = [[NSMutableArray alloc] init];
 	
 	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[testArray2 addObject:obj];
+		[results addObject:obj];
 	}];
 	
-	STAssertTrue([testArray isEqualToArray:testArray2],@"TestArray and TestArray 2 should be equal using cw_each");
+	STAssertEqualObjects(testArray, results, @"TestArray and TestArray 2 should be equal using cw_each");
 }
 
 /**
@@ -104,7 +104,7 @@
 	
 	NSArray *goodResults = [NSArray arrayWithObjects:@"Fry",@"Leela", nil];
 	
-	STAssertTrue([goodResults isEqualToArray:results], @"Arrays should be equal if the stop pointer was respected");
+	STAssertEqualObjects(goodResults, results, @"Arrays should be equal if the stop pointer was respected");
 }
 
 /**
@@ -143,8 +143,8 @@
 		return nil;
 	}];
 	
-	NSArray *testArray3 = [NSArray arrayWithObjects:@"Fry",@"Leela",nil];
-	STAssertTrue([testArray2 isEqualToArray:testArray3], @"TestArray2 should equal testArray3");
+	NSArray *expectedResults = [NSArray arrayWithObjects:@"Fry",@"Leela",nil];
+	STAssertEqualObjects(testArray2, expectedResults, @"The 2 arrays should be equal if mapped correctly");
 }
 
 -(void)testEachConcurrently {
@@ -215,8 +215,8 @@
 		return NO;
 	}];
 	
-	NSArray *resultArray2 = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
-	STAssertTrue([resultArray1 isEqualToArray:resultArray2], @"arrays should be equal");
+	NSArray *goodResults = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
+	STAssertEqualObjects(resultArray1, goodResults, @"Arrays should be equal if all objects were found");
 }
 
 @end
