@@ -24,7 +24,7 @@
     NSMutableArray *array2 = [[NSMutableArray alloc] init];
     [array2 cw_addObjectsFromArrayByCopying:array1];
     
-    STAssertTrue([array1 isEqualTo:array2],@"Arrays should be equal");
+	STAssertEqualObjects(array1, array2, @"Arrays should be the same");
     
     for (NSUInteger i = 0; i < [array1 count]; i++) {
         id obj1 = [array1 objectAtIndex:i];

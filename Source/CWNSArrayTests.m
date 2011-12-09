@@ -165,7 +165,7 @@
 		}
 	}];
 	
-	STAssertTrue([results isEqualToArray:testArray], @"The 2 arrays should have the same contents");
+	STAssertEqualObjects(results, testArray, @"The 2 arrays should have the same contents");
     
     [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
         switch (index) {

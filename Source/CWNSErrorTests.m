@@ -49,14 +49,14 @@
 	NSString *error1Message = [[error1 userInfo] valueForKey:NSLocalizedDescriptionKey];
 	NSString *error2Message = [[error2 userInfo] valueForKey:NSLocalizedDescriptionKey];
 	
-	STAssertTrue([error1Message isEqualToString:error2Message], @"Error1 and Error2 Message should be the same");
+	STAssertEqualObjects(error1Message, error2Message, @"Error1 and Error2 Message should be the same");
     
     //testing the string format on this NSError method
     NSError *error3 = CWCreateError(101, @"com.something.something", @"Some %@",@"Message");
     
     NSString *error3Message = [[error3 userInfo] valueForKey:NSLocalizedDescriptionKey];
     
-    STAssertTrue([error2Message isEqualToString:error3Message], @"Error Messages should be the same");
+	STAssertEqualObjects(error2Message, error3Message, @"Error Messages should be the same");
 }
 
 @end
