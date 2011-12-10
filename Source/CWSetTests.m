@@ -67,7 +67,7 @@
 		}
 	}];
 	
-	STAssertTrue([set1 isEqualToSet:set2], @"sets should be equal if enumerated correctly");
+	STAssertEqualObjects(set1, set2, @"sets should be equal if enumerated correctly");
 }
 
 -(void)testEachConcurrentlyStopPointer {
@@ -95,15 +95,14 @@
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	id testobj = [testSet cw_findWithBlock:^(id obj) {
-		
-		if ([(NSString *)obj isEqualToString:@"Bender"]) {
-			return YES;
-		}
-		
-		return NO;
+		return [(NSString *)obj isEqualToString:@"Bender"];
 	}];
-	
 	STAssertNotNil(testobj,@"if obj is nil then cw_find (NSSet) didnt find the Bender object");
+	
+	id testobj2 = [testSet cw_findWithBlock:^BOOL(id obj) {
+		return [(NSString *)obj isEqualToString:@"Foo"];
+	}];
+	STAssertNil(testobj2, @"should not return an object because Foo should not exist in the set");
 }
 
 /**
@@ -116,8 +115,12 @@
 	BOOL objInSet = [testSet cw_isObjectInSetWithBlock:^(id obj) {
 		return [(NSString *)obj isEqualToString:@"Bender"];
 	}];
-
 	STAssertTrue(objInSet,@"Bender should be in the set");
+	
+	BOOL obj2InSet = [testSet cw_isObjectInSetWithBlock:^BOOL(id obj) {
+		return [(NSString *)obj isEqualToString:@"Hypnotoad"];
+	}];
+	STAssertFalse(obj2InSet, @"Hypnotoad should not be found in the set");
 }
 
 /**
@@ -129,13 +132,10 @@
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
 	
 	NSSet *testSet2 = [testSet1 cw_mapSet:^(id obj) {
-		
-		NSString *testString = (NSString *)obj;
-		
-		return testString;
+		return obj;
 	}];
 	
-	STAssertTrue([testSet1 isEqualToSet:testSet2],@"testset1 and testset2 should be equal if using cw_map (NSSet)");
+	STAssertEqualObjects(testSet1, testSet2, @"testset1 and testset2 should be equal if using cw_map (NSSet)");
 }
 
 -(void)testFindAll {
@@ -147,13 +147,12 @@
 			[object isEqualToString:@"Leela"]) {
 			return YES;
 		}
-		
 		return NO;
 	}];
 	
 	NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Leela",nil];
 	
-	STAssertTrue([testSet2 isEqualToSet:testSet3],@"Sets should be equal");
+	STAssertEqualObjects(testSet2, testSet3, @"Sets should be equal");
 }
 
 /**
@@ -167,13 +166,12 @@
 			[(NSString *)obj isEqualToString:@"Bender"]) {
 			return obj;
 		}
-		
 		return nil;
 	}];
     
     NSSet *testSet3 = [NSSet setWithObjects:@"Fry",@"Bender", nil];
     
-    STAssertTrue([testSet3 isEqualToSet:testSet2], @"The 2 test sets should have equal contents");
+	STAssertEqualObjects(testSet2, testSet3, @"Both sets should have the same contents if cw_mapSet was used right");
 }
 
 @end
