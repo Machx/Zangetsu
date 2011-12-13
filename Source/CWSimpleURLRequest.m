@@ -74,22 +74,25 @@
 		if ([self httpAuthorizationHeader]) {
 			[request cw_setHTTPAuthorizationHeaderFieldString:[self httpAuthorizationHeader]];
 		}
-		return request;
+		return (NSURLRequest *)request;
 	}
 	return nil;
 }
 
 -(NSData *)startSynchronousConnectionWithError:(NSError **)error {
-	return nil;
 	
 	NSURLRequest *request = [self _createInternalURLRequest];
-	NSURLResponse *resp;
+	if (request) {
+		NSURLResponse *resp;
+		
+		NSData *requestData = nil;
+		requestData = [NSURLConnection sendSynchronousRequest:request
+											returningResponse:&resp
+														error:error];
+		return requestData;
+	}
 	
-	NSData *requestData = nil;
-	requestData = [NSURLConnection sendSynchronousRequest:request
-										returningResponse:&resp
-													error:error];
-	return requestData;
+	return nil;
 }
 
 @end
