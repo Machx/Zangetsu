@@ -70,3 +70,5 @@
 #import "CWZLib.h"
 #import "NSOperationQueueAdditions.h"
 #import "CWQueue.h"
+#import "CWSimpleURLRequest.h"
+#import "NSMutableURLRequestAdditions.h"

@@ -25,6 +25,10 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
+		B818BBFC1497A49800C71A61 /* CWSimpleURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWSimpleURLRequest.h */; };
+		B818BBFD1497A49800C71A61 /* CWSimpleURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWSimpleURLRequest.m */; };
+		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; };
+		B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */; };
 		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B81C9F6A1387028A0057978C /* CWFileUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81C9F681387028A0057978C /* CWFileUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -152,6 +156,10 @@
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
 		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
+		B818BBFA1497A49800C71A61 /* CWSimpleURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSimpleURLRequest.h; path = Source/CWSimpleURLRequest.h; sourceTree = "<group>"; };
+		B818BBFB1497A49800C71A61 /* CWSimpleURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSimpleURLRequest.m; path = Source/CWSimpleURLRequest.m; sourceTree = "<group>"; };
+		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
+		B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableURLRequestAdditions.m; path = Source/NSMutableURLRequestAdditions.m; sourceTree = "<group>"; };
 		B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilities.h; path = Source/CWURLUtilities.h; sourceTree = "<group>"; };
 		B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilities.m; path = Source/CWURLUtilities.m; sourceTree = "<group>"; };
 		B81C9F681387028A0057978C /* CWFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFileUtilities.h; path = Source/CWFileUtilities.h; sourceTree = "<group>"; };
@@ -357,6 +365,8 @@
 				B84994A8128210D6001206E1 /* CWTask.m */,
 				B869C85813F787C300739DE4 /* CWURLRequest.h */,
 				B869C85913F787C300739DE4 /* CWURLRequest.m */,
+				B818BBFA1497A49800C71A61 /* CWSimpleURLRequest.h */,
+				B818BBFB1497A49800C71A61 /* CWSimpleURLRequest.m */,
 				B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */,
 				B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */,
 				B8AFE82314119D4000616FA4 /* Data Structures */,
@@ -435,6 +445,8 @@
 				B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */,
 				B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */,
 				B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */,
+				B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */,
+				B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */,
 			);
 			name = "Foundation Additions";
 			sourceTree = "<group>";
@@ -577,6 +589,8 @@
 				B86367A1142F7607003BBF29 /* CWZLib.h in Headers */,
 				B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */,
 				B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */,
+				B818BBFC1497A49800C71A61 /* CWSimpleURLRequest.h in Headers */,
+				B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +739,8 @@
 				B86367A2142F7607003BBF29 /* CWZLib.m in Sources */,
 				B8B77E091436065900CB3F93 /* NSOperationQueueAdditions.m in Sources */,
 				B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */,
+				B818BBFD1497A49800C71A61 /* CWSimpleURLRequest.m in Sources */,
+				B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
