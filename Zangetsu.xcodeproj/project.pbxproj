@@ -25,9 +25,9 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
-		B818BBFC1497A49800C71A61 /* CWSimpleURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWSimpleURLRequest.h */; };
+		B818BBFC1497A49800C71A61 /* CWSimpleURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWSimpleURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWSimpleURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWSimpleURLRequest.m */; };
-		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; };
+		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */; };
 		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
