@@ -35,11 +35,14 @@
 
 #import "CWSimpleURLRequest.h"
 
-@interface CWSimpleURLRequest()
+@interface CWSimpleURLRequest() <NSURLConnectionDelegate>
 //Public Readonly rewritten
 @property(nonatomic, readwrite, retain) NSString *urlHost;
 //Private only
 @property(nonatomic, retain) NSString *httpAuthorizationHeader;
+@property(nonatomic, retain) NSURLConnection *instanceConnection;
+@property(nonatomic, retain) NSMutableData *receivedData;
+@property(nonatomic, assign) BOOL connectionIsFinished;
 -(NSURLRequest *)_createInternalURLRequest;
 @end
 
@@ -47,12 +50,17 @@
 
 @synthesize urlHost;
 @synthesize httpAuthorizationHeader;
+@synthesize instanceConnection;
+@synthesize connectionIsFinished;
+@synthesize receivedData;
 
 -(id)initWithHost:(NSString *)host {
 	self = [super init];
 	if (self) {
 		urlHost = host;
 		httpAuthorizationHeader = nil;
+		instanceConnection = nil;
+		receivedData = [[NSMutableData alloc] init];
 	}
 	return self;
 }
@@ -65,7 +73,7 @@
 			[self setHttpAuthorizationHeader:base64AuthString];
 		}
 	}
-}
+}	
 
 -(NSURLRequest *)_createInternalURLRequest {
 	if ([self urlHost]) {
@@ -80,19 +88,51 @@
 }
 
 -(NSData *)startSynchronousConnectionWithError:(NSError **)error {
-	
 	NSURLRequest *request = [self _createInternalURLRequest];
 	if (request) {
-		NSURLResponse *resp;
+		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		[connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+		[self setInstanceConnection:connection];
+		[[self instanceConnection] start];
 		
-		NSData *requestData = nil;
-		requestData = [NSURLConnection sendSynchronousRequest:request
-											returningResponse:&resp
-														error:error];
-		return requestData;
+		while ([self connectionIsFinished] == NO) {
+			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+		}
+		
+		return [self receivedData];
 	}
-	
 	return nil;
+}
+
+//MARK: NSURLConnection Delegate Methods
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	if ([connection isEqual:[self instanceConnection]]) {
+		[[self receivedData] appendData:data];
+	}
+}
+
+-(NSURLRequest *)connection:(NSURLConnection *)connection 
+			willSendRequest:(NSURLRequest *)request 
+		   redirectResponse:(NSURLResponse *)response {
+	if ([[self instanceConnection] isEqual:connection] && request) {
+		NSURLRequest *newRequest = [[NSURLRequest alloc] initWithURL:[request URL]];
+		return newRequest;
+	}
+	return nil;
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	if ([[self instanceConnection] isEqual:connection]) {
+		[self setConnectionIsFinished:YES];
+	}
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	if ([[self instanceConnection] isEqual:connection]) {
+		[self setConnectionIsFinished:YES];
+		CWLogError(error);
+	}
 }
 
 @end
