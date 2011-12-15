@@ -65,6 +65,13 @@
 	return self;
 }
 
+-(NSString *)description {
+	return [NSString stringWithFormat:@"%@: Host: %@\nUses Auth Header: %@",
+			NSStringFromClass([self class]),
+			[self urlHost],
+			CWBOOLString((BOOL)[self httpAuthorizationHeader])];
+}
+
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd {
 	if (login && passwd) {
