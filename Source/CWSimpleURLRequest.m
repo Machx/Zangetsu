@@ -43,7 +43,7 @@
 @property(nonatomic, retain) NSURLConnection *instanceConnection;
 @property(nonatomic, retain) NSMutableData *receivedData;
 @property(nonatomic, assign) BOOL connectionIsFinished;
--(NSURLRequest *)_createInternalURLRequest;
+-(NSMutableURLRequest *)_createInternalURLRequest;
 @end
 
 @implementation CWSimpleURLRequest
@@ -82,20 +82,20 @@
 	}
 }	
 
--(NSURLRequest *)_createInternalURLRequest {
+-(NSMutableURLRequest *)_createInternalURLRequest {
 	if ([self urlHost]) {
 		NSURL *url = [NSURL URLWithString:[self urlHost]];
 		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 		if ([self httpAuthorizationHeader]) {
 			[request cw_setHTTPAuthorizationHeaderFieldString:[self httpAuthorizationHeader]];
 		}
-		return (NSURLRequest *)request;
+		return request;
 	}
 	return nil;
 }
 
 -(NSData *)startSynchronousConnectionWithError:(NSError **)error {
-	NSURLRequest *request = [self _createInternalURLRequest];
+	NSMutableURLRequest *request = [self _createInternalURLRequest];
 	if (request) {
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 		[connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
