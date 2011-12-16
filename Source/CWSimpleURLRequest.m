@@ -122,17 +122,6 @@
 	}
 }
 
--(NSURLRequest *)connection:(NSURLConnection *)connection 
-			willSendRequest:(NSURLRequest *)request 
-		   redirectResponse:(NSURLResponse *)redirectResponse {
-	if (redirectResponse) {
-		NSMutableURLRequest *currentRequest = [request mutableCopy];
-		[currentRequest setURL:[redirectResponse URL]];
-		return currentRequest;
-	}
-	return request;
-}
-
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	if ([[self instanceConnection] isEqual:connection]) {
 		[self setConnectionIsFinished:YES];
