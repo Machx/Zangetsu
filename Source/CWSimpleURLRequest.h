@@ -32,7 +32,10 @@ THE SOFTWARE.
 static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 
 @interface CWSimpleURLRequest : NSObject
+//Properties & Connection Responses
 @property(nonatomic, readonly, retain) NSString *urlHost;
+@property(nonatomic, readonly, retain) NSURLResponse *connectionResponse;
+@property(nonatomic, readonly, retain) NSError *connectionError;
 -(id)initWithHost:(NSString *)host;
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;

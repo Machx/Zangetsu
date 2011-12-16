@@ -38,6 +38,8 @@
 @interface CWSimpleURLRequest() <NSURLConnectionDelegate>
 //Public Readonly rewritten
 @property(nonatomic, readwrite, retain) NSString *urlHost;
+@property(nonatomic, readwrite, retain) NSURLResponse *connectionResponse;
+@property(nonatomic, readwrite, retain) NSError *connectionError;
 //Private only
 @property(nonatomic, retain) NSString *httpAuthorizationHeader;
 @property(nonatomic, retain) NSURLConnection *instanceConnection;
@@ -53,6 +55,8 @@
 @synthesize instanceConnection;
 @synthesize connectionIsFinished;
 @synthesize receivedData;
+@synthesize connectionResponse;
+@synthesize connectionError;
 
 -(id)initWithHost:(NSString *)host {
 	self = [super init];
@@ -61,6 +65,11 @@
 		httpAuthorizationHeader = nil;
 		instanceConnection = nil;
 		receivedData = [[NSMutableData alloc] init];
+		connectionResponse = nil;
+		connectionError = nil;
+		connectionResponse = nil;
+		connectionError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+										@"Host is nil and therefore cannot be used for a connection");
 	}
 	return self;
 }
@@ -116,6 +125,12 @@
 
 //MARK: NSURLConnection Delegate Methods
 
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	if ([connection isEqual:[self instanceConnection]]) {
+		[self setConnectionResponse:response];
+	}
+}
+
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	if ([connection isEqual:[self instanceConnection]]) {
 		[[self receivedData] appendData:data];
@@ -130,6 +145,7 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	if ([[self instanceConnection] isEqual:connection]) {
+		[self setConnectionError:error];
 		[self setConnectionIsFinished:YES];
 		CWLogError(error);
 	}
