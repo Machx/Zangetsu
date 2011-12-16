@@ -69,7 +69,7 @@
 	return [NSString stringWithFormat:@"%@: Host: %@\nUses Auth Header: %@",
 			NSStringFromClass([self class]),
 			[self urlHost],
-			CWBOOLString((BOOL)[self httpAuthorizationHeader])];
+			[self httpAuthorizationHeader]];
 }
 
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
