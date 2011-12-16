@@ -124,6 +124,18 @@
 	return nil;
 }
 
+-(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
+						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
+	NSParameterAssert(queue);
+	
+	dispatch_async(queue, ^{
+		NSData *data = [self startSynchronousConnection];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block(data,[self connectionError],[self connectionResponse]);
+		});
+	});
+}
 //MARK: NSURLConnection Delegate Methods
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
