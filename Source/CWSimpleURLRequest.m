@@ -105,7 +105,6 @@
 		while ([self connectionIsFinished] == NO) {
 			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 		}
-		
 		return [self receivedData];
 	}
 	if (*error) {
@@ -125,12 +124,13 @@
 
 -(NSURLRequest *)connection:(NSURLConnection *)connection 
 			willSendRequest:(NSURLRequest *)request 
-		   redirectResponse:(NSURLResponse *)response {
-	if ([[self instanceConnection] isEqual:connection] && request) {
-		NSURLRequest *newRequest = [[NSURLRequest alloc] initWithURL:[request URL]];
-		return newRequest;
+		   redirectResponse:(NSURLResponse *)redirectResponse {
+	if (redirectResponse) {
+		NSMutableURLRequest *currentRequest = [request mutableCopy];
+		[currentRequest setURL:[redirectResponse URL]];
+		return currentRequest;
 	}
-	return nil;
+	return request;
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
