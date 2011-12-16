@@ -29,6 +29,8 @@ THE SOFTWARE.
 
 #import "Zangetsu.h"
 
+static const NSInteger kCWSimpleURLRequestNoHostError = 404;
+
 @interface CWSimpleURLRequest : NSObject
 @property(nonatomic, readonly, retain) NSString *urlHost;
 -(id)initWithHost:(NSString *)host;

@@ -108,7 +108,7 @@
 		return [self receivedData];
 	}
 	if (*error) {
-		*error = CWCreateError(404, @"com.Zangetsu.CWSimpleURLRequest", 
+		*error = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
 							   @"Host is nil and therefore cannot be used for a connection");
 	}
 	return nil;
