@@ -136,6 +136,20 @@
 		});
 	});
 }
+
+-(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
+					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
+	NSParameterAssert(queue);
+	
+	[queue addOperationWithBlock:^{
+		NSData *data = [self startSynchronousConnection];
+		
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			block(data,[self connectionError],[self connectionResponse]);
+		}];
+	}];
+}
+
 //MARK: NSURLConnection Delegate Methods
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

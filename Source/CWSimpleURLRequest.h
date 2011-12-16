@@ -44,4 +44,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
+
+-(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
+					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 @end
