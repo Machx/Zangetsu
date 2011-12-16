@@ -58,6 +58,9 @@
 @synthesize connectionResponse;
 @synthesize connectionError;
 
+/**
+ Designated Initializer
+ */
 -(id)initWithHost:(NSString *)host {
 	self = [super init];
 	if (self) {
@@ -67,6 +70,23 @@
 		receivedData = [[NSMutableData alloc] init];
 		connectionResponse = nil;
 		connectionError = nil;
+	}
+	return self;
+}
+
+/**
+ A request object initialized this way is unusable.
+ This is here just to give an error message when this 
+ class is initialized incorrectly.
+ */
+-(id)init {
+	self = [super init];
+	if (self) {
+		urlHost = nil;
+		httpAuthorizationHeader = nil;
+		instanceConnection = nil;
+		connectionIsFinished = NO;
+		receivedData = nil;
 		connectionResponse = nil;
 		connectionError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
 										@"Host is nil and therefore cannot be used for a connection");

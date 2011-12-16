@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #import "Zangetsu.h"
 
+//Built in CWSimpleURLRequest Errors
 static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 
 @interface CWSimpleURLRequest : NSObject
@@ -36,7 +37,9 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 @property(nonatomic, readonly, retain) NSString *urlHost;
 @property(nonatomic, readonly, retain) NSURLResponse *connectionResponse;
 @property(nonatomic, readonly, retain) NSError *connectionError;
+//API
 -(id)initWithHost:(NSString *)host;
+
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;
 
