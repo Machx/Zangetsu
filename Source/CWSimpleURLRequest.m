@@ -103,7 +103,9 @@
 	return nil;
 }
 
--(NSData *)startSynchronousConnectionWithError:(NSError **)error {
+//MARK: Connection Initiaton Methods
+
+-(NSData *)startSynchronousConnection {
 	NSMutableURLRequest *request = [self _createInternalURLRequest];
 	if (request) {
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -116,10 +118,9 @@
 		}
 		return [self receivedData];
 	}
-	if (*error) {
-		*error = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
-							   @"Host is nil and therefore cannot be used for a connection");
-	}
+	NSError *noHostError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+										 @"Host is nil and therefore cannot be used for a connection");
+	[self setConnectionError:noHostError];
 	return nil;
 }
 

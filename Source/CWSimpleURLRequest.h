@@ -39,5 +39,6 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 -(id)initWithHost:(NSString *)host;
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;
--(NSData *)startSynchronousConnectionWithError:(NSError **)error;
+
+-(NSData *)startSynchronousConnection;
 @end
