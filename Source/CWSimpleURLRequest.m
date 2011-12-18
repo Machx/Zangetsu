@@ -101,6 +101,17 @@
 			[self httpAuthorizationHeader]];
 }
 
+/**
+ Creates the Base64 encoded http authorization header for the instance request
+ 
+ Creates the authorization header string for the instance request. If either 
+ login or passwd are nil then this method does nothing. Otherwise it creates
+ a Base64 encoded http header string and will be used when this class creates
+ it NSMutableURLRequest.
+ 
+ @param login a NSString with the login to the website you making a request from
+ @param password a NSString with the password to the website you are making a request from
+ */
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd {
 	if (login && passwd) {
