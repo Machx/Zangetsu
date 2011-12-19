@@ -94,6 +94,11 @@
 	return self;
 }
 
+/**
+ Returns a debug description of the instance request class
+ 
+ @return a NSString with debug information of the instance request class
+ */
 -(NSString *)description {
 	return [NSString stringWithFormat:@"%@: Host: %@\nUses Auth Header: %@",
 			NSStringFromClass([self class]),
@@ -123,6 +128,10 @@
 }	
 
 -(NSMutableURLRequest *)_createInternalURLRequest {
+	/**
+	 private internal method, creates the NSMutableURLRequest & applies any http
+	 headers or other attributes that need to be applied
+	 */
 	if ([self urlHost]) {
 		NSURL *url = [NSURL URLWithString:[self urlHost]];
 		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -136,6 +145,18 @@
 
 //MARK: Connection Initiaton Methods
 
+/**
+ Starts the connection request on the receiving instance
+ 
+ This method causes the receiving object to create the internal NSMutableURLRequest and
+ then creates a NSURLConnection object that references the request object.The connection 
+ is then scheduled to run on the current runloop this method is being invoked on and then
+ the connection is started. After this time whatever data is received and whatever error
+ is encountered is stored on the instance object. If the data is nil or if you need to debug
+ an issue check the instances -connectionErrror and -connectionResponse objects.
+ 
+ @return NSData received from the NSURLConnection
+ */
 -(NSData *)startSynchronousConnection {
 	NSMutableURLRequest *request = [self _createInternalURLRequest];
 	if (request) {
@@ -155,6 +176,19 @@
 	return nil;
 }
 
+/**
+ Starts the connection request on the receving instance on another thread in the specified dispatch_queue_t queue
+ 
+ This method is a conveneience method and is the same if you use dispatch async and then call 
+ -startSynchronousRequest on that other thread and then used dispatch_async to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
+ */
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	NSParameterAssert(queue);
@@ -168,6 +202,19 @@
 	});
 }
 
+/**
+ Starts the connection request on the receving instance on another thread in the specified NSOperationQueue queue
+ 
+ This method is a conveneience method and is the same if you use addOperationWithBLock and then call 
+ -startSynchronousRequest on that other thread and then used addOperationWithBlock to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
+ */
 -(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
 					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	NSParameterAssert(queue);
@@ -196,12 +243,22 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	/**
+	 when we get a notification that we are finished, we mark 
+	 ourselves as finished so we don't keep running the runloop
+	 and return the received data.
+	 */
 	if ([[self instanceConnection] isEqual:connection]) {
 		[self setConnectionIsFinished:YES];
 	}
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	/**
+	 if we get a error during the connection, then what
+	 this does is retain the error object and mark ourselves
+	 as finished and log the error.
+	 */
 	if ([[self instanceConnection] isEqual:connection]) {
 		[self setConnectionError:error];
 		[self setConnectionIsFinished:YES];
