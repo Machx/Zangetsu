@@ -1,10 +1,13 @@
 /*
-//  CWSimpleURLRequest.h
+//  CWURLRequest.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 12/13/11.
 //  Copyright (c) 2011. All rights reserved.
 //
+ 
+ originally wrote on 8/11/2001
+ replaced CWURLRequest with code from CWSimpleURLRequest on 12/20/2011
 
 Copyright (c) 2011 Colin Wheeler
 

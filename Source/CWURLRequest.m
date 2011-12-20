@@ -1,5 +1,5 @@
 /*
-//  CWSimpleURLRequest.m
+//  CWURLRequest.m
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 12/13/11.
