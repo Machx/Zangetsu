@@ -1,9 +1,9 @@
 /*
-//  CWURLRequest.m
+//  CWSimpleURLRequest.m
 //  Zangetsu
 //
-//  Created by Colin Wheeler on 8/13/11.
-//  Copyright 2011. All rights reserved.
+//  Created by Colin Wheeler on 12/13/11.
+//  Copyright (c) 2011. All rights reserved.
 //
  
  Copyright (c) 2011 Colin Wheeler
@@ -26,363 +26,244 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
+ 
+/**
+ This is the class that eventually will replace (become) CWURLRequest. As 
+ CWURLRequest was writen over a period of time so too this class will take
+ a while to ramp up to replace all/most of CWURLRequests methods.
+ */
 
 #import "CWURLRequest.h"
 
-@interface CWURLRequest()
-@property(nonatomic, retain, readwrite) NSString *host;
-@property(nonatomic, retain) NSURLConnection *connection;
-@property(nonatomic, retain) NSURLRequest *urlRequest;
-@property(nonatomic, retain) __block NSMutableData *urlData;
-@property(nonatomic, assign) __block BOOL isFinished;
-@property(nonatomic, retain, readwrite) __block  NSError *urlError;
-@property(nonatomic, retain) NSString *authName;
-@property(nonatomic, retain) NSString *authPassword;
-@property(nonatomic, assign) BOOL authHeader;
--(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request;
+@interface CWURLRequest() <NSURLConnectionDelegate>
+//Public Readonly rewritten
+@property(nonatomic, readwrite, retain) NSString *urlHost;
+@property(nonatomic, readwrite, retain) NSURLResponse *connectionResponse;
+@property(nonatomic, readwrite, retain) NSError *connectionError;
+//Private only
+@property(nonatomic, retain) NSString *httpAuthorizationHeader;
+@property(nonatomic, retain) NSURLConnection *instanceConnection;
+@property(nonatomic, retain) NSMutableData *receivedData;
+@property(nonatomic, assign) BOOL connectionIsFinished;
+-(NSMutableURLRequest *)_createInternalURLRequest;
 @end
 
 @implementation CWURLRequest
 
-@synthesize host;
-@synthesize connection;
-@synthesize urlRequest;
-@synthesize urlData;
-@synthesize isFinished;
-@synthesize urlError;
-@synthesize authName;
-@synthesize authPassword;
-@synthesize authHeader;
-@synthesize cachePolicy;
-@synthesize timeoutInterval;
+@synthesize urlHost;
+@synthesize httpAuthorizationHeader;
+@synthesize instanceConnection;
+@synthesize connectionIsFinished;
+@synthesize receivedData;
+@synthesize connectionResponse;
+@synthesize connectionError;
 
 /**
- initializes a CWURLRequest object
- 
- Initializes a CWURLRequest object with appropriate values and sets the host to nil. 
- If you call this on a CWURLRequest instance you will have to call setHost on it or 
- call -initWithURLString which you should call instead of this method. This method 
- only exists to properly initialize a CWURLRequest object that doesn't have a host
- 
- @return a fully initialized CWURLRequest object with no url host set
+ Designated Initializer
+ */
+-(id)initWithHost:(NSString *)host {
+	self = [super init];
+	if (self) {
+		urlHost = host;
+		httpAuthorizationHeader = nil;
+		instanceConnection = nil;
+		receivedData = [[NSMutableData alloc] init];
+		connectionResponse = nil;
+		connectionError = nil;
+	}
+	return self;
+}
+
+/**
+ A request object initialized this way is unusable.
+ This is here just to give an error message when this 
+ class is initialized incorrectly.
  */
 -(id)init {
-    self = [super init];
-    if (self) {
-        host = nil;
-        connection = nil;
-        urlRequest = nil;
-        urlData = nil;
-        isFinished = NO;
-        urlError = nil;
-        authName = nil;
-        authPassword = nil;
-        authHeader = NO;
-        cachePolicy = NSURLRequestUseProtocolCachePolicy;
-        timeoutInterval = 30.0;
-    }
-    return self;
+	self = [super init];
+	if (self) {
+		urlHost = nil;
+		httpAuthorizationHeader = nil;
+		instanceConnection = nil;
+		connectionIsFinished = NO;
+		receivedData = nil;
+		connectionResponse = nil;
+		connectionError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+										@"Host is nil and therefore cannot be used for a connection");
+	}
+	return self;
 }
 
 /**
- Designated initializer 
+ Returns a debug description of the instance request class
  
- Initializes the CWURLRequest object with the host 
- 
- @param the URL you want to request data from (should not be nil)
- @return a fully initialized CWURLRequest oject
- */
--(id)initWithURLString:(NSString *)urlHost {
-    self = [super init];
-    if (self) {
-        host = urlHost;
-        connection = nil;
-        urlRequest = nil;
-        urlData = [[NSMutableData alloc] init];
-        isFinished = NO;
-        urlError = nil;
-        authName = nil;
-        authPassword = nil;
-        authHeader = NO;
-        cachePolicy = NSURLRequestUseProtocolCachePolicy;
-        timeoutInterval = 30.0;
-    }
-    
-    return self;
-}
-
-/**
- Returns a debug description of the CWURLRequest object
- 
- @return a NSString describing the current state & even some private internal information for the CWURLRequest instance
+ @return a NSString with debug information of the instance request class
  */
 -(NSString *)description {
-    NSString *_isFinished = CWBOOLString(self->isFinished);
-    NSString *_usesHTTPAuthHeader = CWBOOLString(self->authHeader);
-    
-    return [NSString stringWithFormat:@"CWURLRequest Host: %@\nHas Finished: %@\nUsing HTTP Auth Header: %@\nTimeout Interval:%f\nError: %@",
-			self->host,
-			_isFinished,
-			_usesHTTPAuthHeader,
-			self->timeoutInterval,
-			self->urlError];
+	return [NSString stringWithFormat:@"%@: Host: %@\nAuth Header: %@",
+			NSStringFromClass([self class]),
+			[self urlHost],
+			[self httpAuthorizationHeader]];
 }
 
 /**
- Exposes NSURLConnection API to CWURLRequest allowing you to see if a CWURLRequest can handle a request
+ Creates the Base64 encoded http authorization header for the instance request
  
- @return a BOOL indicating if a CWURLRequest instance can handle a request
+ Creates the authorization header string for the instance request. If either 
+ login or passwd are nil then this method does nothing. Otherwise it creates
+ a Base64 encoded http header string and will be used when this class creates
+ it NSMutableURLRequest.
+ 
+ @param login a NSString with the login to the website you making a request from
+ @param password a NSString with the password to the website you are making a request from
  */
--(BOOL)canHandleRequest {
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:CWURL(self->host)
-												  cachePolicy:self->cachePolicy
-											  timeoutInterval:self->timeoutInterval];
-	BOOL ableToHandleRequest = [NSURLConnection canHandleRequest:request];
-	
-	return ableToHandleRequest;
-}
-
-//MARK: -
-//MARK: Authorization Attribute Methods
-
-/**
- Sets the login and password credentials for the Authentication Challenge
- 
- If you set this then the CWURLRequest will not use the http authorization header if 
- it was previously turned on.
- 
- @param uLogin a NSString with the login
- @param uPassword a NSString containing the password
- */
--(void)setAuthenticationChallengeLogin:(NSString *)uLogin 
-                           andPassword:(NSString *)uPassword {
-    NSParameterAssert(uLogin);
-    NSParameterAssert(uPassword);
-    
-    [self setAuthName:uLogin];
-    [self setAuthPassword:uPassword];
-    [self setAuthHeader:NO];
-}
-
-/**
- Sets the credentials for the http authorization header
- 
- If you set this then CWURLRequest will (when it starts its NSURLConnection) create a
- http authorization header with Base64 encoding and will not respond to authentication
- challenges if that was previously turned on.
- 
- @param uLogin a NSString with the login
- @param uPassword a NSString containing the password
- */
--(void)setAuthenticationHTTPHeaderLogin:(NSString *)login 
-                            andPassword:(NSString *)password {
-    NSParameterAssert(login);
-    NSParameterAssert(password);
-    
-    [self setAuthName:login];
-    [self setAuthPassword:password];
-    [self setAuthHeader:YES];
-}
-
-/**
- private internal method
- 
- sets the httpd authorization header if the credentials are set and if 
- the CWURLReqeust is supposed to use the http authorization header
- */
--(void)setAuthorizationHeaderIfApplicableWithRequest:(NSMutableURLRequest *)request {
-    NSParameterAssert(request);
-    if ([self authHeader]) {
-		NSString *credentialsString = CWURLAuthorizationHeaderString(self->authName, self->authPassword);
-        if (credentialsString) {
-			[request addValue:credentialsString forHTTPHeaderField:@"Authorization"];
+-(void)setAuthorizationHeaderLogin:(NSString *)login 
+					   andPassword:(NSString *)passwd {
+	if (login && passwd) {
+		NSString *base64AuthString = CWURLAuthorizationHeaderString(login, passwd);
+		if (base64AuthString) {
+			[self setHttpAuthorizationHeader:base64AuthString];
 		}
-    }
+	}
+}	
+
+-(NSMutableURLRequest *)_createInternalURLRequest {
+	/**
+	 private internal method, creates the NSMutableURLRequest & applies any http
+	 headers or other attributes that need to be applied
+	 */
+	if ([self urlHost]) {
+		NSURL *url = [NSURL URLWithString:[self urlHost]];
+		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+		if ([self httpAuthorizationHeader]) {
+			[request cw_setHTTPAuthorizationHeaderFieldString:[self httpAuthorizationHeader]];
+		}
+		return request;
+	}
+	return nil;
 }
 
-//MARK: -
-//MARK: Download Methods
+//MARK: Connection Initiaton Methods
 
 /**
- synchronously starts the connection and waits for it to finish setting ourself as the delegate
- then executes the block when completed
+ Starts the connection request on the receiving instance
  
- @param block the block to be executed once the NSURLRequest has completed
+ This method causes the receiving object to create the internal NSMutableURLRequest and
+ then creates a NSURLConnection object that references the request object.The connection 
+ is then scheduled to run on the current runloop this method is being invoked on and then
+ the connection is started. After this time whatever data is received and whatever error
+ is encountered is stored on the instance object. If the data is nil or if you need to debug
+ an issue check the instances -connectionErrror and -connectionResponse objects.
+ 
+ @return NSData received from the NSURLConnection
  */
--(void)startSynchronousDownloadWithCompletionBlock:(void (^)(NSData *data, NSError *error))block {
-    NSParameterAssert([self host]);
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
-                                                                cachePolicy:[self cachePolicy]
-                                                            timeoutInterval:[self timeoutInterval]];
-	
-    if (request) {
-		[self setAuthorizationHeaderIfApplicableWithRequest:request];
-		[self setUrlRequest:request];
+-(NSData *)startSynchronousConnection {
+	NSMutableURLRequest *request = [self _createInternalURLRequest];
+	if (request) {
+		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		[connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+		[self setInstanceConnection:connection];
+		[[self instanceConnection] start];
 		
-		NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:[self urlRequest] 
-																	   delegate:self];
-		[self setConnection:urlConnection];
-		
-		[urlConnection start];
-		
-		while ([self isFinished] == NO) {
+		while ([self connectionIsFinished] == NO) {
 			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 		}
-		
-		block([self urlData],[self urlError]);
-	} else {
-		//TODO: make name & document CWURLRequestErrors in the public header...
-		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
+		return [self receivedData];
 	}
+	NSError *noHostError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+										 @"Host is nil and therefore cannot be used for a connection");
+	[self setConnectionError:noHostError];
+	return nil;
 }
 
 /**
- creates the urlrequest and then starts the connection on a gcd queue and waits till it has
- finished and then executes the block on the main thread
+ Starts the connection request on the receving instance on another thread in the specified dispatch_queue_t queue
  
- @param queue a gcd queue ( dispatch_queue_t ) to execute the block on, must not be NULL
- @param block a block to be executed on the main thread once the connection has finished
+ This method is a conveneience method and is the same if you use dispatch async and then call 
+ -startSynchronousRequest on that other thread and then used dispatch_async to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
  */
--(void)startAsynchronousDownloadOnQueue:(dispatch_queue_t)queue
-                    withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
-    NSParameterAssert([self host]);
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
-                                                                cachePolicy:[self cachePolicy]
-                                                            timeoutInterval:[self timeoutInterval]];
-    if (request) {
-		[self setAuthorizationHeaderIfApplicableWithRequest:request];
-		[self setUrlRequest:request];
+-(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
+						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
+	NSParameterAssert(queue);
+	
+	dispatch_async(queue, ^{
+		NSData *data = [self startSynchronousConnection];
 		
-		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
-		[self setConnection:urlConnection];
-		
-		dispatch_async(queue, ^(void) {
-			[urlConnection start];
-			
-			while ([self isFinished] == NO) {
-				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-			}
-			
-			dispatch_async(dispatch_get_main_queue(), ^(void) {
-				block([self urlData],[self urlError]);
-			});
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block(data,[self connectionError],[self connectionResponse]);
 		});
-	} else {
-		//TODO: make name & document CWURLRequestErrors in the public header...
-		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
-	}
+	});
 }
 
 /**
- creates the urlrequest and then starts the connection on a NSOperationQueue and waits till it has
- finished and then executes the block on the main thread
+ Starts the connection request on the receving instance on another thread in the specified NSOperationQueue queue
  
- @param queue a NSOperationQueue to execute the block on, must not be NULL
- @param block a block to be executed on the main thread once the connection has finished
+ This method is a conveneience method and is the same if you use addOperationWithBLock and then call 
+ -startSynchronousRequest on that other thread and then used addOperationWithBlock to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
  */
--(void)startAsynchronousDownloadOnNSOperationQueue:(NSOperationQueue *)queue
-                               withCompletionBlock:(void (^)(NSData *data, NSError *error))block {
-    NSParameterAssert([self host]);
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:CWURL([self host])
-                                                                cachePolicy:[self cachePolicy]
-                                                            timeoutInterval:[self timeoutInterval]];
-    if (request) {
-		[self setAuthorizationHeaderIfApplicableWithRequest:request];
-		[self setUrlRequest:request];
+-(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
+					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
+	NSParameterAssert(queue);
+	
+	[queue addOperationWithBlock:^{
+		NSData *data = [self startSynchronousConnection];
 		
-		NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self];
-		[self setConnection:urlConnection];
-		
-		[queue addOperationWithBlock:^(void) {
-			
-			[urlConnection start];
-			
-			while ([self isFinished] == NO) {
-				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-			}
-			
-			[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-				block([self urlData],[self urlError]);
-			}];
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			block(data,[self connectionError],[self connectionResponse]);
 		}];
-	} else {
-		//TODO: make name & document CWURLRequestErrors in the public header...
-		block(nil,CWCreateError(1, nil, @"URL Request could not be created"));
+	}];
+}
+
+//MARK: NSURLConnection Delegate Methods (Private)
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	if ([connection isEqual:[self instanceConnection]]) {
+		[self setConnectionResponse:response];
 	}
 }
 
-//MARK: -
-//MARK: NSURLConnection Delegate Methods
-
-- (NSURLRequest *)connection:(NSURLConnection *)inConnection 
-             willSendRequest:(NSURLRequest *)request 
-            redirectResponse:(NSURLResponse *)redirectResponse {
-    if (redirectResponse) {
-        NSMutableURLRequest *req = [self->urlRequest mutableCopy];
-        [req setURL:[request URL]];
-        [self setUrlRequest:req];
-        return [self urlRequest];
-    } else {
-        return request;
-    }
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	if ([connection isEqual:[self instanceConnection]]) {
+		[[self receivedData] appendData:data];
+	}
 }
 
-- (void)connection:(NSURLConnection *)inConnection didReceiveData:(NSData *)data {
-    [[self urlData] appendData:data];
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	/**
+	 when we get a notification that we are finished, we mark 
+	 ourselves as finished so we don't keep running the runloop
+	 and return the received data.
+	 */
+	if ([[self instanceConnection] isEqual:connection]) {
+		[self setConnectionIsFinished:YES];
+	}
 }
 
-/**
- if the connection is ours then mark ourselfs as finished and exit
- */
-- (void)connectionDidFinishLoading:(NSURLConnection *)inConnection {
-    if ([[self connection] isEqual:inConnection]) {
-        [self setIsFinished:YES];
-    }
-}
-
-/**
- mark ourself as finished and copy the error before we finish....
- */
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self setUrlError:[error copy]];
-    [self setIsFinished:YES];
-}
-
-//MARK: -
-//MARK: Authentication Challenge Methods
-
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
-    //CWDebugLog(@"Asked about authenticating against protection space %@ port: %ld",[protectionSpace host],[protectionSpace port]);
-    if ([self authName] && [self authPassword] && ([self authHeader] == NO)) {
-        return YES;
-    }
-    return NO;
-}
-
-/**
- respond to authentication challenges here...
- */
--(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    if ([challenge previousFailureCount] == 0) {
-        if ([self authName] && [self authPassword] && ([self authHeader] == NO)) {
-            NSURLCredential *urlCredential = nil;
-            urlCredential = [NSURLCredential credentialWithUser:[self authName]
-                                                       password:[self authPassword]
-                                                    persistence:NSURLCredentialPersistenceNone];
-            
-            [[challenge sender] useCredential:urlCredential 
-                   forAuthenticationChallenge:challenge];
-            
-            //CWDebugLog(@"Did supply username %@ and password %@ for credential challenge",[self authName],[self authPassword]);
-        } else {
-            [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-        }
-    } else {
-        [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-    }
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	/**
+	 if we get a error during the connection, then what
+	 this does is retain the error object and mark ourselves
+	 as finished and log the error.
+	 */
+	if ([[self instanceConnection] isEqual:connection]) {
+		[self setConnectionError:error];
+		[self setConnectionIsFinished:YES];
+		CWLogError(error);
+	}
 }
 
 @end
