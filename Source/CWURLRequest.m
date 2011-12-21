@@ -167,7 +167,7 @@
 		[[self instanceConnection] start];
 		
 		while ([self connectionIsFinished] == NO) {
-			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
 		}
 		return [self receivedData];
 	}
