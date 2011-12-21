@@ -100,10 +100,11 @@
  @return a NSString with debug information of the instance request class
  */
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%@: Host: %@\nAuth Header: %@",
+	return [NSString stringWithFormat:@"%@: Host: %@\nAuth Header: %@\nIs Finished Connecting: %@",
 			NSStringFromClass([self class]),
 			[self urlHost],
-			[self httpAuthorizationHeader]];
+			[self httpAuthorizationHeader],
+			CWBOOLString([self connectionIsFinished])];
 }
 
 /**
