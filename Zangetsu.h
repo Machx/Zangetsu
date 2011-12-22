@@ -72,3 +72,4 @@
 #import "CWURLRequest.h"
 #import "NSMutableURLRequestAdditions.h"
 #import "NSRecursiveLockAdditions.h"
+#import "NSManagedObjectContextAdditions.h"
