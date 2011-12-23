@@ -37,4 +37,25 @@
 	return ctx;
 }
 
+-(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error {
+	NSParameterAssert(entityName);
+	
+	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
+											  inManagedObjectContext:self];
+	if (entity) {
+		NSUInteger count = 0;
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		[request setEntity:entity];
+		
+		count = [self countForFetchRequest:request 
+									 error:error];
+		return count;
+	}
+	if (*error) {
+		*error = CWCreateError(990, @"com.zangetsu.nsmanagedobjectcontext_additions", 
+							   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName]);
+	}
+	return 0;
+}
+
 @end
