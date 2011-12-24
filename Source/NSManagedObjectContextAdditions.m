@@ -31,15 +31,30 @@
 
 @implementation NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
+/**
+ Returns a new child NSManagedObjectContext instance with the specified concurrency type
+ 
+ Creates a new NSManagedObjectContext and sets the concurrency type to the specified type, then
+ sets the parent context to the receiving NSManagedObjectContext.
+ 
+ @param type a NSManagedObjectContextConcurrencyType type as you would pass when creating a managed object context
+ @return a new child NSManagedObjectContext
+ */
 -(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type {
 	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:type];
 	[ctx setParentContext:self];
 	return ctx;
 }
 
+/**
+ Returns a NSUInteger with the count of objects of entityName
+ 
+ @param entityName the name of the entity which you would like to know how many instances there are in the store
+ @param error a NSError pointer which will be passed to core data and will return any error core data encounters
+ @return a NSUInteger with the count of objects of the entity present in the managed object context
+ */
 -(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error {
 	NSParameterAssert(entityName);
-	
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
 											  inManagedObjectContext:self];
 	if (entity) {
@@ -58,6 +73,18 @@
 	return 0;
 }
 
+/**
+ Returns an NSArray containing all entities of the specified entity and matching the predicate
+ 
+ Returns an NSArray containing all entities of the specified entityName and optionally matching the 
+ predicate passed in. The error is passed onto Core Data during the fetch operation and any error
+ the Core Data stack encounters will be returned to you.
+ 
+ @param an NSString containing the specified entity you are looking to have returned to you
+ @param a NSPredicate (optional) to narrow down the array of objects passed to you. If nil is passed this returns all entities of entityName
+ @param a NSError pointer which is passed to Core Data and any error it encounters will be returned to you.
+ @return a NSArray with all entities found matching entity name and optionally the predicate
+ */
 -(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
 				   withPredicate:(NSPredicate *)predicate 
 						   error:(NSError **)error {
