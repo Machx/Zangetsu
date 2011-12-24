@@ -58,4 +58,18 @@
 	return 0;
 }
 
+-(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
+				   withPredicate:(NSPredicate *)predicate 
+						   error:(NSError **)error {
+	NSParameterAssert(entityName);
+	NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+	if (predicate) {
+		[request setPredicate:predicate];
+	}
+	NSArray *results = nil;
+	results = [self executeFetchRequest:request
+								  error:error];
+	return results;
+}
+
 @end
