@@ -33,4 +33,10 @@
 
 -(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type;
 
+-(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error;
+
+-(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
+				   withPredicate:(NSPredicate *)predicate 
+						   error:(NSError **)error;
+
 @end
