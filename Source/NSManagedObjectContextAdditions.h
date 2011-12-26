@@ -31,6 +31,14 @@
 
 @interface NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
+#ifdef DEBUG
+
+-(NSString *)cw_debugName;
+
+-(void)cw_setDebugName:(NSString *)cwdebugname;
+
+#endif
+
 -(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type;
 
 -(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error;

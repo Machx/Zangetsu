@@ -31,6 +31,20 @@
 
 @implementation NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
+#ifdef DEBUG
+
+static void *cwmdbg;
+
+-(NSString *)cw_debugName {
+	return [self cw_valueAssociatedWithKey:cwmdbg];
+}
+
+-(void)cw_setDebugName:(NSString *)cwdebugname {
+	[self cw_associateValue:cwdebugname withKey:cwmdbg];
+}
+
+#endif
+
 /**
  Returns a new child NSManagedObjectContext instance with the specified concurrency type
  
