@@ -40,13 +40,6 @@ There is Doxygen support in the framework. All you need to do is download Doxyge
 ## Where do I report bugs? ##
 File issues in the issue section on the github project.
 
-## GC Support ##
-
-There is no more Garbage Collection Support. If you need GC Support you can fork this repo and revert it back to commit 4e211f890b777ac6d551f29a1f918331fb168fb9 or download [the Garbage Collection Snapshot](https://github.com/downloads/Machx/Zangetsu/Zangetsu-GCSnapshot.zip).
-
-## I need to use Zangetsu on 10.6 Snow Leopard ##
-Download the [Zangetsu 10.6 SDK Snapshot](https://github.com/downloads/Machx/Zangetsu/Machx-Zangetsu-10_6.zip) and feel free to use it within the terms of the MIT License. Alternatively you may fork the project and revert it to the last commit before settings where updated for 10.7 which is commit 4c1feb41487720d4ae8101796d5cc8f88b542668 on the master branch.
-
 ## Zangetsu Licence ##
 Zangetsu is licensed under the MIT license
 
