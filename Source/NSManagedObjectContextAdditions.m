@@ -113,4 +113,20 @@ static void *cwmdbg;
 	return results;
 }
 
+-(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
+				   withPredicate:(NSPredicate *)predicate 
+					  properties:(NSArray *)properties 
+				 sortDescriptors:(NSArray *)sortDescriptors
+						   error:(NSError **)error {
+	NSParameterAssert(entityName);
+	NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+	if (predicate) { [request setPredicate:predicate]; }
+	if (properties) { [request setPropertiesToFetch:properties]; }
+	if (sortDescriptors) { [request setSortDescriptors:sortDescriptors]; }
+	
+	NSArray *results = nil;
+	results = [self executeFetchRequest:request error:error];
+	return results;
+}
+
 @end

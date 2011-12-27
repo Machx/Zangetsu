@@ -47,4 +47,9 @@
 				   withPredicate:(NSPredicate *)predicate 
 						   error:(NSError **)error;
 
+-(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
+				   withPredicate:(NSPredicate *)predicate 
+					  properties:(NSArray *)properties 
+				 sortDescriptors:(NSArray *)sortDescriptors
+						   error:(NSError **)error;
 @end
