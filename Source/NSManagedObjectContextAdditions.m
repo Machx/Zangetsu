@@ -113,6 +113,21 @@ static void *cwmdbg;
 	return results;
 }
 
+/**
+ Returns an NSArray containing all entities of the specified entity name and patching the predicate
+ 
+ Returns an NSArray containing all entities of the specified entity name, optionally if a predicate
+ is specified this filters down the results. If the properties array is specified then this will
+ only fetch the specified properties and fault on the unfetched properties. IF a sort descriptor is
+ specified then this will return the results sorted.
+ 
+ @param an NSString containing the specified entity you are looking to have returned to you
+ @param a NSPredicate (optional) to narrow down the array of objects passed to you. If nil is passed this returns all entities of entityName
+ @param a NSArray of properties to fetch on the specified entity (can be nil)
+ @param a NSArray of sort descriptors to apply to the entity results (can be nil)
+ @param a NSError pointer which is passed to Core Data and any error it encounters will be returned to you.
+ @return a NSArray with all entities found matching entity name and optionally the predicate
+ */
 -(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
 				   withPredicate:(NSPredicate *)predicate 
 					  properties:(NSArray *)properties 
