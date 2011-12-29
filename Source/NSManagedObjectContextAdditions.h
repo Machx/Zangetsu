@@ -37,6 +37,8 @@
 
 -(void)cw_setDebugName:(NSString *)cwdebugname;
 
+-(void)cw_logObjectsInContext;
+
 #endif
 
 -(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type;
