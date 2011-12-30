@@ -35,14 +35,32 @@
 
 static void *cwmdbg;
 
+/**
+ Returns the debug name for a NSManagedObjectContext if it is set
+ 
+ This is just for your debuggging purposes 
+ */
 -(NSString *)cw_debugName {
 	return [self cw_valueAssociatedWithKey:cwmdbg];
 }
 
+/**
+ Sets the debug name for a NSManagedObjectContext
+ */
 -(void)cw_setDebugName:(NSString *)cwdebugname {
 	[self cw_associateValue:cwdebugname withKey:cwmdbg];
 }
 
+/**
+ Logs the MOC's name if possible & if it has changes, & what changes it has
+ 
+ Logs the following 
+ - If the MOC has a debug name it logs that, otherwise the moc's description
+ - If the MOC has Changes
+	- Inserted Objects
+	- Updated Objects
+	- Deleted Objects
+ */
 -(void)cw_logObjectsInContext {
 	if ([self cw_debugName]) {
 		NSLog(@"MOC Name: %@",[self cw_debugName]);
