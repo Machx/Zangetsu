@@ -28,7 +28,6 @@
  */
 
 #import "NSDataAdditions.h"
-#import <zlib.h>
 
 @implementation NSData (CWNSDataAdditions)
 
