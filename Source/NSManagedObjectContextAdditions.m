@@ -47,7 +47,7 @@ static void *cwmdbg;
 	if ([self cw_debugName]) {
 		NSLog(@"MOC Name: %@",[self cw_debugName]);
 	} else {
-		NSLog(@"MOC: %@",self);
+		NSLog(@"MOC: %@",[self description]);
 	}
 	
 	NSLog(@"Has Changes: %@",CWBOOLString([self hasChanges]));

@@ -51,7 +51,6 @@
 #import "CWMD5Utilities.h"
 #import "NSDataAdditions.h"
 #import "CWCoreDataCenter.h"
-#import "CWSimpleCoreData.h"
 #import "NSManagedObjectAdditions.h"
 #import "CWExceptionUtilities.h"
 #import "CWURLUtilities.h"
