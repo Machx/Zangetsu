@@ -29,7 +29,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define CWFullPathFromTildeString(_X_) [_X_ stringByExpandingTildeInPath]
+NSString *CWFullPathFromTildeString(NSString *tildePath);
 
 @interface CWPathUtilities : NSObject
 +(NSString *)applicationSupportFolder;

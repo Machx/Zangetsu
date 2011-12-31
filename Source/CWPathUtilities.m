@@ -31,6 +31,16 @@ THE SOFTWARE.
 
 static NSString * const kCWAppName = @"CFBundleName";
 
+NSString *CWFullPathFromTildeString(NSString *tildePath) {
+	if (tildePath) {
+		NSString *path = [tildePath stringByExpandingTildeInPath];
+		if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+			return path;
+		}
+	}
+	return nil;
+}
+
 @implementation CWPathUtilities
 
 /**
