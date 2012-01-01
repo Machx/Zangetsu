@@ -31,6 +31,14 @@ THE SOFTWARE.
 
 static NSString * const kCWAppName = @"CFBundleName";
 
+/**
+ Returns the expanded path from a tilde string ex '~/Documents/Stuff/a.txt'
+ 
+ Retuns a NSString with the expanded path if it exists, otherwise it returns nil.
+ 
+ @param tildePath a NSString with a tilde path
+ @return a NSString with the expanded tilde path if it exists, otherwise nil
+ */
 NSString *CWFullPathFromTildeString(NSString *tildePath) {
 	if (tildePath) {
 		NSString *path = [tildePath stringByExpandingTildeInPath];
