@@ -188,6 +188,10 @@
 	return NO;
 }
 
+-(BOOL)containsObject:(id)object {
+	return [[self stack] containsObject:object];
+}
+
 /**
  returns a NSString with the contents of the stack
  
