@@ -188,6 +188,12 @@
 	return NO;
 }
 
+/**
+ Returns a bool indicating if the pass in object is contained in the CWStack storage
+ 
+ @param object any NSObject subclass instance you wish to see if its contained in the stack
+ @return a BOOL with a value of YES if the object is contained in the stack, otherwise NO
+ */
 -(BOOL)containsObject:(id)object {
 	return [[self stack] containsObject:object];
 }
