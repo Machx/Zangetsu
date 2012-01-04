@@ -33,4 +33,4 @@
 
 static NSString * const kCWErrorDomain = @"CWErrorDomain";
 
-NSError* CWCreateError(NSInteger errorCode, NSString *domain, NSString *errorMessageFormat, ...);
+NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);

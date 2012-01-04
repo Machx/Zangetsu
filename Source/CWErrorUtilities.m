@@ -42,7 +42,7 @@
  * @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
  * @return a NSError object with the values passed in
  */
-NSError * CWCreateError(NSInteger errorCode, NSString * domain, NSString * errorMessageFormat, ...) {
+NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...) {
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
 
