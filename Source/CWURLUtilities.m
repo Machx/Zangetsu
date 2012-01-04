@@ -85,7 +85,7 @@ static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities"
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
 
     if (localizedMessage) {
-        return CWCreateError(code, kCWURLUtiltyErrorDomain, localizedMessage);
+        return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
     }
 
     return nil;

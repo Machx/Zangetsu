@@ -88,7 +88,7 @@
 		connectionIsFinished = NO;
 		receivedData = nil;
 		connectionResponse = nil;
-		connectionError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+		connectionError = CWCreateError(@"com.Zangetsu.CWSimpleURLRequest", kCWSimpleURLRequestNoHostError,
 										@"Host is nil and therefore cannot be used for a connection");
 	}
 	return self;
@@ -171,7 +171,7 @@
 		}
 		return [self receivedData];
 	}
-	NSError *noHostError = CWCreateError(kCWSimpleURLRequestNoHostError, @"com.Zangetsu.CWSimpleURLRequest", 
+	NSError *noHostError = CWCreateError(@"com.Zangetsu.CWSimpleURLRequest", kCWSimpleURLRequestNoHostError,
 										 @"Host is nil and therefore cannot be used for a connection");
 	[self setConnectionError:noHostError];
 	return nil;

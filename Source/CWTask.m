@@ -163,7 +163,7 @@
 - (BOOL) _validateExecutable:(NSError **)error {
     if (self.executable == nil || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
         if (*error) {
-            *error = CWCreateError(kCWTaskInvalidExecutable, kCWTaskErrorDomain, @"Executable Path provided doesn't exist");
+            *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable, @"Executable Path provided doesn't exist");
         }
         return NO;
     }
@@ -181,7 +181,7 @@
     if (self.directoryPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
             if (*error) {
-                *error = CWCreateError(kCWTaskInvalidDirectory, kCWTaskErrorDomain, @"The Directory Specified does not exist & is invalid");
+                *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory, @"The Directory Specified does not exist & is invalid");
             }
             return NO;
         }
@@ -200,7 +200,7 @@
 - (BOOL) _validateTaskHasRun:(NSError **)error {
     if (self.taskHasRun == YES) {
         if (*error) {
-            *error = CWCreateError(kCWTaskAlreadyRun, kCWTaskErrorDomain, @"CWTask Object has already been run");
+            *error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun, @"CWTask Object has already been run");
         }
         return NO;
     }
@@ -246,7 +246,7 @@
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
-        *error = CWCreateError(kCWTaskEncounteredExceptionOnRun, @"com.Zangetsu.CWTask", [e description]);
+        *error = CWCreateError(@"com.Zangetsu.CWTask", kCWTaskEncounteredExceptionOnRun, [e description]);
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];

@@ -49,7 +49,7 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWErrorNoOriginalInstanceMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Instance Method to swizzle!");
+			*error = CWCreateError(@"com.Zangetsu.CWRuntimeUtilities", kCWErrorNoOriginalInstanceMethod, @"No Original Instance Method to swizzle!");
 			return nil;
 		}
 	}
@@ -57,7 +57,7 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	newMethod = class_getInstanceMethod(instanceClass, newSel);
 	if(!newMethod){
 		if(*error) {
-			*error = CWCreateError(kCWErrorNoNewInstanceMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No New Instance Method to swizzle!");
+			*error = CWCreateError(@"com.Zangetsu.CWRuntimeUtilities", kCWErrorNoNewInstanceMethod, @"No New Instance Method to swizzle!");
 			return nil;
 		}
 	}
@@ -86,7 +86,7 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	originalMethod = class_getClassMethod(methodClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWErrorNoOriginalClassMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No Original Class Method to swizzle!");
+			*error = CWCreateError(@"com.Zangetsu.CWRuntimeUtilities", kCWErrorNoOriginalClassMethod, @"No Original Class Method to swizzle!");
 			return nil;
 		}
 	}
@@ -94,7 +94,7 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	newMethod = class_getClassMethod(methodClass, newSel);
 	if(!newMethod){
 		if(*error){
-			*error = CWCreateError(kCWErrorNoNewClassMethod, @"com.Zangetsu.CWRuntimeUtilities", @"No New Class Method to swizzle!");
+			*error = CWCreateError(@"com.Zangetsu.CWRuntimeUtilities", kCWErrorNoNewClassMethod, @"No New Class Method to swizzle!");
 			return nil;
 		}
 	}

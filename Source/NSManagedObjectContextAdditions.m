@@ -121,7 +121,7 @@ static void *cwmdbg;
 		return count;
 	}
 	if (*error) {
-		*error = CWCreateError(990, @"com.zangetsu.nsmanagedobjectcontext_additions", 
+		*error = CWCreateError(@"com.zangetsu.nsmanagedobjectcontext_additions", 990,
 							   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName]);
 	}
 	return 0;
