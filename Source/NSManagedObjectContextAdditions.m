@@ -29,6 +29,8 @@
 
 #import "NSManagedObjectContextAdditions.h"
 
+static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.nsmanagedobjectcontext_additions";
+
 @implementation NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
 #ifdef DEBUG
@@ -121,7 +123,7 @@ static void *cwmdbg;
 		return count;
 	}
 	if (*error) {
-		*error = CWCreateError(@"com.zangetsu.nsmanagedobjectcontext_additions", 990,
+		*error = CWCreateError(kNSManagedObjectContextAdditionsDomain, 990,
 							   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName]);
 	}
 	return 0;

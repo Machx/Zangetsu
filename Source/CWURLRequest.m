@@ -35,6 +35,8 @@
 
 #import "CWURLRequest.h"
 
+static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLRequest";
+
 @interface CWURLRequest() <NSURLConnectionDelegate>
 //Public Readonly rewritten
 @property(nonatomic, readwrite, retain) NSString *urlHost;
@@ -171,7 +173,7 @@
 		}
 		return [self receivedData];
 	}
-	NSError *noHostError = CWCreateError(@"com.Zangetsu.CWSimpleURLRequest", kCWSimpleURLRequestNoHostError,
+	NSError *noHostError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
 										 @"Host is nil and therefore cannot be used for a connection");
 	[self setConnectionError:noHostError];
 	return nil;
