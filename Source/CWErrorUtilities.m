@@ -37,8 +37,8 @@
  * passing arguments for the formatting of a string. If no domain is passed in it defaults
  * to kCWErrorDomain.
  * 
- * @param errorCode a NSInteger for the error code in a NSError object
  * @param domain a NSString specifying the domain for a NSError object
+ * @param errorCode a NSInteger for the error code in a NSError object
  * @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
  * @return a NSError object with the values passed in
  */
