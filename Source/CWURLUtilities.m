@@ -81,6 +81,12 @@ static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities"
 
 @implementation CWURLUtilities
 
+/**
+ Convenience method to retun an NSError for a http error code
+ 
+ @param code a NSInteger whose code you want to get a NSError with a localized description for
+ @return a NSError object if everything was successful or nil if something went wrong
+ */
 + (NSError *) errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
 
