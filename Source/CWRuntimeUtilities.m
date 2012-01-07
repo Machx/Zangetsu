@@ -30,8 +30,6 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
-static NSString *const kCWRuntimeErrorDomain = @"com.Zangetsu.CWRuntimeUtilities";
-
 /**
  Swizzles the Instance Method implementations
  

@@ -29,6 +29,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const kCWRuntimeErrorDomain = @"com.Zangetsu.CWRuntimeUtilities";
+
 static const NSInteger kCWErrorNoOriginalInstanceMethod = 201;
 static const NSInteger kCWErrorNoNewInstanceMethod = 202;
 static const NSInteger kCWErrorNoOriginalClassMethod = 203;
