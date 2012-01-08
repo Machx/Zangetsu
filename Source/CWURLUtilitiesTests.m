@@ -18,4 +18,9 @@
 	STAssertEqualObjects(authorizationHeaderString, goodResultString, @"Strings Should match given the input");
 }
 
+-(void)testBase64AuthHeaderWithNilData {
+	STAssertNil(CWURLAuthorizationHeaderString(nil, @"TestPassword"), @"Returned String should be nil");
+	STAssertNil(CWURLAuthorizationHeaderString(@"Test Account", nil), @"Returned String should be nil");
+}
+
 @end
