@@ -52,13 +52,6 @@
 	STAssertEqualObjects(documentPath1, documentPath2, @"Paths should be equal");
 }
 
--(void)testFullTildeMacro {
-    NSString *path1 = CWFullPathFromTildeString(@"~/Documents/Test.txt");
-    NSString *path2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
-    
-    STAssertEqualObjects(path1, path2, @"Paths should be equal");
-}
-
 - (void)tearDown {
     // Tear-down code here.
     
