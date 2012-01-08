@@ -39,7 +39,7 @@
  if a NSError is created with NSError -errorWithDomain:code:... or CWCreateError()
  */
 -(void)testCreateError {	
-	NSError *error1 = CWCreateError(101, @"com.something.something", @"Some Message");
+	NSError *error1 = CWCreateError(@"com.something.something",101, @"Some Message");
 	
 	NSError *error2 = [NSError errorWithDomain:@"com.something.something" code:101 userInfo:NSDICT(@"Some Message",NSLocalizedDescriptionKey)];
 	
@@ -52,7 +52,7 @@
 	STAssertEqualObjects(error1Message, error2Message, @"Error1 and Error2 Message should be the same");
     
     //testing the string format on this NSError method
-    NSError *error3 = CWCreateError(101, @"com.something.something", @"Some %@",@"Message");
+    NSError *error3 = CWCreateError(@"com.something.something", 101, @"Some %@",@"Message");
     
     NSString *error3Message = [[error3 userInfo] valueForKey:NSLocalizedDescriptionKey];
     
