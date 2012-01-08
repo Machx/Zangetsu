@@ -64,8 +64,7 @@ NSURL *CWURL(NSString * urlFormat,...) {
  @return a NSString with a value that can be set as the authorization header value or nil if there was a problem
  */
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
-	NSCParameterAssert(login);
-	NSCParameterAssert(password);
+	if ((login == nil) || (password == nil)) { return nil; }
 	
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
