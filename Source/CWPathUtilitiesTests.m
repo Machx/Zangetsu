@@ -52,6 +52,11 @@
 	STAssertEqualObjects(documentPath1, documentPath2, @"Paths should be equal");
 }
 
+-(void)testExpandTildeFunction {
+	STAssertNil(CWFullPathFromTildeString(@"~/Quizzyjimbo1135599887658-111765"), @"This directory shouldn't exist");
+	STAssertNotNil(CWFullPathFromTildeString(@"~/Documents"), @"Documents folder should be present on all installs");
+}
+
 - (void)tearDown {
     // Tear-down code here.
     
