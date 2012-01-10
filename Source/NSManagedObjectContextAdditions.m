@@ -29,8 +29,6 @@
 
 #import "NSManagedObjectContextAdditions.h"
 
-static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.nsmanagedobjectcontext_additions";
-
 @implementation NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
 #ifdef DEBUG
