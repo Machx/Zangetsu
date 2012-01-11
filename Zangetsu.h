@@ -59,7 +59,6 @@
 #import "NSDateAddtions.h"
 #import "CWCFConversionMacros.h"
 #import "CWApplicationRegistry.h"
-#import "CWFileUtilities.h"
 #import "CWStack.h"
 #import "CWTree.h"
 #import "CWBTree.h"

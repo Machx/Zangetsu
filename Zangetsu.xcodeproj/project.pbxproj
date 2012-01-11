@@ -29,8 +29,6 @@
 		B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */; };
 		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
-		B81C9F6A1387028A0057978C /* CWFileUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81C9F681387028A0057978C /* CWFileUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B81C9F6B1387028A0057978C /* CWFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C9F691387028A0057978C /* CWFileUtilities.m */; };
 		B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
 		B82D252E12AB6962006650B8 /* CWNSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D252D12AB6962006650B8 /* CWNSStringTests.m */; };
@@ -160,8 +158,6 @@
 		B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableURLRequestAdditions.m; path = Source/NSMutableURLRequestAdditions.m; sourceTree = "<group>"; };
 		B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilities.h; path = Source/CWURLUtilities.h; sourceTree = "<group>"; };
 		B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilities.m; path = Source/CWURLUtilities.m; sourceTree = "<group>"; };
-		B81C9F681387028A0057978C /* CWFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFileUtilities.h; path = Source/CWFileUtilities.h; sourceTree = "<group>"; };
-		B81C9F691387028A0057978C /* CWFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFileUtilities.m; path = Source/CWFileUtilities.m; sourceTree = "<group>"; };
 		B82B955412E24F8E00CABF26 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Source/NSDataAdditions.h; sourceTree = "<group>"; };
 		B82B955512E24F8E00CABF26 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Source/NSDataAdditions.m; sourceTree = "<group>"; };
 		B82D252C12AB6962006650B8 /* CWNSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSStringTests.h; path = Source/CWNSStringTests.h; sourceTree = "<group>"; };
@@ -347,8 +343,6 @@
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */,
 				B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */,
-				B81C9F681387028A0057978C /* CWFileUtilities.h */,
-				B81C9F691387028A0057978C /* CWFileUtilities.m */,
 				B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */,
 				B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
@@ -578,7 +572,6 @@
 				B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */,
 				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
 				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
-				B81C9F6A1387028A0057978C /* CWFileUtilities.h in Headers */,
 				B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */,
 				1701DA1A13CC9285007EE513 /* CWTree.h in Headers */,
 				17967DC513CF3CBE0023DCCB /* CWBTree.h in Headers */,
@@ -728,7 +721,6 @@
 				B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */,
 				B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */,
 				B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */,
-				B81C9F6B1387028A0057978C /* CWFileUtilities.m in Sources */,
 				B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */,
 				1701DA1B13CC9285007EE513 /* CWTree.m in Sources */,
 				17967DC613CF3CBE0023DCCB /* CWBTree.m in Sources */,

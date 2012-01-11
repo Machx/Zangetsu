@@ -36,4 +36,5 @@ NSString *CWFullPathFromTildeString(NSString *tildePath);
 +(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
 +(NSString *)documentsFolderPathForFile:(NSString *)file;
 +(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
++(NSString *)temporaryFilePath;
 @end
