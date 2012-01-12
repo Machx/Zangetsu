@@ -50,6 +50,8 @@
 
 #define CWLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 
+#define CWDebugLocationString() [NSString stringWithFormat:@"%s[%i]",__PRETTY_FUNCTION__,__LINE__]
+
 //MARK: -
 //MARK: NSAssert Functions
 
