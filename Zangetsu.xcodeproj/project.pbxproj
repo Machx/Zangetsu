@@ -11,7 +11,6 @@
 		1701DA1B13CC9285007EE513 /* CWTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1701DA1913CC9285007EE513 /* CWTree.m */; };
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
-		178C927413B3A45000330AD4 /* CWFileUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */; };
 		17967DC513CF3CBE0023DCCB /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 17967DC313CF3CBE0023DCCB /* CWBTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17967DC613CF3CBE0023DCCB /* CWBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 17967DC413CF3CBE0023DCCB /* CWBTree.m */; };
 		17967DCE13D09C590023DCCB /* CWTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17967DCD13D09C590023DCCB /* CWTreeTests.m */; };
@@ -135,8 +134,6 @@
 		17395C7213B280EE00C900BD /* Zangetsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zangetsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilitiesTests.h; path = Source/CWPathUtilitiesTests.h; sourceTree = "<group>"; };
 		174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilitiesTests.m; path = Source/CWPathUtilitiesTests.m; sourceTree = "<group>"; };
-		178C927213B3A45000330AD4 /* CWFileUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFileUtilitiesTests.h; path = Source/CWFileUtilitiesTests.h; sourceTree = "<group>"; };
-		178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFileUtilitiesTests.m; path = Source/CWFileUtilitiesTests.m; sourceTree = "<group>"; };
 		17967DC313CF3CBE0023DCCB /* CWBTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBTree.h; path = Source/CWBTree.h; sourceTree = "<group>"; };
 		17967DC413CF3CBE0023DCCB /* CWBTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBTree.m; path = Source/CWBTree.m; sourceTree = "<group>"; };
 		17967DCC13D09C590023DCCB /* CWTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTreeTests.h; path = Source/CWTreeTests.h; sourceTree = "<group>"; };
@@ -515,8 +512,6 @@
 				B884940013A13D700046194D /* CWApplicationRegistryTests.m */,
 				B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */,
 				B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */,
-				178C927213B3A45000330AD4 /* CWFileUtilitiesTests.h */,
-				178C927313B3A45000330AD4 /* CWFileUtilitiesTests.m */,
 				17990CBB13B62D1A001DCD83 /* CWFoundationTests.h */,
 				17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */,
 				174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */,
@@ -751,7 +746,6 @@
 				B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */,
 				B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */,
 				B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */,
-				178C927413B3A45000330AD4 /* CWFileUtilitiesTests.m in Sources */,
 				17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */,
 				174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */,
 				17967DCE13D09C590023DCCB /* CWTreeTests.m in Sources */,
