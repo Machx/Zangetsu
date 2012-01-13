@@ -57,6 +57,16 @@
 	STAssertNotNil(CWFullPathFromTildeString(@"~/Documents"), @"Documents folder should be present on all installs");
 }
 
+-(void)testTemporaryPath {
+	NSString *path1 = [CWPathUtilities temporaryFilePath];
+	NSString *path2 = [CWPathUtilities temporaryFilePath];
+	NSString *path3 = [CWPathUtilities temporaryFilePath];
+	
+	STAssertFalse([path1 isEqualToString:path2], @"Paths should not be the same");
+	STAssertFalse([path1 isEqualToString:path3], @"Paths should not be the same");
+	STAssertFalse([path2 isEqualToString:path3], @"Paths should not be the same");
+}
+
 - (void)tearDown {
     // Tear-down code here.
     
