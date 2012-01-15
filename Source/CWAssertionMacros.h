@@ -38,7 +38,7 @@ do { \
 	id object2 = o2; \
 	if([object1 isEqualTo:object2] || \
 		(object1 == object2)) { \
-			STFail(description, #__VA_ARGS__); \
+			STFail(description, ##__VA_ARGS__); \
 	} \
 }while(0)
 		
