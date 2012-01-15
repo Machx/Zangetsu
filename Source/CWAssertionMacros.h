@@ -42,4 +42,10 @@ do { \
 	} \
 }while(0)
 		
-
+#define CWAssertEqualsStrings(object, string) \
+do { \
+	NSString *_aString = (NSString *)object; \
+	if(![_aString isEqualToString:string]) { \
+		STFail(@"The Object %s is not equal to the string '%@'", #object , string); \
+	} \
+}while(0)
