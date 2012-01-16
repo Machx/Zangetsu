@@ -45,7 +45,7 @@ File issues in the issue section on the github project.
 ## Zangetsu Licence ##
 Zangetsu is licensed under the MIT license
 
-	Copyright (c) 2011 Colin Wheeler
+	Copyright (c) 2012 Colin Wheeler
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
