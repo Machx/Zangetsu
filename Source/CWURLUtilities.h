@@ -31,7 +31,9 @@
 
 NSURL *CWURL(NSString * urlFormat,...);
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password);
+#endif
 
 @interface CWURLUtilities : NSObject
 

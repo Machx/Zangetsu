@@ -28,26 +28,26 @@
  */
 
 #import "CWMacros.h"
-//#import "CWSHA1Utilities.h"
-//#import "CWDateUtilities.h" //IN_PROGRESS_IOS
-//#import "NSStringAdditions.h"
+#import "CWSHA1Utilities.h"
+#import "CWDateUtilities.h" //IN_PROGRESS_IOS (date formatter)
+#import "NSStringAdditions.h"
 #import "NSArrayAdditions.h"
 #import "NSDictionaryAdditions.h"
 //#import "CWSystemInfo.h"
-//#import "NSSetAdditions.h"
+#import "NSSetAdditions.h"
 //#import "NSURLConnectionAdditions.h"
 //#import "CWDebugUtilities.h"
 #import "NSObjectAdditions.h"
 #import "CWFoundation.h"
 //#import "CWPathUtilities.h"
 #import "CWErrorUtilities.h"
-//#import "CWGraphicsFoundation.h"
+#import "CWGraphicsFoundation.h"
 //#import "CWMD5Utilities.h"
 #import "NSDataAdditions.h"
 //#import "CWCoreDataCenter.h"
 //#import "NSManagedObjectAdditions.h"
 //#import "CWExceptionUtilities.h"
-//#import "CWURLUtilities.h"
+#import "CWURLUtilities.h" //IN_PROGRESS_IOS (base64 imp)
 #import "CWRuntimeUtilities.h"
 //#import "CWReachability.h"
 //#import "NSDateAddtions.h"
@@ -60,9 +60,10 @@
 //#import "CWZLib.h"
 //#import "NSOperationQueueAdditions.h"
 #import "CWQueue.h"
-//#import "CWURLRequest.h"
+#import "CWURLRequest.h"
 //#import "NSMutableURLRequestAdditions.h"
-//#import "NSRecursiveLockAdditions.h"
+#import "NSRecursiveLockAdditions.h"
 //#import "NSManagedObjectContextAdditions.h"
 // NO_COMPILE_IOS
 //#import "CWTask.h" // NO_NSTASK_IOS
+//#import "CWApplicationRegistry.h" //NO_NSWORKSPACE_IOS

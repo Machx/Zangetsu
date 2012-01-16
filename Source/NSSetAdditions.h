@@ -42,7 +42,7 @@
 
 -(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
-#if !TARGET_OS_IPHONE
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
 #endif
 

@@ -109,6 +109,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 			CWBOOLString([self connectionIsFinished])];
 }
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  Creates the Base64 encoded http authorization header for the instance request
  
@@ -129,6 +130,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 		}
 	}
 }	
+#endif
 
 -(NSMutableURLRequest *)_createInternalURLRequest {
 	/**

@@ -80,6 +80,7 @@ THE SOFTWARE.
 
 @end
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  * Returns a NSString with a description of the NSDate object
  *
@@ -98,6 +99,7 @@ NSString * CWDateString(NSDate * date) {
 										locale:nil];
 	return desc;
 }
+#endif
 
 /**
  * Creates a NSDate object from the values passed in for date components
@@ -143,6 +145,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
     return nil;
 }
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  * Returns a NSString using NSDates description format
  *
@@ -164,3 +167,4 @@ NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger
 
     return dateString;
 }
+#endif

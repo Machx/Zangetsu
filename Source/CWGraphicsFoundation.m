@@ -44,7 +44,11 @@ CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
  Easy way to return the CGContextRef inside a NSView
  */
 inline CGContextRef CWCurrentCGContext() {
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
+#else
+	return UIGraphicsGetCurrentContext();
+#endif
 }
 
 /**

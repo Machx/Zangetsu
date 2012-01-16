@@ -120,6 +120,7 @@
 	return results;
 }
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  experimental method
  like cw_find but instead uses NSHashTable to store pointers to 
@@ -138,6 +139,7 @@
 
 	return results;
 }
+#endif
 
 /**
  cw_mapSet basically maps a set by enumerating

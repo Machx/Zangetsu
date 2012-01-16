@@ -39,7 +39,7 @@
  */
 - (NSString *)cw_base64EncodedString {
     if (self == nil) { return nil; }
-    
+	
     SecTransformRef encoder;
     CFErrorRef error = NULL;
     

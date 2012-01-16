@@ -28,10 +28,10 @@ THE SOFTWARE.
 */
 
 
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#elif TARGET_OS_MAC
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 #import <Cocoa/Cocoa.h>
+#else
+#import <UIKit/UIKit.h>
 #endif
 
 CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);

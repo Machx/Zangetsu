@@ -26,8 +26,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-
-#if TARGET_OS_MAC
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 
 static const NSInteger kPidNotFound = -1;
 
@@ -37,7 +36,7 @@ static const NSInteger kPidNotFound = -1;
 +(NSInteger)pidForApplication:(NSString *)appName;
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName;
 +(NSInteger)executableArchitectureForApplication:(NSString *)appName;
-//+(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
-//+(NSImage *)iconForApplication:(NSString *)appName;
++(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
++(NSImage *)iconForApplication:(NSString *)appName;
 @end
 #endif

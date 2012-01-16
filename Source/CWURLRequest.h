@@ -43,8 +43,13 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 //API
 -(id)initWithHost:(NSString *)host;
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+// Base64 imp on Lion used SecTransform which is not available
+// on iOS, will need to come up with a iOS specific implementation
+// before this api will be available
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;
+#endif
 
 -(NSData *)startSynchronousConnection;
 
