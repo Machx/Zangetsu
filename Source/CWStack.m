@@ -138,7 +138,7 @@
  */
 -(NSArray *)popToBottomOfStack {
 	if([[self stack] count] == 0) { return nil; }
-	NSArray *stackArray = [self popToObject:[[self stack] cw_firstObject]];
+	NSArray *stackArray = [self popToObject:[[self stack] objectAtIndex:0]]; //switch backto cw_firstobject later
 	return stackArray;
 }
 
@@ -159,7 +159,7 @@
  */
 -(id)bottomOfStackObject {
 	if([[self stack] count] == 0) { return nil; }
-	return [[self stack] cw_firstObject];
+	return [[self stack] objectAtIndex:0]; //switch backto cw_firstobject later
 }
 
 /**

@@ -7,7 +7,6 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import <Foundation/Foundation.h>
 
 @interface ZangetsuTouchTests : SenTestCase
 

@@ -78,6 +78,8 @@
 		B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArrayAdditions.m */; };
+		B869BB3214C3D2DE00ED2908 /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB3314C3D2E800ED2908 /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18301138C1AF900A7EF7C /* CWStack.m */; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B87A7AF4145D0EDC007A4C0D /* CWQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AF5145D0EDC007A4C0D /* CWQueue.m */; };
@@ -694,6 +696,7 @@
 				B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */,
 				B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */,
 				B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */,
+				B869BB3214C3D2DE00ED2908 /* CWStack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */,
+				B869BB3314C3D2E800ED2908 /* CWStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

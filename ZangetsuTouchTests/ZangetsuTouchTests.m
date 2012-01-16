@@ -18,7 +18,7 @@
 }
 
 -(void)testExample {
-	NSLog(@"Running Unit Tests");
+	STAssertTrue(YES,@"should be true");
 }
 
 - (void)tearDown
