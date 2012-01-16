@@ -28,13 +28,13 @@
  */
 
 
-#if TARGET_OS_IPHONE
-#import <Foundation/Foundation.h>
-#elif TARGET_OS_MAC
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 #import <Cocoa/Cocoa.h>
+#else
+#import <Foundation/Foundation.h>
 #endif
 
-#if TARGET_OS_MAC
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 void CWShowExceptionAsAlertPanel(NSException *exception);
 #endif
 

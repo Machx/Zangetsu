@@ -140,6 +140,26 @@
 		B8C5B95514C48E0F000E0A88 /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B8C5B95614C48E3F000E0A88 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B8C5B95714C48E43000E0A88 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B95A14C490D7000E0A88 /* NSURLConnectionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B95B14C490DD000E0A88 /* NSURLConnectionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */; };
+		B8C5B95C14C49108000E0A88 /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B95D14C4910E000E0A88 /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
+		B8C5B95E14C4912A000E0A88 /* CWPathUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B95F14C49130000E0A88 /* CWPathUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */; };
+		B8C5B96014C49196000E0A88 /* CWMD5Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B849523012CBE1CF00098684 /* CWMD5Utilities.m */; };
+		B8C5B96114C49199000E0A88 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96214C491E0000E0A88 /* CWCoreDataCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = B804019712F08E9200E1297F /* CWCoreDataCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96314C491E7000E0A88 /* CWCoreDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B804019812F08E9200E1297F /* CWCoreDataCenter.m */; };
+		B8C5B96414C49254000E0A88 /* NSManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E8F62012F1ED15001A0BBF /* NSManagedObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96514C49259000E0A88 /* NSManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E8F62112F1ED15001A0BBF /* NSManagedObjectAdditions.m */; };
+		B8C5B96614C492B9000E0A88 /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
+		B8C5B96714C492C1000E0A88 /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96814C492F8000E0A88 /* CWReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D91938133E3C9D009AC4AC /* CWReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96914C492FD000E0A88 /* CWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D91939133E3C9D009AC4AC /* CWReachability.m */; };
+		B8C5B96A14C493BD000E0A88 /* NSOperationQueueAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96B14C493C2000E0A88 /* NSOperationQueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */; };
+		B8C5B96C14C49432000E0A88 /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86686A014A37B4400F8A541 /* NSManagedObjectContextAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B96D14C49438000E0A88 /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86686A114A37B4400F8A541 /* NSManagedObjectContextAdditions.m */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
 		B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D91938133E3C9D009AC4AC /* CWReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D91939133E3C9D009AC4AC /* CWReachability.m */; };
@@ -758,6 +778,16 @@
 				B8C5B95014C486E0000E0A88 /* NSSetAdditions.h in Headers */,
 				B8C5B95414C48E09000E0A88 /* CWURLUtilities.h in Headers */,
 				B8C5B95714C48E43000E0A88 /* CWDateUtilities.h in Headers */,
+				B8C5B95A14C490D7000E0A88 /* NSURLConnectionAdditions.h in Headers */,
+				B8C5B95C14C49108000E0A88 /* CWDebugUtilities.h in Headers */,
+				B8C5B95E14C4912A000E0A88 /* CWPathUtilities.h in Headers */,
+				B8C5B96114C49199000E0A88 /* CWMD5Utilities.h in Headers */,
+				B8C5B96214C491E0000E0A88 /* CWCoreDataCenter.h in Headers */,
+				B8C5B96414C49254000E0A88 /* NSManagedObjectAdditions.h in Headers */,
+				B8C5B96714C492C1000E0A88 /* CWExceptionUtilities.h in Headers */,
+				B8C5B96814C492F8000E0A88 /* CWReachability.h in Headers */,
+				B8C5B96A14C493BD000E0A88 /* NSOperationQueueAdditions.h in Headers */,
+				B8C5B96C14C49432000E0A88 /* NSManagedObjectContextAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,6 +1025,16 @@
 				B8C5B95114C486E5000E0A88 /* NSSetAdditions.m in Sources */,
 				B8C5B95514C48E0F000E0A88 /* CWURLUtilities.m in Sources */,
 				B8C5B95614C48E3F000E0A88 /* CWDateUtilities.m in Sources */,
+				B8C5B95B14C490DD000E0A88 /* NSURLConnectionAdditions.m in Sources */,
+				B8C5B95D14C4910E000E0A88 /* CWDebugUtilities.m in Sources */,
+				B8C5B95F14C49130000E0A88 /* CWPathUtilities.m in Sources */,
+				B8C5B96014C49196000E0A88 /* CWMD5Utilities.m in Sources */,
+				B8C5B96314C491E7000E0A88 /* CWCoreDataCenter.m in Sources */,
+				B8C5B96514C49259000E0A88 /* NSManagedObjectAdditions.m in Sources */,
+				B8C5B96614C492B9000E0A88 /* CWExceptionUtilities.m in Sources */,
+				B8C5B96914C492FD000E0A88 /* CWReachability.m in Sources */,
+				B8C5B96B14C493C2000E0A88 /* NSOperationQueueAdditions.m in Sources */,
+				B8C5B96D14C49438000E0A88 /* NSManagedObjectContextAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

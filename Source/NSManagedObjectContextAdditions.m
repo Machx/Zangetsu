@@ -72,13 +72,13 @@ static void *cwmdbg;
 	
 	if ([self hasChanges]) {
 		if ([[self insertedObjects] count] > 0) {
-			NSLog(@"%ld Inserted Objects",[[self insertedObjects] count]);
+			NSLog(@"%lu Inserted Objects",(long)[[self insertedObjects] count]);
 		}
 		if ([[self updatedObjects] count] > 0) {
-			NSLog(@"%ld Updated Objects",[[self updatedObjects] count]);
+			NSLog(@"%lu Updated Objects",(long)[[self updatedObjects] count]);
 		}
 		if ([[self deletedObjects] count] > 0) {
-			NSLog(@"%ld Deleted Objects",[[self deletedObjects] count]);
+			NSLog(@"%lu Deleted Objects",(long)[[self deletedObjects] count]);
 		}
 	}
 }

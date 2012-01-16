@@ -29,6 +29,7 @@
 
 #import "CWExceptionUtilities.h"
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  Takes a NSException object and runs an Critical Alert Panel with the Exception 
  information as well as the stack trace of where the stack trace occurred minus
@@ -42,6 +43,7 @@ void CWShowExceptionAsAlertPanel(NSException *exception) {
 		[[NSApplication sharedApplication] terminate:nil];
 	}
 }
+#endif
 
 @implementation NSException (CWNSExceptionAdditions)
 
