@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 
 @interface NSSet (CWNSSetAdditions) 
@@ -42,7 +42,9 @@
 
 -(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
+#if !TARGET_OS_IPHONE
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
+#endif
 
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 

@@ -148,6 +148,7 @@
     return results;
 }
 
+#if !TARGET_OS_IPHONE
 /**
  * experimental method
  * like cw_find but instead uses NSHashTable to store weak pointers to
@@ -169,6 +170,7 @@
 
     return results;
 }
+#endif
 
 /**
  * cw_mapArray basically maps an array by enumerating

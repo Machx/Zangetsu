@@ -33,7 +33,7 @@
  (2) a easy way to ensure that objects of the correct type are toll free bridged
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 /* NSString & CFStringRef */
 

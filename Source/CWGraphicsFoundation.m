@@ -29,9 +29,9 @@ THE SOFTWARE.
 
 #import "CWGraphicsFoundation.h"
 
-NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect) {
+CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
 	
-	NSRect centeredRect;
+	CGRect centeredRect;
 	centeredRect.size = smallRect.size;
 	
 	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) / 2.0;

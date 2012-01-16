@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 BOOL CWIsDebugInProgress(void);
 void CWCrash(void);

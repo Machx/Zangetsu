@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 #define CWLogError(_error_) NSLog(@"%@",[_error_ description])
 

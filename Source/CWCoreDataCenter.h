@@ -26,7 +26,6 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
 #import <CoreData/CoreData.h>
 
 #define CWCDManagedObjectContext() [[CWCoreDataCenter defaultCenter] managedObjectContext]

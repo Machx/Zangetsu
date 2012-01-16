@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#if TARGET_OS_MAC
 
 static const NSInteger kPidNotFound = -1;
 
@@ -37,7 +37,7 @@ static const NSInteger kPidNotFound = -1;
 +(NSInteger)pidForApplication:(NSString *)appName;
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName;
 +(NSInteger)executableArchitectureForApplication:(NSString *)appName;
-+(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
-+(NSImage *)iconForApplication:(NSString *)appName;
-
+//+(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
+//+(NSImage *)iconForApplication:(NSString *)appName;
 @end
+#endif

@@ -66,6 +66,18 @@
 		B86686A314A37B4500F8A541 /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86686A114A37B4400F8A541 /* NSManagedObjectContextAdditions.m */; };
 		B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B867BBF813944FE1009BEB98 /* CWStackTests.m */; };
 		B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
+		B869BB1014C3AA5B00ED2908 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
+		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
+		B869BB1914C3AA5B00ED2908 /* ZangetsuTouchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */; };
+		B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB2614C3B6AF00ED2908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2514C3B6AF00ED2908 /* UIKit.framework */; };
+		B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */; };
+		B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2514C3B6AF00ED2908 /* UIKit.framework */; };
+		B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArrayAdditions.m */; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B87A7AF4145D0EDC007A4C0D /* CWQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AF5145D0EDC007A4C0D /* CWQueue.m */; };
@@ -116,6 +128,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B869BB0E14C3AA5B00ED2908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B869BAF814C3AA5A00ED2908;
+			remoteInfo = ZangetsuTouch;
+		};
 		B8F6C84C13954DB2007ED6AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -200,6 +219,17 @@
 		B867BBF713944FE0009BEB98 /* CWStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStackTests.h; path = Source/CWStackTests.h; sourceTree = "<group>"; };
 		B867BBF813944FE1009BEB98 /* CWStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStackTests.m; path = Source/CWStackTests.m; sourceTree = "<group>"; };
 		B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAssertionMacros.h; path = Source/CWAssertionMacros.h; sourceTree = "<group>"; };
+		B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZangetsuTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B869BAFB14C3AA5A00ED2908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B869BAFF14C3AA5A00ED2908 /* ZangetsuTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZangetsuTouch-Prefix.pch"; sourceTree = "<group>"; };
+		B869BB0814C3AA5B00ED2908 /* ZangetsuTouchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZangetsuTouchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B869BB1314C3AA5B00ED2908 /* ZangetsuTouchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZangetsuTouchTests-Info.plist"; sourceTree = "<group>"; };
+		B869BB1514C3AA5B00ED2908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B869BB1714C3AA5B00ED2908 /* ZangetsuTouchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZangetsuTouchTests.h; sourceTree = "<group>"; };
+		B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZangetsuTouchTests.m; sourceTree = "<group>"; };
+		B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZangetsuTouch.h; path = Source/ZangetsuTouch.h; sourceTree = SOURCE_ROOT; };
+		B869BB2514C3B6AF00ED2908 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
 		B87A7AF4145D0EDC007A4C0D /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = Source/CWQueue.h; sourceTree = "<group>"; };
@@ -276,6 +306,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B869BAF614C3AA5A00ED2908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B869BB0414C3AA5B00ED2908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */,
+				B869BB2614C3B6AF00ED2908 /* UIKit.framework in Frameworks */,
+				B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */,
+				B869BB1014C3AA5B00ED2908 /* libZangetsuTouch.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8F5E66612A02EB400E58C94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +342,8 @@
 			children = (
 				B8F5E66912A02EB400E58C94 /* Unit Tests.octest */,
 				17395C7213B280EE00C900BD /* Zangetsu.framework */,
+				B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */,
+				B869BB0814C3AA5B00ED2908 /* ZangetsuTouchTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,11 +353,15 @@
 			children = (
 				B8B6638B1287A93B00CB4E3E /* ReadMe.md */,
 				B82D73E711DA850A00863F3B /* Zangetsu.h */,
+				B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */,
 				B80BCE4512962DD100AF8CCE /* ToDo.rtf */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				B869BAFD14C3AA5A00ED2908 /* ZangetsuTouch */,
+				B869BB1114C3AA5B00ED2908 /* ZangetsuTouchTests */,
+				B869BAFA14C3AA5A00ED2908 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */,
 			);
@@ -443,6 +498,51 @@
 				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
 			);
 			name = "Foundation Additions";
+			sourceTree = "<group>";
+		};
+		B869BAFA14C3AA5A00ED2908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */,
+				B869BB2514C3B6AF00ED2908 /* UIKit.framework */,
+				B869BAFB14C3AA5A00ED2908 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B869BAFD14C3AA5A00ED2908 /* ZangetsuTouch */ = {
+			isa = PBXGroup;
+			children = (
+				B869BAFE14C3AA5A00ED2908 /* Supporting Files */,
+			);
+			path = ZangetsuTouch;
+			sourceTree = "<group>";
+		};
+		B869BAFE14C3AA5A00ED2908 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B869BAFF14C3AA5A00ED2908 /* ZangetsuTouch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B869BB1114C3AA5B00ED2908 /* ZangetsuTouchTests */ = {
+			isa = PBXGroup;
+			children = (
+				B869BB1714C3AA5B00ED2908 /* ZangetsuTouchTests.h */,
+				B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */,
+				B869BB1214C3AA5B00ED2908 /* Supporting Files */,
+			);
+			path = ZangetsuTouchTests;
+			sourceTree = "<group>";
+		};
+		B869BB1214C3AA5B00ED2908 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B869BB1314C3AA5B00ED2908 /* ZangetsuTouchTests-Info.plist */,
+				B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */ = {
@@ -586,6 +686,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B869BAF714C3AA5A00ED2908 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */,
+				B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */,
+				B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */,
+				B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -607,6 +718,42 @@
 			productName = Zangetsu;
 			productReference = 17395C7213B280EE00C900BD /* Zangetsu.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		B869BAF814C3AA5A00ED2908 /* ZangetsuTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B869BB2014C3AA5B00ED2908 /* Build configuration list for PBXNativeTarget "ZangetsuTouch" */;
+			buildPhases = (
+				B869BAF514C3AA5A00ED2908 /* Sources */,
+				B869BAF614C3AA5A00ED2908 /* Frameworks */,
+				B869BAF714C3AA5A00ED2908 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZangetsuTouch;
+			productName = ZangetsuTouch;
+			productReference = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B869BB0714C3AA5B00ED2908 /* ZangetsuTouchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B869BB2114C3AA5B00ED2908 /* Build configuration list for PBXNativeTarget "ZangetsuTouchTests" */;
+			buildPhases = (
+				B869BB0314C3AA5B00ED2908 /* Sources */,
+				B869BB0414C3AA5B00ED2908 /* Frameworks */,
+				B869BB0514C3AA5B00ED2908 /* Resources */,
+				B869BB0614C3AA5B00ED2908 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B869BB0F14C3AA5B00ED2908 /* PBXTargetDependency */,
+			);
+			name = ZangetsuTouchTests;
+			productName = ZangetsuTouchTests;
+			productReference = B869BB0814C3AA5B00ED2908 /* ZangetsuTouchTests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 		B8F5E66812A02EB400E58C94 /* Unit Tests */ = {
 			isa = PBXNativeTarget;
@@ -644,6 +791,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Zangetsu */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -652,6 +800,8 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Zangetsu */,
 				B8F5E66812A02EB400E58C94 /* Unit Tests */,
+				B869BAF814C3AA5A00ED2908 /* ZangetsuTouch */,
+				B869BB0714C3AA5B00ED2908 /* ZangetsuTouchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -665,6 +815,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B869BB0514C3AA5B00ED2908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8F5E66412A02EB400E58C94 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -675,6 +833,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B869BB0614C3AA5B00ED2908 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		B8F5E66712A02EB400E58C94 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,6 +906,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B869BAF514C3AA5A00ED2908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B869BB0314C3AA5B00ED2908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B869BB1914C3AA5B00ED2908 /* ZangetsuTouchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8F5E66512A02EB400E58C94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -766,6 +953,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B869BB0F14C3AA5B00ED2908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B869BAF814C3AA5A00ED2908 /* ZangetsuTouch */;
+			targetProxy = B869BB0E14C3AA5B00ED2908 /* PBXContainerItemProxy */;
+		};
 		B8F6C84D13954DB2007ED6AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* Zangetsu */;
@@ -778,6 +970,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B869BB1514C3AA5B00ED2908 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -947,6 +1147,149 @@
 			};
 			name = Analyze;
 		};
+		B869BB1A14C3AA5B00ED2908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ZangetsuTouch.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = armv7;
+			};
+			name = Debug;
+		};
+		B869BB1B14C3AA5B00ED2908 /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ZangetsuTouch.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
+			};
+			name = Analyze;
+		};
+		B869BB1C14C3AA5B00ED2908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ZangetsuTouch.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
+			};
+			name = Release;
+		};
+		B869BB1D14C3AA5B00ED2908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ZangetsuTouchTests/ZangetsuTouchTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B869BB1E14C3AA5B00ED2908 /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ZangetsuTouchTests/ZangetsuTouchTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Analyze;
+		};
+		B869BB1F14C3AA5B00ED2908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ZangetsuTouchTests/ZangetsuTouchTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		B8F5E66F12A02EB700E58C94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1050,6 +1393,24 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B869BB2014C3AA5B00ED2908 /* Build configuration list for PBXNativeTarget "ZangetsuTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B869BB1A14C3AA5B00ED2908 /* Debug */,
+				B869BB1B14C3AA5B00ED2908 /* Analyze */,
+				B869BB1C14C3AA5B00ED2908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B869BB2114C3AA5B00ED2908 /* Build configuration list for PBXNativeTarget "ZangetsuTouchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B869BB1D14C3AA5B00ED2908 /* Debug */,
+				B869BB1E14C3AA5B00ED2908 /* Analyze */,
+				B869BB1F14C3AA5B00ED2908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		B8F5E67212A02EB700E58C94 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
 			isa = XCConfigurationList;

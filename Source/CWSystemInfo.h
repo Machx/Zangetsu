@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 static NSString * const kCWSystemMajorVersion =  @"majorVersion";
 static NSString * const kCWSystemMinorVersion =  @"minorVersion";

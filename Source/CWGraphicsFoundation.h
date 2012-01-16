@@ -27,9 +27,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#import <Cocoa/Cocoa.h>
 
-NSRect CWCenteredRect(NSRect smallRect, NSRect largeRect);
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
+#import <Cocoa/Cocoa.h>
+#endif
+
+CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);
 
 extern CGContextRef CWCurrentCGContext();
 

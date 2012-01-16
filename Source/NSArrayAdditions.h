@@ -25,7 +25,7 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 
 @interface NSArray (CWNSArrayAdditions)
@@ -42,7 +42,9 @@
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
+#if !TARGET_OS_IPHONE
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
+#endif
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block;
 

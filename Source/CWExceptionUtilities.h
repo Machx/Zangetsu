@@ -27,9 +27,16 @@
  THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
 
+#if TARGET_OS_IPHONE
+#import <Foundation/Foundation.h>
+#elif TARGET_OS_MAC
+#import <Cocoa/Cocoa.h>
+#endif
+
+#if TARGET_OS_MAC
 void CWShowExceptionAsAlertPanel(NSException *exception);
+#endif
 
 @interface NSException (CWNSExceptionAdditions)
 
