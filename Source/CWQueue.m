@@ -94,7 +94,7 @@
  */
 -(id)dequeueTopObject {
 	if ([[self queue] count] == 0) { return nil; }
-	id topObject = [[self queue] cw_firstObject];
+	id topObject = [[self queue] objectAtIndex:0]; //change back to cw_firstObject sometime
 	[[self queue] removeObjectAtIndex:0];
 	return topObject;
 }

@@ -114,7 +114,7 @@
 				__block BOOL anyNodeContainsValue = NO;
 				[[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 					id nodeValue = [(CWTreeNode *)obj value];
-					if ([nodeValue isEqualTo:[node value]]) {
+					if ([nodeValue isEqual:[node value]]) {
 						anyNodeContainsValue = YES;
 					}
 				}];
@@ -154,9 +154,9 @@
  @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
  */
 -(BOOL)isEqualToNode:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
-		if ([[node parent] isEqualTo:[self parent]]) {
-			if ([[node children] isEqualTo:[self children]]) {
+    if ([[node value] isEqual:[self value]]) {
+		if ([[node parent] isEqual:[self parent]]) {
+			if ([[node children] isEqual:[self children]]) {
 				return YES;
 			}
 		}
@@ -171,7 +171,7 @@
  @return a BOOL with yes if the node values are equal, otherwise no.
  */
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
-    if ([[node value] isEqualTo:[self value]]) {
+    if ([[node value] isEqual:[self value]]) {
         return YES;
     }
     return NO;
