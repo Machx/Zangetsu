@@ -78,11 +78,8 @@
 		B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B867BBF813944FE1009BEB98 /* CWStackTests.m */; };
 		B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
-		B869BB1014C3AA5B00ED2908 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
 		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
-		B869BB1914C3AA5B00ED2908 /* ZangetsuTouchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */; };
 		B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B869BB2614C3B6AF00ED2908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2514C3B6AF00ED2908 /* UIKit.framework */; };
 		B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */; };
 		B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2514C3B6AF00ED2908 /* UIKit.framework */; };
 		B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +157,9 @@
 		B8C5B96B14C493C2000E0A88 /* NSOperationQueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */; };
 		B8C5B96C14C49432000E0A88 /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86686A014A37B4400F8A541 /* NSManagedObjectContextAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C5B96D14C49438000E0A88 /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86686A114A37B4400F8A541 /* NSManagedObjectContextAdditions.m */; };
+		B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3881314C47BD000F6D2A8 /* Security.framework */; };
+		B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
+		B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
 		B8D9193A133E3C9D009AC4AC /* CWReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D91938133E3C9D009AC4AC /* CWReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D91939133E3C9D009AC4AC /* CWReachability.m */; };
@@ -189,7 +189,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B869BB0E14C3AA5B00ED2908 /* PBXContainerItemProxy */ = {
+		B8C5B97D14C5DDF2000E0A88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -286,8 +286,6 @@
 		B869BB0814C3AA5B00ED2908 /* ZangetsuTouchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZangetsuTouchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B869BB1314C3AA5B00ED2908 /* ZangetsuTouchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZangetsuTouchTests-Info.plist"; sourceTree = "<group>"; };
 		B869BB1514C3AA5B00ED2908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B869BB1714C3AA5B00ED2908 /* ZangetsuTouchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZangetsuTouchTests.h; sourceTree = "<group>"; };
-		B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZangetsuTouchTests.m; sourceTree = "<group>"; };
 		B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZangetsuTouch.h; path = Source/ZangetsuTouch.h; sourceTree = SOURCE_ROOT; };
 		B869BB2514C3B6AF00ED2908 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -372,6 +370,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */,
 				B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,10 +379,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */,
 				B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */,
-				B869BB2614C3B6AF00ED2908 /* UIKit.framework in Frameworks */,
 				B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */,
-				B869BB1014C3AA5B00ED2908 /* libZangetsuTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,8 +590,6 @@
 		B869BB1114C3AA5B00ED2908 /* ZangetsuTouchTests */ = {
 			isa = PBXGroup;
 			children = (
-				B869BB1714C3AA5B00ED2908 /* ZangetsuTouchTests.h */,
-				B869BB1814C3AA5B00ED2908 /* ZangetsuTouchTests.m */,
 				B869BB1214C3AA5B00ED2908 /* Supporting Files */,
 			);
 			path = ZangetsuTouchTests;
@@ -842,7 +838,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B869BB0F14C3AA5B00ED2908 /* PBXTargetDependency */,
+				B8C5B97E14C5DDF2000E0A88 /* PBXTargetDependency */,
 			);
 			name = ZangetsuTouchTests;
 			productName = ZangetsuTouchTests;
@@ -1042,7 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B869BB1914C3AA5B00ED2908 /* ZangetsuTouchTests.m in Sources */,
+				B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,10 +1073,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B869BB0F14C3AA5B00ED2908 /* PBXTargetDependency */ = {
+		B8C5B97E14C5DDF2000E0A88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B869BAF814C3AA5A00ED2908 /* ZangetsuTouch */;
-			targetProxy = B869BB0E14C3AA5B00ED2908 /* PBXContainerItemProxy */;
+			targetProxy = B8C5B97D14C5DDF2000E0A88 /* PBXContainerItemProxy */;
 		};
 		B8F6C84D13954DB2007ED6AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1405,6 +1401,7 @@
 				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ZangetsuTouchTests/ZangetsuTouchTests-Info.plist";
+				"INSTALL_PATH[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
