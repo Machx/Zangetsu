@@ -148,7 +148,7 @@
     return results;
 }
 
-#if !TARGET_OS_IPHONE
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  * experimental method
  * like cw_find but instead uses NSHashTable to store weak pointers to
