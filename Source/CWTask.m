@@ -125,14 +125,14 @@
  * Any arguments to the task are set here
  */
 - (void) _configureTask {
-    [self.cwTask setLaunchPath:self.executable];
-    self.pipe = [NSPipe pipe];
-    [self.cwTask setStandardOutput:self.pipe];
-    if (arguments.count > 0) {
-        [cwTask setArguments:self.arguments];
+    [[self cwTask] setLaunchPath:[self executable]];
+	[self setPipe:[NSPipe pipe]];
+    [[self cwTask] setStandardOutput:[self pipe]];
+    if ([arguments count] > 0) {
+        [cwTask setArguments:[self arguments]];
     }
-    if (self.directoryPath) {
-        [cwTask setCurrentDirectoryPath:self.directoryPath];
+    if ([self directoryPath]) {
+        [cwTask setCurrentDirectoryPath:[self directoryPath]];
     }
 }
 
@@ -161,7 +161,7 @@
  * @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
  */
 - (BOOL) _validateExecutable:(NSError **)error {
-    if (self.executable == nil || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
+    if (([self executable] == nil) || ![[NSFileManager defaultManager] fileExistsAtPath:[self executable]]) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable, @"Executable Path provided doesn't exist");
         }
@@ -178,8 +178,8 @@
  * @return (BOOL) YES if the directory path exists otherwise returns NO
  */
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error {
-    if (self.directoryPath) {
-        if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
+    if ([self directoryPath]) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[self directoryPath]]) {
             if (*error) {
                 *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory, @"The Directory Specified does not exist & is invalid");
             }
@@ -198,7 +198,7 @@
  * @return (BOOL) YES if the task has not been run, otherwise returns NO
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error {
-    if (self.taskHasRun == YES) {
+    if ([self taskHasRun] == YES) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun, @"CWTask Object has already been run");
         }
@@ -222,10 +222,10 @@
 
     NSString * resultsString = nil;
 
-    if (self.taskHasRun == NO) {
+    if ([self taskHasRun] == NO) {
         [self _configureTask];
         resultsString = [self _resultsStringFromLaunchedTask:error];
-        self.taskHasRun = YES;
+        [self setTaskHasRun:YES];
         [self _performPostRunActionsIfApplicable];
     }
     return resultsString;
@@ -249,7 +249,7 @@
         *error = CWCreateError(kCWTaskErrorDomain, kCWTaskEncounteredExceptionOnRun, [e description]);
     }
 
-    returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
+    returnedData = [[[self pipe] fileHandleForReading] readDataToEndOfFile];
     if (returnedData) {
         taskOutput = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
     }
@@ -264,10 +264,10 @@
  */
 - (void) _performPostRunActionsIfApplicable {
     if (![cwTask isRunning]) {
-        self.successCode = [cwTask terminationStatus];
+		[self setSuccessCode:[cwTask terminationStatus]];
     }
-    if (self.inAsynchronous == NO && self.completionBlock) {
-        self.completionBlock();
+    if (([self inAsynchronous] == NO) && [self completionBlock]) {
+		[self completionBlock];
     }
 }
 
@@ -284,10 +284,9 @@
    withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
     NSParameterAssert(queue);
 
-    self.inAsynchronous = YES;
+	[self setInAsynchronous:YES];
 
     [queue addOperationWithBlock:^{
-
          NSError * taskError;
          NSString * resultsString = nil;
 
@@ -309,10 +308,10 @@
  * @param error a NSError object with a error if something went wrong
  */
 - (void) launchTaskOnGCDQueue:(dispatch_queue_t)queue
-   withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
+		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
     NSParameterAssert(queue);
 
-    self.inAsynchronous = YES;
+	[self setInAsynchronous:YES];
 
     dispatch_async(queue, ^{
 		NSError * taskError;
