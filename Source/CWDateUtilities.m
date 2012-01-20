@@ -144,7 +144,6 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
     return nil;
 }
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  * Returns a NSString using NSDates description format
  *
@@ -166,4 +165,4 @@ NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger
 
     return dateString;
 }
-#endif
+
