@@ -80,27 +80,26 @@ THE SOFTWARE.
 
 @end
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  * Returns a NSString with a description of the NSDate object
  *
  * Currently this method uses the "%Y-%m-%d %H:%M:%S %z" format to
- * describe the passed in NSDate object. If the passed in NSDate object is
- * nil then this method will throw an assertion.
+ * describe the passed in NSDate object. If date is nil then this returns nil.
  *
  * @param date a NSDate object
  * @return a NSString with describing the NSDate object
  */
 NSString * CWDateString(NSDate * date) {
-	NSCParameterAssert(date);
-	NSString *desc = nil;
-	desc = [date descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S %z" 
-									  timeZone:[[NSCalendar currentCalendar] timeZone] 
-										locale:nil];
-	return desc;
+	if (date) {
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+		[formatter setTimeZone:[[NSCalendar currentCalendar] timeZone]];
+		
+		NSString *dateString = [formatter stringFromDate:date];
+		return dateString;
+	}
+	return nil;
 }
-#endif
-
 /**
  * Creates a NSDate object from the values passed in for date components
  *
