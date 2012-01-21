@@ -165,6 +165,8 @@
 		B8D9193B133E3C9D009AC4AC /* CWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D91939133E3C9D009AC4AC /* CWReachability.m */; };
 		B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */; };
 		B8DC9A94134A6DF200501FC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DC9A93134A6DF200501FC1 /* libz.dylib */; };
+		B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */; };
 		B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
 		B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3880714C4759900F6D2A8 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
@@ -334,6 +336,8 @@
 		B8D91939133E3C9D009AC4AC /* CWReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWReachability.m; path = Source/CWReachability.m; sourceTree = "<group>"; };
 		B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8DC9A93134A6DF200501FC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSystemInfoIOS.h; path = Source/CWSystemInfoIOS.h; sourceTree = "<group>"; };
+		B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfoIOS.m; path = Source/CWSystemInfoIOS.m; sourceTree = "<group>"; };
 		B8E3881314C47BD000F6D2A8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWCFConversionMacros.h; path = Source/CWCFConversionMacros.h; sourceTree = "<group>"; };
 		B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWErrorUtilities.h; path = Source/CWErrorUtilities.h; sourceTree = "<group>"; };
@@ -470,6 +474,8 @@
 				B89418FD132AF54500313534 /* CWRuntimeUtilities.m */,
 				B88C112B1290D2BA00B49835 /* CWSystemInfo.h */,
 				B88C112C1290D2BA00B49835 /* CWSystemInfo.m */,
+				B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */,
+				B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */,
 				B84994A7128210D6001206E1 /* CWTask.h */,
 				B84994A8128210D6001206E1 /* CWTask.m */,
 				B818BBFA1497A49800C71A61 /* CWURLRequest.h */,
@@ -784,6 +790,7 @@
 				B8C5B96814C492F8000E0A88 /* CWReachability.h in Headers */,
 				B8C5B96A14C493BD000E0A88 /* NSOperationQueueAdditions.h in Headers */,
 				B8C5B96C14C49432000E0A88 /* NSManagedObjectContextAdditions.h in Headers */,
+				B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1038,7 @@
 				B8C5B96914C492FD000E0A88 /* CWReachability.m in Sources */,
 				B8C5B96B14C493C2000E0A88 /* NSOperationQueueAdditions.m in Sources */,
 				B8C5B96D14C49438000E0A88 /* NSManagedObjectContextAdditions.m in Sources */,
+				B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
