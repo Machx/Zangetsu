@@ -30,13 +30,10 @@ THE SOFTWARE.
 #import "CWGraphicsFoundation.h"
 
 CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
-	
 	CGRect centeredRect;
 	centeredRect.size = smallRect.size;
-	
 	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) / 2.0;
 	centeredRect.origin.y = (largeRect.size.height - smallRect.size.height) / 2.0;
-	
 	return centeredRect;
 }
 
