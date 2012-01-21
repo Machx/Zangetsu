@@ -60,11 +60,12 @@
 #import "CWURLRequest.h"
 #import "NSRecursiveLockAdditions.h"
 #import "NSManagedObjectContextAdditions.h"
+#import "CWSystemInfoIOS.h"
 
 // NO_COMPILE_IOS
 //#import "CWTask.h" // NO_NSTASK_IOS
 //#import "CWApplicationRegistry.h" //NO_NSWORKSPACE_IOS
-//#import "CWSystemInfo.h" //will need to write a iOS specific version
+//#import "CWSystemInfo.h" //use CWSystemInfoIOS
 //#import "CWBase64.h" //uses sectransform which doesn't exist on iOS (need iOS specific version)
 //#import "CWZLib.h" //uses sectransform which doesn't exist on iOS (need iOS specific version)
 //#import "NSMutableURLRequestAdditions.h" //only 1 api and it uses base 64 encoding in CWBase64
