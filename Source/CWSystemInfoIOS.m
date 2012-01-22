@@ -35,4 +35,22 @@
 	return [[UIDevice currentDevice] systemVersion];
 }
 
++(NSDictionary *)hostVersion {
+	NSMutableDictionary *versionDictionary = nil;
+	NSArray *components = nil;
+	components = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];
+	if ([components count] > 0) {
+		versionDictionary = [[NSMutableDictionary alloc] initWithCapacity:3];
+		
+		[versionDictionary setValue:[components objectAtIndex:0] forKey:kCWSystemMajorVersion];
+		[versionDictionary setValue:[components objectAtIndex:1] forKey:kCWSystemMinorVersion];
+		if ([components count] == 2) {
+			[versionDictionary setValue:@"0" forKey:kCWSystemBugFixVersion];
+		} else {
+			[versionDictionary setValue:[components objectAtIndex:2] forKey:kCWSystemBugFixVersion];
+		}
+	}
+	return versionDictionary;
+}
+
 @end

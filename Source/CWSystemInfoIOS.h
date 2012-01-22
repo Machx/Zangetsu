@@ -29,8 +29,14 @@
  
 #import <UIKit/UIKit.h>
 
+static NSString * const kCWSystemMajorVersion =  @"majorVersion";
+static NSString * const kCWSystemMinorVersion =  @"minorVersion";
+static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
+
 @interface CWSystemInfoIOS : NSObject
 
 +(NSString *)systemVersionString;
+
++(NSDictionary *)hostVersion;
 
 @end
