@@ -34,9 +34,6 @@ static NSString * const kCWSystemMinorVersion =  @"minorVersion";
 static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 
 @interface CWSystemInfoIOS : NSObject
-
 +(NSString *)systemVersionString;
-
 +(NSDictionary *)hostVersion;
-
 @end
