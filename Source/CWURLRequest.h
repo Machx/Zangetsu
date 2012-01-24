@@ -30,7 +30,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#import "Zangetsu.h"
+#import <Foundation/Foundation.h>
 
 //Built in CWSimpleURLRequest Errors
 static const NSInteger kCWSimpleURLRequestNoHostError = 404;
