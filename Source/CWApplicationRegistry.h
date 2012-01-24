@@ -28,6 +28,8 @@
  */
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 
+#import <Cocoa/Cocoa.h>
+
 static const NSInteger kPidNotFound = -1;
 
 @interface CWApplicationRegistry : NSObject
