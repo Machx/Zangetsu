@@ -31,10 +31,21 @@
 
 @implementation CWSystemInfoIOS
 
+/**
+ Returns a NSString with the system version
+ */
 +(NSString *)systemVersionString {
 	return [[UIDevice currentDevice] systemVersion];
 }
 
+/**
+ Returns a NSDictionary with the system version broken up by section
+ 
+ Returns a NSDictionary with the system version broken up by sections such as the
+ Major Version ("5" in "5.0.1"), Minor Version ("0" in "5.0.1") and Bugfix Version
+ ("1" in "5.0.1"). To access these you use the keys kCWSystemMajorVersion,
+ kCWSystemMinorVersion and kCWSystemBugFixVersion. 
+ */
 +(NSDictionary *)hostVersion {
 	NSMutableDictionary *versionDictionary = nil;
 	NSArray *components = nil;
