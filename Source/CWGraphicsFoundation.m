@@ -79,3 +79,9 @@ void CWAddRoundedRectToPath(CGContextRef context,
 	}
     CGContextRestoreGState(context);
 }
+
+void CWSaveAndRestoreContextState(CGContextRef ctx, void(^block)(void)) {
+	CGContextSaveGState(ctx);
+	block();
+	CGContextRestoreGState(ctx);
+}

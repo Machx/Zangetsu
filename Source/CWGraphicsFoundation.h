@@ -42,3 +42,5 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 								   CGRect rect,
 								   float ovalWidth,
 								   float ovalHeight);
+
+void CWSaveAndRestoreContextState(CGContextRef ctx, void(^block)(void));
