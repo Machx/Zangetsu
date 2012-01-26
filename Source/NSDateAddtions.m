@@ -29,10 +29,6 @@
 
 #import "NSDateAddtions.h"
 
-static const NSTimeInterval kCWSecondsIn1Minute = 60;
-static const NSTimeInterval kCWSecondsIn1Hour = 3600;
-static const NSTimeInterval kCWSecondsIn1Day = 86400;
-
 @implementation NSDate (CWNSDateAddtions)
 
 /**
@@ -41,9 +37,12 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @param minutes a NSInteger with the number of minutes you want the new date object to advance by
  @return a new NSDate object advanced forward by n minutes
  */
--(NSDate *)cw_dateByAddingMinutes:(NSUInteger)minutes {
+-(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes {
 	if(self == nil) { return nil; }
-	return [self dateByAddingTimeInterval:(kCWSecondsIn1Minute * minutes)];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	[components setMinute:minutes];
+	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];	
+	return date;
 }
 
 /**
@@ -52,9 +51,12 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @param hours a NSInteger with the number of hours you want the new date object to advance by
  @return a new NSDate object advanced forward by n hours
  */
--(NSDate *)cw_dateByAddingHours:(NSUInteger)hours {
+-(NSDate *)cw_dateByAddingHours:(NSInteger)hours {
 	if(self == nil) { return nil; }
-	return [self dateByAddingTimeInterval:(kCWSecondsIn1Hour * hours)];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	[components setHour:hours];
+	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+	return date;
 }
 
 /**
@@ -63,9 +65,12 @@ static const NSTimeInterval kCWSecondsIn1Day = 86400;
  @param days a NSInteger with the number of days you want the new date object to advance by
  @return a new NSDate object advanced forward by n days
  */
--(NSDate *)cw_dateByAddingDays:(NSUInteger)days {
+-(NSDate *)cw_dateByAddingDays:(NSInteger)days {
 	if(self == nil) { return nil; }
-	return [self dateByAddingTimeInterval:(kCWSecondsIn1Day * days)];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	[components setDay:days];
+	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+	return date;
 }
 
 @end

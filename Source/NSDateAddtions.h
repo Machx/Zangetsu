@@ -32,10 +32,10 @@
 
 @interface NSDate (CWNSDateAddtions)
 
--(NSDate *)cw_dateByAddingMinutes:(NSUInteger)minutes;
+-(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes;
 
--(NSDate *)cw_dateByAddingHours:(NSUInteger)hours;
+-(NSDate *)cw_dateByAddingHours:(NSInteger)hours;
 
--(NSDate *)cw_dateByAddingDays:(NSUInteger)days;
+-(NSDate *)cw_dateByAddingDays:(NSInteger)days;
 
 @end
