@@ -37,11 +37,17 @@
  @param minutes a NSInteger with the number of minutes you want the new date object to advance by
  @return a new NSDate object advanced forward by n minutes
  */
--(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes {
+-(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes usingCalendar:(NSCalendar *)dateCal{
 	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setMinute:minutes];
-	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];	
+	NSCalendar *calendar = nil;
+	if (dateCal == nil) {
+		calendar = [NSCalendar currentCalendar];
+	} else {
+		calendar = dateCal;
+	}
+	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];	
 	return date;
 }
 
@@ -51,11 +57,17 @@
  @param hours a NSInteger with the number of hours you want the new date object to advance by
  @return a new NSDate object advanced forward by n hours
  */
--(NSDate *)cw_dateByAddingHours:(NSInteger)hours {
+-(NSDate *)cw_dateByAddingHours:(NSInteger)hours usingCalendar:(NSCalendar *)dateCal{
 	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setHour:hours];
-	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+	NSCalendar *calendar = nil;
+	if (dateCal == nil) {
+		calendar = [NSCalendar currentCalendar];
+	} else {
+		calendar = dateCal;
+	}
+	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }
 
@@ -65,11 +77,17 @@
  @param days a NSInteger with the number of days you want the new date object to advance by
  @return a new NSDate object advanced forward by n days
  */
--(NSDate *)cw_dateByAddingDays:(NSInteger)days {
+-(NSDate *)cw_dateByAddingDays:(NSInteger)days usingCalendar:(NSCalendar *)dateCal {
 	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setDay:days];
-	NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+	NSCalendar *calendar = nil;
+	if (dateCal == nil) {
+		calendar = [NSCalendar currentCalendar];
+	} else {
+		calendar = dateCal;
+	}
+	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }
 
