@@ -36,7 +36,7 @@
 	
 	NSDate *now = [NSDate date];
 	
-	NSDate *minutesFromNow1 = [now cw_dateByAddingMinutes:3];
+	NSDate *minutesFromNow1 = [now cw_dateByAddingMinutes:3 usingCalendar:nil];
 	NSDate *minutesFromNow2 = [now dateByAddingTimeInterval:180];
 	
 	STAssertTrue([minutesFromNow1 compare:minutesFromNow2] == NSOrderedSame, @"Dates should be the same");
@@ -46,7 +46,7 @@
 	
 	NSDate *now = [NSDate date];
 	
-	NSDate *hourFromNow1 = [now cw_dateByAddingHours:2];
+	NSDate *hourFromNow1 = [now cw_dateByAddingHours:2 usingCalendar:nil];
 	NSDate *hourFromNow2 = [now dateByAddingTimeInterval:7200];
 	
 	STAssertTrue([hourFromNow1 compare:hourFromNow2] == NSOrderedSame, @"Dates should be the same");
@@ -57,7 +57,7 @@
 	NSDate *today = [NSDate date];
 	
 	NSDate *tomorrow = [today dateByAddingTimeInterval:86400];
-	NSDate *tomorrow2 = [today cw_dateByAddingDays:1];
+	NSDate *tomorrow2 = [today cw_dateByAddingDays:1 usingCalendar:nil];
 	
 	STAssertTrue([tomorrow compare:tomorrow2] == NSOrderedSame, @"Dates should be the same");
 }
