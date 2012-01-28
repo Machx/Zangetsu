@@ -52,15 +52,15 @@
 
 @implementation CWTask
 
-@synthesize executable;
-@synthesize arguments;
-@synthesize directoryPath;
-@synthesize successCode;
-@synthesize completionBlock;
-@synthesize taskHasRun;
-@synthesize inAsynchronous;
-@synthesize cwTask;
-@synthesize pipe;
+@synthesize executable = _executable;
+@synthesize arguments = _arguments;
+@synthesize directoryPath = _directoryPath;
+@synthesize successCode = _successCode;
+@synthesize completionBlock = _completionBlock;
+@synthesize taskHasRun = _taskHasRun;
+@synthesize inAsynchronous = _inAsynchronous;
+@synthesize cwTask = _cwTask;
+@synthesize pipe = _pipe;
 
 //MARK: -
 //MARK: Public API
@@ -78,13 +78,13 @@
    atDirectory:(NSString *)path {
     self = [super init];
     if (self) {
-        executable = exec;
-        arguments = execArgs;
-        directoryPath = path;
-        successCode = kCWTaskNotLaunched;
-        taskHasRun = NO;
-        inAsynchronous = NO;
-        cwTask = [[NSTask alloc] init];
+        _executable = exec;
+        _arguments = execArgs;
+        _directoryPath = path;
+        _successCode = kCWTaskNotLaunched;
+        _taskHasRun = NO;
+        _inAsynchronous = NO;
+        _cwTask = [[NSTask alloc] init];
     }
     return self;
 }
@@ -100,13 +100,13 @@
 - (id) init {
     self = [super init];
     if (self) {
-        executable = nil;
-        arguments = nil;
-        directoryPath = nil;
-        successCode = kCWTaskNotLaunched;
-        taskHasRun = NO;
-        inAsynchronous = NO;
-        cwTask = nil;
+        _executable = nil;
+        _arguments = nil;
+        _directoryPath = nil;
+        _successCode = kCWTaskNotLaunched;
+        _taskHasRun = NO;
+        _inAsynchronous = NO;
+        _cwTask = nil;
     }
     return self;
 }
@@ -116,7 +116,7 @@
  */
 - (NSString *) description {
     NSString * desc = [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
-                       executable, arguments, directoryPath];
+                       _executable, _arguments, _directoryPath];
 
     return desc;
 }
@@ -128,11 +128,11 @@
     [[self cwTask] setLaunchPath:[self executable]];
 	[self setPipe:[NSPipe pipe]];
     [[self cwTask] setStandardOutput:[self pipe]];
-    if ([arguments count] > 0) {
-        [cwTask setArguments:[self arguments]];
+    if ([_arguments count] > 0) {
+        [_cwTask setArguments:[self arguments]];
     }
     if ([self directoryPath]) {
-        [cwTask setCurrentDirectoryPath:[self directoryPath]];
+        [_cwTask setCurrentDirectoryPath:[self directoryPath]];
     }
 }
 
@@ -242,7 +242,7 @@
     NSString * taskOutput = nil;
 
     @try {
-        [cwTask launch];
+        [_cwTask launch];
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
@@ -263,8 +263,8 @@
  * @param error a NSError object to be written to if something fails
  */
 - (void) _performPostRunActionsIfApplicable {
-    if (![cwTask isRunning]) {
-		[self setSuccessCode:[cwTask terminationStatus]];
+    if (![_cwTask isRunning]) {
+		[self setSuccessCode:[_cwTask terminationStatus]];
     }
     if (([self inAsynchronous] == NO) && [self completionBlock]) {
 		[self completionBlock];
