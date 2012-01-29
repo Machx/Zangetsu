@@ -36,12 +36,12 @@
 
 @implementation CWStack
 
-@synthesize stack;
+@synthesize stack = _stack;
 
 - (id)init {
     self = [super init];
     if (self) {
-		stack = [[NSMutableArray alloc] init];
+		_stack = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -57,9 +57,9 @@
 -(id)initWithObjectsFromArray:(NSArray *)objects {
 	self = [super init];
 	if (self) {
-		stack = [[NSMutableArray alloc] init];
+		_stack = [[NSMutableArray alloc] init];
 		if ([objects count] > 0) {
-			[stack addObjectsFromArray:objects];
+			[_stack addObjectsFromArray:objects];
 		}
 	}
 	return self;

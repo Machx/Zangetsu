@@ -31,18 +31,18 @@
 
 @implementation CWBTreeNode
 
-@synthesize value;
-@synthesize parent;
-@synthesize leftNode;
-@synthesize rightNode;
+@synthesize value = _value;
+@synthesize parent = _parent;
+@synthesize leftNode = _leftNode;
+@synthesize rightNode = _rightNode;
 
 -(id)initWithValue:(id)aValue {
     self = [super init];
     if (self) {
-        value = aValue;
-        parent = nil;
-        leftNode = nil;
-        rightNode = nil;
+        _value = aValue;
+        _parent = nil;
+        _leftNode = nil;
+        _rightNode = nil;
     }
     
     return self;
@@ -70,7 +70,7 @@
 -(void)setLeftNode:(CWBTreeNode *)node {
     if (![node isEqual:self]) {
 		if (node) { [node setParent:self]; }
-		leftNode = node;
+		_leftNode = node;
     }
 }
 
@@ -80,7 +80,7 @@
 -(void)setRightNode:(CWBTreeNode *)node {
     if (![node isEqual:self]) {
 		if (node) { [node setParent:self]; }
-		rightNode = node;
+		_rightNode = node;
     }
 }
 
@@ -107,7 +107,7 @@
 
 @implementation CWBTree
 
-@synthesize rootNode;
+@synthesize rootNode = _rootNode;
 
 /**
  initialzes a CWBTree with the root node set to nil
@@ -117,7 +117,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        rootNode = nil;
+        _rootNode = nil;
     }
     return self;
 }
@@ -136,7 +136,7 @@
     if (self) {
         if (value) {
             CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:value];
-            rootNode = node;
+            _rootNode = node;
         }
     }
     return self;

@@ -35,10 +35,10 @@
 
 @implementation CWTreeNode
 
-@synthesize value;
-@synthesize children;
-@synthesize parent;
-@synthesize allowsDuplicates;
+@synthesize value = _value;
+@synthesize children = _children;
+@synthesize parent = _parent;
+@synthesize allowsDuplicates = _allowsDuplicates;
 
 /**
  Initializes and creates a new CWTreenode Object
@@ -48,10 +48,10 @@
 -(id)init {
     self = [super init];
     if (self) {
-        value = nil;
-        children = [[NSMutableArray alloc] init];
-        parent = nil;
-        allowsDuplicates = YES;
+        _value = nil;
+        _children = [[NSMutableArray alloc] init];
+        _parent = nil;
+        _allowsDuplicates = YES;
     }
     return self;
 }
@@ -67,9 +67,9 @@
 -(id)initWithValue:(id)aValue {
     self = [super init];
     if (self) {
-        value = aValue;
-        children = [[NSMutableArray alloc] init];
-        parent = nil;
+        _value = aValue;
+        _children = [[NSMutableArray alloc] init];
+        _parent = nil;
     }
     return self;
 }
@@ -80,12 +80,12 @@
  @return a NSString with debug information on the receiving CWTreeNode Object
  */
 -(NSString *)description {
-	NSString *allowsDupes = CWBOOLString(self->allowsDuplicates);
+	NSString *allowsDupes = CWBOOLString([self allowsDuplicates]);
 	NSString *desc = [NSString stringWithFormat:@"%@ Node\nValue: %@\nParent: %@\nChildren: %@\nAllows Duplicates: %@",
 					  NSStringFromClass([self class]),
-					  [self->value description],
-					  [self->parent description],
-					  [self->children description],
+					  [[self value] description],
+					  [[self parent] description],
+					  [[self children] description],
 					  allowsDupes];
 	
 	return desc;
@@ -105,12 +105,12 @@
  */
 -(void)addChild:(CWTreeNode *)node {
 	if (node) {
-		if (self->allowsDuplicates == YES) {
+		if ([self allowsDuplicates] == YES) {
 			[node setParent:self];
 			[[self children] addObject:node];
 		}
 		else {
-			if (![self->children containsObject:node]) {
+			if (![[self children] containsObject:node]) {
 				__block BOOL anyNodeContainsValue = NO;
 				[[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 					id nodeValue = [(CWTreeNode *)obj value];

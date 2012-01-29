@@ -36,7 +36,7 @@
 
 @implementation CWQueue
 
-@synthesize queue;
+@synthesize queue = _queue;
 
 //MARK: -
 //MARK: Initiailziation
@@ -52,7 +52,7 @@
 -(id)init {
 	self = [super init];
 	if (self) {
-		queue = [[NSMutableArray alloc] init];
+		_queue = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -71,9 +71,9 @@
 	self = [super init];
 	if (self) {
 		if ([array count] > 0) {
-			queue = [[NSMutableArray alloc] initWithArray:array];
+			_queue = [[NSMutableArray alloc] initWithArray:array];
 		} else {
-			queue = [[NSMutableArray alloc] init];
+			_queue = [[NSMutableArray alloc] init];
 		}
 	}
 	return self;
