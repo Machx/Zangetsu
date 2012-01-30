@@ -71,3 +71,4 @@
 #import "NSMutableURLRequestAdditions.h"
 #import "NSRecursiveLockAdditions.h"
 #import "NSManagedObjectContextAdditions.h"
+#import "NSColorAdditions.h"
