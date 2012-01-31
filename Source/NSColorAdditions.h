@@ -31,6 +31,6 @@
 
 @interface NSColor (CWNSColorAdditions)
 
--(CGColorRef)cw_cgColor CF_RETURNS_RETAINED; //otherwise the SA complains about the return object possibly leaking
+-(CGColorRef)cw_cgColor CF_RETURNS_RETAINED;
 
 @end
