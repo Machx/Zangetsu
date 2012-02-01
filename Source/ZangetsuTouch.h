@@ -46,7 +46,7 @@
 #import "CWCoreDataCenter.h"
 #import "NSManagedObjectAdditions.h"
 #import "CWExceptionUtilities.h"
-#import "CWURLUtilities.h" //IN_PROGRESS_IOS (base64 imp)
+#import "CWURLUtilities.h"
 #import "CWRuntimeUtilities.h"
 #import "CWReachability.h"
 #import "NSDateAddtions.h"
@@ -62,10 +62,12 @@
 #import "NSManagedObjectContextAdditions.h"
 #import "CWSystemInfoIOS.h"
 
-// NO_COMPILE_IOS
-//#import "CWTask.h" // NO_NSTASK_IOS
-//#import "CWApplicationRegistry.h" //NO_NSWORKSPACE_IOS
-//#import "CWSystemInfo.h" //use CWSystemInfoIOS
-//#import "CWBase64.h" //uses sectransform which doesn't exist on iOS (need iOS specific version)
-//#import "CWZLib.h" //uses sectransform which doesn't exist on iOS (need iOS specific version)
-//#import "NSMutableURLRequestAdditions.h" //only 1 api and it uses base 64 encoding in CWBase64
+/**
+ What will never work on iOS
+ CWTask - Wraps around NSTask & isn't availble on iOS
+ 
+ What needs work to get working on iOS
+ CWBase64 - on OS X We tapped into SecTransform to do this work and its unavailable on iOS
+ CWZlib - See above with CWBase64
+ NSMutableURLRequestAdditions - dependent on CWBase64 to achieve its functionality for Base64 encoding
+ */
