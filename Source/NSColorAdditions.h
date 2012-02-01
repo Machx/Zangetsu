@@ -30,7 +30,5 @@
 #import <AppKit/AppKit.h>
 
 @interface NSColor (CWNSColorAdditions)
-
 -(CGColorRef)cw_cgColor CF_RETURNS_RETAINED;
-
 @end
