@@ -56,8 +56,6 @@
  @param stop (Block Parameter) set this to YES to stop enumeration, otherwise there is no need to use this
  */
 - (void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
-	if ((self == nil) || ([self count] == 0)) { return; }
-	
 	NSUInteger i = 0;
 	BOOL shouldStop = NO;
 	
@@ -80,8 +78,6 @@
  @param stop (Block Parameter) if you need to stop the enumeration set this to YES otherwise do nothing
  */
 - (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
-	if ((self == nil) || ([self count] == 0)) { return; }
-	
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     __block BOOL _stop = NO;
@@ -104,14 +100,11 @@
  * via a block (returning a bool) you are looking for
  */
 - (id) cw_findWithBlock:(BOOL (^)(id obj))block {
-	if (self == nil || [self count] == 0) { return nil; }
-	
     for (id obj in self) {
         if (block(obj)) {
             return obj;
         }
     }
-
     return nil;
 }
 
@@ -119,13 +112,11 @@
  * Exactly like cw_findWithBlock except it returns a BOOL
  */
 - (BOOL) cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block {
-	if (self == nil || [self count] == 0) { return NO; }
     for (id obj in self) {
         if (block(obj)) {
             return YES;
         }
     }
-
     return NO;
 }
 
@@ -135,16 +126,12 @@
  * bool block test
  */
 - (NSArray *) cw_findAllWithBlock:(BOOL (^)(id obj))block {
-	if (self == nil || [self count] == 0) { return nil; }
-	
     NSMutableArray * results = [[NSMutableArray alloc] init];
-
     for (id obj in self) {
         if (block(obj)) {
             [results addObject:obj];
         }
     }
-
     return results;
 }
 
@@ -158,16 +145,12 @@
  * structure this is as good as I can do for now
  */
 - (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
-	if (self == nil || [self count] == 0) { return nil; }
-	
     NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
-
     for (id obj in self) {
         if (block(obj)) {
             [results addObject:obj];
         }
     }
-
     return results;
 }
 #endif
@@ -183,17 +166,13 @@
  * @return a new mapped array
  */
 - (NSArray *) cw_mapArray:(id (^)(id obj))block {
-	if (self == nil || [self count] == 0) { return nil; }
-	
     NSMutableArray * cwArray = [[NSMutableArray alloc] init];
-
     for (id obj in self) {
         id rObj = block(obj);
         if (rObj) {
             [cwArray addObject:rObj];
         }
     }
-
     return cwArray;
 }
 

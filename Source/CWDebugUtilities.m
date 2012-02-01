@@ -102,17 +102,12 @@ void CWInDebugOnly(void(^DebugBlock)(void)) {
  */
 uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
 	uint64_t start = mach_absolute_time();
-	
 	TimeBlock();
-	
 	uint64_t end = mach_absolute_time();
-	
 	uint64_t elapsed = end - start;
-	
 	mach_timebase_info_data_t info;
 	mach_timebase_info(&info);
 	uint64_t nanoSeconds = elapsed * info.numer / info.denom;
-	
 	return nanoSeconds;
 }
 

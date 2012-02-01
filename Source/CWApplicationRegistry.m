@@ -51,7 +51,6 @@
 			*stop = YES;
 		}
 	}];
-	
 	return isRunning;
 }
 
@@ -76,7 +75,6 @@
 			pid = [app processIdentifier];
 		}
 	}];
-	
 	return pid;
 }
 
@@ -99,7 +97,6 @@
 			bundleIdentifier = [app bundleIdentifier];
 		}
 	}];
-	
 	return bundleIdentifier;
 }
 
@@ -124,7 +121,6 @@
 			architecture = [app executableArchitecture];
 		}
 	}];
-    
     return  architecture;
 }
 
@@ -148,7 +144,6 @@
 			appInstance = app;
 		}
 	}];
-    
     return appInstance;
 }
 

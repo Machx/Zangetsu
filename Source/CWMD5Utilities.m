@@ -36,13 +36,10 @@
  Return the MD5 value of the string passed in
  */
 +(NSString *)cw_md5HashFromString:(NSString *)str {
-	if(str == nil){ return nil; }
-	
 	const char *cStringRep = [str UTF8String];
 	unsigned char md5Hash[CC_MD5_DIGEST_LENGTH];
 	
 	CC_MD5(cStringRep, (CC_LONG)strlen(cStringRep), md5Hash);
-	
 	NSString *md5HashString = [NSString  stringWithFormat:
 							   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
 							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],
@@ -61,14 +58,11 @@
  Convience method to return the MD5 value of the contents of a NSData object given
  */
 -(NSString *)cw_md5StringFromData {
-	if((self == nil) || ([self length] <= 0)) { return nil; }
-	
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 	const char *cStringRep = [str UTF8String];
 	unsigned char md5Hash[CC_MD5_DIGEST_LENGTH];
 	
 	CC_MD5(cStringRep, (CC_LONG)strlen(cStringRep), md5Hash);
-	
 	NSString *md5HashString = [NSString  stringWithFormat:
 							   @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
 							   md5Hash[0], md5Hash[1], md5Hash[2], md5Hash[3], md5Hash[4],

@@ -36,8 +36,6 @@
  Ruby inspired iterator
  */
 -(void)cw_each:(void (^)(id obj, BOOL *stop))block {
-	if ((self == nil) || ([self count] == 0)) { return; }
-	
 	__block BOOL stop = NO;
 	
 	for (id obj in self) {
@@ -50,7 +48,6 @@
  Experimental each method that runs concurrently
  */
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block {
-	if ((self == nil) || ([self count] == 0)) { return; }
 	
 	dispatch_group_t group = dispatch_group_create();
 	dispatch_queue_t queue = dispatch_queue_create("com.zangetsu.nssetadditions_conncurrenteach", 0);
@@ -76,14 +73,11 @@
  a NSSet using a block
  */
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
-	if ((self == nil) || ([self count] == 0)) { return nil; }
-	
 	for(id obj in self){
 		if(block(obj)){
 			return obj;
 		}
 	}
-	
 	return nil;
 }
 
@@ -91,14 +85,11 @@
  Exactly like cw_findWithBlock except it returns a BOOL
  */
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block {
-	if ((self == nil) || ([self count] == 0)) { return NO; }
-	
 	for (id obj in self) {
 		if (block(obj)) {
 			return YES;
 		}
 	}
-	
 	return NO;
 }
 
@@ -107,16 +98,12 @@
  all objects passing the test of the bool block
  */
 -(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
-	if ((self == nil) || ([self count] == 0)) { return nil; }
-	
 	NSMutableSet *results = [[NSMutableSet alloc] init];
-	
 	for (id obj in self) {
 		if (block(obj)) {
 			[results addObject:obj];
 		}
 	}
-	
 	return results;
 }
 
@@ -127,16 +114,12 @@
  all objects passing the test of the bool block
  */
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
-	if ((self == nil) || ([self count] == 0)) { return nil; }
-	
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
-	
 	for (id obj in self) {
 		if (block(obj)) {
 			[results addObject:obj];
 		}
 	}
-
 	return results;
 }
 #endif
@@ -152,17 +135,13 @@
  @return a NSSet of objects that have been mapped from an original NSSet
  */
 -(NSSet *)cw_mapSet:(id (^)(id obj))block {
-	if ((self == nil) || ([self count] == 0)) { return nil; }
-	
 	NSMutableSet *cwArray = [[NSMutableSet alloc] init];
-
     for (id obj in self) {
         id rObj = block(obj);
         if(rObj){
             [cwArray addObject:rObj];
         }
     }
-
     return cwArray;
 }
 

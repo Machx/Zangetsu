@@ -24,13 +24,9 @@
 
 
 @interface NSString (CWSHA1Utilities)
-
 +(NSString *)cw_sha1HashFromString:(NSString *)str;
-
 @end
 
 @interface NSData (CWSHA1Utilities)
-
 -(NSString *)cw_sha1StringFromData;
-
 @end

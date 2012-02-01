@@ -65,7 +65,6 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
     if (!_path) {
         return nil;
     }
-    
     NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
 
     return [NSString stringWithFormat:@"%@/%@", _path, _appName];
@@ -82,13 +81,11 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  */
 + (NSString *) documentsFolderPathForFile:(NSString *)file {
     NSParameterAssert(file);
-    
     NSString *_path = nil;
     _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
     if (!_path) {
         return nil;
     }
-    
     return [NSString stringWithFormat:@"%@/%@",_path,file];
 }
 
@@ -107,9 +104,7 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
     if (!_appSupportPath) {
         return nil;
     }
-
     NSString * _result = [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];
-
     return _result;
 }
 
@@ -123,7 +118,6 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  */
 + (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath {
     NSString * _homeFolder = NSHomeDirectory();
-
     return [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
 }
 
@@ -137,12 +131,9 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  */
 +(NSString *)temporaryFilePath {
 	NSString *temporaryFilePath = nil;
-	
 	NSString *basePath = NSTemporaryDirectory();
 	NSString *file = [NSString stringWithFormat:@"%@.temp",[NSString cw_uuidString]];
-	
 	temporaryFilePath = [NSString stringWithFormat:@"%@%@", basePath, file];
-	
 	return temporaryFilePath;
 }
 

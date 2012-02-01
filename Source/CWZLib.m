@@ -33,8 +33,6 @@
 @implementation NSData (CWZLib)
 
 -(NSData *)cw_zLibCompress {
-    if(self == nil) { return nil; }
-    
     SecTransformRef encoder;
     CFErrorRef error = NULL;
     
@@ -77,8 +75,6 @@
 }
 
 -(NSData *)cw_zLibDecompress {
-    if(self == nil) { return nil; }
-    
     SecTransformRef decoder = NULL;
     CFErrorRef error = NULL;
     

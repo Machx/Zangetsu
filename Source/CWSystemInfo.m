@@ -83,11 +83,9 @@
 + (NSInteger) numberOfCPUCores {
     NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
-
     if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
         return 1;
     }
-
     return coreCount;
 }
 
@@ -98,11 +96,9 @@
  */
 +(NSInteger) processorSpeed {
 	SInt32 speed;
-	
 	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
 		return (NSInteger)speed;
 	}
-	
 	return 0;
 }
 
@@ -116,11 +112,9 @@
  */
 + (NSInteger) physicalRamSize {
     SInt32 kamount;
-
     if (Gestalt(gestaltPhysicalRAMSizeInMegabytes, &kamount) == noErr) {
         return (NSInteger)kamount;
     }
-
     return 0;
 }
 
@@ -133,14 +127,10 @@
  */
 + (NSInteger) logicalRamSize {
     SInt32 kamount;
-
     if (Gestalt(gestaltLogicalRAMSize, &kamount) == noErr) {
-
         NSInteger amount = (((NSInteger)kamount / 1024) / 1024);
-
         return amount;
     }
-
     return 0;
 }
 

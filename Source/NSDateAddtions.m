@@ -38,7 +38,6 @@
  @return a new NSDate object advanced forward by n minutes
  */
 -(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes usingCalendar:(NSCalendar *)dateCal{
-	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setMinute:minutes];
 	NSCalendar *calendar = nil;
@@ -58,7 +57,6 @@
  @return a new NSDate object advanced forward by n hours
  */
 -(NSDate *)cw_dateByAddingHours:(NSInteger)hours usingCalendar:(NSCalendar *)dateCal{
-	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setHour:hours];
 	NSCalendar *calendar = nil;
@@ -78,7 +76,6 @@
  @return a new NSDate object advanced forward by n days
  */
 -(NSDate *)cw_dateByAddingDays:(NSInteger)days usingCalendar:(NSCalendar *)dateCal {
-	if(self == nil) { return nil; }
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setDay:days];
 	NSCalendar *calendar = nil;

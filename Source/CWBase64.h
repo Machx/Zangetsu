@@ -30,9 +30,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (CWBase64Encoding)
-
 - (NSString *)cw_base64EncodedString;
-
 - (NSString *)cw_base64DecodedString;
-
 @end

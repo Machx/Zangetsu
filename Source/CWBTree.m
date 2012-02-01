@@ -160,7 +160,6 @@
     [nodes push:[self rootNode]];
     
     CWBTreeNode *currentNode = nil;
-    
     while (![nodes isEmpty]) {
         currentNode = [nodes pop];
         

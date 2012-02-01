@@ -47,7 +47,6 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
     NSCParameterAssert(errorCode);
 
     NSString * _domain;
-
     if (domain == nil) {
         _domain = kCWErrorDomain;
     } else {
@@ -56,9 +55,7 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
 
     va_list args;
     va_start(args, errorMessageFormat);
-
     NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
-
     va_end(args);
 
     NSDictionary * _errorDictionary = NSDICT(completeErrorMessage, NSLocalizedDescriptionKey);

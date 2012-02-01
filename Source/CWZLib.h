@@ -30,8 +30,6 @@ THE SOFTWARE.
 #import <Foundation/Foundation.h>
 
 @interface NSData (CWZLib)
-
 -(NSData *)cw_zLibCompress;
 -(NSData *)cw_zLibDecompress;
-
 @end

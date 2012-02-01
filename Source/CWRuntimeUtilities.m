@@ -53,7 +53,6 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 			return nil;
 		}
 	}
-	
 	newMethod = class_getInstanceMethod(instanceClass, newSel);
 	if(!newMethod){
 		if(*error) {
@@ -63,7 +62,6 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
 	}
 	
 	method_exchangeImplementations(originalMethod, newMethod);
-	
 	return originalMethod;
 }
 
@@ -90,7 +88,6 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 			return nil;
 		}
 	}
-	
 	newMethod = class_getClassMethod(methodClass, newSel);
 	if(!newMethod){
 		if(*error){
@@ -100,6 +97,5 @@ Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSE
 	}
 	
 	method_exchangeImplementations(originalMethod, newMethod);
-	
 	return originalMethod;
 }

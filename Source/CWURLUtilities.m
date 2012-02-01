@@ -42,13 +42,10 @@ NSURL *CWURL(NSString * urlFormat,...) {
 	
 	va_list args;
     va_start(args, urlFormat);
-	
 	NSString *urlString = [[NSString alloc] initWithFormat:urlFormat arguments:args];
-	
 	va_end(args);
 	
 	NSURL *_urlValue = [NSURL URLWithString:urlString];
-
     return _urlValue;
 }
 
@@ -66,7 +63,6 @@ NSURL *CWURL(NSString * urlFormat,...) {
  */
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	if ((login == nil) || (password == nil)) { return nil; }
-	
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
 	encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
@@ -90,11 +86,9 @@ static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities"
  */
 + (NSError *) errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
-
     if (localizedMessage) {
         return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
     }
-
     return nil;
 }
 

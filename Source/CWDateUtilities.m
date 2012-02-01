@@ -1,6 +1,5 @@
 /*
 //  CWDateUtilities.m
-//  NilTracker
 //
 //  Created by Colin Wheeler on 10/16/10.
 //  Copyright 2010. All rights reserved.

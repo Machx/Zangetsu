@@ -31,13 +31,9 @@
 
 
 @interface NSString (CWMD5Utilities)
-
 +(NSString *)cw_md5HashFromString:(NSString *)str;
-
 @end
 
 @interface NSData (CWMD5Utilities)
-
 -(NSString *)cw_md5StringFromData;
-
 @end
