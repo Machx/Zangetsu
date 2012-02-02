@@ -101,30 +101,6 @@
 }
 
 /**
- Returns the executable architecture for a running application
- 
- Searches for all the applications listed as running and if the application is
- running then it returns the apps executable architecture as a NSInteger number. This
- number will match up to one of the Mach-O Architecture constants listed in the NSBundle
- class reference.
- 
- @param appName a NSString with the name of the application whose executable architecture you want
- @return a NSInteger representing a Mach-O Architecture constant listed in NSBundles class reference
- */
-+(NSInteger)executableArchitectureForApplication:(NSString *)appName {
-    __block NSInteger architecture = 0;
-    NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		NSRunningApplication *app = (NSRunningApplication *)obj;
-		
-		if ([[app localizedName] isEqualToString:appName]) {
-			architecture = [app executableArchitecture];
-		}
-	}];
-    return  architecture;
-}
-
-/**
  Returns the NSRunningApplication instance for an App
  
  Search all the applications running and if the application is found then 
