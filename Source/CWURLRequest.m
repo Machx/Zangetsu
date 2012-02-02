@@ -52,13 +52,13 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 @implementation CWURLRequest
 
-@synthesize urlHost;
-@synthesize httpAuthorizationHeader;
-@synthesize instanceConnection;
-@synthesize connectionIsFinished;
-@synthesize receivedData;
-@synthesize connectionResponse;
-@synthesize connectionError;
+@synthesize urlHost = _urlHost;
+@synthesize httpAuthorizationHeader = _httpAuthorizationHeader;
+@synthesize instanceConnection = _instanceConnection;
+@synthesize connectionIsFinished = _connectionIsFinished;
+@synthesize receivedData = _receivedData;
+@synthesize connectionResponse = _connectionResponse;
+@synthesize connectionError = _connectionError;
 
 /**
  Designated Initializer
@@ -66,12 +66,12 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 -(id)initWithHost:(NSString *)host {
 	self = [super init];
 	if (self) {
-		urlHost = host;
-		httpAuthorizationHeader = nil;
-		instanceConnection = nil;
-		receivedData = [[NSMutableData alloc] init];
-		connectionResponse = nil;
-		connectionError = nil;
+		_urlHost = host;
+		_httpAuthorizationHeader = nil;
+		_instanceConnection = nil;
+		_receivedData = [[NSMutableData alloc] init];
+		_connectionResponse = nil;
+		_connectionError = nil;
 	}
 	return self;
 }
@@ -84,13 +84,13 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 -(id)init {
 	self = [super init];
 	if (self) {
-		urlHost = nil;
-		httpAuthorizationHeader = nil;
-		instanceConnection = nil;
-		connectionIsFinished = NO;
-		receivedData = nil;
-		connectionResponse = nil;
-		connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
+		_urlHost = nil;
+		_httpAuthorizationHeader = nil;
+		_instanceConnection = nil;
+		_connectionIsFinished = NO;
+		_receivedData = nil;
+		_connectionResponse = nil;
+		_connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
 										@"Host is nil and therefore cannot be used for a connection");
 	}
 	return self;
