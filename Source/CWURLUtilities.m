@@ -49,7 +49,6 @@ NSURL *CWURL(NSString * urlFormat,...) {
     return _urlValue;
 }
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 /**
  Creates a authorization header string like "Basic {base64encodedlogin}"
  
@@ -72,7 +71,6 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	}
 	return nil;
 }
-#endif
 
 static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 

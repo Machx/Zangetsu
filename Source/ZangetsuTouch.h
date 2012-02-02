@@ -61,13 +61,13 @@
 #import "NSRecursiveLockAdditions.h"
 #import "NSManagedObjectContextAdditions.h"
 #import "CWSystemInfoIOS.h"
+#import "CWBase64IOS.h"
+#import "NSMutableURLRequestAdditions.h"
 
 /**
  What will never work on iOS
  CWTask - Wraps around NSTask & isn't availble on iOS
  
  What needs work to get working on iOS
- CWBase64 - on OS X We tapped into SecTransform to do this work and its unavailable on iOS
- CWZlib - See above with CWBase64
- NSMutableURLRequestAdditions - dependent on CWBase64 to achieve its functionality for Base64 encoding
+ CWZlib - SecTransform needs to be implemented on iOS
  */

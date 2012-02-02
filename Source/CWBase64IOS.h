@@ -1,9 +1,9 @@
 /*
-//  URLUtilities.h
+//  CWBase64IOS.h
 //  Zangetsu
 //
-//  Created by Colin Wheeler on 2/11/11.
-//  Copyright 2011 . All rights reserved.
+//  Created by Colin Wheeler on 2/2/12.
+//  Copyright (c) 2012. All rights reserved.
 //
  
  Copyright (c) 2011 Colin Wheeler
@@ -26,15 +26,14 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-
+ 
 #import <Foundation/Foundation.h>
 
-NSURL *CWURL(NSString * urlFormat,...);
+@interface NSData (iOSBase64)
++ (id)cw_dataWithBase64EncodedString:(NSString *)string;
+- (NSString *)cw_base64EncodedString;
+@end
 
-NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password);
-
-@interface CWURLUtilities : NSObject
-
-+(NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code;
-	
+@interface NSString (iOSBase64)
+-(NSString *)cw_base64EncodedString;
 @end

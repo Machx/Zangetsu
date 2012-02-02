@@ -34,15 +34,11 @@
  */
 +(NSString *)cw_uuidString {
 	NSString *returnedString = nil;
-	
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
-	
 	returnedString = [[NSString alloc] initWithString:(__bridge NSString *)tmpString];
-	
 	CFRelease(tmpString);
 	CFRelease(uid);
-	
 	return returnedString;
 }
 
