@@ -31,9 +31,9 @@
 
 @implementation CWCoreDataCenter
 
-@synthesize managedObjectModel;
-@synthesize managedObjectContext;
-@synthesize persistentStoreCoordinator;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 +(CWCoreDataCenter *)defaultCenter {	
 	static CWCoreDataCenter *center = nil;
@@ -56,9 +56,9 @@
   andPersistentStoreCoordinator:(NSPersistentStoreCoordinator *)psc {
 	self = [super init];
 	if (self) {
-		managedObjectModel = mom;
-		managedObjectContext = moc;
-		persistentStoreCoordinator = psc;
+		_managedObjectModel = mom;
+		_managedObjectContext = moc;
+		_persistentStoreCoordinator = psc;
 	}
 	return self;
 }
