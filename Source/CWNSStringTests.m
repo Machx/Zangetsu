@@ -29,6 +29,7 @@
 
 #import "CWNSStringTests.h"
 #import <Zangetsu/Zangetsu.h>
+#import "CWAssertionMacros.h"
 
 @implementation CWNSStringTests
 
@@ -36,7 +37,7 @@
 	NSString *string1 = [NSString cw_uuidString];
 	NSString *string2 = [NSString cw_uuidString];
 	
-	STAssertTrue((![string1 isEqualToString:string2]),@"String 1 and String shouldn't be the same");
+	CWAssertNotEqualsObjects(string1, string2, @"Both Strings should be unique");
 }
 
 -(void)testEmptyStringMethod {
@@ -65,7 +66,7 @@
 	NSString *testCharString = @"%";
 	NSString *escapedString = [testCharString cw_escapeEntitiesForURL];
 	
-	STAssertTrue([escapedString isEqualToString:@"%25"], @"Strings should equal if escaped properly");
+	CWAssertEqualsStrings(escapedString, @"%25");
 }
 
 -(void)testEnumerateSubStrings {
