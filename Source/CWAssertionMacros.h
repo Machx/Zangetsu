@@ -36,7 +36,7 @@ THE SOFTWARE.
 do { \
 	id object1 = o1; \
 	id object2 = o2; \
-	if([object1 isEqualTo:object2] || \
+	if([object1 isEqual:object2] || \
 		(object1 == object2)) { \
 			STFail(description, ##__VA_ARGS__); \
 	} \
