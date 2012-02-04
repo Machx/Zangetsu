@@ -42,10 +42,9 @@ do { \
 	} \
 }while(0)
 		
-#define CWAssertEqualsStrings(object, string) \
+#define CWAssertEqualsStrings(string1, string2) \
 do { \
-	NSString *_aString = (NSString *)object; \
-	if(![_aString isEqualToString:string]) { \
-		STFail(@"The Object %s is not equal to the string '%@'", #object , string); \
+	if(![string1 isEqualToString:string2]) { \
+		STFail(@"The string '%s' is not equal to the string '%s'", #string1 , #string2); \
 	} \
 }while(0)
