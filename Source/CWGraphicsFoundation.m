@@ -55,15 +55,15 @@ void CWAddRoundedRectToPath(CGContextRef context,
 						  CGRect rect,
 						  float ovalWidth,
 						  float ovalHeight) {
-    float fw, fh;
 	
     if (ovalWidth == 0 || ovalHeight == 0) {
         CGContextAddRect(context, rect);
         return;
     }
 	
-    CGContextSaveGState(context);
-	{
+	CWSaveAndRestoreContextState(context, ^{
+		float fw, fh;
+		
 		CGContextTranslateCTM (context, CGRectGetMinX(rect),CGRectGetMinY(rect));
 		CGContextScaleCTM (context, ovalWidth, ovalHeight);
 		
@@ -76,8 +76,7 @@ void CWAddRoundedRectToPath(CGContextRef context,
 		CGContextAddArcToPoint(context, 0, 0, fw/2, 0, 1);
 		CGContextAddArcToPoint(context, fw, 0, fw, fh/2, 1);
 		CGContextClosePath(context);
-	}
-    CGContextRestoreGState(context);
+	});
 }
 
 void CWSaveAndRestoreContextState(CGContextRef ctx, void(^block)(void)) {
