@@ -61,7 +61,7 @@ void CWAddRoundedRectToPath(CGContextRef context,
         return;
     }
 	
-	CWSaveAndRestoreContextState(context, ^{
+	CWSaveAndRestoreCGContextState(context, ^{
 		float fw, fh;
 		
 		CGContextTranslateCTM (context, CGRectGetMinX(rect),CGRectGetMinY(rect));
@@ -79,7 +79,7 @@ void CWAddRoundedRectToPath(CGContextRef context,
 	});
 }
 
-void CWSaveAndRestoreContextState(CGContextRef ctx, void(^block)(void)) {
+void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
 	CGContextSaveGState(ctx);
 	block();
 	CGContextRestoreGState(ctx);
