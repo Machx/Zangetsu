@@ -44,3 +44,5 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 								   float ovalHeight);
 
 void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
+
+CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);

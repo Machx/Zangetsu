@@ -84,3 +84,20 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
 	block();
 	CGContextRestoreGState(ctx);
 }
+
+CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
+{
+	CGColorSpaceRef colorSpace;
+	BOOL spaceCreated = NO;
+	if (cspace != NULL) {
+		colorSpace = cspace;
+	} else {
+		colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+		spaceCreated = YES;
+	}
+	CGFloat components[4];
+	components[0] = r; components[1] = g; components[2] = b; components[3] = a;
+	CGColorRef colorRef = CGColorCreate(colorSpace, components);
+	if (spaceCreated == YES) { CGColorSpaceRelease(colorSpace); }
+	return colorRef;
+}
