@@ -79,12 +79,28 @@ void CWAddRoundedRectToPath(CGContextRef context,
 	});
 }
 
+/**
+ Saves the CGContext state, executes the block and then restores the context State.
+ 
+ @param ctx a CGContextRef you wish to operate on
+ @param block a block containing code you wish to execute between saving & restoring the CGContextRef state
+ */
 void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
 	CGContextSaveGState(ctx);
 	block();
 	CGContextRestoreGState(ctx);
 }
 
+/**
+ Easy way to Create a CGColorRef
+ 
+ @param r a CGFloat representing the red component of the CGColorRef
+ @param g a CGFloat representing the blue component of the CGColorRef
+ @param b a CGFloat representing the green component of the CGColorRef
+ @param a a CGFloat representing the alpha component of the CGColorRef
+ @param cspace the CGColorSpaceRef you want the CGColorRef to be created with or NULL if you want to use kCGColorSpaceGenericRGB
+ @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it
+ */
 CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
 {
 	CGColorSpaceRef colorSpace;
