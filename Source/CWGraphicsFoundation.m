@@ -98,7 +98,7 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
  @param g a CGFloat representing the blue component of the CGColorRef
  @param b a CGFloat representing the green component of the CGColorRef
  @param a a CGFloat representing the alpha component of the CGColorRef
- @param cspace the CGColorSpaceRef you want the CGColorRef to be created with or NULL if you want to use kCGColorSpaceGenericRGB
+ @param cspace the CGColorSpaceRef you want the CGColorRef to be created with or NULL if you want to use CGColorSpaceCreateDeviceRGB()
  @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it
  */
 CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
@@ -108,7 +108,7 @@ CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSp
 	if (cspace != NULL) {
 		colorSpace = cspace;
 	} else {
-		colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+		colorSpace = CGColorSpaceCreateDeviceRGB();
 		spaceCreated = YES;
 	}
 	CGFloat components[4];
