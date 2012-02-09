@@ -34,6 +34,8 @@ THE SOFTWARE.
 #import <UIKit/UIKit.h>
 #endif
 
+#define CWCGColorFloat(_x_) (_x_ / 255)
+
 CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);
 
 extern CGContextRef CWCurrentCGContext();
