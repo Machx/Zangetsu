@@ -53,4 +53,6 @@ CGColorRef CWCGColorLightGray(CGFloat alpha) CF_RETURNS_RETAINED;
 
 CGColorRef CWCGColorGray(CGFloat alpha) CF_RETURNS_RETAINED;
 
+CGColorRef CWCGColorDarkGray(CGFloat alpha) CF_RETURNS_RETAINED;
+
 CGColorRef CWCGColorBlue(CGFloat alpha) CF_RETURNS_RETAINED;

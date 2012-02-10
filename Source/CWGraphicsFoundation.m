@@ -122,6 +122,12 @@ CGColorRef CWCGColorGray(CGFloat alpha)
 	return CGColorCreateGenericRGB(kGrayValue, kGrayValue, kGrayValue, alpha);
 }
 
+CGColorRef CWCGColorDarkGray(CGFloat alpha)
+{
+	const CGFloat kDarkGrayValue = CWCGColorFloat(105);
+	return CGColorCreateGenericRGB(kDarkGrayValue, kDarkGrayValue, kDarkGrayValue, alpha);
+}
+
 CGColorRef CWCGColorBlue(CGFloat alpha)
 {
 	return CGColorCreateGenericRGB(0.0, 0.0, 1.0, alpha);
