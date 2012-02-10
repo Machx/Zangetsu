@@ -29,15 +29,6 @@ THE SOFTWARE.
 
 #import "CWGraphicsFoundation.h"
 
-CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) 
-{
-	CGRect centeredRect;
-	centeredRect.size = smallRect.size;
-	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) / 2.0;
-	centeredRect.origin.y = (largeRect.size.height - smallRect.size.height) / 2.0;
-	return centeredRect;
-}
-
 /**
  Easy way to return the CGContextRef inside a NSView
  */
@@ -48,6 +39,15 @@ inline CGContextRef CWCurrentCGContext()
 #else
 	return UIGraphicsGetCurrentContext();
 #endif
+}
+
+CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) 
+{
+	CGRect centeredRect;
+	centeredRect.size = smallRect.size;
+	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) * 0.5;
+	centeredRect.origin.y = (largeRect.size.height - smallRect.size.height) * 0.5;
+	return centeredRect;
 }
 
 /**
