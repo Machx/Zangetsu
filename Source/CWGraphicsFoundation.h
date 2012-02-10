@@ -36,7 +36,7 @@ THE SOFTWARE.
 
 #define CWCGColorFloat(_x_) (_x_ / 255)
 
-CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);
+extern CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);
 
 extern CGContextRef CWCurrentCGContext();
 
@@ -45,14 +45,14 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 								   float ovalWidth,
 								   float ovalHeight);
 
-void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
+extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
 
-CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);
+extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);
 
-CGColorRef CWCGColorLightGray(CGFloat alpha) CF_RETURNS_RETAINED;
+extern CGColorRef CWCGColorLightGray(CGFloat alpha) CF_RETURNS_RETAINED;
 
-CGColorRef CWCGColorGray(CGFloat alpha) CF_RETURNS_RETAINED;
+extern CGColorRef CWCGColorGray(CGFloat alpha) CF_RETURNS_RETAINED;
 
-CGColorRef CWCGColorDarkGray(CGFloat alpha) CF_RETURNS_RETAINED;
+extern CGColorRef CWCGColorDarkGray(CGFloat alpha) CF_RETURNS_RETAINED;
 
-CGColorRef CWCGColorBlue(CGFloat alpha) CF_RETURNS_RETAINED;
+extern CGColorRef CWCGColorBlue(CGFloat alpha) CF_RETURNS_RETAINED;
