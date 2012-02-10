@@ -29,7 +29,8 @@ THE SOFTWARE.
 
 #import "CWGraphicsFoundation.h"
 
-CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
+CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) 
+{
 	CGRect centeredRect;
 	centeredRect.size = smallRect.size;
 	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) / 2.0;
@@ -40,7 +41,8 @@ CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
 /**
  Easy way to return the CGContextRef inside a NSView
  */
-inline CGContextRef CWCurrentCGContext() {
+inline CGContextRef CWCurrentCGContext()
+{
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 #else
@@ -54,8 +56,8 @@ inline CGContextRef CWCurrentCGContext() {
 void CWAddRoundedRectToPath(CGContextRef context,
 						  CGRect rect,
 						  float ovalWidth,
-						  float ovalHeight) {
-	
+						  float ovalHeight) 
+{	
     if (ovalWidth == 0 || ovalHeight == 0) {
         CGContextAddRect(context, rect);
         return;
@@ -85,7 +87,8 @@ void CWAddRoundedRectToPath(CGContextRef context,
  @param ctx a CGContextRef you wish to operate on
  @param block a block containing code you wish to execute between saving & restoring the CGContextRef state
  */
-void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
+void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) 
+{
 	CGContextSaveGState(ctx);
 	block();
 	CGContextRestoreGState(ctx);
