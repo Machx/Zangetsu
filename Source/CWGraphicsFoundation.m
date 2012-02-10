@@ -116,22 +116,34 @@ CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSp
 CGColorRef CWCGColorLightGray(CGFloat alpha)
 {
 	const CGFloat kLightGrayValue = CWCGColorFloat(211);
-	return CGColorCreateGenericRGB(kLightGrayValue, kLightGrayValue, kLightGrayValue, alpha);
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGColorRef color = CWCreateCGColor(kLightGrayValue, kLightGrayValue, kLightGrayValue, alpha, space);
+	CGColorSpaceRelease(space);
+	return color;
 }
 
 CGColorRef CWCGColorGray(CGFloat alpha)
 {
 	const CGFloat kGrayValue = CWCGColorFloat(190);
-	return CGColorCreateGenericRGB(kGrayValue, kGrayValue, kGrayValue, alpha);
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGColorRef color = CWCreateCGColor(kGrayValue, kGrayValue, kGrayValue, alpha, space);
+	CGColorSpaceRelease(space);
+	return color;
 }
 
 CGColorRef CWCGColorDarkGray(CGFloat alpha)
 {
 	const CGFloat kDarkGrayValue = CWCGColorFloat(105);
-	return CGColorCreateGenericRGB(kDarkGrayValue, kDarkGrayValue, kDarkGrayValue, alpha);
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGColorRef color = CWCreateCGColor(kDarkGrayValue, kDarkGrayValue, kDarkGrayValue, alpha, space);
+	CGColorSpaceRelease(space);
+	return color;
 }
 
 CGColorRef CWCGColorBlue(CGFloat alpha)
 {
-	return CGColorCreateGenericRGB(0.0, 0.0, 1.0, alpha);
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGColorRef color = CWCreateCGColor(0.0, 0.0, 1.0, alpha, space);
+	CGColorSpaceRelease(space);
+	return color;
 }
