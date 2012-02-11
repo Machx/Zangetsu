@@ -47,7 +47,9 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 
 extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
 
-extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);
+extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a);
+
+extern CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);
 
 extern CGColorRef CWCGColorLightGray(CGFloat alpha) CF_RETURNS_RETAINED;
 

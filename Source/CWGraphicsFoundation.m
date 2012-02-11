@@ -94,6 +94,16 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
 	CGContextRestoreGState(ctx);
 }
 
+CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a)
+{
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGFloat components[4];
+	components[0] = r; components[1] = g; components[2] = b; components[3] = a;
+	CGColorRef colorRef = CGColorCreate(space, components);
+	CGColorSpaceRelease(space);
+	return colorRef;
+}
+
 /**
  Easy way to Create a CGColorRef
  
@@ -104,7 +114,7 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
  @param cspace the CGColorSpaceRef you want the CGColorRef to be created with. This cannot be NULL, if it is NULL this method returns NULL.
  @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it
  */
-CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
+CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
 {
 	if(cspace == NULL) { return NULL; }
 	CGFloat components[4];
