@@ -123,29 +123,20 @@ CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, 
 	return colorRef;
 }
 
-CGColorRef CWCGColorLightGray(CGFloat alpha)
-{
-	const CGFloat kLightGrayValue = CWCGColorFloat(211);
-	CGColorRef color = CWCreateCGColor(kLightGrayValue, kLightGrayValue, kLightGrayValue, alpha);
-	return color;
+#define CWCGColor(_name_,red,blue,green) \
+CGColorRef CWCGColor##_name_(CGFloat alpha) \
+{ \
+	CGFloat r = CWCGColorFloat(red); \
+	CGFloat g = CWCGColorFloat(green); \
+	CGFloat b = CWCGColorFloat(blue); \
+	CGFloat a = alpha; \
+	CGColorRef color = CWCreateCGColor(r,g,b,a); \
+	return color; \
 }
 
-CGColorRef CWCGColorGray(CGFloat alpha)
-{
-	const CGFloat kGrayValue = CWCGColorFloat(190);
-	CGColorRef color = CWCreateCGColor(kGrayValue, kGrayValue, kGrayValue, alpha);
-	return color;
-}
+CWCGColor(LightGray, 211, 211, 211);
+CWCGColor(Gray,190,190,190);
+CWCGColor(DarkGray,105,105,105);
+CWCGColor(Blue,0,0,255);
 
-CGColorRef CWCGColorDarkGray(CGFloat alpha)
-{
-	const CGFloat kDarkGrayValue = CWCGColorFloat(105);
-	CGColorRef color = CWCreateCGColor(kDarkGrayValue, kDarkGrayValue, kDarkGrayValue, alpha);
-	return color;
-}
-
-CGColorRef CWCGColorBlue(CGFloat alpha)
-{
-	CGColorRef color = CWCreateCGColor(0.0, 0.0, 1.0, alpha);
-	return color;
-}
+#undef CWCGColor
