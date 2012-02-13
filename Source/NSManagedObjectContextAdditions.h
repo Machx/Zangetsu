@@ -56,4 +56,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
 					  properties:(NSArray *)properties 
 				 sortDescriptors:(NSArray *)sortDescriptors
 						   error:(NSError **)error;
+
+-(NSManagedObject *)cw_newManagedObjectOfEntity:(NSString *)entityName;
+
 @end

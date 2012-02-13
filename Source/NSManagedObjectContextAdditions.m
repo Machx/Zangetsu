@@ -184,4 +184,12 @@ static void *cwmdbg;
 	return results;
 }
 
+-(NSManagedObject *)cw_newManagedObjectOfEntity:(NSString *)entityName
+{
+	if(entityName == nil) { return nil; }
+	NSEntityDescription *entityDesc = [NSEntityDescription entityForName:entityName inManagedObjectContext:self];
+	NSManagedObject *mo = [[NSManagedObject alloc] initWithEntity:entityDesc insertIntoManagedObjectContext:self];
+	return mo;
+}
+
 @end
