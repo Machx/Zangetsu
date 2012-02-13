@@ -33,4 +33,5 @@
 -(NSString *)cw_objectIDString;
 -(BOOL)cw_isUsingTemporaryObjectID;
 -(BOOL)cw_setValue:(id)value ifValidForKey:(id)key error:(NSError **)error;
+-(void)cw_setValuesForKeys:(NSDictionary *)moValues;
 @end
