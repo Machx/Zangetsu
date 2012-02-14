@@ -55,12 +55,9 @@
 
 -(void)cw_setValuesForKeys:(NSDictionary *)moValues
 {
-	NSArray *values = [moValues allValues];
-	NSArray *keys = [moValues allKeys];
-	
-	for (NSUInteger i = 0; i < [values count]; i++) {
-		[self setValue:[values objectAtIndex:i] forKey:[keys objectAtIndex:i]];
-	}
+	[moValues cw_each:^(id key, id value, BOOL *stop) {
+		[self setValue:value forKey:key];
+	}];
 }
 
 @end
