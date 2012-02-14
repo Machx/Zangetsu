@@ -271,6 +271,24 @@
     }
 }
 
+//launches queue on CWTasks private queue
+-(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block
+{
+	dispatch_queue_t queue = dispatch_queue_create("com.CWTask.taskPrivateQueue", 0);
+	[self setInAsynchronous:YES];
+	dispatch_async(queue, ^{
+		NSError * taskError;
+		NSString * resultsString = nil;
+		
+		resultsString = [self launchTask:&taskError];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block(resultsString,taskError);
+		});
+	});
+	dispatch_release(queue);
+}
+
 /**
  * adds a operation to the passed in NSOperationQueue and calls
  * -launchTask: then when it is done returns back to the main

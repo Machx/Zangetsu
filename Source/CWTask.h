@@ -64,6 +64,7 @@ static const NSInteger kCWTaskNotLaunched =           -1729;
 //Synchronous Launch Method
 -(NSString *)launchTask:(NSError **)error;
 //Experimental Asynchronous Methods
+-(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block;
 -(void)launchTaskOnQueue:(NSOperationQueue *)queue 
 		   withCompletionBlock:(void (^)(NSString *output, NSError *error))block;
 -(void)launchTaskOnGCDQueue:(dispatch_queue_t)queue
