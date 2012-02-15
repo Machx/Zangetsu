@@ -271,7 +271,13 @@
     }
 }
 
-//launches queue on CWTasks private queue
+/**
+ Launches the task on a private queue and returns the result in a completion block
+ 
+ This is exactly similar to using -launchTaskonGCDQueue except CWTask is creating the private queue to use
+ 
+ @param block the completion block to be called when the task has results to show. this must not be nil.
+ */
 -(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block
 {
 	dispatch_queue_t queue = dispatch_queue_create("com.CWTask.taskPrivateQueue", 0);
