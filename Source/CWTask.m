@@ -280,7 +280,7 @@
  */
 -(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block
 {
-	dispatch_queue_t queue = dispatch_queue_create("com.CWTask.taskPrivateQueue", 0);
+	dispatch_queue_t queue = dispatch_queue_create("com.CWTask.taskPrivateQueue", DISPATCH_QUEUE_SERIAL);
 	[self setInAsynchronous:YES];
 	dispatch_async(queue, ^{
 		NSError * taskError;
