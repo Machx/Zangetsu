@@ -94,6 +94,15 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
 	CGContextRestoreGState(ctx);
 }
 
+/**
+ Easy way to Create a CGColorRef using the Device RGB Colorspace.
+ 
+ @param r a CGFloat representing the red component of the CGColorRef
+ @param g a CGFloat representing the blue component of the CGColorRef
+ @param b a CGFloat representing the green component of the CGColorRef
+ @param a a CGFloat representing the alpha component of the CGColorRef
+ @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it
+ */
 CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a)
 {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
