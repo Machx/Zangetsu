@@ -74,8 +74,9 @@
  * @return a CWTask Object
  */
 - (id) initWithExecutable:(NSString *)exec
-   andArguments:(NSArray *)execArgs
-   atDirectory:(NSString *)path {
+			 andArguments:(NSArray *)execArgs
+			  atDirectory:(NSString *)path
+{
     self = [super init];
     if (self) {
         _executable = exec;
@@ -114,7 +115,8 @@
 /**
  * Description for debug information
  */
-- (NSString *) description {
+- (NSString *) description
+{
     NSString * desc = [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
                        _executable, _arguments, _directoryPath];
 
@@ -124,7 +126,8 @@
 /**
  * Any arguments to the task are set here
  */
-- (void) _configureTask {
+- (void) _configureTask
+{
     [[self cwTask] setLaunchPath:[self executable]];
 	[self setPipe:[NSPipe pipe]];
     [[self cwTask] setStandardOutput:[self pipe]];
@@ -143,7 +146,8 @@
  * @param error a NSError object to be written to if something fails
  * @return (BOOL) NO if the task fails any validation test, YES otherwise
  */
-- (BOOL) _validateTask:(NSError **)error {
+- (BOOL) _validateTask:(NSError **)error
+{
     if (![self _validateExecutable:error] ||
         ![self _validateDirectoryPathIfApplicable:error] ||
         ![self _validateTaskHasRun:error]) {
@@ -160,7 +164,8 @@
  * @param error a NSError object to be written to if something fails
  * @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
  */
-- (BOOL) _validateExecutable:(NSError **)error {
+- (BOOL) _validateExecutable:(NSError **)error
+{
     if (([self executable] == nil) || ![[NSFileManager defaultManager] fileExistsAtPath:[self executable]]) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable, @"Executable Path provided doesn't exist");
@@ -177,7 +182,8 @@
  * @param error a NSError object to be written to if something fails
  * @return (BOOL) YES if the directory path exists otherwise returns NO
  */
-- (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error {
+- (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error
+{
     if ([self directoryPath]) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:[self directoryPath]]) {
             if (*error) {
@@ -197,7 +203,8 @@
  * @param error a NSError object to be written to if something fails
  * @return (BOOL) YES if the task has not been run, otherwise returns NO
  */
-- (BOOL) _validateTaskHasRun:(NSError **)error {
+- (BOOL) _validateTaskHasRun:(NSError **)error
+{
     if ([self taskHasRun] == YES) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun, @"CWTask Object has already been run");
@@ -217,7 +224,8 @@
  * @param error a NSError object to be written to if something fails
  * @return a NSString with the output of the launched task if successful, otherwise the error reference is written to
  */
-- (NSString *) launchTask:(NSError **)error {
+- (NSString *) launchTask:(NSError **)error
+{
     if ([self _validateTask:error] == NO) { return nil; }
 
     NSString * resultsString = nil;
@@ -237,7 +245,8 @@
  *
  * @return a NSString object with the contents of the lauched tasks output
  */
-- (NSString *) _resultsStringFromLaunchedTask:(NSError **)error {
+- (NSString *) _resultsStringFromLaunchedTask:(NSError **)error
+{
     NSData * returnedData = nil;
     NSString * taskOutput = nil;
 
@@ -262,7 +271,8 @@
  *
  * @param error a NSError object to be written to if something fails
  */
-- (void) _performPostRunActionsIfApplicable {
+- (void) _performPostRunActionsIfApplicable
+{
     if (![_cwTask isRunning]) {
 		[self setSuccessCode:[_cwTask terminationStatus]];
     }
@@ -304,10 +314,10 @@
  * @param output passed to you in the completion block with the contents of the launched tasks output
  * @param error a NSError object with a error if something went wrong
  */
-- (void) launchTaskOnQueue:(NSOperationQueue *)queue
-   withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
+- (void) launchTaskOnQueue:(NSOperationQueue *)queue 
+	   withCompletionBlock:(void (^)(NSString * output, NSError * error))block
+{
     NSParameterAssert(queue);
-
 	[self setInAsynchronous:YES];
 
     [queue addOperationWithBlock:^{
@@ -332,9 +342,9 @@
  * @param error a NSError object with a error if something went wrong
  */
 - (void) launchTaskOnGCDQueue:(dispatch_queue_t)queue
-		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
+		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block
+{
     NSParameterAssert(queue);
-
 	[self setInAsynchronous:YES];
 
     dispatch_async(queue, ^{
