@@ -94,6 +94,16 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
 	CGContextRestoreGState(ctx);
 }
 
+void CWContextDrawLinearGradientBetweenPoints(CGContextRef context, CGPoint point1, CGPoint point2, CGFloat colora[4], CGFloat colorb[4])
+{
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGFloat components[] = { colora[0], colora[1], colora[2], colora[3], colorb[0], colorb[1], colorb[2], colorb[3] };
+	CGGradientRef gradient = CGGradientCreateWithColorComponents(space, components, NULL, 2);
+	CGContextDrawLinearGradient(context, gradient, point1, point2, 0);
+	CGGradientRelease(gradient);
+	CGColorSpaceRelease(space);
+}
+
 /**
  Easy way to Create a CGColorRef using the Device RGB Colorspace.
  
