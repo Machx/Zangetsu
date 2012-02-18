@@ -94,6 +94,15 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
 	CGContextRestoreGState(ctx);
 }
 
+/**
+ Draws a Linear gradient between 2 points using Core Graphics
+ 
+ @param context the CGContextRef the drawing is to occurr on
+ @param point1 a CGPoint, the starting point for where the gradient should be drawn
+ @param point2 a CGPoint, the ending point for where the gradient should be drawn
+ @param colora the starting Color for the gradient
+ @param colorb the ending Color for the gradient
+ */
 void CWContextDrawLinearGradientBetweenPoints(CGContextRef context, CGPoint point1, CGPoint point2, CGFloat colora[4], CGFloat colorb[4])
 {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
