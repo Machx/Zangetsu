@@ -103,10 +103,12 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
  @param colora the starting Color for the gradient
  @param colorb the ending Color for the gradient
  */
-void CWContextDrawLinearGradientBetweenPoints(CGContextRef context, CGPoint point1, CGPoint point2, CGFloat colora[4], CGFloat colorb[4])
+void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
+											  CGPoint point1, CGFloat color1[4],
+											  CGPoint point2, CGFloat color2[4])
 {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-	CGFloat components[] = { colora[0], colora[1], colora[2], colora[3], colorb[0], colorb[1], colorb[2], colorb[3] };
+	CGFloat components[] = { color1[0], color1[1], color1[2], color1[3], color2[0], color2[1], color2[2], color2[3] };
 	CGGradientRef gradient = CGGradientCreateWithColorComponents(space, components, NULL, 2);
 	CGContextDrawLinearGradient(context, gradient, point1, point2, 0);
 	CGGradientRelease(gradient);

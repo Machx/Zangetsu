@@ -47,8 +47,9 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 
 extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
 
-extern void CWContextDrawLinearGradientBetweenPoints(CGContextRef context, CGPoint point1, CGPoint point2,
-											  CGFloat colora[4], CGFloat colorb[4]);
+extern void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
+													 CGPoint point1, CGFloat color1[4],
+													 CGPoint point2, CGFloat color2[4]);
 
 extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a);
 
