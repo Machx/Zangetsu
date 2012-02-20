@@ -36,4 +36,5 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 @interface CWSystemInfoIOS : NSObject
 +(NSString *)systemVersionString;
 +(NSDictionary *)hostVersion;
++(NSInteger)cpuCoreCount;
 @end

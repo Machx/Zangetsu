@@ -28,6 +28,7 @@
  */
  
 #import "CWSystemInfoIOS.h"
+#import <sys/sysctl.h>
 
 @implementation CWSystemInfoIOS
 
@@ -62,6 +63,21 @@
 		}
 	}
 	return versionDictionary;
+}
+
+/**
+ Returns a NSInteger with the number of CPU Cores on the Device
+ 
+ @return a NSInteger representing the # of CPU Cores on the current Device
+ */
++(NSInteger)cpuCoreCount
+{
+	NSInteger coreCount = 0;
+    size_t size = sizeof(coreCount);
+    if (sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0)) {
+        return 1;
+    }
+    return coreCount;
 }
 
 @end
