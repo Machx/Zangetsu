@@ -32,7 +32,8 @@
 /**
  Convenience method for Core Foundations CFUUIDCreate() function
  */
-+(NSString *)cw_uuidString {
++(NSString *)cw_uuidString
+{
 	NSString *returnedString = nil;
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
@@ -69,7 +70,8 @@
 	dispatch_release(queue);
 }
 
--(NSString *)cw_escapeEntitiesForURL {	
+-(NSString *)cw_escapeEntitiesForURL
+{	
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
 	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
 	CFRelease(str);
@@ -79,7 +81,8 @@
 /**
  Quick test for an empty string
  */
-- (BOOL) cw_isNotEmptyString {
+- (BOOL) cw_isNotEmptyString
+{
 	return ( [self length] > 0 );
 }
 
