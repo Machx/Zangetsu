@@ -49,9 +49,12 @@
  over all the lines, synchronous
  */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                              usingBlock:(void (^)(NSString *substring))block {
+                              usingBlock:(void (^)(NSString *substring))block
+{
+	//making sure we get a uniqueue queue label
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.NSString_%@",[NSString cw_uuidString]] UTF8String];
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
 	
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
 							 options:options
@@ -63,6 +66,7 @@
 	
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 	dispatch_release(group);
+	dispatch_release(queue);
 }
 
 -(NSString *)cw_escapeEntitiesForURL {	
