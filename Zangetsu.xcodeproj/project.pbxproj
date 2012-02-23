@@ -58,6 +58,10 @@
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
+		B84C513514F696790046455E /* CWLightBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWLightBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84C513614F696790046455E /* CWLightBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWLightBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84C513714F696790046455E /* CWLightBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWLightBlockQueue.m */; };
+		B84C513814F696790046455E /* CWLightBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWLightBlockQueue.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
@@ -263,6 +267,8 @@
 		B84994A8128210D6001206E1 /* CWTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CWTask.m; path = Source/CWTask.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
+		B84C513314F696790046455E /* CWLightBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLightBlockQueue.h; path = Source/CWLightBlockQueue.h; sourceTree = "<group>"; };
+		B84C513414F696790046455E /* CWLightBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLightBlockQueue.m; path = Source/CWLightBlockQueue.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
 		B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilitiesTests.m; path = Source/CWURLUtilitiesTests.m; sourceTree = "<group>"; };
 		B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSObjectAdditions.h; path = Source/NSObjectAdditions.h; sourceTree = "<group>"; };
@@ -650,6 +656,8 @@
 				1701DA1913CC9285007EE513 /* CWTree.m */,
 				B87A7AF4145D0EDC007A4C0D /* CWQueue.h */,
 				B87A7AF5145D0EDC007A4C0D /* CWQueue.m */,
+				B84C513314F696790046455E /* CWLightBlockQueue.h */,
+				B84C513414F696790046455E /* CWLightBlockQueue.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -769,6 +777,7 @@
 				B86686A214A37B4500F8A541 /* NSManagedObjectContextAdditions.h in Headers */,
 				B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
+				B84C513514F696790046455E /* CWLightBlockQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +822,7 @@
 				B8C5B96C14C49432000E0A88 /* NSManagedObjectContextAdditions.h in Headers */,
 				B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */,
 				B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */,
+				B84C513614F696790046455E /* CWLightBlockQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1033,7 @@
 				B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */,
 				B86686A314A37B4500F8A541 /* NSManagedObjectContextAdditions.m in Sources */,
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
+				B84C513714F696790046455E /* CWLightBlockQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1074,7 @@
 				B8C5B96D14C49438000E0A88 /* NSManagedObjectContextAdditions.m in Sources */,
 				B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */,
 				B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */,
+				B84C513814F696790046455E /* CWLightBlockQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

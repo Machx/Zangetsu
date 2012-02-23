@@ -63,6 +63,7 @@
 #import "CWSystemInfoIOS.h"
 #import "CWBase64IOS.h"
 #import "NSMutableURLRequestAdditions.h"
+#import "CWLightBlockQueue.h"
 
 /**
  What will never work on iOS
