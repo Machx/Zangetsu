@@ -48,8 +48,11 @@
 +(CWLightBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block
 {
 	CWLightBlockOperation *operation = [[CWLightBlockOperation alloc] init];
-	[operation setOperationBlock:block];
-	return operation;
+	if (operation) {
+		[operation setOperationBlock:block];
+		return operation;
+	}
+	return nil;
 }
 
 @end
