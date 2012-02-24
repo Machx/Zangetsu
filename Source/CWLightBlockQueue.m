@@ -35,12 +35,14 @@
 
 @implementation CWLightBlockOperation
 @synthesize operationBlock = _operationBlock;
+@synthesize completionBlock = _completionBlock;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _operationBlock = NULL;
+		_completionBlock = NULL;
     }
     return self;
 }
@@ -78,7 +80,8 @@
     return self;
 }
 
--(id)initWithBlockOperationObjects:(NSArray *)blockOperations processImmediately:(BOOL)startImmediately
+-(id)initWithBlockOperationObjects:(NSArray *)blockOperations 
+				processImmediately:(BOOL)startImmediately
 {
 	self = [super init];
 	if (self) {
@@ -116,6 +119,9 @@
 			if (blockOp && [blockOp isMemberOfClass:[CWLightBlockOperation class]]) {
 				CWLightBlockOperation *operation = (CWLightBlockOperation *)blockOp;
 				[operation operationBlock]();
+				if ([operation completionBlock]) {
+					[operation completionBlock]();
+				}
 			} else {
 				break;
 			}
