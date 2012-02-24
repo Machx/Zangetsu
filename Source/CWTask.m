@@ -277,7 +277,7 @@
 		[self setSuccessCode:[_cwTask terminationStatus]];
     }
     if (([self inAsynchronous] == NO) && [self completionBlock]) {
-		[self completionBlock];
+		[self completionBlock]();
     }
 }
 

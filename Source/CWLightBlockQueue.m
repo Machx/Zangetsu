@@ -40,7 +40,7 @@
 {
     self = [super init];
     if (self) {
-        //
+        _operationBlock = NULL;
     }
     return self;
 }
