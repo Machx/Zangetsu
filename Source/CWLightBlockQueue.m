@@ -34,6 +34,7 @@
 @end
 
 @implementation CWLightBlockOperation
+
 @synthesize operationBlock = _operationBlock;
 @synthesize completionBlock = _completionBlock;
 
@@ -62,6 +63,7 @@
 @interface CWLightBlockQueue()
 @property(atomic,assign) BOOL shouldProcessBlocks;
 @property(atomic,retain) CWQueue *queue;
+@property(readwrite,assign) BOOL isProcessingBlocks;
 -(void)_processBlocks;
 @end
 
@@ -69,6 +71,7 @@
 
 @synthesize queue = _queue;
 @synthesize shouldProcessBlocks = _shouldProcessBlocks;
+@synthesize isProcessingBlocks = _isProcessingBlocks;
 
 - (id)init
 {
@@ -76,6 +79,7 @@
     if (self) {
         _queue = [[CWQueue alloc] init];
 		_shouldProcessBlocks = NO;
+		_isProcessingBlocks = NO;
     }
     return self;
 }
@@ -87,6 +91,7 @@
 	if (self) {
 		_queue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
 		_shouldProcessBlocks = startImmediately;
+		_isProcessingBlocks = NO;
 		if (_shouldProcessBlocks == YES) {
 			[self performSelector:@selector(_processBlocks) 
 					   withObject:nil 
@@ -113,6 +118,7 @@
 
 -(void)_processBlocks
 {
+	[self setIsProcessingBlocks:YES];
 	while ([self shouldProcessBlocks] == YES) {
 		@autoreleasepool {
 			id blockOp = [[self queue] dequeueTopObject];
@@ -123,6 +129,7 @@
 					[operation completionBlock]();
 				}
 			} else {
+				[self setIsProcessingBlocks:NO];
 				break;
 			}
 		}
