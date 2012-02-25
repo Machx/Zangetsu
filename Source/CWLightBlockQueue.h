@@ -38,5 +38,6 @@
 -(id)initWithBlockOperationObjects:(NSArray *)blockOperations processImmediately:(BOOL)startImmediately;
 -(void)startProcessingBlocks;
 -(void)stopProcessingBlocks;
+-(void)waitUntilAllBlocksHaveProcessed;
 @property(readonly,assign) BOOL isProcessingBlocks;
 @end

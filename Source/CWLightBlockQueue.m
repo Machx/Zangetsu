@@ -136,4 +136,15 @@
 	}
 }
 
+-(void)waitUntilAllBlocksHaveProcessed
+{
+	if (([[self queue] count] > 0) && [self shouldProcessBlocks]) {
+		while ([self isProcessingBlocks]) {
+			[[NSRunLoop currentRunLoop] run];
+		}
+		return;
+	}
+	CWDebugLog(@"Nothing to process...");
+}
+
 @end
