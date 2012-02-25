@@ -18,16 +18,18 @@
 	__block NSString *result = nil;
 	
 	CWLightBlockOperation *op = [CWLightBlockOperation blockOperationWithBlock:^{
-		result = [NSString stringWithString:goodResult];
-	}];
-	
-	[op setCompletionBlock:^{
-		CWAssertEqualsStrings(result, goodResult);
+		result = @"Hello World!";
+		NSLog(@"Hello World!");
 	}];
 	
 	CWLightBlockQueue *queue = [[CWLightBlockQueue alloc] initWithBlockOperationObjects:[NSArray arrayWithObject:op]
-																	 processImmediately:NO];
-	[queue startProcessingBlocks];
+																	 processImmediately:YES];
+	
+	[queue waitUntilAllBlocksHaveProcessed];
+	
+	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+	
+	CWAssertEqualsStrings(result, goodResult);
 }
 
 @end
