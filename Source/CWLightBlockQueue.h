@@ -31,7 +31,7 @@
 
 @interface CWLightBlockOperation : NSObject
 +(CWLightBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block;
-@property(atomic,copy) dispatch_block_t completionBlock;
+@property(copy) dispatch_block_t completionBlock;
 @end
 
 @interface CWLightBlockQueue : NSObject
