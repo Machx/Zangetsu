@@ -116,6 +116,15 @@
 	[self setShouldProcessBlocks:NO];
 }
 
+-(void)addOperationwithBlock:(dispatch_block_t)block
+{
+	CWLightBlockOperation *op = [CWLightBlockOperation blockOperationWithBlock:block];
+	if (op) {
+		[[self queue] addObject:op];
+		[self startProcessingBlocks];
+	}
+}
+
 -(void)_processBlocks
 {
 	[self setIsProcessingBlocks:YES];

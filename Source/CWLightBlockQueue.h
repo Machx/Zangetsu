@@ -39,5 +39,6 @@
 -(void)startProcessingBlocks;
 -(void)stopProcessingBlocks;
 -(void)waitUntilAllBlocksHaveProcessed;
+-(void)addOperationwithBlock:(dispatch_block_t)block;
 @property(readonly,assign) BOOL isProcessingBlocks;
 @end
