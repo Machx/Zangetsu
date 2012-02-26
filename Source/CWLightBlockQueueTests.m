@@ -32,4 +32,22 @@
 	CWAssertEqualsStrings(result, goodResult);
 }
 
+-(void)testAddOperationWithBlock
+{
+	NSString *goodResult = @"Hello There!";
+	__block NSString *result = nil;
+	
+	CWLightBlockQueue *queue = [[CWLightBlockQueue alloc] init];
+	
+	[queue addOperationwithBlock:^{
+		result = @"Hello There!";
+	}];
+	
+	[queue waitUntilAllBlocksHaveProcessed];
+	
+	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+	
+	CWAssertEqualsStrings(result, goodResult);
+}
+
 @end
