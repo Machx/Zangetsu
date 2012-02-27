@@ -16,7 +16,7 @@
 {
 	__block NSString *result = nil;
 	
-	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetGCDNormalPriority
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
 													   concurrent:YES
 															label:nil];
 	
@@ -24,7 +24,7 @@
 		result = @"Hello World!";
 	}];
 	
-	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+	[queue waitForQueueToFinish];
 	
 	CWAssertEqualsStrings(@"Hello World!", result);
 }
