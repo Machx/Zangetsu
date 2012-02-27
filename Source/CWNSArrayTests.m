@@ -159,10 +159,12 @@
 	
 	__block NSMutableArray *results = [[NSMutableArray alloc] init];
 	
+	NSLock *lock = [[NSLock alloc] init];
+	
 	[testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
-		@synchronized(results) {
-			[results addObject:obj];
-		}
+		[lock lock];
+		[results addObject:obj];
+		[lock unlock];
 	}];
 	
 	STAssertEqualObjects(results, testArray, @"The 2 arrays should have the same contents");
