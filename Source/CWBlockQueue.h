@@ -54,4 +54,6 @@ enum CWBlockQueueTargetType {
 -(void)addoperationWithBlock:(dispatch_block_t)block;
 -(void)addSynchronousOperation:(CWBlockOperation *)operation;
 -(void)addSynchronousOperationWithBlock:(dispatch_block_t)block;
+-(void)executeWhenQueueIsFinished:(dispatch_block_t)block;
+-(void)waitForQueueToFinish;
 @end

@@ -182,6 +182,18 @@
 	dispatch_sync([self queue], block);
 }
 
+-(void)executeWhenQueueIsFinished:(dispatch_block_t)block
+{
+	dispatch_barrier_async([self queue],block);
+}
+
+-(void)waitForQueueToFinish
+{
+	dispatch_barrier_sync([self queue], ^{
+		CWDebugLog(@"Queue %@ Finished",self);
+	});
+}
+
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {
