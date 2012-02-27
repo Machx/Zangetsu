@@ -73,3 +73,4 @@
 #import "NSManagedObjectContextAdditions.h"
 #import "NSColorAdditions.h"
 #import "CWLightBlockQueue.h"
+#import "CWBlockQueue.h"
