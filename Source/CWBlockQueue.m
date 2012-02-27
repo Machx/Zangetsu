@@ -50,8 +50,7 @@
 
 +(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block
 {
-	CWBlockOperation *operation = [[CWBlockOperation alloc] initWithBlock:block];
-	return operation;
+	return [[self alloc] initWithBlock:block];
 }
 
 @end
