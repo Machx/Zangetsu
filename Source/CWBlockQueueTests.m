@@ -29,4 +29,27 @@
 	CWAssertEqualsStrings(@"Hello World!", result);
 }
 
+-(void)testCompletionBlock
+{
+	__block NSString *result = nil;
+	
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+													   concurrent:YES 
+															label:nil];
+	
+	CWBlockOperation *operation = [CWBlockOperation operationWithBlock:^{
+		NSLog(@"Obey Hypnotoad!");
+	}];
+	
+	[operation setCompletionBlock:^{
+		result = [NSString stringWithString:@"Obey Hypnotoad!"];
+	}];
+	
+	[queue addOperation:operation];
+	
+	[queue waitForQueueToFinish];
+	
+	CWAssertEqualsStrings(@"Obey Hypnotoad!", result);
+}
+
 @end
