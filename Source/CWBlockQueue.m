@@ -91,12 +91,12 @@
 	dispatch_queue_t queue = NULL;
 	
 	if (type == kCWBlockQueueTargetPrivateQueue) {
-		dispatch_queue_attr_t isConcurrent = (concurrent) ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL;
+		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent) ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL;
 		if (label) {
-			queue = dispatch_queue_create([label UTF8String], isConcurrent);
+			queue = dispatch_queue_create([label UTF8String], queueConcurrentAttribute);
 		} else {
 			const char *uniqueLabel = [[NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_%@",[NSString cw_uuidString]] UTF8String];
-			queue = dispatch_queue_create(uniqueLabel, isConcurrent);
+			queue = dispatch_queue_create(uniqueLabel, queueConcurrentAttribute);
 		}
 		
 	} else if (type == kCWBlockQueueTargetGCDHighPriority) {
