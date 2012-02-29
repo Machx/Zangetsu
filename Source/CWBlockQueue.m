@@ -48,23 +48,41 @@
 	return self;
 }
 
+/**
+ Returns a new CWBlockOperation object
+ 
+ @param block the block to be used with the operation object. This must not be nil.
+ @return a CWBlocKOperation instance
+ */
 +(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block
 {
+	NSParameterAssert(block);
 	return [[self alloc] initWithBlock:block];
 }
 
 @end
 
 @interface CWBlockQueue()
--(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type concurrent:(BOOL)concurrent andLabel:(NSString *)label;
-@property(readwrite,assign) dispatch_queue_t queue;
+-(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type 
+								  concurrent:(BOOL)concurrent 
+									andLabel:(NSString *)label;
+@property(readwrite,assign) dispatch_queue_t queue; //the queue that CWBlockQueue manages
 @end
 
 @implementation CWBlockQueue
 
 @synthesize queue = _queue;
 
--(id)initWithQueueType:(NSInteger)type concurrent:(BOOL)concurrent label:(NSString *)label
+/**
+ Initializes a CWBlockQueue object with a queue type and label as applicable
+ 
+ @param type a NSInteger with the type of the queue to be used as defined in the header
+ @param concurrent a BOOL thats used if the private queue type is specified to mark the private queue as serial or concurrent
+ @param label a NSString thats used for the queue label if a private queue type is specified
+ */
+-(id)initWithQueueType:(NSInteger)type 
+			concurrent:(BOOL)concurrent 
+				 label:(NSString *)label
 {
 	self = [super init];
 	if (self) {
@@ -75,6 +93,12 @@
 	return self;
 }
 
+/**
+ Initialzes a CWBlockQueue object with a specified gcd queue
+ 
+ @param a dispatch_queue_t queue that CWBlockQueue should manage
+ @return an initialized CWBlockQueue object
+ */
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue
 {
 	self = [super init];
@@ -114,6 +138,11 @@
 	return queue;
 }
 
+/**
+ Sets the CWBlockQueues gcd queue to target another gcd queue.
+ 
+ If nil is passed in this method does nothing.
+ */
 -(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue
 {
 	if (blockQueue) {
@@ -121,6 +150,11 @@
 	}
 }
 
+/**
+ Sets the CWBlockQueues gcd queue to target another gcd queue.
+ 
+ If NULL is passed in this method does nothing.
+ */
 -(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue
 {
 	if (GCDQueue) {
@@ -128,6 +162,9 @@
 	}
 }
 
+/**
+ Returns a global CWBlockQueue object initialized to point at the GCD Main Queue
+ */
 +(CWBlockQueue *)mainQueue
 {
 	static CWBlockQueue *mainBlockQueue = nil;
@@ -140,6 +177,9 @@
 	return mainBlockQueue;
 }
 
+/**
+ Returns a global CWBlockQueue object initialized to point at the GCD Default Priority Queue
+ */
 +(CWBlockQueue *)globalDefaultQueue
 {
 	static CWBlockQueue *gcdDefaultQueue = nil;
@@ -152,6 +192,11 @@
 	return gcdDefaultQueue;
 }
 
+/**
+ Adds an operation object & asynchronously executes it
+ 
+ The operations operation block is executed first then the completion block (if its set)
+ */
 -(void)addOperation:(CWBlockOperation *)operation
 {
 	dispatch_async([self queue], ^{
@@ -162,11 +207,19 @@
 	});
 }
 
+/**
+ Asnchronously executes a block on the gcd queue
+ */
 -(void)addoperationWithBlock:(dispatch_block_t)block
 {
 	dispatch_async([self queue], block);
 }
 
+/**
+ Synchronously executes a CWBlockOperation object
+ 
+ The operations operation block is executed first then the completion block (if its set)
+ */
 -(void)addSynchronousOperation:(CWBlockOperation *)operation
 {
 	dispatch_sync([self queue], ^{
@@ -177,16 +230,25 @@
 	});
 }
 
+/**
+ Synchronously executes a block on the gcd queue
+ */
 -(void)addSynchronousOperationWithBlock:(dispatch_block_t)block
 {
 	dispatch_sync([self queue], block);
 }
 
+/**
+ Asynchonously waits for all already queued blocks to finish executing and then executes the passed in block
+ */
 -(void)executeWhenQueueIsFinished:(dispatch_block_t)block
 {
 	dispatch_barrier_async([self queue],block);
 }
 
+/**
+ Synchronously waits for the queue to finish executing before continuing execution
+ */
 -(void)waitForQueueToFinish
 {
 	dispatch_barrier_sync([self queue], ^{
