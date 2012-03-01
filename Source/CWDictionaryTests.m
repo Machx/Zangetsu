@@ -108,10 +108,14 @@
 	__block NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
 	
 	[dictionary cw_eachConcurrentlyWithBlock:^(id key, id value, BOOL *stop) {
-		[results setValue:value forKey:key];
+		@synchronized(results) {
+			[results setValue:value forKey:key];
+		}
 	}];
 	
 	STAssertEqualObjects(dictionary, results, @"Dictionaries should be the same if enumerated correctly");
+	
+	
 }
 
 @end
