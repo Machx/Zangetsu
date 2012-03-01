@@ -52,4 +52,31 @@
 	CWAssertEqualsStrings(@"Obey Hypnotoad!", result);
 }
 
+-(void)testSynchronousOperations
+{
+	// test -addSynchronousOperationWithBlock:
+	
+	__block NSInteger result = 0;
+	
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+													   concurrent:NO
+															label:nil];
+	
+	[queue addSynchronousOperationWithBlock:^{
+		result = 42;
+	}];
+	
+	STAssertTrue(result == 42,@"The result should 42 if the block executed");
+	
+	// test -addSynchronousOperation
+	
+	CWBlockOperation *op = [CWBlockOperation operationWithBlock:^{
+		result = 1729;
+	}];
+	
+	[queue addSynchronousOperation:op];
+	
+	STAssertTrue(result == 1729,@"The result should 1729 if the block executed");
+}
+
 @end
