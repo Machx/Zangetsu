@@ -79,4 +79,21 @@
 	STAssertTrue(result == 1729,@"The result should 1729 if the block executed");
 }
 
+-(void)testQueuesAreEqual
+{
+	CWBlockQueue *queue1 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetMainQueue
+														concurrent:NO
+															 label:nil];
+	
+	CWBlockQueue *queue2 = [[CWBlockQueue alloc] initWithGCDQueue:dispatch_get_main_queue()];
+	
+	STAssertTrue([queue1 isEqual:queue2],@"Queues should be equal");
+	
+	CWBlockQueue *queue3 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														concurrent:NO
+															 label:nil];
+	
+	STAssertFalse([queue1 isEqual:queue3],@"Queues should not be equal");
+}
+
 @end
