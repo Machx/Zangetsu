@@ -57,6 +57,7 @@ enum CWBlockQueueTargetType {
 @interface CWBlockQueue : NSObject
 +(CWBlockQueue *)mainQueue;
 +(CWBlockQueue *)globalDefaultQueue;
++(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block;
 -(id)initWithQueueType:(NSInteger)type concurrent:(BOOL)concurrent label:(NSString *)label;
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue;
 @property(readonly,assign) dispatch_queue_t queue;

@@ -193,6 +193,21 @@
 }
 
 /**
+ Creates a Temporary Queue that you can use to throw a block on for execution in the background
+ 
+ This creates a temporary dispatch_queue_t and then asynchronously executes the block and when 
+ the block has completed executing the queue is immediately released. The temporary queue has a 
+ unique label like 'com.Zangetsu.CWBlockQueue_TemporaryQueue_1A5F...' etc. 
+ */
++(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block
+{
+	const char *uniqueLabel = [[NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_TemporaryQueue_%@",[NSString cw_uuidString]] UTF8String];
+	dispatch_queue_t tempQueue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
+	dispatch_async(tempQueue, block);
+	dispatch_release(tempQueue);
+}
+
+/**
  Adds an operation object & asynchronously executes it
  
  The operations operation block is executed first then the completion block (if its set)
