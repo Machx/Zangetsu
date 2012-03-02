@@ -27,6 +27,18 @@
  THE SOFTWARE.
  */
 
+/**
+ CWBlockQueue is a lightweight alternative to NSOperationQueue
+ Its job is to manage a GCD Queue (dispatch_queue_t) & make it easy to
+ do things you wanted to do with NSOperationQueue like set target queues,
+ set operations with completion blocks, barrier blocks, etc. Unlike 
+ NSOperation(Queue) CWBlockQueue has been designed from the beginning for
+ asynchronous operations, you can do some synchronous operations, but
+ the bulk of the class has been designed with asynchronous operations in mind.
+ This means the queue is not concerned with the state of operations, which is 
+ why CWBlockOperation has no -isExecuting -isFinished, etc.
+ */
+
 #import <Foundation/Foundation.h>
 
 @interface CWBlockOperation : NSObject
