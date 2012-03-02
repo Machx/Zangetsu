@@ -256,12 +256,12 @@
 	});
 }
 
--(void)suspendQueue
+-(void)suspend
 {
 	dispatch_suspend([self queue]);
 }
 
--(void)resumeQueue
+-(void)resume
 {
 	dispatch_resume([self queue]);
 }
