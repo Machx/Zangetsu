@@ -266,7 +266,11 @@
 
 -(void)dealloc
 {
-	dispatch_release(_queue);
+	if ([self queue] != dispatch_get_main_queue()) {
+		//make sure we only release on a private queue
+		//doing this on the global concurrent queues does nothing
+		dispatch_release(_queue); 
+	}
 }
 
 @end
