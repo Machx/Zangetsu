@@ -256,6 +256,16 @@
 	});
 }
 
+-(void)suspendQueue
+{
+	dispatch_suspend([self queue]);
+}
+
+-(void)resumeQueue
+{
+	dispatch_resume([self queue]);
+}
+
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {
