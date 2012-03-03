@@ -271,16 +271,25 @@
 	});
 }
 
+/**
+ Suspends the execution of further blocks on the queue
+ */
 -(void)suspend
 {
 	dispatch_suspend([self queue]);
 }
 
+/**
+ Resumes the execution of blocks on the queue
+ */
 -(void)resume
 {
 	dispatch_resume([self queue]);
 }
 
+/**
+ Returns if the CWBlockQueues gcd queues are the same
+ */
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {
