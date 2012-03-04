@@ -157,17 +157,13 @@
 	
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
-	__block NSMutableArray *results = [[NSMutableArray alloc] init];
-	
-	NSLock *lock = [[NSLock alloc] init];
+	__block int32_t count = 0;
 	
 	[testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
-		[lock lock];
-		[results addObject:obj];
-		[lock unlock];
+		OSAtomicIncrement32(&count);
 	}];
 	
-	STAssertEqualObjects(results, testArray, @"The 2 arrays should have the same contents");
+	STAssertTrue(count == 3,@"count should be 3");
     
     [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
         switch (index) {
