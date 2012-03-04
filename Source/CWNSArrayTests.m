@@ -176,6 +176,9 @@
             case 2:
                 STAssertTrue([(NSString *)obj isEqualToString:@"Bender"], @"String 2 should be Bender");
                 break;
+			default:
+				STAssertTrue(0,@"should not reach this point");
+				break;
         }
     }];
 }
