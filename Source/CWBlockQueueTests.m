@@ -96,4 +96,15 @@
 	STAssertFalse([queue1 isEqual:queue3],@"Queues should not be equal");
 }
 
+-(void)testQueueLabel
+{
+	const NSString *label = @"TestQueue";
+	
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+													   concurrent:NO
+															label:(NSString *)label];
+	
+	CWAssertEqualsStrings([queue label], (NSString *)label);
+}
+
 @end
