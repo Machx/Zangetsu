@@ -138,6 +138,11 @@
 	return queue;
 }
 
+/**
+ Returns the Queue Label from the Queues GCD Queue
+ 
+ @return a NSString with the queue label or nil.
+ */
 -(NSString *)label
 {
 	if ([self queue]) {
