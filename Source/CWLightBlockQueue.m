@@ -62,14 +62,14 @@
 
 @interface CWLightBlockQueue()
 @property(atomic,assign) BOOL shouldProcessBlocks;
-@property(atomic,retain) CWQueue *queue;
+@property(atomic,retain) CWQueue *blocksQueue;
 @property(readwrite,assign) BOOL isProcessingBlocks;
 -(void)_processBlocks;
 @end
 
 @implementation CWLightBlockQueue
 
-@synthesize queue = _queue;
+@synthesize blocksQueue = _blocksQueue;
 @synthesize shouldProcessBlocks = _shouldProcessBlocks;
 @synthesize isProcessingBlocks = _isProcessingBlocks;
 
@@ -77,7 +77,7 @@
 {
     self = [super init];
     if (self) {
-        _queue = [[CWQueue alloc] init];
+        _blocksQueue = [[CWQueue alloc] init];
 		_shouldProcessBlocks = NO;
 		_isProcessingBlocks = NO;
     }
@@ -89,7 +89,7 @@
 {
 	self = [super init];
 	if (self) {
-		_queue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
+		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
 		_shouldProcessBlocks = startImmediately;
 		_isProcessingBlocks = NO;
 		if (_shouldProcessBlocks == YES) {
@@ -120,7 +120,7 @@
 {
 	CWLightBlockOperation *op = [CWLightBlockOperation blockOperationWithBlock:block];
 	if (op) {
-		[[self queue] addObject:op];
+		[[self blocksQueue] addObject:op];
 		[self startProcessingBlocks];
 	}
 }
@@ -130,7 +130,7 @@
 	[self setIsProcessingBlocks:YES];
 	while ([self shouldProcessBlocks] == YES) {
 		@autoreleasepool {
-			id blockOp = [[self queue] dequeueTopObject];
+			id blockOp = [[self blocksQueue] dequeueTopObject];
 			if (blockOp && [blockOp isMemberOfClass:[CWLightBlockOperation class]]) {
 				CWLightBlockOperation *operation = (CWLightBlockOperation *)blockOp;
 				[operation operationBlock]();
@@ -147,7 +147,7 @@
 
 -(void)waitUntilAllBlocksHaveProcessed
 {
-	if (([[self queue] count] > 0) && [self shouldProcessBlocks]) {
+	if (([[self blocksQueue] count] > 0) && [self shouldProcessBlocks]) {
 		while ([self isProcessingBlocks]) {
 			[[NSRunLoop currentRunLoop] run];
 		}
