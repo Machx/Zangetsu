@@ -214,6 +214,23 @@
 	} while ((shouldStop == NO) && (dequeuedObject));
 }
 
+-(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block 
+{
+	if ((![[self queue] containsObject:targetObject]) ||
+		[[self queue] count] == 0) {
+		return;
+	}
+	
+	id dequeuedObject = nil;
+	
+	do {
+		dequeuedObject = [self dequeueTopObject];
+		if (dequeuedObject) {
+			block(dequeuedObject);
+		}
+	} while (dequeuedObject && (targetObject != dequeuedObject));
+}
+
 //MARK: -
 //MARK: Debug Information
 
