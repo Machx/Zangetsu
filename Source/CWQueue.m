@@ -208,7 +208,7 @@
 	
 	do {
 		dequeuedObject = [self dequeueTopObject];
-		if(dequeuedObject != nil){
+		if(dequeuedObject){
 			block(dequeuedObject,&shouldStop);
 		}
 	} while ((shouldStop == NO) && (dequeuedObject));
