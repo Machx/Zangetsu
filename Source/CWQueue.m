@@ -38,7 +38,6 @@
 
 @synthesize queue = _queue;
 
-//MARK: -
 //MARK: Initiailziation
 
 /**
@@ -79,7 +78,6 @@
 	return self;
 }
 
-//MARK: -
 //MARK: Add & Remove Objects
 
 /**
@@ -135,7 +133,6 @@
 	[[self queue] removeAllObjects];
 }
 
-//MARK: -
 //MARK: Query Methods
 
 /**
@@ -175,7 +172,6 @@
 	return NO;
 }
 
-//MARK: -
 //MARK: Enumeration Methods
 
 /**
@@ -243,7 +239,6 @@
 	} while (dequeuedObject && (targetObject != dequeuedObject));
 }
 
-//MARK: -
 //MARK: Debug Information
 
 /**
@@ -264,7 +259,6 @@
 	return [[self queue] count];
 }
 
-//MARK: -
 //MARK: Comparison
 
 /**
