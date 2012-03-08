@@ -45,6 +45,7 @@
 //Query
 -(BOOL)containsObject:(id)object;
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
+-(id)objectInFrontOf:(id)targetObject;
 //Other Properties
 -(NSUInteger)count;
 //Equality
