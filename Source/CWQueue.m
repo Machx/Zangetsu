@@ -172,6 +172,20 @@
 	return NO;
 }
 
+-(id)objectInFrontOf:(id)targetObject
+{
+	//make sure we actually contain target object
+	if (![[self queue] containsObject:targetObject])
+		return nil;
+	//make sure the target object isn't already the frontmost object
+	if ([targetObject isEqual:[[self queue] objectAtIndex:0]])
+		return nil;
+	
+	NSUInteger index = ( [[self queue] indexOfObject:targetObject] - 1 );
+	id frontObject = [[self queue] objectAtIndex:index];
+	return frontObject;
+}
+
 //MARK: Enumeration Methods
 
 /**
