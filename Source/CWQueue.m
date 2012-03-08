@@ -214,10 +214,22 @@
 	} while ((shouldStop == NO) && (dequeuedObject));
 }
 
+/**
+ Dequeues the queue objects till it reaches targetObject, each time it dequeues an object it calls block
+ 
+ This method dequeues the target queue until it reaches the specified target object. If
+ the target object does not exist in the queue or the targetObject is nil or there are
+ no objects in the target queue, then this method just immediately exists, never calling
+ the block. Otherwise this method calls the block till it has dequeued the target object 
+ and executed the last block.
+ 
+ @param targetObject a Objective-C object in the queue you wish to dequeue all objects including it
+ @param block a block with the object being dequeued as an argument
+ */
 -(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block 
 {
 	if ((![[self queue] containsObject:targetObject]) ||
-		[[self queue] count] == 0) {
+		([[self queue] count] == 0)) {
 		return;
 	}
 	
