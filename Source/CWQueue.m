@@ -197,6 +197,18 @@
 	return frontObject;
 }
 
+-(id)objectBehind:(id)targetObject
+{
+	if (![[self queue] containsObject:targetObject])
+		return nil;
+	
+	NSUInteger objectIndex = ( [[self queue] indexOfObject:targetObject] + 1 );
+	if (objectIndex > ( [[self queue] count] - 1 ))
+		return nil;
+	
+	return [[self queue] objectAtIndex:objectIndex];
+}
+
 //MARK: Enumeration Methods
 
 /**
