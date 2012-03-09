@@ -172,6 +172,17 @@
 	return NO;
 }
 
+/**
+ Returns the object in front of the targetObject
+ 
+ If the target object is not in the queue this returns nil immediately.
+ If the target object is at the front of the queue then this method
+ returns nil. Otherwise it looks up the object in front of the target
+ object and returns that object
+ 
+ @param targetObject the object which you are wanting to know what is in front of it
+ @return the object in front of the target object or nil if something went wrong.
+ */
 -(id)objectInFrontOf:(id)targetObject
 {
 	//make sure we actually contain target object
