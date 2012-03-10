@@ -197,6 +197,15 @@
 	return frontObject;
 }
 
+/**
+ Returns the object behind the target object or nil if something went wrong
+ 
+ Returns the object behind the target object or nil if either the target object
+ is at the end of the queue or something went wrong.
+ 
+ @param targetObject the target object which you want to know the object behind it in the queue
+ @return the object behind target object or nil
+ */
 -(id)objectBehind:(id)targetObject
 {
 	if (![[self queue] containsObject:targetObject])
