@@ -223,4 +223,19 @@
 	STAssertTrue([[queue objectInFrontOf:ob2] isEqualToString:@"Fry"],@"Pointing to the object in front of Leela should be Fry");
 }
 
+-(void)testObjectBehind
+{
+	NSString *ob1 = @"Fry";
+	NSString *ob2 = @"Leela";
+	NSString *ob3 = @"Bender";
+	
+	CWQueue *queue = [[CWQueue alloc] init];
+	[queue addObject:ob1];
+	[queue addObject:ob2];
+	[queue addObject:ob3];
+	
+	STAssertNil([queue objectBehind:ob3],@"Bender should be the last object on the queue and therefore we should get nil back");
+	STAssertTrue([[queue objectBehind:ob2] isEqualToString:@"Bender"],@"Bender should be behind leela on the queue");
+}
+
 @end
