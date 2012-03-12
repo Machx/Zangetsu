@@ -238,4 +238,23 @@
 	STAssertTrue([[queue objectBehind:ob2] isEqualToString:@"Bender"],@"Bender should be behind leela on the queue");
 }
 
+-(void)testDequeueToObject
+{
+	NSString *ob1 = @"Fry";
+	NSString *ob2 = @"Leela";
+	NSString *ob3 = @"Bender";
+	
+	CWQueue *queue = [[CWQueue alloc] init];
+	[queue addObject:ob1];
+	[queue addObject:ob2];
+	[queue addObject:ob3];
+	
+	[queue dequeueToObject:ob2 withBlock:^(id object) {
+		//
+	}];
+	
+	STAssertTrue([queue count] == 1, @"Queue should only have 1 object in it");
+	STAssertTrue([queue containsObject:ob3], @"Bender should be in the queue");
+}
+
 @end
