@@ -77,6 +77,21 @@
 	}];
 }
 
+-(void)testEnumerationStopBlock
+{
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",nil]];
+	__block NSUInteger count = 0;
+	
+	[queue enumerateObjectsInQueue:^(id object, BOOL *stop) {
+		count++;
+		if ([(NSString *)object isEqualToString:@"4"]) {
+			*stop = YES;
+		}
+	}];
+	
+	STAssertTrue(count == 4, @"Enumeratin should have stopped after hitting 4th object");
+}
+
 -(void)testNilDequeuedObject {
 	
 	CWQueue *queue = [[CWQueue alloc] init];
