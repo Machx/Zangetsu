@@ -227,9 +227,11 @@
  is called it gives you a reference to the object in the queue currently being 
  enumerated over.
  */
--(void)enumerateObjectsInQueue:(void(^)(id object))block {
+-(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block {
+	BOOL shouldStop = NO;
 	for (id object in [self queue]) {
-		block(object);
+		block(object,&shouldStop);
+		if (shouldStop == YES) { return; }
 	}
 }
 

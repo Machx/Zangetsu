@@ -41,7 +41,7 @@
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
 -(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block;
 //Enumeration
--(void)enumerateObjectsInQueue:(void(^)(id object))block;
+-(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block;
 //Query
 -(BOOL)containsObject:(id)object;
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
