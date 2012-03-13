@@ -53,7 +53,7 @@
 	
 	__block NSUInteger index = 0;
 	
-	[queue enumerateObjectsInQueue:^(id object) {
+	[queue enumerateObjectsInQueue:^(id object, BOOL *stop) {
 		index++;
 		switch (index) {
 			case 1:
