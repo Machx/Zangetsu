@@ -61,25 +61,22 @@
 @end
 
 @interface CWLightBlockQueue()
-@property(atomic,assign) BOOL shouldProcessBlocks;
+@property(nonatomic, assign) dispatch_queue_t queue;
 @property(atomic,retain) CWQueue *blocksQueue;
-@property(readwrite,assign) BOOL isProcessingBlocks;
--(void)_processBlocks;
 @end
 
 @implementation CWLightBlockQueue
 
 @synthesize blocksQueue = _blocksQueue;
-@synthesize shouldProcessBlocks = _shouldProcessBlocks;
-@synthesize isProcessingBlocks = _isProcessingBlocks;
+@synthesize queue = _queue;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _blocksQueue = [[CWQueue alloc] init];
-		_shouldProcessBlocks = NO;
-		_isProcessingBlocks = NO;
+		const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.LightBlockQueue-") UTF8String];
+		_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -90,12 +87,15 @@
 	self = [super init];
 	if (self) {
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
-		_shouldProcessBlocks = startImmediately;
-		_isProcessingBlocks = NO;
-		if (_shouldProcessBlocks == YES) {
-			[self performSelector:@selector(_processBlocks) 
-					   withObject:nil 
-					   afterDelay:0];
+		const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.LightBlockQueue-") UTF8String];
+		_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
+		for (CWLightBlockOperation *op in blockOperations) {
+			dispatch_async(_queue, ^{
+				[op operationBlock]();
+				if ([op completionBlock]) {
+					[op completionBlock]();
+				}
+			});
 		}
 	}
 	return self;
@@ -103,57 +103,24 @@
 
 -(void)startProcessingBlocks
 {
-	if ([self shouldProcessBlocks] == NO) {
-		[self setShouldProcessBlocks:YES];
-		[self performSelector:@selector(_processBlocks) 
-				   withObject:nil
-				   afterDelay:0];
-	}
+	dispatch_resume([self queue]);
 }
 
 -(void)stopProcessingBlocks
 {
-	[self setShouldProcessBlocks:NO];
+	dispatch_suspend([self queue]);
 }
 
 -(void)addOperationwithBlock:(dispatch_block_t)block
 {
-	CWLightBlockOperation *op = [CWLightBlockOperation blockOperationWithBlock:block];
-	if (op) {
-		[[self blocksQueue] addObject:op];
-		[self startProcessingBlocks];
-	}
-}
-
--(void)_processBlocks
-{
-	[self setIsProcessingBlocks:YES];
-	while ([self shouldProcessBlocks] == YES) {
-		@autoreleasepool {
-			id blockOp = [[self blocksQueue] dequeueTopObject];
-			if (blockOp && [blockOp isMemberOfClass:[CWLightBlockOperation class]]) {
-				CWLightBlockOperation *operation = (CWLightBlockOperation *)blockOp;
-				[operation operationBlock]();
-				if ([operation completionBlock]) {
-					[operation completionBlock]();
-				}
-			} else {
-				[self setIsProcessingBlocks:NO];
-				break;
-			}
-		}
-	}
+	dispatch_async([self queue], block);
 }
 
 -(void)waitUntilAllBlocksHaveProcessed
 {
-	if (([[self blocksQueue] count] > 0) && [self shouldProcessBlocks]) {
-		while ([self isProcessingBlocks]) {
-			[[NSRunLoop currentRunLoop] run];
-		}
-		return;
-	}
-	CWDebugLog(@"Nothing to process...");
+	dispatch_barrier_async([self queue], ^{
+		//
+	});
 }
 
 @end
