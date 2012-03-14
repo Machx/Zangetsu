@@ -54,3 +54,9 @@ BOOL CWClassExists(NSString * class) {
 NSString *CWBOOLString(BOOL value) {
     return (value) ? @"YES" : @"NO";
 }
+
+NSString *CWUUIDStringPrependedWithString(NSString *preString)
+{
+	NSString *unqiueString = [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
+	return unqiueString;
+}
