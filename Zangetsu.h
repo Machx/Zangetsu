@@ -72,5 +72,5 @@
 #import "NSRecursiveLockAdditions.h"
 #import "NSManagedObjectContextAdditions.h"
 #import "NSColorAdditions.h"
-#import "CWLightBlockQueue.h"
+#import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"

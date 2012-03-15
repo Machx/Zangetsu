@@ -1,5 +1,5 @@
 /*
-//  CWBlockQueue.h
+//  CWSerialBlockQueue.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 2/23/12.
@@ -29,12 +29,12 @@
  
 #import <Foundation/Foundation.h>
 
-@interface CWLightBlockOperation : NSObject
-+(CWLightBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block;
+@interface CWSerialBlockOperation : NSObject
++(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block;
 @property(copy) dispatch_block_t completionBlock;
 @end
 
-@interface CWLightBlockQueue : NSObject
+@interface CWSerialBlockQueue : NSObject
 -(id)initWithBlockOperationObjects:(NSArray *)blockOperations;
 -(void)addOperationwithBlock:(dispatch_block_t)block;
 -(void)startProcessingBlocks;

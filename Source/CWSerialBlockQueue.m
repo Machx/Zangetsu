@@ -1,5 +1,5 @@
 /*
-//  CWBlockQueue.m
+//  CWSerialBlockQueue.m
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 2/23/12.
@@ -27,13 +27,13 @@
  THE SOFTWARE.
  */
 
-#import "CWLightBlockQueue.h"
+#import "CWSerialBlockQueue.h"
 
-@interface CWLightBlockOperation()
+@interface CWSerialBlockOperation()
 @property(nonatomic,copy) dispatch_block_t operationBlock;
 @end
 
-@implementation CWLightBlockOperation
+@implementation CWSerialBlockOperation
 
 @synthesize operationBlock = _operationBlock;
 @synthesize completionBlock = _completionBlock;
@@ -48,9 +48,9 @@
     return self;
 }
 
-+(CWLightBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block
++(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block
 {
-	CWLightBlockOperation *operation = [[CWLightBlockOperation alloc] init];
+	CWSerialBlockOperation *operation = [[CWSerialBlockOperation alloc] init];
 	if (operation) {
 		[operation setOperationBlock:block];
 		return operation;
@@ -60,12 +60,12 @@
 
 @end
 
-@interface CWLightBlockQueue()
+@interface CWSerialBlockQueue()
 @property(nonatomic, assign) dispatch_queue_t queue;
 @property(atomic,retain) CWQueue *blocksQueue;
 @end
 
-@implementation CWLightBlockQueue
+@implementation CWSerialBlockQueue
 
 @synthesize blocksQueue = _blocksQueue;
 @synthesize queue = _queue;
@@ -88,7 +88,7 @@
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
 		const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.LightBlockQueue-") UTF8String];
 		_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
-		for (CWLightBlockOperation *op in blockOperations) {
+		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{
 				[op operationBlock]();
 				if ([op completionBlock]) {
@@ -117,9 +117,7 @@
 
 -(void)waitUntilAllBlocksHaveProcessed
 {
-	dispatch_barrier_sync([self queue], ^{
-		//
-	});
+	dispatch_barrier_sync([self queue], ^{ });
 }
 
 -(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block

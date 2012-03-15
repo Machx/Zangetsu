@@ -6,28 +6,25 @@
 //  Copyright (c) 2012. All rights reserved.
 //
 
-#import "CWLightBlockQueueTests.h"
+#import "CWSerialBlockQueueTests.h"
 #import "CWAssertionMacros.h"
-#import "CWLightBlockQueue.h"
+#import "CWSerialBlockQueue.h"
 
-@implementation CWLightBlockQueueTests
+@implementation CWSerialBlockQueueTests
 
 -(void)testBasicBlockExecution
 {
 	NSString *goodResult = @"Hello World!";
 	__block NSString *result = nil;
 	
-	CWLightBlockOperation *op = [CWLightBlockOperation blockOperationWithBlock:^{
+	CWSerialBlockOperation *op = [CWSerialBlockOperation blockOperationWithBlock:^{
 		result = @"Hello World!";
 		NSLog(@"Hello World!");
 	}];
 	
-	CWLightBlockQueue *queue = [[CWLightBlockQueue alloc] initWithBlockOperationObjects:[NSArray arrayWithObject:op]
-																	 processImmediately:YES];
+	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithBlockOperationObjects:[NSArray arrayWithObject:op]];
 	
 	[queue waitUntilAllBlocksHaveProcessed];
-	
-	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 	
 	CWAssertEqualsStrings(result, goodResult);
 }
@@ -37,15 +34,13 @@
 	NSString *goodResult = @"Hello There!";
 	__block NSString *result = nil;
 	
-	CWLightBlockQueue *queue = [[CWLightBlockQueue alloc] init];
+	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
 	
 	[queue addOperationwithBlock:^{
 		result = @"Hello There!";
 	}];
 	
 	[queue waitUntilAllBlocksHaveProcessed];
-	
-	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 	
 	CWAssertEqualsStrings(result, goodResult);
 }
