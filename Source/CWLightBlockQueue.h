@@ -35,7 +35,7 @@
 @end
 
 @interface CWLightBlockQueue : NSObject
--(id)initWithBlockOperationObjects:(NSArray *)blockOperations processImmediately:(BOOL)startImmediately;
+-(id)initWithBlockOperationObjects:(NSArray *)blockOperations;
 -(void)startProcessingBlocks;
 -(void)stopProcessingBlocks;
 -(void)waitUntilAllBlocksHaveProcessed;

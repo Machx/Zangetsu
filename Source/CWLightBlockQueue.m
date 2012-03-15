@@ -82,7 +82,6 @@
 }
 
 -(id)initWithBlockOperationObjects:(NSArray *)blockOperations 
-				processImmediately:(BOOL)startImmediately
 {
 	self = [super init];
 	if (self) {
