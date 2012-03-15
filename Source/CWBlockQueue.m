@@ -119,8 +119,7 @@
 		if (label) {
 			queue = dispatch_queue_create([label UTF8String], queueConcurrentAttribute);
 		} else {
-			const char *uniqueLabel = [[NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_%@",[NSString cw_uuidString]] UTF8String];
-			queue = dispatch_queue_create(uniqueLabel, queueConcurrentAttribute);
+			queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_"), queueConcurrentAttribute);
 		}
 		
 	} else if (type == kCWBlockQueueTargetGCDHighPriority) {
@@ -217,8 +216,7 @@
  */
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block
 {
-	const char *uniqueLabel = [[NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_TemporaryQueue_%@",[NSString cw_uuidString]] UTF8String];
-	dispatch_queue_t tempQueue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
+	dispatch_queue_t tempQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_TemporaryQueue_"), DISPATCH_QUEUE_SERIAL);
 	dispatch_async(tempQueue, block);
 	dispatch_release(tempQueue);
 }

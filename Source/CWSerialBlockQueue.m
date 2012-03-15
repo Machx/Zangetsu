@@ -75,8 +75,7 @@
     self = [super init];
     if (self) {
         _blocksQueue = [[CWQueue alloc] init];
-		const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.LightBlockQueue-") UTF8String];
-		_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
+		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -86,8 +85,7 @@
 	self = [super init];
 	if (self) {
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
-		const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.LightBlockQueue-") UTF8String];
-		_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
+		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{
 				[op operationBlock]();
