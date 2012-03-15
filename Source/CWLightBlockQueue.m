@@ -122,4 +122,9 @@
 	});
 }
 
+-(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block
+{
+	dispatch_barrier_async([self queue], block);
+}
+
 @end
