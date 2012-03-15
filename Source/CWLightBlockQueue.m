@@ -117,7 +117,7 @@
 
 -(void)waitUntilAllBlocksHaveProcessed
 {
-	dispatch_barrier_async([self queue], ^{
+	dispatch_barrier_sync([self queue], ^{
 		//
 	});
 }
