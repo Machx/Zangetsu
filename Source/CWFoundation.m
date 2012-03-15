@@ -60,3 +60,8 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString)
 	NSString *unqiueString = [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 	return unqiueString;
 }
+
+const char * CWUUIDCStringPrependedWithString(NSString *preString)
+{
+	return [CWUUIDStringPrependedWithString(preString) UTF8String];
+}

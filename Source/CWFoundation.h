@@ -34,3 +34,5 @@ BOOL CWClassExists(NSString * class);
 NSString *CWBOOLString(BOOL value);
 
 NSString *CWUUIDStringPrependedWithString(NSString *preString);
+
+const char *CWUUIDCStringPrependedWithString(NSString *preString);
