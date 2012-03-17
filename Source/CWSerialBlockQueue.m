@@ -133,6 +133,18 @@
 	dispatch_suspend([self queue]);
 }
 
+-(void)addBlockOperation:(CWSerialBlockOperation *)operation
+{
+	if (operation) {
+		dispatch_async([self queue], ^{
+			[operation operationBlock]();
+			if ([operation completionBlock]) {
+				[operation completionBlock]();
+			}
+		});
+	}
+}
+
 /**
  Submits block for execution on the queue
  

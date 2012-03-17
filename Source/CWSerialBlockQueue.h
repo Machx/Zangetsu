@@ -37,6 +37,7 @@
 @interface CWSerialBlockQueue : NSObject
 -(id)initWithBlockOperationObjects:(NSArray *)blockOperations;
 -(void)addOperationwithBlock:(dispatch_block_t)block;
+-(void)addBlockOperation:(CWSerialBlockOperation *)operation;
 -(void)startProcessingBlocks;
 -(void)stopProcessingBlocks;
 -(void)waitUntilAllBlocksHaveProcessed;
