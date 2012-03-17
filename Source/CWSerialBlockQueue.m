@@ -161,4 +161,9 @@
 	dispatch_barrier_async([self queue], block);
 }
 
+-(void)dealloc
+{
+	dispatch_release([self queue]);
+}
+
 @end
