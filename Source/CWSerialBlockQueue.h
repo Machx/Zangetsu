@@ -38,8 +38,8 @@
 -(id)initWithBlockOperationObjects:(NSArray *)blockOperations;
 -(void)addOperationwithBlock:(dispatch_block_t)block;
 -(void)addBlockOperation:(CWSerialBlockOperation *)operation;
--(void)startProcessingBlocks;
--(void)stopProcessingBlocks;
+-(void)resume;
+-(void)suspend;
 -(void)waitUntilAllBlocksHaveProcessed;
 -(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block;
 @end

@@ -118,7 +118,7 @@
 /**
  Resumes executing blocks on the queue
  */
--(void)startProcessingBlocks
+-(void)resume
 {
 	dispatch_resume([self queue]);
 }
@@ -128,7 +128,7 @@
  
  This does not effect the currently executing block but stops the queue from dequeueing any more blocks
  */
--(void)stopProcessingBlocks
+-(void)suspend
 {
 	dispatch_suspend([self queue]);
 }
