@@ -19,7 +19,6 @@
 	
 	CWSerialBlockOperation *op = [CWSerialBlockOperation blockOperationWithBlock:^{
 		result = @"Hello World!";
-		NSLog(@"Hello World!");
 	}];
 	
 	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithBlockOperationObjects:[NSArray arrayWithObject:op]];
@@ -43,6 +42,28 @@
 	[queue waitUntilAllBlocksHaveProcessed];
 	
 	CWAssertEqualsStrings(result, goodResult);
+}
+
+-(void)testSuspension
+{
+	NSString *goodResult = @"001100010010011110100001101101110011";
+	__block NSString *result = nil;
+	
+	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+	
+	[queue suspend];
+	
+	[queue addOperationwithBlock:^{
+		result = [goodResult copy];
+	}];
+	
+	STAssertNil(result,@"block should not have run yet, so result should be nil");
+	
+	[queue resume];
+	
+	[queue waitUntilAllBlocksHaveProcessed];
+	
+	CWAssertEqualsStrings(goodResult, result);
 }
 
 @end
