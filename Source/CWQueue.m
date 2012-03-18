@@ -284,7 +284,7 @@
 		if (dequeuedObject) {
 			block(dequeuedObject);
 		}
-	} while (dequeuedObject && (targetObject != dequeuedObject));
+	} while (dequeuedObject && (![dequeuedObject isEqual:targetObject]));
 }
 
 //MARK: Debug Information
