@@ -91,18 +91,36 @@
     return self;
 }
 
+-(id)initWithLabel:(NSString *)label
+{
+	self = [super init];
+	if (self) {
+		_blocksQueue = [[CWQueue alloc] init];
+		if (label) {
+			_queue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
+		} else {
+			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+		}
+	}
+	return self;
+}
+
 /**
  Returns a new CWSerialBlockQueue that immediately submits all operation objects in blockOperations for execution
  
  @param blockOperations a NSArray of CWSerialBlockOperatiom objects
  @return a new CWSerialBlockQueue queue that is immediately beginning to execute blockOperations
  */
--(id)initWithBlockOperationObjects:(NSArray *)blockOperations 
+-(id)initWithLabel:(NSString *)label andBlockOperationObjects:(NSArray *)blockOperations
 {
 	self = [super init];
 	if (self) {
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+		if (label) {
+			_queue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
+		} else {
+			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+		}
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{
 				[op operationBlock]();

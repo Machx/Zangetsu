@@ -35,7 +35,8 @@
 @end
 
 @interface CWSerialBlockQueue : NSObject
--(id)initWithBlockOperationObjects:(NSArray *)blockOperations;
+-(id)initWithLabel:(NSString *)label;
+-(id)initWithLabel:(NSString *)label andBlockOperationObjects:(NSArray *)blockOperations;
 -(void)addOperationwithBlock:(dispatch_block_t)block;
 -(void)addBlockOperation:(CWSerialBlockOperation *)operation;
 -(void)resume;
