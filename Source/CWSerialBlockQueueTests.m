@@ -21,7 +21,7 @@
 		result = @"Hello World!";
 	}];
 	
-	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithBlockOperationObjects:[NSArray arrayWithObject:op]];
+	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithLabel:nil andBlockOperationObjects:[NSArray arrayWithObject:op]];
 	
 	[queue waitUntilAllBlocksHaveProcessed];
 	
