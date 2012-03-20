@@ -133,6 +133,18 @@
 	return self;
 }
 
+-(NSString *)label	
+{
+	if ([self queue]) {
+		const char * label = dispatch_queue_get_label([self queue]);
+		if (label) {
+			NSString *qlabel = [NSString stringWithCString:label encoding:NSUTF8StringEncoding];
+			return qlabel;
+		}
+	}
+	return nil;
+}
+
 /**
  Resumes executing blocks on the queue
  */
