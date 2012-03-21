@@ -144,13 +144,17 @@
  */
 -(NSString *)label
 {
-	if ([self queue]) {
-		const char *queueLabel = dispatch_queue_get_label([self queue]);
-		if (queueLabel) {
-			return [NSString stringWithCString:queueLabel encoding:NSUTF8StringEncoding];
+	static NSString *queueLabel = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		if ([self queue]) {
+			const char *gcdQueueLabel = dispatch_queue_get_label([self queue]);
+			if (gcdQueueLabel) {
+				queueLabel = [NSString stringWithCString:gcdQueueLabel encoding:NSUTF8StringEncoding];
+			}
 		}
-	}
-	return nil;
+	});
+	return queueLabel;
 }
 
 /**
