@@ -69,12 +69,14 @@
 @interface CWSerialBlockQueue()
 @property(nonatomic, assign) dispatch_queue_t queue;
 @property(atomic,retain) CWQueue *blocksQueue;
+@property(readwrite,retain) NSString *label;
 @end
 
 @implementation CWSerialBlockQueue
 
 @synthesize blocksQueue = _blocksQueue;
 @synthesize queue = _queue;
+@synthesize label = _label;
 
 /**
  Returns a new CWSerialBlockQueue initialized with a unique label
@@ -86,20 +88,25 @@
     self = [super init];
     if (self) {
         _blocksQueue = [[CWQueue alloc] init];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+		NSString *qLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
+		_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
+		_label = qLabel;
     }
     return self;
 }
 
--(id)initWithLabel:(NSString *)label
+-(id)initWithLabel:(NSString *)qLabel
 {
 	self = [super init];
 	if (self) {
 		_blocksQueue = [[CWQueue alloc] init];
-		if (label) {
-			_queue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
+		if (qLabel) {
+			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
+			_label = qLabel;
 		} else {
-			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+			NSString *queueLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
+			_queue = dispatch_queue_create([queueLabel UTF8String], DISPATCH_QUEUE_SERIAL);
+			_label = queueLabel;
 		}
 	}
 	return self;
@@ -111,15 +118,18 @@
  @param blockOperations a NSArray of CWSerialBlockOperatiom objects
  @return a new CWSerialBlockQueue queue that is immediately beginning to execute blockOperations
  */
--(id)initWithLabel:(NSString *)label andBlockOperationObjects:(NSArray *)blockOperations
+-(id)initWithLabel:(NSString *)qLabel andBlockOperationObjects:(NSArray *)blockOperations
 {
 	self = [super init];
 	if (self) {
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
-		if (label) {
-			_queue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
+		if (qLabel) {
+			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
+			_label = qLabel;
 		} else {
-			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+			NSString *queueLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
+			_queue = dispatch_queue_create([queueLabel UTF8String], DISPATCH_QUEUE_SERIAL);
+			_label = queueLabel;
 		}
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{
@@ -131,21 +141,6 @@
 		}
 	}
 	return self;
-}
-
--(NSString *)label	
-{
-	static NSString *queueLabel = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		if ([self queue]) {
-			const char * label = dispatch_queue_get_label([self queue]);
-			if (label) {
-				queueLabel = [NSString stringWithCString:label encoding:NSUTF8StringEncoding];
-			}
-		}
-	});
-	return queueLabel;
 }
 
 /**
