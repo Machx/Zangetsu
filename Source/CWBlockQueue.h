@@ -58,10 +58,10 @@ enum CWBlockQueueTargetType {
 +(CWBlockQueue *)mainQueue;
 +(CWBlockQueue *)globalDefaultQueue;
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block;
--(id)initWithQueueType:(NSInteger)type concurrent:(BOOL)concurrent label:(NSString *)label;
+-(id)initWithQueueType:(NSInteger)type concurrent:(BOOL)concurrent label:(NSString *)qLabel;
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue;
 @property(readonly,assign) dispatch_queue_t queue;
--(NSString *)label;
+@property(readonly,retain) NSString *label;
 -(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue;
 -(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue;
 -(void)addOperation:(CWBlockOperation *)operation;

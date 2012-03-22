@@ -67,11 +67,13 @@
 								  concurrent:(BOOL)concurrent 
 									andLabel:(NSString *)label;
 @property(readwrite,assign) dispatch_queue_t queue; //the queue that CWBlockQueue manages
+@property(readwrite,retain) NSString *label;
 @end
 
 @implementation CWBlockQueue
 
 @synthesize queue = _queue;
+@synthesize label = _label;
 
 /**
  Initializes a CWBlockQueue object with a queue type and label as applicable
@@ -110,51 +112,38 @@
 
 -(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type 
 								  concurrent:(BOOL)concurrent 
-									andLabel:(NSString *)label
+									andLabel:(NSString *)qLabel
 {
 	dispatch_queue_t queue = NULL;
 	
 	if (type == kCWBlockQueueTargetPrivateQueue) {
 		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent) ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL;
-		if (label) {
-			queue = dispatch_queue_create([label UTF8String], queueConcurrentAttribute);
+		if (qLabel) {
+			queue = dispatch_queue_create([qLabel UTF8String], queueConcurrentAttribute);
+			self.label = qLabel;
 		} else {
-			queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_"), queueConcurrentAttribute);
+			NSString *aLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_");
+			queue = dispatch_queue_create([aLabel UTF8String], queueConcurrentAttribute);
+			self.label = aLabel;
 		}
 		
 	} else if (type == kCWBlockQueueTargetGCDHighPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+		self.label = @"CWBlockQueue [GCD Global High Priority Queue]";
 	
 	} else if (type == kCWBlockQueueTargetGCDNormalPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+		self.label = @"CWBlockQueue [GCD Global Default Priority Queue]";
 	
 	} else if (type == kCWBlockQueueTargetGCDLowPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+		self.label = @"CWBlockQueue [GCD Global High Priority Queue]";
 	
 	} else if (type == kCWBlockQueueTargetMainQueue) {
 		queue = dispatch_get_main_queue();
+		self.label = @"CWBlockQueue [GCD Main Queue]";
 	}
 	return queue;
-}
-
-/**
- Returns the Queue Label from the Queues GCD Queue
- 
- @return a NSString with the queue label or nil.
- */
--(NSString *)label
-{
-	static NSString *queueLabel = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		if ([self queue]) {
-			const char *gcdQueueLabel = dispatch_queue_get_label([self queue]);
-			if (gcdQueueLabel) {
-				queueLabel = [NSString stringWithCString:gcdQueueLabel encoding:NSUTF8StringEncoding];
-			}
-		}
-	});
-	return queueLabel;
 }
 
 /**
