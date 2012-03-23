@@ -36,7 +36,8 @@
 @synthesize leftNode = _leftNode;
 @synthesize rightNode = _rightNode;
 
--(id)initWithValue:(id)aValue {
+-(id)initWithValue:(id)aValue
+{
     self = [super init];
     if (self) {
         _value = aValue;
@@ -44,7 +45,6 @@
         _leftNode = nil;
         _rightNode = nil;
     }
-    
     return self;
 }
 
@@ -53,13 +53,12 @@
  
  @return a BOOL indicating if the nove value and its pointers are equal
  */
--(BOOL)isEqualToNode:(CWBTreeNode *)node {
-	if ([[node value] isEqual:[self value]]){
-		if ([[node leftNode] isEqual:[self leftNode]]) {
-			if ([[node rightNode] isEqual:[self rightNode]]) {
-				return YES;
-			}
-		}
+-(BOOL)isEqualToNode:(CWBTreeNode *)node
+{	
+	if ([node.value isEqual:self.value] &&
+		[node.leftNode isEqual:self.leftNode] &&
+		[node.rightNode isEqual:self.rightNode]) {
+		return YES;
 	}
     return NO;
 }
@@ -67,19 +66,21 @@
 /**
  Performs the necessary validation before assigning the nodes left pointer value
  */
--(void)setLeftNode:(CWBTreeNode *)node {
-    if (![node isEqual:self]) {
-		if (node) { [node setParent:self]; }
+-(void)setLeftNode:(CWBTreeNode *)node
+{
+	if (![node isEqual:self]) {
+		node.parent = self;
 		_leftNode = node;
-    }
+	}
 }
 
 /**
  Performs the necessary validation before assigning the nodes right pointer value
  */
--(void)setRightNode:(CWBTreeNode *)node {
+-(void)setRightNode:(CWBTreeNode *)node
+{
     if (![node isEqual:self]) {
-		if (node) { [node setParent:self]; }
+		node.parent = self;
 		_rightNode = node;
     }
 }
@@ -93,12 +94,13 @@
  
  @return a NSUInteger with the node Level the receive node is at in its containing CWBTree
  */
--(NSUInteger)nodeLevel {
+-(NSUInteger)nodeLevel
+{
     NSUInteger level = 1;
-    CWBTreeNode *currentParrent = [self parent];
+    CWBTreeNode *currentParrent = self.parent;
     while (currentParrent) {
         level++;
-        currentParrent = [currentParrent parent];
+        currentParrent = currentParrent.parent;
     }
     return level;
 }
@@ -114,7 +116,8 @@
  
  @return a fully iniitalized CWBTree with rootNode set to nil
  */
--(id)init {
+-(id)init 
+{
     self = [super init];
     if (self) {
         _rootNode = nil;
@@ -131,9 +134,10 @@
  @param value a non nil value to be used in creating a CWBTreeNode
  @return a CWBTree with a root node assigned and wrapped in the value provided if value is non nil
  */
--(id)initWithRootNodeValue:(id)value {
+-(id)initWithRootNodeValue:(id)value
+{
     self = [super init];
-    if (self) {
+    if (self){
         if (value) {
             CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:value];
             _rootNode = node;
@@ -151,30 +155,28 @@
  
  @param block a block to be called when visiting each node in the tree
  */
--(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
-    if ([self rootNode] == nil) { return; }
-    
-    __block BOOL shouldStop = NO;
-    
-    CWStack *nodes = [[CWStack alloc] init];
-    [nodes push:[self rootNode]];
-    
-    CWBTreeNode *currentNode = nil;
-    while (![nodes isEmpty]) {
-        currentNode = [nodes pop];
-        
-        if ([currentNode rightNode]) {
-            [nodes push:[currentNode rightNode]];
-        }
-        if ([currentNode leftNode]) {
-            [nodes push:[currentNode leftNode]];
-        }
-        
-        block([currentNode value],currentNode,&shouldStop);
-        if (shouldStop == YES) {
-            return;
-        }
-    }
+-(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block
+{	
+	if(!self.rootNode) { return; }
+	
+	__block BOOL shouldStop = NO;
+	
+	CWStack *nodes = [[CWStack alloc] init];
+	[nodes push:self.rootNode];
+	
+	CWBTreeNode *currentNode = nil;
+	while (!nodes.isEmpty) {
+		currentNode = [nodes pop];
+		
+		if (currentNode.rightNode)
+			[nodes push:currentNode.rightNode];
+		
+		if(currentNode.leftNode)
+			[nodes push:currentNode.leftNode];
+		
+		block(currentNode.value, currentNode, &shouldStop);
+		if (shouldStop) { return; }
+	}
 }
 
 @end

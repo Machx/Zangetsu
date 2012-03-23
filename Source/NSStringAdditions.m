@@ -53,9 +53,8 @@
                               usingBlock:(void (^)(NSString *substring))block
 {
 	//making sure we get a unique queue label
-	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.NSString_%@",[NSString cw_uuidString]] UTF8String];
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
+	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSString_"), DISPATCH_QUEUE_CONCURRENT);
 	
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
 							 options:options

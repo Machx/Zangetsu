@@ -30,6 +30,11 @@
 #import "CWZLib.h"
 #import <Security/Security.h>
 
+#define CWZLIBCLEANUP() \
+	CFShow(error); \
+	CFRelease(inputData); \
+	CFRelease(encoder);
+
 @implementation NSData (CWZLib)
 
 -(NSData *)cw_zLibCompress {
@@ -43,26 +48,20 @@
     
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
     if(error) { 
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(encoder);
+        CWZLIBCLEANUP();
         return nil; 
     }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, inputData, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(encoder);
+        CWZLIBCLEANUP();
         return nil;
     }
     
     CFDataRef data = NULL;
 	data = SecTransformExecute(encoder, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(encoder);
+		CWZLIBCLEANUP();
         return nil;
     }
     
@@ -73,6 +72,13 @@
 	
     return compressedData; 
 }
+
+#undef CWZLIBCLEANUP
+
+#define CWZLIBCLEANUP() \
+	CFShow(error); \
+	CFRelease(inputData); \
+	CFRelease(decoder);
 
 -(NSData *)cw_zLibDecompress {
     SecTransformRef decoder = NULL;
@@ -85,26 +91,20 @@
     
     decoder = SecDecodeTransformCreate(kSecZLibEncoding, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(decoder);
+        CWZLIBCLEANUP();
         return nil;
     }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, inputData, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(decoder);
+        CWZLIBCLEANUP();
         return nil;
     }
     
     CFDataRef decodedData = NULL;
     decodedData = SecTransformExecute(decoder, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(inputData);
-		CFRelease(decoder);
+		CWZLIBCLEANUP();
         return nil;
     }
     
@@ -114,5 +114,7 @@
     
     return nsDecodedData;
 }
+
+#undef CWZLIBCLEANUP
 
 @end

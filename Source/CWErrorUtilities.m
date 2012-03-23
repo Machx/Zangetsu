@@ -46,12 +46,7 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
 
-    NSString * _domain;
-    if (domain == nil) {
-        _domain = kCWErrorDomain;
-    } else {
-        _domain = domain;
-    }	
+    NSString * _domain = (domain == nil) ? kCWErrorDomain : domain;
 
     va_list args;
     va_start(args, errorMessageFormat);

@@ -30,6 +30,11 @@
 #import "CWBase64.h"
 #import <Security/Security.h>
 
+#define CWBASE64CLEANUP() \
+	CFShow(error); \
+	CFRelease(data); \
+	CFRelease(encoder);
+
 @implementation NSString (CWBase64Encoding)
 
 /**
@@ -37,7 +42,8 @@
  
  @return a new NSString object with the contents of the receiver string encoded in Base 64 encoding
  */
-- (NSString *)cw_base64EncodedString {
+- (NSString *)cw_base64EncodedString
+{
     SecTransformRef encoder;
     CFErrorRef error = NULL;
     
@@ -50,25 +56,19 @@
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(encoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(encoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
     CFDataRef encodedData = SecTransformExecute(encoder, &error);
     if (!encodedData && error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(encoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
@@ -81,12 +81,20 @@
     return base64String;
 }
 
+#undef CWBASE64CLEANUP
+
+#define CWBASE64CLEANUP() \
+	CFShow(error); \
+	CFRelease(data); \
+	CFRelease(decoder);
+
 /**
  takes a NSString & converts its encoding from Base 64 encoding and returns a new NSString object
  
  @return a new NSString object with the contents of the receiver string decoded from Base 64 encoding
  */
-- (NSString *)cw_base64DecodedString {
+- (NSString *)cw_base64DecodedString
+{
     SecTransformRef decoder;
     CFErrorRef error = NULL;
     
@@ -99,25 +107,19 @@
     
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(decoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(decoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
     CFDataRef decodedData = SecTransformExecute(decoder, &error);
     if (error) {
-        CFShow(error);
-		CFRelease(data);
-		CFRelease(decoder);
+        CWBASE64CLEANUP();
         return nil;
     }
     
@@ -128,5 +130,7 @@
     
     return base64DecodedString;
 }
+
+#undef CWBASE64CLEANUP
 
 @end

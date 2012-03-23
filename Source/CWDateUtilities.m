@@ -43,7 +43,8 @@ THE SOFTWARE.
  * @param dateString The String containing a ISO8601 Date
  * @return A NSDate Object if successful or nil if not successful
  */
-+ (NSDate *) dateFromISO8601String:(NSString *)dateString {
++ (NSDate *) dateFromISO8601String:(NSString *)dateString 
+{
     NSDate * isoDate = nil;
 
     isoDate = [self dateFromString:dateString
@@ -66,7 +67,8 @@ THE SOFTWARE.
  * @param dateFormat The Format the dateString object is in
  * @return a NSDate object with the date if successful or nil if unsuccessful
  */
-+ (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat {
++ (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat
+{
     [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
@@ -88,7 +90,8 @@ THE SOFTWARE.
  * @param date a NSDate object
  * @return a NSString with describing the NSDate object
  */
-NSString * CWDateString(NSDate * date) {
+NSString * CWDateString(NSDate * date)
+{
 	if (date) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
@@ -115,7 +118,8 @@ NSString * CWDateString(NSDate * date) {
  */
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
-							  NSTimeZone *timeZone) {
+							  NSTimeZone *timeZone)
+{
 	NSCalendar * calendar = [NSCalendar currentCalendar];
     NSDateComponents * components = [[NSDateComponents alloc] init];
 
@@ -157,7 +161,8 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
  */
 NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
                                       NSInteger hour, NSInteger minute, NSInteger second,
-									  NSTimeZone *timeZone) {
+									  NSTimeZone *timeZone)
+{
     NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second,timeZone);
 
     NSString * dateString = CWDateString(date);

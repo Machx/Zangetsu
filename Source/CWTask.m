@@ -98,7 +98,8 @@
  *
  * @return an invalid CWTask object
  */
-- (id) init {
+- (id) init
+{
     self = [super init];
     if (self) {
         _executable = nil;

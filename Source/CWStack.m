@@ -38,7 +38,8 @@
 
 @synthesize stack = _stack;
 
-- (id)init {
+- (id)init
+{
     self = [super init];
     if (self) {
 		_stack = [[NSMutableArray alloc] init];
@@ -54,11 +55,12 @@
  @param objects a NSArray whose contents you want a CWStack object initialized with
  @return an intialized CWStack object
  */
--(id)initWithObjectsFromArray:(NSArray *)objects {
+-(id)initWithObjectsFromArray:(NSArray *)objects
+{
 	self = [super init];
 	if (self) {
 		_stack = [[NSMutableArray alloc] init];
-		if ([objects count] > 0) {
+		if (objects.count > 0) {
 			[_stack addObjectsFromArray:objects];
 		}
 	}
@@ -73,10 +75,10 @@
  
  @param object the object you want pushed onto the stack
  */
--(void)push:(id)object {
-	if (object) {
-		[[self stack] addObject:object];
-	}
+-(void)push:(id)object
+{
+	if(!object) { return; }
+	[self.stack addObject:object];
 }
 
 /**
@@ -84,10 +86,11 @@
  
  @return the object at the top of the stack
  */
--(id)pop {
-	if([[self stack] count] == 0) { return nil; }
-	id lastObject = [[self stack] lastObject];
-	[[self stack] removeLastObject];
+-(id)pop
+{
+	if(self.stack.count == 0) { return nil; }
+	id lastObject = [self.stack lastObject];
+	[self.stack removeLastObject];
 	return lastObject;
 }
 
@@ -101,12 +104,13 @@
  @param object the object you wish the stack to be popped off to
  @return nil if the object is not in the array otherwise a NSArray of all popped off objects
  */
--(NSArray *)popToObject:(id)object {
-	if (![[self stack] containsObject:object]) { return nil; }
+-(NSArray *)popToObject:(id)object
+{
+	if (![self.stack containsObject:object]) { return nil; }
 	
 	NSMutableArray *stackArray = [[NSMutableArray alloc] init];
 	id currentObject = nil;
-	while (![[self topOfStackObject] isEqual:object]) {
+	while (![self.topOfStackObject isEqual:object]) {
 		currentObject = [self pop];
 		[stackArray addObject:currentObject];
 	}
@@ -122,10 +126,11 @@
  @param object The object you wish to pop the stack to
  @param block the block that will be executed upon encountering each object in the stack until the object specified is found
  */
--(void)popToObject:(id)object withBlock:(void (^)(id obj))block {
-	if (![[self stack] containsObject:object]) { return; }
+-(void)popToObject:(id)object withBlock:(void (^)(id obj))block
+{
+	if (![self.stack containsObject:object]) { return; }
 	
-	while (![[self topOfStackObject] isEqual:object]) {
+	while (![self.topOfStackObject isEqual:object]) {
 		id obj = [self pop];
 		block(obj);
 	}
@@ -136,8 +141,9 @@
  
  @return a NSArray of all popped off objects
  */
--(NSArray *)popToBottomOfStack {
-	if([[self stack] count] == 0) { return nil; }
+-(NSArray *)popToBottomOfStack
+{
+	if(self.stack.count == 0) { return nil; }
 	NSArray *stackArray = [self popToObject:[[self stack] cw_firstObject]];
 	return stackArray;
 }
@@ -147,9 +153,11 @@
  
  @return the objct at the top of the stack
  */
--(id)topOfStackObject {
-	if([[self stack] count] == 0) { return nil; }
-	return [[self stack] lastObject];
+-(id)topOfStackObject
+{
+	if(self.stack.count == 0) { return nil; }
+	id topObj = [self.stack lastObject];
+	return topObj;
 }
 
 /**
@@ -157,16 +165,19 @@
  
  @return the objct at the bottom of the stack
  */
--(id)bottomOfStackObject {
-	if([[self stack] count] == 0) { return nil; }
-	return [[self stack] cw_firstObject];
+-(id)bottomOfStackObject
+{
+	if(self.stack.count == 0) { return nil; }
+	id bottomObj = [self.stack cw_firstObject];
+	return bottomObj;
 }
 
 /**
  clears the stack of all objects
  */
--(void)clearStack {
-	[[self stack] removeAllObjects];
+-(void)clearStack
+{
+	[self.stack removeAllObjects];
 }
 
 /**
@@ -181,7 +192,8 @@
  @param object another CWStack object which you wish to compare its contents to against the receiver object
  @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
  */
--(BOOL)isEqualToStack:(CWStack *)aStack {
+-(BOOL)isEqualToStack:(CWStack *)aStack
+{
 	if ([[aStack description] isEqualToString:[self description]]) {
 		return YES;
 	}
@@ -194,8 +206,9 @@
  @param object any NSObject subclass instance you wish to see if its contained in the stack
  @return a BOOL with a value of YES if the object is contained in the stack, otherwise NO
  */
--(BOOL)containsObject:(id)object {
-	return [[self stack] containsObject:object];
+-(BOOL)containsObject:(id)object
+{
+	return [self.stack containsObject:object];
 }
 
 /**
@@ -203,8 +216,9 @@
  
  @return a NSString object with the description of the stack contents
  */
--(NSString *)description {
-	return [[self stack] description];
+-(NSString *)description
+{
+	return [self.stack description];
 }
 
 /**
@@ -212,8 +226,9 @@
  
  @return a BOOL indicating if the stack is empty
  */
--(BOOL)isEmpty {
-    return ([[self stack] count] <= 0);
+-(BOOL)isEmpty
+{
+    return ([self.stack count] <= 0);
 }
 
 /**
@@ -221,8 +236,9 @@
  
  @return a NSInteger indicating how many objects are currently in the stack
  */
--(NSInteger)count {
-    return [[self stack] count];
+-(NSInteger)count
+{
+    return [self.stack count];
 }
 
 @end

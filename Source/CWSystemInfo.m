@@ -44,7 +44,8 @@
  *
  * @return hostVersion a NSDictionary with the key/value pairs for the majaor/minor/bugfix version #'s of Mac OS X
  */
-+ (NSDictionary *) hostVersion {
++ (NSDictionary *) hostVersion
+{
     SInt32 versMaj, versMin, versBugFix;
 
     Gestalt(gestaltSystemVersionMajor, &versMaj);
@@ -62,7 +63,8 @@
  *
  * @return hostVersionString a string for the version of Mac OS X in use like "10.6.6" for Mac OS X 10.6.6
  */
-+ (NSString *) hostVersionString {
++ (NSString *) hostVersionString
+{
     SInt32 versMaj, versMin, versBugFix;
 
     Gestalt(gestaltSystemVersionMajor, &versMaj);
@@ -80,7 +82,8 @@
  *
  * @return numberOfCUPCores a NSInteger with the number of CPU cores on the Host Mac
  */
-+ (NSInteger) numberOfCPUCores {
++ (NSInteger) numberOfCPUCores
+{
     NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
     if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
@@ -94,7 +97,8 @@
  * 
  * @return a NSInteger representing the processor speed in MHz
  */
-+(NSInteger) processorSpeed {
++(NSInteger) processorSpeed
+{
 	SInt32 speed;
 	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
 		return (NSInteger)speed;
@@ -110,7 +114,8 @@
  *
  * @return a NSInteger representing the physical ram size of the host system
  */
-+ (NSInteger) physicalRamSize {
++ (NSInteger) physicalRamSize
+{
     SInt32 kamount;
     if (Gestalt(gestaltPhysicalRAMSizeInMegabytes, &kamount) == noErr) {
         return (NSInteger)kamount;
@@ -125,7 +130,8 @@
  * 
  * @return a NSInteger representing the logical ram size of the host system
  */
-+ (NSInteger) logicalRamSize {
++ (NSInteger) logicalRamSize
+{
     SInt32 kamount;
     if (Gestalt(gestaltLogicalRAMSize, &kamount) == noErr) {
         NSInteger amount = (((NSInteger)kamount / 1024) / 1024);

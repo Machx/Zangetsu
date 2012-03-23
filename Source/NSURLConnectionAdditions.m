@@ -39,7 +39,8 @@
  */
 +(void)cw_performAsynchronousRequest:(NSURLRequest *)request 
 						  onGCDQueue:(dispatch_queue_t)queue 
-					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block {
+					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block
+{
 	NSParameterAssert(request);
 	NSParameterAssert(queue);
 	
@@ -65,7 +66,8 @@
  */
 +(NSData *)cw_performGCDSynchronousRequest:(NSURLRequest *)request 
 								  response:(NSURLResponse **)response 
-								  andError:(NSError **)error {
+								  andError:(NSError **)error
+{
 	NSParameterAssert(request);
 	
 	__block NSData *data = nil;

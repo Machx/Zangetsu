@@ -39,8 +39,8 @@
 	BOOL shouldStop = NO;
 	
 	for(id key in self) {
-		if(shouldStop == YES) { break; }
-		block(key,[self valueForKey:key],&shouldStop);
+		if(shouldStop) { break; }
+		block(key, [self valueForKey:key], &shouldStop);
 	}
 }
 
@@ -54,9 +54,7 @@
 	__block BOOL _stop = NO;
 
 	for (id key in self) {
-
-		if(_stop == YES) { break; }
-
+		if(_stop) { break; }
 		dispatch_group_async(group, queue, ^{
 			block(key,[self valueForKey:key],&_stop);
 		});

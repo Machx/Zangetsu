@@ -40,7 +40,8 @@ THE SOFTWARE.
  @param class a NSString with the name of an Objective-C Class
  @return a BOOL with YES if the class exists or no if it doesn't
  */
-BOOL CWClassExists(NSString * class) {
+BOOL CWClassExists(NSString * class)
+{
 	Class _class = NSClassFromString(class);
 	return (_class) ? YES : NO;
 }
@@ -51,7 +52,8 @@ BOOL CWClassExists(NSString * class) {
  @param value a BOOL value of YES or NO
  @return a NSString value of @"YES" if YES was passed in or @"NO" if NO was passed in
  */
-NSString *CWBOOLString(BOOL value) {
+NSString *CWBOOLString(BOOL value)
+{
     return (value) ? @"YES" : @"NO";
 }
 

@@ -33,7 +33,8 @@
  * Convenience Method to return the first object in
  * a NSArray
  */
-- (id) cw_firstObject {
+- (id) cw_firstObject
+{
     if ([self count] > 0) {
         return [self objectAtIndex:0];
     }
@@ -55,7 +56,8 @@
  @param index (Block Parameter) this is the index of obj in the array
  @param stop (Block Parameter) set this to YES to stop enumeration, otherwise there is no need to use this
  */
-- (void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
+- (void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block
+{
 	NSUInteger i = 0;
 	BOOL shouldStop = NO;
 	
@@ -77,7 +79,8 @@
  @param obj (Block Parameter) the object being enumerated over
  @param stop (Block Parameter) if you need to stop the enumeration set this to YES otherwise do nothing
  */
-- (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block {
+- (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block
+{
 	//make sure we get a unique queue identifier
 	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.NSArray_%@",[NSString cw_uuidString]] UTF8String];
     dispatch_group_t group = dispatch_group_create();
@@ -102,7 +105,8 @@
  * Finds the first instance of the object that you indicate
  * via a block (returning a bool) you are looking for
  */
-- (id) cw_findWithBlock:(BOOL (^)(id obj))block {
+- (id) cw_findWithBlock:(BOOL (^)(id obj))block
+{
     for (id obj in self) {
         if (block(obj)) {
             return obj;
@@ -114,7 +118,8 @@
 /**
  * Exactly like cw_findWithBlock except it returns a BOOL
  */
-- (BOOL) cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block {
+- (BOOL) cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block
+{
     for (id obj in self) {
         if (block(obj)) {
             return YES;
@@ -128,7 +133,8 @@
  * that passes the test it returns all objects passing the
  * bool block test
  */
-- (NSArray *) cw_findAllWithBlock:(BOOL (^)(id obj))block {
+- (NSArray *) cw_findAllWithBlock:(BOOL (^)(id obj))block
+{
     NSMutableArray * results = [[NSMutableArray alloc] init];
     for (id obj in self) {
         if (block(obj)) {
@@ -147,7 +153,8 @@
  * I don't particularly like this name but given objc's naming
  * structure this is as good as I can do for now
  */
-- (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
+- (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
+{
     NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
     for (id obj in self) {
         if (block(obj)) {
@@ -168,7 +175,8 @@
  * @param block a block in which you return an object to be mapped to a new array or nil to not map it
  * @return a new mapped array
  */
-- (NSArray *) cw_mapArray:(id (^)(id obj))block {
+- (NSArray *) cw_mapArray:(id (^)(id obj))block
+{
     NSMutableArray * cwArray = [[NSMutableArray alloc] init];
     for (id obj in self) {
         id rObj = block(obj);

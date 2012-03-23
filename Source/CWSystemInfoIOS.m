@@ -35,7 +35,8 @@
 /**
  Returns a NSString with the system version
  */
-+(NSString *)systemVersionString {
++(NSString *)systemVersionString 
+{
 	return [[UIDevice currentDevice] systemVersion];
 }
 
@@ -47,7 +48,8 @@
  ("1" in "5.0.1"). To access these you use the keys kCWSystemMajorVersion,
  kCWSystemMinorVersion and kCWSystemBugFixVersion. 
  */
-+(NSDictionary *)hostVersion {
++(NSDictionary *)hostVersion
+{
 	NSMutableDictionary *versionDictionary = nil;
 	NSArray *components = nil;
 	components = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];

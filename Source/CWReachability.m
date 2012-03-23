@@ -38,8 +38,9 @@
  @param address a NSString with the host address you are trying to reach
  @return a BOOL with yes if the address is reachable or no if it is not
  */
-+ (BOOL) canReachAddress:(NSString *)address {
-    NSParameterAssert(address);
++ (BOOL) canReachAddress:(NSString *)address
+{
+    if (!address) { return NO; }
 	
 	bool available = false;
 	bool success = false;

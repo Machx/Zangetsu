@@ -154,7 +154,7 @@
 -(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue
 {
 	if (blockQueue) {
-		dispatch_set_target_queue([self queue], [blockQueue queue]);
+		dispatch_set_target_queue(self.queue, [blockQueue queue]);
 	}
 }
 
@@ -166,7 +166,7 @@
 -(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue
 {
 	if (GCDQueue) {
-		dispatch_set_target_queue([self queue], GCDQueue);
+		dispatch_set_target_queue(self.queue, GCDQueue);
 	}
 }
 
@@ -221,10 +221,10 @@
  */
 -(void)addOperation:(CWBlockOperation *)operation
 {
-	dispatch_async([self queue], ^{
-		[operation operationBlock]();
-		if ([operation completionBlock]) {
-			[operation completionBlock]();
+	dispatch_async(self.queue, ^{
+		operation.operationBlock();
+		if (operation.completionBlock) {
+			operation.completionBlock();
 		}
 	});
 }
@@ -234,7 +234,7 @@
  */
 -(void)addoperationWithBlock:(dispatch_block_t)block
 {
-	dispatch_async([self queue], block);
+	dispatch_async(self.queue, block);
 }
 
 /**
@@ -244,10 +244,10 @@
  */
 -(void)addSynchronousOperation:(CWBlockOperation *)operation
 {
-	dispatch_sync([self queue], ^{
-		[operation operationBlock]();
-		if ([operation completionBlock]) {
-			[operation completionBlock]();
+	dispatch_sync(self.queue, ^{
+		operation.operationBlock();
+		if (operation.completionBlock) {
+			operation.completionBlock();
 		}
 	});
 }
@@ -257,7 +257,7 @@
  */
 -(void)addSynchronousOperationWithBlock:(dispatch_block_t)block
 {
-	dispatch_sync([self queue], block);
+	dispatch_sync(self.queue, block);
 }
 
 /**
@@ -265,7 +265,7 @@
  */
 -(void)executeWhenQueueIsFinished:(dispatch_block_t)block
 {
-	dispatch_barrier_async([self queue],block);
+	dispatch_barrier_async(self.queue,block);
 }
 
 /**
@@ -273,7 +273,7 @@
  */
 -(void)waitForQueueToFinish
 {
-	dispatch_barrier_sync([self queue], ^{
+	dispatch_barrier_sync(self.queue, ^{
 		CWDebugLog(@"Queue %@ Finished",self);
 	});
 }
@@ -283,7 +283,7 @@
  */
 -(void)suspend
 {
-	dispatch_suspend([self queue]);
+	dispatch_suspend(self.queue);
 }
 
 /**
@@ -291,7 +291,7 @@
  */
 -(void)resume
 {
-	dispatch_resume([self queue]);
+	dispatch_resume(self.queue);
 }
 
 /**
@@ -300,14 +300,14 @@
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {
-		return ([self queue] == [object queue]);
+		return (self.queue == [object queue]);
 	}
 	return NO;
 }
 
 -(void)dealloc
 {
-	if ([self queue] != dispatch_get_main_queue()) {
+	if (self.queue != dispatch_get_main_queue()) {
 		//make sure we only release on a private queue
 		//doing this on the global concurrent queues does nothing
 		dispatch_release(_queue); 

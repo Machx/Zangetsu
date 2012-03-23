@@ -38,15 +38,11 @@
  @param dateCal a NSCalendar object you want to be used for the date calculation or nil if you want [NSCalendar currentCalendar]
  @return a new NSDate object advanced forward by n minutes
  */
--(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes usingCalendar:(NSCalendar *)dateCal{
+-(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes usingCalendar:(NSCalendar *)dateCal
+{
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setMinute:minutes];
-	NSCalendar *calendar = nil;
-	if (dateCal == nil) {
-		calendar = [NSCalendar currentCalendar];
-	} else {
-		calendar = dateCal;
-	}
+	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];	
 	return date;
 }
@@ -58,15 +54,11 @@
  @param dateCal a NSCalendar object you want to be used for the date calculation or nil if you want [NSCalendar currentCalendar]
  @return a new NSDate object advanced forward by n hours
  */
--(NSDate *)cw_dateByAddingHours:(NSInteger)hours usingCalendar:(NSCalendar *)dateCal{
+-(NSDate *)cw_dateByAddingHours:(NSInteger)hours usingCalendar:(NSCalendar *)dateCal
+{
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setHour:hours];
-	NSCalendar *calendar = nil;
-	if (dateCal == nil) {
-		calendar = [NSCalendar currentCalendar];
-	} else {
-		calendar = dateCal;
-	}
+	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }
@@ -81,12 +73,7 @@
 -(NSDate *)cw_dateByAddingDays:(NSInteger)days usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setDay:days];
-	NSCalendar *calendar = nil;
-	if (dateCal == nil) {
-		calendar = [NSCalendar currentCalendar];
-	} else {
-		calendar = dateCal;
-	}
+	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }

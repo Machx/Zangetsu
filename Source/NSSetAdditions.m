@@ -35,7 +35,8 @@
 /**
  Ruby inspired iterator
  */
--(void)cw_each:(void (^)(id obj, BOOL *stop))block {
+-(void)cw_each:(void (^)(id obj, BOOL *stop))block 
+{
 	__block BOOL stop = NO;
 	
 	for (id obj in self) {
@@ -47,10 +48,10 @@
 /**
  Experimental each method that runs concurrently
  */
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block {
-	
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block 
+{	
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create("com.zangetsu.nssetadditions_conncurrenteach", 0);
+	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.zangetsu.nssetadditions_conncurrenteach"), 0);
 	__block BOOL _stop = NO;
 
 	for(id object in self){
@@ -72,7 +73,8 @@
  Simple convenience method to find a object in
  a NSSet using a block
  */
--(id)cw_findWithBlock:(BOOL (^)(id obj))block {
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block
+{
 	for(id obj in self){
 		if(block(obj)){
 			return obj;
@@ -84,7 +86,8 @@
 /**
  Exactly like cw_findWithBlock except it returns a BOOL
  */
--(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block {
+-(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
+{
 	for (id obj in self) {
 		if (block(obj)) {
 			return YES;
@@ -97,7 +100,8 @@
  like cw_find but instead uses NSArray to store 
  all objects passing the test of the bool block
  */
--(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
+-(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block
+{
 	NSMutableSet *results = [[NSMutableSet alloc] init];
 	for (id obj in self) {
 		if (block(obj)) {
@@ -113,7 +117,8 @@
  like cw_find but instead uses NSHashTable to store pointers to 
  all objects passing the test of the bool block
  */
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
+{
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
 	for (id obj in self) {
 		if (block(obj)) {
@@ -134,7 +139,8 @@
  @param block a block returning the object to be mapped or nil if no object is to be mapped
  @return a NSSet of objects that have been mapped from an original NSSet
  */
--(NSSet *)cw_mapSet:(id (^)(id obj))block {
+-(NSSet *)cw_mapSet:(id (^)(id obj))block
+{
 	NSMutableSet *cwArray = [[NSMutableSet alloc] init];
     for (id obj in self) {
         id rObj = block(obj);

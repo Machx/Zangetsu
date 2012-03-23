@@ -39,8 +39,6 @@ void CWShowExceptionAsAlertPanel(NSException *exception);
 #endif
 
 @interface NSException (CWNSExceptionAdditions)
-
 -(NSString *)cw_stackTrace;
-
 @end
 

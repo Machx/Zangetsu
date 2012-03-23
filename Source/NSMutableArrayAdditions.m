@@ -39,7 +39,8 @@
  
  @prarm otherArray a NSArray whose objects you want copied and added to the reciver array
  */
--(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray {
+-(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray
+{
     for (id object in otherArray) {
         [self addObject:[object copy]];
     }

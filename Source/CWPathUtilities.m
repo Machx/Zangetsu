@@ -39,7 +39,8 @@ static NSString * const kCWAppName = @"CFBundleName";
  @param tildePath a NSString with a tilde path
  @return a NSString with the expanded tilde path if it exists, otherwise nil
  */
-NSString *CWFullPathFromTildeString(NSString *tildePath) {
+NSString *CWFullPathFromTildeString(NSString *tildePath)
+{
 	if (tildePath) {
 		NSString *path = [tildePath stringByExpandingTildeInPath];
 		if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -59,7 +60,8 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  * 
  * @return a NSString with the Application Support Folder Path for this application
  */
-+ (NSString *) applicationSupportFolder {
++ (NSString *) applicationSupportFolder
+{
     NSString * _path = nil;
     _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
     if (!_path) {
@@ -79,7 +81,8 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  * @param file the file in the document folder you are getting a path to
  * @return a NSString with the path to file inside the documents folder.
  */
-+ (NSString *) documentsFolderPathForFile:(NSString *)file {
++ (NSString *) documentsFolderPathForFile:(NSString *)file
+{
     NSParameterAssert(file);
     NSString *_path = nil;
     _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
@@ -98,7 +101,8 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  * @param path a subpath to be appended on to the Application Support Folder Path
  * @return a NSString with the path within the app support folder path to the specified sub path
  */
-+ (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
++ (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path
+{
     NSString * _appSupportPath = nil;
     _appSupportPath = [CWPathUtilities applicationSupportFolder];
     if (!_appSupportPath) {
@@ -116,9 +120,11 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  * @param subpath the path to be appended onto the home folder path
  * @return a NSString with the path within the home folder path
  */
-+ (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath {
++ (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath
+{
     NSString * _homeFolder = NSHomeDirectory();
-    return [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
+    NSString * _path = [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
+	return _path;
 }
 
 /**
@@ -129,7 +135,8 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
  
  @return a NSString with the full path to a temporary file with a unique name and .temp extension
  */
-+(NSString *)temporaryFilePath {
++(NSString *)temporaryFilePath
+{
 	NSString *temporaryFilePath = nil;
 	NSString *basePath = NSTemporaryDirectory();
 	NSString *file = [NSString stringWithFormat:@"%@.temp",[NSString cw_uuidString]];

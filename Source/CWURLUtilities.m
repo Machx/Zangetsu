@@ -37,7 +37,8 @@
  * @param url a NSString containing a url address with any additional formatting options you want to create a NSURL object from
  * @return a NSURL object from the string passed in
  */
-NSURL *CWURL(NSString * urlFormat,...) {
+NSURL *CWURL(NSString * urlFormat,...)
+{
     NSCParameterAssert(urlFormat);
 	
 	va_list args;
@@ -60,8 +61,10 @@ NSURL *CWURL(NSString * urlFormat,...) {
  @param password a NSString with the password corresponding to the login identity
  @return a NSString with a value that can be set as the authorization header value or nil if there was a problem
  */
-NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
+NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password)
+{
 	if ((login == nil) || (password == nil)) { return nil; }
+	
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
 	encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
@@ -82,7 +85,8 @@ static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities"
  @param code a NSInteger whose code you want to get a NSError with a localized description for
  @return a NSError object if everything was successful or nil if something went wrong
  */
-+ (NSError *) errorWithLocalizedMessageForStatusCode:(NSInteger)code {
++ (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code
+{
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
     if (localizedMessage) {
         return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);

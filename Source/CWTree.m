@@ -45,7 +45,8 @@
  
  @return a CWTreeNode object with no value
  */
--(id)init {
+-(id)init
+{
     self = [super init];
     if (self) {
         _value = nil;
@@ -64,7 +65,8 @@
  @param aValue an Objective-C object that the CWTreeNode will retain
  @return a new CWTreeNode with aValue for the nodes data value and no children
  */
--(id)initWithValue:(id)aValue {
+-(id)initWithValue:(id)aValue
+{
     self = [super init];
     if (self) {
         _value = aValue;
@@ -79,15 +81,14 @@
  
  @return a NSString with debug information on the receiving CWTreeNode Object
  */
--(NSString *)description {
-	NSString *allowsDupes = CWBOOLString([self allowsDuplicates]);
+-(NSString *)description
+{
 	NSString *desc = [NSString stringWithFormat:@"%@ Node\nValue: %@\nParent: %@\nChildren: %@\nAllows Duplicates: %@",
 					  NSStringFromClass([self class]),
-					  [[self value] description],
-					  [[self parent] description],
-					  [[self children] description],
-					  allowsDupes];
-	
+					  [self.value description],
+					  [self.parent description],
+					  [self.children description],
+					  CWBOOLString(self.allowsDuplicates)];
 	return desc;
 }
 
@@ -103,27 +104,27 @@
  
  @param node a CWTreeNode object
  */
--(void)addChild:(CWTreeNode *)node {
-	if (node) {
-		if ([self allowsDuplicates] == YES) {
-			[node setParent:self];
-			[[self children] addObject:node];
-		}
-		else {
-			if (![[self children] containsObject:node]) {
-				__block BOOL anyNodeContainsValue = NO;
-				[[self children] cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-					id nodeValue = [(CWTreeNode *)obj value];
-					if ([nodeValue isEqual:[node value]]) {
-						anyNodeContainsValue = YES;
-					}
-				}];
-				
-				if (anyNodeContainsValue == NO) {
-					[node setParent:self];
-					[node setAllowsDuplicates:NO];
-					[[self children] addObject:node];
+-(void)addChild:(CWTreeNode *)node
+{
+	if(!node) { return; }
+	
+	if (self.allowsDuplicates) {
+		node.parent = self;
+		[self.children addObject:node];
+	} else {
+		if (![self.children containsObject:node]) {
+			BOOL anyNodeContainsValue = [self.children cw_isObjectInArrayWithBlock:^BOOL(id obj) {
+				id nodeValue = [(CWBTreeNode *)obj value];
+				if ([nodeValue isEqual:node.value]) {
+					return YES;
 				}
+				return NO;
+			}];
+			
+			if (!anyNodeContainsValue) {
+				node.parent = self;
+				node.allowsDuplicates = NO;
+				[self.children addObject:node];
 			}
 		}
 	}
@@ -137,11 +138,12 @@
  
  @param a CWTreeNode object
  */
--(void)removeChild:(CWTreeNode *)node {
-    if (node && ([[self children] containsObject:node])) {
-        [node setParent:nil];
-        [[self children] removeObject:node];
-    }
+-(void)removeChild:(CWTreeNode *)node
+{
+	if (node && [self.children containsObject:node]) {
+		node.parent = nil;
+		[self.children removeObject:node];
+	}
 }
 
 /**
@@ -153,13 +155,12 @@
  @param node a valid CWTreeNode object
  @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
  */
--(BOOL)isEqualToNode:(CWTreeNode *)node {
-    if ([[node value] isEqual:[self value]]) {
-		if ([[node parent] isEqual:[self parent]]) {
-			if ([[node children] isEqual:[self children]]) {
-				return YES;
-			}
-		}
+-(BOOL)isEqualToNode:(CWTreeNode *)node
+{
+	if ([node.value isEqual:self.value] &&
+		[node.parent isEqual:self.parent] &&
+		[node.children isEqual:self.children]) {
+		return YES;
 	}
     return NO;
 }
@@ -170,8 +171,9 @@
  @param node a valid CWTreeNode object
  @return a BOOL with yes if the node values are equal, otherwise no.
  */
--(BOOL)isNodeValueEqualTo:(CWTreeNode *)node {
-    if ([[node value] isEqual:[self value]]) {
+-(BOOL)isNodeValueEqualTo:(CWTreeNode *)node
+{
+    if ([node.value isEqual:self.value]) {
         return YES;
     }
     return NO;
@@ -184,11 +186,11 @@
  */
 -(NSUInteger)nodeLevel {
     NSUInteger level = 1;
-    CWTreeNode *currentNode = [self parent];
+    CWTreeNode *currentNode = self.parent;
 	
-    while (currentNode != nil) {
+    while (currentNode) {
         level++;
-        currentNode = [currentNode parent];
+        currentNode = currentNode.parent;
     }
     return level;
 }
@@ -197,7 +199,7 @@
 
 @implementation CWTree
 
-@synthesize rootNode;
+@synthesize rootNode = _rootNode;
 
 /**
  Initializes and returns a new CWTree object with a root CWTreeNode value containing value
@@ -205,11 +207,12 @@
  @param value any valid Objective-C object to initialize a CWTreeNode node with
  @return a CWTree object with its rootnode pointer pointing at a newly created CWTreeNode object with value as its node value
  */
--(id)initWithRootNodeValue:(id)value {
+-(id)initWithRootNodeValue:(id)value
+{
     self = [super init];
     if (self) {
         CWTreeNode *aRootNode = [[CWTreeNode alloc] initWithValue:value];
-        rootNode = aRootNode;
+        _rootNode = aRootNode;
     }
     
     return self;
@@ -220,11 +223,11 @@
  
  @return a BOOL if the receivers children objects are equal to tree's children objects
  */
--(BOOL)isEqualToTree:(CWTree *)tree {
-	if ([[self rootNode] isNodeValueEqualTo:[tree rootNode]]) {
-		if ([[[self rootNode] description] isEqualToString:[[tree rootNode] description]]) {
-			return YES;
-		}
+-(BOOL)isEqualToTree:(CWTree *)tree
+{
+	if ([self.rootNode isNodeValueEqualTo:tree.rootNode] &&
+		[[self.rootNode description] isEqualToString:[tree.rootNode description]]) {
+		return YES;
 	}
     return NO;
 }
@@ -242,23 +245,24 @@
  @param node a pointer to the node being enumerated over
  @param stop a BOOL pointer which you can set to YES to stop enumeration, otherwise it will continue until all nodes have been enumerated over
  */
--(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block {
-	if ([self rootNode] == nil) { return; }
+-(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block
+{
+	if(!self.rootNode) { return; }
 	
 	CWQueue *queue = [[CWQueue alloc] init];
-	__block BOOL shouldStop = NO;
+	BOOL shouldStop = NO;
 	
-	[queue addObject:[self rootNode]];
+	[queue addObject:self.rootNode];
 	
 	while ([queue count] > 0) {
 		CWTreeNode *node = (CWTreeNode *)[queue dequeueTopObject];
 		
-		block([node value],node,&shouldStop);
+		block(node.value, node, &shouldStop);
 		
-		if (shouldStop == YES) { break; }
+		if(shouldStop) { break; }
 		
-		if ([[node children] count] > 0) {
-			for (CWTreeNode *childNode in [node children]) {
+		if ([node.children count] > 0) {
+			for (CWTreeNode *childNode in node.children) {
 				[queue addObject:childNode];
 			}
 		}

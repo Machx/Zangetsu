@@ -40,15 +40,18 @@ static void *cwmdbg;
  
  This is just for your debuggging purposes 
  */
--(NSString *)cw_debugName {
+-(NSString *)cw_debugName
+{
 	return [self cw_valueAssociatedWithKey:cwmdbg];
 }
 
 /**
  Sets the debug name for a NSManagedObjectContext
  */
--(void)cw_setDebugName:(NSString *)cwdebugname {
-	[self cw_associateValue:cwdebugname withKey:cwmdbg];
+-(void)cw_setDebugName:(NSString *)cwdebugname
+{
+	[self cw_associateValue:cwdebugname 
+					withKey:cwmdbg];
 }
 
 /**
@@ -61,7 +64,8 @@ static void *cwmdbg;
 	- Updated Objects
 	- Deleted Objects
  */
--(void)cw_logObjectsInContext {
+-(void)cw_logObjectsInContext
+{
 	if ([self cw_debugName]) {
 		NSLog(@"MOC Name: %@",[self cw_debugName]);
 	} else {
@@ -94,7 +98,8 @@ static void *cwmdbg;
  @param type a NSManagedObjectContextConcurrencyType type as you would pass when creating a managed object context
  @return a new child NSManagedObjectContext
  */
--(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type {
+-(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type
+{
 	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:type];
 	[ctx setParentContext:self];
 	return ctx;
@@ -107,7 +112,8 @@ static void *cwmdbg;
  @param error a NSError pointer which will be passed to core data and will return any error core data encounters
  @return a NSUInteger with the count of objects of the entity present in the managed object context
  */
--(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error {
+-(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error
+{
 	NSParameterAssert(entityName);
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
 											  inManagedObjectContext:self];
@@ -141,7 +147,8 @@ static void *cwmdbg;
  */
 -(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
 				   withPredicate:(NSPredicate *)predicate 
-						   error:(NSError **)error {
+						   error:(NSError **)error
+{
 	NSParameterAssert(entityName);
 	NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
 	if (predicate) {
@@ -172,12 +179,13 @@ static void *cwmdbg;
 				   withPredicate:(NSPredicate *)predicate 
 					  properties:(NSArray *)properties 
 				 sortDescriptors:(NSArray *)sortDescriptors
-						   error:(NSError **)error {
+						   error:(NSError **)error
+{
 	NSParameterAssert(entityName);
 	NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
-	if (predicate) { [request setPredicate:predicate]; }
-	if (properties) { [request setPropertiesToFetch:properties]; }
-	if (sortDescriptors) { [request setSortDescriptors:sortDescriptors]; }
+	if(predicate) { request.predicate = predicate; }
+	if(properties) { request.propertiesToFetch = properties; }
+	if(sortDescriptors) { request.sortDescriptors = sortDescriptors; }
 	
 	NSArray *results = nil;
 	results = [self executeFetchRequest:request error:error];
@@ -186,7 +194,7 @@ static void *cwmdbg;
 
 -(NSManagedObject *)cw_newManagedObjectOfEntity:(NSString *)entityName
 {
-	if(entityName == nil) { return nil; }
+	if(!entityName) { return nil; }
 	NSEntityDescription *entityDesc = [NSEntityDescription entityForName:entityName inManagedObjectContext:self];
 	NSManagedObject *mo = [[NSManagedObject alloc] initWithEntity:entityDesc insertIntoManagedObjectContext:self];
 	return mo;

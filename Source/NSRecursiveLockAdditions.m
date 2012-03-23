@@ -37,7 +37,8 @@
  
  @param block the block you wish to be executed between locking & unlock the instance lock
  */
--(void)cw_doWithLock:(dispatch_block_t)block {
+-(void)cw_doWithLock:(dispatch_block_t)block
+{
 	[self lock];
 	block();
 	[self unlock];

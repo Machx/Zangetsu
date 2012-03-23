@@ -48,7 +48,8 @@
  
  @return a CWQueue object ready to accept objects to be added to it.
  */
--(id)init {
+-(id)init
+{
 	self = [super init];
 	if (self) {
 		_queue = [[NSMutableArray alloc] init];
@@ -66,7 +67,8 @@
  @param array a NSArray object with the contents you with to initialize a CWQueue object with
  @return an initialized CWQueue instance object
  */
--(id)initWithObjectsFromArray:(NSArray *)array {
+-(id)initWithObjectsFromArray:(NSArray *)array
+{
 	self = [super init];
 	if (self) {
 		if ([array count] > 0) {
@@ -90,10 +92,11 @@
  
  @return a reference to the first object in the queue after removing it or nil if there are no objects in the queue.
  */
--(id)dequeueTopObject {
-	if ([[self queue] count] == 0) { return nil; }
-	id topObject = [[self queue] objectAtIndex:0]; //change back to cw_firstObject sometime
-	[[self queue] removeObjectAtIndex:0];
+-(id)dequeueTopObject
+{
+	if ([self.queue count] == 0) { return nil; }
+	id topObject = [self.queue objectAtIndex:0]; //change back to cw_firstObject sometime
+	[self.queue removeObjectAtIndex:0];
 	return topObject;
 }
 
@@ -105,9 +108,10 @@
  
  @param object a Objective-C object you want to add to the receivng queues storage. Must be non-nil or an assertion will be thrown.
  */
--(void)addObject:(id)object {
+-(void)addObject:(id)object
+{
 	if (object) {
-		[[self queue] addObject:object];
+		[self.queue addObject:object];
 	}
 }
 
@@ -120,17 +124,19 @@
  
  @param a NSArray of objects to be appended onto the receiving queues storage
  */
--(void)addObjectsFromArray:(NSArray *)objects {
+-(void)addObjectsFromArray:(NSArray *)objects
+{
 	if (objects && ([objects count] > 0)) {
-		[[self queue] addObjectsFromArray:objects];
+		[self.queue addObjectsFromArray:objects];
 	}
 }
 
 /**
  Removes all objects from the receiving queues storage
  */
--(void)removeAllObjects {
-	[[self queue] removeAllObjects];
+-(void)removeAllObjects
+{
+	[self.queue removeAllObjects];
 }
 
 //MARK: Query Methods
@@ -144,11 +150,9 @@
  @param object a non nil object you wish to query if it exists in the queue instance
  @return a BOOL with YES if the object is in the queue or NO if it isn't
  */
--(BOOL)containsObject:(id)object {
-	if (object && [[self queue] containsObject:object]) {
-		return YES;
-	}
-	return NO;
+-(BOOL)containsObject:(id)object
+{
+	return [self.queue containsObject:object];
 }
 
 /**
@@ -163,8 +167,9 @@
  @param a block taking a id obj argument which will the an object in the queue, and returning a BOOL value of YES or NO
  @return a BOOL value with YES if the block at any time 
  */
--(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block {
-	for (id obj in [self queue]) {
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block
+{
+	for (id obj in self.queue) {
 		if (block(obj)) {
 			return YES;
 		}
@@ -186,14 +191,14 @@
 -(id)objectInFrontOf:(id)targetObject
 {
 	//make sure we actually contain target object
-	if (![[self queue] containsObject:targetObject])
+	if (![self.queue containsObject:targetObject])
 		return nil;
 	//make sure the target object isn't already the frontmost object
-	if ([targetObject isEqual:[[self queue] objectAtIndex:0]])
+	if ([targetObject isEqual:[self.queue objectAtIndex:0]])
 		return nil;
 	
-	NSUInteger index = ( [[self queue] indexOfObject:targetObject] - 1 );
-	id frontObject = [[self queue] objectAtIndex:index];
+	NSUInteger index = ( [self.queue indexOfObject:targetObject] - 1 );
+	id frontObject = [self.queue objectAtIndex:index];
 	return frontObject;
 }
 
@@ -208,14 +213,14 @@
  */
 -(id)objectBehind:(id)targetObject
 {
-	if (![[self queue] containsObject:targetObject])
+	if (![self.queue containsObject:targetObject])
 		return nil;
 	
-	NSUInteger objectIndex = ( [[self queue] indexOfObject:targetObject] + 1 );
-	if (objectIndex > ( [[self queue] count] - 1 ))
+	NSUInteger objectIndex = ( [self.queue indexOfObject:targetObject] + 1 );
+	if (objectIndex > ( [self.queue count] - 1 ))
 		return nil;
 	
-	return [[self queue] objectAtIndex:objectIndex];
+	return [self.queue objectAtIndex:objectIndex];
 }
 
 //MARK: Enumeration Methods
@@ -227,11 +232,12 @@
  is called it gives you a reference to the object in the queue currently being 
  enumerated over.
  */
--(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block {
+-(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block
+{
 	BOOL shouldStop = NO;
-	for (id object in [self queue]) {
+	for (id object in self.queue) {
 		block(object,&shouldStop);
-		if (shouldStop == YES) { return; }
+		if (shouldStop) { return; }
 	}
 }
 
@@ -244,10 +250,11 @@
  and return to your code (via the block) and pass to you the object being dequeued
  and the BOOL pointer to stop further dequeueing if you desire.
  */
--(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block {
-	if([[self queue] count] == 0) { return; }
+-(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
+{
+	if([self.queue count] == 0) { return; }
 	
-	__block BOOL shouldStop = NO;
+	BOOL shouldStop = NO;
 	id dequeuedObject = nil;
 	
 	do {
@@ -270,10 +277,11 @@
  @param targetObject a Objective-C object in the queue you wish to dequeue all objects including it
  @param block a block with the object being dequeued as an argument
  */
--(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block 
+-(void)dequeueToObject:(id)targetObject 
+			 withBlock:(void(^)(id object))block 
 {
-	if ((![[self queue] containsObject:targetObject]) ||
-		([[self queue] count] == 0)) {
+	if ((![self.queue containsObject:targetObject]) ||
+		([self.queue count] == 0)) {
 		return;
 	}
 	
@@ -294,7 +302,8 @@
  
  @return a NSString detailing the queues internal storage
  */
--(NSString *)description {
+-(NSString *)description
+{
 	return [[self queue] description];
 }
 
@@ -303,7 +312,8 @@
  
  @return a NSUInteger with the receing Queues object count
  */
--(NSUInteger)count {
+-(NSUInteger)count
+{
 	return [[self queue] count];
 }
 
@@ -312,8 +322,9 @@
 /**
  Returns a BOOL indicating if aQueue is equal to the receiving queue
  */
--(BOOL)isEqualToQueue:(CWQueue *)aQueue {
-	return [[[self queue] description] isEqualToString:[aQueue description]];
+-(BOOL)isEqualToQueue:(CWQueue *)aQueue
+{
+	return [[self.queue description] isEqualToString:[aQueue description]];
 }
 
 @end

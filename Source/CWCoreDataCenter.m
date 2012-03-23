@@ -42,9 +42,9 @@
 	dispatch_once(&pred, ^{
 		center = [[CWCoreDataCenter alloc] init];
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
-		[center setManagedObjectModel:[[NSApp delegate] managedObjectModel]];
-		[center setManagedObjectContext:[[NSApp delegate] managedObjectContext]];
-		[center setPersistentStoreCoordinator:[[NSApp delegate] persistentStoreCoordinator]];
+		center.managedObjectModel = [[NSApp delegate] managedObjectModel];
+		center.managedObjectContext = [[NSApp delegate] managedObjectContext];
+		center.persistentStoreCoordinator = [[NSApp delegate] persistentStoreCoordinator];
 #endif
 	});
 	

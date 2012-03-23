@@ -36,7 +36,8 @@
  
  @return a NSString from the contents of the NSData object, if the data object is nil this returns nil
  */
-- (NSString *) cw_NSStringFromData {
+- (NSString *) cw_NSStringFromData
+{
     NSString * _result = [[NSString alloc] initWithData:self 
 											   encoding:NSUTF8StringEncoding];
     return _result;
@@ -47,7 +48,8 @@
  
  @return a const char * from the contents of the NSData object, if the data object is nil this returns nil
  */
-- (const char *) cw_utf8StringFromData {
+- (const char *) cw_utf8StringFromData
+{
     NSString * _result = [[NSString alloc] initWithData:self 
 											   encoding:NSUTF8StringEncoding];
     const char * cRep = [_result UTF8String];
@@ -59,7 +61,8 @@
  
  @return a NSString with the data representation in hex or nil if the data is nil or its length is 0
  */
--(NSString *)cw_hexString {
+-(NSString *)cw_hexString
+{
 	NSUInteger capacity = [self length] * 2;
 	NSMutableString *stringBuffer = [NSMutableString stringWithCapacity:capacity];
 	const unsigned char *dataBuffer = [self bytes];
