@@ -96,7 +96,7 @@
 -(NSUInteger)nodeLevel {
     NSUInteger level = 1;
     CWBTreeNode *currentParrent = [self parent];
-    while (currentParrent != nil) {
+    while (currentParrent) {
         level++;
         currentParrent = [currentParrent parent];
     }
@@ -163,10 +163,10 @@
     while (![nodes isEmpty]) {
         currentNode = [nodes pop];
         
-        if ([currentNode rightNode] != nil) {
+        if ([currentNode rightNode]) {
             [nodes push:[currentNode rightNode]];
         }
-        if ([currentNode leftNode] != nil) {
+        if ([currentNode leftNode]) {
             [nodes push:[currentNode leftNode]];
         }
         
