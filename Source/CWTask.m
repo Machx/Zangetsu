@@ -119,7 +119,7 @@
 - (NSString *) description
 {
     NSString * desc = [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
-                       _executable, _arguments, _directoryPath];
+                       self.executable, self.arguments, self.directoryPath];
 
     return desc;
 }
@@ -129,15 +129,15 @@
  */
 - (void) _configureTask
 {
-    [[self cwTask] setLaunchPath:[self executable]];
-	[self setPipe:[NSPipe pipe]];
-    [[self cwTask] setStandardOutput:[self pipe]];
-    if ([_arguments count] > 0) {
-        [_cwTask setArguments:[self arguments]];
-    }
-    if ([self directoryPath]) {
-        [_cwTask setCurrentDirectoryPath:[self directoryPath]];
-    }
+	self.cwTask.launchPath = self.executable;
+	self.pipe = [NSPipe pipe];
+	self.cwTask.standardOutput = self.pipe;
+	if ([_arguments count] > 0) {
+		self.cwTask.arguments = self.arguments;
+	}
+	if (self.directoryPath) {
+		self.cwTask.currentDirectoryPath = self.directoryPath;
+	}
 }
 
 /**
@@ -167,7 +167,7 @@
  */
 - (BOOL) _validateExecutable:(NSError **)error
 {
-    if (([self executable] == nil) || ![[NSFileManager defaultManager] fileExistsAtPath:[self executable]]) {
+    if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable, @"Executable Path provided doesn't exist");
         }
@@ -185,8 +185,8 @@
  */
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error
 {
-    if ([self directoryPath]) {
-        if (![[NSFileManager defaultManager] fileExistsAtPath:[self directoryPath]]) {
+    if (self.directoryPath) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
             if (*error) {
                 *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory, @"The Directory Specified does not exist & is invalid");
             }
@@ -206,7 +206,7 @@
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error
 {
-    if ([self taskHasRun] == YES) {
+    if (self.taskHasRun) {
         if (*error) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun, @"CWTask Object has already been run");
         }
@@ -227,16 +227,16 @@
  */
 - (NSString *) launchTask:(NSError **)error
 {
-    if ([self _validateTask:error] == NO) { return nil; }
+    if (![self _validateTask:error]) { return nil; }
 
     NSString * resultsString = nil;
-
-    if ([self taskHasRun] == NO) {
-        [self _configureTask];
-        resultsString = [self _resultsStringFromLaunchedTask:error];
-        [self setTaskHasRun:YES];
-        [self _performPostRunActionsIfApplicable];
-    }
+	
+	if (!self.taskHasRun) {
+		[self _configureTask];
+		resultsString = [self _resultsStringFromLaunchedTask:error];
+		self.taskHasRun = YES;
+		[self _performPostRunActionsIfApplicable];
+	}
     return resultsString;
 }
 
@@ -252,16 +252,17 @@
     NSString * taskOutput = nil;
 
     @try {
-        [_cwTask launch];
+        [self.cwTask launch];
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
         *error = CWCreateError(kCWTaskErrorDomain, kCWTaskEncounteredExceptionOnRun, [e description]);
     }
 
-    returnedData = [[[self pipe] fileHandleForReading] readDataToEndOfFile];
+    returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
     if (returnedData) {
-        taskOutput = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+        taskOutput = [[NSString alloc] initWithData:returnedData 
+										   encoding:NSUTF8StringEncoding];
     }
 
     return taskOutput;
@@ -274,12 +275,12 @@
  */
 - (void) _performPostRunActionsIfApplicable
 {
-    if (![_cwTask isRunning]) {
-		[self setSuccessCode:[_cwTask terminationStatus]];
+    if (!self.cwTask.isRunning) {
+		self.successCode = self.cwTask.terminationStatus;
     }
-    if (([self inAsynchronous] == NO) && [self completionBlock]) {
-		[self completionBlock]();
-    }
+	if ((!self.inAsynchronous) && self.completionBlock) {
+		self.completionBlock();
+	}
 }
 
 /**
@@ -291,9 +292,9 @@
  */
 -(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block
 {
-	const char *uniqueLabel = [[NSString stringWithFormat:@"com.CWTask.%@_%@",[self executable],[NSString cw_uuidString]] UTF8String];
-	dispatch_queue_t queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
-	[self setInAsynchronous:YES];
+	NSString *uniqueLabel = [NSString stringWithFormat:@"com.CWTask.%@_",self.executable];
+	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(uniqueLabel), DISPATCH_QUEUE_SERIAL);
+	self.inAsynchronous = YES;
 	dispatch_async(queue, ^{
 		NSError * taskError;
 		NSString * resultsString = nil;
@@ -301,7 +302,7 @@
 		resultsString = [self launchTask:&taskError];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			block(resultsString,taskError);
+			block(resultsString, taskError);
 		});
 	});
 	dispatch_release(queue);
@@ -320,7 +321,7 @@
 	   withCompletionBlock:(void (^)(NSString * output, NSError * error))block
 {
     NSParameterAssert(queue);
-	[self setInAsynchronous:YES];
+	self.inAsynchronous = YES;
 
     [queue addOperationWithBlock:^{
          NSError * taskError;
@@ -347,7 +348,7 @@
 		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block
 {
     NSParameterAssert(queue);
-	[self setInAsynchronous:YES];
+	self.inAsynchronous = YES;
 
     dispatch_async(queue, ^{
 		NSError * taskError;

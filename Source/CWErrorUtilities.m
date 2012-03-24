@@ -42,11 +42,12 @@
  * @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
  * @return a NSError object with the values passed in
  */
-NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...) {
+NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...) 
+{
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
 
-    NSString * _domain = (domain == nil) ? kCWErrorDomain : domain;
+    NSString * _domain = (domain) ? domain : kCWErrorDomain;
 
     va_list args;
     va_start(args, errorMessageFormat);
