@@ -72,7 +72,7 @@ THE SOFTWARE.
     [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:dateFormat];
+	formatter.dateFormat = dateFormat;
 
     NSDate * returnedDate = [formatter dateFromString:dateString];
 
@@ -94,8 +94,8 @@ NSString * CWDateString(NSDate * date)
 {
 	if (date) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-		[formatter setTimeZone:[[NSCalendar currentCalendar] timeZone]];
+		formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+		formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
 		
 		NSString *dateString = [formatter stringFromDate:date];
 		return dateString;
@@ -125,16 +125,16 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 
     if (components) {
 		if (timeZone) {
-			[components setTimeZone:timeZone];
+			components.timeZone = timeZone;
 		} else {
-			[components setTimeZone:[NSTimeZone systemTimeZone]];
+			components.timeZone = [NSTimeZone systemTimeZone];
 		}
-        [components setYear:year];
-        [components setMonth:month];
-        [components setDay:day];
-		[components setHour:hour];
-        [components setMinute:minute];
-        [components setSecond:second];
+		components.year = year;
+		components.month = month;
+		components.day = day;
+		components.hour = hour;
+		components.minute = minute;
+		components.second = second;
 
         if (calendar) {
             NSDate * date = [calendar dateFromComponents:components];
