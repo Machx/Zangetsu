@@ -57,13 +57,25 @@ NSString *CWBOOLString(BOOL value)
     return (value) ? @"YES" : @"NO";
 }
 
+/**
+ Returns a unique NSString prepended by the passed in string
+ 
+ @param preString the string to be prepended on the unique string
+ @return a string containing the preString argument prepended onto a unique string value
+ */
 NSString *CWUUIDStringPrependedWithString(NSString *preString)
 {
 	NSString *unqiueString = [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 	return unqiueString;
 }
 
-const char * CWUUIDCStringPrependedWithString(NSString *preString)
+/**
+ Returns a unique c string prepended by the passed in string
+ 
+ @param preString the string to be prepended on the unique string
+ @return a string containing the preString argument prepended onto a unique string value
+ */
+const char *CWUUIDCStringPrependedWithString(NSString *preString)
 {
 	return [CWUUIDStringPrependedWithString(preString) UTF8String];
 }
