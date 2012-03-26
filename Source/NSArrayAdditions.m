@@ -82,9 +82,8 @@
 - (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block
 {
 	//make sure we get a unique queue identifier
-	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.NSArray_%@",[NSString cw_uuidString]] UTF8String];
     dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
+	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSArray_"), DISPATCH_QUEUE_CONCURRENT);
     __block BOOL _stop = NO;
     NSInteger idx = 0;
 
