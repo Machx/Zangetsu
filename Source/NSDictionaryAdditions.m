@@ -82,7 +82,7 @@
 	__block id _intKey;
 	__block id _intValue;
 	
-	for (id key in [self allKeys]) {
+	for (id key in self.allKeys) {
 		
 		_intKey = [key copy];
 		_intValue = [[self valueForKey:key] copy];

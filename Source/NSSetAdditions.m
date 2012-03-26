@@ -51,12 +51,12 @@
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block 
 {	
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.zangetsu.nssetadditions_conncurrenteach"), 0);
+	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSSetAdditions_ConncurrentEach"), 0);
 	__block BOOL _stop = NO;
 
 	for(id object in self){
 
-		if (_stop == YES) { break; }
+		if (_stop) { break; }
 
 		dispatch_group_async(group, queue, ^{
 			block(object,&_stop);
