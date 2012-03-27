@@ -72,13 +72,13 @@
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	
-	[components setYear:2011];
-	[components setMonth:06];
-	[components setDay:06];
-	[components setHour:10];
-	[components setMinute:0];
-	[components setSecond:0];
-	[components setTimeZone:[calendar timeZone]];
+	components.year = 2011;
+	components.month = 06;
+	components.day = 06;
+	components.hour = 10;
+	components.minute = 0;
+	components.second = 0;
+	components.timeZone = [calendar timeZone];
 	
 	NSDate *date2 = [calendar dateFromComponents:components];
 	

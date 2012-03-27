@@ -39,7 +39,7 @@
 	NSDate *minutesFromNow1 = [now cw_dateByAddingMinutes:3 usingCalendar:nil];
 	
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setMinute:3];
+	components.minute = 3;
 	NSDate *minutesFromNow2 = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:now options:0];
 	
 	STAssertTrue([minutesFromNow1 compare:minutesFromNow2] == NSOrderedSame, @"Dates should be the same");
@@ -52,7 +52,7 @@
 	NSDate *hourFromNow1 = [now cw_dateByAddingHours:2 usingCalendar:nil];
 	
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setHour:2];
+	components.hour = 2;
 	NSDate *hourFromNow2 = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:now options:0];
 	
 	STAssertTrue([hourFromNow1 compare:hourFromNow2] == NSOrderedSame, @"Dates should be the same");
@@ -63,7 +63,7 @@
 	NSDate *today = [NSDate date];
 	
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setDay:1];
+	components.day = 1;
 	NSDate *tomorrow = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:today options:0];
 	
 	NSDate *tomorrow2 = [today cw_dateByAddingDays:1 usingCalendar:nil];

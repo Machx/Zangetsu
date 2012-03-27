@@ -30,7 +30,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface CWNSDateTests : SenTestCase {}
+@interface CWNSDateTests : SenTestCase
 
 -(void)testDateByAddingMinutes;
 

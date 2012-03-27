@@ -50,8 +50,8 @@
     
     CWBTree *tree2 = [[CWBTree alloc] init];
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
-    [tree2 setRootNode:node1];
-    
+    tree2.rootNode = node1;
+	
     STAssertTrue([[[tree1 rootNode] value] isEqual:[[tree2 rootNode] value]], @"Root nodes should be equal");
 }
 
@@ -105,19 +105,19 @@
     CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
     
     CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
-	[rNode setRightNode:rRNode];
+	rNode.rightNode = rRNode;
     
     CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
-	[rNode setLeftNode:rLNode];
+	rNode.leftNode = rLNode;
     
     CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
-	[rLNode setLeftNode:node2L];
+	rLNode.leftNode = node2L;
     
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
-	[rLNode setRightNode:node2R];
+	rLNode.rightNode = node2R;
     
     CWBTree *tree = [[CWBTree alloc] init];
-    [tree setRootNode:rNode];
+	tree.rootNode = rNode;
     
     __block NSMutableString *testString = [[NSMutableString alloc] init];
     
@@ -143,19 +143,19 @@
     CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
     
     CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
-	[rNode setRightNode:rRNode];
+	rNode.rightNode = rRNode;
     
     CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
-	[rNode setLeftNode:rLNode];
+	rNode.leftNode = rLNode;
     
     CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
-	[rLNode setLeftNode:node2L];
+	rLNode.leftNode = node2L;
     
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
-	[rLNode setRightNode:node2R];
+	rLNode.rightNode = node2R;
     
     CWBTree *tree = [[CWBTree alloc] init];
-    [tree setRootNode:rNode];
+	tree.rootNode = rNode;
     
     __block NSMutableString *currentString = [[NSMutableString alloc] init];
     
@@ -181,13 +181,13 @@
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:kTestValue];
     
     CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-	[node1 setRightNode:node2];
+	node1.rightNode = node2;
     
     CWBTreeNode *node3 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-	[node2 setRightNode:node3];
+	node2.rightNode = node3;
     
     CWBTreeNode *node4 = [[CWBTreeNode alloc] initWithValue:kTestValue];
-	[node3 setRightNode:node4];
+	node3.rightNode = node4;
     
     STAssertTrue([node1 nodeLevel] == 1, @"Node1 should be at Level 1");
     STAssertTrue([node2 nodeLevel] == 2, @"Node1 should be at Level 2");
@@ -198,17 +198,17 @@
 -(void)testSetPointerToNil {
 	
 	CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:@"Hypnotoad"];
-	STAssertNil([node rightNode], @"Node should be nil now");
+	STAssertNil(node.rightNode, @"Node should be nil now");
 	
 	CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:@"Nibbler"];
 	[node setRightNode:node2];
-	STAssertNotNil([node rightNode], @"Node should be non nil");
+	STAssertNotNil(node.rightNode, @"Node should be non nil");
 	
 	[node setRightNode:nil];
-	STAssertNil([node rightNode], @"Node should be nil now");
+	STAssertNil(node.rightNode, @"Node should be nil now");
 	
 	[node setRightNode:node];
-	STAssertNil([node rightNode], @"Node should not allow setting itself as a child node");
+	STAssertNil(node.rightNode, @"Node should not allow setting itself as a child node");
 }
 
 - (void)tearDown {

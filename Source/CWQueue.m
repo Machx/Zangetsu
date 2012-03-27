@@ -304,7 +304,7 @@
  */
 -(NSString *)description
 {
-	return [[self queue] description];
+	return [self.queue description];
 }
 
 /**
@@ -314,7 +314,7 @@
  */
 -(NSUInteger)count
 {
-	return [[self queue] count];
+	return [self.queue count];
 }
 
 //MARK: Comparison
