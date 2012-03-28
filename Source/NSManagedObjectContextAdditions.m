@@ -33,7 +33,7 @@
 
 #ifdef DEBUG
 
-static void *cwmdbg;
+static void *cwmdbg = &cwmdbg;
 
 /**
  Returns the debug name for a NSManagedObjectContext if it is set
