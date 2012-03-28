@@ -56,7 +56,7 @@
  */
 +(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block
 {
-	CWSerialBlockOperation *operation = [[CWSerialBlockOperation alloc] init];
+	CWSerialBlockOperation *operation = [[self alloc] init];
 	operation.operationBlock = block;
 	return operation;
 }
