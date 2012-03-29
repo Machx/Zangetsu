@@ -66,14 +66,12 @@
 @interface CWSerialBlockQueue()
 @property(nonatomic, assign) dispatch_queue_t queue;
 @property(atomic,retain) CWQueue *blocksQueue;
-@property(readwrite,retain) NSString *label;
 @end
 
 @implementation CWSerialBlockQueue
 
 @synthesize blocksQueue = _blocksQueue;
 @synthesize queue = _queue;
-@synthesize label = _label;
 
 /**
  Returns a new CWSerialBlockQueue initialized with a unique label
@@ -85,9 +83,7 @@
     self = [super init];
     if (self) {
         _blocksQueue = [[CWQueue alloc] init];
-		NSString *qLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
-		_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
-		_label = qLabel;
+		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -99,11 +95,8 @@
 		_blocksQueue = [[CWQueue alloc] init];
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
-			_label = qLabel;
 		} else {
-			NSString *queueLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
-			_queue = dispatch_queue_create([queueLabel UTF8String], DISPATCH_QUEUE_SERIAL);
-			_label = queueLabel;
+			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
 		}
 	}
 	return self;
@@ -122,11 +115,8 @@
 		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
-			_label = qLabel;
 		} else {
-			NSString *queueLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-");
-			_queue = dispatch_queue_create([queueLabel UTF8String], DISPATCH_QUEUE_SERIAL);
-			_label = queueLabel;
+			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
 		}
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{
@@ -138,6 +128,13 @@
 		}
 	}
 	return self;
+}
+
+-(NSString *)label
+{
+	NSString *queueLabel = [NSString stringWithCString:dispatch_queue_get_label(self.queue) 
+											  encoding:NSUTF8StringEncoding];
+	return queueLabel;
 }
 
 /**
