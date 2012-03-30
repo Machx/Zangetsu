@@ -8,6 +8,7 @@
 
 #import "CWQueueTests.h"
 #import "CWQueue.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWQueueTests
 
@@ -26,20 +27,20 @@
 	[queue addObject:@"Second"];
 	[queue addObject:@"Third"];
 	[queue addObject:@"Fourth"];
-	
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"First"], @"Should be first item dequeued");
+	 
+	CWAssertEqualsStrings([queue dequeueTopObject], @"First");
 	[queue addObject:@"Fifth"];
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Second"], @"Should be second item dequeued");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Second");
 	[queue addObject:@"Sixth"];
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Third"], @"Should be third item dequeued");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Third");
 	[queue addObject:@"Seventh"];
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Fourth"], @"Should be fourth item dequeued");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Fourth");
 	[queue addObject:@"Eight"];
-	
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Fifth"], @"Should be fourth item dequeued");
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Sixth"], @"Should be fourth item dequeued");
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Seventh"], @"Should be fourth item dequeued");
-	STAssertTrue([(NSString *)[queue dequeueTopObject] isEqualToString:@"Eight"], @"Should be fourth item dequeued");
+
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Fifth");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Sixth");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Seventh");
+	CWAssertEqualsStrings([queue dequeueTopObject], @"Eight");
 	STAssertNil([queue dequeueTopObject], @"There should be no more objects and therefore the object should be nil");
 }
 
@@ -57,19 +58,19 @@
 		index++;
 		switch (index) {
 			case 1:
-				STAssertTrue([(NSString *)object isEqualToString:@"1"], @"String should be equal to 1");
+				CWAssertEqualsStrings(object, @"1");
 				break;
 			case 2:
-				STAssertTrue([(NSString *)object isEqualToString:@"2"], @"String should be equal to 2");
+				CWAssertEqualsStrings(object, @"2");
 				break;
 			case 3:
-				STAssertTrue([(NSString *)object isEqualToString:@"3"], @"String should be equal to 3");
+				CWAssertEqualsStrings(object, @"3");
 				break;
 			case 4:
-				STAssertTrue([(NSString *)object isEqualToString:@"4"], @"String should be equal to 4");
+				CWAssertEqualsStrings(object, @"4");
 				break;
 			case 5:
-				STAssertTrue([(NSString *)object isEqualToString:@"5"], @"String should be equal to 5");
+				CWAssertEqualsStrings(object, @"5");
 				break;
 			default:
 				STAssertTrue(0, @"Should not arrive at this option if enumeration worked correctly");
@@ -235,7 +236,7 @@
 	[queue addObject:ob3];
 	
 	STAssertNil([queue objectInFrontOf:ob1],@"Fry should be at the front and therefore we should get nil back");
-	STAssertTrue([[queue objectInFrontOf:ob2] isEqualToString:@"Fry"],@"Pointing to the object in front of Leela should be Fry");
+	CWAssertEqualsStrings([queue objectInFrontOf:ob2], @"Fry");
 }
 
 -(void)testObjectBehind
@@ -250,7 +251,7 @@
 	[queue addObject:ob3];
 	
 	STAssertNil([queue objectBehind:ob3],@"Bender should be the last object on the queue and therefore we should get nil back");
-	STAssertTrue([[queue objectBehind:ob2] isEqualToString:@"Bender"],@"Bender should be behind leela on the queue");
+	CWAssertEqualsStrings([queue objectBehind:ob2], @"Bender");
 }
 
 -(void)testDequeueToObject

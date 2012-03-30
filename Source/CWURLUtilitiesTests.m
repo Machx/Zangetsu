@@ -8,6 +8,7 @@
 
 #import "CWURLUtilitiesTests.h"
 #import <Zangetsu/Zangetsu.h>
+#import "CWAssertionMacros.h"
 
 @implementation CWURLUtilitiesTests
 
@@ -15,7 +16,7 @@
 	NSString *authorizationHeaderString = CWURLAuthorizationHeaderString(@"TestAccount", @"TestPassword");
 	NSString *const goodResultString = @"Basic VGVzdEFjY291bnQ6VGVzdFBhc3N3b3Jk";
 	
-	STAssertEqualObjects(authorizationHeaderString, goodResultString, @"Strings Should match given the input");
+	CWAssertEqualsStrings(authorizationHeaderString, goodResultString);
 }
 
 -(void)testBase64AuthHeaderWithNilData {
