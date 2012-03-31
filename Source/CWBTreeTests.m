@@ -29,6 +29,7 @@
 
 #import "CWBTreeTests.h"
 #import "CWBTree.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWBTreeTests
 
@@ -127,7 +128,7 @@
     
     NSString *truthString = @"42135";
     
-    STAssertTrue([testString isEqualToString:truthString], @"The Strings should be the same if the tree was traversed correctly");
+	CWAssertEqualsStrings(testString, truthString);
 }
 
 /**
@@ -166,7 +167,7 @@
         }
     }];
     
-    STAssertTrue([currentString isEqualToString:@"42"], @"the String should equal 42 if it stopped correctly");
+	CWAssertEqualsStrings(currentString, @"42");
 }
 
 -(void)testNodeLevel {

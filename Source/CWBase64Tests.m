@@ -8,6 +8,7 @@
 
 #import "CWBase64Tests.h"
 #import "CWBase64.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWBase64Tests
 
@@ -30,7 +31,7 @@
     NSString *resultString = [testData cw_base64EncodedString];
     NSString *goodResult = @"QWxsIEhhaWwgdGhlIEh5cG5vdG9hZCE=";
     
-	STAssertEqualObjects(resultString, goodResult, @"Strings should match if encoded correctly");
+	CWAssertEqualsStrings(resultString, goodResult);
 }
 
 -(void)testBasicBase64Decoding {
@@ -45,7 +46,7 @@
     NSString *resultString = [testData cw_base64DecodedString];
     NSString *goodResult =  @"All Hail the Hypnotoad!";
     
-	STAssertEqualObjects(resultString, goodResult, @"Base64 decoded string should equal the good result string");
+	CWAssertEqualsStrings(resultString, goodResult);
 }
 
 - (void)tearDown {

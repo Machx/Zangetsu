@@ -43,14 +43,14 @@
     NSString *homePath1 = [@"~/Documents/Test" stringByExpandingTildeInPath];
     NSString *homePath2 = [CWPathUtilities pathByAppendingHomeFolderPath:@"Documents/Test"];
 	
-	STAssertEqualObjects(homePath1, homePath2, @"Paths should be equal");
+	CWAssertEqualsStrings(homePath1, homePath2);
 }
 
 -(void)testDocumentFolderPath {
     NSString *documentPath1 = [@"~/Documents/Test.txt" stringByExpandingTildeInPath];
     NSString *documentPath2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
     
-	STAssertEqualObjects(documentPath1, documentPath2, @"Paths should be equal");
+	CWAssertEqualsStrings(documentPath1, documentPath2);
 }
 
 -(void)testExpandTildeFunction {

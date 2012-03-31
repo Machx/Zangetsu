@@ -29,6 +29,7 @@
 
 #import "CWDateUtilitiesTests.h"
 #import "CWDateUtilities.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWDateUtilitiesTests
 
@@ -47,7 +48,7 @@
 	
 	NSString *dateString2 = @"2011-06-09 14:00:00 -0500";
 	
-	STAssertTrue([dateString isEqualToString:dateString2],@"strings should be equal");
+	CWAssertEqualsStrings(dateString, dateString2);
 }
 
 -(void)testDateFromStringWithFormat {	

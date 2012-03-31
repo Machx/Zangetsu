@@ -30,6 +30,7 @@
 #import "CWFoundationTests.h"
 #import "CWFoundation.h"
 #import "CWMacros.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWFoundationTests
 
@@ -48,18 +49,18 @@
     //just test the 2 bool values...
     
     NSString *yesString = CWBOOLString(YES);
-    STAssertTrue([yesString isEqualToString:@"YES"], @"Both strings should be 'YES'");
+	CWAssertEqualsStrings(yesString, @"YES");
     
     NSString *noString = CWBOOLString(NO);
-    STAssertTrue([noString isEqualToString:@"NO"], @"Both strings should be 'NO'");
+	CWAssertEqualsStrings(noString, @"NO");
 	
 	NSString *str = [[NSString alloc] initWithString:@"Yes"];
 	NSString *str2 = CWBOOLString([str boolValue]);
-	STAssertTrue([str2 isEqualToString:@"YES"], @"A valid object should return YES");
+	CWAssertEqualsStrings(str2, @"YES");
 	
 	NSString *str3 = nil;
 	NSString *str4 = CWBOOLString([str3 boolValue]);
-	STAssertTrue([str4 isEqualToString:@"NO"], @"A valid object should return YES");
+	CWAssertEqualsStrings(str4, @"NO");
 }
 
 - (void)tearDown {

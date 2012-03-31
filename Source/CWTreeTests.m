@@ -29,16 +29,19 @@
 
 #import "CWTreeTests.h"
 #import "CWTree.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWTreeTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testCWTreeRootNode {
+-(void)testCWTreeRootNode
+{
     
     NSString *aString = [[NSString alloc] initWithString:@"Hello World!"];
     
@@ -53,7 +56,8 @@
     STAssertFalse([[tree1 rootNode] isEqualTo:[tree2 rootNode]], @"The Root nodes should not be equal because they are in different trees");
 }
 
--(void)testTreeEquality {
+-(void)testTreeEquality
+{
     
     NSString *aStringVal = [[NSString alloc] initWithString:@"Hynotoad"];
     
@@ -68,7 +72,8 @@
     STAssertFalse([tree1 isEqualTo:tree2], @"Trees should not be equal now");
 }
 
--(void)testTreeNodeDoesNotAddDupes {
+-(void)testTreeNodeDoesNotAddDupes
+{
     
     NSString *myString = @"hello I am your string";
     
@@ -95,7 +100,8 @@
     STAssertTrue([[node children] count] == 1, @"node should not have added the node again");
 }
 
--(void)testNodeLevel {
+-(void)testNodeLevel 
+{
     
     CWTreeNode *node1 = [[CWTreeNode alloc] initWithValue:@"hello"];
     
@@ -107,7 +113,8 @@
     STAssertTrue([node2 nodeLevel] == 2, @"node2 was added to 1 so its level should be 2");
 }
 
--(void)testTreeEnumeration {
+-(void)testTreeEnumeration 
+{
 	static NSString * const kTreeEnumerationGoodResult = @"123456";
 	
 	/**
@@ -147,11 +154,11 @@
 		[resultString appendString:(NSString *)nodeValue];
 	}];
 	
-	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"The Tree Enumeration Did not work correctly");
+	CWAssertEqualsStrings(resultString, kTreeEnumerationGoodResult);
 }
 
--(void)testStopArgument {
-	
+-(void)testStopArgument
+{
 	/**
 	 make sure that the stop pointer in the block argument is respected
 	 and when it is set to YES then the enumeration stops and the block
@@ -187,10 +194,11 @@
 		}
 	}];
 	
-	STAssertTrue([resultString isEqualToString:kTreeEnumerationGoodResult], @"Strings should match if tree was enumerated correctly");
+	CWAssertEqualsStrings(kTreeEnumerationGoodResult, resultString);
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];
