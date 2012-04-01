@@ -39,7 +39,8 @@
     // Set-up code here.
 }
 
--(void)testDictionaryMacro {
+-(void)testDictionaryMacro
+{
     const NSString *value1 = @"I'll be in the dome of understanding";
     const NSString *key1 = @"aKey";
     
@@ -49,7 +50,8 @@
 	STAssertEqualObjects(dict1, dict2, @"Dictionaries should be the same if created correctly");
 }
 
--(void)testArrayMacro {
+-(void)testArrayMacro
+{
     const NSString *value1 = @"Fry";
     const NSString *value2 = @"Bender";
     const NSString *value3 = @"Leela";
@@ -60,7 +62,8 @@
 	STAssertEqualObjects(array1, array2, @"Arrays should be equal if created correctly");
 }
 
--(void)testBoolMacro {
+-(void)testBoolMacro
+{
     NSNumber *bool1 = NSBOOL(YES);
     BOOL bool2 = YES;
     
@@ -73,7 +76,8 @@
     STAssertFalse([bool3 boolValue] == [bool1 boolValue], @"bools formed from NSNumber should have different values");
 }
 
--(void)testSetMacro {
+-(void)testSetMacro
+{
     
     const NSString *q1 = @"All Hail Hypnotoad!";
     const NSString *q2 = @"We just need to hit the bullseye and all the dominos will fall like a house of cards... checkmate";
@@ -84,7 +88,8 @@
 	STAssertEqualObjects(set1, set2, @"The 2 sets should have the same content");
 }
 
--(void)testGCDQueueMacros {
+-(void)testGCDQueueMacros
+{
     //make sure our GCD macros correspond to the proper queues...
     STAssertTrue(CWGCDQueueHigh() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), @"Queues should be the same");
     STAssertTrue(CWGCDQueueNormal() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), @"Queues should be the same");

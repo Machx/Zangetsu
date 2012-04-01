@@ -28,6 +28,7 @@
  */
  
 #import "CWNSArrayTests.h"
+#import "CWAssertionMacros.h"
 
 
 @implementation CWNArrayTests
@@ -35,18 +36,20 @@
 /**
  Testing the cw_fisrtObject method should return the correct object
  */
--(void)testFirstObject {
+-(void)testFirstObject
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	NSString *firstObject = [testArray cw_firstObject];
 	
-	STAssertEqualObjects(firstObject, @"Fry", @"First object should be fry for cw_firstObject (NSArray)");
+	CWAssertEqualsStrings(firstObject, @"Fry");
 }
 
 /**
  Testing the cw_find api to make sure that inspecting objects works and correctly returns 
  the correct object
  */
--(void)testFind {
+-(void)testFind
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSString *string = [testArray cw_findWithBlock:^(id obj) {
@@ -62,7 +65,8 @@
 /**
  Testing the array map method, the 2 arrays should be the same
  */
--(void)testMapArray {
+-(void)testMapArray
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSArray *myArray = [testArray cw_mapArray:^(id obj) {
@@ -76,7 +80,8 @@
  Testing the each method by using it to map 1 array to another one and then testing 
  to see if the 2 arrays are equal
  */
--(void)testCWEach {
+-(void)testCWEach
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	__block NSMutableArray *results = [[NSMutableArray alloc] init];
@@ -93,7 +98,8 @@
  
  in this exercise we have an item with 3 elements and 
  */
--(void)testEachStopPointer {
+-(void)testEachStopPointer
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	NSMutableArray *results = [[NSMutableArray alloc] init];
 	
@@ -111,28 +117,30 @@
  Testing cw_eachWithIndex by getting the index and then testing the object for the value that
  is supposed to be at that location
  */
--(void)testCWEachIndex {
+-(void)testCWEachIndex
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		switch (index) {
 			case 0:
-				STAssertTrue([(NSString *)obj isEqualToString:@"Fry"],@"Index 0 should be Fry cw_eachWithIndex");
+				CWAssertEqualsStrings(obj, @"Fry");
 				break;
 			case 1:
-				STAssertTrue([(NSString *)obj isEqualToString:@"Leela"],@"Index 1 should be Leela cw_eachWithIndex");
+				CWAssertEqualsStrings(obj, @"Leela");
 				break;
 			case 2:
-				STAssertTrue([(NSString *)obj isEqualToString:@"Bender"],@"Index 2 should be Bender cw_eachWithIndex");
+				CWAssertEqualsStrings(obj, @"Bender");
 				break;
 			default:
-				STAssertTrue(FALSE,@"cw_eachWithIndex should not reach this point");
+				STAssertTrue(0,@"cw_eachWithIndex should not reach this point");
 				break;
 		}
 	}];
 }
 
--(void)testSelectiveMapping {
+-(void)testSelectiveMapping
+{
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
 	
 	NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
@@ -147,7 +155,8 @@
 	STAssertEqualObjects(testArray2, expectedResults, @"The 2 arrays should be equal if mapped correctly");
 }
 
--(void)testEachConcurrently {
+-(void)testEachConcurrently
+{
 	/**
 	 Tests the API cw_eachConcurrentlyWithBlock. In this test we are making sure
 	 that all objects are enumerated over and thus our original array and results
@@ -168,13 +177,13 @@
     [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
         switch (index) {
             case 0:
-                STAssertTrue([(NSString *)obj isEqualToString:@"Fry"], @"String 0 should be equal to 'Fry'");
+				CWAssertEqualsStrings(obj, @"Fry");
                 break;
             case 1:
-                STAssertTrue([(NSString *)obj isEqualToString:@"Leela"], @"String 1 should be Leela");
+				CWAssertEqualsStrings(obj, @"Leela");
                 break;
             case 2:
-                STAssertTrue([(NSString *)obj isEqualToString:@"Bender"], @"String 2 should be Bender");
+				CWAssertEqualsStrings(obj, @"Bender");
                 break;
 			default:
 				STAssertTrue(0,@"should not reach this point");
@@ -183,7 +192,8 @@
     }];
 }
 
--(void)testIsObjectInArrayWithBlock {
+-(void)testIsObjectInArrayWithBlock
+{
 	/**
 	 tests the cw_isObjectInArrayWithBlock API. The API simply returns a BOOL 
 	 indicating if the object is in the array. This test should always return
@@ -199,7 +209,8 @@
 	STAssertTrue(objectIsInArray, @"Bender should be in the array");
 }
 
--(void)testFindAllWithBlock {
+-(void)testFindAllWithBlock
+{
 	/**
 	 Testing the cw_findAllWithBlock api. This should find all ojbects we are looking 
 	 for in an array and then compare it to another array that has the objects we 
