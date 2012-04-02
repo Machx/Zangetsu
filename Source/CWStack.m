@@ -211,6 +211,16 @@
 	return [self.stack containsObject:object];
 }
 
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block
+{	
+	for (id obj in self.stack) {
+		if (block(obj)) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
 /**
  returns a NSString with the contents of the stack
  

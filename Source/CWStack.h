@@ -46,6 +46,7 @@
 -(BOOL)isEqualToStack:(CWStack *)aStack;
 //Querying the Stack
 -(BOOL)containsObject:(id)object;
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block;
 //Other Properties
 -(BOOL)isEmpty;
 -(NSInteger)count;
