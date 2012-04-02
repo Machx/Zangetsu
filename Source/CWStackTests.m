@@ -179,6 +179,29 @@
 	STAssertFalse(result2,@"Object should not be in the stack");
 }
 
+-(void)testContainsObjectWithBlock
+{
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hello",@"World", nil]];
+	
+	BOOL result = [stack containsObjectWithBlock:^BOOL(id object) {
+		if ([(NSString *)object isEqualToString:@"World"]) {
+			return YES;
+		}
+		return NO;
+	}];
+	
+	STAssertTrue(result,@"The string 'World' should be in the stack");
+	
+	BOOL result2 = [stack containsObjectWithBlock:^BOOL(id object) {
+		if ([(NSString *)object isEqualToString:@"Hypnotoad"]) {
+			return YES;
+		}
+		return NO;
+	}];
+	
+	STAssertFalse(result2,@"Hypnotoad shoudln't be in this stack");
+}
+
 - (void)tearDown {
     // Tear-down code here.
     
