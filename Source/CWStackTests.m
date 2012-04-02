@@ -38,8 +38,8 @@
     // Set-up code here.
 }
 
--(void)testBasicPush {
-	
+-(void)testBasicPush
+{	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
 	
 	CWStack *stack1 = [[CWStack alloc] init];
@@ -55,8 +55,8 @@
     STAssertFalse([stack1 isEqualTo:stack2], @"stacks shouldnt be the same object");
 }
 
--(void)testPushNil {
-	
+-(void)testPushNil
+{	
 	CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Nibbler"]];
 	STAssertTrue([testStack count] == 1, @"Stack should only have 1 object contained in it");
 	
@@ -64,8 +64,8 @@
 	STAssertTrue([testStack count] == 1, @"Stack have ignored nil and done nothing");
 }
 
--(void)testBasicEnumeration {
-	
+-(void)testBasicEnumeration
+{	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
@@ -88,8 +88,8 @@
 	}];
 }
 
--(void)testClearStack {
-	
+-(void)testClearStack
+{	
 	CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"one",@"and",@"two", nil]];
 	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"foo",@"bar",nil]];
 	
@@ -99,8 +99,8 @@
 	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
--(void)testBottomAndTopStackObjects {
-	
+-(void)testBottomAndTopStackObjects
+{	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
@@ -109,8 +109,8 @@
 	STAssertTrue([(NSString *)[stack topOfStackObject] isEqualToString:@"sentence"], @"Top of stack object should be equal");
 }
 
--(void)testNilBottomAndTopStackObjects {
-	
+-(void)testNilBottomAndTopStackObjects
+{	
 	CWStack *stack = [[CWStack alloc] init];
 	
 	STAssertNil([stack bottomOfStackObject], @"Since there are no objects on the stack it should return a nil reference");
@@ -127,7 +127,8 @@
 	STAssertNil([stack topOfStackObject], @"Since there are no objects on the stack it should return nil");
 }
 
--(void)testPopToBottomOfStack {
+-(void)testPopToBottomOfStack
+{
 	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
 	
@@ -140,7 +141,8 @@
 	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
--(void)testPoptoNonExistantObject {
+-(void)testPoptoNonExistantObject
+{
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Bender"]];
 	
@@ -148,7 +150,8 @@
 	STAssertNil(results, @"Since the stack didn't contain this object it, the returned reference should be nil");
 }
 
--(void)testEmptyStack {
+-(void)testEmptyStack
+{
     
     CWStack *stack = [[CWStack alloc] init];
     
