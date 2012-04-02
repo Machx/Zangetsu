@@ -162,6 +162,23 @@
     STAssertFalse([stack isEmpty], @"stack should not be empty");
 }
 
+-(void)testContainsObject
+{
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hello",@"World", nil]];
+	
+	// test for an object in the stack
+	
+	BOOL result = [stack containsObject:@"Hello"];
+	
+	STAssertTrue(result,@"The Stack should contain the object");
+	
+	// test for an object we know isn't in the stack
+	
+	BOOL result2 = [stack containsObject:@"Planet Express"];
+	
+	STAssertFalse(result2,@"Object should not be in the stack");
+}
+
 - (void)tearDown {
     // Tear-down code here.
     
