@@ -211,6 +211,12 @@
 	return [self.stack containsObject:object];
 }
 
+/**
+ Returns a BOOL indicating if any block call returned YES indicating the object was in the CWStack storage
+ 
+ @param block a block with a id object passed in and returning a BOOL
+ @return a BOOL with yes if any block call returned yes, otherwise no
+ */
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block
 {	
 	for (id obj in self.stack) {
