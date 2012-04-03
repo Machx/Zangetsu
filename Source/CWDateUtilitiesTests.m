@@ -33,13 +33,15 @@
 
 @implementation CWDateUtilitiesTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testDateStringFromComponents {
+-(void)testDateStringFromComponents
+{
 	/**
 	 tests the CWDateStringFromComponents function to make sure we are getting an
 	 appropriate description back
@@ -51,7 +53,8 @@
 	CWAssertEqualsStrings(dateString, dateString2);
 }
 
--(void)testDateFromStringWithFormat {	
+-(void)testDateFromStringWithFormat
+{	
 	/**
 	 make sure that the -dateFromString:withDateFormat: api returns the correct date
 	 from the passed in string it is given
@@ -63,7 +66,8 @@
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
--(void)testDateFromComponents {
+-(void)testDateFromComponents
+{
 	/**
 	 make sure that the CWDateFromComponents() api works as it should
 	 in giving a correct date from the components passed into it.
@@ -86,7 +90,8 @@
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
 
--(void)testTimeZoneDateFromComponents {
+-(void)testTimeZoneDateFromComponents
+{
 	/**
 	 testing passing in the timezone to make sure that the returned NSDate
 	 objects are different when different timezones are passed in
@@ -107,7 +112,8 @@
 	STAssertFalse([date1 isEqualToDate:date2], @"Dates should not be the same");
 }
 
--(void)test8601DateFormat1 {
+-(void)test8601DateFormat1
+{
 	/**
 	 test that we are getting a date from the -dateFromISO8601String API
 	 and that the value is correct.
@@ -123,7 +129,8 @@
 	STAssertTrue([date1 isEqualToDate:date2], @"Dates should be equal");
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

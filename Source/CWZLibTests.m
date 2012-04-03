@@ -11,13 +11,15 @@
 
 @implementation CWZLibTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testBasicCompression {
+-(void)testBasicCompression
+{
     /**
      This test works in the simplest way possible. What is does is create a reference
      NSString object, then put it inside a NSData object, compress it using zlib encoding
@@ -48,7 +50,8 @@
     STAssertTrue([testString isEqualToString:finalResultString],@"Strings should be the same");
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

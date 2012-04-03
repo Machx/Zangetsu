@@ -32,8 +32,8 @@
 
 @implementation CWNSDateTests
 
--(void)testDateByAddingMinutes {
-	
+-(void)testDateByAddingMinutes
+{	
 	NSDate *now = [NSDate date];
 	
 	NSDate *minutesFromNow1 = [now cw_dateByAddingMinutes:3 usingCalendar:nil];

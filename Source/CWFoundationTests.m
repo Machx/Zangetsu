@@ -40,12 +40,14 @@
     // Set-up code here.
 }
 
--(void)testClassExists {
+-(void)testClassExists
+{
     STAssertTrue(CWClassExists(@"NSString"), @"NSString should exist");
     STAssertFalse(CWClassExists(@"Hypnotoad"), @"Hypnotoad class shouldn't exist");
 }
 
--(void)testBoolString {
+-(void)testBoolString
+{
     //just test the 2 bool values...
     
     NSString *yesString = CWBOOLString(YES);
@@ -63,7 +65,8 @@
 	CWAssertEqualsStrings(str4, @"NO");
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

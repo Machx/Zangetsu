@@ -33,14 +33,16 @@
 
 @implementation CWNSStringTests
 
--(void)testUUIDStrings {
+-(void)testUUIDStrings
+{
 	NSString *string1 = [NSString cw_uuidString];
 	NSString *string2 = [NSString cw_uuidString];
 	
 	CWAssertNotEqualsObjects(string1, string2, @"Both Strings should be unique");
 }
 
--(void)testEmptyStringMethod {
+-(void)testEmptyStringMethod
+{
 	//test data that should be empty
 	NSString *emptyString1 = @"";
 	STAssertFalse([emptyString1 cw_isNotEmptyString],@"String1 should be empty");
@@ -50,7 +52,8 @@
 	STAssertTrue([testString2 cw_isNotEmptyString],@"TestString should not be empty");
 }
 
--(void)testURLEscaping {	
+-(void)testURLEscaping
+{	
 	NSString *urlCharsString = [NSString stringWithString:@"@!*'()[];:&=+$,/?%#"];
 	
 	NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
@@ -62,15 +65,16 @@
 	STAssertTrue(location == NSNotFound, @"chars in set shouldn't be found");
 }
 
--(void)testURLEscapingPercentString {
+-(void)testURLEscapingPercentString
+{
 	NSString *testCharString = @"%";
 	NSString *escapedString = [testCharString cw_escapeEntitiesForURL];
 	
 	CWAssertEqualsStrings(escapedString, @"%25");
 }
 
--(void)testEnumerateSubStrings {
-    
+-(void)testEnumerateSubStrings
+{    
     NSString *string  = [[NSString alloc] initWithString:@"This\nis\na\nstring\nwith\nmany\nlines."];
     
     __block NSInteger count = 0;

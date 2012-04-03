@@ -33,7 +33,8 @@
 
 @implementation CWBTreeTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
@@ -43,8 +44,8 @@
  test that the CWTree objects are being created and correctly
  assigning their root nodes
  */
--(void)testBasicTreeCreation {
-    
+-(void)testBasicTreeCreation
+{    
     NSString *string1 = @"Hypnotoad";
     
     CWBTree *tree1 = [[CWBTree alloc] initWithRootNodeValue:string1];
@@ -59,8 +60,8 @@
 /**
  test for node equality
  */
--(void)testNodeIsEqual {
-    
+-(void)testNodeIsEqual
+{    
     NSString *string1 = @"Hypnotoad";
     
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
@@ -76,8 +77,8 @@
 /**
  Test that we are running the iterative preorder traversal in the correct order...
  */
--(void)testEnumeration {
-    
+-(void)testEnumeration
+{    
     /**
      Unit Test Example Tree Structure
      Internally CWTree uses a Stack (CWStack) object to visit all nodes...
@@ -134,8 +135,8 @@
 /**
  Test that the bool pointer in the block correctly stops enumation
  */
--(void)testStopPointer {
-    
+-(void)testStopPointer
+{    
     /**
      same tree structure as the testEnumeration test...
      we should visit node 4 then 2 and then stop...
@@ -170,7 +171,8 @@
 	CWAssertEqualsStrings(currentString, @"42");
 }
 
--(void)testNodeLevel {
+-(void)testNodeLevel
+{
 	/**
 	 test the node level of nodes at various levels, nodes should report
 	 that their level is 1 + N  where N is the amount of parent nodes they
@@ -196,8 +198,8 @@
     STAssertTrue([node4 nodeLevel] == 4, @"Node1 should be at Level 4");
 }
 
--(void)testSetPointerToNil {
-	
+-(void)testSetPointerToNil
+{	
 	CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:@"Hypnotoad"];
 	STAssertNil(node.rightNode, @"Node should be nil now");
 	
@@ -212,7 +214,8 @@
 	STAssertNil(node.rightNode, @"Node should not allow setting itself as a child node");
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

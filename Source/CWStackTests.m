@@ -32,7 +32,8 @@
 
 @implementation CWStackTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.

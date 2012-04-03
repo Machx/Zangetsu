@@ -12,7 +12,8 @@
 
 @implementation CWQueueTests
 
--(void)testBasicDequeuing {
+-(void)testBasicDequeuing
+{
 	/**
 	 CWQueue is a basic FIFO (First In First Out) Data Structure
 	 The test here is to make sure the data structure works in a simple level.
@@ -44,7 +45,8 @@
 	STAssertNil([queue dequeueTopObject], @"There should be no more objects and therefore the object should be nil");
 }
 
--(void)testEnumeration {
+-(void)testEnumeration
+{
 	/**
 	 Testing the enumeration of CWQueue objects and making sure
 	 that the initWithObjectsFromArray API works correctly as well
@@ -93,8 +95,8 @@
 	STAssertTrue(count == 4, @"Enumeratin should have stopped after hitting 4th object");
 }
 
--(void)testNilDequeuedObject {
-	
+-(void)testNilDequeuedObject
+{
 	CWQueue *queue = [[CWQueue alloc] init];
 	
 	STAssertNil([queue dequeueTopObject], @"There are no objects in the queue so dequeued object should be nil");
@@ -108,8 +110,8 @@
 	STAssertNil([queue dequeueTopObject], @"There should be no objects in the queue so the dequeued object should be nil");
 }
 
--(void)testEqualCWQueues {
-	
+-(void)testEqualCWQueues
+{
 	NSArray *array = [NSArray arrayWithObject:@"Hypnotoad"];
 	
 	CWQueue *queue1 = [[CWQueue alloc] initWithObjectsFromArray:array];
@@ -122,8 +124,8 @@
 	STAssertFalse([queue3 isEqualToQueue:queue1], @"Queues should not be equal");
 }
 
--(void)testAddObjectsFromArray {
-	
+-(void)testAddObjectsFromArray
+{
 	NSArray *array1 = [NSArray arrayWithObjects:@"Cheeze it!", nil];
 	NSArray *array2 = [NSArray arrayWithObjects:@"Why not Zoidberg?", nil];
 	
@@ -140,7 +142,8 @@
 	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 }
 
--(void)testAddNilObject {
+-(void)testAddNilObject
+{
 	CWQueue *queue = [[CWQueue alloc] init];
 	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
 	
@@ -153,7 +156,8 @@
 	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
 }
 
--(void)testDequeueWithBlock {
+-(void)testDequeueWithBlock
+{
 	/**
 	 Test to make sure all the objects are being correctly enumerated over and dequeued
 	 */
@@ -171,7 +175,8 @@
 	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
 }
 
--(void)testDequeueBlockStop {
+-(void)testDequeueBlockStop
+{
 	/**
 	 Test to make sure the BOOL pointer in the block is being respected and we
 	 end up with what we expect in the queue.
@@ -194,7 +199,8 @@
 	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
 }
 
--(void)testContainsObject {
+-(void)testContainsObject
+{
 	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
 	
 	BOOL result1 = [queue containsObject:@"Bender"];
@@ -204,7 +210,8 @@
 	STAssertTrue(result2 == NO, @"Cthulhu isn't in the queue and thus shouldn't be found");
 }
 
--(void)testContainsObjectWithBlock {
+-(void)testContainsObjectWithBlock
+{
 	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
 	
 	BOOL result = [queue containsObjectWithBlock:^BOOL(id obj) {

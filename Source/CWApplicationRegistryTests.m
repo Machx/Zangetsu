@@ -38,22 +38,26 @@
 
 @implementation CWApplicationRegistryTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testIsAppRunning {
+-(void)testIsAppRunning
+{
 	STAssertTrue([CWApplicationRegistry applicationIsRunning:@"Xcode"], @"Xcode should be running");
 	STAssertFalse([CWApplicationRegistry applicationIsRunning:@"Hypnotoad33333345555"], @"Pretty good chance there will never be an app named this");
 }
 
--(void)testBundleIdentifierForApp {
+-(void)testBundleIdentifierForApp
+{
 	STAssertNotNil([CWApplicationRegistry bundleIdentifierForApplication:@"Xcode"], @"bundleid should not be nil");
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

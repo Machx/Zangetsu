@@ -33,32 +33,37 @@
 
 @implementation CWPathUtilitiesTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testAppendHomePath {
+-(void)testAppendHomePath
+{
     NSString *homePath1 = [@"~/Documents/Test" stringByExpandingTildeInPath];
     NSString *homePath2 = [CWPathUtilities pathByAppendingHomeFolderPath:@"Documents/Test"];
 	
 	CWAssertEqualsStrings(homePath1, homePath2);
 }
 
--(void)testDocumentFolderPath {
+-(void)testDocumentFolderPath
+{
     NSString *documentPath1 = [@"~/Documents/Test.txt" stringByExpandingTildeInPath];
     NSString *documentPath2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
     
 	CWAssertEqualsStrings(documentPath1, documentPath2);
 }
 
--(void)testExpandTildeFunction {
+-(void)testExpandTildeFunction
+{
 	STAssertNil(CWFullPathFromTildeString(@"~/Quizzyjimbo1135599887658-111765"), @"This directory shouldn't exist");
 	STAssertNotNil(CWFullPathFromTildeString(@"~/Documents"), @"Documents folder should be present on all installs");
 }
 
--(void)testTemporaryPath {
+-(void)testTemporaryPath
+{
 	NSString *path1 = [CWPathUtilities temporaryFilePath];
 	NSString *path2 = [CWPathUtilities temporaryFilePath];
 	NSString *path3 = [CWPathUtilities temporaryFilePath];

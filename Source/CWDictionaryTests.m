@@ -32,7 +32,8 @@
 
 @implementation CWDictionaryTests
 
--(void)testContainsKey {
+-(void)testContainsKey
+{
 	/**
 	 Test for cw_dictionaryContainsKey to make sure it works properly. In this
 	 case it should return true for finding the object in the dictionary.
@@ -47,7 +48,8 @@
 	STAssertFalse([dictionary cw_dictionaryContainsKey:@"Zapp Brannigan"],@"Dictionary should not contain the key Zapp Brannigan");
 }
 
--(void)testDictionaryMapping {
+-(void)testDictionaryMapping
+{
 	/**
 	 make sure that mapping goes correctly. Again this test does 1-to-1 mapping of
 	 1 dictionary from another so if it goes correctly the dictionaries should be identical.
@@ -61,7 +63,8 @@
 	STAssertEqualObjects(dictionary, results, @"Dictionary and Dictionary2 should be equal");
 }
 
--(void)testEach {
+-(void)testEach
+{
 	/**
 	 test cw_each for NSDictionary by enumerating all values in 1 dictioanry &
 	 settings those values in another dictionary. If enumeration was done correctly
@@ -79,7 +82,8 @@
 	STAssertEqualObjects(dictionary, results, @"Dictionaries should have the same contents if enumerated correctly");
 }
 
--(void)testEachStopPointer {
+-(void)testEachStopPointer
+{
 	/**
 	 make sure the BOOL *stop pointer is respected in cw_each and so we start enumeration
 	 & quit immediately after incrementing a counter. If done correclty the counter should
@@ -97,7 +101,8 @@
 	STAssertTrue(count == 1, @"Count should only be 1 if the stop pointer was respected");
 }
 
--(void)testEachConcurrent {
+-(void)testEachConcurrent
+{
 	/**
 	 make sure that concurrent each is working correctly by mapping a dictionary 
 	 and comparing them to make sure that the contents are identical.
@@ -114,8 +119,6 @@
 	}];
 	
 	STAssertEqualObjects(dictionary, results, @"Dictionaries should be the same if enumerated correctly");
-	
-	
 }
 
 @end

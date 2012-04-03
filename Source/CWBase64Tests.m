@@ -12,13 +12,15 @@
 
 @implementation CWBase64Tests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     // Set-up code here.
 }
 
--(void)testBasicBase64Encoding {
+-(void)testBasicBase64Encoding
+{
 	/**
 	 making sure that the original test string properly encodes to
 	 the good result that is expected. the good result can be verified
@@ -34,7 +36,8 @@
 	CWAssertEqualsStrings(resultString, goodResult);
 }
 
--(void)testBasicBase64Decoding {
+-(void)testBasicBase64Decoding
+{
 	/**
 	 decode the result we should have gotten in the last test
 	 with the original string and make sure that our base64 
@@ -49,7 +52,8 @@
 	CWAssertEqualsStrings(resultString, goodResult);
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Tear-down code here.
     
     [super tearDown];

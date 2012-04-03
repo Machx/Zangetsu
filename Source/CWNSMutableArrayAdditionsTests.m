@@ -18,8 +18,8 @@
     // Set-up code here.
 }
 
--(void)testArrayByCopying {
-    
+-(void)testArrayByCopying
+{    
     NSMutableArray *array1 = [[NSMutableArray alloc] initWithObjects:@"Hypnotoad",@"Leela",@"Amy",nil];
     NSMutableArray *array2 = [[NSMutableArray alloc] init];
     [array2 cw_addObjectsFromArrayByCopying:array1];

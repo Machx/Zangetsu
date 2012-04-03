@@ -42,7 +42,6 @@
 
 -(void)testCWTreeRootNode
 {
-    
     NSString *aString = [[NSString alloc] initWithString:@"Hello World!"];
     
     CWTree *tree1 = [[CWTree alloc] init];
@@ -58,7 +57,6 @@
 
 -(void)testTreeEquality
 {
-    
     NSString *aStringVal = [[NSString alloc] initWithString:@"Hynotoad"];
     
     CWTree *tree1 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
@@ -74,7 +72,6 @@
 
 -(void)testTreeNodeDoesNotAddDupes
 {
-    
     NSString *myString = @"hello I am your string";
     
     CWTreeNode *node = [[CWTreeNode alloc] initWithValue:myString];
