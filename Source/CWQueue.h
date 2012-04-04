@@ -35,14 +35,16 @@
 //Add Objects
 -(void)addObject:(id)object;
 -(void)addObjectsFromArray:(NSArray *)objects;
-//Dequeue/Remove Objects
--(id)dequeueTopObject;
+//Remove Objects
 -(void)removeAllObjects;
+//Dequeue Objects
+-(id)dequeueTopObject;
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
 -(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block;
 //Enumeration
 -(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block;
 //Query
+-(id)peek;
 -(BOOL)containsObject:(id)object;
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
 //Other Properties

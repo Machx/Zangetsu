@@ -177,6 +177,11 @@
 	return NO;
 }
 
+-(id)peek
+{
+	return [self.queue cw_firstObject];
+}
+
 //MARK: Enumeration Methods
 
 /**
