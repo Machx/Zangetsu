@@ -69,6 +69,7 @@
 	CFRelease(inputData);
     NSData *compressedData = nil;
     compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
+	CFRelease(data);
 	
     return compressedData; 
 }
@@ -111,6 +112,7 @@
     NSData *nsDecodedData = [[NSData alloc] initWithData:(__bridge NSData *)decodedData];
 	CFRelease(inputData);
 	CFRelease(decoder);
+	CFRelease(decodedData);
     
     return nsDecodedData;
 }
