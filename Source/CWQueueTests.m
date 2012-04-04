@@ -231,36 +231,6 @@
 	STAssertTrue(result2 == NO, @"Cthulhu should not be in the queue");
 }
 
--(void)testObjectInFrontOf
-{
-	NSString *ob1 = @"Fry";
-	NSString *ob2 = @"Leela";
-	NSString *ob3 = @"Bender";
-	
-	CWQueue *queue = [[CWQueue alloc] init];
-	[queue addObject:ob1];
-	[queue addObject:ob2];
-	[queue addObject:ob3];
-	
-	STAssertNil([queue objectInFrontOf:ob1],@"Fry should be at the front and therefore we should get nil back");
-	CWAssertEqualsStrings([queue objectInFrontOf:ob2], @"Fry");
-}
-
--(void)testObjectBehind
-{
-	NSString *ob1 = @"Fry";
-	NSString *ob2 = @"Leela";
-	NSString *ob3 = @"Bender";
-	
-	CWQueue *queue = [[CWQueue alloc] init];
-	[queue addObject:ob1];
-	[queue addObject:ob2];
-	[queue addObject:ob3];
-	
-	STAssertNil([queue objectBehind:ob3],@"Bender should be the last object on the queue and therefore we should get nil back");
-	CWAssertEqualsStrings([queue objectBehind:ob2], @"Bender");
-}
-
 -(void)testDequeueToObject
 {
 	NSString *ob1 = @"Fry";
