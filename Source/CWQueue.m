@@ -177,6 +177,11 @@
 	return NO;
 }
 
+/**
+ Allows you to view the head object without dequeueing it
+ 
+ @return the object at the head of the queue
+ */
 -(id)peek
 {
 	return [self.queue cw_firstObject];
