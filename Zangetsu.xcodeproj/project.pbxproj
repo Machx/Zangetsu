@@ -279,7 +279,7 @@
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B84C513314F696790046455E /* CWSerialBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueue.h; path = Source/CWSerialBlockQueue.h; sourceTree = "<group>"; };
 		B84C513414F696790046455E /* CWSerialBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueue.m; path = Source/CWSerialBlockQueue.m; sourceTree = "<group>"; };
-		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
+		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
 		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
 		B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilitiesTests.m; path = Source/CWURLUtilitiesTests.m; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */,
 				B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */,
+				B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,8 +409,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */,
 				B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */,
+				B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */,
 				B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1350,6 +1350,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/ZangetsuTouch.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
@@ -1377,6 +1381,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/ZangetsuTouch.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -1398,6 +1406,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/ZangetsuTouch.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZangetsuTouch/ZangetsuTouch-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
