@@ -177,52 +177,6 @@
 	return NO;
 }
 
-/**
- Returns the object in front of the targetObject
- 
- If the target object is not in the queue this returns nil immediately.
- If the target object is at the front of the queue then this method
- returns nil. Otherwise it looks up the object in front of the target
- object and returns that object
- 
- @param targetObject the object which you are wanting to know what is in front of it
- @return the object in front of the target object or nil if something went wrong.
- */
--(id)objectInFrontOf:(id)targetObject
-{
-	//make sure we actually contain target object
-	if (![self.queue containsObject:targetObject])
-		return nil;
-	//make sure the target object isn't already the frontmost object
-	if ([targetObject isEqual:[self.queue objectAtIndex:0]])
-		return nil;
-	
-	NSUInteger index = ( [self.queue indexOfObject:targetObject] - 1 );
-	id frontObject = [self.queue objectAtIndex:index];
-	return frontObject;
-}
-
-/**
- Returns the object behind the target object or nil if something went wrong
- 
- Returns the object behind the target object or nil if either the target object
- is at the end of the queue or something went wrong.
- 
- @param targetObject the target object which you want to know the object behind it in the queue
- @return the object behind target object or nil
- */
--(id)objectBehind:(id)targetObject
-{
-	if (![self.queue containsObject:targetObject])
-		return nil;
-	
-	NSUInteger objectIndex = ( [self.queue indexOfObject:targetObject] + 1 );
-	if (objectIndex > ( [self.queue count] - 1 ))
-		return nil;
-	
-	return [self.queue objectAtIndex:objectIndex];
-}
-
 //MARK: Enumeration Methods
 
 /**
