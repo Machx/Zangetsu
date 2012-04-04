@@ -46,35 +46,22 @@
 {
     SecTransformRef encoder;
     CFErrorRef error = NULL;
-    
     const char *string = [self UTF8String];
     
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
-    if (data == NULL) {
-        return nil;
-    }
+    if (data == NULL) { return nil; }
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (error) { CWBASE64CLEANUP(); return nil; }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
-    if (error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (error) { CWBASE64CLEANUP(); return nil; }
     
     CFDataRef encodedData = SecTransformExecute(encoder, &error);
-    if (!encodedData && error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (!encodedData && error) { CWBASE64CLEANUP(); return nil; }
     
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData encoding:NSUTF8StringEncoding];
-	
 	CFRelease(data);
 	CFRelease(encoder);
 	CFRelease(encodedData);
@@ -98,31 +85,19 @@
 {
     SecTransformRef decoder;
     CFErrorRef error = NULL;
-    
     const char *string = [self UTF8String];
     
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
-    if (data == NULL) {
-        return nil;
-    }
+    if (data == NULL) { return nil; }
     
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (error) { CWBASE64CLEANUP(); return nil; }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
-    if (error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (error) { CWBASE64CLEANUP(); return nil; }
     
     CFDataRef decodedData = SecTransformExecute(decoder, &error);
-    if (error) {
-        CWBASE64CLEANUP();
-        return nil;
-    }
+    if (error) { CWBASE64CLEANUP(); return nil; }
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData encoding:NSUTF8StringEncoding];

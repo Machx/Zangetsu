@@ -39,36 +39,24 @@
 
 -(NSData *)cw_zLibCompress {
     SecTransformRef encoder;
+	CFDataRef data = NULL;
     CFErrorRef error = NULL;
     
     CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
-    if (inputData == NULL) {
-        return nil;
-    }
+    if (inputData == NULL) { return nil; }
     
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
-    if(error) { 
-        CWZLIBCLEANUP();
-        return nil; 
-    }
+    if(error) { CWZLIBCLEANUP(); return nil; }
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) {
-        CWZLIBCLEANUP();
-        return nil;
-    }
+    if (error) { CWZLIBCLEANUP(); return nil; }
     
-    CFDataRef data = NULL;
 	data = SecTransformExecute(encoder, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-        return nil;
-    }
+    if (error) { CWZLIBCLEANUP(); return nil; }
     
+    NSData *compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
 	CFRelease(encoder);
 	CFRelease(inputData);
-    NSData *compressedData = nil;
-    compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
 	CFRelease(data);
 	
     return compressedData; 
@@ -83,31 +71,20 @@
 
 -(NSData *)cw_zLibDecompress {
     SecTransformRef decoder = NULL;
+	CFDataRef decodedData = NULL;
     CFErrorRef error = NULL;
     
     CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
-    if (inputData == NULL) {
-        return nil;
-    }
+    if (inputData == NULL) { return nil; }
     
     decoder = SecDecodeTransformCreate(kSecZLibEncoding, &error);
-    if (error) {
-        CWZLIBCLEANUP();
-        return nil;
-    }
+    if (error) { CWZLIBCLEANUP(); return nil; }
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) {
-        CWZLIBCLEANUP();
-        return nil;
-    }
+    if (error) { CWZLIBCLEANUP(); return nil; }
     
-    CFDataRef decodedData = NULL;
     decodedData = SecTransformExecute(decoder, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-        return nil;
-    }
+    if (error) { CWZLIBCLEANUP(); return nil; }
     
     NSData *nsDecodedData = [[NSData alloc] initWithData:(__bridge NSData *)decodedData];
 	CFRelease(inputData);
