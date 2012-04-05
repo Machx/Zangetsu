@@ -127,11 +127,9 @@ void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a)
 {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-	CGFloat components[4];
-	components[0] = r; components[1] = g; components[2] = b; components[3] = a;
-	CGColorRef colorRef = CGColorCreate(space, components);
+	CGColorRef color = CWCreateCGColorWithSpace(r, g, b, a, space);
 	CGColorSpaceRelease(space);
-	return colorRef;
+	return color;
 }
 
 /**
