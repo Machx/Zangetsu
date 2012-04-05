@@ -36,13 +36,8 @@
  Ruby inspired iterator
  */
 -(void)cw_each:(void (^)(id obj, BOOL *stop))block 
-{
-	__block BOOL stop = NO;
-	
-	for (id obj in self) {
-		if(stop == YES) { break; }
-		block(obj,&stop);
-	}
+{	
+	[self enumerateObjectsUsingBlock:block];
 }
 
 /**
