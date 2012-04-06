@@ -75,23 +75,16 @@
 /**
  An dictionary mapping method using only 1 block
  */
--(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block {
+-(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block
+{
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	
-	__block id _intKey;
-	__block id _intValue;
-	
-	for (id key in self.allKeys) {
-		
-		_intKey = [key copy];
-		_intValue = [[self valueForKey:key] copy];
-		
-		block(&_intKey,&_intValue);
-		
-		if ( (_intKey != nil) && (_intValue != nil) ) {
-			[dict setValue:_intValue forKey:_intKey];
+	[self cw_each:^(id key, id value, BOOL *stop) {
+		NSDictionary *returnedDictionary = block(key,value);
+		if (returnedDictionary) {
+			[dict addEntriesFromDictionary:returnedDictionary];
 		}
-	}
+	}];
 	
 	return dict;
 }

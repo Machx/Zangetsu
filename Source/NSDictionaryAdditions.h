@@ -38,6 +38,6 @@
 
 -(BOOL)cw_dictionaryContainsKey:(NSString *)key;
 
--(NSDictionary *)cw_mapDictionary:(void (^)(id *key, id *value))block;
+-(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block;
 
 @end
