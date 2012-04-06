@@ -58,13 +58,7 @@
  */
 - (void) cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block
 {
-	NSUInteger i = 0;
-	BOOL shouldStop = NO;
-	
-    for (id object in self) {
-		if (shouldStop == YES) { break; }
-        block(object,i++,&shouldStop);
-    }
+	[self enumerateObjectsUsingBlock:block];
 }
 
 /**
