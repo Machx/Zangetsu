@@ -110,12 +110,7 @@
  */
 - (BOOL) cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block
 {
-    for (id obj in self) {
-        if (block(obj)) {
-            return YES;
-        }
-    }
-    return NO;
+	return ( [self cw_findWithBlock:block] ) ? YES : NO;
 }
 
 /**
