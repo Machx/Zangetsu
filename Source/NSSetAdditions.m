@@ -129,12 +129,9 @@
  */
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
 {
-	for (id obj in self) {
-		if (block(obj)) {
-			return YES;
-		}
-	}
-	return NO;
+	id obj = nil;
+	obj = [self cw_findWithBlock:block];
+	return (obj) ? YES : NO;
 }
 
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
