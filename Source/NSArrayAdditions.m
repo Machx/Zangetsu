@@ -35,10 +35,7 @@
  */
 - (id) cw_firstObject
 {
-    if ([self count] > 0) {
-        return [self objectAtIndex:0];
-    }
-    return nil;
+	return ( [self count] > 0 ) ? [self objectAtIndex:0] : nil;
 }
 
 /**
@@ -82,7 +79,7 @@
     NSInteger idx = 0;
 
     for (id object in self) {
-        if (_stop == YES) { break; }
+        if (_stop) { break; }
         dispatch_group_async(group, queue, ^{
 			block (idx,object, &_stop);
 		});
@@ -138,6 +135,7 @@
 }
 
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+
 /**
  * experimental method
  * like cw_find but instead uses NSHashTable to store weak pointers to
@@ -156,6 +154,7 @@
     }
     return results;
 }
+
 #endif
 
 /**
