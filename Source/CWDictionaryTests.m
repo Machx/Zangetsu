@@ -56,11 +56,27 @@
 	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
-	NSDictionary *results = [dictionary cw_mapDictionary:^(id *key,id *value) {
-		//*value = @"morvo"; //for testing...
+	NSDictionary *results = [dictionary cw_mapDictionary:^NSDictionary *(id key, id value) {
+		return [NSDictionary dictionaryWithObjectsAndKeys:value,key, nil];
 	}];
 	
 	STAssertEqualObjects(dictionary, results, @"Dictionary and Dictionary2 should be equal");
+	
+	/**
+	 We need to make sure that we can exclude key/value pairs from being mapped to the
+	 new dictionary so we are going to create 3 key pairs and test to make sure 1 of them
+	 isn't being mapped so we know that the mapping method handles nil returns.
+	 */
+	NSDictionary *dictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Fry",@"Leela",
+								 @"Kif",@"Amy",
+								 @"Hermes",@"LaBarbara", nil];
+	
+	NSDictionary *results2 = [dictionary2 cw_mapDictionary:^NSDictionary *(id key, id value) {
+		if ([key isEqualToString:@"LaBarbara"]) { return nil; }
+		return [NSDictionary dictionaryWithObjectsAndKeys:value,key, nil];
+	}];
+	
+	STAssertFalse([results2 cw_dictionaryContainsKey:@"LaBarbara"],@"Shouldn't contain LaBarbara if mapped correctly");
 }
 
 -(void)testEach
