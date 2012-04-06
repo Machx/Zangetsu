@@ -35,13 +35,9 @@
 /**
  Ruby Inspired Iterator for NSDictionary in Objective-C
  */
--(void)cw_each:(void (^)(id key, id value, BOOL *stop))block {
-	BOOL shouldStop = NO;
-	
-	for(id key in self) {
-		if(shouldStop) { break; }
-		block(key, [self valueForKey:key], &shouldStop);
-	}
+-(void)cw_each:(void (^)(id key, id value, BOOL *stop))block 
+{
+	[self enumerateKeysAndObjectsUsingBlock:block];
 }
 
 /**
