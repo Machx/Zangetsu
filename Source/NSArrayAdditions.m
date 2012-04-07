@@ -121,11 +121,11 @@
 - (NSArray *) cw_findAllWithBlock:(BOOL (^)(id obj))block
 {
     NSMutableArray * results = [[NSMutableArray alloc] init];
-    for (id obj in self) {
-        if (block(obj)) {
-            [results addObject:obj];
-        }
-    }
+	[self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}];
     return results;
 }
 
@@ -142,11 +142,11 @@
 - (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
 {
     NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
-    for (id obj in self) {
-        if (block(obj)) {
-            [results addObject:obj];
-        }
-    }
+    [self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		if (block(obj)) {
+			[results addObject:obj];
+		}
+	}];
     return results;
 }
 
@@ -165,12 +165,12 @@
 - (NSArray *) cw_mapArray:(id (^)(id obj))block
 {
     NSMutableArray * cwArray = [[NSMutableArray alloc] init];
-    for (id obj in self) {
-        id rObj = block(obj);
+	[self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		id rObj = block(obj);
         if (rObj) {
             [cwArray addObject:rObj];
         }
-    }
+	}];
     return cwArray;
 }
 

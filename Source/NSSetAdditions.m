@@ -110,11 +110,11 @@
 -(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block
 {
 	NSMutableSet *results = [[NSMutableSet alloc] init];
-	for (id obj in self) {
+	[self cw_each:^(id obj, BOOL *stop) {
 		if (block(obj)) {
 			[results addObject:obj];
 		}
-	}
+	}];
 	return results;
 }
 
@@ -149,11 +149,11 @@
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
 {
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
-	for (id obj in self) {
+	[self cw_each:^(id obj, BOOL *stop) {
 		if (block(obj)) {
 			[results addObject:obj];
 		}
-	}
+	}];
 	return results;
 }
 #endif
