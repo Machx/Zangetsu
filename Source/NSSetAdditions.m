@@ -172,14 +172,14 @@
  */
 -(NSSet *)cw_mapSet:(id (^)(id obj))block
 {
-	NSMutableSet *cwArray = [[NSMutableSet alloc] init];
-    for (id obj in self) {
-        id rObj = block(obj);
-        if(rObj){
-            [cwArray addObject:rObj];
-        }
-    }
-    return cwArray;
+	NSMutableSet *mappedSet = [[NSMutableSet alloc] init];
+	[self cw_each:^(id obj, BOOL *stop) {
+		id rObj = block(obj);
+		if (rObj) {
+			[mappedSet addObject:rObj];
+		}
+	}];
+    return mappedSet;
 }
 
 @end
