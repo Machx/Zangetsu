@@ -10,6 +10,6 @@
 
 @interface NSOperationQueue (NSOperationQueueAdditions)
 
--(void)cw_addOperationAfterDelay:(double)delay withBlock:(void (^)(void))block;
+-(void)cw_addOperationAfterDelay:(double)delay withBlock:(dispatch_block_t)block;
 
 @end
