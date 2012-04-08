@@ -77,8 +77,7 @@
  */
 -(void)push:(id)object
 {
-	if(!object) { return; }
-	[self.stack addObject:object];
+	if(object) { [self.stack addObject:object]; }
 }
 
 /**
