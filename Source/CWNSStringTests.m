@@ -77,10 +77,10 @@
 {    
     NSString *string  = [[NSString alloc] initWithString:@"This\nis\na\nstring\nwith\nmany\nlines."];
     
-    __block NSInteger count = 0;
+    __block int32_t count = 0;
     
     [string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines usingBlock:^(NSString *substring) {
-        count++;
+        OSAtomicIncrement32(&count);
     }];
     
     STAssertTrue(count == 7, @"Count should be 7");
