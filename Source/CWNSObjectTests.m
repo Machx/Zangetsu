@@ -43,7 +43,8 @@
 	
 	NSObject *object = [[NSObject alloc] init];
 	
-	[object cw_associateValue:@"All Hail the Hypnotoad" withKey:key1];
+	[object cw_associateValue:@"All Hail the Hypnotoad" 
+					  withKey:key1];
 	
 	CWAssertEqualsStrings([object cw_valueAssociatedWithKey:key1], @"All Hail the Hypnotoad");
 }

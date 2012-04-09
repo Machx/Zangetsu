@@ -78,7 +78,6 @@
 
 -(void)testSetMacro
 {
-    
     const NSString *q1 = @"All Hail Hypnotoad!";
     const NSString *q2 = @"We just need to hit the bullseye and all the dominos will fall like a house of cards... checkmate";
     

@@ -130,7 +130,6 @@
 
 -(void)testPopToBottomOfStack
 {
-	
 	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
@@ -144,7 +143,6 @@
 
 -(void)testPoptoNonExistantObject
 {
-	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Bender"]];
 	
 	NSArray *results = [stack popToObject:@"Zapf"];
@@ -153,7 +151,6 @@
 
 -(void)testEmptyStack
 {
-    
     CWStack *stack = [[CWStack alloc] init];
     
     STAssertTrue([stack isEmpty], @"stack should be empty");
