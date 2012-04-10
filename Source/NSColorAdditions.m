@@ -40,7 +40,8 @@
  
  @return a CGColorRef object equivalent to the receiving NSColor object
  */
--(CGColorRef)cw_CGColor {
+-(CGColorRef)cw_CGColor
+{
 	NSColor *nscolor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
 	CGFloat components[4];
 	[nscolor getRed:&components[0] green:&components[1] blue:&components[2] alpha:&components[3]];

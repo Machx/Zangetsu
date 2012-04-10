@@ -97,12 +97,14 @@
  */
 - (id) cw_findWithBlock:(BOOL (^)(id obj))block
 {
-    for (id obj in self) {
-        if (block(obj)) {
-            return obj;
-        }
-    }
-    return nil;
+	__block id foundObject = nil;
+	[self enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+		if (block(object)) {
+			foundObject = object;
+			*stop = YES;
+		}
+	}];	
+    return foundObject;
 }
 
 /**
