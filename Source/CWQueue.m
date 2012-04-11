@@ -244,19 +244,15 @@
 -(void)dequeueToObject:(id)targetObject 
 			 withBlock:(void(^)(id object))block 
 {
-	if ((![self.queue containsObject:targetObject]) ||
-		([self.queue count] == 0)) {
+	if (![self.queue containsObject:targetObject]) {
 		return;
 	}
-	
-	id dequeuedObject = nil;
-	
-	do {
-		dequeuedObject = [self dequeueTopObject];
-		if (dequeuedObject) {
-			block(dequeuedObject);
+	[self dequeueOueueWithBlock:^(id object, BOOL *stop) {
+		block(object);
+		if ([object isEqual:targetObject]) {
+			*stop = YES;
 		}
-	} while (dequeuedObject && (![dequeuedObject isEqual:targetObject]));
+	}];
 }
 
 //MARK: Debug Information
