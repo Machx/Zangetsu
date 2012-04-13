@@ -92,7 +92,7 @@
  
  @return a reference to the first object in the queue after removing it or nil if there are no objects in the queue.
  */
--(id)dequeueTopObject
+-(id)dequeue
 {
 	if ([self.queue count] == 0) { return nil; }
 	id topObject = [self.queue objectAtIndex:0]; //change back to cw_firstObject sometime
@@ -108,7 +108,7 @@
  
  @param object a Objective-C object you want to add to the receivng queues storage. Must be non-nil or an assertion will be thrown.
  */
--(void)addObject:(id)object
+-(void)enqueue:(id)object
 {
 	if (object) {
 		[self.queue addObject:object];
@@ -124,7 +124,7 @@
  
  @param a NSArray of objects to be appended onto the receiving queues storage
  */
--(void)addObjectsFromArray:(NSArray *)objects
+-(void)enqueueObjectsFromArray:(NSArray *)objects
 {
 	if (objects && ([objects count] > 0)) {
 		[self.queue addObjectsFromArray:objects];
@@ -222,7 +222,7 @@
 	id dequeuedObject = nil;
 	
 	do {
-		dequeuedObject = [self dequeueTopObject];
+		dequeuedObject = [self dequeue];
 		if(dequeuedObject){
 			block(dequeuedObject,&shouldStop);
 		}

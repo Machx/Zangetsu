@@ -33,12 +33,12 @@
 //Init
 -(id)initWithObjectsFromArray:(NSArray *)array;
 //Add Objects
--(void)addObject:(id)object;
--(void)addObjectsFromArray:(NSArray *)objects;
+-(void)enqueue:(id)object;
+-(void)enqueueObjectsFromArray:(NSArray *)objects;
 //Remove Objects
 -(void)removeAllObjects;
 //Dequeue Objects
--(id)dequeueTopObject;
+-(id)dequeue;
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
 -(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block;
 //Enumeration
