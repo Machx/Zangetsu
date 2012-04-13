@@ -252,10 +252,10 @@
 	CWQueue *queue = [[CWQueue alloc] init];
 	BOOL shouldStop = NO;
 	
-	[queue addObject:self.rootNode];
+	[queue enqueue:self.rootNode];
 	
-	while ([queue count] > 0) {
-		CWTreeNode *node = (CWTreeNode *)[queue dequeueTopObject];
+	while ( [queue count] > 0 ) {
+		CWTreeNode *node = (CWTreeNode *)[queue dequeue];
 		
 		block(node.value, node, &shouldStop);
 		
@@ -263,7 +263,7 @@
 		
 		if ([node.children count] > 0) {
 			for (CWTreeNode *childNode in node.children) {
-				[queue addObject:childNode];
+				[queue enqueue:childNode];
 			}
 		}
 	}
