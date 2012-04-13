@@ -24,25 +24,25 @@
 	
 	CWQueue *queue = [[CWQueue alloc] init];
 	
-	[queue addObject:@"First"];
-	[queue addObject:@"Second"];
-	[queue addObject:@"Third"];
-	[queue addObject:@"Fourth"];
+	[queue enqueue:@"First"];
+	[queue enqueue:@"Second"];
+	[queue enqueue:@"Third"];
+	[queue enqueue:@"Fourth"];
 	 
-	CWAssertEqualsStrings([queue dequeueTopObject], @"First");
-	[queue addObject:@"Fifth"];
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Second");
-	[queue addObject:@"Sixth"];
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Third");
-	[queue addObject:@"Seventh"];
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Fourth");
-	[queue addObject:@"Eight"];
+	CWAssertEqualsStrings([queue dequeue], @"First");
+	[queue enqueue:@"Fifth"];
+	CWAssertEqualsStrings([queue dequeue], @"Second");
+	[queue enqueue:@"Sixth"];
+	CWAssertEqualsStrings([queue dequeue], @"Third");
+	[queue enqueue:@"Seventh"];
+	CWAssertEqualsStrings([queue dequeue], @"Fourth");
+	[queue enqueue:@"Eight"];
 
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Fifth");
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Sixth");
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Seventh");
-	CWAssertEqualsStrings([queue dequeueTopObject], @"Eight");
-	STAssertNil([queue dequeueTopObject], @"There should be no more objects and therefore the object should be nil");
+	CWAssertEqualsStrings([queue dequeue], @"Fifth");
+	CWAssertEqualsStrings([queue dequeue], @"Sixth");
+	CWAssertEqualsStrings([queue dequeue], @"Seventh");
+	CWAssertEqualsStrings([queue dequeue], @"Eight");
+	STAssertNil([queue dequeue], @"There should be no more objects and therefore the object should be nil");
 }
 
 -(void)testEnumeration
@@ -99,15 +99,15 @@
 {
 	CWQueue *queue = [[CWQueue alloc] init];
 	
-	STAssertNil([queue dequeueTopObject], @"There are no objects in the queue so dequeued object should be nil");
+	STAssertNil([queue dequeue], @"There are no objects in the queue so dequeued object should be nil");
 	
-	[queue addObject:@"Fishy Joes"];
+	[queue enqueue:@"Fishy Joes"];
 	
 	STAssertTrue([queue count] == 1, @"Queue should have an object count of 1 now");
 	
-	STAssertNotNil([queue dequeueTopObject], @"Dequing a queue with 1 object on it should return a non nil object");
+	STAssertNotNil([queue dequeue], @"Dequing a queue with 1 object on it should return a non nil object");
 	
-	STAssertNil([queue dequeueTopObject], @"There should be no objects in the queue so the dequeued object should be nil");
+	STAssertNil([queue dequeue], @"There should be no objects in the queue so the dequeued object should be nil");
 }
 
 -(void)testEqualCWQueues
@@ -134,11 +134,11 @@
 	
 	STAssertFalse([queue1 isEqualToQueue:queue2], @"Queues should not have the same contents");
 	
-	[queue2 addObjectsFromArray:array1];
+	[queue2 enqueueObjectsFromArray:array1];
 	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 	
-	[queue1 addObjectsFromArray:array2];
-	[queue2 addObjectsFromArray:array2];
+	[queue1 enqueueObjectsFromArray:array2];
+	[queue2 enqueueObjectsFromArray:array2];
 	STAssertTrue([queue1 isEqualToQueue:queue2], @"Queues should be equal");
 }
 
@@ -148,11 +148,11 @@
 	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
 	
 	id obj = nil;
-	[queue addObject:obj];
+	[queue enqueue:obj];
 	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
 	
 	NSArray *anArray = [[NSArray alloc] init];
-	[queue addObjectsFromArray:anArray];
+	[queue enqueueObjectsFromArray:anArray];
 	STAssertTrue([queue count] == 0, @"Queue shouldn't have any objects in it");
 }
 
@@ -172,7 +172,7 @@
 	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil];
 	
 	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if enumerated correctly");
-	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
+	STAssertNil([queue dequeue], @"There shouldn't be anything left on the queue");
 }
 
 -(void)testDequeueBlockStop
@@ -195,8 +195,8 @@
 	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender", nil];
 	
 	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if the stop pointer was respected");
-	STAssertNotNil([queue dequeueTopObject], @"This should be the last object on the queue");
-	STAssertNil([queue dequeueTopObject], @"There shouldn't be anything left on the queue");
+	STAssertNotNil([queue dequeue], @"This should be the last object on the queue");
+	STAssertNil([queue dequeue], @"There shouldn't be anything left on the queue");
 }
 
 -(void)testContainsObject
@@ -238,9 +238,9 @@
 	NSString *ob3 = @"Bender";
 	
 	CWQueue *queue = [[CWQueue alloc] init];
-	[queue addObject:ob1];
-	[queue addObject:ob2];
-	[queue addObject:ob3];
+	[queue enqueue:ob1];
+	[queue enqueue:ob2];
+	[queue enqueue:ob3];
 	
 	[queue dequeueToObject:ob2 withBlock:^(id object) {
 		//
