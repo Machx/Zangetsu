@@ -284,7 +284,7 @@
  */
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue
 {
-	return [[self.queue description] isEqualToString:[aQueue description]];
+	return [self.queue isEqual:aQueue.queue];
 }
 
 @end
