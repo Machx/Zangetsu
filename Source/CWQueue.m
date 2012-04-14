@@ -277,6 +277,11 @@
 	return [self.queue count];
 }
 
+-(BOOL)isEmpty
+{
+	return ([self count] == 0);
+}
+
 //MARK: Comparison
 
 /**

@@ -49,6 +49,7 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
 //Other Properties
 -(NSUInteger)count;
+-(BOOL)isEmpty;
 //Equality
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue;
 @end
