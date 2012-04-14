@@ -250,4 +250,16 @@
 	STAssertTrue([queue containsObject:ob3], @"Bender should be in the queue");
 }
 
+-(void)testQueueCountAndIsEmpty
+{
+	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Hello"]];
+	
+	STAssertTrue([queue count] == 1, @"Queue should only have 1 object");
+	STAssertFalse([queue isEmpty], @"1 object means should not be empty");
+	
+	STAssertNotNil([queue dequeue], @"Dequeue the only object");
+	
+	STAssertTrue([queue isEmpty], @"Should be empty after dequeuing the only object");
+}
+
 @end
