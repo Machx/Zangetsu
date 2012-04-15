@@ -260,6 +260,7 @@
 	STAssertNotNil([queue dequeue], @"Dequeue the only object");
 	
 	STAssertTrue([queue isEmpty], @"Should be empty after dequeuing the only object");
+	STAssertTrue([queue count] == 0, @"Queue count should be 0");
 }
 
 @end
