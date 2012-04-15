@@ -277,6 +277,11 @@
 	return [self.queue count];
 }
 
+/**
+ Returns a BOOL indicating if the queue is empty
+ 
+ @return Returns YES if the queue object count is 0, otherwise it returns NO.
+ */
 -(BOOL)isEmpty
 {
 	return ([self count] == 0);
