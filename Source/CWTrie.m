@@ -6,7 +6,7 @@
 //  Copyright (c) 2012. All rights reserved.
 //
  
- Copyright (c) 2011 Colin Wheeler
+ Copyright (c) 2012 Colin Wheeler
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,7 @@
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
 @property(nonatomic, retain) NSMutableSet *children;
+-(CWTrieNode *)nodeForCharacter:(NSString *)chr;
 @end
 
 @implementation CWTrieNode
