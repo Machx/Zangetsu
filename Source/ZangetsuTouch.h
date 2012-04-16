@@ -64,6 +64,7 @@
 #import "NSMutableURLRequestAdditions.h"
 #import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"
+#import "CWTrie.h"
 
 /**
  What will never work on iOS

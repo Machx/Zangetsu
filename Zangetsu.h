@@ -73,3 +73,4 @@
 #import "NSColorAdditions.h"
 #import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"
+#import "CWTrie.h"
