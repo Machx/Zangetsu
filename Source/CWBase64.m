@@ -64,7 +64,6 @@
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData encoding:NSUTF8StringEncoding];
 	CFRelease(data);
 	CFRelease(encoder);
-	CFRelease(encodedData);
     
     return base64String;
 }
@@ -103,7 +102,6 @@
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData encoding:NSUTF8StringEncoding];
 	CFRelease(data);
 	CFRelease(decoder);
-	CFRelease(decodedData);
     
     return base64DecodedString;
 }
