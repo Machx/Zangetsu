@@ -19,11 +19,14 @@
 	NSString *aKey = @"Hello";
 	NSString *aValue = @"World";
 	
-	[aTrie setObject:aValue withkey:aKey];
+	[aTrie setObjectValue:aValue forkey:aKey];
 	
-	NSString *foundValue = [aTrie findObjectWithKey:aKey];
-	
+	//find key that does exist
+	NSString *foundValue = [aTrie objectValueForKey:aKey];
 	CWAssertEqualsStrings(aValue, foundValue);
+	
+	//return nil for key that doesn't exist
+	STAssertNil([aTrie objectValueForKey:@"Foobar"],@"key doesn't exist in this trie");
 }
 
 @end
