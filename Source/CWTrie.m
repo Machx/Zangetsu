@@ -109,7 +109,7 @@
 }
 
 -(void)setObjectValue:(id)aObject 
-			   forkey:(NSString *)aKey
+			   forKey:(NSString *)aKey
 {
 	NSUInteger index = 0;
 	NSUInteger length = [aKey length];

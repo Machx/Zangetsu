@@ -19,7 +19,7 @@
 	NSString *aKey = @"Hello";
 	NSString *aValue = @"World";
 	
-	[aTrie setObjectValue:aValue forkey:aKey];
+	[aTrie setObjectValue:aValue forKey:aKey];
 	
 	//find key that does exist
 	NSString *foundValue = [aTrie objectValueForKey:aKey];

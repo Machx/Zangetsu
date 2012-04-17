@@ -32,5 +32,5 @@
 @interface CWTrie : NSObject
 -(id)objectValueForKey:(NSString *)aKey;
 -(void)setObjectValue:(id)aObject 
-			   forkey:(NSString *)aKey;
+			   forKey:(NSString *)aKey;
 @end
