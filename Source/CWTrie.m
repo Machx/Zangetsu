@@ -86,7 +86,7 @@
     return self;
 }
 
--(id)findObjectWithKey:(NSString *)aKey
+-(id)objectValueForKey:(NSString *)aKey
 {
 	if(![aKey cw_isNotEmptyString]) { return nil; }
 	
@@ -108,8 +108,8 @@
 	return currentNode.value;
 }
 
--(void)setObject:(id)aObject 
-		 withkey:(NSString *)aKey
+-(void)setObjectValue:(id)aObject 
+			   forkey:(NSString *)aKey
 {
 	NSUInteger index = 0;
 	NSUInteger length = [aKey length];

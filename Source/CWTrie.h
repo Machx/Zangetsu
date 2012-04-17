@@ -30,7 +30,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CWTrie : NSObject
--(id)findObjectWithKey:(NSString *)aKey;
--(void)setObject:(id)aObject 
-		 withkey:(NSString *)aKey;
+-(id)objectValueForKey:(NSString *)aKey;
+-(void)setObjectValue:(id)aObject 
+			   forkey:(NSString *)aKey;
 @end
