@@ -76,12 +76,14 @@
 @implementation CWTrie
 
 @synthesize rootNode = _rootNode;
+@synthesize caseSensitive = _caseSensitive;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _rootNode = [[CWTrieNode alloc] init];
+		_caseSensitive = YES;
     }
     return self;
 }
@@ -93,9 +95,10 @@
 	NSUInteger index = 0;
 	NSUInteger length = [aKey length];
 	CWTrieNode *currentNode = self.rootNode;
+	NSString * key = ([self caseSensitive]) ? aKey : [aKey lowercaseString];
 	
 	while (index < length) {
-		NSString *aChar = [aKey substringWithRange:NSMakeRange(index, 1)];
+		NSString *aChar = [key substringWithRange:NSMakeRange(index, 1)];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
@@ -114,9 +117,10 @@
 	NSUInteger index = 0;
 	NSUInteger length = [aKey length];
 	CWTrieNode *currentNode = self.rootNode;
+	NSString *key = ([self caseSensitive]) ? aKey : [aKey lowercaseString];
 	
 	while (index < length) {
-		NSString *aChar = [aKey substringWithRange:NSMakeRange(index, 1)];
+		NSString *aChar = [key substringWithRange:NSMakeRange(index, 1)];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
