@@ -29,4 +29,15 @@
 	STAssertNil([aTrie objectValueForKey:@"Foobar"],@"key doesn't exist in this trie");
 }
 
+-(void)testTrieCaseSensitivity
+{
+	CWTrie *trie = [[CWTrie alloc] init];
+	trie.caseSensitive = NO;
+	
+	[trie setObjectValue:@"Bender" forKey:@"Fry"];
+	
+	CWAssertEqualsStrings([trie objectValueForKey:@"Fry"], @"Bender");
+	CWAssertEqualsStrings([trie objectValueForKey:@"FRY"], @"Bender");
+}
+
 @end
