@@ -92,20 +92,18 @@
 {
 	if(![aKey cw_isNotEmptyString]) { return nil; }
 	
-	NSUInteger index = 0;
-	NSUInteger length = [aKey length];
 	CWTrieNode *currentNode = self.rootNode;
-	NSString * key = ([self caseSensitive]) ? aKey : [aKey lowercaseString];
+	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
 	
-	while (index < length) {
-		NSString *aChar = [key substringWithRange:NSMakeRange(index, 1)];
+	while (*key) {
+		NSString *aChar = [NSString stringWithUTF8String:key];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
+			key++;
 		} else {
 			return nil;
 		}
-		index++;
 	}
 	
 	return currentNode.value;
@@ -114,13 +112,12 @@
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey
 {
-	NSUInteger index = 0;
-	NSUInteger length = [aKey length];
 	CWTrieNode *currentNode = self.rootNode;
-	NSString *key = ([self caseSensitive]) ? aKey : [aKey lowercaseString];
+	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
 	
-	while (index < length) {
-		NSString *aChar = [key substringWithRange:NSMakeRange(index, 1)];
+	while (*key) {
+		char *cChar = strndup(key, 1);
+		NSString *aChar = [NSString stringWithUTF8String:(const char *)cChar];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
@@ -130,7 +127,8 @@
 			[currentNode.children addObject:aNode];
 			currentNode = aNode;
 		}
-		index++;
+		free(cChar);
+		key++;
 	}
 	
 	currentNode.value = aObject;
