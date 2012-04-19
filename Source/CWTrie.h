@@ -30,7 +30,9 @@
 #import <Foundation/Foundation.h>
 
 @interface CWTrie : NSObject
+
 @property(nonatomic,assign) BOOL caseSensitive;
+
 -(id)objectValueForKey:(NSString *)aKey;
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey;
