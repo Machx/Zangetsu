@@ -29,6 +29,8 @@
 
 #import "CWTrie.h"
 
+#define CWIsInvalidString(_x_) (_x_ == nil || (![_x_ isKindOfClass:[NSString class]]) || [_x_ length] == 0)
+
 @interface CWTrieNode : NSObject
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
@@ -55,7 +57,7 @@
 
 -(CWTrieNode *)nodeForCharacter:(NSString *)chr
 {
-	NSString *aChar = ([chr length] > 1) ? [chr substringToIndex:1] : chr;
+	NSString *aChar = (!([chr length] > 1)) ? chr : [chr substringToIndex:1];
 	__block CWTrieNode *node = nil;
 	[self.children cw_each:^(id obj, BOOL *stop) {
 		CWTrieNode *aNode = (CWTrieNode *)obj;
@@ -90,7 +92,7 @@
 
 -(id)objectValueForKey:(NSString *)aKey
 {
-	if(![aKey cw_isNotEmptyString]) { return nil; }
+	if (CWIsInvalidString(aKey)) { NSLog(@"ERROR [CWTrie]: Invalid Key"); return nil; }
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
@@ -114,6 +116,11 @@
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey
 {
+	if ((aObject == nil) || CWIsInvalidString(aKey)) {
+		NSLog(@"ERROR [CWTrie]: Key or Value was nil");
+		return;
+	}
+	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
 	
