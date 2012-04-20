@@ -18,7 +18,7 @@ Zangetsu contains
 
 * Base64 & ZLib encoding & decoding
 
-* Objective-C Data Structures like Stacks,Trees,Queues,etc.
+* Objective-C Data Structures like Stacks,Trees,Queues,Tries,etc.
 
 * CWTask a wrapper around NSTask that makes it easy to configure & launch NSTasks...
 
