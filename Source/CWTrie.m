@@ -98,9 +98,7 @@
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
 	
 	while (*key) {
-		char *cChar = strndup(key, 1);
-		NSString *aChar = [NSString stringWithUTF8String:cChar];
-		free(cChar);
+		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
@@ -122,9 +120,7 @@
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
 	
 	while (*key) {
-		char *cChar = strndup(key, 1);
-		NSString *aChar = [NSString stringWithUTF8String:(const char *)cChar];
-		free(cChar);
+		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];
 		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
 		if (node) {
 			currentNode = node;
