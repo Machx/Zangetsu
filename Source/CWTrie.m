@@ -143,4 +143,9 @@
 	currentNode.value = aObject;
 }
 
+-(void)removeObjectValueForKey:(NSString *)aKey
+{
+	[self setObjectValue:nil forKey:aKey];
+}
+
 @end

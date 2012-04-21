@@ -36,4 +36,5 @@
 -(id)objectValueForKey:(NSString *)aKey;
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey;
+-(void)removeObjectValueForKey:(NSString *)aKey;
 @end
