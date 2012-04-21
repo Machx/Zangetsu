@@ -116,10 +116,7 @@
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey
 {
-	if ((aObject == nil) || CWIsInvalidString(aKey)) {
-		NSLog(@"ERROR [CWTrie]: Key or Value was nil");
-		return;
-	}
+	if (CWIsInvalidString(aKey)) { NSLog(@"ERROR [CWTrie]: Key or Value was nil"); return; }
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
