@@ -27,6 +27,7 @@
 	
 	//return nil for key that doesn't exist
 	STAssertNil([aTrie objectValueForKey:@"Foobar"],@"key doesn't exist in this trie");
+	STAssertNil([aTrie objectValueForKey:nil],@"Passing in a nil key should always return nil");
 }
 
 -(void)testTrieCaseSensitivity
@@ -38,6 +39,17 @@
 	
 	CWAssertEqualsStrings([trie objectValueForKey:@"Fry"], @"Bender");
 	CWAssertEqualsStrings([trie objectValueForKey:@"FRY"], @"Bender");
+}
+
+-(void)testRemoveValueForKey
+{
+	CWTrie *trie = [[CWTrie alloc] init];
+	
+	[trie setObjectValue:@"Bender" forKey:@"Fry"];
+	CWAssertEqualsStrings([trie objectValueForKey:@"Fry"], @"Bender");
+	
+	[trie removeObjectValueForKey:@"Fry"];
+	STAssertNil([trie objectValueForKey:@"Fry"],@"Should be nil if removeObjectValueForKey: works");
 }
 
 @end
