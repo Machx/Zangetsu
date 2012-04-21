@@ -57,7 +57,7 @@
 
 -(CWTrieNode *)nodeForCharacter:(NSString *)chr
 {
-	NSString *aChar = (!([chr length] > 1)) ? chr : [chr substringToIndex:1];
+	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
 	__block CWTrieNode *node = nil;
 	[self.children cw_each:^(id obj, BOOL *stop) {
 		CWTrieNode *aNode = (CWTrieNode *)obj;
