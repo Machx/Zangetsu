@@ -32,6 +32,7 @@
 #define CWIsInvalidString(_x_) (_x_ == nil || (![_x_ isKindOfClass:[NSString class]]) || [_x_ length] == 0)
 
 @interface CWTrieNode : NSObject
+- (id)initWithKey:(NSString *)nodeKey;
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
 @property(nonatomic, retain) NSMutableSet *children;
@@ -43,6 +44,17 @@
 @synthesize key = _key;
 @synthesize value = _value;
 @synthesize children = _children;
+
+- (id)initWithKey:(NSString *)nodeKey
+{
+	self = [super init];
+	if (self) {
+		_key = nodeKey;
+		_value = nil;
+		_children = [[NSMutableSet alloc] init];
+	}
+	return self;
+}
 
 - (id)init
 {
