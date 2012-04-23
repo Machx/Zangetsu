@@ -69,6 +69,13 @@
 	return node;
 }
 
+-(NSString *)description
+{
+	NSString *debugDescription = [NSString stringWithFormat:@"CWTrieNode (\nKey: '%@'\nValue: %@\nChildren: %@\n)",
+								  self.key,self.value,self.children];
+	return debugDescription;
+}
+
 @end
 
 @interface CWTrie ()
