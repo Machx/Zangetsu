@@ -144,8 +144,7 @@
 		if (node) {
 			currentNode = node;
 		} else {
-			CWTrieNode *aNode = [[CWTrieNode alloc] init];
-			aNode.key = aChar;
+			CWTrieNode *aNode = [[CWTrieNode alloc] initWithKey:aChar];
 			[currentNode.children addObject:aNode];
 			currentNode = aNode;
 		}
