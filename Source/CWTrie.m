@@ -151,7 +151,9 @@
 		key++;
 	}
 	
-	currentNode.value = aObject;
+	if (![currentNode isEqual:self.rootNode]) {
+		currentNode.value = aObject;
+	}
 }
 
 -(void)removeObjectValueForKey:(NSString *)aKey
