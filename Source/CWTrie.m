@@ -43,6 +43,9 @@
 @synthesize value = _value;
 @synthesize children = _children;
 
+/**
+ This should be the designated initializer 99.99% of the time
+ */
 - (id)initWithKey:(NSString *)nodeKey
 {
 	self = [super init];
@@ -59,8 +62,8 @@
     self = [super init];
     if (self) {
 		_key = nil;
-        _children = [[NSMutableSet alloc] init];
 		_value = nil;
+		_children = [[NSMutableSet alloc] init];
     }
     return self;
 }
