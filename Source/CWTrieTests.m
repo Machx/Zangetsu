@@ -27,6 +27,7 @@
 	
 	//return nil for key that doesn't exist
 	STAssertNil([aTrie objectValueForKey:@"Foobar"],@"key doesn't exist in this trie");
+	STAssertNil([aTrie objectValueForKey:nil],@"should return nil for nil key");
 }
 
 -(void)testTrieCaseSensitivity
