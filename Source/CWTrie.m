@@ -69,9 +69,7 @@
 }
 
 -(CWTrieNode *)nodeForCharacter:(NSString *)chr
-{
-	NSParameterAssert(chr);
-	
+{	
 	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
 	__block CWTrieNode *node = nil;
 	[self.children cw_each:^(id obj, BOOL *stop) {
@@ -114,7 +112,7 @@
 
 -(id)objectValueForKey:(NSString *)aKey
 {
-	NSParameterAssert(aKey);
+	if(!aKey) { CWDebugLog(@"ERROR: nil key"); return nil; }
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
@@ -136,7 +134,7 @@
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey
 {
-	NSParameterAssert(aKey);
+	if(!aKey) { CWDebugLog(@"ERROR: nil key"); return; }
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
