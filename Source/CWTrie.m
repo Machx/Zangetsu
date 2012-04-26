@@ -69,7 +69,11 @@
 }
 
 -(CWTrieNode *)nodeForCharacter:(NSString *)chr
-{	
+{
+	if((!chr) || (![chr cw_isNotEmptyString])) {
+		CWDebugLog(@"Nil or Empty String in trying to lookup Node for Char");
+		return nil;
+	}
 	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
 	__block CWTrieNode *node = nil;
 	[self.children cw_each:^(id obj, BOOL *stop) {
@@ -119,7 +123,10 @@
 
 -(id)objectValueForKey:(NSString *)aKey
 {
-	if(!aKey) { CWDebugLog(@"ERROR: nil key"); return nil; }
+	if((!aKey) || (![aKey cw_isNotEmptyString])) {
+		CWDebugLog(@"ERROR: nil or 0 length key. Returning nil");
+		return nil;
+	}
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
@@ -141,7 +148,10 @@
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey
 {
-	if(!aKey) { CWDebugLog(@"ERROR: nil key"); return; }
+	if((!aKey) || (![aKey cw_isNotEmptyString])) {
+		CWDebugLog(@"ERROR: Key is nil, cannot set value..."); 
+		return; 
+	}
 	
 	CWTrieNode *currentNode = self.rootNode;
 	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
