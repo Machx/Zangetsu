@@ -110,6 +110,13 @@
     return self;
 }
 
+-(NSString *)description
+{
+	NSString *description = [NSString stringWithFormat:@"Trie (\nCase Sensitive: %@\nNodes: %@",
+							 CWBOOLString(self.caseSensitive),self.rootNode];
+	return description;
+}
+
 -(id)objectValueForKey:(NSString *)aKey
 {
 	if(!aKey) { CWDebugLog(@"ERROR: nil key"); return nil; }
