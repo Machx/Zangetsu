@@ -72,6 +72,7 @@
 		B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; };
 		B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
 		B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
+		B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */; };
 		B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -288,6 +289,8 @@
 		B84C513414F696790046455E /* CWSerialBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueue.m; path = Source/CWSerialBlockQueue.m; sourceTree = "<group>"; };
 		B84F1F50154A146F0038AEE0 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
 		B84F1F51154A146F0038AEE0 /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
+		B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
+		B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
 		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
@@ -767,6 +770,8 @@
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
 				B897CA1C153B8610003BAD73 /* CWTrieTests.h */,
 				B897CA1D153B8610003BAD73 /* CWTrieTests.m */,
+				B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */,
+				B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -1165,6 +1170,7 @@
 				B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */,
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
+				B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
