@@ -167,8 +167,23 @@ THE SOFTWARE.
 }
 
 -(void)throwOutOfRangeException
+-(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
 {
 	NSException *exception = [NSException exceptionWithName:@"CWLinkLinkInvalidRangeException"
+	if(!self.head) { return; }
+	BOOL shouldStop = NO;
+	NSUInteger index = 0;
+	NSUInteger max = self.count;
+	CWLinkedListNode *currentNode = self.head;
+	
+	while ((index < max) && currentNode) {
+		block(currentNode.data, &shouldStop);
+		if(shouldStop == YES) { return; }
+		currentNode = currentNode.next;
+		index++;
+	}
+}
+
 													 reason:@"Index out of bounds"
 												   userInfo:nil];
 	@throw exception;

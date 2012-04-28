@@ -41,4 +41,6 @@ THE SOFTWARE.
 
 -(id)objectAtIndex:(NSUInteger)index;
 
+-(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block;
+
 @end
