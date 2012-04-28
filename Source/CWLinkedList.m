@@ -56,7 +56,7 @@ THE SOFTWARE.
 @property(readwrite,assign) NSUInteger count;
 @property(nonatomic,retain) CWLinkedListNode *head;
 @property(nonatomic,weak) CWLinkedListNode *tail;
--(void)throwOutOfRangeException;
+-(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
@@ -100,13 +100,14 @@ THE SOFTWARE.
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
 	if(index > (self.count - 1))
-		[self throwOutOfRangeException];
+		[self throwOutOfRangeExceptionWithIndex:index];
 	
 	if (index == 0) {
 		if (self.count > 1) {
 			self.head = self.head.next;
 		} else {
 			self.head = nil;
+			self.tail = nil;
 		}
 		self.count--;
 		return;
@@ -153,7 +154,7 @@ THE SOFTWARE.
 -(id)objectAtIndex:(NSUInteger)index
 {
 	if (!self.head)
-		[self throwOutOfRangeException];
+		[self throwOutOfRangeExceptionWithIndex:index];
 	
 	NSUInteger current = 0;
 	CWLinkedListNode *currentNode = self.head;
@@ -166,10 +167,8 @@ THE SOFTWARE.
 	return currentNode.data;
 }
 
--(void)throwOutOfRangeException
 -(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
 {
-	NSException *exception = [NSException exceptionWithName:@"CWLinkLinkInvalidRangeException"
 	if(!self.head) { return; }
 	BOOL shouldStop = NO;
 	NSUInteger index = 0;
@@ -184,8 +183,11 @@ THE SOFTWARE.
 	}
 }
 
+-(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index
+{	
+	NSException *exception = [NSException exceptionWithName:kCWLinkedListInvalidRangeException
 													 reason:@"Index out of bounds"
-												   userInfo:nil];
+												   userInfo:NSDICT([NSNumber numberWithInt:index],kCWIndexKey)];
 	@throw exception;
 }
 
