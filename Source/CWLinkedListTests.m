@@ -36,4 +36,21 @@
 	STAssertTrue(list.count == 0,@"count is incorrect");
 }
 
+-(void)testRemoveObject
+{
+	CWLinkedList *list = [[CWLinkedList alloc] init];
+	
+	[list addObject:@"Fry"];
+	[list addObject:@"Leela"];
+	[list addObject:@"Bender"];
+	
+	STAssertTrue(list.count == 3, @"list count is incorrect");
+	
+	[list removeObject:@"Bender"];
+	
+	STAssertTrue(list.count == 2, @"Should have 2 objects");
+	CWAssertEqualsStrings([list objectAtIndex:0], @"Fry");
+	CWAssertEqualsStrings([list objectAtIndex:1], @"Leela");
+}
+
 @end
