@@ -53,4 +53,44 @@
 	CWAssertEqualsStrings([list objectAtIndex:1], @"Leela");
 }
 
+-(void)testEnumeration
+{
+	CWLinkedList *list = [[CWLinkedList alloc] init];
+	
+	[list addObject:@"Fry"];
+	[list addObject:@"Leela"];
+	[list addObject:@"Bender"];
+	
+	__block NSUInteger count = 0;
+	
+	[list enumerateObjectsWithBlock:^(id object, BOOL *stop) {
+		switch (count) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Fry");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Leela");
+				break;
+			case 2:
+				CWAssertEqualsStrings(object, @"Bender");
+				break;
+			default:
+				STFail(@"Beyond bounds");
+				break;
+		}
+		count++;
+	}];
+	
+	STAssertTrue(count == 3,@"Incorrect count");
+	
+	count = 0;
+	
+	[list enumerateObjectsWithBlock:^(id object, BOOL *stop) {
+		count++;
+		*stop = YES;
+	}];
+	
+	STAssertTrue(count == 1,@"count should be 1");
+}
+
 @end
