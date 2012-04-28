@@ -125,6 +125,31 @@ THE SOFTWARE.
 	self.count--;
 }
 
+-(void)removeObject:(id)object
+{
+	if(!self.head) { return; }
+	NSUInteger index = 0;
+	NSUInteger max = (self.count - 1);
+	CWLinkedListNode *currentNode = self.head;
+	
+	if ([currentNode.data isEqual:object]) {
+		[self removeObjectAtIndex:0];
+		return;
+	}
+	
+	do {
+		CWLinkedListNode *nextNode = currentNode.next;
+		if ([nextNode.data isEqual:object]) {
+			currentNode.next = currentNode.next.next;
+			nextNode.next = nil;
+			self.count--;
+			return;
+		}
+		currentNode = currentNode.next;
+		index++;
+	} while ((index < max) && currentNode);
+}
+
 -(id)objectAtIndex:(NSUInteger)index
 {
 	if (!self.head)

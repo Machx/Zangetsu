@@ -37,6 +37,8 @@ THE SOFTWARE.
 
 -(void)removeObjectAtIndex:(NSUInteger)index;
 
+-(void)removeObject:(id)object;
+
 -(id)objectAtIndex:(NSUInteger)index;
 
 @end
