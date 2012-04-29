@@ -128,7 +128,7 @@ THE SOFTWARE.
 
 -(void)removeObject:(id)object
 {
-	if(!self.head) { return; }
+	if((!self.head) || (!object)) { return; }
 	NSUInteger index = 0;
 	NSUInteger max = (self.count - 1);
 	CWLinkedListNode *currentNode = self.head;
