@@ -40,7 +40,7 @@
 -(NSUInteger)nodeLevel;
 @end
 
-@interface CWBTree : NSObject
+@interface CWSimpleBTree : NSObject
 -(id)initWithRootNodeValue:(id)value;
 @property(nonatomic, retain) CWBTreeNode *rootNode;
 -(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;

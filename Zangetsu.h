@@ -60,7 +60,7 @@
 #import "CWApplicationRegistry.h"
 #import "CWStack.h"
 #import "CWTree.h"
-#import "CWBTree.h"
+#import "CWSimpleBTree.h"
 #import "NSMutableArrayAdditions.h"
 #import "CWBase64.h"
 #import "CWZLib.h"

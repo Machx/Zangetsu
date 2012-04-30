@@ -28,7 +28,7 @@
  */
 
 #import "CWBTreeTests.h"
-#import "CWBTree.h"
+#import "CWSimpleBTree.h"
 #import "CWAssertionMacros.h"
 
 @implementation CWBTreeTests
@@ -48,9 +48,9 @@
 {    
     NSString *string1 = @"Hypnotoad";
     
-    CWBTree *tree1 = [[CWBTree alloc] initWithRootNodeValue:string1];
+    CWSimpleBTree *tree1 = [[CWSimpleBTree alloc] initWithRootNodeValue:string1];
     
-    CWBTree *tree2 = [[CWBTree alloc] init];
+    CWSimpleBTree *tree2 = [[CWSimpleBTree alloc] init];
     CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
     tree2.rootNode = node1;
 	
@@ -118,7 +118,7 @@
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
 	rLNode.rightNode = node2R;
     
-    CWBTree *tree = [[CWBTree alloc] init];
+    CWSimpleBTree *tree = [[CWSimpleBTree alloc] init];
 	tree.rootNode = rNode;
     
     __block NSMutableString *testString = [[NSMutableString alloc] init];
@@ -156,7 +156,7 @@
     CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
 	rLNode.rightNode = node2R;
     
-    CWBTree *tree = [[CWBTree alloc] init];
+    CWSimpleBTree *tree = [[CWSimpleBTree alloc] init];
 	tree.rootNode = rNode;
     
     __block NSMutableString *currentString = [[NSMutableString alloc] init];

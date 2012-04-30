@@ -27,7 +27,7 @@
  THE SOFTWARE.
  */
 
-#import "CWBTree.h"
+#import "CWSimpleBTree.h"
 
 @implementation CWBTreeNode
 
@@ -107,7 +107,7 @@
 
 @end
 
-@implementation CWBTree
+@implementation CWSimpleBTree
 
 @synthesize rootNode = _rootNode;
 
