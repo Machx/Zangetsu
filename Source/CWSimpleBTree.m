@@ -29,7 +29,7 @@
 
 #import "CWSimpleBTree.h"
 
-@implementation CWBTreeNode
+@implementation CWSimpleBTreeNode
 
 @synthesize value = _value;
 @synthesize parent = _parent;
@@ -53,7 +53,7 @@
  
  @return a BOOL indicating if the nove value and its pointers are equal
  */
--(BOOL)isEqualToNode:(CWBTreeNode *)node
+-(BOOL)isEqualToNode:(CWSimpleBTreeNode *)node
 {	
 	if ([node.value isEqual:self.value] &&
 		[node.leftNode isEqual:self.leftNode] &&
@@ -66,7 +66,7 @@
 /**
  Performs the necessary validation before assigning the nodes left pointer value
  */
--(void)setLeftNode:(CWBTreeNode *)node
+-(void)setLeftNode:(CWSimpleBTreeNode *)node
 {
 	if (![node isEqual:self]) {
 		node.parent = self;
@@ -77,7 +77,7 @@
 /**
  Performs the necessary validation before assigning the nodes right pointer value
  */
--(void)setRightNode:(CWBTreeNode *)node
+-(void)setRightNode:(CWSimpleBTreeNode *)node
 {
     if (![node isEqual:self]) {
 		node.parent = self;
@@ -97,7 +97,7 @@
 -(NSUInteger)nodeLevel
 {
     NSUInteger level = 1;
-    CWBTreeNode *currentParrent = self.parent;
+    CWSimpleBTreeNode *currentParrent = self.parent;
     while (currentParrent) {
         level++;
         currentParrent = currentParrent.parent;
@@ -139,7 +139,7 @@
     self = [super init];
     if (self){
         if (value) {
-            CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:value];
+            CWSimpleBTreeNode *node = [[CWSimpleBTreeNode alloc] initWithValue:value];
             _rootNode = node;
         }
     }
@@ -164,7 +164,7 @@
 	CWStack *nodes = [[CWStack alloc] init];
 	[nodes push:self.rootNode];
 	
-	CWBTreeNode *currentNode = nil;
+	CWSimpleBTreeNode *currentNode = nil;
 	while (!nodes.isEmpty) {
 		currentNode = [nodes pop];
 		

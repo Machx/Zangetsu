@@ -29,19 +29,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CWBTreeNode : NSObject
+@interface CWSimpleBTreeNode : NSObject
 @property(nonatomic, retain) id value;
-@property(nonatomic, weak) CWBTreeNode *parent;
-@property(nonatomic, retain) CWBTreeNode *leftNode;
-@property(nonatomic, retain) CWBTreeNode *rightNode;
+@property(nonatomic, weak) CWSimpleBTreeNode *parent;
+@property(nonatomic, retain) CWSimpleBTreeNode *leftNode;
+@property(nonatomic, retain) CWSimpleBTreeNode *rightNode;
 //== Methods ==
 -(id)initWithValue:(id)aValue;
--(BOOL)isEqualToNode:(CWBTreeNode *)node;
+-(BOOL)isEqualToNode:(CWSimpleBTreeNode *)node;
 -(NSUInteger)nodeLevel;
 @end
 
 @interface CWSimpleBTree : NSObject
 -(id)initWithRootNodeValue:(id)value;
-@property(nonatomic, retain) CWBTreeNode *rootNode;
+@property(nonatomic, retain) CWSimpleBTreeNode *rootNode;
 -(void)enumerateBTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;
 @end

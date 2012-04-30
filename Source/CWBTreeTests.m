@@ -51,7 +51,7 @@
     CWSimpleBTree *tree1 = [[CWSimpleBTree alloc] initWithRootNodeValue:string1];
     
     CWSimpleBTree *tree2 = [[CWSimpleBTree alloc] init];
-    CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
+    CWSimpleBTreeNode *node1 = [[CWSimpleBTreeNode alloc] initWithValue:string1];
     tree2.rootNode = node1;
 	
     STAssertTrue([[[tree1 rootNode] value] isEqual:[[tree2 rootNode] value]], @"Root nodes should be equal");
@@ -64,12 +64,12 @@
 {    
     NSString *string1 = @"Hypnotoad";
     
-    CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:string1];
-    CWBTreeNode *node2 = node1;
+    CWSimpleBTreeNode *node1 = [[CWSimpleBTreeNode alloc] initWithValue:string1];
+    CWSimpleBTreeNode *node2 = node1;
     
     STAssertTrue([node1 isEqualTo:node2], @"Nodes should be equivalent");
     
-    CWBTreeNode *node3 = [[CWBTreeNode alloc] initWithValue:@"Cheez it!"];
+    CWSimpleBTreeNode *node3 = [[CWSimpleBTreeNode alloc] initWithValue:@"Cheez it!"];
     
     STAssertFalse([node1 isEqualTo:node3], @"The 2 nodes have different values and should always be false");
 }
@@ -104,18 +104,18 @@
      ---------------------
      */
     
-    CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
+    CWSimpleBTreeNode *rNode = [[CWSimpleBTreeNode alloc] initWithValue:@"4"];
     
-    CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
+    CWSimpleBTreeNode *rRNode = [[CWSimpleBTreeNode alloc] initWithValue:@"5"];
 	rNode.rightNode = rRNode;
     
-    CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
+    CWSimpleBTreeNode *rLNode = [[CWSimpleBTreeNode alloc] initWithValue:@"2"];
 	rNode.leftNode = rLNode;
     
-    CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
+    CWSimpleBTreeNode *node2L = [[CWSimpleBTreeNode alloc] initWithValue:@"1"];
 	rLNode.leftNode = node2L;
     
-    CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
+    CWSimpleBTreeNode *node2R = [[CWSimpleBTreeNode alloc] initWithValue:@"3"];
 	rLNode.rightNode = node2R;
     
     CWSimpleBTree *tree = [[CWSimpleBTree alloc] init];
@@ -142,18 +142,18 @@
      we should visit node 4 then 2 and then stop...
      */
     
-    CWBTreeNode *rNode = [[CWBTreeNode alloc] initWithValue:@"4"];
+    CWSimpleBTreeNode *rNode = [[CWSimpleBTreeNode alloc] initWithValue:@"4"];
     
-    CWBTreeNode *rRNode = [[CWBTreeNode alloc] initWithValue:@"5"];
+    CWSimpleBTreeNode *rRNode = [[CWSimpleBTreeNode alloc] initWithValue:@"5"];
 	rNode.rightNode = rRNode;
     
-    CWBTreeNode *rLNode = [[CWBTreeNode alloc] initWithValue:@"2"];
+    CWSimpleBTreeNode *rLNode = [[CWSimpleBTreeNode alloc] initWithValue:@"2"];
 	rNode.leftNode = rLNode;
     
-    CWBTreeNode *node2L = [[CWBTreeNode alloc] initWithValue:@"1"];
+    CWSimpleBTreeNode *node2L = [[CWSimpleBTreeNode alloc] initWithValue:@"1"];
 	rLNode.leftNode = node2L;
     
-    CWBTreeNode *node2R = [[CWBTreeNode alloc] initWithValue:@"3"];
+    CWSimpleBTreeNode *node2R = [[CWSimpleBTreeNode alloc] initWithValue:@"3"];
 	rLNode.rightNode = node2R;
     
     CWSimpleBTree *tree = [[CWSimpleBTree alloc] init];
@@ -181,15 +181,15 @@
     
     static NSString *const kTestValue = @"Now look I am not evil, my Loan officer told me so";
     
-    CWBTreeNode *node1 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    CWSimpleBTreeNode *node1 = [[CWSimpleBTreeNode alloc] initWithValue:kTestValue];
     
-    CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    CWSimpleBTreeNode *node2 = [[CWSimpleBTreeNode alloc] initWithValue:kTestValue];
 	node1.rightNode = node2;
     
-    CWBTreeNode *node3 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    CWSimpleBTreeNode *node3 = [[CWSimpleBTreeNode alloc] initWithValue:kTestValue];
 	node2.rightNode = node3;
     
-    CWBTreeNode *node4 = [[CWBTreeNode alloc] initWithValue:kTestValue];
+    CWSimpleBTreeNode *node4 = [[CWSimpleBTreeNode alloc] initWithValue:kTestValue];
 	node3.rightNode = node4;
     
     STAssertTrue([node1 nodeLevel] == 1, @"Node1 should be at Level 1");
@@ -200,10 +200,10 @@
 
 -(void)testSetPointerToNil
 {	
-	CWBTreeNode *node = [[CWBTreeNode alloc] initWithValue:@"Hypnotoad"];
+	CWSimpleBTreeNode *node = [[CWSimpleBTreeNode alloc] initWithValue:@"Hypnotoad"];
 	STAssertNil(node.rightNode, @"Node should be nil now");
 	
-	CWBTreeNode *node2 = [[CWBTreeNode alloc] initWithValue:@"Nibbler"];
+	CWSimpleBTreeNode *node2 = [[CWSimpleBTreeNode alloc] initWithValue:@"Nibbler"];
 	[node setRightNode:node2];
 	STAssertNotNil(node.rightNode, @"Node should be non nil");
 	
