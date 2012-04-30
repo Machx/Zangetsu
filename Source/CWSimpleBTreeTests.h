@@ -29,6 +29,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface CWBTreeTests : SenTestCase
+@interface CWSimpleBTreeTests : SenTestCase
 
 @end

@@ -27,11 +27,11 @@
  THE SOFTWARE.
  */
 
-#import "CWBTreeTests.h"
+#import "CWSimpleBTreeTests.h"
 #import "CWSimpleBTree.h"
 #import "CWAssertionMacros.h"
 
-@implementation CWBTreeTests
+@implementation CWSimpleBTreeTests
 
 - (void)setUp
 {
