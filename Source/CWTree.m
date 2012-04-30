@@ -114,7 +114,7 @@
 	} else {
 		if (![self.children containsObject:node]) {
 			BOOL anyNodeContainsValue = [self.children cw_isObjectInArrayWithBlock:^BOOL(id obj) {
-				id nodeValue = [(CWSimpleBTreeNode *)obj value];
+				id nodeValue = [(CWTreeNode *)obj value];
 				if ([nodeValue isEqual:node.value]) {
 					return YES;
 				}
