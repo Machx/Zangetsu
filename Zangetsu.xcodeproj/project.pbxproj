@@ -111,6 +111,7 @@
 		B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
+		B86AFF31154EEFDF00A20547 /* CWBTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86AFF30154EEFDF00A20547 /* CWBTreeTests.m */; };
 		B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B87A7AF4145D0EDC007A4C0D /* CWQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AF5145D0EDC007A4C0D /* CWQueue.m */; };
 		B87A7AFB145DB100007A4C0D /* CWQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AFA145DB100007A4C0D /* CWQueueTests.m */; };
@@ -144,6 +145,10 @@
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8A9346F13D47BB2001209BF /* CWSimpleBTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A9346E13D47BB2001209BF /* CWSimpleBTreeTests.m */; };
+		B8AF75EB154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; };
+		B8AF75EC154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; };
+		B8AF75ED154ED32800317903 /* CWBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AF75EA154ED32800317903 /* CWBTree.m */; };
+		B8AF75EE154ED32800317903 /* CWBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AF75EA154ED32800317903 /* CWBTree.m */; };
 		B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8B77E091436065900CB3F93 /* NSOperationQueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */; };
 		B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -327,6 +332,8 @@
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
+		B86AFF2F154EEFDF00A20547 /* CWBTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBTreeTests.h; path = Source/CWBTreeTests.h; sourceTree = "<group>"; };
+		B86AFF30154EEFDF00A20547 /* CWBTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBTreeTests.m; path = Source/CWBTreeTests.m; sourceTree = "<group>"; };
 		B87A7AF4145D0EDC007A4C0D /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = Source/CWQueue.h; sourceTree = "<group>"; };
 		B87A7AF5145D0EDC007A4C0D /* CWQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueue.m; path = Source/CWQueue.m; sourceTree = "<group>"; };
 		B87A7AF9145DB100007A4C0D /* CWQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueueTests.h; path = Source/CWQueueTests.h; sourceTree = "<group>"; };
@@ -361,8 +368,10 @@
 		B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSColorAdditions.m; path = Source/NSColorAdditions.m; sourceTree = "<group>"; };
 		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
 		B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWExceptionUtilities.m; path = Source/CWExceptionUtilities.m; sourceTree = "<group>"; };
-		B8A9346D13D47BB2001209BF /* CWSimpleBTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CWSimpleBTreeTests.h; path = Source/CWSimpleBTreeTests.h; sourceTree = "<group>"; };
+		B8A9346D13D47BB2001209BF /* CWSimpleBTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSimpleBTreeTests.h; path = Source/CWSimpleBTreeTests.h; sourceTree = "<group>"; };
 		B8A9346E13D47BB2001209BF /* CWSimpleBTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSimpleBTreeTests.m; path = Source/CWSimpleBTreeTests.m; sourceTree = "<group>"; };
+		B8AF75E9154ED32800317903 /* CWBTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBTree.h; path = Source/CWBTree.h; sourceTree = "<group>"; };
+		B8AF75EA154ED32800317903 /* CWBTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBTree.m; path = Source/CWBTree.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSOperationQueueAdditions.h; path = Source/NSOperationQueueAdditions.h; sourceTree = "<group>"; };
 		B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOperationQueueAdditions.m; path = Source/NSOperationQueueAdditions.m; sourceTree = "<group>"; };
@@ -698,6 +707,8 @@
 				B897CA17153B6E1C003BAD73 /* CWTrie.m */,
 				B84F1F50154A146F0038AEE0 /* CWLinkedList.h */,
 				B84F1F51154A146F0038AEE0 /* CWLinkedList.m */,
+				B8AF75E9154ED32800317903 /* CWBTree.h */,
+				B8AF75EA154ED32800317903 /* CWBTree.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -772,6 +783,8 @@
 				B897CA1D153B8610003BAD73 /* CWTrieTests.m */,
 				B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */,
 				B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */,
+				B86AFF2F154EEFDF00A20547 /* CWBTreeTests.h */,
+				B86AFF30154EEFDF00A20547 /* CWBTreeTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -828,6 +841,7 @@
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
 				B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */,
+				B8AF75EB154ED32800317903 /* CWBTree.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +889,7 @@
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */,
 				B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */,
+				B8AF75EC154ED32800317903 /* CWBTree.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,6 +1103,7 @@
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
 				B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */,
+				B8AF75ED154ED32800317903 /* CWBTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,6 +1147,7 @@
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */,
 				B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */,
+				B8AF75EE154ED32800317903 /* CWBTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1171,6 +1188,7 @@
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
 				B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */,
+				B86AFF31154EEFDF00A20547 /* CWBTreeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
