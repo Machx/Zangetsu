@@ -30,14 +30,57 @@
 #import "CWBTree.h"
 #import "CWStack.h"
 
+CWBTreeNode *CWBTreeNodeMinimumNode(CWBTreeNode *node);
+CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *parent);
+
 @interface CWBTreeNode : NSObject
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
 @property(nonatomic, retain) CWBTreeNode *leftNode;
 @property(nonatomic, retain) CWBTreeNode *rightNode;
--(CWBTreeNode *)removeWithKey:(NSString *)aKey andParent:(CWBTreeNode *)parent;
--(CWBTreeNode *)minValue;
 @end
+
+CWBTreeNode *CWBTreeNodeMinimumNode(CWBTreeNode *node)
+{
+	if (!node.leftNode) {
+		return node;
+	} else {
+		return CWBTreeNodeMinimumNode(node.leftNode);
+	}
+}
+
+CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *parent)
+{
+	if ([aKey compare:node.key] == NSOrderedAscending) {
+		if (node.leftNode) {
+			return CWBTreeNodeRemove(aKey, node.leftNode, node);
+		} else {
+			return nil;
+		}
+	} else if([aKey compare:node.key] == NSOrderedDescending) {
+		if (node.rightNode) {
+			return CWBTreeNodeRemove(aKey, node.rightNode, node);
+		} else {
+			return nil;
+		}
+	} else {
+		if (node.leftNode && node.rightNode) {
+			CWBTreeNode *min = CWBTreeNodeMinimumNode(node.rightNode);
+			node.key = min.key;
+			node.value = min.value;
+			return CWBTreeNodeRemove(aKey, node.rightNode, node);
+			
+		} else if([parent.leftNode isEqual:node]){
+			parent.leftNode = (node.leftNode) ? node.leftNode : node.rightNode;
+			return node;
+			
+		} else if ([parent.rightNode isEqual:node]) {
+			parent.rightNode = (node.leftNode) ? node.leftNode : node.rightNode;
+			return node;
+		}
+	}
+	return nil;
+}
 
 @implementation CWBTreeNode
 
@@ -56,46 +99,6 @@
 		_rightNode = nil;
     }
     return self;
-}
-
--(CWBTreeNode *)removeWithKey:(NSString *)aKey andParent:(CWBTreeNode *)parent
-{
-	if ([aKey compare:self.key] == NSOrderedAscending) {
-		if (self.leftNode) {
-			return [self.leftNode removeWithKey:aKey andParent:self];
-		} else {
-			return nil;
-		}
-	} else if([aKey compare:self.key] == NSOrderedDescending) {
-		if (self.rightNode) {
-			return [self.rightNode removeWithKey:aKey andParent:self];
-		} else {
-			return nil;
-		}
-	} else {
-		if (self.leftNode && self.rightNode) {
-			CWBTreeNode *min = [self.rightNode minValue];
-			self.key = min.key;
-			self.value = min.value;
-			return [self.rightNode removeWithKey:self.key andParent:self];
-		} else if([parent.leftNode isEqual:self]){
-			parent.leftNode = (self.leftNode) ? self.leftNode : self.rightNode;
-			return self;
-		} else if ([parent.rightNode isEqual:self]) {
-			parent.rightNode = (self.leftNode) ? self.leftNode : self.rightNode;
-			return self;
-		}
-	}
-	return nil;
-}
-
--(CWBTreeNode *)minValue
-{
-	if (!self.leftNode) {
-		return self;
-	} else {
-		return [self.leftNode minValue];
-	}
 }
 
 @end
@@ -179,7 +182,7 @@
 	if ([self.rootNode.key isEqualToString:aKey]) {
 		CWBTreeNode *root = [[CWBTreeNode alloc] init];
 		root.leftNode = self.rootNode;
-		CWBTreeNode *removedNode = [self.rootNode removeWithKey:aKey andParent:root];
+		CWBTreeNode *removedNode = CWBTreeNodeRemove(aKey, self.rootNode, root);
 		self.rootNode = root.leftNode;
 		if (removedNode) {
 			CWDebugLog(@"success in removing node");
@@ -187,7 +190,7 @@
 			CWDebugLog(@"Failed to remove node");
 		}
 	} else {
-		[self.rootNode removeWithKey:aKey andParent:nil];
+		CWBTreeNodeRemove(aKey, self.rootNode, nil);
 	}
 }
 
