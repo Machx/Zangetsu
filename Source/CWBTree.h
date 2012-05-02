@@ -33,7 +33,6 @@
 
 @interface CWBTree : NSObject
 
-@property(nonatomic, retain) CWBTreeNode *rootNode;
 
 -(void)setObjectValue:(id)value forKey:(NSString *)key;
 

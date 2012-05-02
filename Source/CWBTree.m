@@ -103,6 +103,10 @@ CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *par
 
 @end
 
+@interface CWBTree ()
+@property(nonatomic,retain) CWBTreeNode *rootNode;
+@end
+
 @implementation CWBTree
 
 @synthesize rootNode = _rootNode;
