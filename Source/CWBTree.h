@@ -38,8 +38,8 @@
 
 -(void)removeObjectValueWithKey:(NSString *)aKey;
 
--(id)objectValueForKey:(NSString *)key;
+-(id)objectValueForKey:(NSString *)aKey;
 
--(void)enumerateOverObjectsWithBlock:(void (^)(id value, NSString *key, BOOL *stop))block;
+-(void)enumerateOverObjectsWithBlock:(void (^)(id value, NSString *aKey, BOOL *stop))block;
 
 @end
