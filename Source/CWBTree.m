@@ -30,9 +30,6 @@
 #import "CWBTree.h"
 #import "CWStack.h"
 
-CWBTreeNode *CWBTreeNodeMinimumNode(CWBTreeNode *node);
-CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *parent);
-
 @interface CWBTreeNode : NSObject
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
@@ -192,6 +189,10 @@ CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *par
 -(void)removeObjectValueWithKey:(NSString *)aKey
 {
 	if (!self.rootNode) { return; }
+	if (!aKey) {
+		CWDebugLog(@"Error: key is nil");
+		return;
+	}
 	
 	if ([self.rootNode.key isEqualToString:aKey]) {
 		CWBTreeNode *root = [[CWBTreeNode alloc] init];
