@@ -37,7 +37,7 @@
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
 	CFRelease(uid);
-	return (__bridge NSString *)tmpString;
+	return (__bridge_transfer NSString *)tmpString;
 }
 
 /**
@@ -69,7 +69,7 @@
 -(NSString *)cw_escapeEntitiesForURL
 {	
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
-	return (__bridge NSString *)str;
+	return (__bridge_transfer NSString *)str;
 }
 
 /**
