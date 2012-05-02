@@ -69,9 +69,7 @@
 -(NSString *)cw_escapeEntitiesForURL
 {	
 	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
-	NSString *returnString = [NSString stringWithString:(__bridge NSString *)str];
-	CFRelease(str);
-	return returnString;
+	return (__bridge NSString *)str;
 }
 
 /**
