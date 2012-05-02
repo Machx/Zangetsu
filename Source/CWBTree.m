@@ -122,6 +122,11 @@ CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *par
 
 -(id)objectValueForKey:(NSString *)aKey
 {
+	if(!aKey) {
+		CWDebugLog(@"Error: nil key");
+		return nil;
+	}
+	
 	CWBTreeNode *node = self.rootNode;
 	
 	while (node) {
