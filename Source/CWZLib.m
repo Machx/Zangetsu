@@ -54,11 +54,10 @@
 	data = SecTransformExecute(encoder, &error);
     if (error) { CWZLIBCLEANUP(); return nil; }
     
-    NSData *compressedData = [[NSData alloc] initWithData:(__bridge NSData *)data];
 	CFRelease(encoder);
 	CFRelease(inputData);
 	
-    return compressedData; 
+    return (__bridge_transfer NSData *)data; 
 }
 
 #undef CWZLIBCLEANUP
@@ -85,11 +84,10 @@
     decodedData = SecTransformExecute(decoder, &error);
     if (error) { CWZLIBCLEANUP(); return nil; }
     
-    NSData *nsDecodedData = [[NSData alloc] initWithData:(__bridge NSData *)decodedData];
 	CFRelease(inputData);
 	CFRelease(decoder);
     
-    return nsDecodedData;
+    return (__bridge_transfer NSData *)decodedData;
 }
 
 #undef CWZLIBCLEANUP
