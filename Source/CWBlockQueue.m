@@ -42,7 +42,7 @@
 {
 	self = [super init];
 	if (self) {
-		_operationBlock = block;
+		_operationBlock = [block copy];
 		_completionBlock = NULL;
 	}
 	return self;

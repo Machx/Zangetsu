@@ -86,6 +86,7 @@
         _taskHasRun = NO;
         _inAsynchronous = NO;
         _cwTask = [[NSTask alloc] init];
+		_completionBlock = nil;
     }
     return self;
 }
@@ -109,6 +110,7 @@
         _taskHasRun = NO;
         _inAsynchronous = NO;
         _cwTask = nil;
+		_completionBlock = nil;
     }
     return self;
 }

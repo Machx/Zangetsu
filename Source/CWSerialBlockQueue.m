@@ -42,8 +42,8 @@
 {
     self = [super init];
     if (self) {
-        _operationBlock = NULL;
-		_completionBlock = NULL;
+        _operationBlock = nil;
+		_completionBlock = nil;
     }
     return self;
 }
