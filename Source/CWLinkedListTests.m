@@ -91,6 +91,27 @@
 	}];
 	
 	STAssertTrue(count == 1,@"count should be 1");
+	
+	count = 0;
+	
+	[list removeObjectAtIndex:1];
+	
+	[list enumerateObjectsWithBlock:^(id object, BOOL *stop) {
+		switch (count) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Fry");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Bender");
+				break;
+			default:
+				STFail(@"Beyond bounds");
+				break;
+		}
+		count++;
+	}];
+	
+	STAssertTrue(count == 2,@"incorrect count");
 }
 
 @end
