@@ -68,8 +68,8 @@
 		B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWSerialBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
 		B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
-		B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; };
-		B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; };
+		B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
 		B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
 		B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */; };
@@ -135,8 +135,8 @@
 		B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897240E1347946C00BB67CF /* CWNSDateTests.m */; };
-		B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; };
-		B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; };
+		B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA17153B6E1C003BAD73 /* CWTrie.m */; };
 		B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA17153B6E1C003BAD73 /* CWTrie.m */; };
 		B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA1D153B8610003BAD73 /* CWTrieTests.m */; };
