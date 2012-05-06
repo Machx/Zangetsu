@@ -120,9 +120,7 @@ THE SOFTWARE.
 		current++;
 	}
 	
-	CWLinkedListNode *nodeToBeRemoved = node.next;
 	node.next = node.next.next;
-	nodeToBeRemoved.next = nil;
 	self.count--;
 }
 
