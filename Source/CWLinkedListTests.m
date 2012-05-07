@@ -36,6 +36,23 @@
 	STAssertTrue(list.count == 0,@"count is incorrect");
 }
 
+-(void)testAddAtIndex
+{
+	CWLinkedList *list = [[CWLinkedList alloc] init];
+	
+	[list addObject:@"This"];
+	[list addObject:@"is"];
+	[list addObject:@"sentence"];
+	
+	STAssertTrue(list.count == 3,@"linked list count is incorrect");
+	
+	[list insertObject:@"a" atIndex:2];
+	
+	CWAssertEqualsStrings([list objectAtIndex:1], @"is");
+	CWAssertEqualsStrings([list objectAtIndex:2], @"a");
+	CWAssertEqualsStrings([list objectAtIndex:3], @"sentence");
+}
+
 -(void)testRemoveObject
 {
 	CWLinkedList *list = [[CWLinkedList alloc] init];
