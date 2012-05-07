@@ -97,6 +97,34 @@ THE SOFTWARE.
 	self.count++;
 }
 
+-(void)insertObject:(id)anObject atIndex:(NSUInteger)index
+{
+	if(!anObject) {
+		CWDebugLog(@"Error: attempted to add nil object");
+		return;
+	}
+	if(index > (self.count - 1))
+		[self throwOutOfRangeExceptionWithIndex:index];
+	
+	if (index == 0) {
+		CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
+		node.data = anObject;
+		node.next = self.head;
+		self.head = node;
+	} else {
+		NSUInteger current = 0;
+		CWLinkedListNode *node = self.head;
+		while (current != (index - 1)) {
+			node = node.next;
+			current++;
+		}
+		CWLinkedListNode *insertNode = [[CWLinkedListNode alloc] init];
+		insertNode.data = anObject;
+		insertNode.next = node.next;
+		node.next = insertNode;
+	}
+}
+
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
 	if(index > (self.count - 1))

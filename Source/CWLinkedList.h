@@ -49,6 +49,8 @@ static NSString * const kCWIndexKey = @"IndexArg";
  */
 -(void)addObject:(id)anObject;
 
+-(void)insertObject:(id)anObject atIndex:(NSUInteger)index;
+
 /**
  Removes the object at a given index from the receiver
  
