@@ -49,6 +49,17 @@ static NSString * const kCWIndexKey = @"IndexArg";
  */
 -(void)addObject:(id)anObject;
 
+/**
+ Inserts a given object at the index in the receiver
+ 
+ This method inserts the given object into the index of the 
+ receiver. The index must not be beyond the bounds of the 
+ link list range because it will throw a 
+ kCWLinkedListInvalidRangeException exception. 
+ 
+ @param anObject any valid non nil object, otherwise this method returns immediately
+ @param index an index within the bounds of the receiver for the object to be inserted at
+ */
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 
 /**
