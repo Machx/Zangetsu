@@ -41,16 +41,71 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 @property(nonatomic, readonly, retain) NSURLResponse *connectionResponse;
 @property(nonatomic, readonly, retain) NSError *connectionError;
 //API
+
+/**
+ Initializes the the url request with a host
+ 
+ @param host a valid NSString with the host to be connected to
+ @return a CWURLRequest object
+ */
 -(id)initWithHost:(NSString *)host;
 
+/**
+ Creates the Base64 encoded http authorization header for the instance request
+ 
+ Creates the authorization header string for the instance request. If either 
+ login or passwd are nil then this method does nothing. Otherwise it creates
+ a Base64 encoded http header string and will be used when this class creates
+ it NSMutableURLRequest.
+ 
+ @param login a NSString with the login to the website you making a request from
+ @param password a NSString with the password to the website you are making a request from
+ */
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;
 
+/**
+ Starts the connection request on the receiving instance
+ 
+ This method causes the receiving object to create the internal NSMutableURLRequest and
+ then creates a NSURLConnection object that references the request object.The connection 
+ is then scheduled to run on the current runloop this method is being invoked on and then
+ the connection is started. After this time whatever data is received and whatever error
+ is encountered is stored on the instance object. If the data is nil or if you need to debug
+ an issue check the instances -connectionErrror and -connectionResponse objects.
+ 
+ @return NSData received from the NSURLConnection
+ */
 -(NSData *)startSynchronousConnection;
 
+/**
+ Starts the connection request on the receving instance on another thread in the specified dispatch_queue_t queue
+ 
+ This method is a conveneience method and is the same if you use dispatch async and then call 
+ -startSynchronousRequest on that other thread and then used dispatch_async to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
+ */
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
-
+/**
+ Starts the connection request on the receving instance on another thread in the specified NSOperationQueue queue
+ 
+ This method is a conveneience method and is the same if you use addOperationWithBLock and then call 
+ -startSynchronousRequest on that other thread and then used addOperationWithBlock to get back to the
+ main thread and passed the NSData, NSError and NSURLResponse objects back. See the notes on 
+ -startSynchronousRequest for the implementation details of that method to know whats going on
+ here in this one. 
+ 
+ @param data the NSData data received from the connection
+ @param error if a error was received during this connection is is passed back here
+ @param the response received during the connection
+ */
 -(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
 					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 @end
