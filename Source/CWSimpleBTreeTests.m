@@ -209,9 +209,6 @@
 	
 	[node setRightNode:nil];
 	STAssertNil(node.rightNode, @"Node should be nil now");
-	
-	[node setRightNode:node];
-	STAssertNil(node.rightNode, @"Node should not allow setting itself as a child node");
 }
 
 - (void)tearDown
