@@ -68,10 +68,8 @@
  */
 -(void)setLeftNode:(CWSimpleBTreeNode *)node
 {
-	if (![node isEqual:self]) {
-		node.parent = self;
-		_leftNode = node;
-	}
+	node.parent = self;
+	_leftNode = node;
 }
 
 /**
@@ -79,10 +77,8 @@
  */
 -(void)setRightNode:(CWSimpleBTreeNode *)node
 {
-    if (![node isEqual:self]) {
-		node.parent = self;
-		_rightNode = node;
-    }
+	node.parent = self;
+	_rightNode = node;
 }
 
 /**
