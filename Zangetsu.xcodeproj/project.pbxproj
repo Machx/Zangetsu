@@ -22,6 +22,10 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
+		B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; };
+		B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; };
+		B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
+		B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -258,6 +262,8 @@
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
 		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
+		B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedList.h; path = Source/CWDoublyLinkedList.h; sourceTree = "<group>"; };
+		B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedList.m; path = Source/CWDoublyLinkedList.m; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
@@ -695,8 +701,6 @@
 		B8AFE82314119D4000616FA4 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
-				17967DC313CF3CBE0023DCCB /* CWSimpleBTree.h */,
-				17967DC413CF3CBE0023DCCB /* CWSimpleBTree.m */,
 				B8C18300138C1AF900A7EF7C /* CWStack.h */,
 				B8C18301138C1AF900A7EF7C /* CWStack.m */,
 				1701DA1813CC9285007EE513 /* CWTree.h */,
@@ -707,8 +711,12 @@
 				B897CA17153B6E1C003BAD73 /* CWTrie.m */,
 				B84F1F50154A146F0038AEE0 /* CWLinkedList.h */,
 				B84F1F51154A146F0038AEE0 /* CWLinkedList.m */,
+				B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */,
+				B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */,
 				B8AF75E9154ED32800317903 /* CWBTree.h */,
 				B8AF75EA154ED32800317903 /* CWBTree.m */,
+				17967DC313CF3CBE0023DCCB /* CWSimpleBTree.h */,
+				17967DC413CF3CBE0023DCCB /* CWSimpleBTree.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -842,6 +850,7 @@
 				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
 				B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */,
 				B8AF75EB154ED32800317903 /* CWBTree.h in Headers */,
+				B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +899,7 @@
 				B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */,
 				B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */,
 				B8AF75EC154ED32800317903 /* CWBTree.h in Headers */,
+				B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,6 +1114,7 @@
 				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
 				B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */,
 				B8AF75ED154ED32800317903 /* CWBTree.m in Sources */,
+				B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1148,6 +1159,7 @@
 				B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */,
 				B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */,
 				B8AF75EE154ED32800317903 /* CWBTree.m in Sources */,
+				B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
