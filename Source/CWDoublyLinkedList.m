@@ -58,6 +58,7 @@ THE SOFTWARE.
 @property(readwrite, assign) NSUInteger count;
 @property(nonatomic, retain) CWDoublyLinkedListNode *head;
 @property(nonatomic, weak) CWDoublyLinkedListNode *tail;
+-(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
 @end
 
 @implementation CWDoublyLinkedList
@@ -96,17 +97,85 @@ THE SOFTWARE.
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	CWDebugLog(@"Unimplemented Method");
+	if (index > (self.count - 1)) {
+		CWDebugLog(@"Index beyond list bounds");
+		return;
+	}
+	if (!self.head && (index != 0)) {
+		CWDebugLog(@"Trying to insert an object in a list with no objects and index > 0");
+		return;
+	}
+	
+	//if we can just append to the end
+	//of the array then just do it to 
+	//save time
+	if (index == (self.count - 1)) {
+		[self addObject:anObject];
+		return;
+	}
+	
+	NSUInteger currentIndex = 0;
+	CWDoublyLinkedListNode *node = self.head;
+	
+	while (currentIndex != index) {
+		node = node.next;
+		currentIndex++;
+	}
+	
+	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
+	insertNode.data = anObject;
+	
+	CWDoublyLinkedListNode *nextNode = node.next;
+	nextNode.prev = insertNode;
+	CWDoublyLinkedListNode *prevNode = node.prev;
+	prevNode.next = insertNode;
+}
+
+-(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node
+{
+	CWDoublyLinkedListNode *prev = node.prev;
+	CWDoublyLinkedListNode *next = node.next;
+	prev.next = next;
+	next.prev = prev;
 }
 
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
-	CWDebugLog(@"Unimplemented Method");
+	if (index > (self.count - 1)) {
+		CWDebugLog(@"Index beyond list bounds");
+		return;
+	}
+	if (!self.head) {
+		CWDebugLog(@"Trying to delete an object in a list with no objects and index > 0");
+		return;
+	}
+	
+	CWDoublyLinkedListNode *node = self.head;
+	NSUInteger currentIndex = 0;
+	
+	while (currentIndex != index) {
+		node = node.next;
+		currentIndex++;
+	}
+	
+	[self _removeObjectWithNode:node];
 }
 
 -(void)removeObject:(id)object
 {
-	CWDebugLog(@"Unimplemented Method");
+	if (!self.head) {
+		CWDebugLog(@"Oops you tried to remove an object from an empty linked list");
+		return;
+	}
+	
+	CWDoublyLinkedListNode *node = self.head;
+	
+	while (node) {
+		if ([node.data isEqual:object]) {
+			[self _removeObjectWithNode:node];
+		}
+		node = node.next;
+	}
 }
 
 -(id)objectAtIndex:(NSUInteger)index
@@ -129,7 +198,21 @@ THE SOFTWARE.
 
 -(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
 {
-	CWDebugLog(@"Unimplemented Method");
+	if (!self.head) {
+		CWDebugLog(@"Trying to enumerate object with an empty array");
+		return;
+	}
+	
+	CWDoublyLinkedListNode *node = self.head;
+	BOOL shouldStop = NO;
+	
+	while (node) {
+		block(node.data,&shouldStop);
+		if (shouldStop == YES) {
+			break;
+		}
+		node = node.next;
+	}
 }
 
 @end

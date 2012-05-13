@@ -22,8 +22,8 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
-		B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; };
-		B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; };
+		B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
 		B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,8 +149,8 @@
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8A9346F13D47BB2001209BF /* CWSimpleBTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A9346E13D47BB2001209BF /* CWSimpleBTreeTests.m */; };
-		B8AF75EB154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; };
-		B8AF75EC154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; };
+		B8AF75EB154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8AF75EC154ED32800317903 /* CWBTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AF75E9154ED32800317903 /* CWBTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8AF75ED154ED32800317903 /* CWBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AF75EA154ED32800317903 /* CWBTree.m */; };
 		B8AF75EE154ED32800317903 /* CWBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AF75EA154ED32800317903 /* CWBTree.m */; };
 		B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
