@@ -88,6 +88,7 @@
 		B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
+		B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */; };
 		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -316,6 +317,8 @@
 		B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionaryAdditions.m; path = Source/NSDictionaryAdditions.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
+		B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedListTests.h; path = Source/CWDoublyLinkedListTests.h; sourceTree = "<group>"; };
+		B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedListTests.m; path = Source/CWDoublyLinkedListTests.m; sourceTree = "<group>"; };
 		B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSRecursiveLockAdditions.h; path = Source/NSRecursiveLockAdditions.h; sourceTree = "<group>"; };
 		B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRecursiveLockAdditions.m; path = Source/NSRecursiveLockAdditions.m; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 				B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */,
 				B86AFF2F154EEFDF00A20547 /* CWBTreeTests.h */,
 				B86AFF30154EEFDF00A20547 /* CWBTreeTests.m */,
+				B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */,
+				B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -1201,6 +1206,7 @@
 				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
 				B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */,
 				B86AFF31154EEFDF00A20547 /* CWBTreeTests.m in Sources */,
+				B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
