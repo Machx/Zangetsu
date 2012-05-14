@@ -37,7 +37,7 @@ THE SOFTWARE.
 
 @implementation CWDoublyLinkedListNode
 
-@synthesize data = _value;
+@synthesize data = _data;
 @synthesize next = _next;
 @synthesize prev = _prev;
 
@@ -45,7 +45,7 @@ THE SOFTWARE.
 {
     self = [super init];
     if (self) {
-        _value = nil;
+        _data = nil;
 		_next = nil;
 		_prev = nil;
     }
