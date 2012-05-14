@@ -135,10 +135,17 @@ THE SOFTWARE.
 	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
 	insertNode.data = anObject;
 	
-	CWDoublyLinkedListNode *nextNode = node.next;
-	nextNode.prev = insertNode;
+	CWDoublyLinkedListNode *nextNode = node;
 	CWDoublyLinkedListNode *prevNode = node.prev;
+	//take care of the insert node
+	insertNode.next = nextNode;
+	insertNode.prev = prevNode;
+	//then the next node
+	nextNode.prev = insertNode;
+	//then the prev node
 	prevNode.next = insertNode;
+	
+	self.count++;
 }
 
 -(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node
