@@ -103,11 +103,11 @@ THE SOFTWARE.
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	if (index > (self.count - 1)) {
 	if (!anObject) {
 		CWDebugLog(@"Trying to insert a nill object. Exiting...");
 		return;
 	}
+	if (index > (self.count)) {
 		CWDebugLog(@"Index beyond list bounds");
 		return;
 	}
@@ -119,7 +119,7 @@ THE SOFTWARE.
 	//if we can just append to the end
 	//of the array then just do it to 
 	//save time
-	if (index == (self.count - 1)) {
+	if (index == (self.count)) {
 		[self addObject:anObject];
 		return;
 	}
