@@ -104,6 +104,10 @@ THE SOFTWARE.
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
 	if (index > (self.count - 1)) {
+	if (!anObject) {
+		CWDebugLog(@"Trying to insert a nill object. Exiting...");
+		return;
+	}
 		CWDebugLog(@"Index beyond list bounds");
 		return;
 	}
