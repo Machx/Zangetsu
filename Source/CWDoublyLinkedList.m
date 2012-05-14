@@ -52,6 +52,12 @@ THE SOFTWARE.
     return self;
 }
 
+-(NSString *)description
+{
+	NSString *debugDescription = [NSString stringWithFormat:@"( Node Value: %@\n Prev Node: %@\n Next Node: %@ )",_data,_prev,_next];
+	return debugDescription;
+}
+
 @end
 
 @interface CWDoublyLinkedList ()
