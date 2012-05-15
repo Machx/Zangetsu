@@ -72,4 +72,38 @@
 	CWAssertEqualsStrings([list objectAtIndex:1	], @"Hypnotoad");
 }
 
+-(void)testEnumerateObjects
+{
+	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
+	
+	[list addObject:@"Fry"];
+	[list addObject:@"Leela"];
+	[list addObject:@"Bender"];
+	[list addObject:@"Hypnotoad"];
+	
+	__block NSUInteger count = 0;
+	[list enumerateObjectsWithBlock:^(id object, NSUInteger index, BOOL *stop) {
+		count++;
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Fry");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Leela");
+				break;
+			case 2:
+				CWAssertEqualsStrings(object, @"Bender");
+				break;
+			case 3:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"Oops we enumerated too far beyond the list bounds");
+				break;
+		}
+	}];
+	
+	STAssertTrue(count == 4,@"oops something happened in enumeration");
+}
+
 @end
