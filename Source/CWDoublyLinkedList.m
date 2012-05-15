@@ -215,7 +215,7 @@ THE SOFTWARE.
 	return node.data;
 }
 
--(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
+-(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block
 {
 	if (!self.head) {
 		CWDebugLog(@"Trying to enumerate object with an empty array");
@@ -224,13 +224,15 @@ THE SOFTWARE.
 	
 	CWDoublyLinkedListNode *node = self.head;
 	BOOL shouldStop = NO;
+	NSUInteger idx = 0;
 	
 	while (node) {
-		block(node.data,&shouldStop);
+		block(node.data,idx,&shouldStop);
 		if (shouldStop == YES) {
 			break;
 		}
 		node = node.next;
+		idx++;
 	}
 }
 

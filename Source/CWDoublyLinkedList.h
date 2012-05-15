@@ -43,6 +43,6 @@
 
 -(id)objectAtIndex:(NSUInteger)index;
 
--(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block;
+-(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block;
 
 @end
