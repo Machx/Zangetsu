@@ -154,6 +154,8 @@ THE SOFTWARE.
 	CWDoublyLinkedListNode *next = node.next;
 	prev.next = next;
 	next.prev = prev;
+	
+	self.count--;
 }
 
 -(void)removeObjectAtIndex:(NSUInteger)index
