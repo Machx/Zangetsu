@@ -218,6 +218,36 @@ THE SOFTWARE.
 	return node.data;
 }
 
+-(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range
+{
+	if ((range.length + range.location) > ( self.count - 1)) {
+		CWDebugLog(@"Error: Range beyond bounds... Exiting now...");
+		return nil;
+	}
+	
+	CWDoublyLinkedList *returnList = [[CWDoublyLinkedList alloc] init];
+	
+	NSUInteger start = range.location;
+	NSUInteger currentIndex = 0;
+	
+	CWDoublyLinkedListNode *node = self.head;
+	
+	while (currentIndex != start) {
+		node = node.next;
+		currentIndex++;
+	}
+	
+	NSUInteger length = range.length;
+	
+	while (node && (length != 0)) {
+		[returnList addObject:node.data];
+		length--;
+		node = node.next;
+	}
+	
+	return returnList;
+}
+
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block
 {
 	if (!self.head) {

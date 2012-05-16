@@ -43,6 +43,8 @@
 
 -(id)objectAtIndex:(NSUInteger)index;
 
+-(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range;
+
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block;
 
 @end
