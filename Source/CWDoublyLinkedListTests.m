@@ -106,4 +106,21 @@
 	STAssertTrue(count == 4,@"oops something happened in enumeration");
 }
 
+-(void)testListWithRange
+{
+	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
+	
+	[list addObject:@"Fry"];
+	[list addObject:@"Leela"];
+	[list addObject:@"Bender"];
+	[list addObject:@"Hypnotoad"];
+	
+	CWDoublyLinkedList *rangedList = [list linkedListWithRange:NSMakeRange(1, 2)];
+	
+	STAssertTrue(rangedList.count == 2,@"incorrect count");
+	CWAssertEqualsStrings([rangedList objectAtIndex:0], @"Leela");
+	CWAssertEqualsStrings([rangedList objectAtIndex:1], @"Bender");
+	STAssertNil([rangedList objectAtIndex:2],@"shouldn't have a valid object here");
+}
+
 @end
