@@ -84,7 +84,10 @@ THE SOFTWARE.
 
 -(void)addObject:(id)anObject
 {
-	if(!anObject) { return; }
+	if(!anObject) {
+		CWDebugLog(@"Error: Trying to add a nil object to a linked list. Exiting & doing nothing...");
+		return;
+	}
 	
 	CWDoublyLinkedListNode *node = [[CWDoublyLinkedListNode alloc] init];
 	node.data = anObject;
