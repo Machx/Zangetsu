@@ -167,7 +167,8 @@
 
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block
 {
-	dispatch_queue_t tempQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_TemporaryQueue_"), DISPATCH_QUEUE_SERIAL);
+	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_TemporaryQueue_");
+	dispatch_queue_t tempQueue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	dispatch_async(tempQueue, block);
 	dispatch_release(tempQueue);
 }
