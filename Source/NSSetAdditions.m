@@ -45,11 +45,11 @@
 
 	for(id object in self){
 
-		if (_stop) { break; }
-
 		dispatch_group_async(group, queue, ^{
 			block(object,&_stop);
 		});
+		
+		if (_stop) { break; }
 	}
 
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
