@@ -30,5 +30,10 @@ THE SOFTWARE.
 #import <Foundation/Foundation.h>
 
 @interface NSMutableURLRequest (CWNSMutableURLRequestAdditions)
+/**
+ Sets the HTTP Authorization header field on a NSMutableURLRequest object
+ 
+ @param authString this is a NSString that contains the value you wish to be set for the Authorization field
+ */
 -(void)cw_setHTTPAuthorizationHeaderFieldString:(NSString *)authString;
 @end

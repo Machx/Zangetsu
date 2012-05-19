@@ -29,9 +29,6 @@
 
 @implementation NSString (CWNSStringAdditions)
 
-/**
- Convenience method for Core Foundations CFUUIDCreate() function
- */
 +(NSString *)cw_uuidString
 {
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
@@ -40,12 +37,6 @@
 	return (__bridge_transfer NSString *)tmpString;
 }
 
-/**
- Asynchronous & Synchronous string enumeration 
- this method was created for being able to enumerate over all the lines
- in a string asychronously, but make the whole operation of enumerating 
- over all the lines, synchronous
- */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                               usingBlock:(void (^)(NSString *substring))block
 {
@@ -72,9 +63,6 @@
 	return (__bridge_transfer NSString *)str;
 }
 
-/**
- Quick test for an empty string
- */
 - (BOOL) cw_isNotEmptyString
 {
 	return ( [self length] > 0 );
