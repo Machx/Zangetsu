@@ -45,10 +45,33 @@
 	[tree enumerateBTreeWithBlock:^(id value, CWBTreeNode *node, BOOL *stop) {
 		NSUInteger nodeValue = [(NSNumber *)value intValue];
 		total += nodeValue;
-		NSLog(@"hit %lu",nodeValue);
 	}];
 	
 	STAssertTrue(total == 241,nil);
+}
+
+-(void)testBTreeFind
+{
+	CWBTree *tree = [[CWBTree alloc] init];
+	
+	tree.nodeValueEvaluator = ^NSUInteger(id object){
+		if ([object respondsToSelector:@selector(intValue)]) {
+			NSLog(@"Doing Object IntValue");
+			return [object intValue];
+		}
+		NSLog(@"doing object hash");
+		return [object hash];
+	};
+	
+	[tree insertValue:[NSNumber numberWithInt:30]];
+	[tree insertValue:[NSNumber numberWithInt:20]];
+	[tree insertValue:[NSNumber numberWithInt:50]];
+	[tree insertValue:[NSNumber numberWithInt:19]];
+	[tree insertValue:[NSNumber numberWithInt:25]];
+	[tree insertValue:[NSNumber numberWithInt:40]];
+	[tree insertValue:[NSNumber numberWithInt:57]];
+	
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:30]],nil);
 }
 
 @end
