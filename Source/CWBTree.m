@@ -192,20 +192,20 @@ enum CWBTreeNodeVals {
 	if (!self.rootNode) { return; }
 	
 	BOOL shouldStop = NO;
-	CWStack *stack = [[CWStack alloc] init];
-	[stack push:self.rootNode];
+	CWQueue *queue = [[CWQueue alloc] init];
+	[queue enqueue:self.rootNode];
 	
-	while (stack.count > 0) {
-		CWBTreeNode *node = [stack pop];
+	while ( !queue.isEmpty ) {
+		CWBTreeNode *node = [queue dequeue];
 		block(node.data, node, &shouldStop);
 		if (shouldStop == YES) {
 			break;
 		}
 		if (node.right) {
-			[stack push:node.right];
+			[queue enqueue:node.right];
 		}
 		if (node.left) {
-			[stack push:node.left];
+			[queue enqueue:node.left];
 		}
 	}
 }
