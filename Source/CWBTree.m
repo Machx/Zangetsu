@@ -145,8 +145,16 @@ enum CWBTreeNodeVals {
 {
 	if(!object || !self.rootNode) { return NO; }
 	
-	NSUInteger objectValue = self.nodeValueEvaluator(object);
-	return [self isNodeValueInTree:objectValue];
+	NSUInteger objectValue = 0;
+	if ([object isKindOfClass:[CWBTreeNode class]]) {
+		CWBTreeNode *aNode = (CWBTreeNode *)object;
+		objectValue = self.nodeValueEvaluator(aNode);
+	} else {
+		objectValue = self.nodeValueEvaluator(object);
+	}
+	
+	BOOL result = [self isNodeValueInTree:objectValue];
+	return result;
 }
 
 -(BOOL)isNodeValueInTree:(NSUInteger)nodeValue
@@ -156,9 +164,8 @@ enum CWBTreeNodeVals {
 	if((nodeValue == 0) || !self.rootNode) { return NO; }
 	
 	CWBTreeNode *currentNode = self.rootNode;
-	NSUInteger currentNodeValue = self.nodeValueEvaluator(currentNode);
-	
 	NSLog(@"Root Node Value is %lu",currentNodeValue);
+	NSUInteger currentNodeValue = self.nodeValueEvaluator(currentNode.data);
 	
 	if (currentNodeValue == nodeValue) { return YES; }
 	
