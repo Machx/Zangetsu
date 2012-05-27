@@ -155,7 +155,7 @@ enum CWBTreeNodeVals {
 	NSUInteger objectValue = 0;
 	if ([object isKindOfClass:[CWBTreeNode class]]) {
 		CWBTreeNode *aNode = (CWBTreeNode *)object;
-		objectValue = self.nodeValueEvaluator(aNode);
+		objectValue = self.nodeValueEvaluator(aNode.data);
 	} else {
 		objectValue = self.nodeValueEvaluator(object);
 	}
@@ -179,15 +179,12 @@ enum CWBTreeNodeVals {
 		BOOL direction = (nodeValue > currentNodeValue) ? kCWRightNode : kCWLeftNode;
 		if ((direction == kCWRightNode) && currentNode.right) {
 			currentNode = currentNode.right;
-		} else {
-			break;
-		}
-		if((direction == kCWLeftNode) && currentNode.left) {
+		} else if((direction == kCWLeftNode) && currentNode.left) {
 			currentNode = currentNode.left;
 		} else {
 			break;
 		}
-		currentNodeValue = self.nodeValueEvaluator(currentNode);
+		currentNodeValue = self.nodeValueEvaluator(currentNode.data);
 	}
 	
 	if (nodeValue == currentNodeValue) { 
