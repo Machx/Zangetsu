@@ -86,6 +86,13 @@ enum CWBTreeNodeVals {
     if (self) {
 		_rootNode = nil;
 		_nodeValueEvaluator = [^(id nodeObject){
+			if ([nodeObject isKindOfClass:[CWBTreeNode class]]) {
+				CWBTreeNode *node = (CWBTreeNode *)nodeObject;
+				return [node.data intValue];
+			}
+			if ([nodeObject respondsToSelector:@selector(intValue)]) {
+				return [nodeObject intValue];
+			}
 			return [nodeObject hash];
 		} copy];
     }

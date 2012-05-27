@@ -16,13 +16,6 @@
 {
 	CWBTree *tree = [[CWBTree alloc] init];
 	
-	tree.nodeValueEvaluator = ^NSUInteger(id object){
-		if ([object respondsToSelector:@selector(intValue)]) {
-			return [object intValue];
-		}
-		return [object hash];
-	};
-	
 	[tree insertValue:[NSNumber numberWithInt:30]];
 	[tree insertValue:[NSNumber numberWithInt:20]];
 	[tree insertValue:[NSNumber numberWithInt:50]];
@@ -54,15 +47,6 @@
 {
 	CWBTree *tree = [[CWBTree alloc] init];
 	
-	tree.nodeValueEvaluator = ^NSUInteger(id object){
-		if ([object respondsToSelector:@selector(intValue)]) {
-			NSLog(@"Doing Object IntValue");
-			return [object intValue];
-		}
-		NSLog(@"doing object hash");
-		return [object hash];
-	};
-	
 	[tree insertValue:[NSNumber numberWithInt:30]];
 	[tree insertValue:[NSNumber numberWithInt:20]];
 	[tree insertValue:[NSNumber numberWithInt:50]];
@@ -72,6 +56,12 @@
 	[tree insertValue:[NSNumber numberWithInt:57]];
 	
 	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:30]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:20]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:50]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:19]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:25]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:40]],nil);
+	STAssertTrue([tree isObjectInTree:[NSNumber numberWithInt:57]],nil);
 }
 
 @end
