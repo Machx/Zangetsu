@@ -158,13 +158,12 @@ enum CWBTreeNodeVals {
 }
 
 -(BOOL)isNodeValueInTree:(NSUInteger)nodeValue
-{
-	NSLog(@"Looking for node value %lu",nodeValue);
-	
-	if((nodeValue == 0) || !self.rootNode) { return NO; }
+{	
+	if((nodeValue == 0) || !self.rootNode) { 
+		return NO; 
+	}
 	
 	CWBTreeNode *currentNode = self.rootNode;
-	NSLog(@"Root Node Value is %lu",currentNodeValue);
 	NSUInteger currentNodeValue = self.nodeValueEvaluator(currentNode.data);
 	
 	if (currentNodeValue == nodeValue) { return YES; }
@@ -173,22 +172,19 @@ enum CWBTreeNodeVals {
 		BOOL direction = (nodeValue > currentNodeValue) ? kCWRightNode : kCWLeftNode;
 		if ((direction == kCWRightNode) && currentNode.right) {
 			currentNode = currentNode.right;
-			NSLog(@"going to node %@",currentNode);
 		} else {
 			break;
 		}
 		if((direction == kCWLeftNode) && currentNode.left) {
 			currentNode = currentNode.left;
-			NSLog(@"going to node %@",currentNode);
 		} else {
 			break;
 		}
 		currentNodeValue = self.nodeValueEvaluator(currentNode);
-		NSLog(@"Found node %@",currentNode);
 	}
 	
-	if (nodeValue == currentNodeValue) {
-		return YES;
+	if (nodeValue == currentNodeValue) { 
+		return YES; 
 	}
 	
 	return NO;
