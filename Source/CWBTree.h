@@ -29,45 +29,20 @@
 
 #import <Foundation/Foundation.h>
 
+@class CWBTreeNode;
+
+typedef NSUInteger (^BTreeNodeValue)(id obj);
+
 @interface CWBTree : NSObject
 
-/**
- Sets the value for the given key passed in
- 
- Given a non nil key & a value this sets the value in the tree
- for the given key. Otherwise if the key is nil then this method
- immediately exits & does nothing.
- 
- @param value any valid NSObject subclass you'd like to have set as the value for a corresponding key
- @param key any non nil NSString value
- */
--(void)setObjectValue:(id)value forKey:(NSString *)aKey;
+@property(copy) BTreeNodeValue nodeValueEvaluator;
 
-/**
- Removes the corresponding entry from the receiver BTree
- 
- @param aKey any non nil NSString key to be removed from the tree. If this is nil then this method just exits.
- */
--(void)removeObjectValueWithKey:(NSString *)aKey;
+-(void)insertValue:(id)value;
 
-/**
- Returns the corresponding value for a given key
- 
- @param any non nil NSString value
- @return if successful returns the corresponding value, otherwise returns nil
- */
--(id)objectValueForKey:(NSString *)aKey;
+-(void)enumerateBTreeWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block;
 
-/**
- Enumertes over the contents of the receiving BTree in preorder traversal pattern
- 
- This will pass over all nodes in the tree unless the BOOL pointer is set to yes
- at some point before the iteration is over.
- 
- @param value (block arguemtn) value of the node 
- @param value (block argument) value of the key
- @param stop (block argument) stop you can set this to YES to stop enumeration
- */
--(void)enumerateOverObjectsWithBlock:(void (^)(id value, NSString *aKey, BOOL *stop))block;
+-(BOOL)isObjectInTree:(id)object;
+
+-(BOOL)isNodeValueInTree:(NSUInteger)nodeValue;
 
 @end

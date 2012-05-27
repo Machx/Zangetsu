@@ -30,201 +30,182 @@
 #import "CWBTree.h"
 #import "CWStack.h"
 
+#define BTREENODE_NULLVALUE 0
+
+enum CWBTreeNodeVals {
+	kCWLeftNode = 1,
+	kCWRightNode = 2
+};
+	
 @interface CWBTreeNode : NSObject
-@property(nonatomic, retain) NSString *key;
-@property(nonatomic, retain) id value;
-@property(nonatomic, retain) CWBTreeNode *leftNode;
-@property(nonatomic, retain) CWBTreeNode *rightNode;
+@property(retain) id data;
+@property(assign) NSUInteger nodeValue;
+@property(retain) CWBTreeNode *left;
+@property(retain) CWBTreeNode *right;
 @end
-
-CWBTreeNode *CWBTreeNodeMinimumNode(CWBTreeNode *node)
-{
-	if (!node.leftNode) {
-		return node;
-	} else {
-		return CWBTreeNodeMinimumNode(node.leftNode);
-	}
-}
-
-CWBTreeNode *CWBTreeNodeRemove(NSString *aKey,CWBTreeNode *node,CWBTreeNode *parent)
-{
-	if ([aKey compare:node.key] == NSOrderedAscending) {
-		if (node.leftNode) {
-			return CWBTreeNodeRemove(aKey, node.leftNode, node);
-		} else {
-			return nil;
-		}
-	} else if([aKey compare:node.key] == NSOrderedDescending) {
-		if (node.rightNode) {
-			return CWBTreeNodeRemove(aKey, node.rightNode, node);
-		} else {
-			return nil;
-		}
-	} else {
-		if (node.leftNode && node.rightNode) {
-			CWBTreeNode *min = CWBTreeNodeMinimumNode(node.rightNode);
-			node.key = min.key;
-			node.value = min.value;
-			return CWBTreeNodeRemove(aKey, node.rightNode, node);
-			
-		} else if([parent.leftNode isEqual:node]){
-			parent.leftNode = (node.leftNode) ? node.leftNode : node.rightNode;
-			return node;
-			
-		} else if ([parent.rightNode isEqual:node]) {
-			parent.rightNode = (node.leftNode) ? node.leftNode : node.rightNode;
-			return node;
-		}
-	}
-	return nil;
-}
 
 @implementation CWBTreeNode
 
-@synthesize key = _key;
-@synthesize value = _value;
-@synthesize leftNode = _leftNode;
-@synthesize rightNode = _rightNode;
+@synthesize data = _data;
+@synthesize nodeValue = _nodeValue;
+@synthesize left = _left;
+@synthesize right = _right;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-		_key = nil;
-        _value = nil;
-		_leftNode = nil;
-		_rightNode = nil;
+        _data = nil;
+		_nodeValue = BTREENODE_NULLVALUE;
+		_left = nil;
+		_right = nil;
     }
     return self;
+}
+
+-(NSString *)description
+{
+	NSString *desc = [NSString stringWithFormat:@"Node->Value: %@",_data];
+	return desc;
 }
 
 @end
 
 @interface CWBTree ()
-@property(nonatomic,retain) CWBTreeNode *rootNode;
+@property(retain) id rootNode;
 @end
 
 @implementation CWBTree
 
 @synthesize rootNode = _rootNode;
+@synthesize nodeValueEvaluator = _nodeValueEvaluator;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _rootNode = nil;
+		_rootNode = nil;
+		_nodeValueEvaluator = [^(id nodeObject){
+			return [nodeObject hash];
+		} copy];
     }
     return self;
 }
 
--(id)objectValueForKey:(NSString *)aKey
+-(void)insertValue:(id)value
 {
-	if(!aKey) {
-		CWDebugLog(@"Error: nil key");
-		return nil;
-	}
-	
-	CWBTreeNode *node = self.rootNode;
-	
-	while (node) {
-		if ([node.key isEqualToString:aKey]) {
-			return node.value;
-		} else if([node.key compare:aKey] == NSOrderedAscending) {
-			node = node.leftNode;
-		} else {
-			node = node.rightNode;
-		}
-	}
-	
-	return nil;
-}
-
--(void)setObjectValue:(id)value forKey:(NSString *)aKey
-{
-	if(!aKey) {
-		CWDebugLog(@"Error: aKey is nil");
+	//we have no nodes so insert the root
+	if (!self.rootNode) {
+		NSLog(@"Set root node");
+		CWBTreeNode *node = [[CWBTreeNode alloc] init];
+		node.data = value;
+		node.nodeValue = self.nodeValueEvaluator(value);
+		self.rootNode = node;
+		NSLog(@"set root node %@",self.rootNode);
 		return;
 	}
 	
-	if (!self.rootNode) {
-		CWBTreeNode *node = [[CWBTreeNode alloc] init];
-		node.value = value;
-		node.key = aKey;
-		self.rootNode = node;
+	NSUInteger nodeValue = self.nodeValueEvaluator(value);
+	
+	CWBTreeNode *current = self.rootNode;
+	NSUInteger currentNodeValue = self.nodeValueEvaluator(current.data);
+	
+	while ( nodeValue != currentNodeValue ) {
+		if ((nodeValue > currentNodeValue) && current.right) {
+			current = current.right;
+			NSLog(@"going to the right node %@",current);
+		} else if((nodeValue < currentNodeValue) && current.left) {
+			current = current.left;
+			NSLog(@"going to the left node %@",current);
+		} else {
+			break;
+		}
+		currentNodeValue = self.nodeValueEvaluator(current);
 	}
+	
+	if (currentNodeValue == nodeValue) {
+		CWDebugLog(@"Trying to insert an already inserted value into the BTree");
+		return;
+	}
+	
+	CWBTreeNode *node = [[CWBTreeNode alloc] init];
+	node.data = value;
+	node.nodeValue = self.nodeValueEvaluator(value);
+	
+	if (node.nodeValue > currentNodeValue) {
+		current.right = node;
+		NSLog(@"set right node %@",node);
+	} else {
+		current.left = node;
+		NSLog(@"set left node %@", node);
+	}
+}
+
+-(BOOL)isObjectInTree:(id)object
+{
+	if(!object || !self.rootNode) { return NO; }
+	
+	NSUInteger objectValue = self.nodeValueEvaluator(object);
+	return [self isNodeValueInTree:objectValue];
+}
+
+-(BOOL)isNodeValueInTree:(NSUInteger)nodeValue
+{
+	NSLog(@"Looking for node value %lu",nodeValue);
+	
+	if((nodeValue == 0) || !self.rootNode) { return NO; }
 	
 	CWBTreeNode *currentNode = self.rootNode;
+	NSUInteger currentNodeValue = self.nodeValueEvaluator(currentNode);
 	
-	while (currentNode) {
-		if ([currentNode.key isEqualToString:aKey]){
-			if (![currentNode.value isEqual:value]) {
-				currentNode.value = value;
-			}
-			return;
+	NSLog(@"Root Node Value is %lu",currentNodeValue);
+	
+	if (currentNodeValue == nodeValue) { return YES; }
+	
+	while (nodeValue != currentNodeValue) {
+		BOOL direction = (nodeValue > currentNodeValue) ? kCWRightNode : kCWLeftNode;
+		if ((direction == kCWRightNode) && currentNode.right) {
+			currentNode = currentNode.right;
+			NSLog(@"going to node %@",currentNode);
 		} else {
-			if ([aKey compare:currentNode.key] == NSOrderedAscending) {
-				if (!currentNode.leftNode) {
-					CWBTreeNode *node = [[CWBTreeNode alloc] init];
-					node.value = value;
-					node.key = aKey;
-					currentNode.leftNode = node;
-					return;
-				} else {
-					currentNode = currentNode.leftNode;
-				}
-			} else {
-				if (!currentNode.rightNode) {
-					CWBTreeNode *node = [[CWBTreeNode alloc] init];
-					node.value = value;
-					node.key = aKey;
-					currentNode.rightNode = node;
-				} else {
-					currentNode = currentNode.rightNode;
-				}
-			}
+			break;
 		}
-	}
-}
-
--(void)removeObjectValueWithKey:(NSString *)aKey
-{
-	if (!self.rootNode) { return; }
-	if (!aKey) {
-		CWDebugLog(@"Error: key is nil");
-		return;
+		if((direction == kCWLeftNode) && currentNode.left) {
+			currentNode = currentNode.left;
+			NSLog(@"going to node %@",currentNode);
+		} else {
+			break;
+		}
+		currentNodeValue = self.nodeValueEvaluator(currentNode);
+		NSLog(@"Found node %@",currentNode);
 	}
 	
-	if ([self.rootNode.key isEqualToString:aKey]) {
-		CWBTreeNode *root = [[CWBTreeNode alloc] init];
-		root.leftNode = self.rootNode;
-		CWBTreeNode *removedNode = CWBTreeNodeRemove(aKey, self.rootNode, root);
-		self.rootNode = root.leftNode;
-		if (removedNode) {
-			CWDebugLog(@"success in removing node");
-		} else {
-			CWDebugLog(@"Failed to remove node");
-		}
-	} else {
-		CWBTreeNodeRemove(aKey, self.rootNode, nil);
+	if (nodeValue == currentNodeValue) {
+		return YES;
 	}
+	
+	return NO;
 }
 
--(void)enumerateOverObjectsWithBlock:(void (^)(id value, NSString *key, BOOL *stop))block
+-(void)enumerateBTreeWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block
 {
 	if (!self.rootNode) { return; }
 	
 	BOOL shouldStop = NO;
 	CWStack *stack = [[CWStack alloc] init];
 	[stack push:self.rootNode];
-	while (!stack.isEmpty) {
-		CWBTreeNode *currentNode = stack.pop;
-		block(currentNode.value,currentNode.key,&shouldStop);
-		if (shouldStop == YES) { break; }
-		if (currentNode.leftNode) {
-			[stack push:currentNode.leftNode];
+	
+	while (stack.count > 0) {
+		CWBTreeNode *node = [stack pop];
+		block(node.data, node, &shouldStop);
+		if (shouldStop == YES) {
+			break;
 		}
-		if (currentNode.rightNode) {
-			[stack push:currentNode.rightNode];
+		if (node.right) {
+			[stack push:node.right];
+		}
+		if (node.left) {
+			[stack push:node.left];
 		}
 	}
 }
