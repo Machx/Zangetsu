@@ -103,12 +103,10 @@ enum CWBTreeNodeVals {
 {
 	//we have no nodes so insert the root
 	if (!self.rootNode) {
-		NSLog(@"Set root node");
 		CWBTreeNode *node = [[CWBTreeNode alloc] init];
 		node.data = value;
 		node.nodeValue = self.nodeValueEvaluator(value);
 		self.rootNode = node;
-		NSLog(@"set root node %@",self.rootNode);
 		return;
 	}
 	
@@ -120,10 +118,8 @@ enum CWBTreeNodeVals {
 	while ( nodeValue != currentNodeValue ) {
 		if ((nodeValue > currentNodeValue) && current.right) {
 			current = current.right;
-			NSLog(@"going to the right node %@",current);
 		} else if((nodeValue < currentNodeValue) && current.left) {
 			current = current.left;
-			NSLog(@"going to the left node %@",current);
 		} else {
 			break;
 		}
@@ -141,10 +137,8 @@ enum CWBTreeNodeVals {
 	
 	if (node.nodeValue > currentNodeValue) {
 		current.right = node;
-		NSLog(@"set right node %@",node);
 	} else {
 		current.left = node;
-		NSLog(@"set left node %@", node);
 	}
 }
 
