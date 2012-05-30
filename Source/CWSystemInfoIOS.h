@@ -34,7 +34,26 @@ static NSString * const kCWSystemMinorVersion =  @"minorVersion";
 static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 
 @interface CWSystemInfoIOS : NSObject
+
+/**
+ Returns a NSString with the system version
+ */
 +(NSString *)systemVersionString;
+
+/**
+ Returns a NSDictionary with the system version broken up by section
+ 
+ Returns a NSDictionary with the system version broken up by sections such as the
+ Major Version ("5" in "5.0.1"), Minor Version ("0" in "5.0.1") and Bugfix Version
+ ("1" in "5.0.1"). To access these you use the keys kCWSystemMajorVersion,
+ kCWSystemMinorVersion and kCWSystemBugFixVersion. 
+ */
 +(NSDictionary *)hostVersion;
+
+/**
+ Returns a NSInteger with the number of CPU Cores on the Device
+ 
+ @return a NSInteger representing the # of CPU Cores on the current Device
+ */
 +(NSInteger)cpuCoreCount;
 @end
