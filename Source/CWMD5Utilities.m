@@ -32,9 +32,6 @@
 
 @implementation NSString (CWMD5Utilities)
 
-/**
- Return the MD5 value of the string passed in
- */
 +(NSString *)cw_md5HashFromString:(NSString *)str
 {
 	const char *cStringRep = [str UTF8String];
@@ -55,9 +52,6 @@
 
 @implementation NSData (CWMD5Utilities)
 
-/**
- Convience method to return the MD5 value of the contents of a NSData object given
- */
 -(NSString *)cw_md5StringFromData
 {
 	NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];

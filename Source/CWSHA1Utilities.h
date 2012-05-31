@@ -24,9 +24,19 @@
 
 
 @interface NSString (CWSHA1Utilities)
+/**
+ * Return the SHA1 value of the string passed in
+ * @param str a NSString of which you want to get its SHA1 hash from
+ * @return a NSString containing the SHA1 hash (in lowercase form)
+ */
 +(NSString *)cw_sha1HashFromString:(NSString *)str;
 @end
 
 @interface NSData (CWSHA1Utilities)
+/**
+ * Convience method to return the SHA1 value of the contents of a NSData object given
+ *
+ * @return a NSString object with the SHA1 hash of the NSData objects contents
+ */
 -(NSString *)cw_sha1StringFromData;
 @end

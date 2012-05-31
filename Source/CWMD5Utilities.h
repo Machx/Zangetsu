@@ -31,9 +31,15 @@
 
 
 @interface NSString (CWMD5Utilities)
+/**
+ Return the MD5 value of the string passed in
+ */
 +(NSString *)cw_md5HashFromString:(NSString *)str;
 @end
 
 @interface NSData (CWMD5Utilities)
+/**
+ Convience method to return the MD5 value of the contents of a NSData object given
+ */
 -(NSString *)cw_md5StringFromData;
 @end
