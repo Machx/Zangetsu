@@ -73,6 +73,8 @@ enum CWBTreeNodeVals {
 
 @interface CWBTree ()
 @property(retain) id rootNode;
+-(void)enumerateBTreeBreadthFirstSearchWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block;
+-(void)enumerateBTreeDepthFirstSearchWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block;
 @end
 
 @implementation CWBTree
@@ -190,6 +192,22 @@ enum CWBTreeNodeVals {
 
 -(void)enumerateBTreeWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block
 {
+	[self enumerateBTreeBreadthFirstSearchWithBlock:block];
+}
+
+-(void)enumerateBTreeInMode:(CWBTreeEnumerationMode)mode withBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block
+{
+	if (mode == CWBTreeNodeBreadthFirstSearch) {
+		[self enumerateBTreeBreadthFirstSearchWithBlock:block];
+	} else if(mode == CWBTreeNodeDepthFirstSearch) {
+		[self enumerateBTreeDepthFirstSearchWithBlock:block];
+	} else {
+		CWDebugLog(@"Error tried to enumerate BTreee in unknown mode");
+	}
+}
+
+-(void)enumerateBTreeBreadthFirstSearchWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block
+{
 	if (!self.rootNode) { return; }
 	
 	BOOL shouldStop = NO;
@@ -207,6 +225,29 @@ enum CWBTreeNodeVals {
 		}
 		if (node.left) {
 			[queue enqueue:node.left];
+		}
+	}
+}
+
+-(void)enumerateBTreeDepthFirstSearchWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block
+{
+	if (!self.rootNode) { return; }
+	
+	BOOL shouldStop = NO;
+	CWStack *stack = [[CWStack alloc] init];
+	[stack push:self.rootNode];
+	
+	while ( !stack.isEmpty ) {
+		CWBTreeNode *node = [stack pop];
+		block(node.data, node, &shouldStop);
+		if (shouldStop == YES) {
+			break;
+		}
+		if (node.right) {
+			[stack push:node.right];
+		}
+		if (node.left) {
+			[stack push:node.left];
 		}
 	}
 }

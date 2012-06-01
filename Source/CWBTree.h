@@ -29,6 +29,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSUInteger CWBTreeEnumerationMode;
+
+enum CWBTreeEnumerationMode {
+	CWBTreeNodeBreadthFirstSearch = 1,
+	CWBTreeNodeDepthFirstSearch = 2
+};
+
 @class CWBTreeNode;
 
 typedef NSUInteger (^BTreeNodeValue)(id obj);
@@ -38,6 +45,9 @@ typedef NSUInteger (^BTreeNodeValue)(id obj);
 @property(copy) BTreeNodeValue nodeValueEvaluator;
 
 -(void)insertValue:(id)value;
+
+-(void)enumerateBTreeInMode:(CWBTreeEnumerationMode)mode 
+				  withBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block;
 
 -(void)enumerateBTreeWithBlock:(void (^)(id value, CWBTreeNode *node, BOOL *stop))block;
 
