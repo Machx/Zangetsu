@@ -142,6 +142,17 @@
 	});
 }
 
+-(void)addBlockOperationObjects:(NSArray *)operationObjects
+{
+	if (operationObjects && ([operationObjects count] > 0)) {
+		for (id op in operationObjects) {
+			if ([op isMemberOfClass:[CWSerialBlockOperation class]]) {
+				[self addBlockOperationObjects:op];
+			}
+		}
+	}
+}
+
 -(void)addOperationwithBlock:(dispatch_block_t)block
 {
 	dispatch_async(self.queue, block);

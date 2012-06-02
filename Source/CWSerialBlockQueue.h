@@ -86,6 +86,17 @@
 -(void)addBlockOperation:(CWSerialBlockOperation *)operation;
 
 /**
+ Adds the block operation objects to the queue. 
+ 
+ This method enumerates the contents of the array and checks to make sure that
+ the objects are members of the class CWSerialBlockOperation. If they are then
+ it calls -addBlockOperation: passing in the object
+ 
+ @param a NSArray of CWSerialBlockOperation objects
+ */
+-(void)addBlockOperationObjects:(NSArray *)operationObjects;
+
+/**
  Resumes executing blocks on the queue
  */
 -(void)resume;
