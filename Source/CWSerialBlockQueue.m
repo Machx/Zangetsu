@@ -36,14 +36,12 @@
 @implementation CWSerialBlockOperation
 
 @synthesize operationBlock = _operationBlock;
-@synthesize completionBlock = _completionBlock;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _operationBlock = nil;
-		_completionBlock = nil;
     }
     return self;
 }
@@ -97,12 +95,7 @@
 			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
 		}
 		for (CWSerialBlockOperation *op in blockOperations) {
-			dispatch_async(_queue, ^{
-				op.operationBlock();
-				if (op.completionBlock) {
-					op.completionBlock();
-				}
-			});
+			dispatch_async(_queue, ^{ op.operationBlock(); });
 		}
 	}
 	return self;
@@ -128,13 +121,7 @@
 -(void)addBlockOperation:(CWSerialBlockOperation *)operation
 {
 	if(!operation) { return; }
-	
-	dispatch_async(self.queue, ^{
-		operation.operationBlock();
-		if (operation.completionBlock) {
-			operation.completionBlock();
-		}
-	});
+	dispatch_async(self.queue, ^{ operation.operationBlock(); });
 }
 
 -(void)addBlockOperationObjects:(NSArray *)operationObjects
@@ -165,7 +152,7 @@
 
 -(void)dealloc
 {
-	dispatch_release(self.queue);
+	dispatch_release(_queue);
 }
 
 @end

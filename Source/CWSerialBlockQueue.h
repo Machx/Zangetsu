@@ -37,7 +37,6 @@
  @return a new CWSerialBlockOperation object
  */
 +(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block;
-@property(copy) dispatch_block_t completionBlock;
 @end
 
 @interface CWSerialBlockQueue : NSObject
