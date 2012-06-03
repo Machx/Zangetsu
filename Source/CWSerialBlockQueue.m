@@ -59,19 +59,16 @@
 
 @interface CWSerialBlockQueue()
 @property(nonatomic, assign) dispatch_queue_t queue;
-@property(atomic,retain) CWQueue *blocksQueue;
 @end
 
 @implementation CWSerialBlockQueue
 
-@synthesize blocksQueue = _blocksQueue;
 @synthesize queue = _queue;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _blocksQueue = [[CWQueue alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
@@ -81,7 +78,6 @@
 {
 	self = [super init];
 	if (self) {
-		_blocksQueue = [[CWQueue alloc] init];
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
@@ -95,7 +91,6 @@
 {
 	self = [super init];
 	if (self) {
-		_blocksQueue = [[CWQueue alloc] initWithObjectsFromArray:blockOperations];
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
