@@ -170,17 +170,20 @@
  */
 -(NSString *)description
 {
-	return [self.queue description];
+	NSString *queueDescription = [self.queue description];
+	return queueDescription;
 }
 
 -(NSUInteger)count
 {
-	return [self.queue count];
+	NSUInteger queueCount = [self.queue count];
+	return queueCount;
 }
 
 -(BOOL)isEmpty
 {
-	return ([self count] == 0);
+	BOOL queueEmpty = ([self count] == 0);
+	return queueEmpty;
 }
 
 //MARK: Comparison
