@@ -74,4 +74,22 @@
 	STAssertFalse([tree isObjectInTree:[NSNumber numberWithInt:64]],nil);
 }
 
+-(void)testEnumerationOrder
+{
+	CWBTree *tree = [[CWBTree alloc] init];
+	
+	[tree insertValue:[NSNumber numberWithInt:30]];
+	[tree insertValue:[NSNumber numberWithInt:20]];
+	[tree insertValue:[NSNumber numberWithInt:50]];
+	[tree insertValue:[NSNumber numberWithInt:19]];
+	
+	__block NSMutableString *result = [[NSMutableString alloc] init];
+	
+	[tree enumerateBTreeInMode:CWBTreeNodeBreadthFirstSearch withBlock:^(id value, CWBTreeNode *node, BOOL *stop) {
+		[result appendFormat:[value stringValue]];
+	}];
+	
+	CWAssertEqualsStrings(result, @"30205019");
+}
+
 @end
