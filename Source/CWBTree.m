@@ -220,11 +220,11 @@ enum CWBTreeNodeVals {
 		if (shouldStop == YES) {
 			break;
 		}
-		if (node.right) {
-			[queue enqueue:node.right];
-		}
 		if (node.left) {
 			[queue enqueue:node.left];
+		}
+		if (node.right) {
+			[queue enqueue:node.right];
 		}
 	}
 }
