@@ -33,18 +33,34 @@
 
 // Objective-C Associated Objects
 
+/**
+ returns the value associated with a key
+ */
 -(id)cw_valueAssociatedWithKey:(void *)key;
 
+/**
+ Associates the value with a key using a strong reference
+ */
 -(void)cw_associateValue:(id)value withKey:(void *)key;
 
+/**
+ Associates the value with a key using a weak reference
+ */
 -(void)cw_associateWeakValue:(id)value withKey:(void *)key;
 
 // Block Timing Methods
 
+/**
+ Executes the passed in block after a specified delay time
+ */
 -(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block;
 
 // Queueing  Methods
 
+/**
+ Creates a NSInvocation operation with self as the target and the passed in selector and
+ adds the operation to the passed in NSOperationQueue.
+ */
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue;
 
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue;

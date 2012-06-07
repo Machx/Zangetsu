@@ -35,10 +35,19 @@
 #endif
 
 #if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+/**
+ Takes a NSException object and runs an Critical Alert Panel with the Exception 
+ information as well as the stack trace of where the stack trace occurred minus
+ the exception handling frames.
+ */
 void CWShowExceptionAsAlertPanel(NSException *exception);
 #endif
 
 @interface NSException (CWNSExceptionAdditions)
+/**
+ Calls CWStackTrace() to return NSThreads callStackSymbols
+ and put them in string form.
+ */
 -(NSString *)cw_stackTrace;
 @end
 

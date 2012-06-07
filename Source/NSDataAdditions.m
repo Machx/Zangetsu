@@ -31,11 +31,6 @@
 
 @implementation NSData (CWNSDataAdditions)
 
-/**
- Returns a NSString from the contents of the data encoded in UTF8 encoding
- 
- @return a NSString from the contents of the NSData object, if the data object is nil this returns nil
- */
 - (NSString *) cw_NSStringFromData
 {
     NSString * _result = [[NSString alloc] initWithData:self 
@@ -43,11 +38,6 @@
     return _result;
 }
 
-/**
- Returns a const char from the contents of the NSData object encoded in UTF8 encoding
- 
- @return a const char * from the contents of the NSData object, if the data object is nil this returns nil
- */
 - (const char *) cw_utf8StringFromData
 {
     NSString * _result = [[NSString alloc] initWithData:self 
@@ -56,11 +46,6 @@
     return cRep;
 }
 
-/**
- returns a string with the representation of the data in hex
- 
- @return a NSString with the data representation in hex or nil if the data is nil or its length is 0
- */
 -(NSString *)cw_hexString
 {
 	NSUInteger capacity = [self length] * 2;
