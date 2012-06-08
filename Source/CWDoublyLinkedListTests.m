@@ -106,6 +106,42 @@
 	STAssertTrue(count == 4,@"oops something happened in enumeration");
 }
 
+-(void)testEnumerateInReverse
+{
+	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
+	
+	[list addObject:@"Fry"];
+	[list addObject:@"Leela"];
+	[list addObject:@"Bender"];
+	[list addObject:@"Hypnotoad"];
+	
+	__block NSUInteger count = 0;
+	// 1 = kCWDoublyLinkedListEnumerateReverse normally I wouldn't 
+	// do this in real code for obvious reasons
+	[list enumerateObjectsWithOption:1 usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+		count++;
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Fry");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Leela");
+				break;
+			case 2:
+				CWAssertEqualsStrings(object, @"Bender");
+				break;
+			case 3:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"Oops we enumerated too far beyond the list bounds");
+				break;
+		}
+	}];
+	
+	STAssertTrue(count == 4,@"oops something happened in enumeration");
+}
+
 -(void)testListWithRange
 {
 	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
