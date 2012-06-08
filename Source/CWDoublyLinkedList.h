@@ -29,6 +29,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define kCWDoublyLinkedListEnumerateForward 0
+#define kCWDoublyLinkedListEnumerateReverse 1
+
 @interface CWDoublyLinkedList : NSObject
 
 /**
@@ -120,5 +123,7 @@
  @param stop (block) a BOOL pointer which you can set to YES to stop enumeration
  */
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block;
+
+-(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end

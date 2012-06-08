@@ -269,4 +269,32 @@ THE SOFTWARE.
 	}
 }
 
+-(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block
+{
+	if (!self.head) {
+		CWDebugLog(@"Tryiing to enumerate an empty array.");
+		return;
+	}
+	
+	CWDoublyLinkedListNode *tail = self.tail;
+	BOOL shouldStop = NO;
+	NSUInteger currentIndex = self.count - 1;
+	
+	while (tail != nil) {
+		block(tail.data, currentIndex, &shouldStop);
+		if (shouldStop == YES) { break; }
+		tail = tail.prev;
+		currentIndex--;
+	}
+}
+
+-(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
+{
+	if (option == kCWDoublyLinkedListEnumerateReverse) {
+		[self enumerateObjectsInReverseWithBlock:block];
+	} else if(option == kCWDoublyLinkedListEnumerateForward) {
+		[self enumerateObjectsWithBlock:block];
+	}
+}
+
 @end
