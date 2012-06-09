@@ -31,11 +31,13 @@
 
 @interface CWStack()
 @property(nonatomic, retain) NSMutableArray *stack;
+@property(nonatomic, assign) dispatch_queue_t queue;
 @end
 
 @implementation CWStack
 
 @synthesize stack = _stack;
+@synthesize queue = _queue;
 
 /**
  Initializes an empty stack
@@ -47,6 +49,7 @@
     self = [super init];
     if (self) {
 		_stack = [[NSMutableArray alloc] init];
+		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -56,7 +59,8 @@
 	self = [super init];
 	if (self) {
 		_stack = [[NSMutableArray alloc] init];
-		if (objects.count > 0) {
+		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
+		if ([objects count] > 0) {
 			[_stack addObjectsFromArray:objects];
 		}
 	}
@@ -65,88 +69,129 @@
 
 -(void)push:(id)object
 {
-	if(object) { [self.stack addObject:object]; }
+	dispatch_async(self.queue, ^{
+		if (object) {
+			[self.stack addObject:object];
+		}
+	});
 }
 
 -(id)pop
 {
-	if(self.stack.count == 0) { return nil; }
-	id lastObject = [self.stack lastObject];
-	[self.stack removeLastObject];
-	return lastObject;
+	__block id object;
+	dispatch_sync(self.queue, ^{
+		if ([self.stack count] == 0) {
+			object = nil;
+		}
+		object = [self.stack lastObject];
+		[self.stack removeLastObject];
+	});
+	return object;
 }
 
 -(NSArray *)popToObject:(id)object
 {
-	if (![self.stack containsObject:object]) { return nil; }
-	
-	NSMutableArray *stackArray = [[NSMutableArray alloc] init];
-	id currentObject = nil;
-	while (![self.topOfStackObject isEqual:object]) {
-		currentObject = [self pop];
-		[stackArray addObject:currentObject];
-	}
-	
-	return stackArray;
+	__block NSMutableArray *poppedObjects = nil;
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		if (![self.stack containsObject:object]) { return; }
+		
+		id currentObject = nil;
+		while (![self.topOfStackObject isEqual:object]) {
+			currentObject = [self pop];
+			[poppedObjects addObject:currentObject];
+		}
+	});
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	dispatch_release(group);
+	return poppedObjects;
 }
 
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block
 {
-	if (![self.stack containsObject:object]) { return; }
-	
-	while (![self.topOfStackObject isEqual:object]) {
-		id obj = [self pop];
-		block(obj);
-	}
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		if (![self.stack containsObject:object]) { return; }
+		
+		while (![self.topOfStackObject isEqual:object]) {
+			id obj = [self pop];
+			block(obj);
+		}
+	});
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	dispatch_release(group);
 }
 
 -(NSArray *)popToBottomOfStack
 {
-	if(self.stack.count == 0) { return nil; }
-	NSArray *stackArray = [self popToObject:[[self stack] cw_firstObject]];
-	return stackArray;
+	__block NSArray *poppedObjects = nil;
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		if(self.stack.count == 0) { return; }
+		poppedObjects = [self popToObject:[[self stack] cw_firstObject]];
+	});
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	dispatch_release(group);
+	return poppedObjects;
 }
 
 -(id)topOfStackObject
 {
-	if(self.stack.count == 0) { return nil; }
-	id topObj = [self.stack lastObject];
-	return topObj;
+	__block id object = nil;
+	dispatch_sync(self.queue, ^{
+		if([self.stack count] == 0) { return; }
+		object = [self.stack lastObject];
+	});
+	return object;
 }
 
 -(id)bottomOfStackObject
 {
-	if(self.stack.count == 0) { return nil; }
-	id bottomObj = [self.stack cw_firstObject];
-	return bottomObj;
+	__block id object = nil;
+	dispatch_sync(self.queue, ^{
+		if ([self.stack count] == 0) { return; }
+		object = [self.stack cw_firstObject];
+	});
+	return object;
 }
 
 -(void)clearStack
 {
-	[self.stack removeAllObjects];
+	dispatch_async(self.queue, ^{
+		[self.stack removeAllObjects];
+	});
 }
 
 -(BOOL)isEqualToStack:(CWStack *)aStack
 {
-	if ([[aStack description] isEqualToString:[self description]]) {
-		return YES;
-	}
-	return NO;
+	__block BOOL isEqual = NO;
+	dispatch_sync(self.queue, ^{
+		isEqual = [[aStack description] isEqualToString:[self.stack description]];
+	});
+	return isEqual;
 }
 
 -(BOOL)containsObject:(id)object
 {
-	return [self.stack containsObject:object];
+	__block BOOL contains = NO;
+	dispatch_sync(self.queue, ^{
+		contains = [self.stack containsObject:object];
+	});
+	return contains;
 }
 
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block
 {	
-	for (id obj in self.stack) {
-		if (block(obj)) {
-			return YES;
+	__block BOOL contains = NO;
+	dispatch_sync(self.queue, ^{
+		for (id obj in self.stack) {
+			if (block(obj)) {
+				contains = YES;
+				break;
+			}
 		}
-	}
-	return NO;
+	});
+	return contains;
 }
 
 /**
@@ -156,17 +201,34 @@
  */
 -(NSString *)description
 {
-	return [self.stack description];
+	__block NSString *stackDescription = nil;
+	dispatch_sync(self.queue, ^{
+		stackDescription = [self.stack description];
+	});
+	return stackDescription;
 }
 
 -(BOOL)isEmpty
 {
-    return ([self.stack count] <= 0);
+    __block BOOL empty;
+	dispatch_sync(self.queue, ^{
+		empty = ([self.stack count] <= 0);
+	});
+	return empty;
 }
 
 -(NSInteger)count
 {
-    return [self.stack count];
+    __block NSInteger theCount = 0;
+	dispatch_sync(self.queue, ^{
+		theCount = [self.stack count];
+	});
+	return theCount;
+}
+
+-(void)dealloc
+{
+	dispatch_release(_queue);
 }
 
 @end
