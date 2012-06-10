@@ -27,6 +27,10 @@
  THE SOFTWARE.
  */
 
+/**
+ This class is thread safe
+ */
+
 #import <Foundation/Foundation.h>
 
 @interface CWStack : NSObject
