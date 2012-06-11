@@ -90,6 +90,14 @@
 	}];
 	
 	CWAssertEqualsStrings(result, @"30205019");
+	
+	__block NSMutableString *result2 = [[NSMutableString alloc] init];
+	
+	[tree enumerateBTreeInMode:CWBTreeNodeDepthFirstSearch withBlock:^(id value, CWBTreeNode *node, BOOL *stop) {
+		[result2 appendFormat:[value stringValue]];
+	}];
+	
+	CWAssertEqualsStrings(result2, @"30201950");
 }
 
 @end
