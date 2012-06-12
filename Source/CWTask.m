@@ -71,13 +71,13 @@
 {
     self = [super init];
     if (self) {
-        _executable = exec;
-        _arguments = execArgs;
-        _directoryPath = path;
-        _successCode = kCWTaskNotLaunched;
-        _taskHasRun = NO;
-        _inAsynchronous = NO;
-        _cwTask = [[NSTask alloc] init];
+		_executable = exec;
+		_arguments = execArgs;
+		_directoryPath = path;
+		_successCode = kCWTaskNotLaunched;
+		_taskHasRun = NO;
+		_inAsynchronous = NO;
+		_cwTask = [[NSTask alloc] init];
 		_completionBlock = nil;
     }
     return self;
@@ -95,13 +95,13 @@
 {
     self = [super init];
     if (self) {
-        _executable = nil;
-        _arguments = nil;
-        _directoryPath = nil;
-        _successCode = kCWTaskNotLaunched;
-        _taskHasRun = NO;
-        _inAsynchronous = NO;
-        _cwTask = nil;
+		_executable = nil;
+		_arguments = nil;
+		_directoryPath = nil;
+		_successCode = kCWTaskNotLaunched;
+		_taskHasRun = NO;
+		_inAsynchronous = NO;
+		_cwTask = nil;
 		_completionBlock = nil;
     }
     return self;
@@ -288,7 +288,7 @@
 - (void) launchTaskOnQueue:(NSOperationQueue *)queue 
 	   withCompletionBlock:(void (^)(NSString * output, NSError * error))block
 {
-    NSParameterAssert(queue);
+	NSParameterAssert(queue);
 	self.inAsynchronous = YES;
 
     [queue addOperationWithBlock:^{
@@ -306,7 +306,7 @@
 - (void) launchTaskOnGCDQueue:(dispatch_queue_t)queue
 		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block
 {
-    NSParameterAssert(queue);
+	NSParameterAssert(queue);
 	self.inAsynchronous = YES;
 
     dispatch_async(queue, ^{
