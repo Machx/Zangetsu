@@ -103,6 +103,8 @@ enum CWBTreeNodeVals {
 
 -(void)insertValue:(id)value
 {
+	if (value == nil) { return; }
+	
 	//we have no nodes so insert the root
 	if (!self.rootNode) {
 		CWBTreeNode *node = [[CWBTreeNode alloc] init];
