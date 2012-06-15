@@ -31,6 +31,12 @@
 
 @interface UIImage (CWUIImageAdditions)
 
+/**
+ Resizes a UIImage to the new passed in size
+ 
+ @param size The size you wish the UIImage receiver to be resized to.
+ @return a new UIImage resized to the desired size
+ */
 -(UIImage *)cw_imageResizedToSize:(CGSize)size;
 
 @end
