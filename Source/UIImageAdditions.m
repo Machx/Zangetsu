@@ -40,6 +40,10 @@
 												 CGImageGetBitsPerComponent(image), 0,
 												 CGImageGetColorSpace(image), 
 												 kCGImageAlphaPremultipliedLast);
+	if (context == NULL) {
+		CWDebugLog(@"ERROR: Received NULL CGContextRef");
+		return nil;
+	}
 	
 	CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
 	CGContextDrawImage(context, rect, image);
