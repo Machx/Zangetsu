@@ -43,7 +43,8 @@
 {
 	//make sure we get a unique queue identifier
     dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSArray_"), DISPATCH_QUEUE_CONCURRENT);
+	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSArray_");
+	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
     __block BOOL _stop = NO;
     NSInteger idx = 0;
 
