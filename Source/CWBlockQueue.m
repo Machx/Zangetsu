@@ -238,7 +238,10 @@
 
 -(void)dealloc
 {
-	if (self.queue != dispatch_get_main_queue()) {
+	if (self.queue != dispatch_get_main_queue() &&
+		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) &&
+		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) &&
+		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
 		//make sure we only release on a private queue
 		//doing this on the global concurrent queues does nothing
 		dispatch_release(_queue); 
