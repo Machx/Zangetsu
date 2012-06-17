@@ -124,6 +124,19 @@
  */
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block;
 
+/**
+ Enumerates the nodes of the receiver linked list
+ 
+ If the list is empty this method immediately exits. If kCWDoublyLinkedListEnumerateForward
+ is passed in then this is the same as calling -enumerateObjectsWithBlock: otherwise
+ passing in kCWDoublyLinkedListEnumerateReverse enumerates the nodes of the reseiver 
+ starting at the end and goes backwards towards the front of the list. 
+ 
+ @param option a NSUInteger corresponding to the way the list should be enumerated in
+ @param object (block) the object being enumerated over
+ @param index (block) the index of the object being enumerated over
+ @param stop (block) a BOOL pointer which you can set to YES to stop enumeration
+ */
 -(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end
