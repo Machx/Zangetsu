@@ -17,9 +17,10 @@
 	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
 	
 	[list addObject:@"Hello"];
+	STAssertTrue(list.count == 1,@"count is incorrect");
 	[list addObject:@"World"];
-	
 	STAssertTrue(list.count == 2,@"count is incorrect");
+	
 	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
 	CWAssertEqualsStrings([list objectAtIndex:1], @"World");
 }
@@ -28,12 +29,15 @@
 {
 	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
 	
+	STAssertTrue(list.count == 0,@"count is incorrect");
 	[list addObject:@"Hello"];
+	STAssertTrue(list.count == 1,@"count is incorrect");
 	[list addObject:@"World"];
+	STAssertTrue(list.count == 2,@"count is incorrect");
 	
 	[list insertObject:@"Hypnotoad" atIndex:1];
-	
 	STAssertTrue(list.count == 3,@"count is incorrect");
+	
 	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
 	CWAssertEqualsStrings([list objectAtIndex:1], @"Hypnotoad");
 	CWAssertEqualsStrings([list objectAtIndex:2], @"World");
