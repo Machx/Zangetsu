@@ -45,6 +45,7 @@ do { \
 #define CWAssertEqualsStrings(string1, string2) \
 do { \
 	if(![string1 isEqualToString:string2]) { \
+		NSLog(@"String Assertion Failure: Dumping Strings\n\"%@\"\n%@",string1,string2); \
 		STFail(@"The string '%s' is not equal to the string '%s'", #string1 , #string2); \
 	} \
 }while(0)
