@@ -88,9 +88,9 @@ NSString *CWDateString(NSDate *date);
  * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
  * @return a NSDate object if successful, nil otherwise
  */
-NSDate *CWDateFromComponents(NSInteger year,NSInteger month, NSInteger day,
-							 NSInteger hour,NSInteger minute, NSInteger second,
-							 NSTimeZone *timeZone);
+NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
+                              NSInteger hour, NSInteger minute, NSInteger second,
+							  NSTimeZone *timeZone, NSCalendar *calendar);
 
 /**
  * Returns a NSString using NSDates description format
@@ -104,6 +104,6 @@ NSDate *CWDateFromComponents(NSInteger year,NSInteger month, NSInteger day,
  * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
  * @return a NSString with NSDates format
  */
-NSString *CWDateStringFromComponents(NSInteger year,NSInteger month, NSInteger day,
-									 NSInteger hour,NSInteger minute, NSInteger second,
-									 NSTimeZone *timeZone);
+NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
+                                      NSInteger hour, NSInteger minute, NSInteger second,
+									  NSTimeZone *timeZone, NSCalendar *calendar);

@@ -72,9 +72,8 @@ NSString * CWDateString(NSDate * date)
 
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
-							  NSTimeZone *timeZone)
+							  NSTimeZone *timeZone, NSCalendar *calendar)
 {
-	NSCalendar * calendar = [NSCalendar currentCalendar];
     NSDateComponents * components = [[NSDateComponents alloc] init];
 
     if (components) {
@@ -89,9 +88,11 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 		components.hour = hour;
 		components.minute = minute;
 		components.second = second;
+		
+		NSCalendar *aCalendar = (calendar) ? calendar : [NSCalendar currentCalendar];
 
         if (calendar) {
-            NSDate * date = [calendar dateFromComponents:components];
+            NSDate * date = [aCalendar dateFromComponents:components];
             if (date) {
                 return date;
             }
@@ -103,9 +104,9 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 
 NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
                                       NSInteger hour, NSInteger minute, NSInteger second,
-									  NSTimeZone *timeZone)
+									  NSTimeZone *timeZone, NSCalendar *calendar)
 {
-    NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second,timeZone);
+    NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second,timeZone, calendar);
 
     NSString * dateString = CWDateString(date);
 
