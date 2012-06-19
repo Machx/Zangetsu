@@ -46,7 +46,7 @@
 	 tests the CWDateStringFromComponents function to make sure we are getting an
 	 appropriate description back
 	 */
-	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 14, 0, 0, nil);
+	NSString *dateString = CWDateStringFromComponents(2011, 6, 9, 14, 0, 0, nil, [NSCalendar currentCalendar]);
 	
 	NSString *dateString2 = @"2011-06-09 14:00:00 -0500";
 	
@@ -61,7 +61,7 @@
 	 */
 	NSDate *date1 = [CWDateUtilities dateFromString:@"2011-07-01 11:05:00" withDateFormat:@"yyyy-M-dd h:mm:ss"];
 	
-	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00, nil);
+	NSDate *date2 = CWDateFromComponents(2011, 07, 01, 11, 05, 00, nil, [NSCalendar currentCalendar]);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"dates should be equal");
 }
@@ -72,7 +72,7 @@
 	 make sure that the CWDateFromComponents() api works as it should
 	 in giving a correct date from the components passed into it.
 	 */
-	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0, nil);
+	NSDate *date1 = CWDateFromComponents(2011, 06, 06, 10, 0, 0, nil, [NSCalendar currentCalendar]);
 	
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -101,13 +101,13 @@
 	 this date should grab the current timezone that the host system
 	 is setup with and currently using
 	 */
-	NSDate *date1 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, nil);
+	NSDate *date1 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, nil, nil);
 	
 	/**
 	 when the timezone is non nil then the method should grab the passed
 	 in timezone and use that for the date.
 	 */
-	NSDate *date2 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, [NSTimeZone timeZoneForSecondsFromGMT:0]);
+	NSDate *date2 = CWDateFromComponents(2011, 10, 14, 02, 30, 0, [NSTimeZone timeZoneForSecondsFromGMT:0], nil);
 	
 	STAssertFalse([date1 isEqualToDate:date2], @"Dates should not be the same");
 }
@@ -124,7 +124,7 @@
 	
 	STAssertNotNil(date1, @"should have a valid NSDate object");
 	
-	NSDate *date2 = CWDateFromComponents(1994, 11, 05, 13, 15, 30, nil);
+	NSDate *date2 = CWDateFromComponents(1994, 11, 05, 13, 15, 30, nil, [NSCalendar currentCalendar]);
 	
 	STAssertTrue([date1 isEqualToDate:date2], @"Dates should be equal");
 }
