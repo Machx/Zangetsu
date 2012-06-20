@@ -49,5 +49,9 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString)
 
 const char *CWUUIDCStringPrependedWithString(NSString *preString)
 {
-	return [CWUUIDStringPrependedWithString(preString) UTF8String];
+	NSString *uString = CWUUIDStringPrependedWithString(preString);
+	if (uString) {
+		return [uString UTF8String];
+	}
+	return nil;
 }
