@@ -53,5 +53,5 @@ const char *CWUUIDCStringPrependedWithString(NSString *preString)
 	if (uString) {
 		return [uString UTF8String];
 	}
-	return nil;
+	return NULL;
 }
