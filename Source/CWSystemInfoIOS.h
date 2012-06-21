@@ -56,4 +56,7 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
  @return a NSInteger representing the # of CPU Cores on the current Device
  */
 +(NSInteger)cpuCoreCount;
+
++(NSString *)hardwareModelString;
+
 @end

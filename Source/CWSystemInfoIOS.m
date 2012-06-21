@@ -66,4 +66,18 @@
     return coreCount;
 }
 
++(NSString *)hardwareModelString
+{
+	size_t size;
+	sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+	char *device = calloc(1,size);
+	sysctlbyname("hw.machine", device, &size, NULL, 0);
+	
+	NSString *deviceString = [NSString stringWithCString:device 
+												encoding:NSUTF8StringEncoding];
+	free(device);
+	
+	return deviceString;
+}
+
 @end
