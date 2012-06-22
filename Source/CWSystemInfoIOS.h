@@ -59,4 +59,6 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 
 +(NSString *)hardwareModelString;
 
++(BOOL)retinaSupported;
+
 @end
