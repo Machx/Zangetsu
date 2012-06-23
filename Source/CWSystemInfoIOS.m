@@ -101,7 +101,7 @@
 								  @"iPad 2 (CDMA)",               @"iPad2,3",
 								  @"iPad 2",                      @"iPad2,4",
 								  @"iPad 3 (WiFi)",               @"iPad3,1",
-								  @"iPad 3 (4G)"                  @"iPad3,2",
+								  @"iPad 3 (4G)",                 @"iPad3,2",
 								  @"iPad 3 (4G)",                 @"iPad3,3",
 								  @"iOS Simulator",               @"i386",
 								  @"iOS Simulator",               @"x86_64",
