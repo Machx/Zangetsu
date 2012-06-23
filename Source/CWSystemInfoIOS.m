@@ -80,6 +80,38 @@
 	return deviceString;
 }
 
++(NSString *)englishHardwareString
+{
+	NSString *machineString = [CWSystemInfoIOS hardwareModelString];
+	
+	NSDictionary *hardwareDict = [NSDictionary dictionaryWithObjectsAndKeys:
+								  @"iPhone",                      @"iPhone1,1",
+								  @"iPhone 3G",                   @"iPhone1,2",
+								  @"iPhone 3GS",                  @"iPhone2,1",
+								  @"iPhone 4",                    @"iPhone3,1",
+								  @"iPhone 4 (Verizon)",          @"iPhone3,3",
+								  @"iPhone 4S",                   @"iPhone4,1",
+								  @"iPod Touch (1st Generation)", @"iPod1,1",
+								  @"iPod Touch (2nd Generation)", @"iPod2,1",
+								  @"iPod Touch (3rd Generation)", @"iPod3,1",
+								  @"iPod Touch (4th Generation)", @"iPod4,1",
+								  @"iPad",                        @"iPad1,1",
+								  @"iPad 2 (WiFi)",               @"iPad2,1",
+								  @"iPad 2 (GSM)",                @"iPad2,2",
+								  @"iPad 2 (CDMA)",               @"iPad2,3",
+								  @"iPad 2",                      @"iPad2,4",
+								  @"iPad 3 (WiFi)",               @"iPad3,1",
+								  @"iPad 3 (4G)"                  @"iPad3,2",
+								  @"iPad 3 (4G)",                 @"iPad3,3",
+								  @"iOS Simulator",               @"i386",
+								  @"iOS Simulator",               @"x86_64",
+								  nil];
+	
+	NSString *hardwareString = [hardwareDict objectForKey:machineString];
+	
+	return hardwareString;
+}
+
 +(BOOL)retinaSupported
 {
 	return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && ([UIScreen mainScreen].scale == 2.0));
