@@ -233,6 +233,7 @@
 -(void)dealloc
 {
 	dispatch_release(_queue);
+	dispatch_release(_batchQueue);
 }
 
 @end
