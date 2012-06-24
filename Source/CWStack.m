@@ -32,12 +32,14 @@
 @interface CWStack()
 @property(nonatomic, retain) NSMutableArray *stack;
 @property(nonatomic, assign) dispatch_queue_t queue;
+@property(nonatomic, assign) dispatch_queue_t batchQueue;
 @end
 
 @implementation CWStack
 
 @synthesize stack = _stack;
 @synthesize queue = _queue;
+@synthesize batchQueue = _batchQueue;
 
 /**
  Initializes an empty stack
@@ -50,6 +52,7 @@
     if (self) {
 		_stack = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
+		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu_CWStack(Batch)"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -60,6 +63,7 @@
 	if (self) {
 		_stack = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
+		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu_CWStack(Batch)"), DISPATCH_QUEUE_SERIAL);
 		if ([objects count] > 0) {
 			[_stack addObjectsFromArray:objects];
 		}
@@ -93,7 +97,7 @@
 {
 	__block NSMutableArray *poppedObjects = nil;
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+	dispatch_group_async(group, _batchQueue, ^{
 		if (![self.stack containsObject:object]) { return; }
 		
 		id currentObject = nil;
@@ -110,7 +114,7 @@
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block
 {
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+	dispatch_group_async(group, _batchQueue, ^{
 		if (![self.stack containsObject:object]) { return; }
 		
 		while (![self.topOfStackObject isEqual:object]) {
