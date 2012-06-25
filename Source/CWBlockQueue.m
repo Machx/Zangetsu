@@ -69,7 +69,7 @@
 @synthesize queue = _queue;
 @synthesize label = _label;
 
--(id)initWithQueueType:(NSInteger)type 
+-(id)initWithQueueType:(CWBlockQueueTargetType)type 
 			concurrent:(BOOL)concurrent 
 				 label:(NSString *)label
 {
