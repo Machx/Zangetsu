@@ -56,13 +56,13 @@
 @property(copy) dispatch_block_t completionBlock;
 @end
 
-enum CWBlockQueueTargetType {
+typedef enum {
 	kCWBlockQueueTargetPrivateQueue = 0, //private GCD Queue
 	kCWBlockQueueTargetMainQueue = 1, // dispatch blocks onto the main queue
 	kCWBlockQueueTargetGCDLowPriority = 2, // DISPATCH_QUEUE_PRIORITY_LOW queue
 	kCWBlockQueueTargetGCDNormalPriority = 3, // DISPATCH_QUEUE_PRIORITY_NORMAL queue
 	kCWBlockQueueTargetGCDHighPriority = 4 // DISPATCH_QUEUE_PRIORITY_HIGH queue
-};
+} CWBlockQueueTargetType;
 
 @interface CWBlockQueue : NSObject
 /**
@@ -88,7 +88,7 @@ enum CWBlockQueueTargetType {
  @param concurrent a BOOL thats used if the private queue type is specified to mark the private queue as serial or concurrent
  @param label a NSString thats used for the queue label if a private queue type is specified
  */
--(id)initWithQueueType:(NSInteger)type concurrent:(BOOL)concurrent label:(NSString *)qLabel;
+-(id)initWithQueueType:(CWBlockQueueTargetType)type concurrent:(BOOL)concurrent label:(NSString *)qLabel;
 /**
  Initialzes a CWBlockQueue object with a specified gcd queue
  
