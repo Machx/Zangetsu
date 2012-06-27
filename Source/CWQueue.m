@@ -32,11 +32,15 @@
 @interface CWQueue()
 //private internal ivar
 @property(nonatomic, retain) NSMutableArray *queue;
+@property(nonatomic, assign) dispatch_queue_t storageQueue;
+@property(nonatomic, assign) dispatch_queue_t batchQueue;
 @end
 
 @implementation CWQueue
 
 @synthesize queue = _queue;
+@synthesize storageQueue = _storageQueue;
+@synthesize batchQueue = _batchQueue;
 
 //MARK: Initiailziation
 
@@ -53,6 +57,8 @@
 	self = [super init];
 	if (self) {
 		_queue = [[NSMutableArray alloc] init];
+		_storageQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
+		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
 }
@@ -66,6 +72,8 @@
 		} else {
 			_queue = [[NSMutableArray alloc] init];
 		}
+		_storageQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
+		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
 }
@@ -74,77 +82,101 @@
 
 -(id)dequeue
 {
-	if ([self.queue count] == 0) { return nil; }
-	id topObject = [self.queue objectAtIndex:0]; //change back to cw_firstObject sometime
-	[self.queue removeObjectAtIndex:0];
-	return topObject;
+	__block id object = nil;
+	dispatch_sync(_storageQueue, ^{
+		if ([self.queue count] == 0) { return; }
+		object = [self.queue objectAtIndex:0]; //change back to cw_firstObject sometime
+		[self.queue removeObjectAtIndex:0];
+	});
+	return object;
 }
 
 -(void)enqueue:(id)object
 {
 	if (object) {
-		[self.queue addObject:object];
+		dispatch_async(_storageQueue, ^{
+			[self.queue addObject:object];
+		});
 	}
 }
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
 {
 	if (objects && ([objects count] > 0)) {
-		[self.queue addObjectsFromArray:objects];
+		dispatch_async(_storageQueue, ^{
+			[self.queue addObjectsFromArray:objects];
+		});
 	}
 }
 
 -(void)removeAllObjects
 {
-	[self.queue removeAllObjects];
+	dispatch_async(_storageQueue, ^{
+		[self.queue removeAllObjects];
+	});
 }
 
 //MARK: Query Methods
 
 -(BOOL)containsObject:(id)object
 {
-	return [self.queue containsObject:object];
+	__block BOOL contains = NO;
+	dispatch_sync(_storageQueue, ^{
+		contains = [self.queue containsObject:object];
+	});
+	return contains;
 }
 
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block
 {
-	for (id obj in self.queue) {
-		if (block(obj)) {
-			return YES;
+	__block BOOL contains = NO;
+	dispatch_sync(_storageQueue, ^{
+		for (id obj in self.queue) {
+			if (block(obj)) {
+				contains = YES;
+			}
 		}
-	}
-	return NO;
+	});
+	return contains;
 }
 
 -(id)peek
 {
-	return [self.queue cw_firstObject];
+	__block id object = nil;
+	dispatch_sync(_storageQueue, ^{
+		object = [self.queue cw_firstObject];
+	});
+	return object;
 }
 
 //MARK: Enumeration Methods
 
 -(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block
 {
-	BOOL shouldStop = NO;
-	for (id object in self.queue) {
-		block(object,&shouldStop);
-		if (shouldStop) { return; }
-	}
+	dispatch_sync(_storageQueue, ^{
+		BOOL shouldStop = NO;
+		for (id object in self.queue) {
+			block(object,&shouldStop);
+			if (shouldStop) { return; }
+		}
+	});
 }
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
 {
-	if([self.queue count] == 0) { return; }
-	
-	BOOL shouldStop = NO;
-	id dequeuedObject = nil;
-	
-	do {
-		dequeuedObject = [self dequeue];
-		if(dequeuedObject){
-			block(dequeuedObject,&shouldStop);
-		}
-	} while ((shouldStop == NO) && (dequeuedObject));
+	dispatch_sync(_batchQueue, ^{
+		if([self.queue count] == 0) { return; }
+		
+		BOOL shouldStop = NO;
+		id dequeuedObject = nil;
+		
+		do {
+			dequeuedObject = [self dequeue];
+			if(dequeuedObject){
+				block(dequeuedObject,&shouldStop);
+			}
+		} while ((shouldStop == NO) && (dequeuedObject));
+	});
 }
 
 -(void)dequeueToObject:(id)targetObject 
@@ -159,6 +191,7 @@
 			*stop = YES;
 		}
 	}];
+	dispatch_sync(_batchQueue, ^{ }); //sync
 }
 
 //MARK: Debug Information
@@ -170,19 +203,28 @@
  */
 -(NSString *)description
 {
-	NSString *queueDescription = [self.queue description];
+	__block NSString *queueDescription = nil;
+	dispatch_sync(_storageQueue, ^{
+		queueDescription = [self.queue description];
+	});
 	return queueDescription;
 }
 
 -(NSUInteger)count
 {
-	NSUInteger queueCount = [self.queue count];
+	__block NSUInteger queueCount = 0;
+	dispatch_sync(_storageQueue, ^{
+		queueCount = [self.queue count];
+	});
 	return queueCount;
 }
 
 -(BOOL)isEmpty
 {
-	BOOL queueEmpty = ([self count] == 0);
+	__block BOOL queueEmpty = YES;
+	dispatch_sync(_storageQueue, ^{
+		queueEmpty = ([self.queue count] == 0);
+	});
 	return queueEmpty;
 }
 
@@ -190,7 +232,17 @@
 
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue
 {
-	return [self.queue isEqual:aQueue.queue];
+	__block BOOL isEqual;
+	dispatch_sync(_storageQueue, ^{
+		isEqual = [self.queue isEqual:aQueue.queue];
+	});
+	return isEqual;
+}
+
+-(void)dealloc
+{
+	dispatch_release(_storageQueue);
+	dispatch_release(_batchQueue);
 }
 
 @end
