@@ -33,6 +33,14 @@
 
 -(UIImage *)cw_imageResizedToSize:(CGSize)size
 {
+	UIImage *result = [self cw_imageResizedToSize:size 
+						 withInterpolationQuality:kCGInterpolationHigh];
+	return result;
+}
+
+-(UIImage *)cw_imageResizedToSize:(CGSize)size 
+		 withInterpolationQuality:(CGInterpolationQuality)quality
+{
 	CGImageRef image = self.CGImage;
 	CGRect rect = { CGPointZero, size };
 	
@@ -45,7 +53,7 @@
 		return nil;
 	}
 	
-	CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+	CGContextSetInterpolationQuality(context, quality);
 	CGContextDrawImage(context, rect, image);
 	
 	CGImageRef cgImage = CGBitmapContextCreateImage(context);

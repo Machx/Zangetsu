@@ -39,4 +39,7 @@
  */
 -(UIImage *)cw_imageResizedToSize:(CGSize)size;
 
+-(UIImage *)cw_imageResizedToSize:(CGSize)size 
+		 withInterpolationQuality:(CGInterpolationQuality)quality;
+
 @end
