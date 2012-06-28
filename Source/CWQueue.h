@@ -29,6 +29,10 @@
  
 #import <Foundation/Foundation.h>
 
+/**
+ CWQueue is a Thread Safe Class
+ */
+
 @interface CWQueue : NSObject
 
 /**
