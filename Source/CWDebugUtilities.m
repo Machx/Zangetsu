@@ -76,7 +76,7 @@ void CWInDebugOnly(void(^DebugBlock)(void))
 #endif
 }
 
-uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
+double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
 {
 	uint64_t start = mach_absolute_time();
 	TimeBlock();
@@ -84,8 +84,15 @@ uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
 	uint64_t elapsed = end - start;
 	mach_timebase_info_data_t info;
 	mach_timebase_info(&info);
-	uint64_t nanoSeconds = elapsed * info.numer / info.denom;
+	double nanoSeconds = elapsed * info.numer / info.denom;
 	return nanoSeconds;
+}
+
+double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void))
+{
+	double result = CWNanoSecondsToExecuteCode(TimeBlock);
+	double milliseconds = 1.0 * 10e-6 * result;
+	return milliseconds;
 }
 
 NSString *CWStackTrace(void) 

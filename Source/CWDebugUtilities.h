@@ -63,7 +63,9 @@ void CWInDebugOnly(void(^DebugBlock)(void));
  
  @return a uint64_t with the amount of nanoseconds it took to execute the block
  */
-uint64_t CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
+double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
+
+double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void));
 
 /**
  Returns the call stack symbols as a NSString instead
