@@ -65,6 +65,12 @@ void CWInDebugOnly(void(^DebugBlock)(void));
  */
 double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
 
+/**
+ Returns in MilliSeconds the amount of time the code
+ contained inside the Timing Block took to execute.
+
+ @return a double with the ammount of milliseconds it took to execute the block
+ */
 double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void));
 
 /**
