@@ -61,7 +61,7 @@ void CWInDebugOnly(void(^DebugBlock)(void));
  block to abstract away the details of the timing code
  so now you can just use the function as is.
  
- @return a uint64_t with the amount of nanoseconds it took to execute the block
+ @return a double with the amount of nanoseconds it took to execute the block
  */
 double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
 
