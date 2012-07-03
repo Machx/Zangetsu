@@ -65,3 +65,5 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString);
  @return a string containing the preString argument prepended onto a unique string value
  */
 const char *CWUUIDCStringPrependedWithString(NSString *preString);
+
+void CWNextRunLoop(dispatch_block_t block);
