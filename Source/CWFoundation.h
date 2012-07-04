@@ -66,4 +66,9 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString);
  */
 const char *CWUUIDCStringPrependedWithString(NSString *preString);
 
+/**
+ Schedules the block to be executed on the next run loop on the main thread
+ 
+ @param block the block to be executed on the next runloop on the main thread
+ */
 void CWNextRunLoop(dispatch_block_t block);
