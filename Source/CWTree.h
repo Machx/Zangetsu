@@ -148,4 +148,6 @@
  @return a BOOL if the receivers children objects are equal to tree's children objects
  */
 -(BOOL)isEqualToTree:(CWTree *)tree;
+
+-(BOOL)containsObject:(id)object;
 @end

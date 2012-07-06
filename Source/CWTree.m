@@ -199,4 +199,16 @@
 	}
 }
 
+-(BOOL)containsObject:(id)object
+{
+	__block BOOL contains = NO;
+	[self enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
+		if ([object isEqual:nodeValue]) {
+			contains = YES;
+			*stop = YES;
+		}
+	}];
+	return contains;
+}
+
 @end
