@@ -150,4 +150,7 @@
 -(BOOL)isEqualToTree:(CWTree *)tree;
 
 -(BOOL)containsObject:(id)object;
+
+-(BOOL)containsObjectWithBlock:(BOOL(^)(id obj))block;
+
 @end

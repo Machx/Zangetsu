@@ -211,4 +211,16 @@
 	return contains;
 }
 
+-(BOOL)containsObjectWithBlock:(BOOL(^)(id obj))block
+{
+	__block BOOL contains = NO;
+	[self enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
+		if (block(nodeValue)) {
+			contains = YES;
+			*stop = YES;
+		}
+	}];
+	return contains;
+}
+
 @end
