@@ -145,6 +145,8 @@
 		B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA1D153B8610003BAD73 /* CWTrieTests.m */; };
 		B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */; };
+		B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */; };
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -368,6 +370,8 @@
 		B897CA1D153B8610003BAD73 /* CWTrieTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrieTests.m; path = Source/CWTrieTests.m; sourceTree = "<group>"; };
 		B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSColorAdditions.h; path = Source/NSColorAdditions.h; sourceTree = "<group>"; };
 		B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSColorAdditions.m; path = Source/NSColorAdditions.m; sourceTree = "<group>"; };
+		B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSImageAdditions.h; path = Source/NSImageAdditions.h; sourceTree = "<group>"; };
+		B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSImageAdditions.m; path = Source/NSImageAdditions.m; sourceTree = "<group>"; };
 		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
 		B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWExceptionUtilities.m; path = Source/CWExceptionUtilities.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
@@ -685,6 +689,8 @@
 			children = (
 				B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */,
 				B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */,
+				B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */,
+				B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */,
 			);
 			name = "AppKit Additions";
 			sourceTree = "<group>";
@@ -847,6 +853,7 @@
 				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
 				B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */,
 				B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
+				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1108,6 +1115,7 @@
 				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
 				B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */,
 				B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
+				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

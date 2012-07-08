@@ -73,3 +73,4 @@
 #import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
+#import "NSImageAdditions.h"
