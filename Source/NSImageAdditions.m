@@ -32,9 +32,14 @@ THE SOFTWARE.
 @implementation NSImage (CWNSImageAdditions)
 
 -(NSImage *)cw_imageResizedToSize:(CGSize)size
+{	
+	return [self cw_imageResizedToSize:size 
+			  withInterpolationQuality:kCGInterpolationHigh];
+}
+
+-(NSImage *)cw_imageResizedToSize:(CGSize)size 
+		 withInterpolationQuality:(CGInterpolationQuality)quality
 {
-	assert(self != nil);
-	
 	NSRect currentRect = NSMakeRect(0.0f, 0.0f, self.size.height, self.size.height);
 	CGImageRef image = [self CGImageForProposedRect:&currentRect
 											context:[NSGraphicsContext currentContext]
@@ -50,7 +55,7 @@ THE SOFTWARE.
 		return nil;
 	}
 	
-	CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+	CGContextSetInterpolationQuality(context, quality);
 	CGContextDrawImage(context, rect, image);
 	
 	CGImageRef cgImage = CGBitmapContextCreateImage(context);

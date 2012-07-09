@@ -33,4 +33,7 @@
 
 -(NSImage *)cw_imageResizedToSize:(CGSize)size;
 
+-(NSImage *)cw_imageResizedToSize:(CGSize)size 
+		 withInterpolationQuality:(CGInterpolationQuality)quality;
+
 @end
