@@ -31,16 +31,23 @@
 
 @interface CWQueue()
 //private internal ivar
-@property(nonatomic, retain) NSMutableArray *queue;
-@property(nonatomic, assign) dispatch_queue_t storageQueue;
-@property(nonatomic, assign) dispatch_queue_t batchQueue;
+@property(retain) NSMutableArray *queue;
+@property(assign) dispatch_queue_t storageQueue;
 @end
 
 @implementation CWQueue
 
 @synthesize queue = _queue;
 @synthesize storageQueue = _storageQueue;
-@synthesize batchQueue = _batchQueue;
+
+/**
+ Note on the usage of dispatch_barrier_sync(_storageQueue, ^{ });
+ these are synchronization points. Anytime a "batch operation" ie
+ a method that alters more than 1 object in the queue appears then
+ these are needed to ensure that all operations before that point
+ complete and any ones at the end of the method ensure that all
+ operations enqueued complete before going on.
+ */
 
 //MARK: Initiailziation
 
@@ -58,7 +65,6 @@
 	if (self) {
 		_queue = [[NSMutableArray alloc] init];
 		_storageQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
-		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
 }
@@ -73,7 +79,6 @@
 			_queue = [[NSMutableArray alloc] init];
 		}
 		_storageQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
-		_batchQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
 }
@@ -102,11 +107,15 @@
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
 {
+	dispatch_barrier_sync(_storageQueue, ^{ });
+	
 	if (objects && ([objects count] > 0)) {
 		dispatch_async(_storageQueue, ^{
 			[self.queue addObjectsFromArray:objects];
 		});
 	}
+	
+	dispatch_barrier_sync(_storageQueue, ^{ });
 }
 
 -(void)removeAllObjects
@@ -164,24 +173,28 @@
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
 {
-	dispatch_sync(_batchQueue, ^{
-		if([self.queue count] == 0) { return; }
-		
-		BOOL shouldStop = NO;
-		id dequeuedObject = nil;
-		
-		do {
-			dequeuedObject = [self dequeue];
-			if(dequeuedObject){
-				block(dequeuedObject,&shouldStop);
-			}
-		} while ((shouldStop == NO) && (dequeuedObject));
-	});
+	dispatch_barrier_sync(_storageQueue, ^{ });
+	
+	if([self.queue count] == 0) { return; }
+	
+	BOOL shouldStop = NO;
+	id dequeuedObject = nil;
+	
+	do {
+		dequeuedObject = [self dequeue];
+		if(dequeuedObject){
+			block(dequeuedObject,&shouldStop);
+		}
+	} while ((shouldStop == NO) && (dequeuedObject));
+	
+	dispatch_barrier_sync(_storageQueue, ^{ });
 }
 
 -(void)dequeueToObject:(id)targetObject 
 			 withBlock:(void(^)(id object))block 
 {
+	dispatch_barrier_sync(_storageQueue, ^{ });
+	
 	if (![self.queue containsObject:targetObject]) {
 		return;
 	}
@@ -191,7 +204,8 @@
 			*stop = YES;
 		}
 	}];
-	dispatch_sync(_batchQueue, ^{ }); //sync
+	
+	dispatch_barrier_sync(_storageQueue, ^{ });
 }
 
 //MARK: Debug Information
@@ -203,6 +217,7 @@
  */
 -(NSString *)description
 {
+	//dispatch_barrier_sync(_storageQueue, ^{ });
 	__block NSString *queueDescription = nil;
 	dispatch_sync(_storageQueue, ^{
 		queueDescription = [self.queue description];
@@ -242,7 +257,6 @@
 -(void)dealloc
 {
 	dispatch_release(_storageQueue);
-	dispatch_release(_batchQueue);
 }
 
 @end
