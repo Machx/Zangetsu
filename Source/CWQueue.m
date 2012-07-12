@@ -106,12 +106,16 @@
 }
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
-{	
+{
+	dispatch_barrier_sync(_storageQueue, ^{ });
+	
 	if (objects && ([objects count] > 0)) {
-		dispatch_barrier_async(_storageQueue, ^{
+		dispatch_async(_storageQueue, ^{
 			[self.queue addObjectsFromArray:objects];
 		});
 	}
+	
+	dispatch_barrier_sync(_storageQueue, ^{ });
 }
 
 -(void)removeAllObjects
@@ -126,7 +130,7 @@
 -(BOOL)containsObject:(id)object
 {
 	__block BOOL contains = NO;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		contains = [self.queue containsObject:object];
 	});
 	return contains;
@@ -135,7 +139,7 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block
 {
 	__block BOOL contains = NO;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		for (id obj in self.queue) {
 			if (block(obj)) {
 				contains = YES;
