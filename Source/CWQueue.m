@@ -106,16 +106,12 @@
 }
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
-{
-	dispatch_barrier_sync(_storageQueue, ^{ });
-	
+{	
 	if (objects && ([objects count] > 0)) {
-		dispatch_async(_storageQueue, ^{
+		dispatch_barrier_async(_storageQueue, ^{
 			[self.queue addObjectsFromArray:objects];
 		});
 	}
-	
-	dispatch_barrier_sync(_storageQueue, ^{ });
 }
 
 -(void)removeAllObjects
@@ -219,7 +215,7 @@
 {
 	//dispatch_barrier_sync(_storageQueue, ^{ });
 	__block NSString *queueDescription = nil;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		queueDescription = [self.queue description];
 	});
 	return queueDescription;
@@ -228,7 +224,7 @@
 -(NSUInteger)count
 {
 	__block NSUInteger queueCount = 0;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		queueCount = [self.queue count];
 	});
 	return queueCount;
@@ -237,7 +233,7 @@
 -(BOOL)isEmpty
 {
 	__block BOOL queueEmpty = YES;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		queueEmpty = ([self.queue count] == 0);
 	});
 	return queueEmpty;
@@ -248,7 +244,7 @@
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue
 {
 	__block BOOL isEqual;
-	dispatch_sync(_storageQueue, ^{
+	dispatch_barrier_sync(_storageQueue, ^{
 		isEqual = [self.queue isEqual:aQueue.queue];
 	});
 	return isEqual;
