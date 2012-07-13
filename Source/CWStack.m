@@ -146,7 +146,7 @@
 -(id)bottomOfStackObject
 {
 	__block id object = nil;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		if ([self.stack count] == 0) { return; }
 		object = [self.stack cw_firstObject];
 	});
@@ -155,7 +155,7 @@
 
 -(void)clearStack
 {
-	dispatch_async(self.queue, ^{
+	dispatch_async(_queue, ^{
 		[self.stack removeAllObjects];
 	});
 }
@@ -163,7 +163,7 @@
 -(BOOL)isEqualToStack:(CWStack *)aStack
 {
 	__block BOOL isEqual = NO;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		isEqual = [[aStack description] isEqualToString:[self.stack description]];
 	});
 	return isEqual;
@@ -172,7 +172,7 @@
 -(BOOL)containsObject:(id)object
 {
 	__block BOOL contains = NO;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		contains = [self.stack containsObject:object];
 	});
 	return contains;
@@ -181,7 +181,7 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block
 {	
 	__block BOOL contains = NO;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		for (id obj in self.stack) {
 			if (block(obj)) {
 				contains = YES;
@@ -200,7 +200,7 @@
 -(NSString *)description
 {
 	__block NSString *stackDescription = nil;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		stackDescription = [self.stack description];
 	});
 	return stackDescription;
@@ -209,7 +209,7 @@
 -(BOOL)isEmpty
 {
     __block BOOL empty;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		empty = ([self.stack count] <= 0);
 	});
 	return empty;
@@ -218,7 +218,7 @@
 -(NSInteger)count
 {
     __block NSInteger theCount = 0;
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(_queue, ^{
 		theCount = [self.stack count];
 	});
 	return theCount;
