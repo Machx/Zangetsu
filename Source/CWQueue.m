@@ -73,11 +73,7 @@
 {
 	self = [super init];
 	if (self) {
-		if ([array count] > 0) {
-			_queue = [[NSMutableArray alloc] initWithArray:array];
-		} else {
-			_queue = [[NSMutableArray alloc] init];
-		}
+		_queue = [[NSMutableArray alloc] initWithArray:array];
 		_storageQueue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
