@@ -39,7 +39,7 @@
 	[self enumerateObjectsUsingBlock:block];
 }
 
-- (void) cw_eachConcurrentlyWithBlock:(void (^)(NSInteger index, id obj, BOOL * stop))block
+- (void) cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSInteger index, BOOL * stop))block
 {
 	//make sure we get a unique queue identifier
     dispatch_group_t group = dispatch_group_create();
@@ -51,7 +51,7 @@
     for (id object in self) {
         if (_stop) { break; }
         dispatch_group_async(group, queue, ^{
-			block (idx,object, &_stop);
+			block (object, idx, &_stop);
 		});
         idx++;
     }
