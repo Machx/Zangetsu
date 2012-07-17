@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 inline CGContextRef CWCurrentCGContext()
 {
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 #else
 	return UIGraphicsGetCurrentContext();

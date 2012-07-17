@@ -91,7 +91,7 @@
  */
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 /**
  This method is the same as cw_findAllWithBlock except that it stores the objects in a NSHashTable
  

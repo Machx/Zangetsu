@@ -29,7 +29,7 @@
 
 #import "CWExceptionUtilities.h"
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 void CWShowExceptionAsAlertPanel(NSException *exception)
 {
 	NSInteger result = NSRunCriticalAlertPanel(@"Application Error Occurred",

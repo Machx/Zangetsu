@@ -89,7 +89,7 @@
     return results;
 }
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 
 - (NSHashTable *) cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
 {

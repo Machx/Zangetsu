@@ -85,7 +85,7 @@
  */
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 /**
  * experimental method
  * like cw_find but instead uses NSHashTable to store weak pointers to

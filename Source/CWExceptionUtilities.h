@@ -28,13 +28,13 @@
  */
 
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 #import <Cocoa/Cocoa.h>
 #else
 #import <Foundation/Foundation.h>
 #endif
 
-#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+#if Z_HOST_OS_IS_MAC_OS_X
 /**
  Takes a NSException object and runs an Critical Alert Panel with the Exception 
  information as well as the stack trace of where the stack trace occurred minus
