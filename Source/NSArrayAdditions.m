@@ -39,26 +39,9 @@
 	[self enumerateObjectsUsingBlock:block];
 }
 
-- (void) cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSInteger index, BOOL * stop))block
+- (void) cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSUInteger index, BOOL * stop))block
 {
-	//make sure we get a unique queue identifier
-    dispatch_group_t group = dispatch_group_create();
-	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSArray_");
-	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
-    __block BOOL _stop = NO;
-    NSInteger idx = 0;
-
-    for (id object in self) {
-        if (_stop) { break; }
-        dispatch_group_async(group, queue, ^{
-			block (object, idx, &_stop);
-		});
-        idx++;
-    }
-
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    dispatch_release(group);
-	dispatch_release(queue);
+	[self enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:block];
 }
 
 - (id) cw_findWithBlock:(BOOL (^)(id obj))block

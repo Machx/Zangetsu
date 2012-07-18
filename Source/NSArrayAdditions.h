@@ -65,7 +65,7 @@
  @param obj (Block Parameter) the object being enumerated over
  @param stop (Block Parameter) if you need to stop the enumeration set this to YES otherwise do nothing
  */
-- (void) cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSInteger index, BOOL * stop))block;
+- (void) cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSUInteger index, BOOL * stop))block;
 
 /**
  * Finds the first instance of the object that you indicate
