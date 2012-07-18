@@ -26,7 +26,6 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-#if Z_HOST_OS_IS_MAC_OS_X
 
 #import <Cocoa/Cocoa.h>
 
@@ -89,4 +88,3 @@ static const NSInteger kPidNotFound = -1;
  */
 +(NSImage *)iconForApplication:(NSString *)appName;
 @end
-#endif
