@@ -168,13 +168,13 @@
 	
 	__block int32_t count = 0;
 	
-	[testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
+	[testArray cw_eachConcurrentlyWithBlock:^(id obj, NSUInteger index, BOOL *stop) {
 		OSAtomicIncrement32(&count);
 	}];
 	
 	STAssertTrue(count == 3,@"count should be 3");
     
-    [testArray cw_eachConcurrentlyWithBlock:^(NSInteger index, id obj, BOOL *stop) {
+    [testArray cw_eachConcurrentlyWithBlock:^(id obj, NSUInteger index, BOOL *stop) {
         switch (index) {
             case 0:
 				CWAssertEqualsStrings(obj, @"Fry");

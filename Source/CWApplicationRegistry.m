@@ -38,7 +38,7 @@
 	__block BOOL isRunning = NO;
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 	
-	[applications cw_eachConcurrentlyWithBlock:^(id obj, NSInteger index, BOOL *stop) {
+	[applications cw_eachConcurrentlyWithBlock:^(id obj, NSUInteger index, BOOL *stop) {
 		if ([[obj localizedName] isEqualToString:appName]) {
 			isRunning = YES;
 			*stop = YES;

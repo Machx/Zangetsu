@@ -47,7 +47,7 @@
 - (id) cw_findWithBlock:(BOOL (^)(id obj))block
 {
 	__block id foundObject = nil;
-	[self enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+	[self cw_eachConcurrentlyWithBlock:^(id object, NSUInteger index, BOOL *stop) {
 		if (block(object)) {
 			foundObject = object;
 			*stop = YES;
