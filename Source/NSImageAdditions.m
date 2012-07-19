@@ -40,10 +40,9 @@ THE SOFTWARE.
 -(NSImage *)cw_imageResizedToSize:(CGSize)size 
 		 withInterpolationQuality:(CGInterpolationQuality)quality
 {
-	NSRect currentRect = NSMakeRect(0.0f, 0.0f, self.size.height, self.size.height);
-	CGImageRef image = [self CGImageForProposedRect:&currentRect
-											context:[NSGraphicsContext currentContext]
-											  hints:nil];
+	CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)[self TIFFRepresentation], NULL);
+	CGImageRef image = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
+	
 	CGRect rect = { CGPointZero, size };
 	
 	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
