@@ -51,6 +51,8 @@ THE SOFTWARE.
 												 kCGImageAlphaPremultipliedLast);
 	if (context == NULL) {
 		CWDebugLog(@"ERROR: Received NULL CGContextRef");
+		CFRelease(imageSource);
+		CGImageRelease(image);
 		return nil;
 	}
 	
@@ -62,6 +64,8 @@ THE SOFTWARE.
 	
 	CGImageRelease(cgImage);
 	CGContextRelease(context);
+	CFRelease(imageSource);
+	CGImageRelease(image);
 	
 	return nsimage;
 }
