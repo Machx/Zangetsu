@@ -74,3 +74,4 @@
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "NSImageAdditions.h"
+#import "NSURLAdditions.h"

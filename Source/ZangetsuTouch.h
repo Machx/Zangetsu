@@ -65,6 +65,7 @@
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "UIImageAdditions.h"
+#import "NSURLAdditions.h"
 
 /**
  What will never work on iOS
