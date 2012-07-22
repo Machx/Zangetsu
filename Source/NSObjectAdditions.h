@@ -65,4 +65,6 @@
 
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue;
 
+-(void)cw_ARCPerformSelector:(SEL)selector;
+
 @end
