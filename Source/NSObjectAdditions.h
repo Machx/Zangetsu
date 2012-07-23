@@ -63,8 +63,20 @@
  */
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onQueue:(NSOperationQueue *)queue;
 
+/**
+ Creates a NSInvocation operation with the receiver as the target and the passed in selector and
+ adds the operation to the passed in dispatch_queue_t.
+ */
 -(void)cw_performSelector:(SEL)selector withObject:(id)obj onGCDQueue:(dispatch_queue_t)queue;
 
+/**
+ Calls -performSelector but directs clang to ignore a potential leak
+ 
+ This tells clang to ignore a potential leak when calling -performSelector
+ just for the duration of this one call.
+ 
+ @param selector the selector to be called.
+ */
 -(void)cw_ARCPerformSelector:(SEL)selector;
 
 @end
