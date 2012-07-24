@@ -34,7 +34,6 @@
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id value;
 @property(nonatomic, retain) NSMutableSet *children;
--(CWTrieNode *)nodeForCharacter:(NSString *)chr;
 @end
 
 @implementation CWTrieNode
@@ -68,24 +67,6 @@
     return self;
 }
 
--(CWTrieNode *)nodeForCharacter:(NSString *)chr
-{
-	if((!chr) || (![chr cw_isNotEmptyString])) {
-		CWDebugLog(@"Nil or Empty String in trying to lookup Node for Char");
-		return nil;
-	}
-	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
-	__block CWTrieNode *node = nil;
-	[self.children cw_each:^(id obj, BOOL *stop) {
-		CWTrieNode *aNode = (CWTrieNode *)obj;
-		if ([aNode.key isEqualToString:aChar]) {
-			node = aNode;
-			*stop = YES;
-		}
-	}];
-	return node;
-}
-
 -(NSString *)description
 {
 	NSString *debugDescription = [NSString stringWithFormat:@"CWTrieNode (\nKey: '%@'\nValue: %@\nChildren: %@\n)",
@@ -97,6 +78,7 @@
 
 @interface CWTrie ()
 @property(nonatomic, retain) CWTrieNode *rootNode;
++(CWTrieNode *)nodeForCharacter:(NSString *)chr inNode:(CWTrieNode *)aNode;
 @end
 
 @implementation CWTrie
@@ -121,6 +103,26 @@
 	return description;
 }
 
++(CWTrieNode *)nodeForCharacter:(NSString *)chr 
+						 inNode:(CWTrieNode *)aNode
+{
+	if ((chr == nil) || (![chr cw_isNotEmptyString])) {
+		CWDebugLog(@"Nil or Empty String in trying to lookup Node for Char");
+		return nil;
+	}
+	
+	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
+	CWTrieNode *node = [aNode.children cw_findWithBlock:^BOOL(id obj) {
+		CWTrieNode *lookupNode = (CWTrieNode *)obj;
+		if ([lookupNode.key isEqualToString:aChar]) {
+			return YES;
+		}
+		return NO;
+	}];
+	
+	return node;
+}
+
 -(id)objectValueForKey:(NSString *)aKey
 {
 	if((!aKey) || (![aKey cw_isNotEmptyString])) {
@@ -133,7 +135,7 @@
 	
 	while (*key) {
 		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];
-		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
+		CWTrieNode *node = [CWTrie nodeForCharacter:aChar inNode:currentNode];
 		if (node) {
 			currentNode = node;
 			key++;
@@ -158,7 +160,7 @@
 	
 	while (*key) {
 		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];
-		CWTrieNode *node = [currentNode nodeForCharacter:aChar];
+		CWTrieNode *node = [CWTrie nodeForCharacter:aChar inNode:currentNode];
 		if (node) {
 			currentNode = node;
 		} else {
