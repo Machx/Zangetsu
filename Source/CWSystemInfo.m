@@ -45,9 +45,9 @@
     Gestalt(gestaltSystemVersionMinor, &versMin);
     Gestalt(gestaltSystemVersionBugFix, &versBugFix);
 	
-	return @{	@(versMaj) : kCWSystemMajorVersion,
-				@(versMin) : kCWSystemMinorVersion,
-				@(versBugFix) : kCWSystemBugFixVersion };
+	return @{	kCWSystemMajorVersion : @(versMaj),
+				kCWSystemMinorVersion : @(versMin),
+				kCWSystemBugFixVersion : @(versBugFix) };
 }
 
 
