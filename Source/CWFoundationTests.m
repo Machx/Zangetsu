@@ -56,7 +56,7 @@
     NSString *noString = CWBOOLString(NO);
 	CWAssertEqualsStrings(noString, @"NO");
 	
-	NSString *str = [[NSString alloc] initWithString:@"Yes"];
+	NSString *str = @"Yes";
 	NSString *str2 = CWBOOLString([str boolValue]);
 	CWAssertEqualsStrings(str2, @"YES");
 	

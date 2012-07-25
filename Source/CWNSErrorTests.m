@@ -43,7 +43,7 @@
 {	
 	NSError *error1 = CWCreateError(@"com.something.something",101, @"Some Message");
 	
-	NSError *error2 = [NSError errorWithDomain:@"com.something.something" code:101 userInfo:NSDICT(@"Some Message",NSLocalizedDescriptionKey)];
+	NSError *error2 = [NSError errorWithDomain:@"com.something.something" code:101 userInfo:@{ NSLocalizedDescriptionKey : @"Some Message" }];
 	
 	STAssertTrue([error1 code] == [error2 code], @"Error 1 and 2 codes should be the same");
 	CWAssertEqualsStrings(error1.domain, error2.domain);

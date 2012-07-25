@@ -42,7 +42,7 @@
 	}];
 	
 	[operation setCompletionBlock:^{
-		result = [NSString stringWithString:@"Obey Hypnotoad!"];
+		result = @"Obey Hypnotoad!";
 	}];
 	
 	[queue addOperation:operation];

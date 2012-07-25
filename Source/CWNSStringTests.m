@@ -54,7 +54,7 @@
 
 -(void)testURLEscaping
 {	
-	NSString *urlCharsString = [NSString stringWithString:@"@!*'()[];:&=+$,/?%#"];
+	NSString *urlCharsString = @"@!*'()[];:&=+$,/?%#";
 	
 	NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
 	
@@ -75,7 +75,7 @@
 
 -(void)testEnumerateSubStrings
 {    
-    NSString *string  = [[NSString alloc] initWithString:@"This\nis\na\nstring\nwith\nmany\nlines."];
+    NSString *string  = @"This\nis\na\nstring\nwith\nmany\nlines.";
     
     __block int32_t count = 0;
     

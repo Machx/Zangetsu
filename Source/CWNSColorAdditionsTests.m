@@ -17,7 +17,7 @@
 	
 	CGColorRef colorB = [colorA cw_CGColor];
 	
-	int numberOfComponents = CGColorGetNumberOfComponents(colorB);
+	int numberOfComponents = (int)CGColorGetNumberOfComponents(colorB);
 	STAssertTrue(numberOfComponents == 4,@"");
 	
 	const CGFloat *components = CGColorGetComponents(colorB);
