@@ -29,10 +29,6 @@
 #define Z_HOST_OS_IS_MAC_OS_X !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 
 //MARK: General Functions
-
-#define NSDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
-#define NSARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
-#define NSBOOL(_X_) [NSNumber numberWithBool:(_X_)]
 #define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
 #define NSCOLOR(r,g,b,a) [NSColor colorWithCalibratedRed:r green:g blue:b alpha:a]
