@@ -53,7 +53,7 @@
 	const unsigned char *dataBuffer = [self bytes];
 	
 	for (NSUInteger i = 0; i < [self length]; ++i) {
-		[stringBuffer appendFormat:@"%02X ",(NSUInteger)dataBuffer[i]];
+		[stringBuffer appendFormat:@"%02X ",(unsigned int)dataBuffer[i]];
 	}
 	if (stringBuffer) {
 		return stringBuffer;
