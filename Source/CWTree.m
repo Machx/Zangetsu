@@ -35,11 +35,6 @@
 
 @implementation CWTreeNode
 
-@synthesize value = _value;
-@synthesize children = _children;
-@synthesize parent = _parent;
-@synthesize allowsDuplicates = _allowsDuplicates;
-
 /**
  Initializes and creates a new CWTreenode Object
  
@@ -152,8 +147,6 @@
 @end
 
 @implementation CWTree
-
-@synthesize rootNode = _rootNode;
 
 -(id)initWithRootNodeValue:(id)value
 {

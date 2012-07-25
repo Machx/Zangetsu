@@ -37,9 +37,6 @@
 
 @implementation CWQueue
 
-@synthesize queue = _queue;
-@synthesize storageQueue = _storageQueue;
-
 /**
  Note on the usage of dispatch_barrier_sync(_storageQueue, ^{ });
  these are synchronization points. Anytime a "batch operation" ie

@@ -46,14 +46,6 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 @implementation CWURLRequest
 
-@synthesize urlHost = _urlHost;
-@synthesize httpAuthorizationHeader = _httpAuthorizationHeader;
-@synthesize instanceConnection = _instanceConnection;
-@synthesize connectionIsFinished = _connectionIsFinished;
-@synthesize receivedData = _receivedData;
-@synthesize connectionResponse = _connectionResponse;
-@synthesize connectionError = _connectionError;
-
 /**
  Designated Initializer
  */

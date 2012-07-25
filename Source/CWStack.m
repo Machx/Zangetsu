@@ -36,9 +36,6 @@
 
 @implementation CWStack
 
-@synthesize stack = _stack;
-@synthesize queue = _queue;
-
 /**
  Initializes an empty stack
  

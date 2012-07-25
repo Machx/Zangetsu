@@ -52,16 +52,6 @@
 
 @implementation CWTask
 
-@synthesize executable = _executable;
-@synthesize arguments = _arguments;
-@synthesize directoryPath = _directoryPath;
-@synthesize successCode = _successCode;
-@synthesize completionBlock = _completionBlock;
-@synthesize taskHasRun = _taskHasRun;
-@synthesize inAsynchronous = _inAsynchronous;
-@synthesize cwTask = _cwTask;
-@synthesize pipe = _pipe;
-
 //MARK: -
 //MARK: Public API
 

@@ -31,10 +31,6 @@
 
 @implementation CWCoreDataCenter
 
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
 +(CWCoreDataCenter *)defaultCenter {	
 	static CWCoreDataCenter *center = nil;
 	static dispatch_once_t pred;

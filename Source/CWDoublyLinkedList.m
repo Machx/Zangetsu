@@ -37,10 +37,6 @@ THE SOFTWARE.
 
 @implementation CWDoublyLinkedListNode
 
-@synthesize data = _data;
-@synthesize next = _next;
-@synthesize prev = _prev;
-
 - (id)init
 {
     self = [super init];
@@ -68,10 +64,6 @@ THE SOFTWARE.
 @end
 
 @implementation CWDoublyLinkedList
-
-@synthesize count = _count;
-@synthesize head = _head;
-@synthesize tail = _tail;
 
 - (id)init
 {

@@ -35,8 +35,6 @@
 
 @implementation CWSerialBlockOperation
 
-@synthesize operationBlock = _operationBlock;
-
 - (id)init
 {
     self = [super init];
@@ -60,8 +58,6 @@
 @end
 
 @implementation CWSerialBlockQueue
-
-@synthesize queue = _queue;
 
 - (id)init
 {

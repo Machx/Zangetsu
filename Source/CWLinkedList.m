@@ -37,9 +37,6 @@ THE SOFTWARE.
 
 @implementation CWLinkedListNode
 
-@synthesize next = _next;
-@synthesize data = _data;
-
 - (id)init
 {
     self = [super init];
@@ -60,10 +57,6 @@ THE SOFTWARE.
 @end
 
 @implementation CWLinkedList
-
-@synthesize head = _head;
-@synthesize tail = _tail;
-@synthesize count = _count;
 
 - (id)init
 {

@@ -35,9 +35,6 @@
 
 @implementation CWBlockOperation
 
-@synthesize operationBlock = _operationBlock;
-@synthesize completionBlock = _completionBlock;
-
 -(id)initWithBlock:(dispatch_block_t)block
 {
 	self = [super init];
@@ -65,9 +62,6 @@
 @end
 
 @implementation CWBlockQueue
-
-@synthesize queue = _queue;
-@synthesize label = _label;
 
 -(id)initWithQueueType:(CWBlockQueueTargetType)type 
 			concurrent:(BOOL)concurrent 

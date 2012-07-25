@@ -38,10 +38,6 @@
 
 @implementation CWTrieNode
 
-@synthesize key = _key;
-@synthesize value = _value;
-@synthesize children = _children;
-
 /**
  This should be the designated initializer 99.99% of the time
  */
@@ -82,9 +78,6 @@
 @end
 
 @implementation CWTrie
-
-@synthesize rootNode = _rootNode;
-@synthesize caseSensitive = _caseSensitive;
 
 - (id)init
 {
