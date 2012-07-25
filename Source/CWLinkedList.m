@@ -213,7 +213,7 @@ THE SOFTWARE.
 {	
 	NSException *exception = [NSException exceptionWithName:kCWLinkedListInvalidRangeException
 													 reason:@"Index out of bounds"
-												   userInfo:NSDICT([NSNumber numberWithInt:index],kCWIndexKey)];
+												   userInfo:@{ @(index) : kCWIndexKey }];
 	@throw exception;
 }
 

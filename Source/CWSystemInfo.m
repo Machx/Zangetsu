@@ -44,10 +44,10 @@
     Gestalt(gestaltSystemVersionMajor, &versMaj);
     Gestalt(gestaltSystemVersionMinor, &versMin);
     Gestalt(gestaltSystemVersionBugFix, &versBugFix);
-
-    return NSDICT([NSNumber numberWithLong:versMaj],    kCWSystemMajorVersion,
-                  [NSNumber numberWithLong:versMin],    kCWSystemMinorVersion,
-                  [NSNumber numberWithLong:versBugFix], kCWSystemBugFixVersion);
+	
+	return @{	@(versMaj) : kCWSystemMajorVersion,
+				@(versMin) : kCWSystemMinorVersion,
+				@(versBugFix) : kCWSystemBugFixVersion };
 }
 
 
