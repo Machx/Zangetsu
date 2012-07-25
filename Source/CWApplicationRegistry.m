@@ -35,15 +35,16 @@
 
 +(BOOL)applicationIsRunning:(NSString *)appName
 {
-	__block BOOL isRunning = NO;
+	BOOL isRunning = NO;
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 	
-	[applications cw_eachConcurrentlyWithBlock:^(id obj, NSUInteger index, BOOL *stop) {
+	isRunning = [applications cw_isObjectInArrayWithBlock:^BOOL(id obj) {
 		if ([[obj localizedName] isEqualToString:appName]) {
-			isRunning = YES;
-			*stop = YES;
+			return YES;
 		}
+		return NO;
 	}];
+	
 	return isRunning;
 }
 
