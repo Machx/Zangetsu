@@ -39,43 +39,6 @@
     // Set-up code here.
 }
 
--(void)testDictionaryMacro
-{
-    const NSString *value1 = @"I'll be in the dome of understanding";
-    const NSString *key1 = @"aKey";
-    
-    NSDictionary *dict1 = NSDICT(value1,key1);
-    NSDictionary *dict2 = [NSDictionary dictionaryWithObject:value1 forKey:key1];
-    
-	STAssertEqualObjects(dict1, dict2, @"Dictionaries should be the same if created correctly");
-}
-
--(void)testArrayMacro
-{
-    const NSString *value1 = @"Fry";
-    const NSString *value2 = @"Bender";
-    const NSString *value3 = @"Leela";
-    
-    NSArray *array1 = NSARRAY(value1,value2,value3);
-    NSArray *array2 = [NSArray arrayWithObjects:value1,value2,value3, nil];
-    
-	STAssertEqualObjects(array1, array2, @"Arrays should be equal if created correctly");
-}
-
--(void)testBoolMacro
-{
-    NSNumber *bool1 = NSBOOL(YES);
-    BOOL bool2 = YES;
-    
-	STAssertEquals([bool1 boolValue], bool2, @"BOOL values should be the same");
-    
-    NSNumber *bool3 = NSBOOL(NO);
-    BOOL bool4 = NO;
-    
-    STAssertEquals([bool3 boolValue], bool4, @"BOOL values should be the same");
-    STAssertFalse([bool3 boolValue] == [bool1 boolValue], @"bools formed from NSNumber should have different values");
-}
-
 -(void)testSetMacro
 {
     const NSString *q1 = @"All Hail Hypnotoad!";
