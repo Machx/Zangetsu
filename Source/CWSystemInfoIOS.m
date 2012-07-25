@@ -84,32 +84,32 @@
 {
 	NSString *machineString = [CWSystemInfoIOS hardwareModelString];
 	
-	NSDictionary *hardwareDict = [NSDictionary dictionaryWithObjectsAndKeys:
-								  // iPhone ===================================
-								  @"iPhone",                      @"iPhone1,1",
-								  @"iPhone 3G",                   @"iPhone1,2",
-								  @"iPhone 3GS",                  @"iPhone2,1",
-								  @"iPhone 4",                    @"iPhone3,1",
-								  @"iPhone 4 (Verizon)",          @"iPhone3,3",
-								  @"iPhone 4S",                   @"iPhone4,1",
-								  // iPod Touch ===============================
-								  @"iPod Touch (1st Generation)", @"iPod1,1",
-								  @"iPod Touch (2nd Generation)", @"iPod2,1",
-								  @"iPod Touch (3rd Generation)", @"iPod3,1",
-								  @"iPod Touch (4th Generation)", @"iPod4,1",
-								  // iPad =====================================
-								  @"iPad",                        @"iPad1,1",
-								  @"iPad 2 (WiFi)",               @"iPad2,1",
-								  @"iPad 2 (GSM)",                @"iPad2,2",
-								  @"iPad 2 (CDMA)",               @"iPad2,3",
-								  @"iPad 2",                      @"iPad2,4",
-								  @"iPad 3 (WiFi)",               @"iPad3,1",
-								  @"iPad 3 (4G)",                 @"iPad3,2",
-								  @"iPad 3 (4G)",                 @"iPad3,3",
-								  // iOS Simulator ============================
-								  @"iOS Simulator",               @"i386",
-								  @"iOS Simulator",               @"x86_64",
-								  nil];
+	NSDictionary *hardwareDictionary = @{
+	// iPhone ===================================
+	@"iPhone1,1" : @"iPhone",
+	@"iPhone1,2" : @"iPhone 3G",
+	@"iPhone2,1" : @"iPhone 3GS",
+	@"iPhone3,1" : @"iPhone 4",
+	@"iPhone3,3" : @"iPhone 4 (Verizon)",
+	@"iPhone4,1" : @"iPhone 4S",
+	// iPod Touch ===============================
+	@"iPod1,1"   : @"iPod Touch (1st Generation)",
+	@"iPod2,1"   : @"iPod Touch (2nd Generation)",
+	@"iPod3,1"   : @"iPod Touch (3rd Generation)",
+	@"iPod4,1"   : @"iPod Touch (4th Generation)",
+	// iPad =====================================
+	@"iPad1,1"   : @"iPad",
+	@"iPad2,1"   : @"iPad 2 (WiFi)",
+	@"iPad2,2"   : @"iPad 2 (GSM)",
+	@"iPad2,3"   : @"iPad 2 (CDMA)",
+	@"iPad2,4"   : @"iPad 2",
+	@"iPad3,1"   : @"iPad 3 (WiFi)",
+	@"iPad3,2"   : @"iPad 3 (4G)",
+	@"iPad3,3"   : @"iPad 3 (4G)",
+	// iOS Simulator ============================
+	@"i386"      : @"iOS Simulator",
+	@"x86_64"    : @"iOS Simulator"
+	};
 	
 	NSString *hardwareString = [hardwareDict objectForKey:machineString];
 	
