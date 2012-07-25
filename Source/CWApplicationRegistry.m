@@ -58,6 +58,7 @@
 		
 		if ([[app localizedName] isEqualToString:appName]) {
 			pid = [app processIdentifier];
+			*stop = YES;
 		}
 	}];
 	return pid;
@@ -72,6 +73,7 @@
 		
 		if ([[app localizedName] isEqualToString:appName]) {
 			bundleIdentifier = [app bundleIdentifier];
+			*stop = YES;
 		}
 	}];
 	return bundleIdentifier;
@@ -86,6 +88,7 @@
 		
 		if ([[app localizedName] isEqualToString:appName]) {
 			appInstance = app;
+			*stop = YES;
 		}
 	}];
     return appInstance;
@@ -101,6 +104,7 @@
 		
 		if ([[app localizedName] isEqualToString:appName]) {
 			appIcon = [app icon];
+			*stop = YES;
 		}
 	}];
     
