@@ -41,8 +41,8 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
     NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
     va_end(args);
 
-    NSDictionary * _errorDictionary = NSDICT(completeErrorMessage, NSLocalizedDescriptionKey);
-
+	NSDictionary *_errorDictionary = @{ NSLocalizedDescriptionKey : completeErrorMessage };
+	
     return [NSError errorWithDomain:_domain
                                code:errorCode
                            userInfo:_errorDictionary];
