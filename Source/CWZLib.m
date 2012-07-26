@@ -52,7 +52,7 @@
     if (error) { CWZLIBCLEANUP(); return nil; }
     
 	data = SecTransformExecute(encoder, &error);
-    if (error) { CWZLIBCLEANUP(); return nil; }
+    if (error) { CWZLIBCLEANUP(); CFRelease(data); return nil; }
     
 	CFRelease(encoder);
 	CFRelease(inputData);
@@ -82,7 +82,7 @@
     if (error) { CWZLIBCLEANUP(); return nil; }
     
     decodedData = SecTransformExecute(decoder, &error);
-    if (error) { CWZLIBCLEANUP(); return nil; }
+    if (error) { CWZLIBCLEANUP(); CFRelease(decodedData); return nil; }
     
 	CFRelease(inputData);
 	CFRelease(decoder);

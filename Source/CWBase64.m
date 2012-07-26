@@ -59,6 +59,7 @@
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData encoding:NSUTF8StringEncoding];
 	CFRelease(data);
 	CFRelease(encoder);
+	CFBridgingRelease(encodedData);
     
     return base64String;
 }
@@ -87,12 +88,13 @@
     if (error) { CWBASE64CLEANUP(); return nil; }
     
     CFDataRef decodedData = SecTransformExecute(decoder, &error);
-    if (error) { CWBASE64CLEANUP(); return nil; }
+    if (error) { CWBASE64CLEANUP(); CFRelease(decodedData); return nil; }
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData encoding:NSUTF8StringEncoding];
 	CFRelease(data);
 	CFRelease(decoder);
+	CFBridgingRelease(decodedData);
     
     return base64DecodedString;
 }
