@@ -58,8 +58,8 @@ THE SOFTWARE.
 
 @interface CWDoublyLinkedList ()
 @property(readwrite, assign) NSUInteger count;
-@property(nonatomic, retain) CWDoublyLinkedListNode *head;
-@property(nonatomic, weak) CWDoublyLinkedListNode *tail;
+@property(retain) CWDoublyLinkedListNode *head;
+@property(weak) CWDoublyLinkedListNode *tail;
 -(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
 @end
 

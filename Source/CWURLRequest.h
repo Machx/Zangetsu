@@ -37,9 +37,9 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
 
 @interface CWURLRequest : NSObject
 //Properties & Connection Responses
-@property(nonatomic, readonly, retain) NSString *urlHost;
-@property(nonatomic, readonly, retain) NSURLResponse *connectionResponse;
-@property(nonatomic, readonly, retain) NSError *connectionError;
+@property(readonly, retain) NSString *urlHost;
+@property(readonly, retain) NSURLResponse *connectionResponse;
+@property(readonly, retain) NSError *connectionError;
 //API
 
 /**

@@ -30,7 +30,7 @@
 #import "CWSerialBlockQueue.h"
 
 @interface CWSerialBlockOperation()
-@property(nonatomic,copy) dispatch_block_t operationBlock;
+@property(copy) dispatch_block_t operationBlock;
 @end
 
 @implementation CWSerialBlockOperation
@@ -54,7 +54,7 @@
 @end
 
 @interface CWSerialBlockQueue()
-@property(nonatomic, assign) dispatch_queue_t queue;
+@property(assign) dispatch_queue_t queue;
 @end
 
 @implementation CWSerialBlockQueue

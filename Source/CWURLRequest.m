@@ -33,14 +33,14 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 @interface CWURLRequest() <NSURLConnectionDelegate>
 //Public Readonly rewritten
-@property(nonatomic, readwrite, retain) NSString *urlHost;
-@property(nonatomic, readwrite, retain) NSURLResponse *connectionResponse;
-@property(nonatomic, readwrite, retain) NSError *connectionError;
+@property(readwrite, retain) NSString *urlHost;
+@property(readwrite, retain) NSURLResponse *connectionResponse;
+@property(readwrite, retain) NSError *connectionError;
 //Private only
-@property(nonatomic, retain) NSString *httpAuthorizationHeader;
-@property(nonatomic, retain) NSURLConnection *instanceConnection;
-@property(nonatomic, retain) NSMutableData *receivedData;
-@property(nonatomic, assign) BOOL connectionIsFinished;
+@property(retain) NSString *httpAuthorizationHeader;
+@property(retain) NSURLConnection *instanceConnection;
+@property(retain) NSMutableData *receivedData;
+@property(assign) BOOL connectionIsFinished;
 -(NSMutableURLRequest *)_createInternalURLRequest;
 @end
 

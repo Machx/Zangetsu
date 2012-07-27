@@ -41,9 +41,9 @@
 
 @interface CWCoreDataCenter : NSObject
 +(CWCoreDataCenter *)defaultCenter;
-@property(nonatomic,assign) NSManagedObjectModel *managedObjectModel;
-@property(nonatomic,assign) NSManagedObjectContext *managedObjectContext;
-@property(nonatomic,assign) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property(assign) NSManagedObjectModel *managedObjectModel;
+@property(assign) NSManagedObjectContext *managedObjectContext;
+@property(assign) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 /**
  So you can create Core Data centers
  */

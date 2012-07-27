@@ -31,15 +31,15 @@
 
 @interface CWTask ()
 // Publicly declared
-@property (nonatomic, readwrite, retain) NSString * executable;
-@property (nonatomic, readwrite, retain) NSArray * arguments;
-@property (nonatomic, readwrite, retain) NSString * directoryPath;
-@property (nonatomic, readwrite, assign) NSInteger successCode;
+@property (readwrite, retain) NSString * executable;
+@property (readwrite, retain) NSArray * arguments;
+@property (readwrite, retain) NSString * directoryPath;
+@property (readwrite, assign) NSInteger successCode;
 // Privately Declared
-@property (nonatomic, readwrite, assign) BOOL taskHasRun;
-@property (nonatomic, readwrite, assign) BOOL inAsynchronous;
-@property (nonatomic, readwrite, retain) NSPipe * pipe;
-@property (nonatomic, readwrite, retain) NSTask * cwTask;
+@property (readwrite, assign) BOOL taskHasRun;
+@property (readwrite, assign) BOOL inAsynchronous;
+@property (readwrite, retain) NSPipe * pipe;
+@property (readwrite, retain) NSTask * cwTask;
 // Private Methods
 - (void) _configureTask;
 - (BOOL) _validateTask:(NSError **)error;

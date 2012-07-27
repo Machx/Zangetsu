@@ -50,12 +50,12 @@ static const NSInteger kCWTaskNotLaunched =           -1729;
 @interface CWTask : NSObject
 
 //public readonly vars
-@property(nonatomic, readonly, retain) NSString *executable;
-@property(nonatomic, readonly, retain) NSString *directoryPath;
-@property(nonatomic, readonly, assign) NSInteger successCode;
-@property(nonatomic, readonly, retain) NSArray *arguments;
+@property(readonly, retain) NSString *executable;
+@property(readonly, retain) NSString *directoryPath;
+@property(readonly, assign) NSInteger successCode;
+@property(readonly, retain) NSArray *arguments;
 //public read/write vars
-@property(nonatomic, copy) TaskCompletionBlock completionBlock;
+@property(copy) TaskCompletionBlock completionBlock;
 
 //public api
 

@@ -31,9 +31,9 @@
 
 @interface CWTrieNode : NSObject
 - (id)initWithKey:(NSString *)nodeKey;
-@property(nonatomic, retain) NSString *key;
-@property(nonatomic, retain) id value;
-@property(nonatomic, retain) NSMutableSet *children;
+@property(retain) NSString *key;
+@property(retain) id value;
+@property(retain) NSMutableSet *children;
 @end
 
 @implementation CWTrieNode
@@ -72,8 +72,8 @@
 
 @end
 
-@interface CWTrie ()
-@property(nonatomic, retain) CWTrieNode *rootNode;
+@interface CWTrie()
+@property(retain) CWTrieNode *rootNode;
 +(CWTrieNode *)nodeForCharacter:(NSString *)chr inNode:(CWTrieNode *)aNode;
 @end
 

@@ -31,8 +31,8 @@ THE SOFTWARE.
 #import "CWLinkedList.h"
 
 @interface CWLinkedListNode : NSObject
-@property(nonatomic, retain) CWLinkedListNode *next;
-@property(nonatomic, retain) id data;
+@property(retain) CWLinkedListNode *next;
+@property(retain) id data;
 @end
 
 @implementation CWLinkedListNode
@@ -51,8 +51,8 @@ THE SOFTWARE.
 
 @interface CWLinkedList ()
 @property(readwrite,assign) NSUInteger count;
-@property(nonatomic,retain) CWLinkedListNode *head;
-@property(nonatomic,weak) CWLinkedListNode *tail;
+@property(retain) CWLinkedListNode *head;
+@property(weak) CWLinkedListNode *tail;
 -(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index;
 @end
 

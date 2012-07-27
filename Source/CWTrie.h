@@ -36,7 +36,7 @@
  
  By default Tries are case sensitive.
  */
-@property(nonatomic,assign) BOOL caseSensitive;
+@property(assign) BOOL caseSensitive;
 
 /**
  Returns the object value for a given key

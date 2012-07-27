@@ -30,7 +30,7 @@
 #import "CWTree.h"
 
 @interface CWTreeNode()
-@property(nonatomic, readwrite, retain) NSMutableArray *children;
+@property(readwrite, retain) NSMutableArray *children;
 @end
 
 @implementation CWTreeNode

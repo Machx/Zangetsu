@@ -34,22 +34,22 @@
 /**
  Node value
  */
-@property(nonatomic, retain) id value;
+@property(retain) id value;
 
 /**
  Parent Object which is also a CWTreeNode
  */
-@property(nonatomic, weak) id parent;
+@property(weak) id parent;
 
 /**
  Children Node Objects
  */
-@property(nonatomic, readonly, retain) NSMutableArray *children;
+@property(readonly, retain) NSMutableArray *children;
 
 /**
  Key to set if a node allows duplicate children
  */
-@property(nonatomic, assign) BOOL allowsDuplicates;
+@property(assign) BOOL allowsDuplicates;
 
 /**
  Initializes and create a new CWTreeNode Object initialized with aValue
@@ -125,7 +125,7 @@
 /**
  Pointer to the root node of the tree of nodes
  */
-@property(nonatomic, retain) CWTreeNode *rootNode;
+@property(retain) CWTreeNode *rootNode;
 
 /**
  Enumerates a CWTree object object on a level by level basis.
