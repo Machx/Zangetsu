@@ -100,7 +100,7 @@
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
 {
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 	
 	if (objects && ([objects count] > 0)) {
 		dispatch_async(_storageQueue, ^{
@@ -108,7 +108,7 @@
 		});
 	}
 	
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 }
 
 -(void)removeAllObjects
@@ -123,7 +123,7 @@
 -(BOOL)containsObject:(id)object
 {
 	__block BOOL contains = NO;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		contains = [self.queue containsObject:object];
 	});
 	return contains;
@@ -132,7 +132,7 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block
 {
 	__block BOOL contains = NO;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		for (id obj in self.queue) {
 			if (block(obj)) {
 				contains = YES;
@@ -166,7 +166,7 @@
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
 {
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 	
 	if([self.queue count] == 0) { return; }
 	
@@ -180,13 +180,13 @@
 		}
 	} while ((shouldStop == NO) && (dequeuedObject));
 	
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 }
 
 -(void)dequeueToObject:(id)targetObject 
 			 withBlock:(void(^)(id object))block 
 {
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 	
 	if (![self.queue containsObject:targetObject]) {
 		return;
@@ -198,7 +198,7 @@
 		}
 	}];
 	
-	dispatch_barrier_sync(_storageQueue, ^{ });
+	dispatch_sync(_storageQueue, ^{ });
 }
 
 //MARK: Debug Information
@@ -212,7 +212,7 @@
 {
 	//dispatch_barrier_sync(_storageQueue, ^{ });
 	__block NSString *queueDescription = nil;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		queueDescription = [self.queue description];
 	});
 	return queueDescription;
@@ -221,7 +221,7 @@
 -(NSUInteger)count
 {
 	__block NSUInteger queueCount = 0;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		queueCount = [self.queue count];
 	});
 	return queueCount;
@@ -230,7 +230,7 @@
 -(BOOL)isEmpty
 {
 	__block BOOL queueEmpty = YES;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		queueEmpty = ([self.queue count] == 0);
 	});
 	return queueEmpty;
@@ -241,7 +241,7 @@
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue
 {
 	__block BOOL isEqual;
-	dispatch_barrier_sync(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
 		isEqual = [self.queue isEqual:aQueue.queue];
 	});
 	return isEqual;
