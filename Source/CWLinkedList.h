@@ -29,10 +29,6 @@ THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
 
-//Exception Keys
-static NSString * const kCWLinkedListInvalidRangeException = @"CWLinkedListInvalidRangeException";
-static NSString * const kCWIndexKey = @"IndexArg";
-
 @interface CWLinkedList : NSObject
 
 /**

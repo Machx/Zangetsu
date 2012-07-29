@@ -203,11 +203,9 @@ THE SOFTWARE.
 }
 
 -(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index
-{	
-	NSException *exception = [NSException exceptionWithName:kCWLinkedListInvalidRangeException
-													 reason:@"Index out of bounds"
-												   userInfo:@{ kCWIndexKey : @(index) }];
-	@throw exception;
+{
+	[NSException raise:NSRangeException
+				format:@"[%@] Index %lu is out of bounds",NSStringFromClass([self class]),index];
 }
 
 @end
