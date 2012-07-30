@@ -49,6 +49,14 @@
 
 #define CWDebugLocationString() [NSString stringWithFormat:@"%s[%i]",__PRETTY_FUNCTION__,__LINE__]
 
+#define CWConditionalLog(cond,args...) \
+do { \
+	if((cond)){ \
+		NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]); \
+	} \
+} while(0);
+	
+
 //MARK: -
 //MARK: GCD Macros
 
