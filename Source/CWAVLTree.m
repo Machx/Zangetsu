@@ -29,6 +29,10 @@
 
 #import "CWAVLTree.h"
 
+//=============================================
+// AVLNode
+//=============================================
+
 @interface AVLNode : NSObject
 @property(retain) id var;
 @property(retain) AVLNode *left;
@@ -108,7 +112,7 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	NSInteger leftCount = _levelCountOfDescendentsFromNode(node.left);
 	NSInteger rightCount = _levelCountOfDescendentsFromNode(node.right);
 	NSInteger maxSubDepth = MAX(leftCount, rightCount);
-	return 1 + maxSubDepth;
+	return ++maxSubDepth; //account for the node we are currently on...
 }
 
 -(void)addObject:(id)object
@@ -148,14 +152,12 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	AVLNode *node = [[AVLNode alloc] init];
 	node.var = object;
 	node.parent = currentParentNode;
-	
 	if (direction == kRightDirection) {
 		currentParentNode.right = node;
-		currentNode = node;
 	} else if (direction == kLeftDirection) {
 		currentParentNode.left = node;
-		currentNode = node;
 	}
+	currentNode = node;
 	
 	while (currentNode) {
 		NSInteger weight = weightOfNode(currentNode);
