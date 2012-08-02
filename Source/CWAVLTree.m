@@ -70,6 +70,7 @@ NSComparisonResult compareObjects(id obj1,id obj2, NSComparator comparitor);
 @interface CWAVLTree()
 @property(readwrite, assign) NSUInteger count;
 @property(retain) AVLNode *root;
+-(void)balanceNode:(AVLNode *)node withWeight:(NSInteger)weight;
 @end
 
 @implementation CWAVLTree
@@ -113,6 +114,29 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	NSInteger rightCount = _levelCountOfDescendentsFromNode(node.right);
 	NSInteger maxSubDepth = MAX(leftCount,rightCount);
 	return ++maxSubDepth; //account for the node we are currently on...
+}
+
+-(void)balanceNode:(AVLNode *)node withWeight:(NSInteger)weight
+{
+	NSParameterAssert(node);
+	assert((weight >= 2) || (weight <= -2));
+	if (weight >= 2) {
+		//balance left node
+		NSInteger leftWeight = weightOfNode(node.left);
+		if (leftWeight == 1) {
+			// single right rotation...
+		} else if(leftWeight == -1) {
+			// left rotation then a right rotation...
+		}
+	} else if(weight <= -2) {
+		//balance right node
+		NSInteger rightWeight = weightOfNode(node.right);
+		if (rightWeight == 1) {
+			// single left rotation
+		} else if(rightWeight == -1) {
+			// right rotation and a left rotation...
+		}
+	}
 }
 
 -(void)addObject:(id)object
@@ -163,7 +187,8 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 		NSInteger weight = weightOfNode(currentNode);
 		NSLog(@"Node Weight: %li",weight);
 		if (weight > 1 || weight < -1) {
-			//need to balance tree
+			[self balanceNode:currentNode
+				   withWeight:weight];
 		}
 		currentNode = currentNode.parent;
 	}
