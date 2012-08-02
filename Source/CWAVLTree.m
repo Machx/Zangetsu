@@ -111,7 +111,7 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	if(node == nil) { return 0; }
 	NSInteger leftCount = _levelCountOfDescendentsFromNode(node.left);
 	NSInteger rightCount = _levelCountOfDescendentsFromNode(node.right);
-	NSInteger maxSubDepth = MAX(leftCount, rightCount);
+	NSInteger maxSubDepth = MAX(leftCount,rightCount);
 	return ++maxSubDepth; //account for the node we are currently on...
 }
 
@@ -161,7 +161,7 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	
 	while (currentNode) {
 		NSInteger weight = weightOfNode(currentNode);
-		NSLog(@"Node Weight: %lu",weight);
+		NSLog(@"Node Weight: %li",weight);
 		if (weight > 1 || weight < -1) {
 			//need to balance tree
 		}
