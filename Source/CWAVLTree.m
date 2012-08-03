@@ -63,9 +63,16 @@
 #define kLeftDirection 1
 #define kRightDirection -1
 
+//Node Information
 NSInteger _levelCountOfDescendentsFromNode(AVLNode *node);
 NSInteger weightOfNode(AVLNode *node);
 NSComparisonResult compareObjects(id obj1,id obj2, NSComparator comparitor);
+
+//Rotations
+AVLNode *rotateLeft(AVLNode *node);
+AVLNode *rotateRight(AVLNode *node);
+AVLNode *doubleRotateLeftRight(AVLNode *node);
+AVLNode *doubleRotateRightLeft(AVLNode *node);
 
 @interface CWAVLTree()
 @property(readwrite, assign) NSUInteger count;
@@ -116,10 +123,39 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 	return ++maxSubDepth; //account for the node we are currently on...
 }
 
+AVLNode *rotateLeft(AVLNode *node)
+{
+	AVLNode *aNode = node.right;
+	node.right = aNode.left;
+	aNode.left = node;
+	return aNode;
+}
+
+AVLNode *rotateRight(AVLNode *node)
+{
+	AVLNode *aNode = node.left;
+	node.left = aNode.right;
+	aNode.right = node;
+	return aNode;
+}
+
+AVLNode *doubleRotateLeftRight(AVLNode *node)
+{
+	node.left = rotateLeft(node.left);
+	AVLNode *aNode = rotateRight(node);
+	return aNode;
+}
+
+AVLNode *doubleRotateRightLeft(AVLNode *node)
+{
+	node.right = rotateRight(node.left);
+	AVLNode *aNode = rotateLeft(node);
+	return aNode;
+}
+
 -(void)balanceNode:(AVLNode *)node withWeight:(NSInteger)weight
 {
 	NSParameterAssert(node);
-	assert((weight >= 2) || (weight <= -2));
 	if (weight >= 2) {
 		//balance left node
 		NSInteger leftWeight = weightOfNode(node.left);
