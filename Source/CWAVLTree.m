@@ -160,17 +160,17 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 		//balance left node
 		NSInteger leftWeight = weightOfNode(node.left);
 		if (leftWeight == 1) {
-			// single right rotation...
+			rotateRight(node);
 		} else if(leftWeight == -1) {
-			// left rotation then a right rotation...
+			doubleRotateLeftRight(node);
 		}
 	} else if(weight <= -2) {
 		//balance right node
 		NSInteger rightWeight = weightOfNode(node.right);
 		if (rightWeight == 1) {
-			// single left rotation
+			rotateLeft(node);
 		} else if(rightWeight == -1) {
-			// right rotation and a left rotation...
+			doubleRotateRightLeft(node);
 		}
 	}
 }
