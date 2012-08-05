@@ -125,6 +125,7 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 
 AVLNode *rotateLeft(AVLNode *node)
 {
+	NSLog(@"rotating left");
 	AVLNode *aNode = node.right;
 	node.right = aNode.left;
 	aNode.left = node;
@@ -133,6 +134,7 @@ AVLNode *rotateLeft(AVLNode *node)
 
 AVLNode *rotateRight(AVLNode *node)
 {
+	NSLog(@"rotating right");
 	AVLNode *aNode = node.left;
 	node.left = aNode.right;
 	aNode.right = node;
@@ -141,6 +143,7 @@ AVLNode *rotateRight(AVLNode *node)
 
 AVLNode *doubleRotateLeftRight(AVLNode *node)
 {
+	NSLog(@"rotating left right");
 	node.left = rotateLeft(node.left);
 	AVLNode *aNode = rotateRight(node);
 	return aNode;
@@ -148,6 +151,7 @@ AVLNode *doubleRotateLeftRight(AVLNode *node)
 
 AVLNode *doubleRotateRightLeft(AVLNode *node)
 {
+	NSLog(@"rotating right left");
 	node.right = rotateRight(node.left);
 	AVLNode *aNode = rotateLeft(node);
 	return aNode;

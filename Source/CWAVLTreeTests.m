@@ -28,6 +28,7 @@
 	[tree addObject:@8];
 	[tree addObject:@2];
 	[tree addObject:@9];
+	[tree addObject:@10];
 }
 
 @end
