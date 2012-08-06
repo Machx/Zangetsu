@@ -246,4 +246,25 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 	return NO;
 }
 
+-(void)enumerateNodesInTreeWithBlock:(void(^)(id obj))block
+{
+	if (!self.root) { return; }
+	
+	AVLNode *node = self.root;
+	CWStack *stack = [[CWStack alloc] init];
+	[stack push:node];
+	
+	while (![stack isEmpty]) {
+		AVLNode *aNode = [stack pop];
+		block(aNode.var);
+		
+		if (aNode.left) {
+			[stack push:aNode.left];
+		}
+		if (aNode.right) {
+			[stack push:aNode.right];
+		}
+	}
+}
+
 @end
