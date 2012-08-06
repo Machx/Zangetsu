@@ -87,6 +87,7 @@ AVLNode *doubleRotateRightLeft(AVLNode *node);
     self = [super init];
     if (self) {
 		_root = nil;
+		_count = 0;
 		_comparitor = [^(id obj1, id obj2){
 			return [obj1 compare:obj2];
 		} copy];
@@ -222,6 +223,7 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 		currentParentNode.left = node;
 	}
 	currentNode = node;
+	self.count++;
 	
 	while (currentNode) {
 		NSInteger weight = weightOfNode(currentNode);

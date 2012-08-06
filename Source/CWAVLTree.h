@@ -46,4 +46,6 @@
 
 -(BOOL)objectIsInTree:(id)object;
 
+-(void)enumerateNodesInTreeWithBlock:(void(^)(id obj))block;
+
 @end
