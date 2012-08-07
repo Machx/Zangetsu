@@ -151,4 +151,19 @@
 	STAssertNotNil(exceptionMessage,nil);
 }
 
+-(void)testLinkedListCountWithInsertAtIndex
+{
+	CWLinkedList *list = [[CWLinkedList alloc] init];
+	
+	[list addObject:@5];
+	[list addObject:@50];
+	[list addObject:@15];
+	
+	STAssertTrue(list.count == 3, nil);
+	
+	[list insertObject:@18 atIndex:1];
+	
+	STAssertTrue(list.count == 4, nil);
+}
+
 @end
