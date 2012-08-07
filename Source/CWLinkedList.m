@@ -104,6 +104,7 @@ THE SOFTWARE.
 		node.data = anObject;
 		node.next = self.head;
 		self.head = node;
+		self.count++;
 	} else {
 		NSUInteger current = 0;
 		CWLinkedListNode *node = self.head;
@@ -115,6 +116,7 @@ THE SOFTWARE.
 		insertNode.data = anObject;
 		insertNode.next = node.next;
 		node.next = insertNode;
+		self.count++;
 	}
 }
 
