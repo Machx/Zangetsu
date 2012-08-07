@@ -238,11 +238,12 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 
 -(void)removeObject:(id)object
 {
-	
+	CWDebugLog(@"Not Implemented yet");
 }
 
 -(BOOL)objectIsInTree:(id)object
 {
+	CWDebugLog(@"Not Implemented yet");
 	return NO;
 }
 
