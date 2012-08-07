@@ -251,18 +251,18 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 	if (!self.root) { return; }
 	
 	AVLNode *node = self.root;
-	CWStack *stack = [[CWStack alloc] init];
-	[stack push:node];
+	CWQueue *stack = [[CWQueue alloc] init];
+	[stack enqueue:node];
 	
 	while (![stack isEmpty]) {
-		AVLNode *aNode = [stack pop];
+		AVLNode *aNode = [stack dequeue];
 		block(aNode.var);
 		
 		if (aNode.left) {
-			[stack push:aNode.left];
+			[stack enqueue:aNode.left];
 		}
 		if (aNode.right) {
-			[stack push:aNode.right];
+			[stack enqueue:aNode.right];
 		}
 	}
 }
