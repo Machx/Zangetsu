@@ -163,4 +163,40 @@
 	STAssertNil([rangedList objectAtIndex:2],@"shouldn't have a valid object here");
 }
 
+-(void)testCountIncrementsUsingInsertObjectAtIndex
+{
+	CWDoublyLinkedList *list = [CWDoublyLinkedList new];
+	
+	[list addObject:@5];
+	[list addObject:@10];
+	[list addObject:@42];
+	
+	STAssertTrue([list count] == 3, nil);
+	
+	[list insertObject:@9 atIndex:1];
+	
+	STAssertTrue([list count] == 4, nil);
+	
+	[list enumerateObjectsWithBlock:^(id object, NSUInteger index, BOOL *stop) {
+		NSNumber *num = (NSNumber *)object;
+		switch (index) {
+			case 0:
+				STAssertTrue([num integerValue] == 5, nil);
+				break;
+			case 1:
+				STAssertTrue([num integerValue] == 9, nil);
+				break;
+			case 2:
+				STAssertTrue([num integerValue] == 10, nil);
+				break;
+			case 3:
+				STAssertTrue([num integerValue] == 42, nil);
+				break;
+			default:
+				STFail(@"List is hitting an index out of bounds");
+				break;
+		}
+	}];
+}
+
 @end
