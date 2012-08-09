@@ -79,9 +79,10 @@
 	dispatch_sync(_queue, ^{
 		if ([self.stack count] == 0) {
 			object = nil;
+		} else {
+			object = [self.stack lastObject];
+			[self.stack removeLastObject];
 		}
-		object = [self.stack lastObject];
-		[self.stack removeLastObject];
 	});
 	return object;
 }
