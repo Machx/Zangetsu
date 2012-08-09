@@ -88,9 +88,7 @@
 }
 
 -(NSArray *)popToObject:(id)object
-{
-	dispatch_sync(_queue, ^{ });
-	
+{	
 	__block NSMutableArray *poppedObjects = nil;
 	if (![self.stack containsObject:object]) { return nil; }
 	
@@ -100,34 +98,26 @@
 		[poppedObjects addObject:currentObject];
 	}
 	
-	dispatch_sync(_queue, ^{ });
 	return poppedObjects;
 }
 
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block
-{
-	dispatch_sync(_queue, ^{ });
-	
+{	
 	if (![self.stack containsObject:object]) { return; }
 	
 	while (![self.topOfStackObject isEqual:object]) {
 		id obj = [self pop];
 		block(obj);
 	}
-	
-	dispatch_sync(_queue, ^{ });
 }
 
 -(NSArray *)popToBottomOfStack
 {
-	dispatch_sync(_queue, ^{ });
-	
 	__block NSArray *poppedObjects = nil;
 	
 	if(self.stack.count == 0) { return nil; }
 	poppedObjects = [self popToObject:[[self stack] cw_firstObject]];
 	
-	dispatch_sync(_queue, ^{ });
 	return poppedObjects;
 }
 
