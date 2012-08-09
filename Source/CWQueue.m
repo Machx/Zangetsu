@@ -92,7 +92,7 @@
 -(void)enqueue:(id)object
 {
 	if (object) {
-		dispatch_async(_storageQueue, ^{
+		dispatch_sync(_storageQueue, ^{
 			[self.queue addObject:object];
 		});
 	}
@@ -100,15 +100,11 @@
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects
 {
-	dispatch_sync(_storageQueue, ^{ });
-	
-	if (objects && ([objects count] > 0)) {
-		dispatch_async(_storageQueue, ^{
+	dispatch_sync(_storageQueue, ^{
+		if (objects && ([objects count] > 0)) {
 			[self.queue addObjectsFromArray:objects];
-		});
-	}
-	
-	dispatch_sync(_storageQueue, ^{ });
+		}
+	});
 }
 
 -(void)removeAllObjects
@@ -165,9 +161,7 @@
 }
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
-{
-	dispatch_sync(_storageQueue, ^{ });
-	
+{	
 	if([self.queue count] == 0) { return; }
 	
 	BOOL shouldStop = NO;
@@ -179,15 +173,11 @@
 			block(dequeuedObject,&shouldStop);
 		}
 	} while ((shouldStop == NO) && (dequeuedObject));
-	
-	dispatch_sync(_storageQueue, ^{ });
 }
 
 -(void)dequeueToObject:(id)targetObject 
 			 withBlock:(void(^)(id object))block 
 {
-	dispatch_sync(_storageQueue, ^{ });
-	
 	if (![self.queue containsObject:targetObject]) {
 		return;
 	}
@@ -197,8 +187,6 @@
 			*stop = YES;
 		}
 	}];
-	
-	dispatch_sync(_storageQueue, ^{ });
 }
 
 //MARK: Debug Information
@@ -210,7 +198,6 @@
  */
 -(NSString *)description
 {
-	//dispatch_barrier_sync(_storageQueue, ^{ });
 	__block NSString *queueDescription = nil;
 	dispatch_sync(_storageQueue, ^{
 		queueDescription = [self.queue description];
