@@ -195,6 +195,8 @@
 		B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
+		B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */; };
 		B8DC9A94134A6DF200501FC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DC9A93134A6DF200501FC1 /* libz.dylib */; };
 		B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -397,6 +399,8 @@
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilitiesTests.h; path = Source/CWDateUtilitiesTests.h; sourceTree = "<group>"; };
 		B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilitiesTests.m; path = Source/CWDateUtilitiesTests.m; sourceTree = "<group>"; };
+		B8D2618715D5571100F087C4 /* CWBlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockTimer.h; path = Source/CWBlockTimer.h; sourceTree = "<group>"; };
+		B8D2618815D5571100F087C4 /* CWBlockTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockTimer.m; path = Source/CWBlockTimer.m; sourceTree = "<group>"; };
 		B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8DC9A93134A6DF200501FC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSystemInfoIOS.h; path = Source/CWSystemInfoIOS.h; sourceTree = "<group>"; };
@@ -522,6 +526,8 @@
 				B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
 				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
+				B8D2618715D5571100F087C4 /* CWBlockTimer.h */,
+				B8D2618815D5571100F087C4 /* CWBlockTimer.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
 				B84995C5128396E1001206E1 /* CWDateUtilities.m */,
 				B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */,
@@ -874,6 +880,7 @@
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
 				B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */,
+				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,6 +1146,7 @@
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
 				B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */,
+				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
