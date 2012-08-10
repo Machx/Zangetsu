@@ -3,10 +3,10 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 6/16/11.
-//  Copyright 2011. All rights reserved.
+//  Copyright 2012. All rights reserved.
 //
  
- Copyright (c) 2011 Colin Wheeler
+ Copyright (c) 2012 Colin Wheeler
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

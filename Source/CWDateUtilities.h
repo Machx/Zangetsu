@@ -5,7 +5,7 @@
 //  Copyright 2010. All rights reserved.
 //
  
- Copyright (c) 2011 Colin Wheeler
+ Copyright (c) 2012 Colin Wheeler
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

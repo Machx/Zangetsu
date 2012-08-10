@@ -3,7 +3,7 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 9/30/11.
-//  Copyright 2011. All rights reserved.
+//  Copyright 2012. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

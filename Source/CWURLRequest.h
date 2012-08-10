@@ -3,13 +3,13 @@
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 12/13/11.
-//  Copyright (c) 2011. All rights reserved.
+//  Copyright (c) 2012. All rights reserved.
 //
  
  originally wrote on 8/11/2001
  replaced CWURLRequest with code from CWSimpleURLRequest on 12/20/2011
 
-Copyright (c) 2011 Colin Wheeler
+Copyright (c) 2012 Colin Wheeler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
