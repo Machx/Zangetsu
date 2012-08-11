@@ -68,4 +68,9 @@
 	}
 }
 
+-(void)dealloc
+{
+	[_internalTimer invalidate];
+}
+
 @end
