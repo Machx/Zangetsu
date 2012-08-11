@@ -31,7 +31,7 @@
 
 @interface CWBlockTimer ()
 @property(copy) dispatch_block_t invocationBlock;
-@property(retain) NSTimer *internalTimer;
+@property(readwrite,retain) NSTimer *internalTimer;
 -(void)_invokeBlock:(NSTimer *)timer;
 @end
 

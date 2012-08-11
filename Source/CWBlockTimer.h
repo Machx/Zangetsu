@@ -31,6 +31,8 @@
 
 @interface CWBlockTimer : NSObject
 
+@property(readonly,retain) NSTimer *internalTimer;
+
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
 								 block:(dispatch_block_t)block
 							   repeats:(BOOL)repeats;
