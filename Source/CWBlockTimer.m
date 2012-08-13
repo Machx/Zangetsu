@@ -62,6 +62,21 @@
 	timer.invocationBlock = block;
 	return timer;
 }
+
+-(void)fire
+{
+	[self _invokeBlock:self.internalTimer];
+}
+
+-(void)invalidate
+{
+	[self.internalTimer invalidate];
+}
+
+-(BOOL)isValid
+{
+	return [self.internalTimer isValid];
+}
 				   
 -(void)_invokeBlock:(NSTimer *)timer
 {

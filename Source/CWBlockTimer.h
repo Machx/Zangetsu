@@ -33,6 +33,12 @@
 
 @property(readonly,retain) NSTimer *internalTimer;
 
+-(void)fire;
+
+-(void)invalidate;
+
+-(BOOL)isValid;
+
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
 								 block:(dispatch_block_t)block
 							   repeats:(BOOL)repeats;
