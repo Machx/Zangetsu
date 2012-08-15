@@ -243,8 +243,30 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 
 -(BOOL)objectIsInTree:(id)object
 {
-	CWDebugLog(@"Not Implemented yet");
-	return NO;
+	if(!self.root) { return NO; }
+	
+	if ([self.root.var isEqual:object]) {
+		return YES;
+	}
+	
+	AVLNode *currentNode = self.root;
+	BOOL result = NO;
+	while (currentNode) {
+		NSComparisonResult compare = compareObjects(currentNode.var, object, self.comparitor);
+		
+		if(compare == NSOrderedAscending){
+			currentNode = currentNode.right;
+			continue;
+		} else if(compare == NSOrderedDescending) {
+			currentNode = currentNode.left;
+			continue;
+		} else if (compare == NSOrderedSame) {
+			result = YES;
+			break;
+		}
+	}
+	
+	return result;
 }
 
 -(void)enumerateNodesInTreeWithBlock:(void(^)(id obj))block
