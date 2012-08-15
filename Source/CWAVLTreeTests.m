@@ -31,4 +31,20 @@
 	[tree addObject:@10];
 }
 
+-(void)testObjectIsInTree
+{
+	CWAVLTree *tree = [[CWAVLTree alloc] init];
+	
+	[tree addObject:@42];
+	[tree addObject:@50];
+	[tree addObject:@8];
+	
+	STAssertTrue([tree objectIsInTree:@42], nil);
+	STAssertTrue([tree objectIsInTree:@50], nil);
+	STAssertTrue([tree objectIsInTree:@8], nil);
+	STAssertFalse([tree objectIsInTree:@100], nil);
+	STAssertFalse([tree objectIsInTree:@1], nil);
+	STAssertFalse([tree objectIsInTree:@1000], nil);
+}
+
 @end
