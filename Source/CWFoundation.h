@@ -72,3 +72,17 @@ const char *CWUUIDCStringPrependedWithString(NSString *preString);
  @param block the block to be executed on the next runloop on the main thread
  */
 void CWNextRunLoop(dispatch_block_t block);
+
+/**
+ Inspired by println in Go, Prints all the variables (space seperated) to NSLog()
+ 
+ @args all the variables you want printed to NSLog()
+ */
+void CWPrintLine(NSArray *args);
+
+/**
+ Inspired by println in Go, Prints all the variables (space seperated) with a newline appended to printf()
+ 
+ @args all the variables you want printed to printf()
+ */
+void CWPrintfLine(NSArray *args);

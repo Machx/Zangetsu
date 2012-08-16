@@ -60,3 +60,25 @@ void CWNextRunLoop(dispatch_block_t block)
 {
 	dispatch_async(dispatch_get_main_queue(), block);
 }
+
+void CWPrintLine(NSArray *args)
+{
+	NSMutableString *printString = [[NSMutableString alloc] init];
+	
+	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		[printString appendFormat:@"%@ ",obj];
+	}];
+	
+	NSLog(@"%@",printString);
+}
+
+void CWPrintfLine(NSArray *args)
+{
+	NSMutableString *printString = [[NSMutableString alloc] init];
+	
+	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		[printString appendFormat:@"%@ ",obj];
+	}];
+	
+	printf("%s\n",[printString UTF8String]);
+}
