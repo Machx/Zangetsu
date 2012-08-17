@@ -8,6 +8,7 @@
 
 #import "CWAVLTreeTests.h"
 #import "CWAVLTree.h"
+#import "CWFoundation.h"
 
 @implementation CWAVLTreeTests
 
@@ -29,6 +30,10 @@
 	[tree addObject:@2];
 	[tree addObject:@9];
 	[tree addObject:@10];
+	
+	[tree enumerateNodesInTreeWithBlock:^(id obj) {
+		CWPrintfLine(@[obj]);
+	}];
 }
 
 -(void)testObjectIsInTree
