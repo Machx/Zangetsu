@@ -29,6 +29,8 @@
 
 #import "CWAVLTree.h"
 
+#define AVLDebug 1
+
 //=============================================
 // AVLNode
 //=============================================
@@ -126,7 +128,7 @@ NSInteger _levelCountOfDescendentsFromNode(AVLNode *node)
 
 AVLNode *rotateLeft(AVLNode *node)
 {
-	NSLog(@"rotating left");
+	CWConditionalLog(AVLDebug, @"rotating left");
 	AVLNode *aNode = node.right;
 	node.right = aNode.left;
 	aNode.left = node;
@@ -135,7 +137,7 @@ AVLNode *rotateLeft(AVLNode *node)
 
 AVLNode *rotateRight(AVLNode *node)
 {
-	NSLog(@"rotating right");
+	CWConditionalLog(AVLDebug, @"rotating right");
 	AVLNode *aNode = node.left;
 	node.left = aNode.right;
 	aNode.right = node;
@@ -144,7 +146,7 @@ AVLNode *rotateRight(AVLNode *node)
 
 AVLNode *doubleRotateLeftRight(AVLNode *node)
 {
-	NSLog(@"rotating left right");
+	CWConditionalLog(AVLDebug, @"rotating left right");
 	node.left = rotateLeft(node.left);
 	AVLNode *aNode = rotateRight(node);
 	return aNode;
@@ -152,7 +154,7 @@ AVLNode *doubleRotateLeftRight(AVLNode *node)
 
 AVLNode *doubleRotateRightLeft(AVLNode *node)
 {
-	NSLog(@"rotating right left");
+	CWConditionalLog(AVLDebug, @"rotating right left");
 	node.right = rotateRight(node.left);
 	AVLNode *aNode = rotateLeft(node);
 	return aNode;
@@ -182,12 +184,12 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 
 -(void)addObject:(id)object
 {
-	NSLog(@"Inserting %@...",object);
+	CWConditionalLog(AVLDebug, @"Inserting %@...",object);
 	if (self.root == nil) {
 		AVLNode *node = [[AVLNode alloc] init];
 		node.var = object;
 		self.root = node;
-		NSLog(@"Set Root ");
+		CWConditionalLog(AVLDebug, @"Set Root ");
 		return;
 	}
 	
@@ -200,16 +202,16 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 			currentParentNode = currentNode;
 			currentNode = currentNode.right;
 			direction = kRightDirection;
-			NSLog(@"Going Right -->>");
+			CWConditionalLog(AVLDebug, @"Going Right -->>");
 			continue;
 		} else if (compare == NSOrderedDescending) {
 			currentParentNode = currentNode;
 			currentNode = currentNode.left;
 			direction = kLeftDirection;
-			NSLog(@"<<-- Going Left");
+			CWConditionalLog(AVLDebug, @"<<-- Going Left");
 			continue;
 		} else if (compare == NSOrderedSame) {
-			NSLog(@"Items are the same");
+			CWConditionalLog(AVLDebug, @"Items are the same");
 			return;
 		}
 	}
@@ -227,7 +229,7 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 	
 	while (currentNode) {
 		NSInteger weight = weightOfNode(currentNode);
-		NSLog(@"Node Weight: %li",weight);
+		CWConditionalLog(AVLDebug,@"Node Weight: %li",weight);
 		if (weight > 1 || weight < -1) {
 			[self balanceNode:currentNode
 				   withWeight:weight];
