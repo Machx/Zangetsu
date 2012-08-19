@@ -69,10 +69,12 @@ typedef enum {
  Returns a global CWBlockQueue object initialized to point at the GCD Main Queue
  */
 +(CWBlockQueue *)mainQueue;
+
 /**
  Returns a global CWBlockQueue object initialized to point at the GCD Default Priority Queue
  */
 +(CWBlockQueue *)globalDefaultQueue;
+
 /**
  Creates a Temporary Queue that you can use to throw a block on for execution in the background
  
@@ -81,6 +83,7 @@ typedef enum {
  unique label like 'com.Zangetsu.CWBlockQueue_TemporaryQueue_1A5F...' etc. 
  */
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block;
+
 /**
  Initializes a CWBlockQueue object with a queue type and label as applicable
  
@@ -89,6 +92,7 @@ typedef enum {
  @param label a NSString thats used for the queue label if a private queue type is specified
  */
 -(id)initWithQueueType:(CWBlockQueueTargetType)type concurrent:(BOOL)concurrent label:(NSString *)qLabel;
+
 /**
  Initialzes a CWBlockQueue object with a specified gcd queue
  
@@ -96,61 +100,74 @@ typedef enum {
  @return an initialized CWBlockQueue object
  */
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue;
+
 /**
  The internal queue that CWBlockQueue dispatches to
  */
 @property(readonly,assign) dispatch_queue_t queue;
+
 /**
  A NSString with the label you have given to the queue if initialized with one,
  otherwise it contains a automatically generated one.
  */
 @property(readonly,retain) NSString *label;
+
 /**
  Sets the CWBlockQueues gcd queue to target another gcd queue.
  
  If nil is passed in this method does nothing.
  */
 -(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue;
+
 /**
  Sets the CWBlockQueues gcd queue to target another gcd queue.
  
  If NULL is passed in this method does nothing.
  */
 -(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue;
+
 /**
  Adds an operation object & asynchronously executes it
  
  The operations operation block is executed first then the completion block (if its set)
  */
 -(void)addOperation:(CWBlockOperation *)operation;
+
 /**
  Asnchronously executes a block on the gcd queue
  */
 -(void)addoperationWithBlock:(dispatch_block_t)block;
+
 /**
  Synchronously executes a CWBlockOperation object
  
  The operations operation block is executed first then the completion block (if its set)
  */
 -(void)addSynchronousOperation:(CWBlockOperation *)operation;
+
 /**
  Synchronously executes a block on the gcd queue
  */
 -(void)addSynchronousOperationWithBlock:(dispatch_block_t)block;
+
 /**
  Asynchonously waits for all already queued blocks to finish executing and then executes the passed in block
  */
 -(void)executeWhenQueueIsFinished:(dispatch_block_t)block;
+
 /**
  Synchronously waits for the queue to finish executing before continuing execution
  */
 -(void)waitForQueueToFinish;
+
 /**
  Suspends the execution of further blocks on the queue
  */
 -(void)suspend;
+
 /**
  Resumes the execution of blocks on the queue
  */
 -(void)resume;
+
 @end
