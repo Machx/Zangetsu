@@ -149,8 +149,20 @@
  */
 -(BOOL)isEqualToTree:(CWTree *)tree;
 
+/**
+ Returns a BOOL indicating if the object argument is contained in the receiver
+ 
+ @param object the object you wish to see if its contained in the receiver
+ @return a BOOL variable with YES if object is contained in the block or NO otherwise
+ */
 -(BOOL)containsObject:(id)object;
 
+/**
+ Returns a BOOL indicating if the object argument is contained in the receiver
+ 
+ @param block a block that returns a bool indicating if the object passed in is a match to object
+ @return a BOOL variable with YES if object is contained in the block or NO otherwise
+ */
 -(BOOL)containsObjectWithBlock:(BOOL(^)(id obj))block;
 
 @end
