@@ -48,8 +48,8 @@
 }
 
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
-								 block:(dispatch_block_t)block
 							   repeats:(BOOL)repeats
+								 block:(dispatch_block_t)block
 {
 	NSParameterAssert(block);
 	

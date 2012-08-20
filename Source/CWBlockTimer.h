@@ -64,7 +64,7 @@
  @return a new CWBlockTimer instance configured with the parameters passed in
  */
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
-								 block:(dispatch_block_t)block
-							   repeats:(BOOL)repeats;
+							   repeats:(BOOL)repeats
+								 block:(dispatch_block_t)block;
 
 @end
