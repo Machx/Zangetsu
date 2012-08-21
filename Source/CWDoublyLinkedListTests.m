@@ -76,6 +76,21 @@
 	CWAssertEqualsStrings([list objectAtIndex:1	], @"Hypnotoad");
 }
 
+-(void)testSwapObjects
+{
+	CWDoublyLinkedList *list = [CWDoublyLinkedList new];
+	[list addObject:@"World!"];
+	[list addObject:@"Hello"];
+	
+	CWAssertEqualsStrings([list objectAtIndex:0], @"World!");
+	CWAssertEqualsStrings([list objectAtIndex:1], @"Hello");
+	
+	[list swapObjectAtIndex:0 withIndex:1];
+	
+	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
+	CWAssertEqualsStrings([list objectAtIndex:1], @"World!");
+}
+
 -(void)testEnumerateObjects
 {
 	CWDoublyLinkedList *list = [[CWDoublyLinkedList alloc] init];
