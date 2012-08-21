@@ -210,6 +210,36 @@ THE SOFTWARE.
 	return node.data;
 }
 
+-(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
+{
+	if((index1 > (self.count - 1)) ||
+	   (index2 > (self.count - 1))) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 142,
+									   @"Index beyond list bounds");
+		CWLogError(error);
+	}
+	
+	NSUInteger currentIndex1 = 0;
+	CWDoublyLinkedListNode *node1 = self.head;
+	
+	while (currentIndex1 != index1) {
+		node1 = node1.next;
+		currentIndex1++;
+	}
+	
+	NSUInteger currentIndex2 = 0;
+	CWDoublyLinkedListNode *node2 = self.head;
+	
+	while (currentIndex2 != index2) {
+		node1 = node2.next;
+		currentIndex2++;
+	}
+	
+	id temp = node1.data;
+	node1.data = node2.data;
+	node2.data = temp;
+}
+
 -(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range
 {
 	if ((range.length + range.location) > ( self.count - 1)) {

@@ -102,6 +102,8 @@
  */
 -(id)objectAtIndex:(NSUInteger)index;
 
+-(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
+
 /**
  Returns a new CWDoublyLinkedList with the range given in the receiver
  
