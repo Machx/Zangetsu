@@ -71,6 +71,8 @@ THE SOFTWARE.
     self = [super init];
     if (self) {
         _count = 0;
+		_head = nil;
+		_tail = nil;
     }
     return self;
 }
