@@ -61,6 +61,7 @@ THE SOFTWARE.
 @property(retain) CWDoublyLinkedListNode *head;
 @property(weak) CWDoublyLinkedListNode *tail;
 -(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
+-(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index;
 @end
 
 @implementation CWDoublyLinkedList
@@ -192,8 +193,9 @@ THE SOFTWARE.
 	}
 }
 
--(id)objectAtIndex:(NSUInteger)index
+-(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index
 {
+	//TODO: make this set a NSError by ref?
 	if (index > (self.count - 1)) {
 		CWDebugLog(@"ERROR: Index beyond list bounds");
 		return nil;
@@ -207,6 +209,9 @@ THE SOFTWARE.
 		currentIndex++;
 	}
 	
+	return node;
+}
+
 	return node.data;
 }
 
