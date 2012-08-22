@@ -209,8 +209,8 @@ THE SOFTWARE.
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
-	if((index1 > (self.count - 1)) ||
-	   (index2 > (self.count - 1))) {
+	NSUInteger maxIndex = (self.count - 1);
+	if((index1 > maxIndex) || (index2 > maxIndex)) {
 		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 142,
 									   @"Index beyond list bounds");
 		CWLogError(error);
