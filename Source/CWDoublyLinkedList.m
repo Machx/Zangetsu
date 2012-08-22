@@ -120,13 +120,7 @@ THE SOFTWARE.
 		return;
 	}
 	
-	NSUInteger currentIndex = 0;
-	CWDoublyLinkedListNode *node = self.head;
-	
-	while (currentIndex != index) {
-		node = node.next;
-		currentIndex++;
-	}
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
 	
 	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
 	insertNode.data = anObject;
@@ -165,14 +159,7 @@ THE SOFTWARE.
 		return;
 	}
 	
-	CWDoublyLinkedListNode *node = self.head;
-	NSUInteger currentIndex = 0;
-	
-	while (currentIndex != index) {
-		node = node.next;
-		currentIndex++;
-	}
-	
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
 	[self _removeObjectWithNode:node];
 }
 
@@ -212,6 +199,9 @@ THE SOFTWARE.
 	return node;
 }
 
+-(id)objectAtIndex:(NSUInteger)index
+{
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
 	return node.data;
 }
 
@@ -224,21 +214,10 @@ THE SOFTWARE.
 		CWLogError(error);
 	}
 	
-	NSUInteger currentIndex1 = 0;
-	CWDoublyLinkedListNode *node1 = self.head;
+	//TODO: make the errors individual, spit out which index is out of bounds
 	
-	while (currentIndex1 != index1) {
-		node1 = node1.next;
-		currentIndex1++;
-	}
-	
-	NSUInteger currentIndex2 = 0;
-	CWDoublyLinkedListNode *node2 = self.head;
-	
-	while (currentIndex2 != index2) {
-		node1 = node2.next;
-		currentIndex2++;
-	}
+	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1];
+	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2];
 	
 	id temp = node1.data;
 	node1.data = node2.data;
