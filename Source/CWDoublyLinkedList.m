@@ -115,14 +115,13 @@ THE SOFTWARE.
 	}
 	
 	//if we can just append to the end
-	//of the array then just do it to 
-	//save time
+	//of the array then just do it to save time
 	if (index == (self.count)) {
 		[self addObject:anObject];
 		return;
 	}
 	
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
 	
 	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
 	insertNode.data = anObject;
@@ -161,7 +160,7 @@ THE SOFTWARE.
 		return;
 	}
 	
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
 	[self _removeObjectWithNode:node];
 }
 
@@ -208,23 +207,19 @@ THE SOFTWARE.
 
 -(id)objectAtIndex:(NSUInteger)index
 {
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index];
+	NSError *error;
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:&error];
+	if (!node) { CWLogError(error); }
 	return node.data;
 }
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
-	NSUInteger maxIndex = (self.count - 1);
-	if((index1 > maxIndex) || (index2 > maxIndex)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 142,
-									   @"Index beyond list bounds");
-		CWLogError(error);
-	}
-	
-	//TODO: make the errors individual, spit out which index is out of bounds
-	
-	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1];
-	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2];
+	NSError *node1Error, *node2Error;
+	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1 error:&node1Error];
+	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2 error:&node2Error];
+	if(!node1) { CWLogError(node1Error); return; }
+	if(!node2) { CWLogError(node2Error); return; }
 	
 	id temp = node1.data;
 	node1.data = node2.data;
