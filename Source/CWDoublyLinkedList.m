@@ -101,27 +101,30 @@ THE SOFTWARE.
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	if (!anObject) {
-		CWDebugLog(@"Trying to insert a nill object. Exiting...");
+	if (anObject == nil) {
+		//TODO: publicly document (and if needed change) these error #'s
+		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
+									   @"Attemtping to insert a nil object");
+		CWLogError(error);
 		return;
 	}
-	if (index > (self.count)) {
-		CWDebugLog(@"Index beyond list bounds");
-		return;
-	}
-	if (!self.head && (index != 0)) {
-		CWDebugLog(@"Trying to insert an object in a list with no objects and index > 0");
+	if ((!self.head) && (index != 0)) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 443,
+									   @"Trying to insert an object in a list with no objects and index > 0");
+		CWLogError(error);
 		return;
 	}
 	
 	//if we can just append to the end
 	//of the array then just do it to save time
-	if (index == (self.count)) {
+	if (index == self.count) {
 		[self addObject:anObject];
 		return;
 	}
 	
+	NSError *error;
 	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	if(node == nil) { CWLogError(error); return; }
 	
 	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
 	insertNode.data = anObject;
@@ -151,10 +154,6 @@ THE SOFTWARE.
 
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
-	if (index > (self.count - 1)) {
-		CWDebugLog(@"Index beyond list bounds");
-		return;
-	}
 	if (!self.head) {
 		CWDebugLog(@"Trying to delete an object in a list with no objects and index > 0");
 		return;
@@ -192,6 +191,13 @@ THE SOFTWARE.
 									index,maxCount]);
 		}
 		return nil;
+	}
+	if (self.head == nil) {
+		if (*error) {
+			*error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 445,
+								   @"Attempting to get Node at index in a list with no elements");
+			return nil;
+		}
 	}
 	
 	NSUInteger currentIndex = 0;
