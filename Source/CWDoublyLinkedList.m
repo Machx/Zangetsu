@@ -79,10 +79,7 @@ THE SOFTWARE.
 
 -(void)addObject:(id)anObject
 {
-	if(!anObject) {
-		CWDebugLog(@"Error: Trying to add a nil object to a linked list. Exiting & doing nothing...");
-		return;
-	}
+	if(!anObject) { return; }
 	
 	CWDoublyLinkedListNode *node = [[CWDoublyLinkedListNode alloc] init];
 	node.data = anObject;
@@ -165,10 +162,7 @@ THE SOFTWARE.
 
 -(void)removeObject:(id)object
 {
-	if (!self.head) {
-		CWDebugLog(@"Oops you tried to remove an object from an empty linked list");
-		return;
-	}
+	if (!self.head) { return; }
 	
 	CWDoublyLinkedListNode *node = self.head;
 	
@@ -215,7 +209,7 @@ THE SOFTWARE.
 {
 	NSError *error;
 	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:&error];
-	if (!node) { CWLogError(error); }
+	if (!node) { CWLogError(error); return nil; }
 	return node.data;
 }
 
@@ -235,7 +229,9 @@ THE SOFTWARE.
 -(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range
 {
 	if ((range.length + range.location) > ( self.count - 1)) {
-		CWDebugLog(@"Error: Range beyond bounds... Exiting now...");
+		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
+									   @"Error: Range beyond bounds... Exiting now...");
+		CWLogError(error);
 		return nil;
 	}
 	
@@ -264,10 +260,7 @@ THE SOFTWARE.
 
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block
 {
-	if (!self.head) {
-		CWDebugLog(@"Trying to enumerate object with an empty array");
-		return;
-	}
+	if (!self.head) { return; }
 	
 	CWDoublyLinkedListNode *node = self.head;
 	BOOL shouldStop = NO;
@@ -285,10 +278,7 @@ THE SOFTWARE.
 
 -(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block
 {
-	if (!self.head) {
-		CWDebugLog(@"Tryiing to enumerate an empty array.");
-		return;
-	}
+	if (!self.head) { return; }
 	
 	CWDoublyLinkedListNode *tail = self.tail;
 	BOOL shouldStop = NO;
