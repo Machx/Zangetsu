@@ -62,6 +62,7 @@ THE SOFTWARE.
 @property(weak) CWDoublyLinkedListNode *tail;
 -(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
 -(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index error:(NSError **)error;
+-(BOOL)hasInsertObjectErrorsWithObject:(id)object andIndex:(NSUInteger)index;
 @end
 
 @implementation CWDoublyLinkedList
@@ -96,19 +97,31 @@ THE SOFTWARE.
 	self.count++;
 }
 
--(void)insertObject:(id)anObject atIndex:(NSUInteger)index
+-(BOOL)hasInsertObjectErrorsWithObject:(id)object
+							  andIndex:(NSUInteger)index
 {
-	if (anObject == nil) {
+	if (object == nil) {
 		//TODO: publicly document (and if needed change) these error #'s
 		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
 									   @"Attemtping to insert a nil object");
 		CWLogError(error);
-		return;
+		return YES;
 	}
 	if ((!self.head) && (index != 0)) {
 		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 443,
 									   @"Trying to insert an object in a list with no objects and index > 0");
 		CWLogError(error);
+		return YES;
+	}
+	
+	return NO;
+}
+
+-(void)insertObject:(id)anObject atIndex:(NSUInteger)index
+{
+	//will log any errors it encounters...
+	if ([self hasInsertObjectErrorsWithObject:anObject
+									 andIndex:index]) {
 		return;
 	}
 	
