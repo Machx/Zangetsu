@@ -84,11 +84,13 @@
 	
 	CWAssertEqualsStrings([list objectAtIndex:0], @"World!");
 	CWAssertEqualsStrings([list objectAtIndex:1], @"Hello");
+	STAssertNil([list objectAtIndex:2], nil);
 	
 	[list swapObjectAtIndex:0 withIndex:1];
 	
 	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
 	CWAssertEqualsStrings([list objectAtIndex:1], @"World!");
+	STAssertNil([list objectAtIndex:2], nil);
 }
 
 -(void)testEnumerateObjects
