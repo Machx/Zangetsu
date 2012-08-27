@@ -120,13 +120,11 @@ THE SOFTWARE.
 
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
-	if(index > (self.count - 1)) {
-		if (index > (self.count - 1)) {
-			NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-										   @"Trying to retrieve an item beyond list bounds");
-			CWLogError(error);
-			return;
-		}
+	if (index > (self.count - 1)) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
+									   @"Trying to retrieve an item beyond list bounds");
+		CWLogError(error);
+		return;
 	}
 	
 	if (index == 0) {
