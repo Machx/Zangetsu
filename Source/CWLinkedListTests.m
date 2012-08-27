@@ -131,26 +131,6 @@
 	STAssertTrue(count == 2,@"incorrect count");
 }
 
--(void)testThrowExceptionForOutOfRange
-{
-	CWLinkedList *list = [[CWLinkedList alloc] init];
-	
-	NSString *exceptionMessage = nil;
-	
-	@try {
-		id object = [list objectAtIndex:50];
-		STAssertNil(object,nil);
-	}
-	@catch (NSException *exception) {
-		exceptionMessage = [exception description];
-	}
-	@finally {
-		//
-	}
-	
-	STAssertNotNil(exceptionMessage,nil);
-}
-
 -(void)testLinkedListCountWithInsertAtIndex
 {
 	CWLinkedList *list = [[CWLinkedList alloc] init];
