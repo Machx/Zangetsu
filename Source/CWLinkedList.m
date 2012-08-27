@@ -53,7 +53,6 @@ THE SOFTWARE.
 @property(readwrite,assign) NSUInteger count;
 @property(retain) CWLinkedListNode *head;
 @property(weak) CWLinkedListNode *tail;
--(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
@@ -71,10 +70,7 @@ THE SOFTWARE.
 
 -(void)addObject:(id)anObject
 {
-	if(!anObject) { 
-		CWDebugLog(@"Attempting to add nil object... exiting now");
-		return;
-	}
+	if(!anObject) { return; }
 	
 	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
 	node.data = anObject;
@@ -92,12 +88,14 @@ THE SOFTWARE.
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	if(!anObject) {
-		CWDebugLog(@"Error: attempted to add nil object");
+	if(!anObject) { return; }
+	
+	if (index > (self.count - 1)) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
+									   @"Trying to retrieve an item beyond list bounds");
+		CWLogError(error);
 		return;
 	}
-	if(index > (self.count - 1))
-		[self throwOutOfRangeExceptionWithIndex:index];
 	
 	if (index == 0) {
 		CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
@@ -122,8 +120,14 @@ THE SOFTWARE.
 
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
-	if(index > (self.count - 1))
-		[self throwOutOfRangeExceptionWithIndex:index];
+	if(index > (self.count - 1)) {
+		if (index > (self.count - 1)) {
+			NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
+										   @"Trying to retrieve an item beyond list bounds");
+			CWLogError(error);
+			return;
+		}
+	}
 	
 	if (index == 0) {
 		if (self.count > 1) {
@@ -174,8 +178,18 @@ THE SOFTWARE.
 
 -(id)objectAtIndex:(NSUInteger)index
 {
-	if (!self.head)
-		[self throwOutOfRangeExceptionWithIndex:index];
+	if (!self.head) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
+									   @"Trying to retrieve a item with an index in an empty list");
+		CWLogError(error);
+		return nil;
+	}
+	if (index > (self.count - 1)) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
+									   @"Trying to retrieve an item beyond list bounds");
+		CWLogError(error);
+		return nil;
+	}
 	
 	NSUInteger current = 0;
 	CWLinkedListNode *currentNode = self.head;
@@ -202,12 +216,6 @@ THE SOFTWARE.
 		currentNode = currentNode.next;
 		index++;
 	}
-}
-
--(void)throwOutOfRangeExceptionWithIndex:(NSUInteger)index
-{
-	[NSException raise:NSRangeException
-				format:@"[%@] Index %lu is out of bounds",NSStringFromClass([self class]),index];
 }
 
 @end
