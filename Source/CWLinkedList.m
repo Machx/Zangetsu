@@ -53,6 +53,7 @@ THE SOFTWARE.
 @property(readwrite,assign) NSUInteger count;
 @property(retain) CWLinkedListNode *head;
 @property(weak) CWLinkedListNode *tail;
+-(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
@@ -174,18 +175,26 @@ THE SOFTWARE.
 	} while ((index < max) && currentNode);
 }
 
--(id)objectAtIndex:(NSUInteger)index
+-(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index
 {
 	if (!self.head) {
 		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
 									   @"Trying to retrieve a item with an index in an empty list");
 		CWLogError(error);
-		return nil;
+		return YES;
 	}
 	if (index > (self.count - 1)) {
 		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
 									   @"Trying to retrieve an item beyond list bounds");
 		CWLogError(error);
+		return YES;
+	}
+	return NO;
+}
+
+-(id)objectAtIndex:(NSUInteger)index
+{
+	if ([self hasErrorForObjectAtIndex:index]) {
 		return nil;
 	}
 	
