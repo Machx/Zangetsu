@@ -102,6 +102,12 @@
  */
 -(id)objectAtIndex:(NSUInteger)index;
 
+/**
+ Swaps the objects at the given indexes with each other if both indexes are valid
+ 
+ @param index1 a NSUInteger index
+ @param index2 a NSUinteger index
+ */
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
 
 /**
@@ -110,6 +116,9 @@
  This method checks for a valid range. If the range is invalid then this
  method immediately exits. Otherwise it adds the node in the receiver to 
  a new list and returns that list.
+ 
+ @param a NSRange for the receiver
+ @return if the range index is valid a new CWDoublyLinkedList instance, nil otherwise
  */
 -(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range;
 
