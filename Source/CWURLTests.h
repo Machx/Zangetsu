@@ -32,7 +32,4 @@
 
 @interface CWURLAdditionTests : SenTestCase
 
--(void)testCWURL;
--(void)testCWURLV;
-
 @end

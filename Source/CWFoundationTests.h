@@ -31,6 +31,4 @@
 
 @interface CWFoundationTests : SenTestCase
 
--(void)testClassExists;
-
 @end

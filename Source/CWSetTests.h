@@ -31,9 +31,5 @@
 
 
 @interface CWSetTests : SenTestCase
--(void)testSetFindObjInSet;
--(void)testSetMapSet;
--(void)testFindAll;
--(void)testIsObjInSet;
--(void)testSelectiveMapping;
+
 @end

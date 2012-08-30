@@ -32,6 +32,4 @@
 
 @interface CWNSErrorTests : SenTestCase
 
--(void)testCreateError;
-
 @end

@@ -31,9 +31,5 @@
 
 
 @interface CWStackTests : SenTestCase
--(void)testBasicPush;
--(void)testBasicEnumeration;
--(void)testClearStack;
--(void)testBottomAndTopStackObjects;
--(void)testPopToBottomOfStack;
+
 @end
