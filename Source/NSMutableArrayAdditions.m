@@ -33,9 +33,9 @@
 
 -(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray
 {
-    for (id object in otherArray) {
-        [self addObject:[object copy]];
-    }
+	[otherArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+		[self addObject:[obj copy]];
+	}];
 }
 
 @end
