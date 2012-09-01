@@ -69,9 +69,23 @@ THE SOFTWARE.
     return self;
 }
 
+-(BOOL)hasErrorForAddObject:(id)object
+{
+	if (!object) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
+									   @"Trying to add nil object to Linked List Instance");
+		CWLogError(error);
+		return YES;
+	}
+	
+	return NO;
+}
+
 -(void)addObject:(id)anObject
 {
-	if(!anObject) { return; }
+	if ([self hasErrorForAddObject:anObject]) {
+		return;
+	}
 	
 	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
 	node.data = anObject;
@@ -87,14 +101,27 @@ THE SOFTWARE.
 	self.count++;
 }
 
--(void)insertObject:(id)anObject atIndex:(NSUInteger)index
+-(BOOL)hasErrorForInsertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	if(!anObject) { return; }
-	
+	if (!anObject) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
+									   @"Trying to add a nil object to the receiver list");
+		CWLogError(error);
+		return YES;
+	}
 	if (index > (self.count - 1)) {
 		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-									   @"Trying to retrieve an item beyond list bounds");
+									   @"Trying to insert an item beyond list bounds");
 		CWLogError(error);
+		return YES;
+	}
+	
+	return NO;
+}
+
+-(void)insertObject:(id)anObject atIndex:(NSUInteger)index
+{
+	if ([self hasErrorForInsertObject:anObject atIndex:index]) {
 		return;
 	}
 	
