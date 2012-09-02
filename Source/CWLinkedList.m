@@ -177,9 +177,29 @@ THE SOFTWARE.
 	self.count--;
 }
 
+-(BOOL)hasErrorForRemoveObject:(id)object
+{
+	if (!object) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
+									   @"passed object is nil");
+		CWLogError(error);
+		return YES;
+	}
+	if (!self.head) {
+		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
+									   @"trying to remove object in list with no objects");
+		CWLogError(error);
+		return YES;
+	}
+	return NO;
+}
+
 -(void)removeObject:(id)object
 {
-	if((!self.head) || (!object)) { return; }
+	if ([self hasErrorForRemoveObject:object]) {
+		return;
+	}
+	
 	NSUInteger index = 0;
 	NSUInteger max = (self.count - 1);
 	CWLinkedListNode *currentNode = self.head;
@@ -200,6 +220,10 @@ THE SOFTWARE.
 		currentNode = currentNode.next;
 		index++;
 	} while ((index < max) && currentNode);
+	
+	NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 404,
+								   @"Object not found in linked list");
+	CWLogError(error);
 }
 
 -(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index
