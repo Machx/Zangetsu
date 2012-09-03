@@ -72,6 +72,8 @@
 
 @end
 
+BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
+
 @interface CWTrie()
 @property(retain) CWTrieNode *rootNode;
 +(CWTrieNode *)nodeForCharacter:(NSString *)chr inNode:(CWTrieNode *)aNode;
@@ -96,11 +98,28 @@
 	return description;
 }
 
+BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
+{
+	if (character == nil) {
+		NSError *error = CWCreateError(@"com.Zagetsu.Trie", 442,
+									   @"Character to be looked up is nil");
+		CWLogError(error);
+		return YES;
+	}
+	if (![character cw_isNotEmptyString]) {
+		NSError *error = CWCreateError(@"com.Zangetsu.Trie", 443,
+									   @"Character to be looked up is an empty string");
+		CWLogError(error);
+		return YES;
+	}
+	
+	return NO;
+}
+
 +(CWTrieNode *)nodeForCharacter:(NSString *)chr 
 						 inNode:(CWTrieNode *)aNode
 {
-	if ((chr == nil) || (![chr cw_isNotEmptyString])) {
-		CWDebugLog(@"Nil or Empty String in trying to lookup Node for Char");
+	if (CWTrieNodeHasErrorForCharacter(chr)) {
 		return nil;
 	}
 	
