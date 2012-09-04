@@ -76,6 +76,9 @@ AVLNode *rotateRight(AVLNode *node);
 AVLNode *doubleRotateLeftRight(AVLNode *node);
 AVLNode *doubleRotateRightLeft(AVLNode *node);
 
+//uses the defs above for left = 1 / right = -1
+NSInteger AVLDirectionOfNodeFromParent(AVLNode *node);
+
 @interface CWAVLTree()
 @property(readwrite, assign) NSUInteger count;
 @property(retain) AVLNode *root;
@@ -158,6 +161,21 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 	node.right = rotateRight(node.left);
 	AVLNode *aNode = rotateLeft(node);
 	return aNode;
+}
+
+NSInteger AVLDirectionOfNodeFromParent(AVLNode *node)
+{
+	if(!node) { return 0; }
+	AVLNode *nodeParent = node.parent;
+	if (nodeParent) {
+		if ([nodeParent.left isEqual:node]) {
+			return kLeftDirection;
+		}
+		if ([nodeParent.right isEqual:node]) {
+			return kRightDirection;
+		}
+	}
+	return 0;
 }
 
 -(void)balanceNode:(AVLNode *)node withWeight:(NSInteger)weight
