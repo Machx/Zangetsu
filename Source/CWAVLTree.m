@@ -62,9 +62,6 @@
 // AVLTree
 //=============================================
 
-#define kLeftDirection 1
-#define kRightDirection -1
-
 //Node Information
 NSInteger _levelCountOfDescendentsFromNode(AVLNode *node);
 NSInteger weightOfNode(AVLNode *node);
@@ -76,8 +73,13 @@ AVLNode *rotateRight(AVLNode *node);
 AVLNode *doubleRotateLeftRight(AVLNode *node);
 AVLNode *doubleRotateRightLeft(AVLNode *node);
 
-//uses the defs above for left = 1 / right = -1
-NSInteger AVLDirectionOfNodeFromParent(AVLNode *node);
+typedef enum AVLNodeDirection : NSInteger {
+	kLeftDirection = 1,
+	kUndefinedDirection = 0,
+	kRightDirection = -1
+} AVLNodeDirection;
+
+AVLNodeDirection AVLDirectionOfNodeFromParent(AVLNode *node);
 
 @interface CWAVLTree()
 @property(readwrite, assign) NSUInteger count;
@@ -163,9 +165,9 @@ AVLNode *doubleRotateRightLeft(AVLNode *node)
 	return aNode;
 }
 
-NSInteger AVLDirectionOfNodeFromParent(AVLNode *node)
+AVLNodeDirection AVLDirectionOfNodeFromParent(AVLNode *node)
 {
-	if(!node) { return 0; }
+	if(!node) { return kUndefinedDirection; }
 	AVLNode *nodeParent = node.parent;
 	if (nodeParent) {
 		if ([nodeParent.left isEqual:node]) {
@@ -175,7 +177,7 @@ NSInteger AVLDirectionOfNodeFromParent(AVLNode *node)
 			return kRightDirection;
 		}
 	}
-	return 0;
+	return kUndefinedDirection;
 }
 
 -(void)balanceNode:(AVLNode *)node withWeight:(NSInteger)weight
@@ -210,7 +212,7 @@ NSInteger AVLDirectionOfNodeFromParent(AVLNode *node)
 		CWConditionalLog(AVLDebug, @"Set Root ");
 		return;
 	}
-	
+
 	AVLNode *currentNode = self.root;
 	AVLNode *currentParentNode = nil;
 	NSInteger direction = 0;
