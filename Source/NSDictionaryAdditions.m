@@ -57,8 +57,7 @@
 
 -(BOOL)cw_dictionaryContainsKey:(NSString *)key
 {
-	NSArray *keys = [self allKeys];
-	return [keys containsObject:key];
+	return [[self allKeys] containsObject:key];
 }
 
 -(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block
