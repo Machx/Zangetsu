@@ -62,7 +62,9 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
 	
 	NSMutableDictionary *_errorDictionary = [NSMutableDictionary new];
 	[_errorDictionary addEntriesFromDictionary:@{ NSLocalizedDescriptionKey : completeErrorMessage }];
-	[_errorDictionary addEntriesFromDictionary:info];
+	if (info) {
+		[_errorDictionary addEntriesFromDictionary:info];
+	}
 	
     return [NSError errorWithDomain:_domain
                                code:errorCode
