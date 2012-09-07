@@ -47,3 +47,5 @@ static NSString * const kCWErrorDomain = @"CWErrorDomain";
  * @return a NSError object with the values passed in
  */
 NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
+
+NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...);

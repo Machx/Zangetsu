@@ -47,3 +47,24 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
                                code:errorCode
                            userInfo:_errorDictionary];
 }
+
+NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...)
+{
+    NSCParameterAssert(errorMessageFormat);
+    NSCParameterAssert(errorCode);
+	
+    NSString * _domain = (domain) ? domain : kCWErrorDomain;
+	
+    va_list args;
+    va_start(args, errorMessageFormat);
+    NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
+    va_end(args);
+	
+	NSMutableDictionary *_errorDictionary = [NSMutableDictionary new];
+	[_errorDictionary addEntriesFromDictionary:@{ NSLocalizedDescriptionKey : completeErrorMessage }];
+	[_errorDictionary addEntriesFromDictionary:info];
+	
+    return [NSError errorWithDomain:_domain
+                               code:errorCode
+                           userInfo:_errorDictionary];
+}
