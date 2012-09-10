@@ -76,3 +76,4 @@
 #import "NSImageAdditions.h"
 #import "NSURLAdditions.h"
 #import "CWBlockTimer.h"
+#import "CWFixedQueue"

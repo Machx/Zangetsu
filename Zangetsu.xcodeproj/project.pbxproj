@@ -194,6 +194,10 @@
 		B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3881314C47BD000F6D2A8 /* Security.framework */; };
 		B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
+		B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */; };
+		B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
 		B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
@@ -397,6 +401,8 @@
 		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
+		B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueue.h; path = Source/CWFixedQueue.h; sourceTree = "<group>"; };
+		B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueue.m; path = Source/CWFixedQueue.m; sourceTree = "<group>"; };
 		B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilitiesTests.h; path = Source/CWDateUtilitiesTests.h; sourceTree = "<group>"; };
 		B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilitiesTests.m; path = Source/CWDateUtilitiesTests.m; sourceTree = "<group>"; };
 		B8D2618715D5571100F087C4 /* CWBlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockTimer.h; path = Source/CWBlockTimer.h; sourceTree = "<group>"; };
@@ -743,6 +749,8 @@
 				B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */,
 				B85DB08B15C81DE900E51890 /* CWAVLTree.h */,
 				B85DB08C15C81DE900E51890 /* CWAVLTree.m */,
+				B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */,
+				B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -881,6 +889,7 @@
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
 				B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
+				B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +939,7 @@
 				B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
+				B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,6 +1157,7 @@
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
 				B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
+				B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,6 +1202,7 @@
 				B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */,
 				B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
+				B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
