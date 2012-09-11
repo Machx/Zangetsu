@@ -31,9 +31,20 @@
 
 @interface CWFixedQueue()
 @property(retain) NSMutableArray *storage;
+-(void)clearExcessObjects;
 @end
 
 @implementation CWFixedQueue
+
+-(id)initWithCapacity:(NSUInteger)capacity
+{
+	self = [super init];
+	if (self) {
+		_storage = [NSMutableArray new];
+		_capacity = capacity;
+	}
+	return self;
+}
 
 - (id)init
 {
@@ -45,13 +56,31 @@
     return self;
 }
 
+-(NSUInteger)count
+{
+	return [_storage count];
+}
+
 -(void)enqueue:(id)object
 {
 	if (object) {
 		[_storage addObject:object];
-		while ([_storage count] > _capacity) {
-			[_storage removeObjectAtIndex:0];
-		}
+		[self clearExcessObjects];
+	}
+}
+
+-(void)enqueueObjectsInArray:(NSArray *)array
+{
+	if (array && ([array count] > 0)) {
+		[_storage addObjectsFromArray:array];
+		[self clearExcessObjects];
+	}
+}
+
+-(void)clearExcessObjects
+{
+	while ([_storage count] > _capacity) {
+		[_storage removeObjectAtIndex:0];
 	}
 }
 
@@ -60,6 +89,11 @@
 	id dequeuedObject = [_storage objectAtIndex:0];
 	[_storage removeObjectAtIndex:0];
 	return dequeuedObject;
+}
+
+-(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block
+{
+	[_storage enumerateObjectsUsingBlock:block];
 }
 
 @end

@@ -31,10 +31,18 @@
 
 @interface CWFixedQueue : NSObject
 
+-(id)initWithCapacity:(NSUInteger)capacity;
+
 @property(assign) NSUInteger capacity;
 
 -(void)enqueue:(id)object;
 
+-(void)enqueueObjectsInArray:(NSArray *)array;
+
 -(id)dequeue;
+
+-(NSUInteger)count;
+
+-(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end
