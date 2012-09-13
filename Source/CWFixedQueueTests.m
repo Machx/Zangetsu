@@ -53,6 +53,20 @@
 	
 	[queue enqueueObjectsInArray:@[ @"Nope",@"Everybody Watch",@"Hypnotoad" ]];
 	STAssertTrue([queue count] == 2, nil);
+	
+	[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Everybody Watch");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"enumerated past array bounds");
+				break;
+		}
+	}];
 }
 
 @end
