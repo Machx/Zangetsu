@@ -31,18 +31,62 @@
 
 @interface CWFixedQueue : NSObject
 
+/**
+ Initializes the Queue and sets the capacity property to the NSUInteger passed in
+ 
+ @param capacity a NSUInteger that limits the queue to this number of items it should contain
+ @return a new CWFixedQueue instance
+ */
 -(id)initWithCapacity:(NSUInteger)capacity;
 
+/**
+ The maximum # of items the queue should contain
+ */
 @property(assign) NSUInteger capacity;
 
+/**
+ Enqueues the object onto the queue
+ 
+ If the object is nil then this method does nothing. If enqueuing this item
+ makes the queue over capacity then the queue will remove the oldest items
+ till the queue is no longer over capacity.
+ 
+ @param object the object to be enqueued
+ */
 -(void)enqueue:(id)object;
 
+/**
+ Enqueues the objects in array onto the queue
+ 
+ If array is nil or contains 0 objects this method does nothing. Otherwise
+ this method will add the objects in array onto the queue. If enqueueing
+ these objects makes the queue over capacity then it will remove the
+ oldest items until the queue is no longer over capacity.
+ 
+ @param array the array of items to be enqueued
+ */
 -(void)enqueueObjectsInArray:(NSArray *)array;
 
+/**
+ Removes the oldest item off the queue and returns it
+ 
+ If the queue has no items this returns nil, otherwise it removes the oldest
+ item off the queue and returns it to you.
+ 
+ @return the oldest item on the queue or nil if there are no items in the queue
+ */
 -(id)dequeue;
 
+/**
+ Returns the count of items in the queue
+ 
+ @return count a NSUInteger with the number of items in the queue
+ */
 -(NSUInteger)count;
 
+/**
+ Enumerates over the queueu contents using a block
+ */
 -(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end

@@ -86,9 +86,12 @@
 
 -(id)dequeue
 {
-	id dequeuedObject = [_storage objectAtIndex:0];
-	[_storage removeObjectAtIndex:0];
-	return dequeuedObject;
+	if ([_storage count] > 0) {
+		id dequeuedObject = [_storage objectAtIndex:0];
+		[_storage removeObjectAtIndex:0];
+		return dequeuedObject;
+	}
+	return nil;
 }
 
 -(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block
