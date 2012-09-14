@@ -69,4 +69,18 @@
 	}];
 }
 
+-(void)testObjectSubscripting
+{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	
+	CWAssertEqualsStrings(queue[0], @"Everybody Watch");
+	CWAssertEqualsStrings(queue[1], @"Hypnotoad");
+	
+	queue[0] = @"Obey";
+	CWAssertEqualsStrings(queue[0], @"Obey");
+}
+
 @end

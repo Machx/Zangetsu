@@ -77,6 +77,10 @@
  */
 -(id)dequeue;
 
+-(id)objectAtIndexedSubscript:(NSUInteger)index;
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
+
 /**
  Returns the count of items in the queue
  

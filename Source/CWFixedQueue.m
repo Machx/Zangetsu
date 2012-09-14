@@ -61,6 +61,16 @@
 	return [_storage count];
 }
 
+-(id)objectAtIndexedSubscript:(NSUInteger)index
+{
+	return [_storage objectAtIndexedSubscript:index];
+}
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
+{
+	[_storage setObject:object atIndexedSubscript:idx];
+}
+
 -(void)enqueue:(id)object
 {
 	if (object) {
