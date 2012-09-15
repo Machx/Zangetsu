@@ -29,6 +29,18 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ CWFixedQueue
+
+ CWFixedQueue is intended to be a liberal queue data structure. It is
+ intended to be a collection object that forces old objects out the queue
+ when they surpass the capacity of the data structure. Unlike a strict
+ queue, CWFixedQueue can return and set objects at any index in the
+ structure. Although CWFixedQueues can be used like NSArrays it should not
+ be used for this purpose. CWFixedQueues should be used where you need
+ a fixed lenth list where older objects get pushed off the queue.
+ */
+
 @interface CWFixedQueue : NSObject
 
 /**
