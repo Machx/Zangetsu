@@ -41,6 +41,8 @@
  a fixed lenth list where older objects get pushed off the queue.
  */
 
+typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
+
 @interface CWFixedQueue : NSObject
 
 /**
@@ -55,6 +57,8 @@
  The maximum # of items the queue should contain
  */
 @property(assign) NSUInteger capacity;
+
+@property(copy) CWFixedQueueEvictionBlock evictionBlock;
 
 /**
  Enqueues the object onto the queue

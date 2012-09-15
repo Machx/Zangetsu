@@ -42,6 +42,7 @@
 	if (self) {
 		_storage = [NSMutableArray new];
 		_capacity = capacity;
+		_evictionBlock = nil;
 	}
 	return self;
 }
@@ -52,6 +53,7 @@
     if (self) {
         _storage = [NSMutableArray new];
 		_capacity = 50;
+		_evictionBlock = nil;
     }
     return self;
 }
@@ -90,6 +92,9 @@
 -(void)clearExcessObjects
 {
 	while ([_storage count] > _capacity) {
+		if (_evictionBlock) {
+			_evictionBlock(_storage[0]);
+		}
 		[_storage removeObjectAtIndex:0];
 	}
 }
