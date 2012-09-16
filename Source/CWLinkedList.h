@@ -92,4 +92,10 @@ THE SOFTWARE.
  */
 -(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block;
 
+//Objective-C Object Subscripting
+
+-(id)objectAtIndexedSubscript:(NSUInteger)index;
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
+
 @end

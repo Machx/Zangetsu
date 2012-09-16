@@ -243,6 +243,29 @@ THE SOFTWARE.
 	return NO;
 }
 
+-(id)objectAtIndexedSubscript:(NSUInteger)index
+{
+	return [self objectAtIndex:index];
+}
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
+{
+	if ([self hasErrorForObjectAtIndex:idx]) {
+		return;
+	}
+	
+	NSUInteger current = 0;
+	CWLinkedListNode *currentNode = self.head;
+	
+	while (current != idx) {
+		currentNode = currentNode.next;
+		current++;
+	}
+	
+	currentNode.data = object;
+}
+
+
 -(id)objectAtIndex:(NSUInteger)index
 {
 	if ([self hasErrorForObjectAtIndex:index]) {
