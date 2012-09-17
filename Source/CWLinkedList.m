@@ -54,6 +54,7 @@ THE SOFTWARE.
 @property(retain) CWLinkedListNode *head;
 @property(weak) CWLinkedListNode *tail;
 -(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index;
+-(CWLinkedListNode *)nodeAtIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
@@ -243,6 +244,19 @@ THE SOFTWARE.
 	return NO;
 }
 
+-(CWLinkedListNode *)nodeAtIndex:(NSUInteger)index
+{
+	NSUInteger current = 0;
+	CWLinkedListNode *currentNode = _head;
+	
+	while (current != index) {
+		currentNode = currentNode.next;
+		current++;
+	}
+	
+	return currentNode;
+}
+
 -(id)objectAtIndexedSubscript:(NSUInteger)index
 {
 	return [self objectAtIndex:index];
@@ -254,15 +268,8 @@ THE SOFTWARE.
 		return;
 	}
 	
-	NSUInteger current = 0;
-	CWLinkedListNode *currentNode = self.head;
-	
-	while (current != idx) {
-		currentNode = currentNode.next;
-		current++;
-	}
-	
-	currentNode.data = object;
+	CWLinkedListNode *node = [self nodeAtIndex:idx];
+	node.data = object;
 }
 
 
@@ -272,15 +279,8 @@ THE SOFTWARE.
 		return nil;
 	}
 	
-	NSUInteger current = 0;
-	CWLinkedListNode *currentNode = self.head;
-	
-	while (current != index) {
-		currentNode = currentNode.next;
-		current++;
-	}
-	
-	return currentNode.data;
+	CWLinkedListNode *node = [self nodeAtIndex:index];
+	return node.data;
 }
 
 -(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
