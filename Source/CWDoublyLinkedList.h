@@ -102,6 +102,10 @@
  */
 -(id)objectAtIndex:(NSUInteger)index;
 
+-(id)objectAtIndexedSubscript:(NSUInteger)index;
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
+
 /**
  Swaps the objects at the given indexes with each other if both indexes are valid
  

@@ -226,6 +226,17 @@ THE SOFTWARE.
 	return node.data;
 }
 
+-(id)objectAtIndexedSubscript:(NSUInteger)index
+{
+	return [self objectAtIndex:index];
+}
+
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
+{
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:idx error:nil];
+	node.data = object;
+}
+
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
 	NSError *node1Error, *node2Error;

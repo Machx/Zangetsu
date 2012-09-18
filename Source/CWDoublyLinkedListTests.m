@@ -216,4 +216,17 @@
 	}];
 }
 
+-(void)testObjectSubscripting
+{
+	CWDoublyLinkedList *list = [CWDoublyLinkedList new];
+	[list addObject:@"Everybody Watch"];
+	[list addObject:@"Hypnotoad"];
+	
+	CWAssertEqualsStrings(@"Everybody Watch", list[0]);
+	CWAssertEqualsStrings(@"Hypnotoad", list[1]);
+	
+	list[0] = @"Obey";
+	CWAssertEqualsStrings(@"Obey", list[0]);
+}
+
 @end
