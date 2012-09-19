@@ -29,8 +29,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define kCWDoublyLinkedListEnumerateForward 0
-#define kCWDoublyLinkedListEnumerateReverse 1
+enum : NSUInteger {
+	kCWDoublyLinkedListEnumerateForward = 0,
+	kCWDoublyLinkedListEnumerateReverse = 1
+};
 
 @interface CWDoublyLinkedList : NSObject
 
