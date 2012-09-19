@@ -227,6 +227,7 @@
 	
 	list[0] = @"Obey";
 	CWAssertEqualsStrings(@"Obey", list[0]);
+	CWAssertEqualsStrings(@"Hypnotoad", list[1]);
 }
 
 @end
