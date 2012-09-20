@@ -84,6 +84,8 @@ THE SOFTWARE.
  */
 -(id)objectAtIndex:(NSUInteger)index;
 
+-(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
+
 /**
  Enumerates over the contents of the Linked List
  

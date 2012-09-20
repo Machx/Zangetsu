@@ -272,6 +272,21 @@ THE SOFTWARE.
 	node.data = object;
 }
 
+-(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
+{
+	if ([self hasErrorForObjectAtIndex:index1] ||
+		[self hasErrorForObjectAtIndex:index2]) {
+		return;
+	}
+	
+	CWLinkedListNode *node1 = [self nodeAtIndex:index1];
+	CWLinkedListNode *node2 = [self nodeAtIndex:index2];
+	
+	id temp = node1.data;
+	node1.data = node2.data;
+	node2.data = temp;
+}
+
 
 -(id)objectAtIndex:(NSUInteger)index
 {
