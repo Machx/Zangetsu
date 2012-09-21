@@ -109,4 +109,6 @@ typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
  */
 -(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
+-(void)enumerateContentsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
+
 @end

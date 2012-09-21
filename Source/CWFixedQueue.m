@@ -114,4 +114,9 @@
 	[_storage enumerateObjectsUsingBlock:block];
 }
 
+-(void)enumerateContentsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
+{
+	[_storage enumerateObjectsWithOptions:options usingBlock:block];
+}
+
 @end
