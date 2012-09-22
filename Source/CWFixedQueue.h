@@ -105,10 +105,16 @@ typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
 -(NSUInteger)count;
 
 /**
- Enumerates over the queueu contents using a block
+ Enumerates over the queue contents using a block
  */
 -(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
+/**
+ Enumerates over the queue using a block allowing you to pass options for how to enumerate it
+ 
+ @param options NSEnumerationOptions for how to enumerate the queue, same as NSArrays options
+ @param block the block to be called for enumerating the block
+ */
 -(void)enumerateContentsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end
