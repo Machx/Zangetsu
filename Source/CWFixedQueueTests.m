@@ -83,4 +83,23 @@
 	CWAssertEqualsStrings(queue[0], @"Obey");
 }
 
+-(void)testEvictionBlock
+{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	
+	__block NSUInteger counter = 0;
+	queue.evictionBlock = ^(id object) {
+		counter++;
+	};
+	
+	//should be at capacity
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	
+	//overflow the queue by 2
+	[queue enqueueObjectsInArray:@[ @"Bite my shiny metal ass", @"Im gonna get my own theme park" ]];
+	
+	STAssertTrue(counter == 2, nil);
+}
+
 @end
