@@ -88,9 +88,14 @@
 	CWFixedQueue *queue = [CWFixedQueue new];
 	queue.capacity = 2;
 	
-	__block NSUInteger counter = 0;
+	__block BOOL everybodyWatchTrigger = NO;
+	__block BOOL hypnotoadTrigger = NO;
 	queue.evictionBlock = ^(id object) {
-		counter++;
+		if([(NSString *)object isEqualToString:@"Everybody Watch"]){
+			everybodyWatchTrigger = YES;
+		} else if([(NSString *)object isEqualToString:@"Hypnotoad"]){
+			hypnotoadTrigger = YES;
+		}
 	};
 	
 	//should be at capacity
@@ -99,7 +104,8 @@
 	//overflow the queue by 2
 	[queue enqueueObjectsInArray:@[ @"Bite my shiny metal ass", @"Im gonna get my own theme park" ]];
 	
-	STAssertTrue(counter == 2, nil);
+	STAssertTrue(everybodyWatchTrigger, nil);
+	STAssertTrue(hypnotoadTrigger, nil);
 }
 
 @end
