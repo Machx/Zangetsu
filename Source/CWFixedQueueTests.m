@@ -108,4 +108,56 @@
 	STAssertTrue(hypnotoadTrigger, nil);
 }
 
+-(void)testEnumeration
+{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	
+	//test forward
+	[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Everybody Watch");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"Enumerated out of bounds");
+				break;
+		}
+	}];
+	
+	[queue enumerateContentsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Everybody Watch");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"Enumerated out of bounds");
+				break;
+		}
+	}];
+	
+	//test reverse
+	[queue enumerateContentsWithOptions:NSEnumerationReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+		switch (index) {
+			case 0:
+				CWAssertEqualsStrings(object, @"Everybody Watch");
+				break;
+			case 1:
+				CWAssertEqualsStrings(object, @"Hypnotoad");
+				break;
+			default:
+				STFail(@"Enumerated out of bounds");
+				break;
+		}
+	}];
+}
+
 @end
