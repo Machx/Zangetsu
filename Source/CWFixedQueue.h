@@ -58,6 +58,13 @@ typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
  */
 @property(assign) NSUInteger capacity;
 
+/**
+ The eviction block is called just before an Object is evicted from the Queue
+ 
+ Providing an eviction block to the queue gives you a chance to do something with
+ an object before it is evicted, otherwise it will simply remove the item from
+ the queue and not notify you.
+ */
 @property(copy) CWFixedQueueEvictionBlock evictionBlock;
 
 /**
