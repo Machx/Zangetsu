@@ -47,7 +47,6 @@
 {
 	NSMutableString *urlDescription = [[NSMutableString alloc] init];
 	
-#define CWURLogAppendValue(_x_) do { id obj = [self performSelector:NSSelectorFromString(_x_)]; if(obj) { [urlDescription appendFormat:@"%@: %@\n",_x_,obj]; }} while(0);
 	CWURLogAppendValue(@"absoluteString");
 	CWURLogAppendValue(@"absoluteURL");
 	CWURLogAppendValue(@"baseURL");
@@ -55,6 +54,12 @@
 	CWURLogAppendValue(@"host");
 	CWURLogAppendValue(@"lastPathComponent");
 	CWURLogAppendValue(@"parameterString");
+#define CWURLLogAppendValue(_x_) do { \
+			id obj = [self performSelector:NSSelectorFromString(_x_)]; \
+			if(obj) { \
+				[urlDescription appendFormat:@"%@: %@\n",_x_,obj]; } \
+			} \
+		while(0);
 	// user pass
 	CWURLogAppendValue(@"user");
 	CWURLogAppendValue(@"password");
