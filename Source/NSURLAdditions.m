@@ -47,29 +47,29 @@
 {
 	NSMutableString *urlDescription = [[NSMutableString alloc] init];
 	
-#define appendValue(_x_) do { id obj = [self performSelector:NSSelectorFromString(_x_)]; if(obj) { [urlDescription appendFormat:@"%@: %@\n",_x_,obj]; }} while(0);
-	appendValue(@"absoluteString");
-	appendValue(@"absoluteURL");
-	appendValue(@"baseURL");
-	appendValue(@"fragment");
-	appendValue(@"host");
-	appendValue(@"lastPathComponent");
-	appendValue(@"parameterString");
+#define CWURLogAppendValue(_x_) do { id obj = [self performSelector:NSSelectorFromString(_x_)]; if(obj) { [urlDescription appendFormat:@"%@: %@\n",_x_,obj]; }} while(0);
+	CWURLogAppendValue(@"absoluteString");
+	CWURLogAppendValue(@"absoluteURL");
+	CWURLogAppendValue(@"baseURL");
+	CWURLogAppendValue(@"fragment");
+	CWURLogAppendValue(@"host");
+	CWURLogAppendValue(@"lastPathComponent");
+	CWURLogAppendValue(@"parameterString");
 	// user pass
-	appendValue(@"user");
-	appendValue(@"password");
+	CWURLogAppendValue(@"user");
+	CWURLogAppendValue(@"password");
 	//
-	appendValue(@"path");
-	appendValue(@"pathComponents");
-	appendValue(@"pathExtension");
-	appendValue(@"port");
-	appendValue(@"query");
-	appendValue(@"relativePath");
-	appendValue(@"relativeString");
-	appendValue(@"resourceSpecifier");
-	appendValue(@"scheme");
-	appendValue(@"standardizedURL");
-#undef appendValue
+	CWURLogAppendValue(@"path");
+	CWURLogAppendValue(@"pathComponents");
+	CWURLogAppendValue(@"pathExtension");
+	CWURLogAppendValue(@"port");
+	CWURLogAppendValue(@"query");
+	CWURLogAppendValue(@"relativePath");
+	CWURLogAppendValue(@"relativeString");
+	CWURLogAppendValue(@"resourceSpecifier");
+	CWURLogAppendValue(@"scheme");
+	CWURLogAppendValue(@"standardizedURL");
+#undef CWURLogAppendValue
 	return urlDescription;
 }
 
