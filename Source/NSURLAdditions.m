@@ -31,24 +31,12 @@
 
 @implementation NSURL (CWURLAdditions)
 
-/*
- We have to use clang diagnostics and ignore the warning that 
- clang generates here because I am using performSelector, in the
- future I will probably add something onto NSObject to deal with this.
- 
- This is based on a method that does something very similar from Steve
- Streza, except his returns a NSDictionary and all I wanted was a NSString.
- */
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
 -(NSString *)cw_betterDescription
 {
 	NSMutableString *urlDescription = [[NSMutableString alloc] init];
 	
 #define CWURLLogAppendValue(_x_) do { \
-			id obj = [self performSelector:NSSelectorFromString(_x_)]; \
+			id obj = [self cw_ARCPerformSelector:NSSelectorFromString(_x_)]; \
 			if(obj) { \
 				[urlDescription appendFormat:@"%@: %@\n",_x_,obj]; } \
 			} \
@@ -79,5 +67,3 @@
 }
 
 @end
-
-#pragma clang diagnostic pop
