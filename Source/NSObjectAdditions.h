@@ -75,7 +75,8 @@
  This tells clang to ignore a potential leak when calling -performSelector
  just for the duration of this one call.
  
- @param selector the selector to be called.
+ @param selector the selector to be called
+ @return id the object returned from NSObject -performSelector: method
  */
 -(id)cw_ARCPerformSelector:(SEL)selector;
 
