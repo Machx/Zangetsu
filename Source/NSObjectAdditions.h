@@ -77,6 +77,6 @@
  
  @param selector the selector to be called.
  */
--(void)cw_ARCPerformSelector:(SEL)selector;
+-(id)cw_ARCPerformSelector:(SEL)selector;
 
 @end

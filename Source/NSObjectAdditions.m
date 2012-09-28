@@ -97,11 +97,11 @@
 	});
 }
 
--(void)cw_ARCPerformSelector:(SEL)selector
+-(id)cw_ARCPerformSelector:(SEL)selector
 {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-	[self performSelector:selector];
+	return [self performSelector:selector];
 #pragma clang diagnostic pop
 }
 
