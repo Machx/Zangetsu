@@ -37,29 +37,40 @@
 //MARK: -
 //MARK: Host Version Information
 
+//private method
++(NSDictionary *)systemVersionDictionary
+{
+	static dispatch_once_t pred;
+	static NSDictionary *systemDictionary = nil;
+	
+	dispatch_once(&pred,^{
+		systemDictionary = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	});
+	
+	return systemDictionary;
+}
+
 + (NSDictionary *) hostVersion
 {
-    SInt32 versMaj, versMin, versBugFix;
-
-    Gestalt(gestaltSystemVersionMajor, &versMaj);
-    Gestalt(gestaltSystemVersionMinor, &versMin);
-    Gestalt(gestaltSystemVersionBugFix, &versBugFix);
+    NSString *systemVersionString = [CWSystemInfo hostVersionString];
+	NSArray *versionComponents = [systemVersionString componentsSeparatedByString:@"."];
 	
-	return @{	kCWSystemMajorVersion : @(versMaj),
-				kCWSystemMinorVersion : @(versMin),
-				kCWSystemBugFixVersion : @(versBugFix) };
+	NSAssert(versionComponents.count == 3, nil);
+	
+	NSMutableDictionary *versionDictionary = [NSMutableDictionary new];
+	[versionDictionary addEntriesFromDictionary:@{
+	 kCWSystemMajorVersion : versionComponents[0],
+	 kCWSystemMinorVersion : versionComponents[1],
+	 kCWSystemBugFixVersion : versionComponents[2]
+	}];
+	
+	return versionDictionary;
 }
 
 
 + (NSString *) hostVersionString
 {
-    SInt32 versMaj, versMin, versBugFix;
-
-    Gestalt(gestaltSystemVersionMajor, &versMaj);
-    Gestalt(gestaltSystemVersionMinor, &versMin);
-    Gestalt(gestaltSystemVersionBugFix, &versBugFix);
-
-    return [NSString stringWithFormat:@"%d.%d.%d", versMaj, versMin, versBugFix];
+    return [CWSystemInfo systemVersionDictionary][@"ProductVersion"];
 }
 
 //MARK: -
