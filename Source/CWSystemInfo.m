@@ -42,9 +42,10 @@
 {
 	static dispatch_once_t pred;
 	static NSDictionary *systemDictionary = nil;
+	static NSString * const kSystemVersionPlist = @"/System/Library/CoreServices/SystemVersion.plist";
 	
 	dispatch_once(&pred,^{
-		systemDictionary = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+		systemDictionary = [NSDictionary dictionaryWithContentsOfFile:kSystemVersionPlist];
 	});
 	
 	return systemDictionary;
