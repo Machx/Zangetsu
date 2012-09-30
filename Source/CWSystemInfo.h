@@ -60,11 +60,11 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 +(NSInteger)numberOfCPUCores;
 
 /**
- * Returns the amount of physical ram in megabytes the host device has
+ * Returns the amount of physical ram in Gigabytes the host device has
  *
- * @return a NSInteger representing the physical ram size of the host system
+ * @return a CGFloat representing the physical ram size of the host system
  */
-+(NSInteger)physicalRamSize;
++(CGFloat)physicalRamSize;
 
 /**
  * Returns the amount of logical ram in megabytes the host device has. This
@@ -76,9 +76,9 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 +(NSInteger)logicalRamSize;
 
 /**
- * Returns the processor speed of the host system in MHz as a NSInteger
+ * Returns the processor speed of the host system in Ghz as a CGFloat
  * 
- * @return a NSInteger representing the processor speed in MHz
+ * @return a CGFloat representing the processor speed in MHz
  */
-+(NSInteger)processorSpeed;
++(CGFloat)processorSpeed;
 @end

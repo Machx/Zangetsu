@@ -86,25 +86,27 @@
     return coreCount;
 }
 
-+(NSInteger) processorSpeed
++(CGFloat) processorSpeed
 {
-	SInt32 speed;
-	if (Gestalt(gestaltProcClkSpeedMHz, &speed)== noErr) {
-		return (NSInteger)speed;
+	NSUInteger hz = 0;
+	size_t size = sizeof(hz);
+	if ( sysctlbyname("hw.cpufrequency_max", &hz, &size, NULL, 0) ) {
+		return 1;
 	}
-	return 0;
+	return hz * 10e-10;
 }
 
 //MARK: -
 //MARK: System RAM Information
 
-+ (NSInteger) physicalRamSize
++ (CGFloat) physicalRamSize
 {
-    SInt32 kamount;
-    if (Gestalt(gestaltPhysicalRAMSizeInMegabytes, &kamount) == noErr) {
-        return (NSInteger)kamount;
-    }
-    return 0;
+	NSUInteger bytes = 0;
+	size_t size = sizeof(bytes);
+	if ( sysctlbyname("hw.memsize", &bytes, &size, NULL, 0) ) {
+		return 1;
+	}
+    return bytes * 9.31323e-10;
 }
 
 + (NSInteger) logicalRamSize
