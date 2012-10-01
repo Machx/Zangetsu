@@ -67,15 +67,6 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 +(CGFloat)physicalRamSize;
 
 /**
- * Returns the amount of logical ram in megabytes the host device has. This
- * may be less than the physical ram size because things like the OS/gpu
- * may be using some of the physical ram.
- * 
- * @return a NSInteger representing the logical ram size of the host system
- */
-+(NSInteger)logicalRamSize;
-
-/**
  * Returns the processor speed of the host system in Ghz as a CGFloat
  * 
  * @return a CGFloat representing the processor speed in MHz

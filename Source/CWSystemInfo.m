@@ -110,14 +110,4 @@
     return bytes * 9.31323e-10;
 }
 
-+ (NSInteger) logicalRamSize
-{
-    SInt32 kamount;
-    if (Gestalt(gestaltLogicalRAMSize, &kamount) == noErr) {
-        NSInteger amount = (((NSInteger)kamount / 1024) / 1024);
-        return amount;
-    }
-    return 0;
-}
-
 @end
