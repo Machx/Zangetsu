@@ -46,7 +46,7 @@
  operations enqueued complete before going on.
  */
 
-//MARK: Initiailziation
+#pragma mark Initiailziation -
 
 /**
  Initializes a CWQueue object with no contents
@@ -76,7 +76,7 @@
 	return self;
 }
 
-//MARK: Add & Remove Objects
+#pragma mark Add & Remove Objects -
 
 -(id)dequeue
 {
@@ -114,7 +114,7 @@
 	});
 }
 
-//MARK: Query Methods
+#pragma mark Query Methods -
 
 -(BOOL)containsObject:(id)object
 {
@@ -147,7 +147,7 @@
 	return object;
 }
 
-//MARK: Enumeration Methods
+#pragma mark Enumeration Methods -
 
 -(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block
 {
@@ -189,7 +189,7 @@
 	}];
 }
 
-//MARK: Debug Information
+#pragma mark Debug Information -
 
 /**
  Returns an NSString with a description of the queues storage
@@ -223,7 +223,7 @@
 	return queueEmpty;
 }
 
-//MARK: Comparison
+#pragma mark Comparison -
 
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue
 {

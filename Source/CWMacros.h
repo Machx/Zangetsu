@@ -28,14 +28,13 @@
  */
 #define Z_HOST_OS_IS_MAC_OS_X !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 
-//MARK: General Functions
+#pragma mark - General Functions
 #define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
 #define NSCOLOR(r,g,b,a) [NSColor colorWithCalibratedRed:r green:g blue:b alpha:a]
 #define NSDEVICECOLOR(r,g,b,a) [NSColor colorWithDeviceRed:r green:g blue:b alpha:a]
 
-//MARK: -
-//MARK: Log Functions
+#pragma mark - Log Functions
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s%i:\n",__PRETTY_FUNCTION__,__LINE__)
@@ -57,8 +56,7 @@ do { \
 } while(0);
 	
 
-//MARK: -
-//MARK: GCD Macros
+#pragma mark - GCD Macros
 
 #define CWGCDQueueLow() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0)
 #define CWGCDQueueNormal() dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)

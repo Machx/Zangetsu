@@ -37,8 +37,7 @@
 
 @implementation NSObject (CWNSObjectAdditions)
 
-//MARK: -
-//MARK: Objective-C Associated Objects
+#pragma mark - Objective-C Associated Objects
 
 -(id)cw_valueAssociatedWithKey:(void *)key 
 {
@@ -55,8 +54,7 @@
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
-//MARK: -
-//MARK: Exerimental Perform with Block Methods
+#pragma mark - Exerimental Perform with Block Methods
 
 -(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block
 {
@@ -74,8 +72,7 @@
 	block();
 }
 
-//MARK: -
-//MARK: Perform Selector Methods
+#pragma mark - Perform Selector Methods
 
 -(void)cw_performSelector:(SEL)selector 
 			   withObject:(id)obj 

@@ -34,8 +34,7 @@
 
 @implementation CWSystemInfo
 
-//MARK: -
-//MARK: Host Version Information
+#pragma mark Host Version Information
 
 //private method
 +(NSDictionary *)systemVersionDictionary
@@ -74,8 +73,7 @@
     return [CWSystemInfo systemVersionDictionary][@"ProductVersion"];
 }
 
-//MARK: -
-//MARK: CPU System Information
+#pragma mark - CPU Information
 
 + (NSInteger) numberOfCPUCores
 {
@@ -97,8 +95,7 @@
 	return hz * 10e-10;
 }
 
-//MARK: -
-//MARK: System RAM Information
+#pragma mark - System RAM Information
 
 + (CGFloat) physicalRamSize
 {

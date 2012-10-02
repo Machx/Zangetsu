@@ -52,8 +52,7 @@
 
 @implementation CWTask
 
-//MARK: -
-//MARK: Public API
+#pragma mark Public API -
 
 - (id) initWithExecutable:(NSString *)exec
 			 andArguments:(NSArray *)execArgs

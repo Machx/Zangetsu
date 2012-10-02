@@ -123,7 +123,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	return request;
 }
 
-//MARK: Connection Initiaton Methods
+#pragma mark Connection Initiaton Methods -
 
 -(NSData *)startSynchronousConnection
 {
@@ -173,7 +173,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	}];
 }
 
-//MARK: NSURLConnection Delegate Methods (Private)
+#pragma mark NSURLConnection Delegate Methods (Private) -
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
