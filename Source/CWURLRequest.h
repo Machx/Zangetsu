@@ -78,6 +78,8 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  */
 -(NSData *)startSynchronousConnection;
 
+-(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
+
 /**
  Starts the connection request on the receving instance on another thread in the specified dispatch_queue_t queue
  

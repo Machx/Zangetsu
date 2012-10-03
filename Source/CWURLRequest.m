@@ -145,6 +145,19 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	return self.receivedData;
 }
 
+-(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block
+{
+	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWURLRequest");
+	dispatch_queue_t queue = dispatch_queue_create(label, 0);
+	dispatch_async(queue, ^{
+		NSData *data = [self startSynchronousConnection];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block(data,self.connectionError,self.connectionResponse);
+		});
+	});
+	dispatch_release(queue);
+}
+
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block
 {
