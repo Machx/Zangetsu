@@ -78,6 +78,17 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  */
 -(NSData *)startSynchronousConnection;
 
+/**
+ Starts the connection request on a private dispatch_queue_t and then calls the block when finished
+ 
+ This method starts up its own private queue for dispatching its work onto, it then starts the URL
+ connection and then when finished, dispatches back onto the main queue. There it calls the block
+ and returns to you the results from the request.
+ 
+ @param data - the data received from the url request
+ @param error - if there was an error it will be written here
+ @param response - the response received from the url request
+ */
 -(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 
 /**
