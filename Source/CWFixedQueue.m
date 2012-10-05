@@ -60,23 +60,23 @@
 
 -(NSUInteger)count
 {
-	return [_storage count];
+	return [self.storage count];
 }
 
 -(id)objectAtIndexedSubscript:(NSUInteger)index
 {
-	return [_storage objectAtIndexedSubscript:index];
+	return [self.storage objectAtIndexedSubscript:index];
 }
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
 {
-	[_storage setObject:object atIndexedSubscript:idx];
+	[self.storage setObject:object atIndexedSubscript:idx];
 }
 
 -(void)enqueue:(id)object
 {
-	if (object) {
-		[_storage addObject:object];
+	if (object && ![self.storage containsObject:object]) {
+		[self.storage addObject:object];
 		[self clearExcessObjects];
 	}
 }
@@ -84,26 +84,26 @@
 -(void)enqueueObjectsInArray:(NSArray *)array
 {
 	if (array && ([array count] > 0)) {
-		[_storage addObjectsFromArray:array];
+		[self.storage addObjectsFromArray:array];
 		[self clearExcessObjects];
 	}
 }
 
 -(void)clearExcessObjects
 {
-	while ([_storage count] > _capacity) {
-		if (_evictionBlock) {
-			_evictionBlock(_storage[0]);
+	while ([self.storage count] > self.capacity) {
+		if (self.evictionBlock) {
+			self.evictionBlock(self.storage[0]);
 		}
-		[_storage removeObjectAtIndex:0];
+		[self.storage removeObjectAtIndex:0];
 	}
 }
 
 -(id)dequeue
 {
-	if ([_storage count] > 0) {
-		id dequeuedObject = [_storage objectAtIndex:0];
-		[_storage removeObjectAtIndex:0];
+	if ([self.storage count] > 0) {
+		id dequeuedObject = [self.storage objectAtIndex:0];
+		[self.storage removeObjectAtIndex:0];
 		return dequeuedObject;
 	}
 	return nil;
@@ -111,12 +111,12 @@
 
 -(void)enumerateContents:(void (^)(id object, NSUInteger index, BOOL *stop))block
 {
-	[_storage enumerateObjectsUsingBlock:block];
+	[self.storage enumerateObjectsUsingBlock:block];
 }
 
 -(void)enumerateContentsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
 {
-	[_storage enumerateObjectsWithOptions:options usingBlock:block];
+	[self.storage enumerateObjectsWithOptions:options usingBlock:block];
 }
 
 @end
