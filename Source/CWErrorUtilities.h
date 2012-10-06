@@ -64,3 +64,5 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
  @return a NSError object with the values passed in
  */
 NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...);
+
+void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
