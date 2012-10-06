@@ -41,4 +41,7 @@
  */
 -(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray;
 
+-(void)cw_moveObject:(id)object
+			 toIndex:(NSUInteger)index;
+
 @end
