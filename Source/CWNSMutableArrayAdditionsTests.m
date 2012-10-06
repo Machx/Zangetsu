@@ -7,6 +7,7 @@
 //
 
 #import "CWNSMutableArrayAdditionsTests.h"
+#import "NSArrayAdditions.h"
 #import "NSMutableArrayAdditions.h"
 
 @implementation CWNSMutableArrayAdditionsTests
@@ -32,6 +33,17 @@
         
         STAssertTrue(&obj1 != &obj2, @"shouldn't be at the same memory address if copied");
     }
+}
+
+-(void)testMoveObjectToIndex
+{
+	NSMutableArray *array = [[NSMutableArray alloc] initWithArray:@[ @0, @1, @5, @2, @3, @4]];
+	
+	[array cw_moveObject:@5 toIndex:5];
+	
+	[array cw_each:^(id object, NSUInteger index, BOOL *stop) {
+		STAssertEqualObjects(object, @(index), nil);
+	}];
 }
 
 - (void)tearDown
