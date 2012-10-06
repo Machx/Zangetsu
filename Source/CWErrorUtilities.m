@@ -29,17 +29,21 @@
 
 #import "CWErrorUtilities.h"
 
-NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...) 
+NSError * CWCreateError(NSString * domain, NSInteger errorCode,
+						NSString * errorMessageFormat, ...)
 {
     va_list args;
     va_start(args, errorMessageFormat);
-    NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
+    NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
+														 arguments:args];
     va_end(args);
 
 	return CWCreateErrorWithUserInfo(domain, errorCode, nil, fullErrorMessage);
 }
 
-NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...)
+NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode,
+									NSDictionary *info,
+									NSString * errorMessageFormat, ...)
 {
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
@@ -48,7 +52,8 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
 	
     va_list args;
     va_start(args, errorMessageFormat);
-    NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat arguments:args];
+    NSString * completeErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
+															 arguments:args];
     va_end(args);
 	
 	NSMutableDictionary *_errorDictionary = [NSMutableDictionary new];
