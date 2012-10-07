@@ -66,7 +66,7 @@
 
 -(void)push:(id)object
 {
-	dispatch_async(_queue, ^{
+	dispatch_async(self.queue, ^{
 		if (object) {
 			[self.stack addObject:object];
 		}
@@ -76,7 +76,7 @@
 -(id)pop
 {
 	__block id object;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		if ([self.stack count] == 0) {
 			object = nil;
 		} else {
@@ -124,7 +124,7 @@
 -(id)topOfStackObject
 {
 	__block id object = nil;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		if([self.stack count] == 0) { return; }
 		object = [self.stack lastObject];
 	});
@@ -134,7 +134,7 @@
 -(id)bottomOfStackObject
 {
 	__block id object = nil;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		if ([self.stack count] == 0) { return; }
 		object = [self.stack cw_firstObject];
 	});
@@ -143,7 +143,7 @@
 
 -(void)clearStack
 {
-	dispatch_async(_queue, ^{
+	dispatch_async(self.queue, ^{
 		[self.stack removeAllObjects];
 	});
 }
@@ -151,7 +151,7 @@
 -(BOOL)isEqualToStack:(CWStack *)aStack
 {
 	__block BOOL isEqual = NO;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		isEqual = [[aStack description] isEqualToString:[self.stack description]];
 	});
 	return isEqual;
@@ -160,7 +160,7 @@
 -(BOOL)containsObject:(id)object
 {
 	__block BOOL contains = NO;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		contains = [self.stack containsObject:object];
 	});
 	return contains;
@@ -169,7 +169,7 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block
 {	
 	__block BOOL contains = NO;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		for (id obj in self.stack) {
 			if (block(obj)) {
 				contains = YES;
@@ -188,7 +188,7 @@
 -(NSString *)description
 {
 	__block NSString *stackDescription = nil;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		stackDescription = [self.stack description];
 	});
 	return stackDescription;
@@ -197,7 +197,7 @@
 -(BOOL)isEmpty
 {
     __block BOOL empty;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		empty = ([self.stack count] <= 0);
 	});
 	return empty;
@@ -206,7 +206,7 @@
 -(NSInteger)count
 {
     __block NSInteger theCount = 0;
-	dispatch_sync(_queue, ^{
+	dispatch_sync(self.queue, ^{
 		theCount = [self.stack count];
 	});
 	return theCount;
