@@ -58,7 +58,14 @@ const char *CWUUIDCStringPrependedWithString(NSString *preString)
 
 void CWNextRunLoop(dispatch_block_t block)
 {
-	dispatch_async(dispatch_get_main_queue(), block);
+	static dispatch_queue_t queue = nil;
+	if (!queue) {
+		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation");
+		queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+	}
+	dispatch_async(queue, ^{
+		dispatch_sync(dispatch_get_main_queue(), block);
+	});
 }
 
 void CWPrintLine(NSArray *args)
