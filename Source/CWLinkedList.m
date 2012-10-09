@@ -73,9 +73,8 @@ THE SOFTWARE.
 -(BOOL)hasErrorForAddObject:(id)object
 {
 	if (!object) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
-									   @"Trying to add nil object to Linked List Instance");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+					   @"Trying to add nil object to Linked List Instance");
 		return YES;
 	}
 	
@@ -105,15 +104,13 @@ THE SOFTWARE.
 -(BOOL)hasErrorForInsertObject:(id)anObject atIndex:(NSUInteger)index
 {
 	if (!anObject) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
-									   @"Trying to add a nil object to the receiver list");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+					   @"Trying to add a nil object to the receiver list");
 		return YES;
 	}
 	if (index > (self.count - 1)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-									   @"Trying to insert an item beyond list bounds");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+					   @"Trying to insert an item beyond list bounds");
 		return YES;
 	}
 	
@@ -150,9 +147,8 @@ THE SOFTWARE.
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
 	if (index > (self.count - 1)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-									   @"Trying to retrieve an item beyond list bounds");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+					   @"Trying to retrieve an item beyond list bounds");
 		return;
 	}
 	
@@ -181,15 +177,13 @@ THE SOFTWARE.
 -(BOOL)hasErrorForRemoveObject:(id)object
 {
 	if (!object) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
-									   @"passed object is nil");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+					   @"passed object is nil");
 		return YES;
 	}
 	if (!self.head) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-									   @"trying to remove object in list with no objects");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+					   @"trying to remove object in list with no objects");
 		return YES;
 	}
 	return NO;
@@ -222,23 +216,20 @@ THE SOFTWARE.
 		index++;
 	} while ((index < max) && currentNode);
 	
-	NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 404,
-								   @"Object not found in linked list");
-	CWLogError(error);
+	CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 404,
+				   @"Object not found in linked list");
 }
 
 -(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index
 {
 	if (!self.head) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 442,
-									   @"Trying to retrieve a item with an index in an empty list");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+					   @"Trying to retrieve a item with an index in an empty list");
 		return YES;
 	}
 	if (index > (self.count - 1)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWLinkedList", 443,
-									   @"Trying to retrieve an item beyond list bounds");
-		CWLogError(error);
+		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+					   @"Trying to retrieve an item beyond list bounds");
 		return YES;
 	}
 	return NO;
