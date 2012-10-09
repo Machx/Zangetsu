@@ -247,7 +247,7 @@ THE SOFTWARE.
 -(CWLinkedListNode *)nodeAtIndex:(NSUInteger)index
 {
 	NSUInteger current = 0;
-	CWLinkedListNode *currentNode = _head;
+	CWLinkedListNode *currentNode = self.head;
 	
 	while (current != index) {
 		currentNode = currentNode.next;
