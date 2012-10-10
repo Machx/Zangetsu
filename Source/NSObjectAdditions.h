@@ -80,4 +80,6 @@
  */
 -(id)cw_ARCPerformSelector:(SEL)selector;
 
+-(BOOL)cw_isNotNil;
+
 @end

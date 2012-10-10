@@ -102,4 +102,11 @@
 #pragma clang diagnostic pop
 }
 
+#pragma mark - Misc
+
+-(BOOL)cw_isNotNil
+{
+	return YES;
+}
+
 @end
