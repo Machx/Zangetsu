@@ -61,4 +61,13 @@
 	CWAssertEqualsStrings([object cw_valueAssociatedWithKey:key3], @"Hypnotoad Season 3");
 }
 
+-(void)testNotNil
+{
+	id object1 = nil;
+	NSString *string = @"今日の天気がいいですね";
+	
+	STAssertFalse([object1 cw_isNotNil], nil);
+	STAssertTrue([string cw_isNotNil], nil);
+}
+
 @end
