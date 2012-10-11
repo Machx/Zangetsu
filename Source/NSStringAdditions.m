@@ -42,7 +42,8 @@
 {
 	//making sure we get a unique queue label
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSString_"), DISPATCH_QUEUE_CONCURRENT);
+	const char *queueLabel = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSString_");
+	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
 	
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
 							 options:options
@@ -59,7 +60,11 @@
 
 -(NSString *)cw_escapeEntitiesForURL
 {	
-	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("@!*'()[];:&=+$,/?%#"), kCFStringEncodingUTF8);
+	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+															  (__bridge CFStringRef)self,
+															  NULL,
+															  CFSTR("@!*'()[];:&=+$,/?%#"),
+															  kCFStringEncodingUTF8);
 	return (__bridge_transfer NSString *)str;
 }
 
