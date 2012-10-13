@@ -59,13 +59,29 @@
 }
 
 -(NSString *)cw_escapeEntitiesForURL
-{	
-	CFStringRef str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-															  (__bridge CFStringRef)self,
-															  NULL,
-															  CFSTR("@!*'()[];:&=+$,/?%#"),
-															  kCFStringEncodingUTF8);
-	return (__bridge_transfer NSString *)str;
+{
+	NSMutableString *escapedString = [NSMutableString string];
+	const char *originalString = [self UTF8String];
+	
+	while (*originalString) {
+		const unsigned char currentChar = *originalString;
+		if((( currentChar >= 'a' ) && ( currentChar <= 'z' )) ||
+		   (( currentChar >= 'A' ) && ( currentChar <= 'Z' )) ||
+		   (( currentChar >= '0' ) && ( currentChar <= '9' )) ||
+		   (  currentChar == '.' ) ||
+		   (  currentChar == '~' ) ||
+		   (  currentChar == '_' ) ||
+		   (  currentChar == '-' ) ){
+			[escapedString appendFormat:@"%c",currentChar];
+		} else if (currentChar == ' ') {
+			[escapedString appendString:@"%20"];
+		} else  {
+			[escapedString appendFormat:@"%%%02X",currentChar];
+		}
+		originalString++;
+	}
+	
+	return escapedString;
 }
 
 - (BOOL) cw_isNotEmptyString
