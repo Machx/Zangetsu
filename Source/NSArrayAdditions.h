@@ -109,4 +109,6 @@
  */
 -(NSArray *)cw_mapArray:(id (^)(id object))block;
 
+-(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block;
+
 @end
