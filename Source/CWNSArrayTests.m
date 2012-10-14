@@ -231,4 +231,20 @@
 	STAssertEqualObjects(resultArray1, goodResults, @"Arrays should be equal if all objects were found");
 }
 
+-(void)testObjectsPassingTest
+{
+	NSArray *array = @[ @1, @2, @3, @4, @5, @6, @7, @8, @9, @10 ];
+	
+	NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
+		return ( [(NSNumber *)obj intValue] > 5 );
+	}];
+	
+	STAssertTrue(results.count == 5, nil);
+	for (NSNumber *number in results) {
+		if (number.intValue < 6) {
+			STFail(@"Number is less than 6 should not be present in mapped array");
+		}
+	}
+}
+
 @end
