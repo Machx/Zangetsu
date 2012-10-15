@@ -96,7 +96,7 @@
             [cwArray addObject:rObj];
         }
 	}];
-    return cwArray;
+	return cwArray;
 }
 
 -(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block

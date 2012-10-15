@@ -240,11 +240,29 @@
 	}];
 	
 	STAssertTrue(results.count == 5, nil);
-	for (NSNumber *number in results) {
-		if (number.intValue < 6) {
-			STFail(@"Number is less than 6 should not be present in mapped array");
+	[results cw_each:^(id object, NSUInteger index, BOOL *stop) {
+		NSNumber *number = (NSNumber *)object;
+		switch (index) {
+			case 0:
+				STAssertTrue(number.intValue == 6, nil);
+				break;
+			case 1:
+				STAssertTrue(number.intValue == 7, nil);
+				break;
+			case 2:
+				STAssertTrue(number.intValue == 8, nil);
+				break;
+			case 3:
+				STAssertTrue(number.intValue == 9, nil);
+				break;
+			case 4:
+				STAssertTrue(number.intValue == 10, nil);
+				break;
+			default:
+				STFail(@"Enumerated past expected array range");
+				break;
 		}
-	}
+	}];
 }
 
 @end
