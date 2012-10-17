@@ -52,7 +52,7 @@ typedef struct objc_method *Method;
  @param error an error object to write to if something goes wrong
  @return the original Objective-C Method implementation if successfull or nil if not successfull
  */
-Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error);
+void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error);
 
 /**
  Swizzles the Class Method implementations
@@ -67,4 +67,4 @@ Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel
  @param error an error object to write to if something goes wrong
  @return the original Objective-C Method implementation if successfull or nil if not successfull
  */
-Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error);
+void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error);

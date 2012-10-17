@@ -30,48 +30,72 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
-Method CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
+void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
 {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoOriginalInstanceMethod, @"No Original Instance Method to swizzle!");
-			return nil;
-		}
-	}
-	newMethod = class_getInstanceMethod(instanceClass, newSel);
-	if(!newMethod){
-		if(*error) {
-			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoNewInstanceMethod, @"No New Instance Method to swizzle!");
-			return nil;
+			*error = CWCreateError(kCWRuntimeErrorDomain,
+								   kCWErrorNoOriginalInstanceMethod,
+								   @"No Original Instance Method to swizzle!");
 		}
 	}
 	
-	method_exchangeImplementations(originalMethod, newMethod);
-	return originalMethod;
+	newMethod = class_getInstanceMethod(instanceClass, newSel);
+	if(!newMethod){
+		if(*error) {
+			*error = CWCreateError(kCWRuntimeErrorDomain,
+								   kCWErrorNoNewInstanceMethod,
+								   @"No New Instance Method to swizzle!");
+		}
+		return;
+	}
+	
+	if (class_addMethod(instanceClass,
+						originalSel,
+						method_getImplementation(newMethod),
+						method_getTypeEncoding(newMethod))) {
+		class_replaceMethod(instanceClass,newSel,
+							method_getImplementation(originalMethod),
+							method_getTypeEncoding(originalMethod));
+	} else {
+		method_exchangeImplementations(originalMethod, newMethod);
+	}
 }
 
-Method CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
+void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
 {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getClassMethod(methodClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoOriginalClassMethod, @"No Original Class Method to swizzle!");
-			return nil;
+			*error = CWCreateError(kCWRuntimeErrorDomain,
+								   kCWErrorNoOriginalClassMethod,
+								   @"No Original Class Method to swizzle!");
 		}
 	}
 	newMethod = class_getClassMethod(methodClass, newSel);
 	if(!newMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoNewClassMethod, @"No New Class Method to swizzle!");
-			return nil;
+			*error = CWCreateError(kCWRuntimeErrorDomain,
+								   kCWErrorNoNewClassMethod,
+								   @"No New Class Method to swizzle!");
+			return;
 		}
 	}
 	
-	method_exchangeImplementations(originalMethod, newMethod);
-	return originalMethod;
+	if (class_addMethod(methodClass,
+						originalSel,
+						method_getImplementation(newMethod),
+						method_getTypeEncoding(newMethod))) {
+		class_replaceMethod(methodClass,
+							originalSel,
+							method_getImplementation(originalMethod),
+							method_getTypeEncoding(originalMethod));
+	} else {
+		method_exchangeImplementations(originalMethod, newMethod);
+	}
 }
