@@ -119,4 +119,6 @@
  */
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
+-(NSSet *)cw_setOfObjectsPassingTest:(BOOL (^)(id obj))block;
+
 @end
