@@ -56,12 +56,12 @@
 @property(copy) dispatch_block_t completionBlock;
 @end
 
-typedef enum {
-	kCWBlockQueueTargetPrivateQueue = 0, //private GCD Queue
-	kCWBlockQueueTargetMainQueue = 1, // dispatch blocks onto the main queue
-	kCWBlockQueueTargetGCDLowPriority = 2, // DISPATCH_QUEUE_PRIORITY_LOW queue
+typedef enum : NSUInteger {
+	kCWBlockQueueTargetPrivateQueue = 0,      //private GCD Queue
+	kCWBlockQueueTargetMainQueue = 1,         // dispatch blocks onto the main queue
+	kCWBlockQueueTargetGCDLowPriority = 2,    // DISPATCH_QUEUE_PRIORITY_LOW queue
 	kCWBlockQueueTargetGCDNormalPriority = 3, // DISPATCH_QUEUE_PRIORITY_NORMAL queue
-	kCWBlockQueueTargetGCDHighPriority = 4 // DISPATCH_QUEUE_PRIORITY_HIGH queue
+	kCWBlockQueueTargetGCDHighPriority = 4    // DISPATCH_QUEUE_PRIORITY_HIGH queue
 } CWBlockQueueTargetType;
 
 @interface CWBlockQueue : NSObject
