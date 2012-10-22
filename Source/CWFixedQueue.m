@@ -60,7 +60,7 @@
 
 -(NSUInteger)count
 {
-	return [self.storage count];
+	return self.storage.count;
 }
 
 -(id)objectAtIndexedSubscript:(NSUInteger)index
@@ -87,7 +87,7 @@
 
 -(void)enqueueObjectsInArray:(NSArray *)array
 {
-	if (array && ([array count] > 0)) {
+	if (array && (array.count > 0)) {
 		[self.storage addObjectsFromArray:array];
 		[self clearExcessObjects];
 	}
@@ -95,7 +95,7 @@
 
 -(void)clearExcessObjects
 {
-	while ([self.storage count] > self.capacity) {
+	while (self.storage.count > self.capacity) {
 		if (self.evictionBlock) {
 			self.evictionBlock(self.storage[0]);
 		}
@@ -105,7 +105,7 @@
 
 -(id)dequeue
 {
-	if ([self.storage count] > 0) {
+	if (self.storage.count > 0) {
 		id dequeuedObject = [self.storage objectAtIndex:0];
 		[self.storage removeObjectAtIndex:0];
 		return dequeuedObject;
