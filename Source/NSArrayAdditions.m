@@ -31,7 +31,7 @@
 
 -(id)cw_firstObject
 {
-	return ( [self count] > 0 ) ? [self objectAtIndex:0] : nil;
+	return ([self count] > 0 ? [self objectAtIndex:0] : nil);
 }
 
 -(void)cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block
@@ -58,7 +58,7 @@
 
 -(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block
 {
-	return ( [self cw_findWithBlock:block] ) ? YES : NO;
+	return ([self cw_findWithBlock:block] ? YES : NO);
 }
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block

@@ -89,7 +89,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 		components.minute = minute;
 		components.second = second;
 		
-		NSCalendar *aCalendar = (calendar) ? calendar : [NSCalendar currentCalendar];
+		NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
 
         if (calendar) {
             NSDate * date = [aCalendar dateFromComponents:components];

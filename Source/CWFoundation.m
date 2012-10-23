@@ -32,12 +32,12 @@ THE SOFTWARE.
 BOOL CWClassExists(NSString * class)
 {
 	Class _class = NSClassFromString(class);
-	return (_class) ? YES : NO;
+	return (_class ? YES : NO);
 }
 
 NSString *CWBOOLString(BOOL value)
 {
-    return (value) ? @"YES" : @"NO";
+    return (value ? @"YES" : @"NO");
 }
 
 

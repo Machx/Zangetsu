@@ -123,7 +123,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 		return nil;
 	}
 	
-	NSString *aChar = ([chr length] == 1) ? chr : [chr substringToIndex:1];
+	NSString *aChar = ([chr length] == 1 ? chr : [chr substringToIndex:1]);
 	CWTrieNode *node = [aNode.children cw_findWithBlock:^BOOL(id obj) {
 		CWTrieNode *lookupNode = (CWTrieNode *)obj;
 		if ([lookupNode.key isEqualToString:aChar]) {
@@ -143,7 +143,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 	}
 	
 	CWTrieNode *currentNode = self.rootNode;
-	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
+	const char *key = ([self caseSensitive] ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String]);
 	
 	while (*key) {
 		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];
@@ -168,7 +168,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 	}
 	
 	CWTrieNode *currentNode = self.rootNode;
-	const char *key = ([self caseSensitive]) ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String];
+	const char *key = ([self caseSensitive] ? [aKey UTF8String] : [[aKey lowercaseString] UTF8String]);
 	
 	while (*key) {
 		NSString *aChar = [[NSString alloc] initWithBytes:key length:1 encoding:NSUTF8StringEncoding];

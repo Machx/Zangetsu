@@ -92,7 +92,7 @@
 	dispatch_queue_t queue = NULL;
 	
 	if (type == kCWBlockQueueTargetPrivateQueue) {
-		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent) ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL;
+		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL);
 		if (qLabel) {
 			queue = dispatch_queue_create([qLabel UTF8String], queueConcurrentAttribute);
 			self.label = qLabel;

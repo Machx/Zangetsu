@@ -35,7 +35,7 @@
 {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setMinute:minutes];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];	
 	return date;
 }
@@ -44,7 +44,7 @@
 {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setHour:hours];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }
@@ -52,7 +52,7 @@
 -(NSDate *)cw_dateByAddingDays:(NSInteger)days usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setDay:days];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
 	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
 	return date;
 }
