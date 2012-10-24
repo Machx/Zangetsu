@@ -73,7 +73,7 @@ THE SOFTWARE.
 -(BOOL)hasErrorForAddObject:(id)object
 {
 	if (!object) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
 					   @"Trying to add nil object to Linked List Instance");
 		return YES;
 	}
@@ -104,12 +104,12 @@ THE SOFTWARE.
 -(BOOL)hasErrorForInsertObject:(id)anObject atIndex:(NSUInteger)index
 {
 	if (!anObject) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
 					   @"Trying to add a nil object to the receiver list");
 		return YES;
 	}
 	if (index > (self.count - 1)) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
 					   @"Trying to insert an item beyond list bounds");
 		return YES;
 	}
@@ -147,7 +147,7 @@ THE SOFTWARE.
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
 	if (index > (self.count - 1)) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
 					   @"Trying to retrieve an item beyond list bounds");
 		return;
 	}
@@ -177,12 +177,12 @@ THE SOFTWARE.
 -(BOOL)hasErrorForRemoveObject:(id)object
 {
 	if (!object) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
 					   @"passed object is nil");
 		return YES;
 	}
 	if (!self.head) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
 					   @"trying to remove object in list with no objects");
 		return YES;
 	}
@@ -216,19 +216,19 @@ THE SOFTWARE.
 		index++;
 	} while ((index < max) && currentNode);
 	
-	CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 404,
+	CWLogErrorInfo(KCWLinkedListErrorDomain, 404,
 				   @"Object not found in linked list");
 }
 
 -(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index
 {
 	if (!self.head) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 442,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
 					   @"Trying to retrieve a item with an index in an empty list");
 		return YES;
 	}
 	if (index > (self.count - 1)) {
-		CWLogErrorInfo(@"com.Zangetsu.CWLinkedList", 443,
+		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
 					   @"Trying to retrieve an item beyond list bounds");
 		return YES;
 	}

@@ -29,6 +29,8 @@ THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
 
+static NSString *const KCWLinkedListErrorDomain = @"com.Zangetsu.CWLinkedList";
+
 @interface CWLinkedList : NSObject
 
 /**
