@@ -76,7 +76,8 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 @interface CWTrie()
 @property(retain) CWTrieNode *rootNode;
-+(CWTrieNode *)nodeForCharacter:(NSString *)chr inNode:(CWTrieNode *)aNode;
++(CWTrieNode *)nodeForCharacter:(NSString *)chr
+						 inNode:(CWTrieNode *)aNode;
 @end
 
 @implementation CWTrie
@@ -101,15 +102,13 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 {
 	if (character == nil) {
-		NSError *error = CWCreateError(@"com.Zagetsu.Trie", 442,
-									   @"Character to be looked up is nil");
-		CWLogError(error);
+		CWLogErrorInfo(kZangetsuTrieErrorDomain, 442,
+					   @"Character to be looked up is nil");
 		return YES;
 	}
 	if (![character cw_isNotEmptyString]) {
-		NSError *error = CWCreateError(@"com.Zangetsu.Trie", 443,
-									   @"Character to be looked up is an empty string");
-		CWLogError(error);
+		CWLogErrorInfo(kZangetsuTrieErrorDomain, 443,
+					   @"Character to be looked up is an empty string");
 		return YES;
 	}
 	
@@ -138,7 +137,8 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 -(id)objectValueForKey:(NSString *)aKey
 {
 	if((!aKey) || (![aKey cw_isNotEmptyString])) {
-		CWDebugLog(@"ERROR: nil or 0 length key. Returning nil");
+		CWLogErrorInfo(kZangetsuTrieErrorDomain, 405,
+					   @"Nil or 0 length key. Returning nil");
 		return nil;
 	}
 	
@@ -163,7 +163,8 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character)
 			   forKey:(NSString *)aKey
 {
 	if((!aKey) || (![aKey cw_isNotEmptyString])) {
-		CWDebugLog(@"ERROR: Key is nil, cannot set value..."); 
+		CWLogErrorInfo(kZangetsuTrieErrorDomain, 404,
+					   @"Key is nil, cannot set value");
 		return; 
 	}
 	
