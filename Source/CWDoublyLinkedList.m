@@ -102,15 +102,15 @@ THE SOFTWARE.
 {
 	if (object == nil) {
 		//TODO: publicly document (and if needed change) these error #'s
-		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
-									   @"Attemtping to insert a nil object");
-		CWLogError(error);
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   442,
+					   @"Attemtping to insert a nil object");
 		return YES;
 	}
 	if ((!self.head) && (index != 0)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 443,
-									   @"Trying to insert an object in a list with no objects and index > 0");
-		CWLogError(error);
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   443,
+					   @"Trying to insert an object in a list with no objects and index > 0");
 		return YES;
 	}
 	
@@ -165,7 +165,9 @@ THE SOFTWARE.
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
 	if (!self.head) {
-		CWDebugLog(@"Trying to delete an object in a list with no objects and index > 0");
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   450,
+					   @"Trying to delete an object in a list with no objects and index > 0");
 		return;
 	}
 	
@@ -193,7 +195,8 @@ THE SOFTWARE.
 	NSUInteger maxCount = (self.count - 1);
 	if (index > maxCount) {
 		if (*error) {
-			*error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
+			*error = CWCreateError(kCWDoublyLinkedListErrorDomain,
+								   442,
 								   [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
 									index,maxCount]);
 		}
@@ -201,7 +204,8 @@ THE SOFTWARE.
 	}
 	if (self.head == nil) {
 		if (*error) {
-			*error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 445,
+			*error = CWCreateError(kCWDoublyLinkedListErrorDomain,
+								   445,
 								   @"Attempting to get Node at index in a list with no elements");
 			return nil;
 		}
@@ -221,8 +225,12 @@ THE SOFTWARE.
 -(id)objectAtIndex:(NSUInteger)index
 {
 	NSError *error;
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:&error];
-	if (!node) { CWLogError(error); return nil; }
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index
+												error:&error];
+	if (!node) {
+		CWLogError(error);
+		return nil;
+	}
 	return node.data;
 }
 
@@ -233,15 +241,18 @@ THE SOFTWARE.
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
 {
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:idx error:nil];
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:idx
+												error:nil];
 	node.data = object;
 }
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
 	NSError *node1Error, *node2Error;
-	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1 error:&node1Error];
-	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2 error:&node2Error];
+	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1
+												 error:&node1Error];
+	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2
+												 error:&node2Error];
 	if(!node1) { CWLogError(node1Error); return; }
 	if(!node2) { CWLogError(node2Error); return; }
 	
@@ -253,9 +264,9 @@ THE SOFTWARE.
 -(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range
 {
 	if ((range.length + range.location) > ( self.count - 1)) {
-		NSError *error = CWCreateError(@"com.Zangetsu.CWDoublyLinkedList", 442,
-									   @"Error: Range beyond bounds... Exiting now...");
-		CWLogError(error);
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   442,
+					   @"Error: Range beyond bounds... Exiting now...");
 		return nil;
 	}
 	
