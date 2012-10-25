@@ -35,6 +35,8 @@ typedef enum : NSUInteger {
 } CWDoublyLinkedListEnumerationOption;
 
 
+static NSString *const kCWDoublyLinkedListErrorDomain = @"com.Zangetsu.CWDoublyLinkedList";
+
 @interface CWDoublyLinkedList : NSObject
 
 /**
