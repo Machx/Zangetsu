@@ -28,11 +28,12 @@
  */
 
 #import <Foundation/Foundation.h>
-
-enum : NSUInteger {
+	
+typedef enum : NSUInteger {
 	kCWDoublyLinkedListEnumerateForward = 0,
 	kCWDoublyLinkedListEnumerateReverse = 1
-};
+} CWDoublyLinkedListEnumerationOption;
+
 
 @interface CWDoublyLinkedList : NSObject
 
@@ -154,6 +155,7 @@ enum : NSUInteger {
  @param index (block) the index of the object being enumerated over
  @param stop (block) a BOOL pointer which you can set to YES to stop enumeration
  */
--(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
+-(void)enumerateObjectsWithOption:(CWDoublyLinkedListEnumerationOption)option
+					   usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end

@@ -316,7 +316,8 @@ THE SOFTWARE.
 	}
 }
 
--(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
+-(void)enumerateObjectsWithOption:(CWDoublyLinkedListEnumerationOption)option
+					   usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
 {
 	if (option == kCWDoublyLinkedListEnumerateReverse) {
 		[self enumerateObjectsInReverseWithBlock:block];
