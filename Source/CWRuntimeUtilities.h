@@ -42,29 +42,33 @@ typedef struct objc_method *Method;
 /**
  Swizzles the Instance Method implementations
  
- Attempts to get the method implementations for the selectors on the class specified and swizzles them. If
- it can't get either method implementations then it writes to error and returns NO. Otherwise it exchanges
- the implementations and returns YES.
+ Attempts to get the method implementations for the selectors on the class 
+ specified and swizzles them. If it can't get either method implementations then
+ it writes to error & returns. Otherwise it exchanges the implementations.
  
  @param methodClass The Class whose class methods you are swizzling
  @param originalSel The original method you are swizzling
  @param newSel The New method you are swizzling
  @param error an error object to write to if something goes wrong
- @return the original Objective-C Method implementation if successfull or nil if not successfull
  */
-void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error);
+void CWSwizzleInstanceMethods(Class instanceClass,
+							  SEL originalSel,
+							  SEL newSel,
+							  NSError **error);
 
 /**
  Swizzles the Class Method implementations
  
- Attempts to get the method implementations for the selectors on the class specified and swizzles them. If
- it can't get either method implementations then it writes to error and returns NO. Otherwise it exchanges
- the implementations and returns YES.
+ Attempts to get the method implementations for the selectors on the class 
+ specified and swizzles them. If it can't get either method implementations then
+ it writes to error and returns. Otherwise it exchanges the implementations.
  
  @param methodClass The Class whose class methods you are swizzling
  @param originalSel The original method you are swizzling
  @param newSel The New method you are swizzling
  @param error an error object to write to if something goes wrong
- @return the original Objective-C Method implementation if successfull or nil if not successfull
  */
-void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error);
+void CWSwizzleClassMethods(Class methodClass,
+						   SEL originalSel,
+						   SEL newSel,
+						   NSError **error);
