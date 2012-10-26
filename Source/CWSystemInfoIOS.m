@@ -118,7 +118,8 @@
 
 +(BOOL)retinaSupported
 {
-	return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && ([UIScreen mainScreen].scale == 2.0));
+	return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+			([UIScreen mainScreen].scale == 2.0));
 }
 
 @end

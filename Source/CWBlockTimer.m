@@ -75,7 +75,7 @@
 
 -(BOOL)isValid
 {
-	return [self.internalTimer isValid];
+	return self.internalTimer.isValid;
 }
 				   
 -(void)_invokeBlock:(NSTimer *)timer
