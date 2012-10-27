@@ -86,8 +86,6 @@
 		B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */; };
 		B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImageAdditions.m */; };
-		B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DB08B15C81DE900E51890 /* CWAVLTree.h */; };
-		B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DB08C15C81DE900E51890 /* CWAVLTree.m */; };
 		B85DB09215C9738E00E51890 /* CWAVLTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DB09115C9738E00E51890 /* CWAVLTreeTests.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
 		B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */; };
@@ -325,8 +323,6 @@
 		B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSColorAdditionsTests.m; path = Source/CWNSColorAdditionsTests.m; sourceTree = "<group>"; };
 		B85908371587D3F300B8B2C4 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = Source/UIImageAdditions.h; sourceTree = "<group>"; };
 		B85908381587D3F300B8B2C4 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = Source/UIImageAdditions.m; sourceTree = "<group>"; };
-		B85DB08B15C81DE900E51890 /* CWAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAVLTree.h; path = Source/CWAVLTree.h; sourceTree = "<group>"; };
-		B85DB08C15C81DE900E51890 /* CWAVLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAVLTree.m; path = Source/CWAVLTree.m; sourceTree = "<group>"; };
 		B85DB09015C9738E00E51890 /* CWAVLTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAVLTreeTests.h; path = Source/CWAVLTreeTests.h; sourceTree = "<group>"; };
 		B85DB09115C9738E00E51890 /* CWAVLTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAVLTreeTests.m; path = Source/CWAVLTreeTests.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
@@ -750,8 +746,6 @@
 				B84F1F51154A146F0038AEE0 /* CWLinkedList.m */,
 				B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */,
 				B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */,
-				B85DB08B15C81DE900E51890 /* CWAVLTree.h */,
-				B85DB08C15C81DE900E51890 /* CWAVLTree.m */,
 				B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */,
 				B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */,
 			);
@@ -892,7 +886,6 @@
 				B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
-				B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
 			);
@@ -1160,7 +1153,6 @@
 				B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
-				B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 			);
