@@ -37,8 +37,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain,
-								   kCWErrorNoOriginalInstanceMethod,
+			*error = CWCreateError(kCWRuntimeErrorDomain,kCWErrorNoOriginalInstanceMethod,
 								   @"No Original Instance Method to swizzle!");
 		}
 	}
@@ -46,8 +45,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	newMethod = class_getInstanceMethod(instanceClass, newSel);
 	if(!newMethod){
 		if(*error) {
-			*error = CWCreateError(kCWRuntimeErrorDomain,
-								   kCWErrorNoNewInstanceMethod,
+			*error = CWCreateError(kCWRuntimeErrorDomain,kCWErrorNoNewInstanceMethod,
 								   @"No New Instance Method to swizzle!");
 		}
 		return;
@@ -81,16 +79,14 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	originalMethod = class_getClassMethod(methodClass, originalSel);
 	if(!originalMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain,
-								   kCWErrorNoOriginalClassMethod,
+			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoOriginalClassMethod,
 								   @"No Original Class Method to swizzle!");
 		}
 	}
 	newMethod = class_getClassMethod(methodClass, newSel);
 	if(!newMethod){
 		if(*error){
-			*error = CWCreateError(kCWRuntimeErrorDomain,
-								   kCWErrorNoNewClassMethod,
+			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNoNewClassMethod,
 								   @"No New Class Method to swizzle!");
 			return;
 		}
