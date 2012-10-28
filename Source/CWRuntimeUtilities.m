@@ -53,6 +53,15 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 		return;
 	}
 	
+	const char *method1_encoding = method_getTypeEncoding(originalMethod);
+	const char *method2_encoding = method_getTypeEncoding(newMethod);
+	if ((!strcmp(method1_encoding, method2_encoding)) && *error) {
+		*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings,
+							   [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
+								method1_encoding,method2_encoding]);
+		return;
+	}
+	
 	if (class_addMethod(instanceClass,
 						originalSel,
 						method_getImplementation(newMethod),
@@ -85,6 +94,15 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 								   @"No New Class Method to swizzle!");
 			return;
 		}
+	}
+	
+	const char *method1_encoding = method_getTypeEncoding(originalMethod);
+	const char *method2_encoding = method_getTypeEncoding(newMethod);
+	if ((!strcmp(method1_encoding, method2_encoding)) && *error) {
+		*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings,
+							   [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
+								method1_encoding,method2_encoding]);
+		return;
 	}
 	
 	if (class_addMethod(methodClass,
