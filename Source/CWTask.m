@@ -73,12 +73,12 @@
 }
 
 /**
- * default implementation so if someone calls this and then
- * tries to launch the task the method will immediately see
- * that executable == nil and therefore will return immediatly
- * with an error about the executable.
- *
- * @return an invalid CWTask object
+ default implementation so if someone calls this and then
+ tries to launch the task the method will immediately see
+ that executable == nil and therefore will return immediatly
+ with an error about the executable.
+ 
+ @return an invalid CWTask object
  */
 - (id) init
 {
@@ -108,7 +108,7 @@
 }
 
 /**
- * Any arguments to the task are set here
+ Any arguments to the task are set here
  */
 - (void) _configureTask
 {
@@ -124,11 +124,11 @@
 }
 
 /**
- * Runs all the validation methods and returns NO if any of them fail,
- * returns YES otherwise
- *
- * @param error a NSError object to be written to if something fails
- * @return (BOOL) NO if the task fails any validation test, YES otherwise
+ Runs all the validation methods and returns NO if any of them fail,
+ returns YES otherwise
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) NO if the task fails any validation test, YES otherwise
  */
 - (BOOL) _validateTask:(NSError **)error
 {
@@ -141,12 +141,12 @@
 }
 
 /**
- * Checks for a non nil value of executable and checks that the executable actually exists
- * if either fail it writes out a kCWTaskInvalidExecutable error to the NSError pointer and
- * returns NO
- *
- * @param error a NSError object to be written to if something fails
- * @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
+ Checks for a non nil value of executable and checks that the executable actually exists
+ if either fail it writes out a kCWTaskInvalidExecutable error to the NSError pointer and
+ returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
  */
 - (BOOL) _validateExecutable:(NSError **)error
 {
@@ -160,11 +160,11 @@
 }
 
 /**
- * if there is a non nil directory path provided it validates that it actually exists
- * if that fails it writes out a kCWTaskInvalidDirectory error and returns NO
- *
- * @param error a NSError object to be written to if something fails
- * @return (BOOL) YES if the directory path exists otherwise returns NO
+ if there is a non nil directory path provided it validates that it actually exists
+ if that fails it writes out a kCWTaskInvalidDirectory error and returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) YES if the directory path exists otherwise returns NO
  */
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error
 {
@@ -180,12 +180,12 @@
 }
 
 /**
- * CWTask behaves just like  NSTask in that each task object may only run once. This
- * checks to see if it has already run and if it has write out a kCWTaskAlreadyRun error
- * to the error pointer and then  returns NO
- *
- * @param error a NSError object to be written to if something fails
- * @return (BOOL) YES if the task has not been run, otherwise returns NO
+ CWTask behaves just like  NSTask in that each task object may only run once. This
+ checks to see if it has already run and if it has write out a kCWTaskAlreadyRun error
+ to the error pointer and then  returns NO
+ 
+ @param error a NSError object to be written to if something fails
+ @return (BOOL) YES if the task has not been run, otherwise returns NO
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error
 {
@@ -214,10 +214,10 @@
 }
 
 /**
- * actual launching of the task and extracting the results from
- * the NSPipe into a NSString object occur here
- *
- * @return a NSString object with the contents of the lauched tasks output
+ actual launching of the task and extracting the results from
+ the NSPipe into a NSString object occur here
+ 
+ @return a NSString object with the contents of the lauched tasks output
  */
 - (NSString *) _resultsStringFromLaunchedTask:(NSError **)error
 {
@@ -242,9 +242,9 @@
 }
 
 /**
- * any post run actions after the task have been launched occurr here
- *
- * @param error a NSError object to be written to if something fails
+ any post run actions after the task have been launched occurr here
+ 
+ @param error a NSError object to be written to if something fails
  */
 - (void) _performPostRunActionsIfApplicable
 {
