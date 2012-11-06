@@ -54,7 +54,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	
 	const char *method1_encoding = method_getTypeEncoding(originalMethod);
 	const char *method2_encoding = method_getTypeEncoding(newMethod);
-	if ((!strcmp(method1_encoding, method2_encoding)) && *error) {
+	if (!strcmp(method1_encoding, method2_encoding)) {
 		if (error) {
 			*error = CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings,
 								   [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
