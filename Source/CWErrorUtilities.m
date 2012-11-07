@@ -79,3 +79,14 @@ void CWLogErrorInfo(NSString * domain, NSInteger errorCode,
 	NSError *error = CWCreateError(domain, errorCode, fullErrorMessage);
 	CWLogError(error);
 }
+
+void CWErrorSet(BOOL cond,
+				NSError *(^errorBlock)(void),
+				NSError **error)
+{
+	if (!cond) {
+		if (error) {
+			*error = errorBlock();
+		}
+	}
+}

@@ -76,3 +76,7 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
  @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
  */
 void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
+
+void CWErrorSet(BOOL cond,
+				NSError *(^errorBlock)(void),
+				NSError **error);
