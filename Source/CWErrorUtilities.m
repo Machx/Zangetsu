@@ -80,7 +80,7 @@ void CWLogErrorInfo(NSString * domain, NSInteger errorCode,
 	CWLogError(error);
 }
 
-void CWErrorSet(BOOL cond,
+BOOL CWErrorSet(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error)
 {
@@ -88,5 +88,7 @@ void CWErrorSet(BOOL cond,
 		if (error) {
 			*error = errorBlock();
 		}
+		return YES;
 	}
+	return NO;
 }

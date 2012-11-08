@@ -77,6 +77,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
  */
 void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
 
-void CWErrorSet(BOOL cond,
+BOOL CWErrorSet(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error);
