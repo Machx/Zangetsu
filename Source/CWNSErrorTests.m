@@ -61,4 +61,18 @@
 	CWAssertEqualsStrings(error2Message, error3Message);
 }
 
+-(void)testCWErrorSet
+{
+	NSUInteger i = 50;
+	NSError *error;
+	
+	BOOL result = CWErrorSet(i < 5, ^NSError *{
+		return CWCreateError(@"com.Test.Test", 404, @"Less than 5");
+	}, &error);
+	
+	STAssertTrue(result == YES, nil);
+	CWAssertEqualsStrings(error.domain, @"com.Test.Test");
+	STAssertTrue(error.code == 404, nil);
+}
+
 @end
