@@ -66,7 +66,7 @@
 	NSUInteger i = 50;
 	NSError *error;
 	
-	BOOL result = CWErrorSet(i < 5, ^NSError *{
+	BOOL result = CWErrorSet(i > 5, ^NSError *{
 		return CWCreateError(@"com.Test.Test", 404, @"Less than 5");
 	}, &error);
 	
