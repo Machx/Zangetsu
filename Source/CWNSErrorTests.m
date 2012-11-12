@@ -75,4 +75,13 @@
 	STAssertTrue(error.code == 404, nil);
 }
 
+-(void)testCWErrorSetWithNil
+{
+	BOOL result = CWErrorSet(YES, ^NSError *{
+		return nil;
+	}, nil);
+	
+	STAssertTrue(result == YES, nil);
+}
+
 @end
