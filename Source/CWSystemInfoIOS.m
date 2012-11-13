@@ -103,6 +103,7 @@
 	@"iPad2,2"   : @"iPad 2 (GSM)",
 	@"iPad2,3"   : @"iPad 2 (CDMA)",
 	@"iPad2,4"   : @"iPad 2",
+	@"iPad2,5"   : @"iPad Mini",
 	@"iPad3,1"   : @"iPad 3 (WiFi)",
 	@"iPad3,2"   : @"iPad 3 (4G)",
 	@"iPad3,3"   : @"iPad 3 (4G)",
