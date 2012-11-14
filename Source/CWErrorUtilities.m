@@ -84,10 +84,9 @@ BOOL CWErrorSet(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error)
 {
+	error = (error ? error : &(NSError *){ nil });
 	if (cond) {
-		if (error) {
-			*error = errorBlock();
-		}
+		*error = errorBlock();
 		return YES;
 	}
 	return NO;
