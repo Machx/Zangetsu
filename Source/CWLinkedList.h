@@ -86,6 +86,16 @@ static NSString *const KCWLinkedListErrorDomain = @"com.Zangetsu.CWLinkedList";
  */
 -(id)objectAtIndex:(NSUInteger)index;
 
+/**
+ Swaps the object value at index1 with the value at index2
+ 
+ Swaps the values at the specified indexes. If there is a problem getting
+ the values at either index the method will log error information and return.
+ Otherwise the object values are swapped.
+ 
+ @param index1 the index of the object value you wish to swap with the value at index2
+ @param index2 the index of the object value you wish to swap with the value at index1
+ */
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
 
 /**
@@ -98,8 +108,26 @@ static NSString *const KCWLinkedListErrorDomain = @"com.Zangetsu.CWLinkedList";
 
 //Objective-C Object Subscripting
 
+/**
+ Retrieves the object at the specified index
+ 
+ This method does the same thing as -objectAtIndex: but is in place 
+ for conformance with Objective-C object subscripting
+ 
+ @param index The index of the object you wish to retrieve
+ @return the object at the specified index or nil if there was a problem
+ */
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 
+/**
+ Sets object to be the value at the indexed subscript
+ 
+ If there is a problem this method will simply return and log error
+ information before exiting.
+ 
+ @param object the value you wish to set at the specified index
+ @param idx the index whose value you wish to change
+ */
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
 
 @end
