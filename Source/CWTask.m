@@ -151,9 +151,10 @@
 - (BOOL) _validateExecutable:(NSError **)error
 {
     if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
-        if (*error) {
-            *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable, @"Executable Path provided doesn't exist");
-        }
+		CWErrorSet(YES, ^NSError *{
+			return CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable,
+								 @"Executable Path provided doesn't exist");
+		}, error);
         return NO;
     }
     return YES;
@@ -170,9 +171,10 @@
 {
     if (self.directoryPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
-            if (*error) {
-                *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory, @"The Directory Specified does not exist & is invalid");
-            }
+            CWErrorSet(YES, ^NSError *{
+				return CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory,
+									 @"The Directory Specified does not exist & is invalid");
+			}, error);
             return NO;
         }
     }
@@ -190,9 +192,10 @@
 - (BOOL) _validateTaskHasRun:(NSError **)error
 {
     if (self.taskHasRun) {
-        if (*error) {
-            *error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun, @"CWTask Object has already been run");
-        }
+		CWErrorSet(YES, ^NSError *{
+			return CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun,
+								 @"CWTask Object has already been run");
+		}, error);
         return NO;
     }
     return YES;
@@ -223,6 +226,7 @@
 {
     NSData * returnedData = nil;
     NSString * taskOutput = nil;
+	error = (error ? error : &(NSError *){ nil });
 
     @try {
         [self.cwTask launch];
