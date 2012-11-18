@@ -50,9 +50,8 @@
 			[self addObject:object];
 		}
 	} else {
-		NSError *error = CWCreateError(@"com.Zangetsu.NSMutableArrayAdditions", 404,
+		CWLogErrorInfo(@"com.Zangetsu.NSMutableArrayAdditions", 404,
 									   @"Object you are attempting to move was not contained in the array");
-		CWLogError(error);
 	}
 }
 

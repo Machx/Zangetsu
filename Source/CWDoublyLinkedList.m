@@ -193,22 +193,18 @@ THE SOFTWARE.
 								  error:(NSError **)error
 {
 	NSUInteger maxCount = (self.count - 1);
-	if (index > maxCount) {
-		if (*error) {
-			*error = CWCreateError(kCWDoublyLinkedListErrorDomain,
-								   442,
-								   [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
-									index,maxCount]);
-		}
+	if (CWErrorSet(index > maxCount, ^NSError *{
+		return CWCreateError(kCWDoublyLinkedListErrorDomain, 442,
+							 [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
+							  index,maxCount]);
+	}, error)) {
 		return nil;
 	}
-	if (self.head == nil) {
-		if (*error) {
-			*error = CWCreateError(kCWDoublyLinkedListErrorDomain,
-								   445,
-								   @"Attempting to get Node at index in a list with no elements");
-			return nil;
-		}
+	if (CWErrorSet(self.head == nil, ^NSError *{
+		return CWCreateError(kCWDoublyLinkedListErrorDomain, 445,
+							 @"Attempting to get Node at index in a list with no elements");
+	}, error)) {
+		return nil;
 	}
 	
 	NSUInteger currentIndex = 0;
