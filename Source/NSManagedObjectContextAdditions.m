@@ -81,6 +81,7 @@ static void *cwmdbg = &cwmdbg;
 -(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error
 {
 	NSParameterAssert(entityName);
+	error = ( error ? error : &(NSError *){ nil });
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
 											  inManagedObjectContext:self];
 	if (entity) {
@@ -92,10 +93,8 @@ static void *cwmdbg = &cwmdbg;
 									 error:error];
 		return count;
 	}
-	if (*error) {
-		*error = CWCreateError(kNSManagedObjectContextAdditionsDomain, 990,
-							   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName]);
-	}
+	*error = CWCreateError(kNSManagedObjectContextAdditionsDomain, 990,
+						   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName]);
 	return 0;
 }
 
