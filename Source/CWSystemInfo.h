@@ -29,6 +29,12 @@
 
 #import <Foundation/Foundation.h>
 
+#define OS_VERSION_EQUALS(x) ([[CWSystemInfo hostVersionString] compare:x options:NSNumericSearch] == NSOrderedSame)
+#define OS_VERSION_GREATER_THAN(x) ([[CWSystemInfo hostVersionString] compare:x options:NSNumericSearch] == NSOrderedDescending)
+#define OS_VERSION_GREATER_OR_EQUAL_TO(x) ([[CWSystemInfo hostVersionString] compare:x options:NSNumericSearch] != NSOrderedAscending)
+#define OS_VERSION_LESS_THAN(x) ([[CWSystemInfo hostVersionString] compare:x options:NSNumericSearch] == NSOrderedAscending)
+#define OS_VERSION_LESS_THAN_OR_EQUAL_TO(x) ([[CWSystemInfo hostVersionString] compare:x options:NSNumericSearch] != NSOrderedDescending)
+
 static NSString * const kCWSystemMajorVersion =  @"majorVersion";
 static NSString * const kCWSystemMinorVersion =  @"minorVersion";
 static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
