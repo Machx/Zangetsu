@@ -39,7 +39,7 @@
 @property (readwrite, assign) BOOL taskHasRun;
 @property (readwrite, assign) BOOL inAsynchronous;
 @property (readwrite, retain) NSPipe * pipe;
-@property (readwrite, retain) NSTask * cwTask;
+@property (readwrite, retain) NSTask * internalTask;
 // Private Methods
 - (void) _configureTask;
 - (BOOL) _validateTask:(NSError **)error;
@@ -66,7 +66,7 @@
 		_successCode = kCWTaskNotLaunched;
 		_taskHasRun = NO;
 		_inAsynchronous = NO;
-		_cwTask = [[NSTask alloc] init];
+		_internalTask = [[NSTask alloc] init];
 		_completionBlock = nil;
     }
     return self;
@@ -90,7 +90,7 @@
 		_successCode = kCWTaskNotLaunched;
 		_taskHasRun = NO;
 		_inAsynchronous = NO;
-		_cwTask = nil;
+		_internalTask = nil;
 		_completionBlock = nil;
     }
     return self;
@@ -112,14 +112,14 @@
  */
 - (void) _configureTask
 {
-	self.cwTask.launchPath = self.executable;
+	self.internalTask.launchPath = self.executable;
 	self.pipe = [NSPipe pipe];
-	self.cwTask.standardOutput = self.pipe;
+	self.internalTask.standardOutput = self.pipe;
 	if ([_arguments count] > 0) {
-		self.cwTask.arguments = self.arguments;
+		self.internalTask.arguments = self.arguments;
 	}
 	if (self.directoryPath) {
-		self.cwTask.currentDirectoryPath = self.directoryPath;
+		self.internalTask.currentDirectoryPath = self.directoryPath;
 	}
 }
 
@@ -229,7 +229,7 @@
 	error = (error ? error : &(NSError *){ nil });
 
     @try {
-        [self.cwTask launch];
+        [self.internalTask launch];
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
@@ -252,8 +252,8 @@
  */
 - (void) _performPostRunActionsIfApplicable
 {
-    if (!self.cwTask.isRunning) {
-		self.successCode = self.cwTask.terminationStatus;
+    if (!self.internalTask.isRunning) {
+		self.successCode = self.internalTask.terminationStatus;
     }
 	if ((!self.inAsynchronous) && self.completionBlock) {
 		self.completionBlock();
