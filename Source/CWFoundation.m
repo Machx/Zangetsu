@@ -68,24 +68,25 @@ void CWNextRunLoop(dispatch_block_t block)
 	});
 }
 
-void CWPrintLine(NSArray *args)
+NSString *_CWPrintLineComposedString(NSArray *objects)
 {
-	NSMutableString *printString = [[NSMutableString alloc] init];
+	NSMutableString *string = [NSMutableString string];
 	
-	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[printString appendFormat:@"%@ ",obj];
+	[objects cw_each:^(id object, NSUInteger index, BOOL *stop) {
+		[string appendFormat:@"%@ ",object];
 	}];
 	
+	return string;
+}
+
+void CWPrintLine(NSArray *args)
+{
+	NSString *printString = _CWPrintLineComposedString(args);
 	NSLog(@"%@",printString);
 }
 
 void CWPrintfLine(NSArray *args)
 {
-	NSMutableString *printString = [[NSMutableString alloc] init];
-	
-	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[printString appendFormat:@"%@ ",obj];
-	}];
-	
+	NSString *printString = _CWPrintLineComposedString(args);
 	printf("%s\n",[printString UTF8String]);
 }
