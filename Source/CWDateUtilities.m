@@ -77,11 +77,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
     NSDateComponents * components = [[NSDateComponents alloc] init];
 
     if (components) {
-		if (timeZone) {
-			components.timeZone = timeZone;
-		} else {
-			components.timeZone = [NSTimeZone systemTimeZone];
-		}
+		components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
 		components.year = year;
 		components.month = month;
 		components.day = day;
