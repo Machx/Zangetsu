@@ -190,14 +190,14 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-	if ([connection isEqual:[self instanceConnection]]) {
+	if ([connection isEqual:self.instanceConnection]) {
 		self.connectionResponse = response;
 	}
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	if ([connection isEqual:[self instanceConnection]]) {
+	if ([connection isEqual:self.instanceConnection]) {
 		[self.receivedData appendData:data];
 	}
 }
@@ -209,7 +209,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	 ourselves as finished so we don't keep running the runloop
 	 and return the received data.
 	 */
-	if ([[self instanceConnection] isEqual:connection]) {
+	if ([self.instanceConnection isEqual:connection]) {
 		self.connectionIsFinished = YES;
 	}
 }
