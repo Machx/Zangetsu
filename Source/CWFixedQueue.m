@@ -108,7 +108,7 @@
 -(id)dequeue
 {
 	if (self.storage.count > 0) {
-		id dequeuedObject = [self.storage objectAtIndex:0];
+		id dequeuedObject = self.storage[0];
 		[self.storage removeObjectAtIndex:0];
 		return dequeuedObject;
 	}
