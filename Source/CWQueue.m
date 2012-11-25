@@ -132,6 +132,7 @@
 		for (id obj in self.queue) {
 			if (block(obj)) {
 				contains = YES;
+				break;
 			}
 		}
 	});
