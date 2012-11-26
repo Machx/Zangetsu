@@ -40,19 +40,6 @@
     // Set-up code here.
 }
 
--(void)testDateStringFromComponents
-{
-	/**
-	 tests the CWDateStringFromComponents function to make sure we are getting an
-	 appropriate description back
-	 */
-	NSString *dateString = CWDateStringFromComponents(2012, 6, 9, 14, 0, 0, nil, [NSCalendar currentCalendar]);
-	
-	NSString *dateString2 = @"2012-06-09 14:00:00 -0500";
-	
-	CWAssertEqualsStrings(dateString, dateString2);
-}
-
 -(void)testDateFromStringWithFormat
 {	
 	/**
