@@ -97,15 +97,3 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 	
     return nil;
 }
-
-NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
-                                      NSInteger hour, NSInteger minute, NSInteger second,
-									  NSTimeZone *timeZone, NSCalendar *calendar)
-{
-    NSDate * date = CWDateFromComponents(year, month, day, hour, minute, second,timeZone, calendar);
-
-    NSString * dateString = CWDateString(date);
-
-    return dateString;
-}
-
