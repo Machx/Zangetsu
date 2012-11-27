@@ -59,6 +59,8 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
  */
 extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
 
+extern CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) CF_RETURNS_RETAINED;
+
 /**
  Draws a Linear gradient between 2 points using Core Graphics
  

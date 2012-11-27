@@ -94,6 +94,25 @@ void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 	CGColorSpaceRelease(space);
 }
 
+CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height)
+{
+	CGContextRef ref = NULL;
+	CGColorSpaceRef space = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+	NSInteger bytesPerRow = (width * 4);
+	
+	ref = CGBitmapContextCreate(NULL,
+								width, height,
+								8, bytesPerRow,
+								space, kCGImageAlphaPremultipliedLast);
+	if (ref == NULL) {
+		CGColorSpaceRelease(space);
+		CWDebugLog(@"CWGraphicsFoundation: CGBitmapContext not allocated");
+		return NULL;
+	}
+	CGColorSpaceRelease(space);
+	return ref;
+}
+
 CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a)
 {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
