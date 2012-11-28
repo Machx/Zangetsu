@@ -59,6 +59,15 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
  */
 extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
 
+/**
+ Creates a CGContextRef for drawing images into with the width and height provided
+ 
+ The object that is returned is your responsibility to free when done with it.
+ 
+ @param width the width of the context in pixels
+ @param height the height of the context in pixels
+ @return a CGContextRef for drawing images into that you must free when done with it
+ */
 extern CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) CF_RETURNS_RETAINED;
 
 /**
