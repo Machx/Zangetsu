@@ -36,11 +36,8 @@ THE SOFTWARE.
     isoDate = [self dateFromString:dateString
                     withDateFormat:kCWISO8601TimeFormat];
 
-    if (isoDate == nil)
-        isoDate = [self dateFromString:dateString
-                        withDateFormat:kCWISO8601TimeFormat2];
-
-    return isoDate;
+    return (isoDate ? isoDate : [self dateFromString:dateString
+									  withDateFormat:kCWISO8601TimeFormat2]);
 }
 
 + (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat

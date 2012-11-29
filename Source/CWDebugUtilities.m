@@ -91,12 +91,10 @@ double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
 double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void))
 {
 	double result = CWNanoSecondsToExecuteCode(TimeBlock);
-	double milliseconds = 1.0 * 10e-6 * result;
-	return milliseconds;
+	return (1.0 * 10e-6 * result);
 }
 
 NSString *CWStackTrace(void) 
 {
-	NSString *trace = [[NSThread callStackSymbols] description];
-	return trace;
+	return [[NSThread callStackSymbols] description];
 }
