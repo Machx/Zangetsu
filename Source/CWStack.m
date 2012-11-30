@@ -152,7 +152,7 @@
 {
 	__block BOOL isEqual = NO;
 	dispatch_sync(self.queue, ^{
-		isEqual = [[aStack description] isEqualToString:[self.stack description]];
+		isEqual = [aStack.stack isEqual:self.stack];
 	});
 	return isEqual;
 }
