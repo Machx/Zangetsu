@@ -40,7 +40,8 @@
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
 {
 	dispatch_group_t group = dispatch_group_create();
-	dispatch_queue_t queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSDictionary_"), DISPATCH_QUEUE_CONCURRENT);
+	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSDictionary_");
+	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
 	__block BOOL _stop = NO;
 
 	for (id key in self) {
