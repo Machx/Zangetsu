@@ -30,7 +30,7 @@
 #import "CWStack.h"
 
 @interface CWStack()
-@property(retain) NSMutableArray *stack;
+@property(retain) NSMutableArray *dataStore;
 @property(assign) dispatch_queue_t queue;
 @end
 
@@ -45,7 +45,7 @@
 {
     self = [super init];
     if (self) {
-		_stack = [[NSMutableArray alloc] init];
+		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
@@ -55,10 +55,10 @@
 {
 	self = [super init];
 	if (self) {
-		_stack = [[NSMutableArray alloc] init];
+		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"), DISPATCH_QUEUE_SERIAL);
 		if ([objects count] > 0) {
-			[_stack addObjectsFromArray:objects];
+			[_dataStore addObjectsFromArray:objects];
 		}
 	}
 	return self;
@@ -68,7 +68,7 @@
 {
 	dispatch_async(self.queue, ^{
 		if (object) {
-			[self.stack addObject:object];
+			[self.dataStore addObject:object];
 		}
 	});
 }
@@ -77,11 +77,11 @@
 {
 	__block id object;
 	dispatch_sync(self.queue, ^{
-		if ([self.stack count] == 0) {
+		if ([self.dataStore count] == 0) {
 			object = nil;
 		} else {
-			object = [self.stack lastObject];
-			[self.stack removeLastObject];
+			object = [self.dataStore lastObject];
+			[self.dataStore removeLastObject];
 		}
 	});
 	return object;
@@ -90,7 +90,7 @@
 -(NSArray *)popToObject:(id)object
 {	
 	__block NSMutableArray *poppedObjects = nil;
-	if (![self.stack containsObject:object]) { return nil; }
+	if (![self.dataStore containsObject:object]) { return nil; }
 	
 	id currentObject = nil;
 	while (![self.topOfStackObject isEqual:object]) {
@@ -103,7 +103,7 @@
 
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block
 {	
-	if (![self.stack containsObject:object]) { return; }
+	if (![self.dataStore containsObject:object]) { return; }
 	
 	while (![self.topOfStackObject isEqual:object]) {
 		id obj = [self pop];
@@ -115,8 +115,8 @@
 {
 	__block NSArray *poppedObjects = nil;
 	
-	if(self.stack.count == 0) { return nil; }
-	poppedObjects = [self popToObject:[[self stack] cw_firstObject]];
+	if(self.dataStore.count == 0) { return nil; }
+	poppedObjects = [self popToObject:[[self dataStore] cw_firstObject]];
 	
 	return poppedObjects;
 }
@@ -125,8 +125,8 @@
 {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if([self.stack count] == 0) { return; }
-		object = [self.stack lastObject];
+		if([self.dataStore count] == 0) { return; }
+		object = [self.dataStore lastObject];
 	});
 	return object;
 }
@@ -135,8 +135,8 @@
 {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if ([self.stack count] == 0) { return; }
-		object = [self.stack cw_firstObject];
+		if ([self.dataStore count] == 0) { return; }
+		object = [self.dataStore cw_firstObject];
 	});
 	return object;
 }
@@ -144,7 +144,7 @@
 -(void)clearStack
 {
 	dispatch_async(self.queue, ^{
-		[self.stack removeAllObjects];
+		[self.dataStore removeAllObjects];
 	});
 }
 
@@ -152,7 +152,7 @@
 {
 	__block BOOL isEqual = NO;
 	dispatch_sync(self.queue, ^{
-		isEqual = [aStack.stack isEqual:self.stack];
+		isEqual = [aStack.dataStore isEqual:self.dataStore];
 	});
 	return isEqual;
 }
@@ -161,7 +161,7 @@
 {
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
-		contains = [self.stack containsObject:object];
+		contains = [self.dataStore containsObject:object];
 	});
 	return contains;
 }
@@ -170,7 +170,7 @@
 {	
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
-		for (id obj in self.stack) {
+		for (id obj in self.dataStore) {
 			if (block(obj)) {
 				contains = YES;
 				break;
@@ -189,7 +189,7 @@
 {
 	__block NSString *stackDescription = nil;
 	dispatch_sync(self.queue, ^{
-		stackDescription = [self.stack description];
+		stackDescription = [self.dataStore description];
 	});
 	return stackDescription;
 }
@@ -198,7 +198,7 @@
 {
     __block BOOL empty;
 	dispatch_sync(self.queue, ^{
-		empty = ([self.stack count] <= 0);
+		empty = ([self.dataStore count] <= 0);
 	});
 	return empty;
 }
@@ -207,7 +207,7 @@
 {
     __block NSInteger theCount = 0;
 	dispatch_sync(self.queue, ^{
-		theCount = [self.stack count];
+		theCount = [self.dataStore count];
 	});
 	return theCount;
 }
