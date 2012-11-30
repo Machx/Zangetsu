@@ -114,9 +114,8 @@
 -(NSArray *)popToBottomOfStack
 {
 	__block NSArray *poppedObjects = nil;
-	
 	if(self.dataStore.count == 0) { return nil; }
-	poppedObjects = [self popToObject:[[self dataStore] cw_firstObject]];
+	poppedObjects = [self popToObject:[self.dataStore cw_firstObject]];
 	
 	return poppedObjects;
 }
