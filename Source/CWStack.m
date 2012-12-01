@@ -77,7 +77,7 @@
 {
 	__block id object;
 	dispatch_sync(self.queue, ^{
-		if ([self.dataStore count] == 0) {
+		if (self.dataStore.count == 0) {
 			object = nil;
 		} else {
 			object = [self.dataStore lastObject];
@@ -124,7 +124,7 @@
 {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if([self.dataStore count] == 0) { return; }
+		if(self.dataStore.count == 0) { return; }
 		object = [self.dataStore lastObject];
 	});
 	return object;
@@ -134,7 +134,7 @@
 {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if ([self.dataStore count] == 0) { return; }
+		if (self.dataStore.count == 0) { return; }
 		object = [self.dataStore cw_firstObject];
 	});
 	return object;
@@ -197,7 +197,7 @@
 {
     __block BOOL empty;
 	dispatch_sync(self.queue, ^{
-		empty = ([self.dataStore count] <= 0);
+		empty = (self.dataStore.count <= 0);
 	});
 	return empty;
 }
@@ -206,7 +206,7 @@
 {
     __block NSInteger theCount = 0;
 	dispatch_sync(self.queue, ^{
-		theCount = [self.dataStore count];
+		theCount = self.dataStore.count;
 	});
 	return theCount;
 }
