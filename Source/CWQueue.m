@@ -82,8 +82,8 @@
 {
 	__block id object = nil;
 	dispatch_sync(self.storageQueue, ^{
-		if ([self.queue count] == 0) { return; }
-		object = [self.queue objectAtIndex:0]; //change back to cw_firstObject sometime
+		if (self.queue.count == 0) { return; }
+		object = self.queue[0];
 		[self.queue removeObjectAtIndex:0];
 	});
 	return object;
@@ -101,7 +101,7 @@
 -(void)enqueueObjectsFromArray:(NSArray *)objects
 {
 	dispatch_sync(self.storageQueue, ^{
-		if (objects && ([objects count] > 0)) {
+		if (objects && (objects.count > 0)) {
 			[self.queue addObjectsFromArray:objects];
 		}
 	});
@@ -163,7 +163,7 @@
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
 {	
-	if([self.queue count] == 0) { return; }
+	if(self.queue.count == 0) { return; }
 	
 	BOOL shouldStop = NO;
 	id dequeuedObject = nil;
@@ -210,7 +210,7 @@
 {
 	__block NSUInteger queueCount = 0;
 	dispatch_sync(self.storageQueue, ^{
-		queueCount = [self.queue count];
+		queueCount = self.queue.count;
 	});
 	return queueCount;
 }
@@ -219,7 +219,7 @@
 {
 	__block BOOL queueEmpty = YES;
 	dispatch_sync(self.storageQueue, ^{
-		queueEmpty = ([self.queue count] == 0);
+		queueEmpty = (self.queue.count == 0);
 	});
 	return queueEmpty;
 }
