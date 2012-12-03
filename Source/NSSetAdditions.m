@@ -81,9 +81,7 @@
 
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
 {
-	id obj = nil;
-	obj = [self cw_findWithBlock:block];
-	return (obj) ? YES : NO;
+	return ([self cw_findWithBlock:block]) ? YES : NO;
 }
 
 #if Z_HOST_OS_IS_MAC_OS_X

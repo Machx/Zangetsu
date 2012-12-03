@@ -33,9 +33,8 @@
 
 - (NSString *) cw_NSStringFromData
 {
-    NSString * _result = [[NSString alloc] initWithData:self 
-											   encoding:NSUTF8StringEncoding];
-    return _result;
+    return [[NSString alloc] initWithData:self
+								 encoding:NSUTF8StringEncoding];
 }
 
 - (const char *) cw_utf8StringFromData
