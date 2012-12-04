@@ -70,28 +70,25 @@ NSString *CWFullPathFromTildeString(NSString *tildePath)
 
 + (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path
 {
-    NSString * _appSupportPath = nil;
-    _appSupportPath = [CWPathUtilities applicationSupportFolder];
+	NSParameterAssert(path);
+    NSString * _appSupportPath = [CWPathUtilities applicationSupportFolder];
     if (!_appSupportPath) {
         return nil;
     }
-    NSString * _result = [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];
-    return _result;
+    return [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];;
 }
 
 + (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath
 {
-    NSString * _homeFolder = NSHomeDirectory();
-    NSString * _path = [NSString stringWithFormat:@"%@/%@", _homeFolder, subPath];
-	return _path;
+	NSParameterAssert(subPath);
+	return [NSString stringWithFormat:@"%@/%@",NSHomeDirectory(),subPath];
 }
 
 +(NSString *)temporaryFilePath
 {
 	NSString *temporaryFilePath = nil;
-	NSString *basePath = NSTemporaryDirectory();
 	NSString *file = [NSString stringWithFormat:@"%@.temp",[NSString cw_uuidString]];
-	temporaryFilePath = [NSString stringWithFormat:@"%@%@", basePath, file];
+	temporaryFilePath = [NSString stringWithFormat:@"%@%@", NSTemporaryDirectory(), file];
 	return temporaryFilePath;
 }
 
