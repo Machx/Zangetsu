@@ -47,13 +47,9 @@ NSString *CWFullPathFromTildeString(NSString *tildePath)
 
 + (NSString *) applicationSupportFolder
 {
-    NSString * _path = nil;
-    _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
-    if (!_path) {
-        return nil;
-    }
+    NSString * _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
+    if (!_path) { return nil; }
     NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
-
     return [NSString stringWithFormat:@"%@/%@", _path, _appName];
 }
 
@@ -86,10 +82,7 @@ NSString *CWFullPathFromTildeString(NSString *tildePath)
 
 +(NSString *)temporaryFilePath
 {
-	NSString *temporaryFilePath = nil;
-	NSString *file = [NSString stringWithFormat:@"%@.temp",[NSString cw_uuidString]];
-	temporaryFilePath = [NSString stringWithFormat:@"%@%@", NSTemporaryDirectory(), file];
-	return temporaryFilePath;
+	return [NSString stringWithFormat:@"%@%@.temp", NSTemporaryDirectory(), [NSString cw_uuidString]];
 }
 
 @end
