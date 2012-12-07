@@ -31,7 +31,7 @@
 
 /**
  Returns if the currently running application is being debugged
- discovered at http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
+ discovered @ http://lists.apple.com/archives/Xcode-users/2004/Feb/msg00241.html
  this implementation apparently will always say yes when being run
  by Xcode, but no when being run normally in finder
  
@@ -78,6 +78,6 @@ double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void));
  of a NSArray. If used with an NSException it does not
  include the Exception handling frames.
  
- @return a NSString with the stack trace returned from [NSThread callStackSymbols]
+ @return a NSString with the stack trace
  */
 NSString *CWStackTrace(void);
