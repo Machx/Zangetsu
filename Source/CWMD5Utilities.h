@@ -39,7 +39,7 @@
 
 @interface NSData (CWMD5Utilities)
 /**
- Convience method to return the MD5 value of the contents of a NSData object given
+ Convience method to return the MD5 value of the contents of an object given
  */
 -(NSString *)cw_md5StringFromData;
 @end

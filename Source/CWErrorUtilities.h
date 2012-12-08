@@ -38,14 +38,14 @@ static NSString * const kCWErrorDomain = @"CWErrorDomain";
 /**
  Convenience method for creating a NSError Object
  
- Easy convenience method to create a NSError Object. It checks for the error message
- and throws an assertion if it's missing, allows for a string with formatting and
- passing arguments for the formatting of a string. If no domain is passed in it defaults
- to kCWErrorDomain.
+ Easy convenience method to create a NSError Object. It checks for the error 
+ message and throws an assertion if it's missing, allows for a string with 
+ formatting and passing arguments for the formatting of a string. If no domain 
+ is passed in it defaults to kCWErrorDomain.
  
  @param domain a NSString specifying the domain for a NSError object
  @param errorCode a NSInteger for the error code in a NSError object
- @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
+ @param errorMessageFormat a string format which sets NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
  */
 NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
@@ -53,16 +53,16 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
 /**
  Convenience method for creating a NSError Object
  
- Easy convenience method to create a NSError Object. This method is similar to CWCreateError(),
- but it also allows setting userInfo dictionary entries. It checks for the error message
- and throws an assertion if it's missing, allows for a string with formatting and
- passing arguments for the formatting of a string. If no domain is passed in it defaults
- to kCWErrorDomain.
+ Easy convenience method to create a NSError Object. This method is similar to 
+ CWCreateError(), but it also allows setting userInfo dictionary entries. 
+ It checks for the error message and throws an assertion if it's missing, allows
+ for a string with formatting and passing arguments for the formatting of a
+ string. If no domain is passed in it defaults to kCWErrorDomain.
  
  @param domain a NSString specifying the domain for a NSError object
  @param errorCode a NSInteger for the error code in a NSError object
- @param info a NSDictionary with any other key/value pairs to be added to the NSError object
- @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
+ @param info a dictionary to be added to the error
+ @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
  */
 NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...);
@@ -70,12 +70,13 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
 /**
  Convenience Method for logging NSError information directly
  
- Internally this method does what you would have to do manually to log an NSError object to the
- console. It creates a NSError object and then logs its description with CWLogError().
+ Internally this method does what you would have to do manually to log an
+ NSError object to the console. It creates a NSError object and then logs its 
+ description with CWLogError().
  
  @param domain a NSString specifying the domain for a NSError object
  @param errorCode a NSInteger for the error code in a NSError object
- @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
+ @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  */
 void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
 
@@ -84,7 +85,7 @@ void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMess
  
  @param cond the condition to be tested
  @param errorBlock a block that returns a NSError object if the error is set
- @param error the error object to be set with the block if the condition evaluates to true
+ @param error pointer to be set with the block returned var if condition is true
  @return returns YES if the condition evaluates to true, otherwise returns NO
  */
 BOOL CWErrorSet(BOOL cond,

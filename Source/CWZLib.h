@@ -31,14 +31,14 @@ THE SOFTWARE.
 
 @interface NSData (CWZLib)
 /**
- Convenient Wrapper around SecTransform ZLib functions to compress a NSData object
+ Wrapper around SecTransform ZLib functions to compress a NSData object
  
  @return a ZLib Compressed NSData Object
  */
 -(NSData *)cw_zLibCompress;
 
 /**
- Convenient Wrapper around SecTranform ZLib functions to decompress a NSData object
+ Wrapper around SecTranform ZLib functions to decompress a NSData object
  
  @return a ZLib Decompressed NSData Object
  */
