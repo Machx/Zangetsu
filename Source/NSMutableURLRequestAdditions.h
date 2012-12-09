@@ -33,7 +33,7 @@ THE SOFTWARE.
 /**
  Sets the HTTP Authorization header field on a NSMutableURLRequest object
  
- @param authString this is a NSString that contains the value you wish to be set for the Authorization field
+ @param authString the string to be set in the URL Authorization header field
  */
 -(void)cw_setHTTPAuthorizationHeaderFieldString:(NSString *)authString;
 @end

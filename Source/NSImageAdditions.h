@@ -38,7 +38,7 @@
  cw_imageResizedToSize:size withInterPolationQuality:kCGInterpolationHigh
  
  @param size a CGSize spec that the object should be resized to
- @return a new NSImage object that has been scaled to the new size or nil if something went wrong
+ @return a new NSImage object that has been scaled to size or nil
  */
 -(NSImage *)cw_imageResizedToSize:(CGSize)size;
 
@@ -46,8 +46,8 @@
  Returns a new image of the receiver resized to the specified size
  
  @param size a CGSize spec that the object should be resized to
- @param quality the amount of interpolation quality that should be applied to the resize
- @return a new NSImage object that has been scaled to the new size or nil if something went wrong
+ @param quality interpolation quality that should be applied to the resize
+ @return a new NSImage object that has been scaled to the new size or nil
  */
 -(NSImage *)cw_imageResizedToSize:(CGSize)size 
 		 withInterpolationQuality:(CGInterpolationQuality)quality;
