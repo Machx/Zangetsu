@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 2/23/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWSerialBlockQueue.h"
 

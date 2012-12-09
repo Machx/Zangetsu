@@ -2,8 +2,7 @@
 //  NSArrayAdditions.m
 //  Zangetsu
 //
- 
- */
+ 	*/
 
 #import "NSArrayAdditions.h"
 

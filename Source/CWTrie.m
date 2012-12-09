@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 4/15/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWTrie.h"
 
@@ -20,8 +19,7 @@
 @implementation CWTrieNode
 
 /**
- This should be the designated initializer 99.99% of the time
- */
+ This should be the designated initializer 99.99% of the time	*/
 - (id)initWithKey:(NSString *)nodeKey
 {
 	self = [super init];

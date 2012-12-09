@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 7/12/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWTree.h"
 
@@ -19,8 +18,7 @@
 /**
  Initializes and creates a new CWTreenode Object
  
- @return a CWTreeNode object with no value
- */
+ @return a CWTreeNode object with no value	*/
 -(id)init
 {
     self = [super init];
@@ -47,8 +45,7 @@
 /**
  Returns a NSString with the description of the receiving CWTreeNode Object
  
- @return a NSString with debug information on the receiving CWTreeNode Object
- */
+ @return a NSString with debug information on the receiving CWTreeNode Object	*/
 -(NSString *)description
 {
 	NSString *desc = [NSString stringWithFormat:@"%@ Node\nValue: %@\nParent: %@\nChildren: %@\nAllows Duplicates: %@",

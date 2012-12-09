@@ -2,8 +2,7 @@
 //  NSStringAdditions.m
 //  Zangetsu
 //
- 
- */
+ 	*/
 
 #import "NSStringAdditions.h"
 #import <CoreFoundation/CoreFoundation.h>

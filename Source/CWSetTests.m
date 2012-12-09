@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 11/26/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWSetTests.h"
 #import <Zangetsu/Zangetsu.h>
@@ -71,8 +70,7 @@
 
 /**
  Test for cw_find to make sure it works correctly. It should
- correctly return YES for finding the desired object in the set
- */
+ correctly return YES for finding the desired object in the set	*/
 -(void)testSetFindObjInSet
 {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
@@ -90,8 +88,7 @@
 
 /**
  Testing cw_isObjectInSetWithBlock to make sure it returns
- the correct BOOL result
- */
+ the correct BOOL result	*/
 -(void)testIsObjInSet
 {
 	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
@@ -110,8 +107,7 @@
 /**
  Test for cw_map to make sure it correctly maps to another
  array correctly. In this case it should  do a 1 to 1 map
- of another set and the 2 should equal
- */
+ of another set and the 2 should equal	*/
 -(void)testSetMapSet
 {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
@@ -142,8 +138,7 @@
 }
 
 /**
- Test for selective mapping in cw_mapSet.
- */
+ Test for selective mapping in cw_mapSet.	*/
 -(void)testSelectiveMapping
 {
 	NSSet *testSet1 = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];

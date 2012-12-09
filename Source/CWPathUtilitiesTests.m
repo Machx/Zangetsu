@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 6/28/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWPathUtilitiesTests.h"
 #import "CWPathUtilities.h"

@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 1/29/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "NSColorAdditions.h"
 

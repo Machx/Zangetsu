@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/29/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWMD5Utilities.h"
 #import <CommonCrypto/CommonDigest.h>

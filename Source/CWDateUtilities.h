@@ -4,8 +4,7 @@
 //  Created by Colin Wheeler on 10/16/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
@@ -14,8 +13,7 @@ static NSString * const kCWISO8601TimeFormat2 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";;
 
 @interface CWDateUtilities : NSObject
 
-/**
- * Converts a NSString with a ISO8601 Date Format to a NSDate object
+/**	Converts a NSString with a ISO8601 Date Format to a NSDate object
  *
  * Experimental method for parsing ISO8601 Strings given usually when
  * XML data is given back. This method now tries to use a standard format
@@ -26,37 +24,31 @@ static NSString * const kCWISO8601TimeFormat2 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";;
  * a date based on the information given.
  *
  * @param dateString The String containing a ISO8601 Date
- * @return A NSDate Object if successful or nil if not successful
- */
+ * @return A NSDate Object if successful or nil if not successful	*/
 +(NSDate *)dateFromISO8601String:(NSString *)dateString;
 
-/**
- * Converts a NSString object containing a date to a NSDate object given a date format
+/**	Converts a NSString object containing a date to a NSDate object given a date format
  *
  * Convenience Method to quickly return a NSDate object from a date
  * string with a specified date format
  *
  * @param dateString A NSString Object which the date is to be extracted from
  * @param dateFormat The Format the dateString object is in
- * @return a NSDate object with the date if successful or nil if unsuccessful
- */
+ * @return a NSDate object with the date if successful or nil if unsuccessful	*/
 +(NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat;
 
 @end
 
-/**
- * Returns a NSString with a description of the NSDate object
+/**	Returns a NSString with a description of the NSDate object
  *
  * Currently this method uses the "%Y-%m-%d %H:%M:%S %z" format to
  * describe the passed in NSDate object. If date is nil then this returns nil.
  *
  * @param date a NSDate object
- * @return a NSString with describing the NSDate object
- */
+ * @return a NSString with describing the NSDate object	*/
 NSString *CWDateString(NSDate *date);
 
-/**
- * Creates a NSDate object from the values passed in for date components
+/**	Creates a NSDate object from the values passed in for date components
  *
  * Internally this gets a NSDate from the users current calendar
  *
@@ -67,14 +59,12 @@ NSString *CWDateString(NSDate *date);
  * @param minute a NSInteger for the minute of the date desired
  * @param second a NSInteger for the second of the date desired
  * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
- * @return a NSDate object if successful, nil otherwise
- */
+ * @return a NSDate object if successful, nil otherwise	*/
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
 							  NSTimeZone *timeZone, NSCalendar *calendar);
 
-/**
- * Returns a NSString using NSDates description format
+/**	Returns a NSString using NSDates description format
  *
  * @param year a NSInteger with the year value
  * @param month a NSInteger with the month value
@@ -83,8 +73,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
  * @param minute a NSInteger with the minute value
  * @param second a NSInteger with the second value
  * @param timeZone a valid NSTimeZone object or nil if you want to use the current system timezone
- * @return a NSString with NSDates format
- */
+ * @return a NSString with NSDates format	*/
 NSString * CWDateStringFromComponents(NSInteger year, NSInteger month, NSInteger day,
                                       NSInteger hour, NSInteger minute, NSInteger second,
 									  NSTimeZone *timeZone, NSCalendar *calendar);

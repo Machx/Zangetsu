@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 5/15/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWApplicationRegistry.h"
 

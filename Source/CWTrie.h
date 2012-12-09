@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 4/15/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
@@ -15,8 +14,7 @@
 /**
  Sets the Trie to be case sensitive or not for looking up/setting keys
  
- By default Tries are case sensitive.
- */
+ By default Tries are case sensitive.	*/
 @property(assign) BOOL caseSensitive;
 
 /**
@@ -28,8 +26,7 @@
  key doesn't exist in the trie instance.
  
  @param aKey a NSString that corresponds to a key in the trie
- @return the corresponding value to a given key or nil
- */
+ @return the corresponding value to a given key or nil	*/
 -(id)objectValueForKey:(NSString *)aKey;
 
 /**
@@ -40,8 +37,7 @@
  the node layout would look like
  
  [Root] -> [T] -> [e] -> [n] -> [t(1)]
-                           \ -> [n] -> [i] -> [s(2)]
- */
+                           \ -> [n] -> [i] -> [s(2)]	*/
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey;
 
@@ -49,8 +45,7 @@
  Removes a object value for a given key
  
  This method essentially calls [self setObjectValue:nil forKey:aKey]
- setting nil for a given key
- */
+ setting nil for a given key	*/
 -(void)removeObjectValueForKey:(NSString *)aKey;
 
 @end

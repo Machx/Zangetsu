@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/13/11.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWURLRequest.h"
 
@@ -28,8 +27,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 @implementation CWURLRequest
 
 /**
- Designated Initializer
- */
+ Designated Initializer	*/
 -(id)initWithHost:(NSString *)host
 {
 	self = [super init];
@@ -47,8 +45,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 /**
  A request object initialized this way is unusable.
  This is here just to give an error message when this 
- class is initialized incorrectly.
- */
+ class is initialized incorrectly.	*/
 -(id)init
 {
 	self = [super init];
@@ -68,8 +65,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 /**
  Returns a debug description of the instance request class
  
- @return a NSString with debug information of the instance request class
- */
+ @return a NSString with debug information of the instance request class	*/
 -(NSString *)description
 {
 	return [NSString stringWithFormat:@"%@: Host: %@\nAuth Header: %@\nIs Finished Connecting: %@",

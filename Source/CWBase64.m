@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 9/18/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWBase64.h"
 #import <Security/Security.h>

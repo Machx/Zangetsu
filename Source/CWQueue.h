@@ -5,14 +5,12 @@
 //  Created by Colin Wheeler on 10/29/11.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
  
 #import <Foundation/Foundation.h>
 
 /**
- CWQueue is a Thread Safe Class
- */
+ CWQueue is a Thread Safe Class	*/
 
 @interface CWQueue : NSObject
 
@@ -24,8 +22,7 @@
  added in the array going over object at index 0,1,2...etc. 
  
  @param array a NSArray object with the contents you with to initialize a CWQueue object with
- @return an initialized CWQueue instance object
- */
+ @return an initialized CWQueue instance object	*/
 -(id)initWithObjectsFromArray:(NSArray *)array;
 
 /**
@@ -34,8 +31,7 @@
  Adds object to the receiving CWQueues internal storage. If the object is
  nil then this method simply does nothing.
  
- @param object a Objective-C object you want to add to the receivng queues storage. Must be non-nil or an assertion will be thrown.
- */
+ @param object a Objective-C object you want to add to the receivng queues storage. Must be non-nil or an assertion will be thrown.	*/
 -(void)enqueue:(id)object;
 
 /**
@@ -45,13 +41,11 @@
  appends them onto the receiving queues storage. If the object array 
  is empty(0 objects) or nil then this method simply does nothing.
  
- @param a NSArray of objects to be appended onto the receiving queues storage
- */
+ @param a NSArray of objects to be appended onto the receiving queues storage	*/
 -(void)enqueueObjectsFromArray:(NSArray *)objects;
 
 /**
- Removes all objects from the receiving queues storage
- */
+ Removes all objects from the receiving queues storage	*/
 -(void)removeAllObjects;
 
 /**
@@ -62,8 +56,7 @@
  to you. If the queue has no objects in its storage then this method
  returns nil.
  
- @return a reference to the first object in the queue after removing it or nil if there are no objects in the queue.
- */
+ @return a reference to the first object in the queue after removing it or nil if there are no objects in the queue.	*/
 -(id)dequeue;
 
 /**
@@ -73,8 +66,7 @@
  in the block is set to YES. If the receiving queue is empty then this method 
  will immediately return, otherwise it will dequeue the first object in the queue
  and return to your code (via the block) and pass to you the object being dequeued
- and the BOOL pointer to stop further dequeueing if you desire.
- */
+ and the BOOL pointer to stop further dequeueing if you desire.	*/
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block;
 
 /**
@@ -87,8 +79,7 @@
  and executed the last block.
  
  @param targetObject a Objective-C object in the queue you wish to dequeue all objects including it
- @param block a block with the object being dequeued as an argument
- */
+ @param block a block with the object being dequeued as an argument	*/
 -(void)dequeueToObject:(id)targetObject withBlock:(void(^)(id object))block;
 
 /**
@@ -96,15 +87,13 @@
  
  Enumerates over the receiving queues objects in order. Each time the block
  is called it gives you a reference to the object in the queue currently being 
- enumerated over.
- */
+ enumerated over.	*/
 -(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block;
 
 /**
  Allows you to view the head object without dequeueing it
  
- @return the object at the head of the queue
- */
+ @return the object at the head of the queue	*/
 -(id)peek;
 
 /**
@@ -114,8 +103,7 @@
  storage and returns a bool if the object is contained in the queue instance.
  
  @param object a non nil object you wish to query if it exists in the queue instance
- @return a BOOL with YES if the object is in the queue or NO if it isn't
- */
+ @return a BOOL with YES if the object is in the queue or NO if it isn't	*/
 -(BOOL)containsObject:(id)object;
 
 /**
@@ -128,27 +116,23 @@
  objects in the queue.
  
  @param a block taking a id obj argument which will the an object in the queue, and returning a BOOL value of YES or NO
- @return a BOOL value with YES if the block at any time 
- */
+ @return a BOOL value with YES if the block at any time 	*/
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block;
 
 /**
  Returns a NSUInteger with the Queues object count
  
- @return a NSUInteger with the receing Queues object count
- */
+ @return a NSUInteger with the receing Queues object count	*/
 -(NSUInteger)count;
 
 /**
  Returns a BOOL indicating if the queue is empty
  
- @return Returns YES if the queue object count is 0, otherwise it returns NO.
- */
+ @return Returns YES if the queue object count is 0, otherwise it returns NO.	*/
 -(BOOL)isEmpty;
 
 /**
- Returns a BOOL indicating if aQueue is equal to the receiving queue
- */
+ Returns a BOOL indicating if aQueue is equal to the receiving queue	*/
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue;
 
 @end

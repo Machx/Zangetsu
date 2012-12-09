@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/22/11.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <CoreData/CoreData.h>
 
@@ -19,13 +18,11 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
 /**
  Returns the debug name for a NSManagedObjectContext if it is set
  
- This is just for your debuggging purposes 
- */
+ This is just for your debuggging purposes 	*/
 -(NSString *)cw_debugName;
 
 /**
- Sets the debug name for a NSManagedObjectContext
- */
+ Sets the debug name for a NSManagedObjectContext	*/
 -(void)cw_setDebugName:(NSString *)cwdebugname;
 
 /**
@@ -36,8 +33,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
  - If the MOC has Changes
  - Inserted Objects
  - Updated Objects
- - Deleted Objects
- */
+ - Deleted Objects	*/
 -(void)cw_logObjectsInContext;
 
 #endif
@@ -49,8 +45,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
  sets the parent context to the receiving NSManagedObjectContext.
  
  @param type a NSManagedObjectContextConcurrencyType type as you would pass when creating a managed object context
- @return a new child NSManagedObjectContext
- */
+ @return a new child NSManagedObjectContext	*/
 -(NSManagedObjectContext *)cw_newChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)type;
 
 /**
@@ -58,8 +53,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
  
  @param entityName the name of the entity which you would like to know how many instances there are in the store
  @param error a NSError pointer which will be passed to core data and will return any error core data encounters
- @return a NSUInteger with the count of objects of the entity present in the managed object context
- */
+ @return a NSUInteger with the count of objects of the entity present in the managed object context	*/
 -(NSUInteger)cw_countForEntity:(NSString *)entityName error:(NSError **)error;
 
 /**
@@ -72,8 +66,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
  @param an NSString containing the specified entity you are looking to have returned to you
  @param a NSPredicate (optional) to narrow down the array of objects passed to you. If nil is passed this returns all entities of entityName
  @param a NSError pointer which is passed to Core Data and any error it encounters will be returned to you.
- @return a NSArray with all entities found matching entity name and optionally the predicate
- */
+ @return a NSArray with all entities found matching entity name and optionally the predicate	*/
 -(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
 				   withPredicate:(NSPredicate *)predicate 
 						   error:(NSError **)error;
@@ -91,8 +84,7 @@ static NSString * const kNSManagedObjectContextAdditionsDomain = @"com.zangetsu.
  @param a NSArray of properties to fetch on the specified entity (can be nil)
  @param a NSArray of sort descriptors to apply to the entity results (can be nil)
  @param a NSError pointer which is passed to Core Data and any error it encounters will be returned to you.
- @return a NSArray with all entities found matching entity name and optionally the predicate
- */
+ @return a NSArray with all entities found matching entity name and optionally the predicate	*/
 -(NSArray *)cw_allEntitiesOfName:(NSString *)entityName 
 				   withPredicate:(NSPredicate *)predicate 
 					  properties:(NSArray *)properties 

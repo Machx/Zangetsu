@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 3/14/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWNSErrorTests.h"
 #import "CWErrorUtilities.h"
@@ -18,8 +17,7 @@
 /**
  Testing CWCreateError()
  tests to make sure that the values passed in to each NSError object is the same regardless 
- if a NSError is created with NSError -errorWithDomain:code:... or CWCreateError()
- */
+ if a NSError is created with NSError -errorWithDomain:code:... or CWCreateError()	*/
 -(void)testCreateError
 {	
 	NSError *error1 = CWCreateError(@"com.something.something",101, @"Some Message");

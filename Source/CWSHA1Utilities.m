@@ -2,8 +2,7 @@
 //  CWSHA1_Convenience.m
 //  Zangetsu
 //
- 
- */
+ 	*/
 
 
 #import "CWSHA1Utilities.h"

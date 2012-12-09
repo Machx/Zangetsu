@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 10/29/11.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
  
 #import "CWQueue.h"
 
@@ -24,8 +23,7 @@
  a method that alters more than 1 object in the queue appears then
  these are needed to ensure that all operations before that point
  complete and any ones at the end of the method ensure that all
- operations enqueued complete before going on.
- */
+ operations enqueued complete before going on.	*/
 
 #pragma mark Initiailziation -
 
@@ -35,8 +33,7 @@
  Initializes & returns an empty CWQueue object ready to
  accept objects to be added to it.
  
- @return a CWQueue object ready to accept objects to be added to it.
- */
+ @return a CWQueue object ready to accept objects to be added to it.	*/
 -(id)init
 {
 	self = [super init];
@@ -175,8 +172,7 @@
 /**
  Returns an NSString with a description of the queues storage
  
- @return a NSString detailing the queues internal storage
- */
+ @return a NSString detailing the queues internal storage	*/
 -(NSString *)description
 {
 	__block NSString *queueDescription = nil;

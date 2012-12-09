@@ -58,8 +58,7 @@ do { \
 /* Basis of this is from Stack Overflow
  http://stackoverflow.com/questions/2283987/xcode-call-stack-trace-on-assert
  Basically a simple assertion that spits the exact expression that failed out to log and
- also spits out the stack trace without the assertion handling frames
- */
+ also spits out the stack trace without the assertion handling frames	*/
 #define CWAssertST(x,desc) \
 do { \
 	if (!(x)) { \
@@ -88,8 +87,7 @@ do { \
 } while(0);
 
 /**
- Throws an assertion when the objects are equal
- */
+ Throws an assertion when the objects are equal	*/
 #define CWAssertNotEqualsObjects(o1, o2, description, ...) \
 do { \
 	id object1 = o1; \

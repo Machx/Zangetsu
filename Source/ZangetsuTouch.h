@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 1/15/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
@@ -55,5 +54,4 @@
  CWTask - Wraps around NSTask & isn't availble on iOS
  
  What needs work to get working on iOS
- CWZlib - SecTransform needs to be implemented on iOS
- */
+ CWZlib - SecTransform needs to be implemented on iOS	*/

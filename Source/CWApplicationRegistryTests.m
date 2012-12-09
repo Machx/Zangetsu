@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 6/9/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWApplicationRegistryTests.h"
 #import "CWApplicationRegistry.h"
@@ -14,8 +13,7 @@
 /**
  These tests are designed to be run inside of Xcode, so its not a bad assumption
  to make that it should be running, otherwise the only other application we could
- test that is guaranteed to be running is Finder
- */
+ test that is guaranteed to be running is Finder	*/
 
 @implementation CWApplicationRegistryTests
 

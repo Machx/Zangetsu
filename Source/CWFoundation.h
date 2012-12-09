@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/16/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
  
 #import <Foundation/Foundation.h>
 
@@ -19,51 +18,44 @@
  does exist in the runtime, otherwise it doesn't.
  
  @param class a NSString with the name of an Objective-C Class
- @return a BOOL with YES if the class exists or no if it doesn't
- */
+ @return a BOOL with YES if the class exists or no if it doesn't	*/
 BOOL CWClassExists(NSString * class);
 
 /**
  Returns a NSString value of 'YES' or 'NO' corresponding to the bool value passed in
  
  @param value a BOOL value of YES or NO
- @return a NSString value of @"YES" if YES was passed in or @"NO" if NO was passed in
- */
+ @return a NSString value of @"YES" if YES was passed in or @"NO" if NO was passed in	*/
 NSString *CWBOOLString(BOOL value);
 
 /**
  Returns a unique NSString prepended by the passed in string
  
  @param preString the string to be prepended on the unique string
- @return a string containing the preString argument prepended onto a unique string value
- */
+ @return a string containing the preString argument prepended onto a unique string value	*/
 NSString *CWUUIDStringPrependedWithString(NSString *preString);
 
 /**
  Returns a unique c string prepended by the passed in string
  
  @param preString the string to be prepended on the unique string
- @return a string containing the preString argument prepended onto a unique string value
- */
+ @return a string containing the preString argument prepended onto a unique string value	*/
 const char *CWUUIDCStringPrependedWithString(NSString *preString);
 
 /**
  Schedules the block to be executed on the next run loop on the main thread
  
- @param block the block to be executed on the next runloop on the main thread
- */
+ @param block the block to be executed on the next runloop on the main thread	*/
 void CWNextRunLoop(dispatch_block_t block);
 
 /**
  Inspired by println in Go, Prints all the variables (space seperated) to NSLog()
  
- @args all the variables you want printed to NSLog()
- */
+ @args all the variables you want printed to NSLog()	*/
 void CWPrintLine(NSArray *args);
 
 /**
  Inspired by println in Go, Prints all the variables (space seperated) with a newline appended to printf()
  
- @args all the variables you want printed to printf()
- */
+ @args all the variables you want printed to printf()	*/
 void CWPrintfLine(NSArray *args);

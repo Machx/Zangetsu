@@ -5,31 +5,26 @@
 //  Created by Colin Wheeler on 7/12/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
 @interface CWTreeNode : NSObject
 
 /**
- Node value
- */
+ Node value	*/
 @property(retain) id value;
 
 /**
- Parent Object which is also a CWTreeNode
- */
+ Parent Object which is also a CWTreeNode	*/
 @property(weak) id parent;
 
 /**
- Children Node Objects
- */
+ Children Node Objects	*/
 @property(readonly, retain) NSMutableArray *children;
 
 /**
- Key to set if a node allows duplicate children
- */
+ Key to set if a node allows duplicate children	*/
 @property(assign) BOOL allowsDuplicates;
 
 /**
@@ -38,8 +33,7 @@
  This is the prefeered initializer for CWTreeNode.
  
  @param aValue an Objective-C object that the CWTreeNode will retain
- @return a new CWTreeNode with aValue for the nodes data value and no children
- */
+ @return a new CWTreeNode with aValue for the nodes data value and no children	*/
 -(id)initWithValue:(id)aValue;
 
 /**
@@ -52,8 +46,7 @@
  the same value there if there isn't then it proceeds and adds the node to the receivers
  chilren and sets itself as the nodes parent.
  
- @param node a CWTreeNode object
- */
+ @param node a CWTreeNode object	*/
 -(void)addChild:(CWTreeNode *)node;
 
 /**
@@ -62,8 +55,7 @@
  The receiver checks to make sure the node is in its children and if node is,
  then it removes itself as a parent and removes the node from its chilren.
  
- @param a CWTreeNode object
- */
+ @param a CWTreeNode object	*/
 -(void)removeChild:(CWTreeNode *)node;
 
 /**
@@ -73,23 +65,20 @@
  are equal as well as its children contents. 
  
  @param node a valid CWTreeNode object
- @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
- */
+ @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers	*/
 -(BOOL)isEqualToNode:(CWTreeNode *)node;
 
 /**
  Returns a bool value indicating if nodes value is equal to the receivers
  
  @param node a valid CWTreeNode object
- @return a BOOL with yes if the node values are equal, otherwise no.
- */
+ @return a BOOL with yes if the node values are equal, otherwise no.	*/
 -(BOOL)isNodeValueEqualTo:(CWTreeNode *)node;
 
 /**
  Returns the depth level of the node in the tree it is in
  
- @return a NSUInteger with the depth level of the node in its graph of nodes
- */
+ @return a NSUInteger with the depth level of the node in its graph of nodes	*/
 -(NSUInteger)nodeLevel;
 @end
 
@@ -99,13 +88,11 @@
  Initializes and returns a new CWTree object with a root CWTreeNode value containing value
  
  @param value any valid Objective-C object to initialize a CWTreeNode node with
- @return a CWTree object with its rootnode pointer pointing at a newly created CWTreeNode object with value as its node value
- */
+ @return a CWTree object with its rootnode pointer pointing at a newly created CWTreeNode object with value as its node value	*/
 -(id)initWithRootNodeValue:(id)value;
 
 /**
- Pointer to the root node of the tree of nodes
- */
+ Pointer to the root node of the tree of nodes	*/
 @property(retain) CWTreeNode *rootNode;
 
 /**
@@ -119,31 +106,27 @@
  Block values passed back to you are as follows
  @param nodeValue a convenience to accessing (CWTreeNode *)[node nodeValue]
  @param node a pointer to the node being enumerated over
- @param stop a BOOL pointer which you can set to YES to stop enumeration, otherwise it will continue until all nodes have been enumerated over
- */
+ @param stop a BOOL pointer which you can set to YES to stop enumeration, otherwise it will continue until all nodes have been enumerated over	*/
 -(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;
 
 /**
  Returns a bool indicating if the tree object is equal to the receiver tree object
  
- @return a BOOL if the receivers children objects are equal to tree's children objects
- */
+ @return a BOOL if the receivers children objects are equal to tree's children objects	*/
 -(BOOL)isEqualToTree:(CWTree *)tree;
 
 /**
  Returns a BOOL indicating if the object argument is contained in the receiver
  
  @param object the object you wish to see if its contained in the receiver
- @return a BOOL variable with YES if object is contained in the block or NO otherwise
- */
+ @return a BOOL variable with YES if object is contained in the block or NO otherwise	*/
 -(BOOL)containsObject:(id)object;
 
 /**
  Returns a BOOL indicating if the object argument is contained in the receiver
  
  @param block a block that returns a bool indicating if the object passed in is a match to object
- @return a BOOL variable with YES if object is contained in the block or NO otherwise
- */
+ @return a BOOL variable with YES if object is contained in the block or NO otherwise	*/
 -(BOOL)containsObjectWithBlock:(BOOL(^)(id obj))block;
 
 @end

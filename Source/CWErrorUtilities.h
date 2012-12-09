@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/23/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
@@ -25,8 +24,7 @@ static NSString * const kCWErrorDomain = @"CWErrorDomain";
  @param domain a NSString specifying the domain for a NSError object
  @param errorCode a NSInteger for the error code in a NSError object
  @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
- @return a NSError object with the values passed in
- */
+ @return a NSError object with the values passed in	*/
 NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
 
 /**
@@ -42,8 +40,7 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
  @param errorCode a NSInteger for the error code in a NSError object
  @param info a NSDictionary with any other key/value pairs to be added to the NSError object
  @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
- @return a NSError object with the values passed in
- */
+ @return a NSError object with the values passed in	*/
 NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...);
 
 /**
@@ -54,6 +51,5 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
  
  @param domain a NSString specifying the domain for a NSError object
  @param errorCode a NSInteger for the error code in a NSError object
- @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey
- */
+ @param errorMessageFormat a NSString with optional formatting which specifies the NSError NSLocalizedDescriptionKey	*/
 void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);

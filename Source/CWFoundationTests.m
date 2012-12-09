@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 6/25/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWFoundationTests.h"
 #import "CWFoundation.h"

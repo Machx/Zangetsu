@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 5/24/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWStack.h"
 
@@ -20,8 +19,7 @@
 /**
  Initializes an empty stack
  
- @return a empty CWStack instance
- */
+ @return a empty CWStack instance	*/
 - (id)init
 {
     self = [super init];
@@ -164,8 +162,7 @@
 /**
  returns a NSString with the contents of the stack
  
- @return a NSString object with the description of the stack contents
- */
+ @return a NSString object with the description of the stack contents	*/
 -(NSString *)description
 {
 	__block NSString *stackDescription = nil;

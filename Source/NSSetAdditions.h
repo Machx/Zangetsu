@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 11/15/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
@@ -20,8 +19,7 @@
  now and makes the code a little more conscice. It enumerates over all the
  objects in the set or until the bool pointer is set to YES.
  
- @param block a block taking a id and BOOL pointer arguments
- */
+ @param block a block taking a id and BOOL pointer arguments	*/
 -(void)cw_each:(void (^)(id obj, BOOL *stop))block;
 
 /**
@@ -32,8 +30,7 @@
  with a UUID string. This method then concurrently enumerates all objects or until the 
  stop pointer is set to yes and waits until all blocks have finished executing before exiting.
  
- @param block a Block taking a id and BOOL* arguments
- */
+ @param block a Block taking a id and BOOL* arguments	*/
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block;
 
 /**
@@ -45,8 +42,7 @@
  this method simply returns nil.
  
  @param block a Block taking a id argument and expecting a BOOL return value
- @return an object if any block returned YES, otherwise nil
- */
+ @return an object if any block returned YES, otherwise nil	*/
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
 /**
@@ -57,8 +53,7 @@
  returned YES to that set.
  
  @param block a block taking an id argument which is an object in the set and returning a BOOL value
- @return a NSSet with all objects where blocks returned YES or an empty NSSet
- */
+ @return a NSSet with all objects where blocks returned YES or an empty NSSet	*/
 -(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
 
 /**
@@ -68,8 +63,7 @@
  otherwise it returns NO. 
  
  @param a block taking an id argument and returning a BOOL value
- @return a BOOL value with YES if a block returned YES otherwise returns NO
- */
+ @return a BOOL value with YES if a block returned YES otherwise returns NO	*/
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
 
 #if Z_HOST_OS_IS_MAC_OS_X
@@ -81,8 +75,7 @@
  NSHashTable.
  
  @param a block with a id argument and a BOOL return value
- @return a NSHashTable with all objects where the block call back returned YES, otherwise an empty NSHashTable if none return YES
- */
+ @return a NSHashTable with all objects where the block call back returned YES, otherwise an empty NSHashTable if none return YES	*/
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
 #endif
 
@@ -96,8 +89,7 @@
  block callback. 
  
  @param block a block with an id object argument for the object being enumerated over in the set and expecting an id object or nil back
- @return a NSSet with the mapped set. If nil was returned for all block callbacks this simply returns an empty NSSet
- */
+ @return a NSSet with the mapped set. If nil was returned for all block callbacks this simply returns an empty NSSet	*/
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
 @end

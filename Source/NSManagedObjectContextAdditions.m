@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/22/11.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "NSManagedObjectContextAdditions.h"
 

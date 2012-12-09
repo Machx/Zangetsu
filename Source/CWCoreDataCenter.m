@@ -4,8 +4,7 @@
 //  Created by Colin Wheeler on 9/24/09.
 //  Copyright 2009 Colin Wheeler. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWCoreDataCenter.h"
 #import <dispatch/dispatch.h>

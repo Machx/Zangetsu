@@ -5,13 +5,11 @@
  *  Created by Colin Wheeler on 6/29/10.
  *  Copyright 2010. All rights reserved.
  *
- 
- */
+ 	*/
 
 /**
  The headers here are listed in order of when
- they were created & added to Zangetsu
- */
+ they were created & added to Zangetsu	*/
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"

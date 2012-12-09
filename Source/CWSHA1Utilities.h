@@ -17,26 +17,21 @@
  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- */
+ THE SOFTWARE.	*/
 
 #import <Foundation/Foundation.h>
 
 
 @interface NSString (CWSHA1Utilities)
-/**
- * Return the SHA1 value of the string passed in
+/**	Return the SHA1 value of the string passed in
  * @param str a NSString of which you want to get its SHA1 hash from
- * @return a NSString containing the SHA1 hash (in lowercase form)
- */
+ * @return a NSString containing the SHA1 hash (in lowercase form)	*/
 +(NSString *)cw_sha1HashFromString:(NSString *)str;
 @end
 
 @interface NSData (CWSHA1Utilities)
-/**
- * Convience method to return the SHA1 value of the contents of a NSData object given
+/**	Convience method to return the SHA1 value of the contents of a NSData object given
  *
- * @return a NSString object with the SHA1 hash of the NSData objects contents
- */
+ * @return a NSString object with the SHA1 hash of the NSData objects contents	*/
 -(NSString *)cw_sha1StringFromData;
 @end

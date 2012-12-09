@@ -46,8 +46,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  Initializes the the url request with a host
  
  @param host a valid NSString with the host to be connected to
- @return a CWURLRequest object
- */
+ @return a CWURLRequest object	*/
 -(id)initWithHost:(NSString *)host;
 
 /**
@@ -59,8 +58,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  it NSMutableURLRequest.
  
  @param login a NSString with the login to the website you making a request from
- @param password a NSString with the password to the website you are making a request from
- */
+ @param password a NSString with the password to the website you are making a request from	*/
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd;
 
@@ -74,8 +72,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  is encountered is stored on the instance object. If the data is nil or if you need to debug
  an issue check the instances -connectionErrror and -connectionResponse objects.
  
- @return NSData received from the NSURLConnection
- */
+ @return NSData received from the NSURLConnection	*/
 -(NSData *)startSynchronousConnection;
 
 /**
@@ -87,8 +84,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  
  @param data - the data received from the url request
  @param error - if there was an error it will be written here
- @param response - the response received from the url request
- */
+ @param response - the response received from the url request	*/
 -(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 
 /**
@@ -102,8 +98,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  
  @param data the NSData data received from the connection
  @param error if a error was received during this connection is is passed back here
- @param the response received during the connection
- */
+ @param the response received during the connection	*/
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 /**
@@ -117,8 +112,7 @@ static const NSInteger kCWSimpleURLRequestNoHostError = 404;
  
  @param data the NSData data received from the connection
  @param error if a error was received during this connection is is passed back here
- @param the response received during the connection
- */
+ @param the response received during the connection	*/
 -(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
 					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block;
 @end

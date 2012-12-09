@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 5/11/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <Foundation/Foundation.h>
 
@@ -20,8 +19,7 @@ enum : NSUInteger {
 /**
  Returns a count of how many objects are present in the receiver
  
- @return a NSUInteger with the receivers item count
- */
+ @return a NSUInteger with the receivers item count	*/
 @property(readonly,assign) NSUInteger count;
 
 /**
@@ -30,8 +28,7 @@ enum : NSUInteger {
  This simply appends an object to the tail end of the receiver.
  If anObject is nil then this method simply does nothing.
  
- @praram an Object any valid Cocoa object
- */
+ @praram an Object any valid Cocoa object	*/
 -(void)addObject:(id)anObject;
 
 /**
@@ -46,8 +43,7 @@ enum : NSUInteger {
  this method inserts the object at the specified index.
  
  @param anObject any valid Cocoa object
- @param index a NSUInteger with a valid index
- */
+ @param index a NSUInteger with a valid index	*/
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 
 /**
@@ -58,8 +54,7 @@ enum : NSUInteger {
  true then the method immediately exits. Otherwise it goes to the 
  specified index and removes the node from the receiver.
  
- @param NSUInteger a valid index within the bounds of the receiver
- */
+ @param NSUInteger a valid index within the bounds of the receiver	*/
 -(void)removeObjectAtIndex:(NSUInteger)index;
 
 /**
@@ -70,8 +65,7 @@ enum : NSUInteger {
  enumerate through all objects in the receiver without finding anything
  and then exit.
  
- @param object any valid Cocoa object
- */
+ @param object any valid Cocoa object	*/
 -(void)removeObject:(id)object;
 
 /**
@@ -81,8 +75,7 @@ enum : NSUInteger {
  and if not then it immediately exits. Otherwise it enumerates to the 
  specified index and returns the object associated with that index.
  
- @param index a NSUInteger where you want the data associated with that slot in the receiver
- */
+ @param index a NSUInteger where you want the data associated with that slot in the receiver	*/
 -(id)objectAtIndex:(NSUInteger)index;
 
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
@@ -93,8 +86,7 @@ enum : NSUInteger {
  Swaps the objects at the given indexes with each other if both indexes are valid
  
  @param index1 a NSUInteger index
- @param index2 a NSUinteger index
- */
+ @param index2 a NSUinteger index	*/
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
 
 /**
@@ -105,8 +97,7 @@ enum : NSUInteger {
  a new list and returns that list.
  
  @param a NSRange for the receiver
- @return if the range index is valid a new CWDoublyLinkedList instance, nil otherwise
- */
+ @return if the range index is valid a new CWDoublyLinkedList instance, nil otherwise	*/
 -(CWDoublyLinkedList *)linkedListWithRange:(NSRange)range;
 
 /**
@@ -118,8 +109,7 @@ enum : NSUInteger {
  
  @param object (block) the object being enumerated over
  @param index (block) the index of the object being enumerated over
- @param stop (block) a BOOL pointer which you can set to YES to stop enumeration
- */
+ @param stop (block) a BOOL pointer which you can set to YES to stop enumeration	*/
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block;
 
 /**
@@ -133,8 +123,7 @@ enum : NSUInteger {
  @param option a NSUInteger corresponding to the way the list should be enumerated in
  @param object (block) the object being enumerated over
  @param index (block) the index of the object being enumerated over
- @param stop (block) a BOOL pointer which you can set to YES to stop enumeration
- */
+ @param stop (block) a BOOL pointer which you can set to YES to stop enumeration	*/
 -(void)enumerateObjectsWithOption:(NSUInteger)option usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block;
 
 @end

@@ -5,14 +5,12 @@
 //  Created by Colin Wheeler on 4/30/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 /**
  CWCFConversionMacros serves 2 purposes 
  (1) it a reference to CoreFoundation Types that toll free bridge to Cocoa objects, as well as
- (2) a easy way to ensure that objects of the correct type are toll free bridged
- */
+ (2) a easy way to ensure that objects of the correct type are toll free bridged	*/
 
 #import <Foundation/Foundation.h>
 

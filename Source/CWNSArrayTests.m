@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 11/27/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
  
 #import "CWNSArrayTests.h"
 #import "CWAssertionMacros.h"
@@ -15,8 +14,7 @@
 @implementation CWNArrayTests
 
 /**
- Testing the cw_fisrtObject method should return the correct object
- */
+ Testing the cw_fisrtObject method should return the correct object	*/
 -(void)testFirstObject
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
@@ -27,8 +25,7 @@
 
 /**
  Testing the cw_find api to make sure that inspecting objects works and correctly returns 
- the correct object
- */
+ the correct object	*/
 -(void)testFind
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
@@ -44,8 +41,7 @@
 }
 
 /**
- Testing the array map method, the 2 arrays should be the same
- */
+ Testing the array map method, the 2 arrays should be the same	*/
 -(void)testMapArray
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
@@ -59,8 +55,7 @@
 
 /**
  Testing the each method by using it to map 1 array to another one and then testing 
- to see if the 2 arrays are equal
- */
+ to see if the 2 arrays are equal	*/
 -(void)testCWEach
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
@@ -77,8 +72,7 @@
 /**
  tests to make sure that the stop pointer in the cw_each method is respected
  
- in this exercise we have an item with 3 elements and 
- */
+ in this exercise we have an item with 3 elements and 	*/
 -(void)testEachStopPointer
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
@@ -96,8 +90,7 @@
 
 /**
  Testing cw_eachWithIndex by getting the index and then testing the object for the value that
- is supposed to be at that location
- */
+ is supposed to be at that location	*/
 -(void)testCWEachIndex
 {
 	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];

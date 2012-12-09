@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 1/15/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "NSDataAdditions.h"
 

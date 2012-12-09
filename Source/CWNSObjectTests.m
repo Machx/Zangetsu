@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/18/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWNSObjectTests.h"
 #import "NSObjectAdditions.h"
@@ -16,8 +15,7 @@
 @implementation CWNSObjectTests
 
 /**
- Testing the strong associated reference to make sure it works
- */
+ Testing the strong associated reference to make sure it works	*/
 -(void)testStrongReferenceObjcAssociation
 {
 	char *key1 = "key1";

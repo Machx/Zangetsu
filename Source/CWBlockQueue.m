@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 2/27/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "CWBlockQueue.h"
 
@@ -201,8 +200,7 @@
 }
 
 /**
- Returns if the CWBlockQueues gcd queues are the same
- */
+ Returns if the CWBlockQueues gcd queues are the same	*/
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {

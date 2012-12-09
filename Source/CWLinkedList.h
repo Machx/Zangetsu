@@ -34,15 +34,13 @@ THE SOFTWARE.
 /**
  Returns the number of objects stored in the receiver
  
- @return a NSUInteger with the number of objects stored in the receiver 
- */
+ @return a NSUInteger with the number of objects stored in the receiver 	*/
 @property(readonly,assign) NSUInteger count;
 
 /**
  Appends the object to the end of the receiver storage
  
- @param any NSObject subclass, this must not be nil
- */
+ @param any NSObject subclass, this must not be nil	*/
 -(void)addObject:(id)anObject;
 
 /**
@@ -54,8 +52,7 @@ THE SOFTWARE.
  kCWLinkedListInvalidRangeException exception. 
  
  @param anObject any valid non nil object, otherwise this method returns immediately
- @param index an index within the bounds of the receiver for the object to be inserted at
- */
+ @param index an index within the bounds of the receiver for the object to be inserted at	*/
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 
 /**
@@ -65,23 +62,20 @@ THE SOFTWARE.
  a CWLinkedListInvalidRangeException. Otherwise this removes the
  object at the given index from the receiver
  
- @param NSUInteger the index of the object you want to be removed
- */
+ @param NSUInteger the index of the object you want to be removed	*/
 -(void)removeObjectAtIndex:(NSUInteger)index;
 
 /**
  If present in the receiver array this method removes the object from the receiver
  
- @param object a NSObject subclass instance to be removed from the receiver. This must not be nil.
- */
+ @param object a NSObject subclass instance to be removed from the receiver. This must not be nil.	*/
 -(void)removeObject:(id)object;
 
 /**
  Returns the object at a given index of the receiver
  
  @pram index If this is beyond the bounds of the receiving object this throws a CWLinkedListInvalidRangeException exception
- @return the object at the index or nil if something went wrong
- */
+ @return the object at the index or nil if something went wrong	*/
 -(id)objectAtIndex:(NSUInteger)index;
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2;
@@ -90,8 +84,7 @@ THE SOFTWARE.
  Enumerates over the contents of the Linked List
  
  @param id (block parameter) the object currently being enumerated over
- @param stop a BOOL pointer which you can set to YES to stop enumeration
- */
+ @param stop a BOOL pointer which you can set to YES to stop enumeration	*/
 -(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block;
 
 //Objective-C Object Subscripting

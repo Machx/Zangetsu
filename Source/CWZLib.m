@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 9/25/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
  
 #import "CWZLib.h"
 #import <Security/Security.h>

@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 9/10/12.
 //
 //
- 
- */
+ 	*/
 
 #import "CWFixedQueue.h"
 

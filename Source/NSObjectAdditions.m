@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 12/15/10.
 //  Copyright 2010. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import "NSObjectAdditions.h"
 #import <objc/runtime.h>
@@ -45,8 +44,7 @@
 }
 
 /**
- Private - Internal Implementation Method
- */
+ Private - Internal Implementation Method	*/
 -(void)_cw_blockInvokeCallBack
 {
 	void (^block)(void) = (id)self;

@@ -5,8 +5,7 @@
 //  Created by Colin Wheeler on 6/12/12.
 //  Copyright (c) 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 #import <UIKit/UIKit.h>
 
@@ -19,8 +18,7 @@
  -cw_imageResizedToSize:size withInterpolationQuality:kCGInterpolationHigh.
  
  @param size The size you wish the UIImage receiver to be resized to.
- @return a new UIImage resized to the desired size
- */
+ @return a new UIImage resized to the desired size	*/
 -(UIImage *)cw_imageResizedToSize:(CGSize)size;
 
 /**
@@ -31,8 +29,7 @@
  
  @param size The size you wish the UIImage receiver to be resized to.
  @param quality the quality of the interpolation to be done in the resize
- @return a new UIImage resized to the desired size
- */
+ @return a new UIImage resized to the desired size	*/
 -(UIImage *)cw_imageResizedToSize:(CGSize)size 
 		 withInterpolationQuality:(CGInterpolationQuality)quality;
 

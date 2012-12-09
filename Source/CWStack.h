@@ -5,12 +5,10 @@
 //  Created by Colin Wheeler on 5/24/11.
 //  Copyright 2012. All rights reserved.
 //
- 
- */
+ 	*/
 
 /**
- This class is thread safe
- */
+ This class is thread safe	*/
 
 #import <Foundation/Foundation.h>
 
@@ -21,8 +19,7 @@
  If the NSArray passed in has at least 1 object
  
  @param objects a NSArray whose contents you want a CWStack object initialized with
- @return an intialized CWStack object
- */
+ @return an intialized CWStack object	*/
 -(id)initWithObjectsFromArray:(NSArray *)objects;
 
 /**
@@ -31,15 +28,13 @@
  Pushes the object onto the stack instance. If the object
  is nil then this method does nothing.
  
- @param object the object you want pushed onto the stack
- */
+ @param object the object you want pushed onto the stack	*/
 -(void)push:(id)object;
 
 /**
  pops an object off of the top of the CWStack object and returns that popped object
  
- @return the object at the top of the stack
- */
+ @return the object at the top of the stack	*/
 -(id)pop;
 
 /**
@@ -50,8 +45,7 @@
  a NSArray containing all objects popped off the stack before the object specified is returned
  
  @param object the object you wish the stack to be popped off to
- @return nil if the object is not in the array otherwise a NSArray of all popped off objects
- */
+ @return nil if the object is not in the array otherwise a NSArray of all popped off objects	*/
 -(NSArray *)popToObject:(id)object;
 
 /**
@@ -60,34 +54,29 @@
  If the object provided does not exist in the stack then the method returns immediately 
  
  @param object The object you wish to pop the stack to
- @param block the block that will be executed upon encountering each object in the stack until the object specified is found
- */
+ @param block the block that will be executed upon encountering each object in the stack until the object specified is found	*/
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block;
 
 /**
  pops all objects off the stack except for the bottom object
  
- @return a NSArray of all popped off objects
- */
+ @return a NSArray of all popped off objects	*/
 -(NSArray *)popToBottomOfStack;
 
 /**
  returns the object at the top of the stack
  
- @return the objct at the top of the stack
- */
+ @return the objct at the top of the stack	*/
 -(id)topOfStackObject;
 
 /**
  returns the object at the bottom of the stack
  
- @return the objct at the bottom of the stack
- */
+ @return the objct at the bottom of the stack	*/
 -(id)bottomOfStackObject;
 
 /**
- clears the stack of all objects
- */
+ clears the stack of all objects	*/
 -(void)clearStack;
 
 /**
@@ -100,37 +89,32 @@
  access to private contents that you will get in CWStack.
  
  @param object another CWStack object which you wish to compare its contents to against the receiver object
- @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't
- */
+ @return a BOOL with YES if the 2 stack objects have the same contents or NO if they don't	*/
 -(BOOL)isEqualToStack:(CWStack *)aStack;
 
 /**
  Returns a bool indicating if the pass in object is contained in the CWStack storage
  
  @param object any NSObject subclass instance you wish to see if its contained in the stack
- @return a BOOL with a value of YES if the object is contained in the stack, otherwise NO
- */
+ @return a BOOL with a value of YES if the object is contained in the stack, otherwise NO	*/
 -(BOOL)containsObject:(id)object;
 
 /**
  Returns a BOOL indicating if any block call returned YES indicating the object was in the CWStack storage
  
  @param block a block with a id object passed in and returning a BOOL
- @return a BOOL with yes if any block call returned yes, otherwise no
- */
+ @return a BOOL with yes if any block call returned yes, otherwise no	*/
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block;
 
 /**
  returns if the stack is currently empty
  
- @return a BOOL indicating if the stack is empty
- */
+ @return a BOOL indicating if the stack is empty	*/
 -(BOOL)isEmpty;
 
 /**
  returns a count of objects in the current stack object
  
- @return a NSInteger indicating how many objects are currently in the stack
- */
+ @return a NSInteger indicating how many objects are currently in the stack	*/
 -(NSInteger)count;
 @end
