@@ -84,8 +84,6 @@ static const NSInteger kCWTaskNotLaunched =           -1729;
  */
 -(NSString *)launchTask:(NSError **)error;
 
-//Experimental Asynchronous Methods
-
 /**
  Launches the task on a private queue and returns the result in a completion block
  
