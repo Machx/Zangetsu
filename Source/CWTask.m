@@ -141,12 +141,12 @@
 }
 
 /**
- Checks for a non nil value of executable and checks that the executable actually exists
- if either fail it writes out a kCWTaskInvalidExecutable error to the NSError pointer and
- returns NO
+ Checks for a non nil value of executable and checks that the executable 
+ actually exists if either fail it writes out a kCWTaskInvalidExecutable error
+ to the NSError pointer and returns NO
  
  @param error a NSError object to be written to if something fails
- @return (BOOL) NO is the executable specified doesn't exist otherwise returns YES
+ @return (BOOL) NO is the executable specified doesn't exist otherwise YES
  */
 - (BOOL) _validateExecutable:(NSError **)error
 {
@@ -160,8 +160,8 @@
 }
 
 /**
- if there is a non nil directory path provided it validates that it actually exists
- if that fails it writes out a kCWTaskInvalidDirectory error and returns NO
+ if there is a non nil directory path provided it validates that it actually 
+ exists if that fails it writes out a kCWTaskInvalidDirectory error & returns NO
  
  @param error a NSError object to be written to if something fails
  @return (BOOL) YES if the directory path exists otherwise returns NO
@@ -180,9 +180,9 @@
 }
 
 /**
- CWTask behaves just like  NSTask in that each task object may only run once. This
- checks to see if it has already run and if it has write out a kCWTaskAlreadyRun error
- to the error pointer and then  returns NO
+ CWTask behaves just like  NSTask in that each task object may only run once. 
+ This checks to see if it has already run and if it has write out a 
+ kCWTaskAlreadyRun error to the error pointer and then  returns NO
  
  @param error a NSError object to be written to if something fails
  @return (BOOL) YES if the task has not been run, otherwise returns NO
