@@ -56,7 +56,7 @@ static NSString * const kCWSystemBugFixVersion = @"bugfixVersion";
 +(NSString *)hostVersionString;
 
 /**
- Does what it says it does, returns the # of cpu cores on the host Mac
+ Returns the number of cpu cores on the host Mac
  
  @return a NSInteger with the number of CPU cores on the Host Mac
  */
