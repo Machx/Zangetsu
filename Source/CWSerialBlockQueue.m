@@ -99,9 +99,8 @@
 
 -(NSString *)label
 {
-	NSString *queueLabel = [NSString stringWithCString:dispatch_queue_get_label(self.queue) 
-											  encoding:NSUTF8StringEncoding];
-	return queueLabel;
+	return [NSString stringWithCString:dispatch_queue_get_label(self.queue)
+							  encoding:NSUTF8StringEncoding];
 }
 
 -(void)resume
