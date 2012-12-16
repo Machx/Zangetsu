@@ -162,7 +162,7 @@
 -(BOOL)isEqualToTree:(CWTree *)tree
 {
 	if ([self.rootNode isNodeValueEqualTo:tree.rootNode] &&
-		[[self.rootNode description] isEqualToString:[tree.rootNode description]]) {
+		[[self.rootNode description] isEqualToString:tree.rootNode.description]) {
 		return YES;
 	}
     return NO;
@@ -177,7 +177,7 @@
 	
 	[queue enqueue:self.rootNode];
 	
-	while ( [queue count] > 0 ) {
+	while (queue.count > 0) {
 		CWTreeNode *node = (CWTreeNode *)[queue dequeue];
 		
 		block(node.value, node, &shouldStop);
