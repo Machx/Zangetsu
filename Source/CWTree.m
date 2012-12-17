@@ -184,7 +184,7 @@
 		
 		if(shouldStop) { break; }
 		
-		if ([node.children count] > 0) {
+		if (node.children.count > 0) {
 			for (CWTreeNode *childNode in node.children) {
 				[queue enqueue:childNode];
 			}
