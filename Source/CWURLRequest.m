@@ -224,7 +224,6 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	if ([self.instanceConnection isEqual:connection]) {
 		self.connectionError = error;
 		self.connectionIsFinished = YES;
-		CWLogError(error);
 	}
 }
 

@@ -90,8 +90,8 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	const char *method1_encoding = method_getTypeEncoding(originalMethod);
 	const char *method2_encoding = method_getTypeEncoding(newMethod);
 	if (CWErrorSet(!strcmp(method1_encoding, method2_encoding), ^NSError *{
-		return CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings
-							 , [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
+		return CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings,
+							 [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
 								method1_encoding,method2_encoding]); }, error)) {
 		return;
 	}
