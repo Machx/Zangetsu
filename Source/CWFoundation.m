@@ -43,17 +43,13 @@ NSString *CWBOOLString(BOOL value)
 
 NSString *CWUUIDStringPrependedWithString(NSString *preString)
 {
-	NSString *unqiueString = [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
-	return unqiueString;
+	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
 
 const char *CWUUIDCStringPrependedWithString(NSString *preString)
 {
 	NSString *uString = CWUUIDStringPrependedWithString(preString);
-	if (uString) {
-		return [uString UTF8String];
-	}
-	return NULL;
+	return (uString ? [uString UTF8String] : NULL);
 }
 
 void CWNextRunLoop(dispatch_block_t block)
