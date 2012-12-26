@@ -71,22 +71,18 @@ void CWNextRunLoop(dispatch_block_t block)
 NSString *_CWPrintLineComposedString(NSArray *objects)
 {
 	NSMutableString *string = [NSMutableString string];
-	
 	[objects cw_each:^(id object, NSUInteger index, BOOL *stop) {
 		[string appendFormat:@"%@ ",object];
 	}];
-	
 	return string;
 }
 
 void CWPrintLine(NSArray *args)
 {
-	NSString *printString = _CWPrintLineComposedString(args);
-	NSLog(@"%@",printString);
+	NSLog(@"%@",_CWPrintLineComposedString(args));
 }
 
 void CWPrintfLine(NSArray *args)
 {
-	NSString *printString = _CWPrintLineComposedString(args);
-	printf("%s\n",[printString UTF8String]);
+	printf("%s\n",[_CWPrintLineComposedString(args) UTF8String]);
 }
