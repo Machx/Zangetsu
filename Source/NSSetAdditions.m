@@ -38,24 +38,9 @@
 }
 
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block 
-{	
-	dispatch_group_t group = dispatch_group_create();
-	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSSetAdditions_ConncurrentEach_");
-	dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
-	__block BOOL _stop = NO;
-
-	for(id object in self){
-
-		dispatch_group_async(group, queue, ^{
-			block(object,&_stop);
-		});
-		
-		if (_stop) { break; }
-	}
-
-	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-	dispatch_release(group);
-	dispatch_release(queue);
+{
+	[self enumerateObjectsWithOptions:NSEnumerationConcurrent
+						   usingBlock:block];
 }
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block
