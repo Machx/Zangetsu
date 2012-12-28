@@ -41,7 +41,8 @@
 
 -(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSUInteger index, BOOL * stop))block
 {
-	[self enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:block];
+	[self enumerateObjectsWithOptions:NSEnumerationConcurrent
+						   usingBlock:block];
 }
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block
