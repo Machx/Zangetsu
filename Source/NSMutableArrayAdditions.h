@@ -37,10 +37,16 @@
  adds the objects from otherArray to the receiver by sending the copy message
  to each object before adding it to the receivers array.
  
- @prarm otherArray a NSArray whose objects you want copied and added to the reciver array
+ @param otherArray an NSArray whose contents should be copied into the receiver
  */
 -(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray;
 
+/**
+ Moves the object at whatever index it is at to the specified index
+ 
+ @param object in the receiver you want to move to a new index
+ @param index the index you wish to move the specified object to
+ */
 -(void)cw_moveObject:(id)object
 			 toIndex:(NSUInteger)index;
 
