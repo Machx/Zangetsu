@@ -51,10 +51,10 @@
 		} else {
 			[self addObject:object];
 		}
-	} else {
-		CWLogErrorInfo(@"com.Zangetsu.NSMutableArrayAdditions", 404,
-									   @"Object you are attempting to move was not contained in the array");
+		return;
 	}
+	CWLogErrorInfo(@"com.Zangetsu.NSMutableArrayAdditions", 404,
+				   @"Object you are attempting to move was not contained in the array");
 }
 
 @end
