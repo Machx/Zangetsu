@@ -41,7 +41,9 @@
 -(void)cw_moveObject:(id)object
 			 toIndex:(NSUInteger)index
 {
+	NSParameterAssert(object);
 	NSUInteger oldIndex = [self indexOfObject:object];
+	if (oldIndex == index) { return; }
 	if (oldIndex != NSNotFound) {
 		[self removeObjectAtIndex:oldIndex];
 		if (index <= self.count) {
