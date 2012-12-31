@@ -46,11 +46,7 @@
 	if (oldIndex == index) { return; }
 	if (oldIndex != NSNotFound) {
 		[self removeObjectAtIndex:oldIndex];
-		if (index <= self.count) {
-			[self insertObject:object atIndex:index];
-		} else {
-			[self addObject:object];
-		}
+		[self insertObject:object atIndex:index];
 		return;
 	}
 	CWLogErrorInfo(@"com.Zangetsu.NSMutableArrayAdditions", 404,
