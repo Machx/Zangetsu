@@ -40,12 +40,12 @@
 	 */
 	NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"foo",@"bar",nil];
 	
-	STAssertTrue([dictionary cw_dictionaryContainsKey:@"bar"],@"Dictionary should contain key bar");
+	STAssertTrue([dictionary cw_containsKey:@"bar"],@"Dictionary should contain key bar");
 	
 	/**
 	 also make sure we correctly detect keys not present in a dictionary
 	 */
-	STAssertFalse([dictionary cw_dictionaryContainsKey:@"Zapp Brannigan"],@"Dictionary should not contain the key Zapp Brannigan");
+	STAssertFalse([dictionary cw_containsKey:@"Zapp Brannigan"],@"Dictionary should not contain the key Zapp Brannigan");
 }
 
 -(void)testDictionaryMapping
@@ -76,7 +76,7 @@
 		return [NSDictionary dictionaryWithObjectsAndKeys:value,key, nil];
 	}];
 	
-	STAssertFalse([results2 cw_dictionaryContainsKey:@"LaBarbara"],@"Shouldn't contain LaBarbara if mapped correctly");
+	STAssertFalse([results2 cw_containsKey:@"LaBarbara"],@"Shouldn't contain LaBarbara if mapped correctly");
 }
 
 -(void)testEach
