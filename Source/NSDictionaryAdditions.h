@@ -47,7 +47,7 @@
  Simple Convenience method to tell if the dictionary
  contains a particular key
  */
--(BOOL)cw_dictionaryContainsKey:(NSString *)key;
+-(BOOL)cw_containsKey:(NSString *)key;
 
 /**
  An dictionary mapping method using only 1 block

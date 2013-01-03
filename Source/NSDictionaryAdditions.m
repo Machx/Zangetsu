@@ -42,7 +42,7 @@
 	[self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:block];
 }
 
--(BOOL)cw_dictionaryContainsKey:(NSString *)key
+-(BOOL)cw_containsKey:(NSString *)key
 {
 	return [[self allKeys] containsObject:key];
 }
