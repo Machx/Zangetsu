@@ -48,7 +48,9 @@ static NSString * const kCWErrorDomain = @"CWErrorDomain";
  @param errorMessageFormat a string format which sets NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
  */
-NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
+NSError * CWCreateError(NSString * domain,
+						NSInteger errorCode,
+						NSString * errorMessageFormat, ...);
 
 /**
  Convenience method for creating a NSError Object
@@ -65,7 +67,10 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode, NSString * error
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
  */
-NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDictionary *info, NSString * errorMessageFormat, ...);
+NSError * CWCreateErrorWithUserInfo(NSString * domain,
+									NSInteger errorCode,
+									NSDictionary *info,
+									NSString * errorMessageFormat, ...);
 
 /**
  Convenience Method for logging NSError information directly
@@ -78,7 +83,9 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode, NSDi
  @param errorCode a NSInteger for the error code in a NSError object
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  */
-void CWLogErrorInfo(NSString * domain, NSInteger errorCode, NSString * errorMessageFormat, ...);
+void CWLogErrorInfo(NSString * domain,
+					NSInteger errorCode,
+					NSString * errorMessageFormat, ...);
 
 /**
  Tests if the condition is true and if it is sets the error

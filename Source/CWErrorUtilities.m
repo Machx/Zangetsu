@@ -29,7 +29,8 @@
 
 #import "CWErrorUtilities.h"
 
-NSError * CWCreateError(NSString * domain, NSInteger errorCode,
+NSError * CWCreateError(NSString * domain,
+						NSInteger errorCode,
 						NSString * errorMessageFormat, ...)
 {
     va_list args;
@@ -41,7 +42,8 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode,
 	return CWCreateErrorWithUserInfo(domain, errorCode, nil, fullErrorMessage);
 }
 
-NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode,
+NSError * CWCreateErrorWithUserInfo(NSString * domain,
+									NSInteger errorCode,
 									NSDictionary *info,
 									NSString * errorMessageFormat, ...)
 {
@@ -67,7 +69,8 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode,
                            userInfo:_errorDictionary];
 }
 
-void CWLogErrorInfo(NSString * domain, NSInteger errorCode,
+void CWLogErrorInfo(NSString * domain,
+					NSInteger errorCode,
 					NSString * errorMessageFormat, ...)
 {
 	va_list args;
