@@ -57,7 +57,7 @@
 #pragma mark - Exerimental Perform with Block Methods
 
 -(void)cw_performAfterDelay:(NSTimeInterval)delay
-				  withBlock:(void (^)())block
+				  withBlock:(dispatch_block_t)block
 {
 	[block performSelector:@selector(_cw_blockInvokeCallBack) 
 				withObject:nil 
@@ -69,7 +69,7 @@
  */
 -(void)_cw_blockInvokeCallBack
 {
-	void (^block)(void) = (id)self;
+	dispatch_block_t block = (id)self;
 	block();
 }
 

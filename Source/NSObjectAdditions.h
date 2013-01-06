@@ -56,7 +56,7 @@
  Executes the passed in block after a specified delay time
  */
 -(void)cw_performAfterDelay:(NSTimeInterval)delay
-				  withBlock:(void (^)())block;
+				  withBlock:(dispatch_block_t)block;
 
 // Queueing  Methods
 
