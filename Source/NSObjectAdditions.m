@@ -80,7 +80,9 @@
 				  onQueue:(NSOperationQueue *)queue
 {
 	NSParameterAssert(queue);
-	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:selector object:obj];
+	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self
+																	 selector:selector
+																	   object:obj];
 	[queue addOperation:op];
 }
 
