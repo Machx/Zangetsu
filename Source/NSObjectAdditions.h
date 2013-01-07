@@ -59,7 +59,7 @@
 -(void)cw_associateWeakValue:(id)value
 					 withKey:(void *)key;
 
-#pramga mark Block Timing Methods -
+//Block Timing Methods -
 
 /**
  Executes the passed in block after a specified time delay
@@ -70,7 +70,7 @@
 -(void)cw_performAfterDelay:(NSTimeInterval)delay
 				  withBlock:(dispatch_block_t)block;
 
-#pramga mark Queueing  Methods -
+//Queueing  Methods -
 
 /**
  Performs selector with obj as an argument on queue using NSInvocationOperation
