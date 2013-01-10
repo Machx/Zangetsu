@@ -44,6 +44,12 @@
  */
 -(NSSet *)allObjectsOfPriority:(NSUInteger)priority;
 
+/**
+ Returns the count of all objects in the Queue matching the given priority level
+ 
+ @param priority the given priority level you want to get the count of objects
+ @return a NSUInteger with the number of objects who have the given priority
+ */
 -(NSUInteger)countofObjectsWithPriority:(NSUInteger)priority;
 
 @end
