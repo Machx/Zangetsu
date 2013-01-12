@@ -166,6 +166,8 @@
 
 /**
  Returns a BOOL indicating if aQueue is equal to the receiving queue
+ 
+ @return a BOOL if the queues are equal
  */
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue;
 
