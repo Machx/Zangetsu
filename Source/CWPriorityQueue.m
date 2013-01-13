@@ -91,13 +91,18 @@
 	return obj;
 }
 
--(NSSet *)allObjectsOfPriority:(NSUInteger)priority;
+-(NSArray *)_arrayOfAllObjectsOfPriority:(NSUInteger)priority
 {
-	NSMutableSet *results = [NSMutableSet set];
 	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
 		return (((CWPriorityQueueItem *)evaluatedObject).priority == priority);
 	}];
-	NSArray *filteredResults = [self.storage filteredArrayUsingPredicate:predicate];
+	return [self.storage filteredArrayUsingPredicate:predicate];
+}
+
+-(NSSet *)allObjectsOfPriority:(NSUInteger)priority;
+{
+	NSMutableSet *results = [NSMutableSet set];
+	NSArray *filteredResults = [self _arrayOfAllObjectsOfPriority:priority];
 	[filteredResults cw_each:^(id object, NSUInteger index, BOOL *stop) {
 		CWPriorityQueueItem *queueItem = (CWPriorityQueueItem *)object;
 		[results addObject:queueItem.item];
