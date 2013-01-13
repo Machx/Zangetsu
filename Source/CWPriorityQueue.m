@@ -58,6 +58,11 @@
     return self;
 }
 
+-(NSString *)description {
+	return [NSString stringWithFormat:@"%@: %@",
+			NSStringFromClass([self class]), self.storage.description];
+}
+
 -(void)_sortStorage
 {
 	[self.storage sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
