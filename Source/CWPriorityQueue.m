@@ -114,6 +114,9 @@
 {
 	__block int32_t count = 0;
 	[self.storage cw_eachConcurrentlyWithBlock:^(id object, NSUInteger index, BOOL *stop) {
+		//since the array is sorted if we have gone past our priority stop
+		if (((CWPriorityQueueItem *)object).priority >  priority) *stop = YES;
+		//otherwise if the priority matches then increment count
 		if (((CWPriorityQueueItem *)object).priority == priority) {
 			OSAtomicIncrement32(&count);
 		}
