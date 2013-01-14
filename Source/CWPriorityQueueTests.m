@@ -75,4 +75,28 @@
 	STAssertTrue([queue countofObjectsWithPriority:9] == 2, nil);
 }
 
+-(void)testDequeueAllObjectsOfNextPriorityLevel
+{
+	CWPriorityQueue *queue = [CWPriorityQueue new];
+	
+	[queue addItem:@"1-1" withPriority:1];
+	[queue addItem:@"2-1" withPriority:2];
+	[queue addItem:@"2-2" withPriority:2];
+	[queue addItem:@"2-3" withPriority:2];
+	[queue addItem:@"2-4" withPriority:2];
+	[queue addItem:@"2-5" withPriority:2];
+	[queue addItem:@"3-1" withPriority:3];
+	[queue addItem:@"3-2" withPriority:3];
+	[queue addItem:@"3-3" withPriority:3];
+	[queue addItem:@"4-1" withPriority:4];
+	[queue addItem:@"4-2" withPriority:4];
+	[queue addItem:@"4-3" withPriority:4];
+	[queue addItem:@"4-4" withPriority:4];
+	
+	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 1, nil);
+	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 5, nil);
+	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 3, nil);
+	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 4, nil);
+}
+
 @end
