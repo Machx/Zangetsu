@@ -37,6 +37,8 @@
  */
 -(id)dequeue;
 
+-(NSSet *)dequeueAllObjectsOfNextPriorityLevel;
+
 /**
  Returns all objects that have a priority in the queue that matches the argument
  
