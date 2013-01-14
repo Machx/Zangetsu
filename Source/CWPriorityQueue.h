@@ -37,6 +37,15 @@
  */
 -(id)dequeue;
 
+/**
+ Dequeues all objects of the next priority level off the queue
+ 
+ This method looks at what the highest priority is of items on the queue, and
+ then dequeues all items of the same priority level. This removes all the items
+ from the queue and returns them to you.
+ 
+ @return a NSSet of all items matching the next highest priority level
+ */
 -(NSSet *)dequeueAllObjectsOfNextPriorityLevel;
 
 /**
