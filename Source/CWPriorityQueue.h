@@ -44,16 +44,16 @@
  then dequeues all items of the same priority level. This removes all the items
  from the queue and returns them to you.
  
- @return a NSSet of all items matching the next highest priority level
+ @return a NSArray of all items matching the next highest priority level
  */
--(NSSet *)dequeueAllObjectsOfNextPriorityLevel;
+-(NSArray *)dequeueAllObjectsOfNextPriorityLevel;
 
 /**
  Returns all objects that have a priority in the queue that matches the argument
  
- @return an NSSet of all objects matching the given priority, or an empty set
+ @return an NSArray of all objects matching the given priority, or an empty set
  */
--(NSSet *)allObjectsOfPriority:(NSUInteger)priority;
+-(NSArray *)allObjectsOfPriority:(NSUInteger)priority;
 
 /**
  Returns the count of all objects in the Queue matching the given priority level

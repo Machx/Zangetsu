@@ -96,17 +96,17 @@
 	return obj;
 }
 
--(NSSet *)dequeueAllObjectsOfNextPriorityLevel {
+-(NSArray *)dequeueAllObjectsOfNextPriorityLevel {
 	if (self.storage.count == 0) return nil;
 	NSUInteger priorityLevel = ((CWPriorityQueueItem *)self.storage[0]).priority;
-	NSArray *results = [self _arrayOfAllObjectsOfPriority:priorityLevel];
-	[self.storage removeObjectsInArray:results];
+	NSArray *priorityResults = [self _arrayOfAllObjectsOfPriority:priorityLevel];
+	[self.storage removeObjectsInArray:priorityResults];
 	//extract the items so we don't return CWPriorityQueueItems...
-	NSMutableSet *set = [NSMutableSet set];
-	[results cw_each:^(id object, NSUInteger index, BOOL *stop) {
-		[set addObject:((CWPriorityQueueItem *)object).item];
+	NSMutableArray *results = [NSMutableArray array];
+	[priorityResults cw_each:^(id object, NSUInteger index, BOOL *stop) {
+		[results addObject:((CWPriorityQueueItem *)object).item];
 	}];
-	return set;
+	return results;
 }
 
 -(NSArray *)_arrayOfAllObjectsOfPriority:(NSUInteger)priority
@@ -117,13 +117,11 @@
 	return [self.storage filteredArrayUsingPredicate:predicate];
 }
 
--(NSSet *)allObjectsOfPriority:(NSUInteger)priority;
-{
-	NSMutableSet *results = [NSMutableSet set];
+-(NSArray *)allObjectsOfPriority:(NSUInteger)priority; {
+	NSMutableArray *results = [NSMutableArray array];
 	NSArray *filteredResults = [self _arrayOfAllObjectsOfPriority:priority];
 	[filteredResults cw_each:^(id object, NSUInteger index, BOOL *stop) {
-		CWPriorityQueueItem *queueItem = (CWPriorityQueueItem *)object;
-		[results addObject:queueItem.item];
+		[results addObject:((CWPriorityQueueItem *)object).item];
 	}];
 	return results;
 }
