@@ -44,12 +44,12 @@
 	[queue addItem:@"Fry" withPriority:13];
 	[queue addItem:@"Leela" withPriority:2];
 	
-	NSSet *results = [queue allObjectsOfPriority:5];
+	NSArray *results = [queue allObjectsOfPriority:5];
 	
 	STAssertTrue(results.count == 2, nil);
 	
-	NSSet *expected = [NSSet setWithObjects:@"The",@"Hypnotoad", nil];
-	STAssertTrue([expected isEqualToSet:results], nil);
+	NSArray *expected = @[ @"The", @"Hypnotoad" ];
+	STAssertTrue([expected isEqualToArray:results], nil);
 }
 
 -(void)testCountOfPriority
