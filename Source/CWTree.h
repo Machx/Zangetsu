@@ -65,11 +65,11 @@
  Adds node to the receivers children
  
  If the receiver allows duplicates it simply adds node to the receivers children
- and sets itself as the nodes parent. If the receiver does not allow duplicates then
- the receiver checks if the node isn't already in its children. If it is not then it
- checks the node values of its children to make sure there isn't already a node with 
- the same value there if there isn't then it proceeds and adds the node to the receivers
- chilren and sets itself as the nodes parent.
+ and sets itself as the nodes parent. If the receiver does not allow duplicates 
+ then the receiver checks if the node isn't already in its children. If it is 
+ not then it checks the node values of its children to make sure there isn't 
+ already a node with the same value there if there isn't then it proceeds and 
+ adds the node to the receivers chilren and sets itself as the nodes parent.
  
  @param node a CWTreeNode object
  */
@@ -86,13 +86,13 @@
 -(void)removeChild:(CWTreeNode *)node;
 
 /**
- Returns a bool value if the receivers value & node pointers are all equal to node
+ Returns if the receivers value & node pointers are all equal to node
  
- Returns a BOOL value if nodes value is equal to the receivers and if its parent poiners
- are equal as well as its children contents. 
+ Returns a BOOL value if nodes value is equal to the receivers and if its parent
+ poiners are equal as well as its children contents. 
  
  @param node a valid CWTreeNode object
- @return a BOOL indicatign if the value and children/parent pointers all equal to nodes value & pointers
+ @return YES if all the nodes values all equal
  */
 -(BOOL)isEqualToNode:(CWTreeNode *)node;
 
@@ -115,10 +115,11 @@
 @interface CWTree : NSObject
 
 /**
- Initializes and returns a new CWTree object with a root CWTreeNode value containing value
+ Initializes & returns a new CWTree object with a root CWTreeNode set to value
  
  @param value any valid Objective-C object to initialize a CWTreeNode node with
- @return a CWTree object with its rootnode pointer pointing at a newly created CWTreeNode object with value as its node value
+ @return a CWTree object with its rootnode pointer pointing at a newly created 
+ CWTreeNode object with value as its node value
  */
 -(id)initWithRootNodeValue:(id)value;
 
@@ -138,14 +139,15 @@
  Block values passed back to you are as follows
  @param nodeValue a convenience to accessing (CWTreeNode *)[node nodeValue]
  @param node a pointer to the node being enumerated over
- @param stop a BOOL pointer which you can set to YES to stop enumeration, otherwise it will continue until all nodes have been enumerated over
+ @param stop a BOOL pointer which you can set to YES to stop enumeration, 
+ otherwise it will continue until all nodes have been enumerated over
  */
 -(void)enumerateTreeWithBlock:(void (^)(id nodeValue, id node, BOOL *stop))block;
 
 /**
- Returns a bool indicating if the tree object is equal to the receiver tree object
+ Returns a bool indicating if the tree object is equal to the receiver tree
  
- @return a BOOL if the receivers children objects are equal to tree's children objects
+ @return a BOOL if the receivers children objects are equal to tree's children
  */
 -(BOOL)isEqualToTree:(CWTree *)tree;
 
@@ -153,15 +155,16 @@
  Returns a BOOL indicating if the object argument is contained in the receiver
  
  @param object the object you wish to see if its contained in the receiver
- @return a BOOL variable with YES if object is contained in the block or NO otherwise
+ @return YES if object is contained in the block or NO otherwise
  */
 -(BOOL)containsObject:(id)object;
 
 /**
  Returns a BOOL indicating if the object argument is contained in the receiver
  
- @param block a block that returns a bool indicating if the object passed in is a match to object
- @return a BOOL variable with YES if object is contained in the block or NO otherwise
+ @param block a block that returns a bool indicating if the object passed in is 
+ a match to object
+ @return YES if object is contained in the block or NO otherwise
  */
 -(BOOL)containsObjectWithBlock:(BOOL(^)(id obj))block;
 
