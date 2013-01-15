@@ -15,8 +15,7 @@
 
 @implementation CWPriorityQueueItem
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         _item = nil;
@@ -26,8 +25,7 @@
 }
 
 +(instancetype)itemWithObject:(id)object
-				  andPriority:(NSUInteger)priority
-{
+				  andPriority:(NSUInteger)priority {
 	NSParameterAssert(object);
 	CWPriorityQueueItem *queueItem = [self new];
 	queueItem.item = object;
@@ -35,8 +33,7 @@
 	return queueItem;
 }
 
--(NSString *)description
-{
+-(NSString *)description {
 	return [NSString stringWithFormat:@"%@: Priority: %ld Item: %@",
 			NSStringFromClass([self class]), _priority,_item];
 }
@@ -49,8 +46,7 @@
 
 @implementation CWPriorityQueue
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         _storage = [NSMutableArray array];
@@ -63,8 +59,7 @@
 			NSStringFromClass([self class]), self.storage.description];
 }
 
--(void)_sortStorage
-{
+-(void)_sortStorage {
 	[self.storage sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
 		NSUInteger obj1Priority = ((CWPriorityQueueItem *)obj1).priority;
 		NSUInteger obj2Priority = ((CWPriorityQueueItem *)obj2).priority;
@@ -79,8 +74,7 @@
 }
 
 -(void)addItem:(id)item
-  withPriority:(NSUInteger)priority
-{
+  withPriority:(NSUInteger)priority {
 	NSParameterAssert(item);
 	CWPriorityQueueItem *container = [CWPriorityQueueItem itemWithObject:item
 															 andPriority:priority];
@@ -88,8 +82,7 @@
 	[self _sortStorage];
 }
 
--(id)dequeue
-{
+-(id)dequeue {
 	if(self.storage.count == 0) { return nil; }
 	id obj = ((CWPriorityQueueItem *)self.storage[0]).item;
 	[self.storage removeObjectAtIndex:0];
@@ -109,8 +102,7 @@
 	return results;
 }
 
--(NSArray *)_arrayOfAllObjectsOfPriority:(NSUInteger)priority
-{
+-(NSArray *)_arrayOfAllObjectsOfPriority:(NSUInteger)priority {
 	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
 		return (((CWPriorityQueueItem *)evaluatedObject).priority == priority);
 	}];
@@ -126,8 +118,7 @@
 	return results;
 }
 
--(NSUInteger)countofObjectsWithPriority:(NSUInteger)priority
-{
+-(NSUInteger)countofObjectsWithPriority:(NSUInteger)priority {
 	__block int32_t count = 0;
 	[self.storage cw_eachConcurrentlyWithBlock:^(id object, NSUInteger index, BOOL *stop) {
 		//since the array is sorted if we have gone past our priority stop
