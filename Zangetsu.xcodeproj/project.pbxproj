@@ -20,10 +20,10 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
-		B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
-		B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
+		B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
+		B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,11 +68,6 @@
 		B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWSerialBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
 		B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
-		B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
-		B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
-		B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */; };
 		B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,7 +82,7 @@
 		B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImageAdditions.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
-		B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */; };
+		B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWLinkedListTests.m */; };
 		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -271,8 +266,8 @@
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
 		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
-		B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedList.h; path = Source/CWDoublyLinkedList.h; sourceTree = "<group>"; };
-		B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedList.m; path = Source/CWDoublyLinkedList.m; sourceTree = "<group>"; };
+		B812FF53155E043100BDC6CA /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
+		B812FF54155E043100BDC6CA /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
@@ -307,10 +302,6 @@
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
 		B84C513314F696790046455E /* CWSerialBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueue.h; path = Source/CWSerialBlockQueue.h; sourceTree = "<group>"; };
 		B84C513414F696790046455E /* CWSerialBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueue.m; path = Source/CWSerialBlockQueue.m; sourceTree = "<group>"; };
-		B84F1F50154A146F0038AEE0 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
-		B84F1F51154A146F0038AEE0 /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
-		B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
-		B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
 		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
@@ -329,8 +320,8 @@
 		B85908381587D3F300B8B2C4 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = Source/UIImageAdditions.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
-		B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedListTests.h; path = Source/CWDoublyLinkedListTests.h; sourceTree = "<group>"; };
-		B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedListTests.m; path = Source/CWDoublyLinkedListTests.m; sourceTree = "<group>"; };
+		B863579F1561495400EF09BA /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
+		B86357A01561495400EF09BA /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSRecursiveLockAdditions.h; path = Source/NSRecursiveLockAdditions.h; sourceTree = "<group>"; };
 		B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRecursiveLockAdditions.m; path = Source/NSRecursiveLockAdditions.m; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
@@ -750,10 +741,8 @@
 				B86E60FE169D1F060071D187 /* CWPriorityQueue.m */,
 				B897CA16153B6E1C003BAD73 /* CWTrie.h */,
 				B897CA17153B6E1C003BAD73 /* CWTrie.m */,
-				B84F1F50154A146F0038AEE0 /* CWLinkedList.h */,
-				B84F1F51154A146F0038AEE0 /* CWLinkedList.m */,
-				B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */,
-				B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */,
+				B812FF53155E043100BDC6CA /* CWLinkedList.h */,
+				B812FF54155E043100BDC6CA /* CWLinkedList.m */,
 				B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */,
 				B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */,
 			);
@@ -826,10 +815,8 @@
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
 				B897CA1C153B8610003BAD73 /* CWTrieTests.h */,
 				B897CA1D153B8610003BAD73 /* CWTrieTests.m */,
-				B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */,
-				B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */,
-				B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */,
-				B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */,
+				B863579F1561495400EF09BA /* CWLinkedListTests.h */,
+				B86357A01561495400EF09BA /* CWLinkedListTests.m */,
 				B8590750158787EF00B8B2C4 /* CWNSColorAdditionsTests.h */,
 				B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */,
 				B8CE2C3215FF7CB40004D8D1 /* CWFixedQueueTests.h */,
@@ -890,8 +877,7 @@
 				B84C513514F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */,
-				B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
+				B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
@@ -942,8 +928,7 @@
 				B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */,
-				B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
+				B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
 				B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
@@ -1159,8 +1144,7 @@
 				B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */,
-				B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
+				B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
@@ -1207,8 +1191,7 @@
 				B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */,
-				B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
+				B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 				B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */,
@@ -1250,8 +1233,7 @@
 				B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */,
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
-				B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */,
-				B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */,
+				B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */,
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
 				B8CE2C3415FF7CB40004D8D1 /* CWFixedQueueTests.m in Sources */,
 				B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */,
