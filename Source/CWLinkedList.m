@@ -1,11 +1,10 @@
 /*
-//  CWLinkedList.m
+//  CWDoublyLinkedList.m
 //  Zangetsu
 //
-//  Created by Colin Wheeler on 4/26/12.
+//  Created by Colin Wheeler on 5/11/12.
 //  Copyright (c) 2012. All rights reserved.
 //
-
 
 Copyright (c) 2012 Colin Wheeler
 
@@ -30,31 +29,40 @@ THE SOFTWARE.
 
 #import "CWLinkedList.h"
 
-@interface CWLinkedListNode : NSObject
-@property(retain) CWLinkedListNode *next;
+@interface CWDoublyLinkedListNode : NSObject
 @property(retain) id data;
+@property(retain) CWDoublyLinkedListNode *next;
+@property(retain) CWDoublyLinkedListNode *prev;
 @end
 
-@implementation CWLinkedListNode
+@implementation CWDoublyLinkedListNode
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _next = nil;
-		_data = nil;
+        _data = nil;
+		_next = nil;
+		_prev = nil;
     }
     return self;
+}
+
+-(NSString *)description
+{
+	NSString *debugDescription = [NSString stringWithFormat:@"( Node Value: %@\n Prev Node: %@\n Next Node: %@ )",_data,_prev,_next];
+	return debugDescription;
 }
 
 @end
 
 @interface CWLinkedList ()
-@property(readwrite,assign) NSUInteger count;
-@property(retain) CWLinkedListNode *head;
-@property(weak) CWLinkedListNode *tail;
--(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index;
--(CWLinkedListNode *)nodeAtIndex:(NSUInteger)index;
+@property(readwrite, assign) NSUInteger count;
+@property(retain) CWDoublyLinkedListNode *head;
+@property(weak) CWDoublyLinkedListNode *tail;
+-(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
+-(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index error:(NSError **)error;
+-(BOOL)hasInsertObjectErrorsWithObject:(id)object andIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
@@ -63,54 +71,46 @@ THE SOFTWARE.
 {
     self = [super init];
     if (self) {
-        _head = nil;
+        _count = 0;
+		_head = nil;
 		_tail = nil;
-		_count = 0;
     }
     return self;
 }
 
--(BOOL)hasErrorForAddObject:(id)object
-{
-	if (!object) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
-					   @"Trying to add nil object to Linked List Instance");
-		return YES;
-	}
-	
-	return NO;
-}
-
 -(void)addObject:(id)anObject
 {
-	if ([self hasErrorForAddObject:anObject]) {
-		return;
-	}
+	if(!anObject) { return; }
 	
-	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
+	CWDoublyLinkedListNode *node = [[CWDoublyLinkedListNode alloc] init];
 	node.data = anObject;
 	
-	if (self.head) {
-		self.tail.next = node;
+	if (!self.head) {
+		self.head = node;
 		self.tail = node;
 	} else {
-		self.head = node;
+		node.prev = self.tail;
+		self.tail.next = node;
 		self.tail = node;
 	}
 	
 	self.count++;
 }
 
--(BOOL)hasErrorForInsertObject:(id)anObject atIndex:(NSUInteger)index
+-(BOOL)hasInsertObjectErrorsWithObject:(id)object
+							  andIndex:(NSUInteger)index
 {
-	if (!anObject) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
-					   @"Trying to add a nil object to the receiver list");
+	if (object == nil) {
+		//TODO: publicly document (and if needed change) these error #'s
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   442,
+					   @"Attemtping to insert a nil object");
 		return YES;
 	}
-	if (index > (self.count - 1)) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
-					   @"Trying to insert an item beyond list bounds");
+	if ((!self.head) && (index != 0)) {
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   443,
+					   @"Trying to insert an object in a list with no objects and index > 0");
 		return YES;
 	}
 	
@@ -119,133 +119,115 @@ THE SOFTWARE.
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-	if ([self hasErrorForInsertObject:anObject atIndex:index]) {
+	//will log any errors it encounters...
+	if ([self hasInsertObjectErrorsWithObject:anObject
+									 andIndex:index]) {
 		return;
 	}
 	
-	if (index == 0) {
-		CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
-		node.data = anObject;
-		node.next = self.head;
-		self.head = node;
-		self.count++;
-	} else {
-		NSUInteger current = 0;
-		CWLinkedListNode *node = self.head;
-		while (current != (index - 1)) {
-			node = node.next;
-			current++;
-		}
-		CWLinkedListNode *insertNode = [[CWLinkedListNode alloc] init];
-		insertNode.data = anObject;
-		insertNode.next = node.next;
-		node.next = insertNode;
-		self.count++;
+	//if we can just append to the end
+	//of the array then just do it to save time
+	if (index == self.count) {
+		[self addObject:anObject];
+		return;
 	}
+	
+	NSError *error;
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	if(node == nil) { CWLogError(error); return; }
+	
+	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
+	insertNode.data = anObject;
+	
+	CWDoublyLinkedListNode *nextNode = node;
+	CWDoublyLinkedListNode *prevNode = node.prev;
+	//take care of the insert node
+	insertNode.next = nextNode;
+	insertNode.prev = prevNode;
+	//then the next node
+	nextNode.prev = insertNode;
+	//then the prev node
+	prevNode.next = insertNode;
+	
+	self.count++;
+}
+
+-(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node
+{
+	CWDoublyLinkedListNode *prev = node.prev;
+	CWDoublyLinkedListNode *next = node.next;
+	prev.next = next;
+	next.prev = prev;
+	
+	self.count--;
 }
 
 -(void)removeObjectAtIndex:(NSUInteger)index
 {
-	if (index > (self.count - 1)) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
-					   @"Trying to retrieve an item beyond list bounds");
-		return;
-	}
-	
-	if (index == 0) {
-		if (self.count > 1) {
-			self.head = self.head.next;
-		} else {
-			self.head = nil;
-			self.tail = nil;
-		}
-		self.count--;
-		return;
-	}
-	
-	NSUInteger current = 0;
-	CWLinkedListNode *node = self.head;
-	while (current != ( index - 1 )) {
-		node = node.next;
-		current++;
-	}
-	
-	node.next = node.next.next;
-	self.count--;
-}
-
--(BOOL)hasErrorForRemoveObject:(id)object
-{
-	if (!object) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
-					   @"passed object is nil");
-		return YES;
-	}
 	if (!self.head) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
-					   @"trying to remove object in list with no objects");
-		return YES;
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   450,
+					   @"Trying to delete an object in a list with no objects and index > 0");
+		return;
 	}
-	return NO;
+	
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	[self _removeObjectWithNode:node];
 }
 
 -(void)removeObject:(id)object
 {
-	if ([self hasErrorForRemoveObject:object]) {
-		return;
-	}
+	if (!self.head) { return; }
 	
-	NSUInteger index = 0;
-	NSUInteger max = (self.count - 1);
-	CWLinkedListNode *currentNode = self.head;
+	CWDoublyLinkedListNode *node = self.head;
 	
-	if ([currentNode.data isEqual:object]) {
-		[self removeObjectAtIndex:0];
-		return;
-	}
-	
-	do {
-		CWLinkedListNode *nextNode = currentNode.next;
-		if ([nextNode.data isEqual:object]) {
-			currentNode.next = currentNode.next.next;
-			nextNode.next = nil;
-			self.count--;
-			return;
+	while (node) {
+		if ([node.data isEqual:object]) {
+			[self _removeObjectWithNode:node];
 		}
-		currentNode = currentNode.next;
-		index++;
-	} while ((index < max) && currentNode);
-	
-	CWLogErrorInfo(KCWLinkedListErrorDomain, 404,
-				   @"Object not found in linked list");
+		node = node.next;
+	}
 }
 
--(BOOL)hasErrorForObjectAtIndex:(NSUInteger)index
+-(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index
+								  error:(NSError **)error
 {
-	if (!self.head) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 442,
-					   @"Trying to retrieve a item with an index in an empty list");
-		return YES;
+	NSUInteger maxCount = (self.count - 1);
+	if (CWErrorSet(index > maxCount, ^NSError *{
+		return CWCreateError(kCWDoublyLinkedListErrorDomain, 442,
+							 [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
+							  index,maxCount]);
+	}, error)) {
+		return nil;
 	}
-	if (index > (self.count - 1)) {
-		CWLogErrorInfo(KCWLinkedListErrorDomain, 443,
-					   @"Trying to retrieve an item beyond list bounds");
-		return YES;
+	if (CWErrorSet(self.head == nil, ^NSError *{
+		return CWCreateError(kCWDoublyLinkedListErrorDomain, 445,
+							 @"Attempting to get Node at index in a list with no elements");
+	}, error)) {
+		return nil;
 	}
-	return NO;
+	
+	NSUInteger currentIndex = 0;
+	CWDoublyLinkedListNode *node = self.head;
+	
+	while (currentIndex != index) {
+		node = node.next;
+		currentIndex++;
+	}
+	
+	return node;
 }
 
--(CWLinkedListNode *)nodeAtIndex:(NSUInteger)index
+-(id)objectAtIndex:(NSUInteger)index
 {
-	NSUInteger current = 0;
-	CWLinkedListNode *currentNode = self.head;
-	
-	while (current != index) {
-		currentNode = currentNode.next;
-		current++;
+	NSError *error;
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index
+												error:&error];
+	if (!node) {
+		CWLogError(error);
+		return nil;
 	}
-	
-	return currentNode;
+	return node.data;
 }
 
 -(id)objectAtIndexedSubscript:(NSUInteger)index
@@ -255,53 +237,99 @@ THE SOFTWARE.
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
 {
-	if ([self hasErrorForObjectAtIndex:idx]) {
-		return;
-	}
-	
-	CWLinkedListNode *node = [self nodeAtIndex:idx];
+	CWDoublyLinkedListNode *node = [self _nodeAtIndex:idx
+												error:nil];
 	node.data = object;
 }
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
-	if ([self hasErrorForObjectAtIndex:index1] ||
-		[self hasErrorForObjectAtIndex:index2]) {
-		return;
-	}
-	
-	CWLinkedListNode *node1 = [self nodeAtIndex:index1];
-	CWLinkedListNode *node2 = [self nodeAtIndex:index2];
+	NSError *node1Error, *node2Error;
+	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1
+												 error:&node1Error];
+	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2
+												 error:&node2Error];
+	if(!node1) { CWLogError(node1Error); return; }
+	if(!node2) { CWLogError(node2Error); return; }
 	
 	id temp = node1.data;
 	node1.data = node2.data;
 	node2.data = temp;
 }
 
-
--(id)objectAtIndex:(NSUInteger)index
+-(CWLinkedList *)linkedListWithRange:(NSRange)range
 {
-	if ([self hasErrorForObjectAtIndex:index]) {
+	if ((range.length + range.location) > ( self.count - 1)) {
+		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+					   442,
+					   @"Error: Range beyond bounds... Exiting now...");
 		return nil;
 	}
 	
-	CWLinkedListNode *node = [self nodeAtIndex:index];
-	return node.data;
+	CWLinkedList *returnList = [[CWLinkedList alloc] init];
+	
+	NSUInteger start = range.location;
+	NSUInteger currentIndex = 0;
+	
+	CWDoublyLinkedListNode *node = self.head;
+	
+	while (currentIndex != start) {
+		node = node.next;
+		currentIndex++;
+	}
+	
+	NSUInteger length = range.length;
+	
+	while (node && (length != 0)) {
+		[returnList addObject:node.data];
+		length--;
+		node = node.next;
+	}
+	
+	return returnList;
 }
 
--(void)enumerateObjectsWithBlock:(void(^)(id object, BOOL *stop))block
+-(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block
 {
-	if(!self.head) { return; }
-	BOOL shouldStop = NO;
-	NSUInteger index = 0;
-	NSUInteger max = self.count;
-	CWLinkedListNode *currentNode = self.head;
+	if (!self.head) { return; }
 	
-	while ((index < max) && currentNode) {
-		block(currentNode.data, &shouldStop);
-		if(shouldStop == YES) { return; }
-		currentNode = currentNode.next;
-		index++;
+	CWDoublyLinkedListNode *node = self.head;
+	BOOL shouldStop = NO;
+	NSUInteger idx = 0;
+	
+	while (node) {
+		block(node.data,idx,&shouldStop);
+		if (shouldStop == YES) {
+			break;
+		}
+		node = node.next;
+		idx++;
+	}
+}
+
+-(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block
+{
+	if (!self.head) { return; }
+	
+	CWDoublyLinkedListNode *tail = self.tail;
+	BOOL shouldStop = NO;
+	NSUInteger currentIndex = self.count - 1;
+	
+	while (tail != nil) {
+		block(tail.data, currentIndex, &shouldStop);
+		if (shouldStop == YES) { break; }
+		tail = tail.prev;
+		currentIndex--;
+	}
+}
+
+-(void)enumerateObjectsWithOption:(CWDoublyLinkedListEnumerationOption)option
+					   usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
+{
+	if (option == kCWDoublyLinkedListEnumerateReverse) {
+		[self enumerateObjectsInReverseWithBlock:block];
+	} else if(option == kCWDoublyLinkedListEnumerateForward) {
+		[self enumerateObjectsWithBlock:block];
 	}
 }
 
