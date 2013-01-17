@@ -37,8 +37,7 @@
 
 @implementation CWLinkedListNode
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         _data = nil;
@@ -48,10 +47,9 @@
     return self;
 }
 
--(NSString *)description
-{
-	NSString *debugDescription = [NSString stringWithFormat:@"( Node Value: %@\n Prev Node: %@\n Next Node: %@ )",_data,_prev,_next];
-	return debugDescription;
+-(NSString *)description {
+	return [NSString stringWithFormat:@"( Node Value: %@\n Prev Node: %@\n Next Node: %@ )",
+			_data,_prev,_next];
 }
 
 @end
@@ -67,8 +65,7 @@
 
 @implementation CWLinkedList
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         _count = 0;
@@ -78,8 +75,7 @@
     return self;
 }
 
--(void)addObject:(id)anObject
-{
+-(void)addObject:(id)anObject {
 	if(!anObject) { return; }
 	
 	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
@@ -98,8 +94,7 @@
 }
 
 -(BOOL)hasInsertObjectErrorsWithObject:(id)object
-							  andIndex:(NSUInteger)index
-{
+							  andIndex:(NSUInteger)index {
 	if (object == nil) {
 		//TODO: publicly document (and if needed change) these error #'s
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
@@ -117,16 +112,17 @@
 	return NO;
 }
 
--(void)insertObject:(id)anObject atIndex:(NSUInteger)index
-{
+-(void)insertObject:(id)anObject atIndex:(NSUInteger)index {
 	//will log any errors it encounters...
 	if ([self hasInsertObjectErrorsWithObject:anObject
 									 andIndex:index]) {
 		return;
 	}
 	
-	//if we can just append to the end
-	//of the array then just do it to save time
+	/**
+	 if we are appending onto the exact end of the array
+	 then calling -addObject: will save us a lot of time
+	 */
 	if (index == self.count) {
 		[self addObject:anObject];
 		return;
@@ -147,27 +143,20 @@
 
 	insertNode.next = nextNode;
 	insertNode.prev = prevNode;
-	//then the next node
 	nextNode.prev = insertNode;
-	//then the prev node
 	prevNode.next = insertNode;
-	
 	self.count++;
 }
 
--(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node
-{
 -(void)_removeObjectWithNode:(CWLinkedListNode *)node {
 	CWLinkedListNode *prev = node.prev;
 	CWLinkedListNode *next = node.next;
 	prev.next = next;
 	next.prev = prev;
-	
 	self.count--;
 }
 
--(void)removeObjectAtIndex:(NSUInteger)index
-{
+-(void)removeObjectAtIndex:(NSUInteger)index {
 	if (!self.head) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
 					   450,
@@ -179,8 +168,7 @@
 	[self _removeObjectWithNode:node];
 }
 
--(void)removeObject:(id)object
-{
+-(void)removeObject:(id)object {
 	if (!self.head) { return; }
 	
 	CWLinkedListNode *node = self.head;
@@ -216,12 +204,10 @@
 		node = node.next;
 		currentIndex++;
 	}
-	
 	return node;
 }
 
--(id)objectAtIndex:(NSUInteger)index
-{
+-(id)objectAtIndex:(NSUInteger)index {
 	NSError *error;
 	CWLinkedListNode *node = [self _nodeAtIndex:index
 										  error:&error];
@@ -232,20 +218,18 @@
 	return node.data;
 }
 
--(id)objectAtIndexedSubscript:(NSUInteger)index
-{
+-(id)objectAtIndexedSubscript:(NSUInteger)index {
 	return [self objectAtIndex:index];
 }
 
--(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
-{
+-(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx {
 	CWLinkedListNode *node = [self _nodeAtIndex:idx
 										  error:nil];
 	node.data = object;
 }
 
--(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
-{
+-(void)swapObjectAtIndex:(NSUInteger)index1
+			   withIndex:(NSUInteger)index2 {
 	NSError *node1Error, *node2Error;
 	CWLinkedListNode *node1 = [self _nodeAtIndex:index1
 										   error:&node1Error];
@@ -259,8 +243,7 @@
 	node2.data = temp;
 }
 
--(CWLinkedList *)linkedListWithRange:(NSRange)range
-{
+-(CWLinkedList *)linkedListWithRange:(NSRange)range {
 	if ((range.length + range.location) > ( self.count - 1)) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
 					   442,
@@ -291,26 +274,23 @@
 	return returnList;
 }
 
--(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block
-{
+-(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block {
 	if (!self.head) { return; }
 	
 	CWLinkedListNode *node = self.head;
 	BOOL shouldStop = NO;
-	NSUInteger idx = 0;
-	
+	NSUInteger currentIndex = 0;
 	while (node) {
-		block(node.data,idx,&shouldStop);
+		block(node.data,currentIndex,&shouldStop);
 		if (shouldStop == YES) {
 			break;
 		}
 		node = node.next;
-		idx++;
+		currentIndex++;
 	}
 }
 
--(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block
-{
+-(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block {
 	if (!self.head) { return; }
 	
 	CWLinkedListNode *tail = self.tail;
@@ -326,8 +306,7 @@
 }
 
 -(void)enumerateObjectsWithOption:(CWDoublyLinkedListEnumerationOption)option
-					   usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block
-{
+					   usingBlock:(void (^)(id object, NSUInteger index, BOOL *stop))block {
 	if (option == kCWDoublyLinkedListEnumerateReverse) {
 		[self enumerateObjectsInReverseWithBlock:block];
 	} else if(option == kCWDoublyLinkedListEnumerateForward) {
