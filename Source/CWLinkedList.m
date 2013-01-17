@@ -29,13 +29,13 @@
 
 #import "CWLinkedList.h"
 
-@interface CWDoublyLinkedListNode : NSObject
+@interface CWLinkedListNode : NSObject
 @property(retain) id data;
-@property(retain) CWDoublyLinkedListNode *next;
-@property(retain) CWDoublyLinkedListNode *prev;
+@property(retain) CWLinkedListNode *next;
+@property(retain) CWLinkedListNode *prev;
 @end
 
-@implementation CWDoublyLinkedListNode
+@implementation CWLinkedListNode
 
 - (id)init
 {
@@ -58,10 +58,10 @@
 
 @interface CWLinkedList ()
 @property(readwrite, assign) NSUInteger count;
-@property(retain) CWDoublyLinkedListNode *head;
-@property(weak) CWDoublyLinkedListNode *tail;
--(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node;
--(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index error:(NSError **)error;
+@property(retain) CWLinkedListNode *head;
+@property(weak) CWLinkedListNode *tail;
+-(void)_removeObjectWithNode:(CWLinkedListNode *)node;
+-(CWLinkedListNode *)_nodeAtIndex:(NSUInteger)index error:(NSError **)error;
 -(BOOL)hasInsertObjectErrorsWithObject:(id)object andIndex:(NSUInteger)index;
 @end
 
@@ -82,7 +82,7 @@
 {
 	if(!anObject) { return; }
 	
-	CWDoublyLinkedListNode *node = [[CWDoublyLinkedListNode alloc] init];
+	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
 	node.data = anObject;
 	
 	if (!self.head) {
@@ -133,15 +133,18 @@
 	}
 	
 	NSError *error;
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
-	if(node == nil) { CWLogError(error); return; }
+	CWLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	if(node == nil) {
+		CWLogError(error);
+		return;
+	}
 	
-	CWDoublyLinkedListNode *insertNode = [[CWDoublyLinkedListNode alloc] init];
+	CWLinkedListNode *insertNode = [[CWLinkedListNode alloc] init];
 	insertNode.data = anObject;
 	
-	CWDoublyLinkedListNode *nextNode = node;
-	CWDoublyLinkedListNode *prevNode = node.prev;
-	//take care of the insert node
+	CWLinkedListNode *nextNode = node;
+	CWLinkedListNode *prevNode = node.prev;
+
 	insertNode.next = nextNode;
 	insertNode.prev = prevNode;
 	//then the next node
@@ -154,8 +157,9 @@
 
 -(void)_removeObjectWithNode:(CWDoublyLinkedListNode *)node
 {
-	CWDoublyLinkedListNode *prev = node.prev;
-	CWDoublyLinkedListNode *next = node.next;
+-(void)_removeObjectWithNode:(CWLinkedListNode *)node {
+	CWLinkedListNode *prev = node.prev;
+	CWLinkedListNode *next = node.next;
 	prev.next = next;
 	next.prev = prev;
 	
@@ -171,7 +175,7 @@
 		return;
 	}
 	
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	CWLinkedListNode *node = [self _nodeAtIndex:index error:nil];
 	[self _removeObjectWithNode:node];
 }
 
@@ -179,8 +183,7 @@
 {
 	if (!self.head) { return; }
 	
-	CWDoublyLinkedListNode *node = self.head;
-	
+	CWLinkedListNode *node = self.head;
 	while (node) {
 		if ([node.data isEqual:object]) {
 			[self _removeObjectWithNode:node];
@@ -190,9 +193,8 @@
 	}
 }
 
--(CWDoublyLinkedListNode *)_nodeAtIndex:(NSUInteger)index
-								  error:(NSError **)error
-{
+-(CWLinkedListNode *)_nodeAtIndex:(NSUInteger)index
+							error:(NSError **)error {
 	NSUInteger maxCount = (self.count - 1);
 	if (CWErrorSet(index > maxCount, ^NSError *{
 		return CWCreateError(kCWDoublyLinkedListErrorDomain, 442,
@@ -209,8 +211,7 @@
 	}
 	
 	NSUInteger currentIndex = 0;
-	CWDoublyLinkedListNode *node = self.head;
-	
+	CWLinkedListNode *node = self.head;
 	while (currentIndex != index) {
 		node = node.next;
 		currentIndex++;
@@ -222,8 +223,8 @@
 -(id)objectAtIndex:(NSUInteger)index
 {
 	NSError *error;
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:index
-												error:&error];
+	CWLinkedListNode *node = [self _nodeAtIndex:index
+										  error:&error];
 	if (!node) {
 		CWLogError(error);
 		return nil;
@@ -238,18 +239,18 @@
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx
 {
-	CWDoublyLinkedListNode *node = [self _nodeAtIndex:idx
-												error:nil];
+	CWLinkedListNode *node = [self _nodeAtIndex:idx
+										  error:nil];
 	node.data = object;
 }
 
 -(void)swapObjectAtIndex:(NSUInteger)index1 withIndex:(NSUInteger)index2
 {
 	NSError *node1Error, *node2Error;
-	CWDoublyLinkedListNode *node1 = [self _nodeAtIndex:index1
-												 error:&node1Error];
-	CWDoublyLinkedListNode *node2 = [self _nodeAtIndex:index2
-												 error:&node2Error];
+	CWLinkedListNode *node1 = [self _nodeAtIndex:index1
+										   error:&node1Error];
+	CWLinkedListNode *node2 = [self _nodeAtIndex:index2
+										   error:&node2Error];
 	if(!node1) { CWLogError(node1Error); return; }
 	if(!node2) { CWLogError(node2Error); return; }
 	
@@ -272,7 +273,7 @@
 	NSUInteger start = range.location;
 	NSUInteger currentIndex = 0;
 	
-	CWDoublyLinkedListNode *node = self.head;
+	CWLinkedListNode *node = self.head;
 	
 	while (currentIndex != start) {
 		node = node.next;
@@ -294,7 +295,7 @@
 {
 	if (!self.head) { return; }
 	
-	CWDoublyLinkedListNode *node = self.head;
+	CWLinkedListNode *node = self.head;
 	BOOL shouldStop = NO;
 	NSUInteger idx = 0;
 	
@@ -312,7 +313,7 @@
 {
 	if (!self.head) { return; }
 	
-	CWDoublyLinkedListNode *tail = self.tail;
+	CWLinkedListNode *tail = self.tail;
 	BOOL shouldStop = NO;
 	NSUInteger currentIndex = self.count - 1;
 	
