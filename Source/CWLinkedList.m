@@ -184,6 +184,7 @@ THE SOFTWARE.
 	while (node) {
 		if ([node.data isEqual:object]) {
 			[self _removeObjectWithNode:node];
+			return;
 		}
 		node = node.next;
 	}
