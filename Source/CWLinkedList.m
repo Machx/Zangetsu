@@ -217,8 +217,14 @@
 }
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx {
+	NSParameterAssert(object);
+	NSError *error;
 	CWLinkedListNode *node = [self _nodeAtIndex:idx
-										  error:nil];
+										  error:&error];
+	if (!node) {
+		CWLogError(error);
+		return;
+	}
 	node.data = object;
 }
 
