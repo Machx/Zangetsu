@@ -80,7 +80,6 @@
 	
 	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
 	node.data = anObject;
-	
 	if (!self.head) {
 		self.head = node;
 		self.tail = node;
@@ -89,7 +88,6 @@
 		self.tail.next = node;
 		self.tail = node;
 	}
-	
 	self.count++;
 }
 
@@ -207,7 +205,7 @@
 	return node;
 }
 
--(id)objectAtIndex:(NSUInteger)index {
+-(id)objectAtIndexedSubscript:(NSUInteger)index {
 	NSError *error;
 	CWLinkedListNode *node = [self _nodeAtIndex:index
 										  error:&error];
@@ -216,10 +214,6 @@
 		return nil;
 	}
 	return node.data;
-}
-
--(id)objectAtIndexedSubscript:(NSUInteger)index {
-	return [self objectAtIndex:index];
 }
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx {

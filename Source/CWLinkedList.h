@@ -105,8 +105,6 @@ static NSString *const kCWDoublyLinkedListErrorDomain = @"com.Zangetsu.CWDoublyL
  
  @param index a NSUInteger where you want the data associated with that slot in the receiver
  */
--(id)objectAtIndex:(NSUInteger)index;
-
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
