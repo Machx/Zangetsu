@@ -107,6 +107,16 @@ static NSString *const kCWDoublyLinkedListErrorDomain = @"com.Zangetsu.CWDoublyL
  */
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 
+/**
+ Sets object to be at the specified index in the receiver
+ 
+ This method will get a reference to the node at the specified index and set
+ object to be the value there. This method may log any errors it encounters 
+ if it cannot set your object to be at the specified index.
+ 
+ @param object the object to be added to the receiver Linked List
+ @param idx the index to set the object at
+ */
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
 
 /**
