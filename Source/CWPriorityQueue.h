@@ -27,6 +27,8 @@
   withPriority:(NSUInteger)priority;
 
 /**
+-(id)peek;
+
  Removes an item with the highest priority off the queue & returns it
  
  This method grabs a reference to the item with the highest priority on the

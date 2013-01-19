@@ -82,6 +82,10 @@
 	[self _sortStorage];
 }
 
+-(id)peek {
+	return ((CWPriorityQueueItem *)[self.storage cw_firstObject]).item;
+}
+
 -(id)dequeue {
 	if(self.storage.count == 0) { return nil; }
 	id obj = ((CWPriorityQueueItem *)self.storage[0]).item;
