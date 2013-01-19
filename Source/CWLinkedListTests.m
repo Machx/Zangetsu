@@ -21,8 +21,8 @@
 	[list addObject:@"World"];
 	STAssertTrue(list.count == 2,@"count is incorrect");
 	
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"World");
+	CWAssertEqualsStrings(list[0], @"Hello");
+	CWAssertEqualsStrings(list[1], @"World");
 }
 
 -(void)testInsertObject
@@ -38,13 +38,13 @@
 	[list insertObject:@"Hypnotoad" atIndex:1];
 	STAssertTrue(list.count == 3,@"count is incorrect");
 	
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"Hypnotoad");
-	CWAssertEqualsStrings([list objectAtIndex:2], @"World");
+	CWAssertEqualsStrings(list[0], @"Hello");
+	CWAssertEqualsStrings(list[1], @"Hypnotoad");
+	CWAssertEqualsStrings(list[2], @"World");
 	
 	//should basically do the equivalent of addObject
 	[list insertObject:@"Super" atIndex:3];
-	CWAssertEqualsStrings([list objectAtIndex:3], @"Super");
+	CWAssertEqualsStrings(list[3], @"Super");
 }
 
 -(void)testRemoveObject
@@ -57,23 +57,23 @@
 	[list addObject:@"Hypnotoad"];
 	
 	STAssertTrue(list.count == 4,@"Incorrect count");
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Fry");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"Leela");
-	CWAssertEqualsStrings([list objectAtIndex:2], @"Bender");
-	CWAssertEqualsStrings([list objectAtIndex:3], @"Hypnotoad");
+	CWAssertEqualsStrings(list[0], @"Fry");
+	CWAssertEqualsStrings(list[1], @"Leela");
+	CWAssertEqualsStrings(list[2], @"Bender");
+	CWAssertEqualsStrings(list[3], @"Hypnotoad");
 	
 	[list removeObject:@"Bender"];
 	
 	STAssertTrue(list.count == 3,@"Incorrect count");
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Fry");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"Leela");
-	CWAssertEqualsStrings([list objectAtIndex:2], @"Hypnotoad");
+	CWAssertEqualsStrings(list[0], @"Fry");
+	CWAssertEqualsStrings(list[1], @"Leela");
+	CWAssertEqualsStrings(list[2], @"Hypnotoad");
 	
 	[list removeObjectAtIndex:1];
 	
 	STAssertTrue(list.count == 2,@"Incorrect count");
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Fry");
-	CWAssertEqualsStrings([list objectAtIndex:1	], @"Hypnotoad");
+	CWAssertEqualsStrings(list[0], @"Fry");
+	CWAssertEqualsStrings(list[1], @"Hypnotoad");
 }
 
 -(void)testSwapObjects
@@ -82,15 +82,15 @@
 	[list addObject:@"World!"];
 	[list addObject:@"Hello"];
 	
-	CWAssertEqualsStrings([list objectAtIndex:0], @"World!");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"Hello");
-	STAssertNil([list objectAtIndex:2], nil);
+	CWAssertEqualsStrings(list[0], @"World!");
+	CWAssertEqualsStrings(list[1], @"Hello");
+	STAssertNil(list[2], nil);
 	
 	[list swapObjectAtIndex:0 withIndex:1];
 	
-	CWAssertEqualsStrings([list objectAtIndex:0], @"Hello");
-	CWAssertEqualsStrings([list objectAtIndex:1], @"World!");
-	STAssertNil([list objectAtIndex:2], nil);
+	CWAssertEqualsStrings(list[0], @"Hello");
+	CWAssertEqualsStrings(list[1], @"World!");
+	STAssertNil(list[2], nil);
 }
 
 -(void)testEnumerateObjects
@@ -175,9 +175,9 @@
 	CWLinkedList *rangedList = [list linkedListWithRange:NSMakeRange(1, 2)];
 	
 	STAssertTrue(rangedList.count == 2,@"incorrect count");
-	CWAssertEqualsStrings([rangedList objectAtIndex:0], @"Leela");
-	CWAssertEqualsStrings([rangedList objectAtIndex:1], @"Bender");
-	STAssertNil([rangedList objectAtIndex:2],@"shouldn't have a valid object here");
+	CWAssertEqualsStrings(rangedList[0], @"Leela");
+	CWAssertEqualsStrings(rangedList[1], @"Bender");
+	STAssertNil(rangedList[2],@"shouldn't have a valid object here");
 }
 
 -(void)testCountIncrementsUsingInsertObjectAtIndex
