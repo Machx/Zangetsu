@@ -27,8 +27,16 @@
   withPriority:(NSUInteger)priority;
 
 /**
+ Returns the first item on the queue without removing it from the queue or nil
+ 
+ If the queue has items in it then this method returns the first item to be
+ dequeued. Otherwise if the queue is empty, this method will simply return nil.
+ 
+ @return the first object to the dequeued from the queue or nil.
+ */
 -(id)peek;
 
+/**
  Removes an item with the highest priority off the queue & returns it
  
  This method grabs a reference to the item with the highest priority on the
