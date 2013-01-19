@@ -8,6 +8,7 @@
 
 #import "CWPriorityQueueTests.h"
 #import "CWPriorityQueue.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWPriorityQueueTests
 
@@ -97,6 +98,19 @@
 	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 5, nil);
 	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 3, nil);
 	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 4, nil);
+}
+
+-(void)test
+{
+	CWPriorityQueue *queue = [CWPriorityQueue new];
+	
+	STAssertNil([queue peek], nil);
+	
+	[queue addItem:@"Hypnotoad" withPriority:4];
+	
+	id item = [queue peek];
+	STAssertNotNil(item, nil);
+	CWAssertEqualsStrings(item, @"Hypnotoad");
 }
 
 @end
