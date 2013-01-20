@@ -8,6 +8,7 @@
 
 #import "CWZLibTests.h"
 #import "CWZLib.h"
+#import "CWAssertionMacros.h"
 
 @implementation CWZLibTests
 
@@ -46,8 +47,8 @@
     
     NSString *finalResultString = [[NSString alloc] initWithData:decompressedData 
                                                         encoding:NSUTF8StringEncoding];
-    
-    STAssertTrue([testString isEqualToString:finalResultString],@"Strings should be the same");
+	
+	CWAssertEqualsStrings(testString, finalResultString);
 }
 
 - (void)tearDown
