@@ -24,13 +24,13 @@
 	[queue addItem:@"20" withPriority:20];
 	[queue addItem:@"9" withPriority:9];
 	
-	STAssertTrue([@"1" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"2" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"3" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"5" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"9" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"20" isEqualToString:[queue dequeue]], nil);
-	STAssertTrue([@"100" isEqualToString:[queue dequeue]], nil);
+	CWAssertEqualsStrings([queue dequeue], @"1");
+	CWAssertEqualsStrings([queue dequeue], @"2");
+	CWAssertEqualsStrings([queue dequeue], @"3");
+	CWAssertEqualsStrings([queue dequeue], @"5");
+	CWAssertEqualsStrings([queue dequeue], @"9");
+	CWAssertEqualsStrings([queue dequeue], @"20");
+	CWAssertEqualsStrings([queue dequeue], @"100");
 }
 
 -(void)testObjectsOfPriority
