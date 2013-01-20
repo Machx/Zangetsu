@@ -41,7 +41,7 @@
 
 -(void)testBasicPush
 {	
-	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
 	
 	CWStack *stack1 = [[CWStack alloc] init];
 	
@@ -58,7 +58,7 @@
 
 -(void)testPushNil
 {	
-	CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Nibbler"]];
+	CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:@[@"Nibbler"]];
 	STAssertTrue([testStack count] == 1, @"Stack should only have 1 object contained in it");
 	
 	[testStack push:nil];
@@ -67,7 +67,7 @@
 
 -(void)testBasicEnumeration
 {	
-	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
 	
@@ -91,8 +91,8 @@
 
 -(void)testClearStack
 {	
-	CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"one",@"and",@"two", nil]];
-	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"foo",@"bar",nil]];
+	CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:@[@"one",@"and",@"two"]];
+	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"foo",@"bar"]];
 	
 	[stack1 clearStack];
 	[stack2 clearStack];
@@ -102,7 +102,7 @@
 
 -(void)testBottomAndTopStackObjects
 {	
-	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
 	
@@ -130,20 +130,20 @@
 
 -(void)testPopToBottomOfStack
 {
-	NSArray *array = [NSArray arrayWithObjects:@"This",@"is",@"a",@"sentence", nil];
+	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
 	
 	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
 	
 	[stack popToBottomOfStack];
 	
-	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"This"]];
+	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"This"]];
 	
 	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
 }
 
 -(void)testPoptoNonExistantObject
 {
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Bender"]];
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Bender"]];
 	
 	NSArray *results = [stack popToObject:@"Zapf"];
 	STAssertNil(results, @"Since the stack didn't contain this object it, the returned reference should be nil");
@@ -162,7 +162,7 @@
 
 -(void)testContainsObject
 {
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hello",@"World", nil]];
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
 	
 	// test for an object in the stack
 	
@@ -179,7 +179,7 @@
 
 -(void)testContainsObjectWithBlock
 {
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hello",@"World", nil]];
+	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
 	
 	BOOL result = [stack containsObjectWithBlock:^BOOL(id object) {
 		if ([(NSString *)object isEqualToString:@"World"]) {
