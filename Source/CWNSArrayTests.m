@@ -38,7 +38,7 @@
  */
 -(void)testFirstObject
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	NSString *firstObject = [testArray cw_firstObject];
 	
 	CWAssertEqualsStrings(firstObject, @"Fry");
@@ -50,7 +50,7 @@
  */
 -(void)testFind
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	NSString *string = [testArray cw_findWithBlock:^(id obj) {
 		if ([(NSString *)obj isEqualToString:@"Bender"]) {
@@ -67,7 +67,7 @@
  */
 -(void)testMapArray
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	NSArray *myArray = [testArray cw_mapArray:^(id obj) {
 		return obj;
@@ -82,7 +82,7 @@
  */
 -(void)testCWEach
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	__block NSMutableArray *results = [[NSMutableArray alloc] init];
 	
@@ -100,7 +100,7 @@
  */
 -(void)testEachStopPointer
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	NSMutableArray *results = [[NSMutableArray alloc] init];
 	
 	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
@@ -108,7 +108,7 @@
 		if ([(NSString *)obj isEqualToString:@"Leela"]) { *stop = YES; }
 	}];
 	
-	NSArray *goodResults = [NSArray arrayWithObjects:@"Fry",@"Leela", nil];
+	NSArray *goodResults = @[@"Fry",@"Leela"];
 	
 	STAssertEqualObjects(goodResults, results, @"Arrays should be equal if the stop pointer was respected");
 }
@@ -119,7 +119,7 @@
  */
 -(void)testCWEachIndex
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		switch (index) {
@@ -141,7 +141,7 @@
 
 -(void)testSelectiveMapping
 {
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
 		if([(NSString *)obj isEqualToString:@"Fry"] ||
@@ -151,7 +151,7 @@
 		return nil;
 	}];
 	
-	NSArray *expectedResults = [NSArray arrayWithObjects:@"Fry",@"Leela",nil];
+	NSArray *expectedResults = @[@"Fry",@"Leela"];
 	STAssertEqualObjects(testArray2, expectedResults, @"The 2 arrays should be equal if mapped correctly");
 }
 
@@ -164,7 +164,7 @@
 	 and make sure that the objects have the correct indexes passed in the block.
 	 */
 	
-	NSArray *testArray = [NSArray arrayWithObjects:@"Fry",@"Leela",@"Bender",nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	__block int32_t count = 0;
 	
@@ -200,7 +200,7 @@
 	 YES because we know the object is in the array.
 	 */
 	
-	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	BOOL objectIsInArray = [testArray cw_isObjectInArrayWithBlock:^BOOL(id obj) {
 		return [(NSString *)obj isEqualToString:@"Bender"];
@@ -217,7 +217,7 @@
 	 know the api should return. If the 2 arrays are the same the API works as desired...
 	 */
 	
-	NSArray *testArray = [[NSArray alloc] initWithObjects:@"Fry",@"Leela",@"Bender", nil];
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 	
 	NSArray *resultArray1 = [testArray cw_findAllWithBlock:^BOOL(id obj) {
 		if ([(NSString *)obj isEqualToString:@"Fry"] ||
@@ -227,7 +227,7 @@
 		return NO;
 	}];
 	
-	NSArray *goodResults = [[NSArray alloc] initWithObjects:@"Fry",@"Leela", nil];
+	NSArray *goodResults = @[@"Fry",@"Leela"];
 	STAssertEqualObjects(resultArray1, goodResults, @"Arrays should be equal if all objects were found");
 }
 
