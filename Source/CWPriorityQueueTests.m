@@ -50,7 +50,7 @@
 	STAssertTrue(results.count == 2, nil);
 	
 	NSArray *expected = @[ @"The", @"Hypnotoad" ];
-	STAssertTrue([expected isEqualToArray:results], nil);
+	STAssertEqualObjects(expected, results, nil);
 }
 
 -(void)testCountOfPriority
