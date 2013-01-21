@@ -41,8 +41,7 @@
 {
     NSString * _result = [[NSString alloc] initWithData:self 
 											   encoding:NSUTF8StringEncoding];
-    const char * cRep = [_result UTF8String];
-    return cRep;
+    return [_result UTF8String];
 }
 
 -(NSString *)cw_hexString
