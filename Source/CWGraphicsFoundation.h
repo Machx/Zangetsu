@@ -52,7 +52,7 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 								   float ovalHeight);
 
 /**
- Saves the CGContext state, executes the block and then restores the context State.
+ Saves the CGContext state, executes the block & then restores the context State
  
  @param ctx a CGContextRef you wish to operate on
  @param block a block to execute between saving & restoring CGContextRef state
