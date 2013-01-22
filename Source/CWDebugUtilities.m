@@ -84,9 +84,9 @@ double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
 	return nanoSeconds;
 }
 
-	double result = CWNanoSecondsToExecuteCode(TimeBlock);
-	return (1.0 * 10e-6 * result);
 double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void)) {
+	double nanoSeconds = CWNanoSecondsToExecuteCode(TimeBlock);
+	return (1.0 * 10e-6 * nanoSeconds);
 }
 
 NSString *CWStackTrace(void) {
