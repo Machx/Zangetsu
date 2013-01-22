@@ -43,8 +43,7 @@ THE SOFTWARE.
 #import <unistd.h>
 
 
-BOOL CWIsDebugInProgress()
-{
+BOOL CWIsDebugInProgress() {
 	int mib[4];
 	size_t bufSize = 0;
 	struct kinfo_proc kp;
@@ -64,20 +63,17 @@ BOOL CWIsDebugInProgress()
 	return (kp.kp_proc.p_flag & P_TRACED) != 0;
 }
 
-void CWCrash()
-{
+void CWCrash() {
 	__builtin_trap();
 }
 
-void CWInDebugOnly(void(^DebugBlock)(void))
-{
+void CWInDebugOnly(void(^DebugBlock)(void)) {
 #ifdef DEBUG
 	DebugBlock();
 #endif
 }
 
-double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
-{
+double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
 	uint64_t start = mach_absolute_time();
 	TimeBlock();
 	uint64_t end = mach_absolute_time();
@@ -88,13 +84,11 @@ double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void))
 	return nanoSeconds;
 }
 
-double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void))
-{
 	double result = CWNanoSecondsToExecuteCode(TimeBlock);
 	return (1.0 * 10e-6 * result);
+double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void)) {
 }
 
-NSString *CWStackTrace(void) 
-{
+NSString *CWStackTrace(void) {
 	return [[NSThread callStackSymbols] description];
 }
