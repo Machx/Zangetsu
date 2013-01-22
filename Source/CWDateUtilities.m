@@ -29,50 +29,38 @@ THE SOFTWARE.
 
 @implementation CWDateUtilities
 
-+ (NSDate *) dateFromISO8601String:(NSString *)dateString 
-{
-    NSDate * isoDate = nil;
-
-    isoDate = [self dateFromString:dateString
-                    withDateFormat:kCWISO8601TimeFormat];
-
++ (NSDate *) dateFromISO8601String:(NSString *)dateString  {
+    NSDate * isoDate = [self dateFromString:dateString
+							 withDateFormat:kCWISO8601TimeFormat];
     return (isoDate ? isoDate : [self dateFromString:dateString
 									  withDateFormat:kCWISO8601TimeFormat2]);
 }
 
-+ (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat
-{
++ (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat {
     [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
 	formatter.dateFormat = dateFormat;
 
-    NSDate * returnedDate = [formatter dateFromString:dateString];
-
-    return returnedDate;
+    return [formatter dateFromString:dateString];
 }
 
 @end
 
-NSString * CWDateString(NSDate * date)
-{
+NSString * CWDateString(NSDate * date) {
 	if (date) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
 		formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
 		
-		NSString *dateString = [formatter stringFromDate:date];
-		return dateString;
+		return [formatter stringFromDate:date];
 	}
 	return nil;
 }
 
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
-							  NSTimeZone *timeZone, NSCalendar *calendar)
-{
+							  NSTimeZone *timeZone, NSCalendar *calendar) {
     NSDateComponents * components = [[NSDateComponents alloc] init];
-
     if (components) {
 		components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
 		components.year = year;
@@ -83,14 +71,10 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 		components.second = second;
 		
 		NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
-
         if (calendar) {
             NSDate * date = [aCalendar dateFromComponents:components];
-            if (date) {
-                return date;
-            }
+            if (date) return date;
         }
     }
-	
     return nil;
 }
