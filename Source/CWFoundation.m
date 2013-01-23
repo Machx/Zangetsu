@@ -29,20 +29,15 @@ THE SOFTWARE.
 
 #import "CWFoundation.h"
 
-BOOL CWClassExists(NSString * class)
-{
-	Class _class = NSClassFromString(class);
-	return (_class ? YES : NO);
+BOOL CWClassExists(NSString * class) {
+	return ( NSClassFromString(class) ? YES : NO );
 }
 
-NSString *CWBOOLString(BOOL value)
-{
-    return (value ? @"YES" : @"NO");
+NSString *CWBOOLString(BOOL value) {
+    return ( value ? @"YES" : @"NO" );
 }
 
-
-NSString *CWUUIDStringPrependedWithString(NSString *preString)
-{
+NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
 
@@ -50,12 +45,11 @@ const char *CWUUIDCStringPrependedWithString(NSString *preString) {
 	return [CWUUIDStringPrependedWithString(preString) UTF8String];
 }
 
-void CWNextRunLoop(dispatch_block_t block)
-{
+void CWNextRunLoop(dispatch_block_t block) {
 	static dispatch_queue_t queue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation");
+		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation-CWNextRunLoop");
 		queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	});
 	dispatch_async(queue, ^{
@@ -63,8 +57,7 @@ void CWNextRunLoop(dispatch_block_t block)
 	});
 }
 
-NSString *_CWPrintLineComposedString(NSArray *objects)
-{
+NSString *_CWPrintLineComposedString(NSArray *objects) {
 	NSMutableString *string = [NSMutableString string];
 	[objects cw_each:^(id object, NSUInteger index, BOOL *stop) {
 		[string appendFormat:@"%@ ",object];
@@ -72,12 +65,10 @@ NSString *_CWPrintLineComposedString(NSArray *objects)
 	return string;
 }
 
-void CWPrintLine(NSArray *args)
-{
+void CWPrintLine(NSArray *args) {
 	NSLog(@"%@",_CWPrintLineComposedString(args));
 }
 
-void CWPrintfLine(NSArray *args)
-{
+void CWPrintfLine(NSArray *args) {
 	printf("%s\n",[_CWPrintLineComposedString(args) UTF8String]);
 }
