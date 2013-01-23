@@ -32,42 +32,39 @@
 
 @implementation CWSystemInfoIOS
 
-+(NSString *)systemVersionString 
-{
++(NSString *)systemVersionString {
 	return [[UIDevice currentDevice] systemVersion];
 }
 
-+(NSDictionary *)hostVersion
-{
++(NSDictionary *)hostVersion {
 	NSMutableDictionary *versionDictionary = nil;
 	NSArray *components = nil;
 	components = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];
-	if ([components count] > 0) {
+	if ( components.count > 0 ) {
 		versionDictionary = [[NSMutableDictionary alloc] initWithCapacity:3];
-		
-		[versionDictionary setValue:[components objectAtIndex:0] forKey:kCWSystemMajorVersion];
-		[versionDictionary setValue:[components objectAtIndex:1] forKey:kCWSystemMinorVersion];
-		if ([components count] == 2) {
-			[versionDictionary setValue:@"0" forKey:kCWSystemBugFixVersion];
+		[versionDictionary addEntriesFromDictionary:@{
+							 kCWSystemMajorVersion : components[0],
+							 kCWSystemMinorVersion : components[1]
+		 }];
+		if ( components.count == 2 ) {
+			[versionDictionary addEntriesFromDictionary:@{ kCWSystemBugFixVersion : @"0" }];
 		} else {
-			[versionDictionary setValue:[components objectAtIndex:2] forKey:kCWSystemBugFixVersion];
+			[versionDictionary addEntriesFromDictionary:@{ kCWSystemBugFixVersion : components[2] }];
 		}
 	}
 	return versionDictionary;
 }
 
-+(NSInteger)cpuCoreCount
-{
++(NSInteger)cpuCoreCount {
 	NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
-    if (sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0)) {
+    if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
         return 1;
     }
     return coreCount;
 }
 
-+(NSString *)hardwareModelString
-{
++(NSString *)hardwareModelString {
 	size_t size;
 	sysctlbyname("hw.machine", NULL, &size, NULL, 0);
 	char *device = calloc(1,size);
@@ -80,8 +77,7 @@
 	return deviceString;
 }
 
-+(NSString *)englishHardwareString
-{
++(NSString *)englishHardwareString {
 	NSString *machineString = [CWSystemInfoIOS hardwareModelString];
 	
 	NSDictionary *hardwareDictionary = @{
@@ -119,8 +115,8 @@
 
 +(BOOL)retinaSupported
 {
-	return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
-			([UIScreen mainScreen].scale > 1.0f));
+	return ( [[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+			([UIScreen mainScreen].scale > 1.0f) );
 }
 
 @end
