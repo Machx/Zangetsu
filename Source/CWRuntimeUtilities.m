@@ -30,8 +30,7 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
-void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error)
-{
+void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error) {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
@@ -69,8 +68,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	}
 }
 
-void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error)
-{
+void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSError **error) {
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getClassMethod(methodClass, originalSel);
