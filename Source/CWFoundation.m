@@ -46,10 +46,8 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString)
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
 
-const char *CWUUIDCStringPrependedWithString(NSString *preString)
-{
-	NSString *uString = CWUUIDStringPrependedWithString(preString);
-	return (uString ? [uString UTF8String] : NULL);
+const char *CWUUIDCStringPrependedWithString(NSString *preString) {
+	return [CWUUIDStringPrependedWithString(preString) UTF8String];
 }
 
 void CWNextRunLoop(dispatch_block_t block)
