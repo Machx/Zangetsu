@@ -32,56 +32,51 @@ THE SOFTWARE.
 static NSString * const kCWAppName = @"CFBundleName";
 
 
-NSString *CWFullPathFromTildeString(NSString *tildePath)
-{
-	if (tildePath) {
-		NSString *path = [tildePath stringByExpandingTildeInPath];
-		if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-			return path;
-		}
+NSString *CWFullPathFromTildeString(NSString *tildePath) {
+	NSCParameterAssert(tildePath);
+	NSString *path = [tildePath stringByExpandingTildeInPath];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+		return path;
 	}
 	return nil;
 }
 
 @implementation CWPathUtilities
 
-+ (NSString *) applicationSupportFolder
-{
++ (NSString *) applicationSupportFolder {
     NSString * _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
-    if (!_path) { return nil; }
-    NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
-    return [NSString stringWithFormat:@"%@/%@", _path, _appName];
+    if (_path) {
+		NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
+		return [NSString stringWithFormat:@"%@/%@", _path, _appName];
+	}
+	return nil;
 }
 
-+ (NSString *) documentsFolderPathForFile:(NSString *)file
-{
++ (NSString *) documentsFolderPathForFile:(NSString *)file {
     NSParameterAssert(file);
     NSString *_path = nil;
     _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
-    if (!_path) {
-        return nil;
-    }
-    return [NSString stringWithFormat:@"%@/%@",_path,file];
+    if (_path) {
+		return [NSString stringWithFormat:@"%@/%@",_path,file];
+	}
+	return nil;
 }
 
-+ (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path
-{
++ (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
 	NSParameterAssert(path);
     NSString * _appSupportPath = [CWPathUtilities applicationSupportFolder];
-    if (!_appSupportPath) {
-        return nil;
-    }
-    return [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];;
+	if (_appSupportPath) {
+		return [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];
+	}
+    return nil;
 }
 
-+ (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath
-{
++ (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath {
 	NSParameterAssert(subPath);
 	return [NSString stringWithFormat:@"%@/%@",NSHomeDirectory(),subPath];
 }
 
-+(NSString *)temporaryFilePath
-{
++(NSString *)temporaryFilePath {
 	return [NSString stringWithFormat:@"%@%@.temp", NSTemporaryDirectory(), [NSString cw_uuidString]];
 }
 
