@@ -73,7 +73,6 @@
 	NSString *deviceString = [NSString stringWithCString:device 
 												encoding:NSUTF8StringEncoding];
 	free(device);
-	
 	return deviceString;
 }
 

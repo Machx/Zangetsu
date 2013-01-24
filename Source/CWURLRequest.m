@@ -49,8 +49,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 /**
  Designated Initializer
  */
--(id)initWithHost:(NSString *)host
-{
+-(id)initWithHost:(NSString *)host {
 	self = [super init];
 	if (self) {
 		_urlHost = host;
@@ -68,8 +67,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
  This is here just to give an error message when this 
  class is initialized incorrectly.
  */
--(id)init
-{
+-(id)init {
 	self = [super init];
 	if (self) {
 		_urlHost = nil;
@@ -89,8 +87,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
  
  @return a NSString with debug information of the instance request class
  */
--(NSString *)description
-{
+-(NSString *)description {
 	return [NSString stringWithFormat:@"%@: Host: %@\nAuth Header: %@\nIs Finished Connecting: %@",
 			NSStringFromClass([self class]),
 			[self urlHost],
@@ -99,23 +96,21 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 }
 
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
-					   andPassword:(NSString *)passwd 
-{
-	if (!(login && passwd)) { return; }
+					   andPassword:(NSString *)passwd {
+	if ( !(login && passwd) ) return;
 	
 	NSString *base64AuthString = CWURLAuthorizationHeaderString(login, passwd);
-	if (base64AuthString) {
+	if ( base64AuthString ) {
 		[self setHttpAuthorizationHeader:base64AuthString];
 	}
-}	
+}
 
--(NSMutableURLRequest *)_createInternalURLRequest
-{
+-(NSMutableURLRequest *)_createInternalURLRequest {
 	/**
 	 private internal method, creates the NSMutableURLRequest & applies any http
 	 headers or other attributes that need to be applied
 	 */
-	if(!self.urlHost) { return nil; }
+	if( !self.urlHost ) return nil;
 	
 	NSURL *url = [NSURL URLWithString:[self urlHost]];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -125,28 +120,28 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 #pragma mark Connection Initiaton Methods -
 
--(NSData *)startSynchronousConnection
-{
+-(NSData *)startSynchronousConnection {
 	NSMutableURLRequest *request = [self _createInternalURLRequest];
-	if (!request) {
+	if ( !request ) {
 		self.connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
 											 @"Host is nil and therefore cannot be used for a connection");
 		return nil;
 	}
 	
-	self.instanceConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-	[self.instanceConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+	self.instanceConnection = [[NSURLConnection alloc] initWithRequest:request
+															  delegate:self];
+	[self.instanceConnection scheduleInRunLoop:[NSRunLoop currentRunLoop]
+									   forMode:NSDefaultRunLoopMode];
 	[self.instanceConnection start];
 	
-	while (self.connectionIsFinished == NO) {
-		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
+	while ( self.connectionIsFinished == NO ) {
+		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+								 beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
 	}
-	
 	return self.receivedData;
 }
 
--(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block
-{
+-(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWURLRequest");
 	dispatch_queue_t queue = dispatch_queue_create(label, 0);
 	dispatch_async(queue, ^{
@@ -159,8 +154,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 }
 
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
-						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block
-{
+						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	NSParameterAssert(queue);
 	
 	dispatch_async(queue, ^{
@@ -173,8 +167,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 }
 
 -(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
-					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block
-{
+					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	NSParameterAssert(queue);
 	
 	[queue addOperationWithBlock:^{
@@ -188,40 +181,30 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 #pragma mark NSURLConnection Delegate Methods (Private) -
 
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-	if ([connection isEqual:self.instanceConnection]) {
-		self.connectionResponse = response;
-	}
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	if ( [connection isEqual:self.instanceConnection] ) self.connectionResponse = response;
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-	if ([connection isEqual:self.instanceConnection]) {
-		[self.receivedData appendData:data];
-	}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	if ( [connection isEqual:self.instanceConnection] ) [self.receivedData appendData:data];
 }
 
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	/**
 	 when we get a notification that we are finished, we mark 
 	 ourselves as finished so we don't keep running the runloop
 	 and return the received data.
 	 */
-	if ([self.instanceConnection isEqual:connection]) {
-		self.connectionIsFinished = YES;
-	}
+	if ( [self.instanceConnection isEqual:connection] ) self.connectionIsFinished = YES;
 }
 
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	/**
 	 if we get a error during the connection, then what
 	 this does is retain the error object and mark ourselves
 	 as finished and log the error.
 	 */
-	if ([self.instanceConnection isEqual:connection]) {
+	if ( [self.instanceConnection isEqual:connection] ) {
 		self.connectionError = error;
 		self.connectionIsFinished = YES;
 	}
