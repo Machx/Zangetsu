@@ -35,17 +35,15 @@
 
 @implementation CWSerialBlockOperation
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self) {
+    if ( self ) {
         _operationBlock = nil;
     }
     return self;
 }
 
-+(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block
-{
++(CWSerialBlockOperation *)blockOperationWithBlock:(dispatch_block_t)block {
 	CWSerialBlockOperation *operation = [[self alloc] init];
 	operation.operationBlock = block;
 	return operation;
@@ -59,20 +57,18 @@
 
 @implementation CWSerialBlockQueue
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self) {
+    if ( self ) {
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
 
--(id)initWithLabel:(NSString *)qLabel
-{
+-(id)initWithLabel:(NSString *)qLabel {
 	self = [super init];
-	if (self) {
-		if (qLabel) {
+	if ( self ) {
+		if ( qLabel ) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
 			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
@@ -81,72 +77,62 @@
 	return self;
 }
 
--(id)initWithLabel:(NSString *)qLabel andBlockOperationObjects:(NSArray *)blockOperations
-{
+-(id)initWithLabel:(NSString *)qLabel andBlockOperationObjects:(NSArray *)blockOperations {
 	self = [super init];
-	if (self) {
-		if (qLabel) {
+	if ( self ) {
+		if ( qLabel ) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
 			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
 		}
-		for (CWSerialBlockOperation *op in blockOperations) {
+		for ( CWSerialBlockOperation *op in blockOperations ) {
 			dispatch_async(_queue, ^{ op.operationBlock(); });
 		}
 	}
 	return self;
 }
 
--(NSString *)label
-{
+-(NSString *)label {
 	return [NSString stringWithCString:dispatch_queue_get_label(self.queue)
 							  encoding:NSUTF8StringEncoding];
 }
 
--(void)resume
-{
+-(void)resume {
 	dispatch_resume(self.queue);
 }
 
--(void)suspend
-{
+-(void)suspend {
 	dispatch_suspend(self.queue);
 }
 
--(void)addBlockOperation:(CWSerialBlockOperation *)operation
-{
-	if(!operation) { return; }
+-(void)addBlockOperation:(CWSerialBlockOperation *)operation {
+	if( !operation ) return;
 	dispatch_async(self.queue, ^{ operation.operationBlock(); });
 }
 
--(void)addBlockOperationObjects:(NSArray *)operationObjects
-{
-	if (operationObjects && ([operationObjects count] > 0)) {
-		for (id op in operationObjects) {
-			if ([op isMemberOfClass:[CWSerialBlockOperation class]]) {
+-(void)addBlockOperationObjects:(NSArray *)operationObjects {
+	if ( operationObjects && ([operationObjects count] > 0) ) {
+		for ( id op in operationObjects ) {
+			if ( [op isMemberOfClass:[CWSerialBlockOperation class]] ) {
 				[self addBlockOperationObjects:op];
 			}
 		}
 	}
 }
 
--(void)addOperationwithBlock:(dispatch_block_t)block
-{
+-(void)addOperationwithBlock:(dispatch_block_t)block {
 	dispatch_async(self.queue, block);
 }
 
--(void)waitUntilAllBlocksHaveProcessed
-{
+-(void)waitUntilAllBlocksHaveProcessed {
 	dispatch_barrier_sync(self.queue, ^{ });
 }
 
--(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block
-{
+-(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block {
 	dispatch_barrier_async(self.queue, block);
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	dispatch_release(_queue);
 }
 
