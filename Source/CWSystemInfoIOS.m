@@ -40,13 +40,13 @@
 	NSMutableDictionary *versionDictionary = nil;
 	NSArray *components = nil;
 	components = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];
-	if ( components.count > 0 ) {
+	if (components.count > 0) {
 		versionDictionary = [[NSMutableDictionary alloc] initWithCapacity:3];
 		[versionDictionary addEntriesFromDictionary:@{
 							 kCWSystemMajorVersion : components[0],
 							 kCWSystemMinorVersion : components[1]
 		 }];
-		if ( components.count == 2 ) {
+		if (components.count == 2) {
 			[versionDictionary addEntriesFromDictionary:@{ kCWSystemBugFixVersion : @"0" }];
 		} else {
 			[versionDictionary addEntriesFromDictionary:@{ kCWSystemBugFixVersion : components[2] }];
@@ -58,7 +58,7 @@
 +(NSInteger)cpuCoreCount {
 	NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
-    if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
+    if (sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0)) {
         return 1;
     }
     return coreCount;
@@ -114,8 +114,8 @@
 
 +(BOOL)retinaSupported
 {
-	return ( [[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
-			([UIScreen mainScreen].scale > 1.0f) );
+	return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+			([UIScreen mainScreen].scale > 1.0f));
 }
 
 @end

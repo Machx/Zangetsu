@@ -43,7 +43,7 @@
  */
 - (id)init {
     self = [super init];
-    if ( self ) {
+    if (self) {
 		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
 									   DISPATCH_QUEUE_SERIAL);
@@ -53,25 +53,25 @@
 
 -(id)initWithObjectsFromArray:(NSArray *)objects {
 	self = [super init];
-	if ( self ) {
+	if (self) {
 		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
 									   DISPATCH_QUEUE_SERIAL);
-		if ( [objects count] > 0 ) [_dataStore addObjectsFromArray:objects];
+		if ([objects count] > 0) [_dataStore addObjectsFromArray:objects];
 	}
 	return self;
 }
 
 -(void)push:(id)object {
 	dispatch_async(self.queue, ^{
-		if ( object ) [self.dataStore addObject:object];
+		if (object) [self.dataStore addObject:object];
 	});
 }
 
 -(id)pop {
 	__block id object;
 	dispatch_sync(self.queue, ^{
-		if ( self.dataStore.count == 0 ) {
+		if (self.dataStore.count == 0) {
 			object = nil;
 		} else {
 			object = [self.dataStore lastObject];
@@ -83,10 +83,10 @@
 
 -(NSArray *)popToObject:(id)object {
 	__block NSMutableArray *poppedObjects = nil;
-	if ( ![self.dataStore containsObject:object] ) return nil;
+	if (![self.dataStore containsObject:object]) return nil;
 	
 	id currentObject = nil;
-	while ( ![self.topOfStackObject isEqual:object] ) {
+	while (![self.topOfStackObject isEqual:object]) {
 		currentObject = [self pop];
 		[poppedObjects addObject:currentObject];
 	}
@@ -94,23 +94,23 @@
 }
 
 -(void)popToObject:(id)object withBlock:(void (^)(id obj))block {
-	if ( ![self.dataStore containsObject:object] ) return;
+	if (![self.dataStore containsObject:object]) return;
 	
-	while ( ![self.topOfStackObject isEqual:object] ) {
+	while (![self.topOfStackObject isEqual:object]) {
 		id obj = [self pop];
 		block(obj);
 	}
 }
 
 -(NSArray *)popToBottomOfStack {
-	if( self.dataStore.count == 0 ) return nil;
+	if(self.dataStore.count == 0) return nil;
 	return [self popToObject:[self.dataStore cw_firstObject]];
 }
 
 -(id)topOfStackObject {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if( self.dataStore.count == 0 ) return;
+		if(self.dataStore.count == 0) return;
 		object = [self.dataStore lastObject];
 	});
 	return object;
@@ -119,7 +119,7 @@
 -(id)bottomOfStackObject {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if ( self.dataStore.count == 0 ) return;
+		if (self.dataStore.count == 0) return;
 		object = [self.dataStore cw_firstObject];
 	});
 	return object;
@@ -150,8 +150,8 @@
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block {
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
-		for ( id obj in self.dataStore ) {
-			if ( block(obj) ) {
+		for (id obj in self.dataStore) {
+			if (block(obj)) {
 				contains = YES;
 				break;
 			}

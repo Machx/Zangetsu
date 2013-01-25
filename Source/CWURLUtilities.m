@@ -44,12 +44,12 @@ NSURL *CWURL(NSString * urlFormat,...) {
 }
 
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
-	if ( login == nil ) {
+	if (login == nil) {
 		CWLogErrorInfo(kCWURLUtiltyErrorDomain, 404,
 					   @"Required Login string was nil");
 		return nil;
 	}
-	if ( password == nil ) {
+	if (password == nil) {
 		CWLogErrorInfo(kCWURLUtiltyErrorDomain, 405,
 					   @"Required Password string was nil");
 		return nil;
@@ -58,7 +58,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
 	encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
-	if ( encodedAuth ) {
+	if (encodedAuth) {
 		NSString *authString = [[NSString alloc] initWithFormat:@"Basic %@",encodedAuth];
 		return authString;
 	}
@@ -69,7 +69,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 
 + (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
-    if ( localizedMessage ) {
+    if (localizedMessage) {
         return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
     }
     return nil;

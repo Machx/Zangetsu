@@ -97,10 +97,10 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd {
-	if ( !(login && passwd) ) return;
+	if (!(login && passwd)) return;
 	
 	NSString *base64AuthString = CWURLAuthorizationHeaderString(login, passwd);
-	if ( base64AuthString ) {
+	if (base64AuthString) {
 		[self setHttpAuthorizationHeader:base64AuthString];
 	}
 }
@@ -110,7 +110,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	 private internal method, creates the NSMutableURLRequest & applies any http
 	 headers or other attributes that need to be applied
 	 */
-	if( !self.urlHost ) return nil;
+	if(!self.urlHost) return nil;
 	
 	NSURL *url = [NSURL URLWithString:[self urlHost]];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -122,7 +122,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(NSData *)startSynchronousConnection {
 	NSMutableURLRequest *request = [self _createInternalURLRequest];
-	if ( !request ) {
+	if (!request) {
 		self.connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
 											 @"Host is nil and therefore cannot be used for a connection");
 		return nil;
@@ -134,7 +134,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 									   forMode:NSDefaultRunLoopMode];
 	[self.instanceConnection start];
 	
-	while ( self.connectionIsFinished == NO ) {
+	while (self.connectionIsFinished == NO) {
 		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
 								 beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
 	}
@@ -182,11 +182,11 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 #pragma mark NSURLConnection Delegate Methods (Private) -
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	if ( [connection isEqual:self.instanceConnection] ) self.connectionResponse = response;
+	if ([connection isEqual:self.instanceConnection]) self.connectionResponse = response;
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	if ( [connection isEqual:self.instanceConnection] ) [self.receivedData appendData:data];
+	if ([connection isEqual:self.instanceConnection]) [self.receivedData appendData:data];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -195,7 +195,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	 ourselves as finished so we don't keep running the runloop
 	 and return the received data.
 	 */
-	if ( [self.instanceConnection isEqual:connection] ) self.connectionIsFinished = YES;
+	if ([self.instanceConnection isEqual:connection]) self.connectionIsFinished = YES;
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -204,7 +204,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 	 this does is retain the error object and mark ourselves
 	 as finished and log the error.
 	 */
-	if ( [self.instanceConnection isEqual:connection] ) {
+	if ([self.instanceConnection isEqual:connection]) {
 		self.connectionError = error;
 		self.connectionIsFinished = YES;
 	}

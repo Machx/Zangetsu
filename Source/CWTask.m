@@ -58,7 +58,7 @@
 			 andArguments:(NSArray *)execArgs
 			  atDirectory:(NSString *)path {
     self = [super init];
-    if ( self ) {
+    if (self) {
 		_executable = exec;
 		_arguments = execArgs;
 		_directoryPath = path;
@@ -81,7 +81,7 @@
  */
 - (id) init {
     self = [super init];
-    if ( self ) {
+    if (self) {
 		_executable = nil;
 		_arguments = nil;
 		_directoryPath = nil;
@@ -109,10 +109,10 @@
 	self.internalTask.launchPath = self.executable;
 	self.pipe = [NSPipe pipe];
 	self.internalTask.standardOutput = self.pipe;
-	if ( _arguments.count > 0 ) {
+	if (_arguments.count > 0) {
 		self.internalTask.arguments = self.arguments;
 	}
-	if ( self.directoryPath ) {
+	if (self.directoryPath) {
 		self.internalTask.currentDirectoryPath = self.directoryPath;
 	}
 }
@@ -125,16 +125,16 @@
  @return (BOOL) NO if the task fails any validation test, YES otherwise
  */
 - (BOOL) _validateTask:(NSError **)error {
-    if ( ![self _validateExecutable:error] ||
-         ![self _validateDirectoryPathIfApplicable:error] ||
-         ![self _validateTaskHasRun:error] ) {
+    if (![self _validateExecutable:error] ||
+		![self _validateDirectoryPathIfApplicable:error] ||
+		![self _validateTaskHasRun:error]) {
         return NO;
     }
     return YES;
 }
 
 /**
- Checks for a non nil value of executable and checks that the executable 
+ Checks for a non nil value of executable and checks that the executable
  actually exists if either fail it writes out a kCWTaskInvalidExecutable error
  to the NSError pointer and returns NO
  
@@ -143,7 +143,7 @@
  */
 - (BOOL) _validateExecutable:(NSError **)error {
 	CW_SAFE_ERROR(error);
-    if ( (!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable] ) {
+    if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
 		*error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable,
 							   @"Executable Path provided doesn't exist");
         return NO;
@@ -160,8 +160,8 @@
  */
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error {
 	CW_SAFE_ERROR(error);
-    if ( self.directoryPath ) {
-        if ( ![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath] ) {
+    if (self.directoryPath) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
             *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory,
 								   @"The Directory Specified does not exist & is invalid");
             return NO;
@@ -180,7 +180,7 @@
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error {
 	CW_SAFE_ERROR(error);
-    if ( self.taskHasRun ) {
+    if (self.taskHasRun) {
 		*error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun,
 							   @"This CWTask Instance has already been run");
         return NO;
@@ -190,9 +190,9 @@
 
 - (NSString *) launchTask:(NSError **)error {
     if (![self _validateTask:error]) { return nil; }
-
+	
     NSString * resultsString = nil;
-	if ( !self.taskHasRun ) {
+	if (!self.taskHasRun) {
 		[self _configureTask];
 		resultsString = [self _resultsStringFromLaunchedTask:error];
 		self.taskHasRun = YES;
@@ -221,11 +221,10 @@
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
-    if ( returnedData ) {
+    if (returnedData) {
         taskOutput = [[NSString alloc] initWithData:returnedData 
 										   encoding:NSUTF8StringEncoding];
     }
-
     return taskOutput;
 }
 
@@ -235,10 +234,10 @@
  @param error a NSError object to be written to if something fails
  */
 - (void) _performPostRunActionsIfApplicable {
-    if ( !self.internalTask.isRunning ) {
+    if (!self.internalTask.isRunning) {
 		self.successCode = self.internalTask.terminationStatus;
     }
-	if ( (!self.inAsynchronous) && self.completionBlock ) {
+	if ((!self.inAsynchronous) && self.completionBlock) {
 		self.completionBlock();
 	}
 }

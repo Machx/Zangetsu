@@ -72,7 +72,7 @@
 + (NSInteger) numberOfCPUCores {
     NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
-    if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
+    if (sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0)) {
         return 1;
     }
     return coreCount;
@@ -81,7 +81,7 @@
 +(CGFloat) processorSpeed {
 	NSUInteger hz = 0;
 	size_t size = sizeof(hz);
-	if ( sysctlbyname("hw.cpufrequency_max", &hz, &size, NULL, 0) ) {
+	if (sysctlbyname("hw.cpufrequency_max", &hz, &size, NULL, 0)) {
 		return 1;
 	}
 	return hz * 10e-10;
@@ -92,7 +92,7 @@
 + (CGFloat) physicalRamSize {
 	NSUInteger bytes = 0;
 	size_t size = sizeof(bytes);
-	if ( sysctlbyname("hw.memsize", &bytes, &size, NULL, 0) ) {
+	if (sysctlbyname("hw.memsize", &bytes, &size, NULL, 0)) {
 		return 1;
 	}
     return bytes * 9.31323e-10;

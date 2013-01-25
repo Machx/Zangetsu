@@ -37,7 +37,7 @@
 
 -(id)initWithBlock:(dispatch_block_t)block {
 	self = [super init];
-	if ( self ) {
+	if (self) {
 		_operationBlock = [block copy];
 		_completionBlock = NULL;
 	}
@@ -65,7 +65,7 @@
 			concurrent:(BOOL)concurrent 
 				 label:(NSString *)label {
 	self = [super init];
-	if ( self ) {
+	if (self) {
 		_queue = [self _getDispatchQueueWithType:type 
 									  concurrent:concurrent 
 										andLabel:label];
@@ -75,7 +75,7 @@
 
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue {
 	self = [super init];
-	if ( self ) {
+	if (self) {
 		_queue = gcdQueue;
 	}
 	return self;
@@ -85,9 +85,9 @@
 								  concurrent:(BOOL)concurrent 
 									andLabel:(NSString *)qLabel {
 	dispatch_queue_t queue = NULL;
-	if ( type == kCWBlockQueueTargetPrivateQueue ) {
+	if (type == kCWBlockQueueTargetPrivateQueue) {
 		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL);
-		if ( qLabel ) {
+		if (qLabel) {
 			queue = dispatch_queue_create([qLabel UTF8String], queueConcurrentAttribute);
 			self.label = qLabel;
 		} else {
@@ -96,19 +96,19 @@
 			self.label = aLabel;
 		}
 		
-	} else if ( type == kCWBlockQueueTargetGCDHighPriority ) {
+	} else if (type == kCWBlockQueueTargetGCDHighPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
 		self.label = @"CWBlockQueue [GCD Global High Priority Queue]";
 	
-	} else if ( type == kCWBlockQueueTargetGCDNormalPriority ) {
+	} else if (type == kCWBlockQueueTargetGCDNormalPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 		self.label = @"CWBlockQueue [GCD Global Default Priority Queue]";
 	
-	} else if ( type == kCWBlockQueueTargetGCDLowPriority ) {
+	} else if (type == kCWBlockQueueTargetGCDLowPriority) {
 		queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
 		self.label = @"CWBlockQueue [GCD Global High Priority Queue]";
 	
-	} else if ( type == kCWBlockQueueTargetMainQueue ) {
+	} else if (type == kCWBlockQueueTargetMainQueue) {
 		queue = dispatch_get_main_queue();
 		self.label = @"CWBlockQueue [GCD Main Queue]";
 	}
@@ -116,11 +116,11 @@
 }
 
 -(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue {
-	if ( blockQueue ) dispatch_set_target_queue(self.queue, [blockQueue queue]);
+	if (blockQueue) dispatch_set_target_queue(self.queue, [blockQueue queue]);
 }
 
 -(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue {
-	if ( GCDQueue ) dispatch_set_target_queue(self.queue, GCDQueue);
+	if (GCDQueue) dispatch_set_target_queue(self.queue, GCDQueue);
 }
 
 +(CWBlockQueue *)mainQueue {
@@ -155,7 +155,7 @@
 -(void)addOperation:(CWBlockOperation *)operation {
 	dispatch_async(self.queue, ^{
 		operation.operationBlock();
-		if ( operation.completionBlock ) operation.completionBlock();
+		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
@@ -166,7 +166,7 @@
 -(void)addSynchronousOperation:(CWBlockOperation *)operation {
 	dispatch_sync(self.queue, ^{
 		operation.operationBlock();
-		if ( operation.completionBlock ) operation.completionBlock();
+		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
