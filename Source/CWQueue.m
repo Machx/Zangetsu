@@ -56,8 +56,7 @@
  
  @return a CWQueue object ready to accept objects to be added to it.
  */
--(id)init
-{
+-(id)init {
 	self = [super init];
 	if (self) {
 		_dataStore = [[NSMutableArray alloc] init];
@@ -66,11 +65,10 @@
 	return self;
 }
 
--(id)initWithObjectsFromArray:(NSArray *)array
-{
+-(id)initWithObjectsFromArray:(NSArray *)array {
 	self = [super init];
 	if (self) {
-		_dataStore = [[NSMutableArray alloc] initWithArray:array];
+		_dataStore = [NSMutableArray arrayWithArray:array];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
@@ -78,19 +76,17 @@
 
 #pragma mark Add & Remove Objects -
 
--(id)dequeue
-{
+-(id)dequeue {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if (self.dataStore.count == 0) { return; }
+		if (self.dataStore.count == 0) return;
 		object = self.dataStore[0];
 		[self.dataStore removeObjectAtIndex:0];
 	});
 	return object;
 }
 
--(void)enqueue:(id)object
-{
+-(void)enqueue:(id)object {
 	if (object) {
 		dispatch_sync(self.queue, ^{
 			[self.dataStore addObject:object];
@@ -98,17 +94,15 @@
 	}
 }
 
--(void)enqueueObjectsFromArray:(NSArray *)objects
-{
-	dispatch_sync(self.queue, ^{
-		if (objects && (objects.count > 0)) {
+-(void)enqueueObjectsFromArray:(NSArray *)objects {
+	if (objects && (objects.count > 0)) {
+		dispatch_sync(self.queue, ^{
 			[self.dataStore addObjectsFromArray:objects];
-		}
-	});
+		});
+	}
 }
 
--(void)removeAllObjects
-{
+-(void)removeAllObjects {
 	dispatch_async(self.queue, ^{
 		[self.dataStore removeAllObjects];
 	});
@@ -116,8 +110,7 @@
 
 #pragma mark Query Methods -
 
--(BOOL)containsObject:(id)object
-{
+-(BOOL)containsObject:(id)object {
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
 		contains = [self.dataStore containsObject:object];
@@ -125,8 +118,7 @@
 	return contains;
 }
 
--(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block
-{
+-(BOOL)containsObjectWithBlock:(BOOL (^)(id obj))block {
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
 		for (id obj in self.dataStore) {
@@ -139,8 +131,7 @@
 	return contains;
 }
 
--(id)peek
-{
+-(id)peek {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
 		object = [self.dataStore cw_firstObject];
@@ -150,24 +141,21 @@
 
 #pragma mark Enumeration Methods -
 
--(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block
-{
+-(void)enumerateObjectsInQueue:(void(^)(id object, BOOL *stop))block {
 	dispatch_sync(self.queue, ^{
 		BOOL shouldStop = NO;
 		for (id object in self.dataStore) {
 			block(object,&shouldStop);
-			if (shouldStop) { return; }
+			if (shouldStop) return;
 		}
 	});
 }
 
--(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block
-{	
+-(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block {
 	if(self.dataStore.count == 0) { return; }
 	
 	BOOL shouldStop = NO;
 	id dequeuedObject = nil;
-	
 	do {
 		dequeuedObject = [self dequeue];
 		if(dequeuedObject){
@@ -177,16 +165,11 @@
 }
 
 -(void)dequeueToObject:(id)targetObject 
-			 withBlock:(void(^)(id object))block 
-{
-	if (![self.dataStore containsObject:targetObject]) {
-		return;
-	}
+			 withBlock:(void(^)(id object))block {
+	if (![self.dataStore containsObject:targetObject]) return;
 	[self dequeueOueueWithBlock:^(id object, BOOL *stop) {
 		block(object);
-		if ([object isEqual:targetObject]) {
-			*stop = YES;
-		}
+		if ([object isEqual:targetObject]) *stop = YES;
 	}];
 }
 
@@ -197,8 +180,7 @@
  
  @return a NSString detailing the queues internal storage
  */
--(NSString *)description
-{
+-(NSString *)description {
 	__block NSString *queueDescription = nil;
 	dispatch_sync(self.queue, ^{
 		queueDescription = [self.dataStore description];
@@ -206,8 +188,7 @@
 	return queueDescription;
 }
 
--(NSUInteger)count
-{
+-(NSUInteger)count {
 	__block NSUInteger queueCount = 0;
 	dispatch_sync(self.queue, ^{
 		queueCount = self.dataStore.count;
@@ -215,8 +196,7 @@
 	return queueCount;
 }
 
--(BOOL)isEmpty
-{
+-(BOOL)isEmpty {
 	__block BOOL queueEmpty = YES;
 	dispatch_sync(self.queue, ^{
 		queueEmpty = (self.dataStore.count == 0);
@@ -226,8 +206,7 @@
 
 #pragma mark Comparison -
 
--(BOOL)isEqualToQueue:(CWQueue *)aQueue
-{
+-(BOOL)isEqualToQueue:(CWQueue *)aQueue {
 	__block BOOL isEqual;
 	dispatch_sync(self.queue, ^{
 		isEqual = [self.dataStore isEqual:aQueue.dataStore];
@@ -235,8 +214,7 @@
 	return isEqual;
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	dispatch_release(_queue);
 }
 
