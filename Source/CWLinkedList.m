@@ -32,7 +32,7 @@
 @interface CWLinkedListNode : NSObject
 @property(retain) id data;
 @property(retain) CWLinkedListNode *next;
-@property(retain) CWLinkedListNode *prev;
+@property(weak) CWLinkedListNode *prev;
 @end
 
 @implementation CWLinkedListNode
