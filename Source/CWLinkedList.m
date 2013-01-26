@@ -76,7 +76,7 @@
 }
 
 -(void)addObject:(id)anObject {
-	if(!anObject) { return; }
+	if(!anObject) return;
 	
 	CWLinkedListNode *node = [[CWLinkedListNode alloc] init];
 	node.data = anObject;
@@ -106,16 +106,12 @@
 					   @"Trying to insert an object in a list with no objects and index > 0");
 		return YES;
 	}
-	
 	return NO;
 }
 
 -(void)insertObject:(id)anObject atIndex:(NSUInteger)index {
 	//will log any errors it encounters...
-	if ([self hasInsertObjectErrorsWithObject:anObject
-									 andIndex:index]) {
-		return;
-	}
+	if ([self hasInsertObjectErrorsWithObject:anObject andIndex:index]) return;
 	
 	/**
 	 if we are appending onto the exact end of the array
@@ -127,7 +123,8 @@
 	}
 	
 	NSError *error;
-	CWLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	CWLinkedListNode *node = [self _nodeAtIndex:index
+										  error:&error];
 	if(node == nil) {
 		CWLogError(error);
 		return;
@@ -162,7 +159,8 @@
 		return;
 	}
 	
-	CWLinkedListNode *node = [self _nodeAtIndex:index error:nil];
+	CWLinkedListNode *node = [self _nodeAtIndex:index
+										  error:nil];
 	[self _removeObjectWithNode:node];
 }
 
@@ -244,7 +242,7 @@
 }
 
 -(CWLinkedList *)linkedListWithRange:(NSRange)range {
-	if ((range.length + range.location) > ( self.count - 1)) {
+	if ((range.length + range.location) > (self.count - 1)) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
 					   442,
 					   @"Error: Range beyond bounds... Exiting now...");
@@ -255,7 +253,6 @@
 	
 	NSUInteger start = range.location;
 	NSUInteger currentIndex = 0;
-	
 	CWLinkedListNode *node = self.head;
 	
 	while (currentIndex != start) {
@@ -264,42 +261,37 @@
 	}
 	
 	NSUInteger length = range.length;
-	
 	while (node && (length != 0)) {
 		[returnList addObject:node.data];
 		length--;
 		node = node.next;
 	}
-	
 	return returnList;
 }
 
 -(void)enumerateObjectsWithBlock:(void(^)(id object,NSUInteger index, BOOL *stop))block {
-	if (!self.head) { return; }
+	if (!self.head) return;
 	
 	CWLinkedListNode *node = self.head;
 	BOOL shouldStop = NO;
 	NSUInteger currentIndex = 0;
 	while (node) {
 		block(node.data,currentIndex,&shouldStop);
-		if (shouldStop == YES) {
-			break;
-		}
+		if (shouldStop == YES) break;
 		node = node.next;
 		currentIndex++;
 	}
 }
 
 -(void)enumerateObjectsInReverseWithBlock:(void(^)(id object, NSUInteger index, BOOL *stop))block {
-	if (!self.head) { return; }
+	if (!self.head) return;
 	
 	CWLinkedListNode *tail = self.tail;
 	BOOL shouldStop = NO;
-	NSUInteger currentIndex = self.count - 1;
-	
+	NSUInteger currentIndex = (self.count - 1);
 	while (tail != nil) {
 		block(tail.data, currentIndex, &shouldStop);
-		if (shouldStop == YES) { break; }
+		if (shouldStop == YES) break;
 		tail = tail.prev;
 		currentIndex--;
 	}
