@@ -30,14 +30,11 @@
 
 @implementation NSString (CWSHA1Utilities)
 
-
-+ (NSString *) cw_sha1HashFromString:(NSString *)str
-{
++ (NSString *) cw_sha1HashFromString:(NSString *)str {
     NSParameterAssert(str);
 
     const char * cStringRep = [str UTF8String];
     unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
-
     CC_SHA1(cStringRep, (CC_LONG)strlen(cStringRep), shaHash);
 
     NSString * shaHashString = [NSString stringWithFormat:
@@ -54,12 +51,11 @@
 
 @implementation NSData (CWSHA1Utilities)
 
-- (NSString *) cw_sha1StringFromData
-{
-    NSString * str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+- (NSString *) cw_sha1StringFromData {
+    NSString * str = [[NSString alloc] initWithData:self
+										   encoding:NSUTF8StringEncoding];
     const char * cStringRep = [str UTF8String];
     unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];
-
     CC_SHA1(cStringRep, (CC_LONG)strlen(cStringRep), shaHash);
 
     NSString * shaHashString = [NSString stringWithFormat:
