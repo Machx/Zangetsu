@@ -43,16 +43,23 @@
     CFErrorRef error = NULL;
     
     CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
-    if (inputData == NULL) { return nil; }
-    
+    if (inputData == NULL) return nil;
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
-    if(error) { CWZLIBCLEANUP(); return nil; }
-    
+    if(error) {
+		CWZLIBCLEANUP();
+		return nil;
+	}
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) { CWZLIBCLEANUP(); return nil; }
-    
+    if (error) {
+		CWZLIBCLEANUP();
+		return nil;
+	}
 	data = SecTransformExecute(encoder, &error);
-    if (error) { CWZLIBCLEANUP(); CFRelease(data); return nil; }
+    if (error) {
+		CWZLIBCLEANUP();
+		CFRelease(data);
+		return nil;
+	}
     
 	CFRelease(encoder);
 	CFRelease(inputData);
@@ -73,16 +80,23 @@
     CFErrorRef error = NULL;
     
     CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
-    if (inputData == NULL) { return nil; }
-    
+    if (inputData == NULL) return nil;
     decoder = SecDecodeTransformCreate(kSecZLibEncoding, &error);
-    if (error) { CWZLIBCLEANUP(); return nil; }
-    
+    if (error) {
+		CWZLIBCLEANUP();
+		return nil;
+	}
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) { CWZLIBCLEANUP(); return nil; }
-    
+    if (error) {
+		CWZLIBCLEANUP();
+		return nil;
+	}
     decodedData = SecTransformExecute(decoder, &error);
-    if (error) { CWZLIBCLEANUP(); CFRelease(decodedData); return nil; }
+    if (error) {
+		CWZLIBCLEANUP();
+		CFRelease(decodedData);
+		return nil;
+	}
     
 	CFRelease(inputData);
 	CFRelease(decoder);
