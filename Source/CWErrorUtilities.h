@@ -29,8 +29,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define CW_SAFE_ERROR(x) x = (x ? x : &( NSError *){ nil })
-
 #define CWLogError(_error_) NSLog(@"%@",[_error_ description])
 
 static NSString * const kCWErrorDomain = @"CWErrorDomain";
