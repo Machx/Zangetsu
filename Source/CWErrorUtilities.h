@@ -85,6 +85,11 @@ void CWLogErrorInfo(NSString * domain,
 					NSInteger errorCode,
 					NSString * errorMessageFormat, ...);
 
+void CWErrorSet(NSString *domain,
+				NSInteger errorCode,
+				NSString *errorMessageFormat,
+				NSError **error);
+
 /**
  Tests if the condition is true and if it is sets the error
  
@@ -93,6 +98,6 @@ void CWLogErrorInfo(NSString * domain,
  @param error pointer to be set with the block returned var if condition is true
  @return returns YES if the condition evaluates to true, otherwise returns NO
  */
-BOOL CWErrorSet(BOOL cond,
+BOOL CWErrorTrap(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error);

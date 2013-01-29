@@ -78,12 +78,20 @@ void CWLogErrorInfo(NSString * domain,
 	CWLogError(error);
 }
 
-BOOL CWErrorSet(BOOL cond,
+void CWErrorSet(NSString *domain,
+				NSInteger errorCode,
+				NSString *errorMessageFormat,
+				NSError **error) {
+	//TODO: add a user info pointer
+	if (error) *error = CWCreateError(domain, errorCode, errorMessageFormat);
+}
+
+BOOL CWErrorTrap(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error) {
-	error = (error ? error : &(NSError *){ nil });
+	//error = (error ? error : &(NSError *){ nil });
 	if (cond) {
-		*error = errorBlock();
+		if(error) *error = errorBlock();
 		return YES;
 	}
 	return NO;
