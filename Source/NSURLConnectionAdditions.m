@@ -58,7 +58,6 @@
 								  andError:(NSError **)error
 {
 	NSParameterAssert(request);
-	CW_SAFE_ERROR(error);
 	
 	__block NSData *data = nil;
 	__block NSURLResponse *resp = nil;
@@ -71,7 +70,7 @@
 	});
 	
 	*response = resp;
-	*error = err;
+	if(error) *error = err;
 	
 	return data;
 }
