@@ -142,10 +142,11 @@
  @return (BOOL) NO is the executable specified doesn't exist otherwise YES
  */
 - (BOOL) _validateExecutable:(NSError **)error {
-	CW_SAFE_ERROR(error);
     if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
-		*error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidExecutable,
-							   @"Executable Path provided doesn't exist");
+		CWErrorSet(kCWTaskErrorDomain,
+				   kCWTaskInvalidExecutable,
+				   @"Executable Path provided doesn't exist",
+				   error);
         return NO;
     }
     return YES;
@@ -159,11 +160,12 @@
  @return (BOOL) YES if the directory path exists otherwise returns NO
  */
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error {
-	CW_SAFE_ERROR(error);
     if (self.directoryPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
-            *error = CWCreateError(kCWTaskErrorDomain, kCWTaskInvalidDirectory,
-								   @"The Directory Specified does not exist & is invalid");
+			CWErrorSet(kCWTaskErrorDomain,
+					   kCWTaskInvalidDirectory,
+					   @"The Directory Specified does not exist & is invalid",
+					   error);
             return NO;
         }
     }
@@ -179,10 +181,11 @@
  @return (BOOL) YES if the task has not been run, otherwise returns NO
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error {
-	CW_SAFE_ERROR(error);
     if (self.taskHasRun) {
-		*error = CWCreateError(kCWTaskErrorDomain, kCWTaskAlreadyRun,
-							   @"This CWTask Instance has already been run");
+		CWErrorSet(kCWTaskErrorDomain,
+				   kCWTaskAlreadyRun,
+				   @"This CWTask Instance has already been run",
+				   error);
         return NO;
     }
     return YES;
@@ -210,14 +213,16 @@
 - (NSString *) _resultsStringFromLaunchedTask:(NSError **)error {
     NSData * returnedData = nil;
     NSString * taskOutput = nil;
-	CW_SAFE_ERROR(error);
 
     @try {
         [self.internalTask launch];
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
-        *error = CWCreateError(kCWTaskErrorDomain, kCWTaskEncounteredExceptionOnRun, [e description]);
+		CWErrorSet(kCWTaskErrorDomain,
+				   kCWTaskEncounteredExceptionOnRun,
+				   [e description],
+				   error);
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
