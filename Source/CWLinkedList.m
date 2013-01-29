@@ -180,14 +180,14 @@
 -(CWLinkedListNode *)_nodeAtIndex:(NSUInteger)index
 							error:(NSError **)error {
 	NSUInteger maxCount = (self.count - 1);
-	if (CWErrorSet(index > maxCount, ^NSError *{
+	if (CWErrorTrap(index > maxCount, ^NSError *{
 		return CWCreateError(kCWDoublyLinkedListErrorDomain, 442,
 							 [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
 							  index,maxCount]);
 	}, error)) {
 		return nil;
 	}
-	if (CWErrorSet(self.head == nil, ^NSError *{
+	if (CWErrorTrap(self.head == nil, ^NSError *{
 		return CWCreateError(kCWDoublyLinkedListErrorDomain, 445,
 							 @"Attempting to get Node at index in a list with no elements");
 	}, error)) {
