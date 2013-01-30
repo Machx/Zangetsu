@@ -101,6 +101,18 @@ void CWErrorSet(NSString *domain,
 				NSString *errorMessageFormat,
 				NSError **error);
 
+/**
+ Safely Sets an error by checking if it is non nil
+ 
+ This allows creating an error and safely setting it wihtout worrying about
+ checking for non nil value before setting the pointer. This method also allows
+ you to set additional values in the user info dictionary if needed.
+ 
+ @param domain a NSString specifying the domain for a NSError object
+ @param errorCode a NSInteger for the error code in a NSError object
+ @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
+ @param error the NSError reference to set
+ */
 void CWErrorSetV(NSString *domain,
 				 NSInteger errorCode,
 				 NSString *errorMessageFormat,
