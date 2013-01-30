@@ -82,8 +82,15 @@ void CWErrorSet(NSString *domain,
 				NSInteger errorCode,
 				NSString *errorMessageFormat,
 				NSError **error) {
-	//TODO: add a user info pointer
 	if (error) *error = CWCreateError(domain, errorCode, errorMessageFormat);
+}
+
+void CWErrorSetV(NSString *domain,
+				 NSInteger errorCode,
+				 NSString *errorMessageFormat,
+				 NSDictionary *userInfo,
+				 NSError **error) {
+	if (error) *error = CWCreateErrorWithUserInfo(domain, errorCode, userInfo, errorMessageFormat);
 }
 
 BOOL CWErrorTrap(BOOL cond,
