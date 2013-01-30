@@ -62,7 +62,7 @@
 		_executable = exec;
 		_arguments = execArgs;
 		_directoryPath = path;
-		_successCode = kCWTaskNotLaunched;
+		_successCode = kCWTaskNotLaunchedErrorCode;
 		_taskHasRun = NO;
 		_inAsynchronous = NO;
 		_internalTask = [[NSTask alloc] init];
@@ -85,7 +85,7 @@
 		_executable = nil;
 		_arguments = nil;
 		_directoryPath = nil;
-		_successCode = kCWTaskNotLaunched;
+		_successCode = kCWTaskNotLaunchedErrorCode;
 		_taskHasRun = NO;
 		_inAsynchronous = NO;
 		_internalTask = nil;
@@ -144,7 +144,7 @@
 - (BOOL) _validateExecutable:(NSError **)error {
     if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
 		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskInvalidExecutable,
+				   kCWTaskInvalidExecutableErrorCode,
 				   @"Executable Path provided doesn't exist",
 				   error);
         return NO;
@@ -163,7 +163,7 @@
     if (self.directoryPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
 			CWErrorSet(kCWTaskErrorDomain,
-					   kCWTaskInvalidDirectory,
+					   kCWTaskInvalidDirectoryErrorCode,
 					   @"The Directory Specified does not exist & is invalid",
 					   error);
             return NO;
@@ -183,7 +183,7 @@
 - (BOOL) _validateTaskHasRun:(NSError **)error {
     if (self.taskHasRun) {
 		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskAlreadyRun,
+				   kCWTaskAlreadyRunErrorCode,
 				   @"This CWTask Instance has already been run",
 				   error);
         return NO;
@@ -220,7 +220,7 @@
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
 		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskEncounteredExceptionOnRun,
+				   kCWTaskEncounteredExceptionOnRunErrorCode,
 				   [e description],
 				   error);
     }
