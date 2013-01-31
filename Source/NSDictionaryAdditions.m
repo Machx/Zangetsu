@@ -32,32 +32,25 @@
 
 @implementation NSDictionary (CWNSDictionaryAdditions)
 
--(void)cw_each:(void (^)(id key, id value, BOOL *stop))block 
-{
+-(void)cw_each:(void (^)(id key, id value, BOOL *stop))block {
 	[self enumerateKeysAndObjectsUsingBlock:block];
 }
 
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block
-{
-	[self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:block];
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block {
+	[self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent
+								  usingBlock:block];
 }
 
--(BOOL)cw_containsKey:(NSString *)key
-{
+-(BOOL)cw_containsKey:(NSString *)key {
 	return [[self allKeys] containsObject:key];
 }
 
--(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block
-{
+-(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	
 	[self cw_each:^(id key, id value, BOOL *stop) {
 		NSDictionary *returnedDictionary = block(key,value);
-		if (returnedDictionary) {
-			[dict addEntriesFromDictionary:returnedDictionary];
-		}
+		if (returnedDictionary) [dict addEntriesFromDictionary:returnedDictionary];
 	}];
-	
 	return dict;
 }
 
