@@ -29,6 +29,10 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kCWNSMutableArrayAdditionsErrorDomain = @"com.Zangetsu.NSMutableArrayAdditions";
+
+static NSUInteger const kCWNSMutableArrayAdditionsObjectNotFoundCode = 404;
+
 @interface NSMutableArray (CWNSMutableArrayAdditions)
 
 /**

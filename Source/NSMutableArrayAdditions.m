@@ -31,8 +31,7 @@
 
 @implementation NSMutableArray (CWNSMutableArrayAdditions)
 
--(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray
-{
+-(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray {
 	[otherArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 		[self addObject:[obj copy]];
 	}];
@@ -43,13 +42,14 @@
 {
 	NSParameterAssert(object);
 	NSUInteger oldIndex = [self indexOfObject:object];
-	if (oldIndex == index) { return; }
+	if (oldIndex == index) return;
 	if (oldIndex != NSNotFound) {
 		[self removeObjectAtIndex:oldIndex];
 		[self insertObject:object atIndex:index];
 		return;
 	}
-	CWLogErrorInfo(@"com.Zangetsu.NSMutableArrayAdditions", 404,
+	CWLogErrorInfo(kCWNSMutableArrayAdditionsErrorDomain,
+				   kCWNSMutableArrayAdditionsObjectNotFoundCode,
 				   @"Object you are attempting to move was not contained in the array");
 }
 
