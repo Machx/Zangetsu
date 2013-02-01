@@ -32,78 +32,58 @@
 
 @implementation NSSet (CWNSSetAdditions)
 
--(void)cw_each:(void (^)(id obj, BOOL *stop))block 
-{	
+-(void)cw_each:(void (^)(id obj, BOOL *stop))block {
 	[self enumerateObjectsUsingBlock:block];
 }
 
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block 
-{
+-(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block {
 	[self enumerateObjectsWithOptions:NSEnumerationConcurrent
 						   usingBlock:block];
 }
 
--(id)cw_findWithBlock:(BOOL (^)(id obj))block
-{
+-(id)cw_findWithBlock:(BOOL (^)(id obj))block {
 	for(id obj in self){
-		if(block(obj)){
-			return obj;
-		}
+		if(block(obj)) return obj;
 	}
 	return nil;
 }
 
--(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block
-{
+-(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
 	NSMutableSet *results = [[NSMutableSet alloc] init];
 	[self cw_each:^(id obj, BOOL *stop) {
-		if (block(obj)) {
-			[results addObject:obj];
-		}
+		if (block(obj)) [results addObject:obj];
 	}];
 	return results;
 }
 
--(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block
-{
-	return ([self cw_findWithBlock:block]) ? YES : NO;
+-(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block {
+	return ([self cw_findWithBlock:block] ? YES : NO);
 }
 
 #if Z_HOST_OS_IS_MAC_OS_X
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block
-{
+-(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
 	[self cw_each:^(id obj, BOOL *stop) {
-		if (block(obj)) {
-			[results addObject:obj];
-		}
+		if (block(obj)) [results addObject:obj];
 	}];
 	return results;
 }
 #endif
 
--(NSSet *)cw_mapSet:(id (^)(id obj))block
-{
+-(NSSet *)cw_mapSet:(id (^)(id obj))block {
 	NSMutableSet *mappedSet = [[NSMutableSet alloc] init];
 	[self cw_each:^(id obj, BOOL *stop) {
 		id rObj = block(obj);
-		if (rObj) {
-			[mappedSet addObject:rObj];
-		}
+		if (rObj) [mappedSet addObject:rObj];
 	}];
     return mappedSet;
 }
 
--(NSSet *)cw_setOfObjectsPassingTest:(BOOL (^)(id obj))block
-{
+-(NSSet *)cw_setOfObjectsPassingTest:(BOOL (^)(id obj))block {
 	NSMutableSet *set = [NSMutableSet set];
-	
 	[self cw_each:^(id obj, BOOL *stop) {
-		if (block(obj)) {
-			[set addObject:obj];
-		}
+		if (block(obj)) [set addObject:obj];
 	}];
-	
 	return set;
 }
 
