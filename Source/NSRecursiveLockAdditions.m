@@ -31,8 +31,7 @@
 
 @implementation NSRecursiveLock (CWNSRecursiveLockAdditions)
 
--(void)cw_doWithLock:(dispatch_block_t)block
-{
+-(void)cw_doWithLock:(dispatch_block_t)block {
 	[self lock];
 	block();
 	[self unlock];
