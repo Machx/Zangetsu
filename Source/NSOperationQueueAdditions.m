@@ -10,11 +10,10 @@
 
 @implementation NSOperationQueue (NSOperationQueueAdditions)
 
--(void)cw_addOperationAfterDelay:(double)delay 
-                       withBlock:(dispatch_block_t)block 
-{
+-(void)cw_addOperationAfterDelay:(double)seconds
+                       withBlock:(dispatch_block_t)block {
     NSParameterAssert(block);
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,(delay * NSEC_PER_SEC));
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,(seconds * NSEC_PER_SEC));
 	dispatch_queue_t queue = dispatch_queue_create("com.Zangetsu.NSOperationQueueAdditions", 0);
     dispatch_after(popTime, queue, ^(void){
         [self addOperationWithBlock:block];
