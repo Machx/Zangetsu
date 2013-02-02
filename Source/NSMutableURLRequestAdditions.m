@@ -33,9 +33,8 @@ static NSString *const kCWHttpAuthorizationHeaderField = @"Authorization";
 
 @implementation NSMutableURLRequest (CWNSMutableURLRequestAdditions)
 
--(void)cw_setHTTPAuthorizationHeaderFieldString:(NSString *)authString
-{
-	if(!authString) { return; }
+-(void)cw_setHTTPAuthorizationHeaderFieldString:(NSString *)authString {
+	if(!authString) return;
 	[self setValue:authString forHTTPHeaderField:kCWHttpAuthorizationHeaderField];
 }
 
