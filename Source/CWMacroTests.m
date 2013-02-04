@@ -32,15 +32,7 @@
 
 @implementation CWMacroTests
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
-
--(void)testSetMacro
-{
+-(void)testSetMacro {
     const NSString *q1 = @"All Hail Hypnotoad!";
     const NSString *q2 = @"We just need to hit the bullseye and all the dominos will fall like a house of cards... checkmate";
     
@@ -50,20 +42,12 @@
 	STAssertEqualObjects(set1, set2, @"The 2 sets should have the same content");
 }
 
--(void)testGCDQueueMacros
-{
+-(void)testGCDQueueMacros {
     //make sure our GCD macros correspond to the proper queues...
     STAssertTrue(CWGCDPriorityQueueHigh() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), @"Queues should be the same");
     STAssertTrue(CWGCDPriorityQueueNormal() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), @"Queues should be the same");
     STAssertTrue(CWGCDPriorityQueueLow() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), @"Queues should be the same");
     STAssertTrue(CWGCDPriorityQueueBackground() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), @"Queues should be the same");
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
 }
 
 @end
