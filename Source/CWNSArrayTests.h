@@ -29,7 +29,3 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <Zangetsu/Zangetsu.h>
-
-@interface CWNArrayTests : SenTestCase
-
-@end
