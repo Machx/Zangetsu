@@ -30,8 +30,6 @@
 #import "CWNSArrayTests.h"
 #import "CWAssertionMacros.h"
 
-//TODO: where multiple tests all use the same data move to the describe section
-
 SpecBegin(CWNSArrayTests)
 
 describe(@"-cw_firstObject", ^{
@@ -59,8 +57,9 @@ describe(@"-cw_findWithBlock", ^{
 });
 
 describe(@"-cw_mapArray", ^{
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+	
 	it(@"should map one array to another", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		NSArray *myArray = [testArray cw_mapArray:^(id obj) {
 			return obj;
 		}];
@@ -69,7 +68,6 @@ describe(@"-cw_mapArray", ^{
 	});
 	
 	it(@"should correctly selectively map objects", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
 			if([(NSString *)obj isEqualToString:@"Fry"] ||
 			   [(NSString *)obj isEqualToString:@"Leela"]){
@@ -85,8 +83,9 @@ describe(@"-cw_mapArray", ^{
 
 
 describe(@"-cw_each", ^{
+	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+	
 	it(@"should enumerate all the objects", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		__block NSMutableArray *results = [[NSMutableArray alloc] init];
 		[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 			[results addObject:obj];
@@ -96,11 +95,10 @@ describe(@"-cw_each", ^{
 	});
 	
 	it(@"should stop when stop is set to YES", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		NSMutableArray *results = [[NSMutableArray alloc] init];
 		[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 			[results addObject:obj];
-			if ([(NSString *)obj isEqualToString:@"Leela"]) { *stop = YES; }
+			if ([(NSString *)obj isEqualToString:@"Leela"]) *stop = YES;
 		}];
 		NSArray *goodResults = @[@"Fry",@"Leela"];
 		
@@ -108,7 +106,6 @@ describe(@"-cw_each", ^{
 	});
 	
 	it(@"should have correct indexes for the corresponding objects", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 			if (index == 0) {
 				expect(obj).to.equal(@"Fry");
@@ -124,7 +121,7 @@ describe(@"-cw_each", ^{
 });
 
 describe(@"-cw_eachConcurrently", ^{
-	it(@"should work", ^{
+	it(@"should enumerate all objects in an array", ^{
 		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		__block int32_t count = 0;
 		
