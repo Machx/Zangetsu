@@ -27,9 +27,6 @@
  THE SOFTWARE.
  */
 
-#import "Specta.h"
-#define EXP_SHORTHAND
-#import "Expecta.h"
 #import "CWNSArrayTests.h"
 #import "CWAssertionMacros.h"
 
