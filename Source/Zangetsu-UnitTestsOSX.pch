@@ -1,0 +1,13 @@
+//
+//  Zangetsu-UnitTestsOSX.pch
+//  Zangetsu
+//
+//  Created by Colin Wheeler on 2/5/13.
+//
+//
+
+#import <Cocoa/Cocoa.h>
+#import <SenTestingKit/SenTestingKit.h>
+#import "Specta.h"
+#define EXP_SHORTHAND
+#import "Expecta.h"
