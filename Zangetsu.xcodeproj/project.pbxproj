@@ -404,6 +404,7 @@
 		B884628316C0ACFA00EE9AF0 /* libExpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-ios-universal.a"; path = "External/Expecta/libExpecta-ios-universal.a"; sourceTree = "<group>"; };
 		B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-macosx.a"; path = "External/Expecta/libExpecta-macosx.a"; sourceTree = "<group>"; };
 		B884628816C0AFD900EE9AF0 /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raiseWithReason.h"; path = "External/Expecta/EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
+		B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Zangetsu-UnitTestsOSX.pch"; path = "Source/Zangetsu-UnitTestsOSX.pch"; sourceTree = "<group>"; };
 		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
 		B884940013A13D700046194D /* CWApplicationRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistryTests.m; path = Source/CWApplicationRegistryTests.m; sourceTree = "<group>"; };
 		B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64IOS.h; path = Source/CWBase64IOS.h; sourceTree = "<group>"; };
@@ -889,6 +890,7 @@
 		B8F5E67C12A02F6500E58C94 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */,
 				B869C85113F6B90400739DE4 /* CWMacroTests.h */,
 				B869C85213F6B90400739DE4 /* CWMacroTests.m */,
 				B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */,
@@ -1751,7 +1753,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
@@ -1788,7 +1790,7 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
@@ -1827,7 +1829,7 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
