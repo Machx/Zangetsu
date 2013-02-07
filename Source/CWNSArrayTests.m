@@ -170,16 +170,13 @@ describe(@"-cw_arrayOfObjectsPassingTest", ^{
 	it(@"should find all passing objects", ^{
 		NSArray *array = @[ @1, @2, @3, @4, @5, @6, @7, @8, @9, @10 ];
 		NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
-			return ( [(NSNumber *)obj intValue] > 5 );
+			return (((NSNumber *)obj).intValue > 5);
 		}];
 		
-		expect(results.count == 5).to.beTruthy();
+		NSArray *goodResults = @[ @6, @7, @8, @9, @10 ];
 		
-		expect(results[0]).to.equal(@6);
-		expect(results[1]).to.equal(@7);
-		expect(results[2]).to.equal(@8);
-		expect(results[3]).to.equal(@9);
-		expect(results[4]).to.equal(@10);
+		expect(results).to.haveCountOf(5);
+		expect(results).to.equal(goodResults);
 	});
 });
 
