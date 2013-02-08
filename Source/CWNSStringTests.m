@@ -31,59 +31,60 @@
 #import <Zangetsu/Zangetsu.h>
 #import "CWAssertionMacros.h"
 
-@implementation CWNSStringTests
+SpecBegin(CWNSStringAdditions)
 
--(void)testUUIDStrings
-{
-	NSString *string1 = [NSString cw_uuidString];
-	NSString *string2 = [NSString cw_uuidString];
-	
-	CWAssertNotEqualsObjects(string1, string2, @"Both Strings should be unique");
-}
+describe(@"-cw_uuidString", ^{
+	it(@"should never produce the same thing twice", ^{
+		NSString *string1 = [NSString cw_uuidString];
+		NSString *string2 = [NSString cw_uuidString];
+		NSString *string3 = [NSString cw_uuidString];
+		
+		expect(string1).notTo.equal(string2);
+		expect(string1).notTo.equal(string3);
+		expect(string2).notTo.equal(string3);
+	});
+});
 
--(void)testEmptyStringMethod
-{
-	//test data that should be empty
-	NSString *emptyString1 = @"";
-	STAssertFalse([emptyString1 cw_isNotEmptyString],@"String1 should be empty");
+describe(@"-cw_isNotEmptyString", ^{
+	it(@"should correctly detect an empty string", ^{
+		NSString *emptyString = @"";
+		expect([emptyString cw_isNotEmptyString]).to.beFalsy();
+	});
 	
-	//test data that should not return empty
-	NSString *testString2 = @"Fry";
-	STAssertTrue([testString2 cw_isNotEmptyString],@"TestString should not be empty");
-}
+	it(@"should correctly detect non empty strings", ^{
+		NSString *testString = @"Fry";
+		expect([testString cw_isNotEmptyString]).to.beTruthy();
+	});
+});
 
--(void)testURLEscaping
-{	
-	NSString *urlCharsString = @"@!*'()[];:&=+$,/?%#";
+describe(@"-cw_escapeEntitiesForURL", ^{
+	it(@"should escape all illegal characters", ^{
+		NSString *urlCharsString = @"@!*'()[];:&=+$,/?%#";
+		NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
+		NSCharacterSet *testIllegalCharSet = [NSCharacterSet characterSetWithCharactersInString:@"@!*'()[];:&=+$,/?#"];
+		NSInteger location = [escapedString rangeOfCharacterFromSet:testIllegalCharSet].location;
+		
+		expect(location == NSNotFound).to.beTruthy();
+	});
 	
-	NSString *escapedString = [urlCharsString cw_escapeEntitiesForURL];
-	
-	NSCharacterSet *testIllegalCharSet = [NSCharacterSet characterSetWithCharactersInString:@"@!*'()[];:&=+$,/?#"];
-	
-	NSInteger location = [escapedString rangeOfCharacterFromSet:testIllegalCharSet].location;
-	
-	STAssertTrue(location == NSNotFound, @"chars in set shouldn't be found");
-}
+	it(@"should escape percent strings", ^{
+		NSString *testCharString = @"%";
+		NSString *escapedString = [testCharString cw_escapeEntitiesForURL];
+		
+		expect(escapedString).to.equal(@"%25");
+	});
+});
 
--(void)testURLEscapingPercentString
-{
-	NSString *testCharString = @"%";
-	NSString *escapedString = [testCharString cw_escapeEntitiesForURL];
-	
-	CWAssertEqualsStrings(escapedString, @"%25");
-}
+describe(@"-cw_enumerateConcurrentlyWithOptions:usingBlock:", ^{
+	it(@"should enumerate all substrings", ^{
+		NSString *string  = @"This\nis\na\nstring\nwith\nmany\nlines.";
+		__block int32_t count = 0;
+		[string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines usingBlock:^(NSString *substring) {
+			OSAtomicIncrement32(&count);
+		}];
+		
+		expect(count == 7).to.beTruthy();
+	});
+});
 
--(void)testEnumerateSubStrings
-{    
-    NSString *string  = @"This\nis\na\nstring\nwith\nmany\nlines.";
-    
-    __block int32_t count = 0;
-    
-    [string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines usingBlock:^(NSString *substring) {
-        OSAtomicIncrement32(&count);
-    }];
-    
-    STAssertTrue(count == 7, @"Count should be 7");
-}
-
-@end
+SpecEnd
