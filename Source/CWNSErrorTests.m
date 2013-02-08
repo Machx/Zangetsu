@@ -74,7 +74,7 @@ describe(@"CWErrorTrap()", ^{
 		expect(error.userInfo[NSLocalizedDescriptionKey]).to.equal(@"Less than 5");
 	});
 	
-	it(@"should return YES condition was meet even when given nil", ^{
+	it(@"should return YES condition was meet even when given nil for NSError", ^{
 		BOOL result = CWErrorTrap(YES, ^NSError *{
 			return nil;
 		}, nil);
