@@ -28,8 +28,3 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
-
-
-@interface CWApplicationRegistryTests : SenTestCase
-
-@end
