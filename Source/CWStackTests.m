@@ -30,180 +30,168 @@
 #import "CWStackTests.h"
 #import "CWStack.h"
 
-@implementation CWStackTests
+//TODO: these unit tests can be improved a lot more
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
+SpecBegin(CWStackTests)
 
--(void)testBasicPush
-{	
-	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+describe(@"-push", ^{
+	it(@"should add objects to the stack", ^{
+		NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+		CWStack *stack = [[CWStack alloc] init];
+		
+		[stack push:[array objectAtIndex:0]];
+		expect(stack.count == 1).to.beTruthy();
+		expect(stack.topOfStackObject).to.equal(@"This");
+		
+		[stack push:[array objectAtIndex:1]];
+		expect(stack.count == 2).to.beTruthy();
+		expect(stack.topOfStackObject).to.equal(@"is");
+		
+		[stack push:[array objectAtIndex:2]];
+		expect(stack.count == 3).to.beTruthy();
+		expect(stack.topOfStackObject).to.equal(@"a");
+		
+		[stack push:[array objectAtIndex:3]];
+		expect(stack.count == 4).to.beTruthy();
+		expect(stack.topOfStackObject).to.equal(@"sentence");
+	});
 	
-	CWStack *stack1 = [[CWStack alloc] init];
-	
-	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:array];
-	
-	[stack1 push:[array objectAtIndex:0]];
-	[stack1 push:[array objectAtIndex:1]];
-	[stack1 push:[array objectAtIndex:2]];
-	[stack1 push:[array objectAtIndex:3]];
-	
-    STAssertTrue([stack1 isEqualToStack:stack2], @"stack contents should be equal");
-    STAssertFalse([stack1 isEqualTo:stack2], @"stacks shouldnt be the same object");
-}
+	it(@"should not accept pushing nil onto the stack", ^{
+		CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:@[@"Nibbler"]];
+		expect(testStack.count == 1).to.beTruthy();
+		expect(testStack.topOfStackObject).to.equal(@"Nibbler");
+		
+		[testStack push:nil];
+		expect(testStack.count == 1).to.beTruthy();
+		expect(testStack.topOfStackObject).to.equal(@"Nibbler");
+	});
+});
 
--(void)testPushNil
-{	
-	CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:@[@"Nibbler"]];
-	STAssertTrue([testStack count] == 1, @"Stack should only have 1 object contained in it");
-	
-	[testStack push:nil];
-	STAssertTrue([testStack count] == 1, @"Stack have ignored nil and done nothing");
-}
-
--(void)testBasicEnumeration
-{	
-	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
-	
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
-	
-	__block NSInteger index = 0;
-	
-	[stack popToObject:@"This" withBlock:^(id obj) {
-		if (index == 0) {
-			STAssertTrue([(NSString *)obj isEqualToString:@"sentence"], @"strings should be equal");
+describe(@"-popToObject:withBlock:", ^{
+	it(@"should pop objects in the sequence expected", ^{
+		NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
+		__block NSInteger index = 0;
+		
+		[stack popToObject:@"This" withBlock:^(id obj) {
+			if (index == 0) {
+				expect(obj).to.equal(@"sentence");
+			} else if (index == 1) {
+				expect(obj).to.equal(@"a");
+			} else if (index == 2) {
+				expect(obj).to.equal(@"is");
+			} else {
+				STAssertTrue(0, @"should not get here");
+			}
 			index++;
-		} else if (index == 1) {
-			STAssertTrue([(NSString *)obj isEqualToString:@"a"], @"strings should be equal");
-			index++;
-		} else if (index == 2) {
-			STAssertTrue([(NSString *)obj isEqualToString:@"is"], @"strings should be equal");
-			index++;
-		} else {
-			STAssertTrue(FALSE, @"should not get here");
-		}
-	}];
-}
+		}];
+	});
+});
 
--(void)testClearStack
-{	
-	CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:@[@"one",@"and",@"two"]];
-	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"foo",@"bar"]];
-	
-	[stack1 clearStack];
-	[stack2 clearStack];
-	
-	STAssertTrue([[stack1 description] isEqualToString:[stack2 description]], @"stacks should be equal");
-}
+describe(@"-clearStack", ^{
+	it(@"should clear all the objects off a stack", ^{
+		CWStack *stack1 = [[CWStack alloc] initWithObjectsFromArray:@[@"one",@"and",@"two"]];
+		CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"foo",@"bar"]];
+		
+		expect(stack1.count == 3).to.beTruthy();
+		expect(stack2.count == 2).to.beTruthy();
+		
+		[stack1 clearStack];
+		[stack2 clearStack];
+		
+		expect(stack1.count == 0).to.beTruthy();
+		expect(stack2.count == 0).to.beTruthy();
+		expect([stack1 isEqualToStack:stack2]).to.beTruthy();
+	});
+});
 
--(void)testBottomAndTopStackObjects
-{	
-	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+describe(@"bottomOfStackObject", ^{
+	it(@"should find the correct object at the bottom of a stack", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"This",@"is",@"a",@"sentence"]];
+		expect(stack.bottomOfStackObject).to.equal(@"This");
+	});
 	
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
-	
-	STAssertTrue([(NSString *)[stack bottomOfStackObject] isEqualToString:@"This"], @"Bottom stack object should be equal");
-	STAssertTrue([(NSString *)[stack topOfStackObject] isEqualToString:@"sentence"], @"Top of stack object should be equal");
-}
+	it(@"should return nil when there are no objects on the stack", ^{
+		CWStack *stack = [CWStack new];
+		expect(stack.bottomOfStackObject).to.beNil();
+	});
+});
 
--(void)testNilBottomAndTopStackObjects
-{	
-	CWStack *stack = [[CWStack alloc] init];
+describe(@"topOfStackObject", ^{
+	it(@"should find the correct object at the top of a stack", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"This",@"is",@"a",@"sentence"]];
+		expect(stack.topOfStackObject).to.equal(@"sentence");
+	});
 	
-	STAssertNil([stack bottomOfStackObject], @"Since there are no objects on the stack it should return a nil reference");
-	STAssertNil([stack topOfStackObject], @"Since there are no objects on the stack it should return nil");
-	
-	[stack push:@"Why not Zoidberg?"];
-	STAssertTrue([stack count] == 1, @"Stack should have an object");
-	STAssertNotNil([stack bottomOfStackObject], @"Since there is an object on the stack it should return a non nil reference");
-	STAssertNotNil([stack topOfStackObject], @"Since there is an object on the stack it should return non nil");
-	
-	[stack pop];
-	STAssertTrue([stack count] == 0, @"Stack should not have an object");
-	STAssertNil([stack bottomOfStackObject], @"Since there are no objects on the stack it should return a nil reference");
-	STAssertNil([stack topOfStackObject], @"Since there are no objects on the stack it should return nil");
-}
+	it(@"should return nil when there are no objects on the stack", ^{
+		CWStack *stack = [CWStack new];
+		expect(stack.topOfStackObject).to.beNil();
+	});
+});
 
--(void)testPopToBottomOfStack
-{
-	NSArray *array = @[@"This",@"is",@"a",@"sentence"];
-	
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
-	
-	[stack popToBottomOfStack];
-	
-	CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"This"]];
-	
-	STAssertTrue([[stack description] isEqualToString:[stack2 description]], @"stacks should be equal");
-}
+describe(@"-popToBottomOfStack", ^{
+	it(@"should pop all objects except the bottom object off the stack", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"This",@"is",@"a",@"sentence"]];
+		
+		expect(stack.count == 4).to.beTruthy();
+		
+		[stack popToBottomOfStack];
+		
+		expect(stack.count == 1).to.beTruthy();
+		
+		CWStack *stack2 = [[CWStack alloc] initWithObjectsFromArray:@[@"This"]];
+		
+		expect([stack isEqualToStack:stack2]).to.beTruthy();
+	});
+});
 
--(void)testPoptoNonExistantObject
-{
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Bender"]];
-	
-	NSArray *results = [stack popToObject:@"Zapf"];
-	STAssertNil(results, @"Since the stack didn't contain this object it, the returned reference should be nil");
-}
+describe(@"-popToObject", ^{
+	it(@"should return nil for non existant objects", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Bender"]];
+		NSArray *results = [stack popToObject:@"Zapf"];
+		
+		expect(results).to.beNil();
+	});
+});
 
--(void)testEmptyStack
-{
-    CWStack *stack = [[CWStack alloc] init];
-    
-    STAssertTrue([stack isEmpty], @"stack should be empty");
-    
-    [stack push:@"All Glory to the Hypnotoad"];
-    
-    STAssertFalse([stack isEmpty], @"stack should not be empty");
-}
+describe(@"-isEmpty", ^{
+	it(@"should correctly return when the stack is empty", ^{
+		CWStack *stack = [CWStack new];
+		
+		expect(stack.isEmpty).to.beTruthy();
+		
+		[stack push:@"All Glory to the Hypnotoad"];
+		
+		expect(stack.isEmpty).to.beFalsy();
+	});
+});
 
--(void)testContainsObject
-{
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
-	
-	// test for an object in the stack
-	
-	BOOL result = [stack containsObject:@"Hello"];
-	
-	STAssertTrue(result,@"The Stack should contain the object");
-	
-	// test for an object we know isn't in the stack
-	
-	BOOL result2 = [stack containsObject:@"Planet Express"];
-	
-	STAssertFalse(result2,@"Object should not be in the stack");
-}
+describe(@"-containsObject", ^{
+	it(@"should correctly return when the stack does contain an object", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
+		
+		expect([stack containsObject:@"Hello"]).to.beTruthy();
+		expect([stack containsObject:@"Planet Express"]).to.beFalsy();
+	});
+});
 
--(void)testContainsObjectWithBlock
-{
-	CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
-	
-	BOOL result = [stack containsObjectWithBlock:^BOOL(id object) {
-		if ([(NSString *)object isEqualToString:@"World"]) {
-			return YES;
-		}
-		return NO;
-	}];
-	
-	STAssertTrue(result,@"The string 'World' should be in the stack");
-	
-	BOOL result2 = [stack containsObjectWithBlock:^BOOL(id object) {
-		if ([(NSString *)object isEqualToString:@"Hypnotoad"]) {
-			return YES;
-		}
-		return NO;
-	}];
-	
-	STAssertFalse(result2,@"Hypnotoad shoudln't be in this stack");
-}
+describe(@"-containsObjectWithBlock", ^{
+	it(@"should correctly return if an object says the stack contains an object", ^{
+		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:@[@"Hello",@"World"]];
+		BOOL result = [stack containsObjectWithBlock:^BOOL(id object) {
+			if ([(NSString *)object isEqualToString:@"World"]) return YES;
+			return NO;
+		}];
+		
+		expect(result).to.beTruthy();
+		
+		BOOL result2 = [stack containsObjectWithBlock:^BOOL(id object) {
+			if ([(NSString *)object isEqualToString:@"Hypnotoad"]) return YES;
+			return NO;
+		}];
+		
+		expect(result2).to.beFalsy();
+	});
+});
 
-- (void)tearDown {
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd

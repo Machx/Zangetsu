@@ -28,8 +28,3 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
-
-
-@interface CWStackTests : SenTestCase
-
-@end
