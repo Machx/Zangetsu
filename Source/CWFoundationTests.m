@@ -32,44 +32,35 @@
 #import "CWMacros.h"
 #import "CWAssertionMacros.h"
 
-@implementation CWFoundationTests
+SpecBegin(CWFoundationTests)
 
-- (void)setUp {
-    [super setUp];
-    
-    // Set-up code here.
-}
-
--(void)testClassExists
-{
-    STAssertTrue(CWClassExists(@"NSString"), @"NSString should exist");
-    STAssertFalse(CWClassExists(@"Hypnotoad"), @"Hypnotoad class shouldn't exist");
-}
-
--(void)testBoolString
-{
-    //just test the 2 bool values...
-    
-    NSString *yesString = CWBOOLString(YES);
-	CWAssertEqualsStrings(yesString, @"YES");
-    
-    NSString *noString = CWBOOLString(NO);
-	CWAssertEqualsStrings(noString, @"NO");
+describe(@"CWClassExists", ^{
+	it(@"should correctly return when classes exist", ^{
+		expect(CWClassExists(@"NSString")).to.beTruthy();
+	});
 	
-	NSString *str = @"Yes";
-	NSString *str2 = CWBOOLString([str boolValue]);
-	CWAssertEqualsStrings(str2, @"YES");
+	it(@"should currectly return when classes don't exist", ^{
+		expect(CWClassExists(@"Hypnotoad")).to.beFalsy();
+	});
+});
+
+describe(@"CWBoolString()", ^{
+	it(@"should return a string of 'YES' when passed YES", ^{
+		expect(CWBOOLString(YES)).to.equal(@"YES");
+	});
 	
-	NSString *str3 = nil;
-	NSString *str4 = CWBOOLString([str3 boolValue]);
-	CWAssertEqualsStrings(str4, @"NO");
-}
+	it(@"should return a string of 'NO' when passed NO", ^{
+		expect(CWBOOLString(NO)).to.equal(@"NO");
+	});
+	
+	it(@"should return a string of 'YES' when given a non nil object", ^{
+		expect(CWBOOLString([@"Test" boolValue])).to.equal(@"YES");
+	});
+	
+	it(@"should return a string of 'NO' when given a nil object", ^{
+		id obj = nil;
+		expect(CWBOOLString([obj boolValue])).to.equal(@"NO");
+	});
+});
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd
