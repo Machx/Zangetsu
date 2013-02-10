@@ -28,7 +28,3 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface CWPathUtilitiesTests : SenTestCase
-
-@end
