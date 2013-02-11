@@ -160,7 +160,7 @@ describe(@"-dequeueWithBlock", ^{
 
 describe(@"-enumerateObjectsInQueue", ^{
 	it(@"should enumerate objects in order", ^{
-		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",nil]];
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"1",@"2",@"3",@"4",@"5" ]];
 		__block NSUInteger index = 0;
 		[queue enumerateObjectsInQueue:^(id object, BOOL *stop) {
 			index++;
@@ -181,7 +181,7 @@ describe(@"-enumerateObjectsInQueue", ^{
 	});
 	
 	it(@"should stop when the stop pointer is set to YES", ^{
-		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",nil]];
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"1",@"2",@"3",@"4",@"5" ]];
 		
 		__block NSUInteger count = 0;
 		[queue enumerateObjectsInQueue:^(id object, BOOL *stop) {
