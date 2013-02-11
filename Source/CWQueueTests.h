@@ -7,7 +7,3 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface CWQueueTests : SenTestCase
-
-@end
