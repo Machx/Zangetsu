@@ -33,6 +33,50 @@ describe(@"-addObjectsFromArray", ^{
 	});
 });
 
+describe(@"-containsObject", ^{
+	it(@"should correclty return when it contains a given object", ^{
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Hypnotoad",@"Bender",@"Cheeze it!" ]];
+		
+		expect([queue containsObject:@"Bender"]).to.beTruthy();
+		expect([queue containsObject:@"Cthulhu"]).to.beFalsy();
+	});
+});
+
+describe(@"-containsObjectWithBlock", ^{
+	it(@"should correctly return when it contains a given object using a block", ^{
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Hypnotoad",@"Bender",@"Cheeze it!" ]];
+		BOOL result = [queue containsObjectWithBlock:^BOOL(id obj) {
+			if ([(NSString *)obj isEqualToString:@"Bender"]) return YES;
+			return NO;
+		}];
+		
+		expect(result).to.beTruthy();
+		
+		BOOL result2 = [queue containsObjectWithBlock:^BOOL(id obj) {
+			if ([(NSString *)obj isEqualToString:@"Cthulhu"]) return YES;
+			return NO;
+		}];
+		
+		expect(result2).to.beFalsy();
+	});
+});
+
+describe(@"-count", ^{
+	it(@"should always return the correct count of objects on the queue", ^{
+		CWQueue *queue = [CWQueue new];
+		
+		expect(queue.count == 0).to.beTruthy();
+		[queue enqueue:@" "];
+		expect(queue.count == 1).to.beTruthy();
+		[queue enqueue:@" "];
+		expect(queue.count == 2).to.beTruthy();
+		[queue dequeue];
+		expect(queue.count == 1).to.beTruthy();
+		[queue dequeue];
+		expect(queue.count == 0).to.beTruthy();
+	});
+});
+
 describe(@"-dequeue", ^{
 	it(@"should dequeue items in order", ^{
 		CWQueue *queue = [[CWQueue alloc] init];
@@ -65,6 +109,52 @@ describe(@"-dequeue", ^{
 		expect([queue count] == 1).to.beTruthy();
 		expect([queue dequeue]).notTo.beNil();
 		expect([queue dequeue]).to.beNil();
+	});
+});
+
+describe(@"-dequeueToObject", ^{
+	it(@"should correctly dequeue till it reaches a given object", ^{
+		NSString *ob1 = @"Fry";
+		NSString *ob2 = @"Leela";
+		NSString *ob3 = @"Bender";
+		
+		CWQueue *queue = [[CWQueue alloc] init];
+		[queue enqueue:ob1];
+		[queue enqueue:ob2];
+		[queue enqueue:ob3];
+		[queue dequeueToObject:ob2 withBlock:^(id object) { }];
+		
+		CWQueue *goodQueue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Bender" ]];
+		
+		expect([goodQueue isEqualToQueue:queue]).to.beTruthy();
+	});
+});
+
+describe(@"-dequeueWithBlock", ^{
+	it(@"should dequeue using a block in the correct order", ^{
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Hypnotoad",@"Bender",@"Cheeze it!" ]];
+		
+		__block NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:3];
+		[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
+			[results addObject:object];
+		}];
+		
+		NSArray *goodResultArray = @[ @"Hypnotoad",@"Bender",@"Cheeze it!" ];
+		
+		expect(goodResultArray).to.equal(results);
+		expect([queue dequeue]).to.beNil();
+	});
+	
+	it(@"should stop enumerating when the stop pointer is set to YES", ^{
+		CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Hypnotoad",@"Bender",@"Cheeze it!" ]];
+		
+		[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
+			if ([(NSString *)object isEqualToString:@"Bender"]) *stop = YES;
+		}];
+		
+		CWQueue *goodQueue = [[CWQueue alloc] initWithObjectsFromArray:@[ @"Cheeze it!" ]];
+		
+		expect([goodQueue isEqualToQueue:queue]).to.beTruthy();
 	});
 });
 
@@ -121,6 +211,24 @@ describe(@"-enqueue", ^{
 	});
 });
 
+describe(@"-isEmpty", ^{
+	it(@"should correctly return when a queue is empty", ^{
+		CWQueue *queue = [CWQueue new];
+		
+		expect(queue.isEmpty).to.beTruthy();
+		
+		[queue enqueue:@"Test"];
+		expect(queue.isEmpty).to.beFalsy();
+		[queue enqueue:@"Test"];
+		expect(queue.isEmpty).to.beFalsy();
+		[queue dequeue];
+		expect(queue.isEmpty).to.beFalsy();
+		[queue dequeue];
+		
+		expect(queue.isEmpty).to.beTruthy();
+	});
+});
+
 describe(@"-isEqualToQueue", ^{
 	it(@"should correclty return if it is equal to another queue", ^{
 		NSArray *array = @[ @"Hypnotoad" ];
@@ -136,113 +244,3 @@ describe(@"-isEqualToQueue", ^{
 });
 
 SpecEnd
-
-//
-//-(void)testDequeueWithBlock
-//{
-//	/**
-//	 Test to make sure all the objects are being correctly enumerated over and dequeued
-//	 */
-//	
-//	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
-//	__block NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:3];
-//	
-//	[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
-//		[testArray addObject:object];
-//	}];
-//	
-//	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil];
-//	
-//	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if enumerated correctly");
-//	STAssertNil([queue dequeue], @"There shouldn't be anything left on the queue");
-//}
-//
-//-(void)testDequeueBlockStop
-//{
-//	/**
-//	 Test to make sure the BOOL pointer in the block is being respected and we
-//	 end up with what we expect in the queue.
-//	 */
-//	
-//	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
-//	__block NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:2];
-//	
-//	[queue dequeueOueueWithBlock:^(id object, BOOL *stop) {
-//		[testArray addObject:object];
-//		if ([(NSString *)object isEqualToString:@"Bender"]) {
-//			*stop = YES;
-//		}
-//	}];
-//	
-//	NSArray *goodResultArray = [NSArray arrayWithObjects:@"Hypnotoad",@"Bender", nil];
-//	
-//	STAssertTrue([goodResultArray isEqualToArray:testArray], @"The 2 arrays should be the same if the stop pointer was respected");
-//	STAssertNotNil([queue dequeue], @"This should be the last object on the queue");
-//	STAssertNil([queue dequeue], @"There shouldn't be anything left on the queue");
-//}
-//
-//-(void)testContainsObject
-//{
-//	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
-//	
-//	BOOL result1 = [queue containsObject:@"Bender"];
-//	STAssertTrue(result1 == YES, @"Bender should be contained within the queue");
-//	
-//	BOOL result2 = [queue containsObject:@"Cthulhu"];
-//	STAssertTrue(result2 == NO, @"Cthulhu isn't in the queue and thus shouldn't be found");
-//}
-//
-//-(void)testContainsObjectWithBlock
-//{
-//	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObjects:@"Hypnotoad",@"Bender",@"Cheeze it!", nil]];
-//	
-//	BOOL result = [queue containsObjectWithBlock:^BOOL(id obj) {
-//		if ([(NSString *)obj isEqualToString:@"Bender"]) {
-//			return YES;
-//		}
-//		return NO;
-//	}];
-//	STAssertTrue(result == YES, @"Bender should be in the queue");
-//	
-//	BOOL result2 = [queue containsObjectWithBlock:^BOOL(id obj) {
-//		if ([(NSString *)obj isEqualToString:@"Cthulhu"]) {
-//			return YES;
-//		}
-//		return NO;
-//	}];
-//	STAssertTrue(result2 == NO, @"Cthulhu should not be in the queue");
-//}
-//
-//-(void)testDequeueToObject
-//{
-//	NSString *ob1 = @"Fry";
-//	NSString *ob2 = @"Leela";
-//	NSString *ob3 = @"Bender";
-//	
-//	CWQueue *queue = [[CWQueue alloc] init];
-//	[queue enqueue:ob1];
-//	[queue enqueue:ob2];
-//	[queue enqueue:ob3];
-//	
-//	[queue dequeueToObject:ob2 withBlock:^(id object) {
-//		//
-//	}];
-//	
-//	STAssertTrue([queue count] == 1, @"Queue should only have 1 object in it");
-//	STAssertTrue([queue containsObject:ob3], @"Bender should be in the queue");
-//}
-//
-//-(void)testQueueCountAndIsEmpty
-//{
-//	CWQueue *queue = [[CWQueue alloc] initWithObjectsFromArray:[NSArray arrayWithObject:@"Hello"]];
-//	
-//	STAssertTrue([queue count] == 1, @"Queue should only have 1 object");
-//	STAssertFalse([queue isEmpty], @"1 object means should not be empty");
-//	
-//	STAssertNotNil([queue dequeue], @"Dequeue the only object");
-//	
-//	STAssertTrue([queue isEmpty], @"Should be empty after dequeuing the only object");
-//	STAssertTrue([queue count] == 0, @"Queue count should be 0");
-//}
-//
-//@end
