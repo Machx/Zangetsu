@@ -10,54 +10,43 @@
 #import "CWBlockQueue.h"
 #import "CWAssertionMacros.h"
 
-@implementation CWBlockQueueTests
+//TODO: test waiting for operations to finish...
 
--(void)testBasicOperation
-{
+SpecBegin(CWBlockQueue)
+
+it(@"should execute a basic block operation asap", ^{
 	__block NSString *result = nil;
 	
 	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
 													   concurrent:YES
 															label:nil];
-	
 	[queue addoperationWithBlock:^{
 		result = @"Hello World!";
 	}];
 	
-	[queue waitForQueueToFinish];
-	
-	CWAssertEqualsStrings(@"Hello World!", result);
-}
+	expect(result).will.equal(@"Hello World!");
+});
 
--(void)testCompletionBlock
-{
+it(@"should execute a completion block if present", ^{
 	__block NSString *result = nil;
-	
 	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
-													   concurrent:YES 
+													   concurrent:YES
 															label:nil];
 	
 	CWBlockOperation *operation = [CWBlockOperation operationWithBlock:^{
 		NSLog(@"Obey Hypnotoad!");
 	}];
-	
 	[operation setCompletionBlock:^{
 		result = @"Obey Hypnotoad!";
 	}];
 	
 	[queue addOperation:operation];
 	
-	[queue waitForQueueToFinish];
-	
-	CWAssertEqualsStrings(@"Obey Hypnotoad!", result);
-}
+	expect(result).will.equal(@"Obey Hypnotoad!");
+});
 
--(void)testSynchronousOperations
-{
-	// test -addSynchronousOperationWithBlock:
-	
+it(@"should execute synchronous operations synchronously", ^{
 	__block NSInteger result = 0;
-	
 	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
 													   concurrent:NO
 															label:nil];
@@ -66,45 +55,43 @@
 		result = 42;
 	}];
 	
-	STAssertTrue(result == 42,@"The result should 42 if the block executed");
-	
-	// test -addSynchronousOperation
+	expect(result == 42).to.beTruthy();
 	
 	CWBlockOperation *op = [CWBlockOperation operationWithBlock:^{
 		result = 1729;
 	}];
-	
 	[queue addSynchronousOperation:op];
 	
-	STAssertTrue(result == 1729,@"The result should 1729 if the block executed");
-}
+	expect(result == 1729).to.beTruthy();
+});
 
--(void)testQueuesAreEqual
-{
-	CWBlockQueue *queue1 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetMainQueue
-														concurrent:NO
-															 label:nil];
-	
-	CWBlockQueue *queue2 = [[CWBlockQueue alloc] initWithGCDQueue:dispatch_get_main_queue()];
-	
-	STAssertTrue([queue1 isEqual:queue2],@"Queues should be equal");
-	
-	CWBlockQueue *queue3 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
-														concurrent:NO
-															 label:nil];
-	
-	STAssertFalse([queue1 isEqual:queue3],@"Queues should not be equal");
-}
+describe(@"-isEqual", ^{
+	it(@"should correctly return if queues are equal", ^{
+		CWBlockQueue *queue1 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetMainQueue
+															concurrent:NO
+																 label:nil];
+		
+		CWBlockQueue *queue2 = [[CWBlockQueue alloc] initWithGCDQueue:dispatch_get_main_queue()];
+		
+		expect([queue1 isEqual:queue2]).to.beTruthy();
+		
+		CWBlockQueue *queue3 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+															concurrent:NO
+																 label:nil];
+		
+		expect([queue1 isEqual:queue3]).to.beFalsy();
+	});
+});
 
--(void)testQueueLabel
-{
-	const NSString *label = @"TestQueue";
-	
-	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
-													   concurrent:NO
-															label:(NSString *)label];
-	
-	CWAssertEqualsStrings([queue label], (NSString *)label);
-}
+describe(@"-label", ^{
+	it(@"should correctly return a queues label", ^{
+		const NSString *label = @"TestQueue";
+		CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														   concurrent:NO
+																label:(NSString *)label];
+		
+		expect([queue label]).to.equal(label);
+	});
+});
 
-@end
+SpecEnd
