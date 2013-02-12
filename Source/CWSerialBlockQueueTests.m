@@ -10,6 +10,8 @@
 #import "CWAssertionMacros.h"
 #import "CWSerialBlockQueue.h"
 
+//TODO: test wait for operations to finish...
+
 SpecBegin(CWSerialBlockQueue)
 
 it(@"should enqueue an operation and execute it right away", ^{
