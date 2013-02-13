@@ -9,36 +9,37 @@
 #import "CWNSColorAdditionsTests.h"
 #import "NSColorAdditions.h"
 
-@implementation CWNSColorAdditionsTests
+SpecBegin(NSColorAdditions)
 
--(void)testRGBAValues
-{
-	NSColor *colorA = [NSColor colorWithCalibratedRed:0.5 green:0.5 blue:0.5 alpha:1.0];
-	
+it(@"should create a correct CGColor object from a NSColor Object", ^{
+	NSColor *colorA = [NSColor colorWithCalibratedRed:0.5
+												green:0.5
+												 blue:0.5
+												alpha:1.0];
 	CGColorRef colorB = [colorA cw_CGColor];
 	
 	int numberOfComponents = (int)CGColorGetNumberOfComponents(colorB);
-	STAssertTrue(numberOfComponents == 4,@"");
+	expect(numberOfComponents == 4).to.beTruthy();
 	
 	const CGFloat *components = CGColorGetComponents(colorB);
 	
 	CGFloat colorARed = [colorA redComponent];
 	CGFloat colorBRed = components[0];
-	STAssertTrue(colorARed == colorBRed,@"");
+	expect(colorARed == colorBRed).to.beTruthy();
 	
 	CGFloat colorAGreen = [colorA greenComponent];
 	CGFloat colorBGreen = components[1];
-	STAssertTrue(colorAGreen == colorBGreen,@"");
+	expect(colorAGreen == colorBGreen).to.beTruthy();
 	
 	CGFloat colorABlue = [colorA blueComponent];
 	CGFloat colorBBlue = components[2];
-	STAssertTrue(colorABlue == colorBBlue,@"");
+	expect(colorABlue == colorBBlue).to.beTruthy();
 	
 	CGFloat colorAAlpha = [colorA alphaComponent];
 	CGFloat colorBAlpha = components[3];
-	STAssertTrue(colorAAlpha == colorBAlpha,@"");
+	expect(colorAAlpha == colorBAlpha).to.beTruthy();
 	
 	CGColorRelease(colorB);
-}
+});
 
-@end
+SpecEnd
