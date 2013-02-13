@@ -10,163 +10,156 @@
 #import "CWLinkedList.h"
 #import "CWAssertionMacros.h"
 
-@implementation CWLinkedListTests
+SpecBegin(CWLinkedList)
 
--(void)testBasicDoublyLinkedList
-{
+it(@"should add objects to the linked list", ^{
 	CWLinkedList *list = [[CWLinkedList alloc] init];
 	
-	[list addObject:@"Hello"];
-	STAssertTrue(list.count == 1,@"count is incorrect");
-	[list addObject:@"World"];
-	STAssertTrue(list.count == 2,@"count is incorrect");
+	expect(list.count == 0).to.beTruthy();
 	
-	CWAssertEqualsStrings(list[0], @"Hello");
-	CWAssertEqualsStrings(list[1], @"World");
-}
+	[list addObject:@"Hello"];
+	
+	expect(list.count == 1).to.beTruthy();
 
--(void)testInsertObject
-{
+	[list addObject:@"World"];
+	
+	expect(list.count == 2).to.beTruthy();
+	expect(list[0]).to.equal(@"Hello");
+	expect(list[1]).to.equal(@"World");
+});
+
+it(@"should be able to insert objects at indexes", ^{
 	CWLinkedList *list = [[CWLinkedList alloc] init];
 	
-	STAssertTrue(list.count == 0,@"count is incorrect");
+	expect(list.count == 0).to.beTruthy();
+	
 	[list addObject:@"Hello"];
-	STAssertTrue(list.count == 1,@"count is incorrect");
+	expect(list.count == 1).to.beTruthy();
+	
 	[list addObject:@"World"];
-	STAssertTrue(list.count == 2,@"count is incorrect");
+	expect(list.count == 2).to.beTruthy();
 	
 	[list insertObject:@"Hypnotoad" atIndex:1];
-	STAssertTrue(list.count == 3,@"count is incorrect");
-	
-	CWAssertEqualsStrings(list[0], @"Hello");
-	CWAssertEqualsStrings(list[1], @"Hypnotoad");
-	CWAssertEqualsStrings(list[2], @"World");
+	expect(list.count == 3).to.beTruthy();
+	expect(list[0]).to.equal(@"Hello");
+	expect(list[1]).to.equal(@"Hypnotoad");
+	expect(list[2]).to.equal(@"World");
 	
 	//should basically do the equivalent of addObject
-	[list insertObject:@"Super" atIndex:3];
-	CWAssertEqualsStrings(list[3], @"Super");
-}
-
--(void)testRemoveObject
-{
-	CWLinkedList *list = [[CWLinkedList alloc] init];
+	[list insertObject:@"Super"
+			   atIndex:3];
 	
+	expect(list[3]).to.equal(@"Super");
+});
+
+it(@"should remove objects at indexes & by reference", ^{
+	CWLinkedList *list = [[CWLinkedList alloc] init];
 	[list addObject:@"Fry"];
 	[list addObject:@"Leela"];
 	[list addObject:@"Bender"];
 	[list addObject:@"Hypnotoad"];
 	
-	STAssertTrue(list.count == 4,@"Incorrect count");
-	CWAssertEqualsStrings(list[0], @"Fry");
-	CWAssertEqualsStrings(list[1], @"Leela");
-	CWAssertEqualsStrings(list[2], @"Bender");
-	CWAssertEqualsStrings(list[3], @"Hypnotoad");
+	expect(list.count == 4).to.beTruthy();
+	expect(list[0]).to.equal(@"Fry");
+	expect(list[1]).to.equal(@"Leela");
+	expect(list[2]).to.equal(@"Bender");
+	expect(list[3]).to.equal(@"Hypnotoad");
 	
 	[list removeObject:@"Bender"];
 	
-	STAssertTrue(list.count == 3,@"Incorrect count");
-	CWAssertEqualsStrings(list[0], @"Fry");
-	CWAssertEqualsStrings(list[1], @"Leela");
-	CWAssertEqualsStrings(list[2], @"Hypnotoad");
+	expect(list.count == 3).to.beTruthy();
+	expect(list[0]).to.equal(@"Fry");
+	expect(list[1]).to.equal(@"Leela");
+	expect(list[2]).to.equal(@"Hypnotoad");
 	
 	[list removeObjectAtIndex:1];
 	
-	STAssertTrue(list.count == 2,@"Incorrect count");
-	CWAssertEqualsStrings(list[0], @"Fry");
-	CWAssertEqualsStrings(list[1], @"Hypnotoad");
-}
+	expect(list.count == 2).to.beTruthy();
+	expect(list[0]).to.equal(@"Fry");
+	expect(list[1]).to.equal(@"Hypnotoad");
+});
 
--(void)testSwapObjects
-{
+it(@"should be able to swap objects at indexes", ^{
 	CWLinkedList *list = [CWLinkedList new];
 	[list addObject:@"World!"];
 	[list addObject:@"Hello"];
 	
-	CWAssertEqualsStrings(list[0], @"World!");
-	CWAssertEqualsStrings(list[1], @"Hello");
-	STAssertNil(list[2], nil);
+	expect(list.count == 2).to.beTruthy();
+	expect(list[0]).to.equal(@"World!");
+	expect(list[1]).to.equal(@"Hello");
 	
 	[list swapObjectAtIndex:0 withIndex:1];
 	
-	CWAssertEqualsStrings(list[0], @"Hello");
-	CWAssertEqualsStrings(list[1], @"World!");
-	STAssertNil(list[2], nil);
-}
+	expect(list.count == 2).to.beTruthy();
+	expect(list[0]).to.equal(@"Hello");
+	expect(list[1]).to.equal(@"World!");
+});
 
--(void)testEnumerateObjects
-{
-	CWLinkedList *list = [[CWLinkedList alloc] init];
+describe(@"list enumeration", ^{
+	it(@"should be able to enumerate its contents", ^{
+		CWLinkedList *list = [[CWLinkedList alloc] init];
+		[list addObject:@"Fry"];
+		[list addObject:@"Leela"];
+		[list addObject:@"Bender"];
+		[list addObject:@"Hypnotoad"];
+		
+		__block NSUInteger count = 0;
+		[list enumerateObjectsWithBlock:^(id object, NSUInteger index, BOOL *stop) {
+			count++;
+			if (index == 0) {
+				expect(object).to.equal(@"Fry");
+				expect(count == 1).to.beTruthy();
+			} else if (index == 1) {
+				expect(count == 2).to.beTruthy();
+				expect(object).to.equal(@"Leela");
+			} else if (index == 2) {
+				expect(count == 3).to.beTruthy();
+				expect(object).to.equal(@"Bender");
+			} else if (index == 3) {
+				expect(count == 4).to.beTruthy();
+				expect(object).to.equal(@"Hypnotoad");
+			} else {
+				STFail(@"Oops! we enumerated past our bounds?");
+			}
+		}];
+		
+		expect(count == 4).to.beTruthy();
+	});
 	
-	[list addObject:@"Fry"];
-	[list addObject:@"Leela"];
-	[list addObject:@"Bender"];
-	[list addObject:@"Hypnotoad"];
-	
-	__block NSUInteger count = 0;
-	[list enumerateObjectsWithBlock:^(id object, NSUInteger index, BOOL *stop) {
-		count++;
-		switch (index) {
-			case 0:
-				CWAssertEqualsStrings(object, @"Fry");
-				break;
-			case 1:
-				CWAssertEqualsStrings(object, @"Leela");
-				break;
-			case 2:
-				CWAssertEqualsStrings(object, @"Bender");
-				break;
-			case 3:
-				CWAssertEqualsStrings(object, @"Hypnotoad");
-				break;
-			default:
-				STFail(@"Oops we enumerated too far beyond the list bounds");
-				break;
-		}
-	}];
-	
-	STAssertTrue(count == 4,@"oops something happened in enumeration");
-}
+	it(@"should be able to enumerate in reverse", ^{
+		CWLinkedList *list = [[CWLinkedList alloc] init];
+		[list addObject:@"Fry"];
+		[list addObject:@"Leela"];
+		[list addObject:@"Bender"];
+		[list addObject:@"Hypnotoad"];
+		__block NSUInteger count = 0;
+		[list enumerateObjectsWithOption:kCWDoublyLinkedListEnumerateReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+			count++;
+			//test based on count value rather than index
+			//to make sure we counter objects in the
+			//order that we expect
+			if (count == 1) {
+				expect(object).to.equal(@"Hypnotoad");
+				expect(index == 3).to.beTruthy();
+			} else if (count == 2) {
+				expect(object).to.equal(@"Bender");
+				expect(index == 2).to.beTruthy();
+			} else if (count == 3) {
+				expect(object).to.equal(@"Leela");
+				expect(index == 1).to.beTruthy();
+			} else if (count == 4) {
+				expect(object).to.equal(@"Fry");
+				expect(index == 0).to.beTruthy();
+			} else {
+				STFail(@"Opps! we enumerated past our bounds");
+			}
+		}];
+		expect(count == 4).to.beTruthy();
+	});
+});
 
--(void)testEnumerateInReverse
-{
+it(@"should create a list with a given range", ^{
 	CWLinkedList *list = [[CWLinkedList alloc] init];
-	
-	[list addObject:@"Fry"];
-	[list addObject:@"Leela"];
-	[list addObject:@"Bender"];
-	[list addObject:@"Hypnotoad"];
-	
-	__block NSUInteger count = 0;
-	// 1 = kCWDoublyLinkedListEnumerateReverse normally I wouldn't 
-	// do this in real code for obvious reasons
-	[list enumerateObjectsWithOption:1 usingBlock:^(id object, NSUInteger index, BOOL *stop) {
-		count++;
-		switch (index) {
-			case 0:
-				CWAssertEqualsStrings(object, @"Fry");
-				break;
-			case 1:
-				CWAssertEqualsStrings(object, @"Leela");
-				break;
-			case 2:
-				CWAssertEqualsStrings(object, @"Bender");
-				break;
-			case 3:
-				CWAssertEqualsStrings(object, @"Hypnotoad");
-				break;
-			default:
-				STFail(@"Oops we enumerated too far beyond the list bounds");
-				break;
-		}
-	}];
-	
-	STAssertTrue(count == 4,@"oops something happened in enumeration");
-}
-
--(void)testListWithRange
-{
-	CWLinkedList *list = [[CWLinkedList alloc] init];
-	
 	[list addObject:@"Fry"];
 	[list addObject:@"Leela"];
 	[list addObject:@"Bender"];
@@ -174,60 +167,24 @@
 	
 	CWLinkedList *rangedList = [list linkedListWithRange:NSMakeRange(1, 2)];
 	
-	STAssertTrue(rangedList.count == 2,@"incorrect count");
-	CWAssertEqualsStrings(rangedList[0], @"Leela");
-	CWAssertEqualsStrings(rangedList[1], @"Bender");
-	STAssertNil(rangedList[2],@"shouldn't have a valid object here");
-}
+	expect(rangedList.count == 2).to.beTruthy();
+	expect(rangedList[0]).to.equal(@"Leela");
+	expect(rangedList[1]).to.equal(@"Bender");
+	expect(rangedList[2]).to.beNil();
+});
 
--(void)testCountIncrementsUsingInsertObjectAtIndex
-{
-	CWLinkedList *list = [CWLinkedList new];
-	
-	[list addObject:@5];
-	[list addObject:@10];
-	[list addObject:@42];
-	
-	STAssertTrue([list count] == 3, nil);
-	
-	[list insertObject:@9 atIndex:1];
-	
-	STAssertTrue([list count] == 4, nil);
-	
-	[list enumerateObjectsWithBlock:^(id object, NSUInteger index, BOOL *stop) {
-		NSNumber *num = (NSNumber *)object;
-		switch (index) {
-			case 0:
-				STAssertTrue([num integerValue] == 5, nil);
-				break;
-			case 1:
-				STAssertTrue([num integerValue] == 9, nil);
-				break;
-			case 2:
-				STAssertTrue([num integerValue] == 10, nil);
-				break;
-			case 3:
-				STAssertTrue([num integerValue] == 42, nil);
-				break;
-			default:
-				STFail(@"List is hitting an index out of bounds");
-				break;
-		}
-	}];
-}
-
--(void)testObjectSubscripting
-{
+it(@"should work with object subscripting", ^{
 	CWLinkedList *list = [CWLinkedList new];
 	[list addObject:@"Everybody Watch"];
 	[list addObject:@"Hypnotoad"];
 	
-	CWAssertEqualsStrings(@"Everybody Watch", list[0]);
-	CWAssertEqualsStrings(@"Hypnotoad", list[1]);
+	expect(list[0]).to.equal(@"Everybody Watch");
+	expect(list[1]).to.equal(@"Hypnotoad");
 	
 	list[0] = @"Obey";
-	CWAssertEqualsStrings(@"Obey", list[0]);
-	CWAssertEqualsStrings(@"Hypnotoad", list[1]);
-}
+	
+	expect(list[0]).to.equal(@"Obey");
+	expect(list[1]).to.equal(@"Hypnotoad");
+});
 
-@end
+SpecEnd
