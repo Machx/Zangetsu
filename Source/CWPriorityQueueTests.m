@@ -10,12 +10,10 @@
 #import "CWPriorityQueue.h"
 #import "CWAssertionMacros.h"
 
-@implementation CWPriorityQueueTests
+SpecBegin(CWPriorityQueue)
 
--(void)testBasicPushAndPop
-{
+it(@"should push and pop in the order we expect", ^{
 	CWPriorityQueue *queue = [CWPriorityQueue new];
-	
 	[queue addItem:@"1" withPriority:1];
 	[queue addItem:@"5" withPriority:5];
 	[queue addItem:@"3" withPriority:3];
@@ -24,17 +22,16 @@
 	[queue addItem:@"20" withPriority:20];
 	[queue addItem:@"9" withPriority:9];
 	
-	CWAssertEqualsStrings([queue dequeue], @"1");
-	CWAssertEqualsStrings([queue dequeue], @"2");
-	CWAssertEqualsStrings([queue dequeue], @"3");
-	CWAssertEqualsStrings([queue dequeue], @"5");
-	CWAssertEqualsStrings([queue dequeue], @"9");
-	CWAssertEqualsStrings([queue dequeue], @"20");
-	CWAssertEqualsStrings([queue dequeue], @"100");
-}
+	expect([queue dequeue]).to.equal(@"1");
+	expect([queue dequeue]).to.equal(@"2");
+	expect([queue dequeue]).to.equal(@"3");
+	expect([queue dequeue]).to.equal(@"5");
+	expect([queue dequeue]).to.equal(@"9");
+	expect([queue dequeue]).to.equal(@"20");
+	expect([queue dequeue]).to.equal(@"100");
+});
 
--(void)testObjectsOfPriority
-{
+it(@"should dequeue the objects we expect of a specific priority level", ^{
 	CWPriorityQueue *queue = [CWPriorityQueue new];
 	
 	[queue addItem:@"All" withPriority:0];
@@ -47,14 +44,13 @@
 	
 	NSArray *results = [queue allObjectsOfPriority:5];
 	
-	STAssertTrue(results.count == 2, nil);
+	expect(results).to.haveCountOf(2);
 	
 	NSArray *expected = @[ @"The", @"Hypnotoad" ];
-	STAssertEqualObjects(expected, results, nil);
-}
+	expect(results).to.equal(expected);
+});
 
--(void)testCountOfPriority
-{
+it(@"should return the correct count of objects with a given priority level", ^{
 	CWPriorityQueue *queue = [CWPriorityQueue new];
 	
 	[queue addItem:@"1" withPriority:1];
@@ -68,16 +64,15 @@
 	[queue addItem:@"9" withPriority:9];
 	[queue addItem:@"9" withPriority:9];
 	
-	STAssertTrue([queue countofObjectsWithPriority:1] == 1, nil);
-	STAssertTrue([queue countofObjectsWithPriority:2] == 1, nil);
-	STAssertTrue([queue countofObjectsWithPriority:3] == 4, nil);
-	STAssertTrue([queue countofObjectsWithPriority:4] == 1, nil);
-	STAssertTrue([queue countofObjectsWithPriority:7] == 1, nil);
-	STAssertTrue([queue countofObjectsWithPriority:9] == 2, nil);
-}
+	expect([queue countofObjectsWithPriority:1] == 1).to.beTruthy();
+	expect([queue countofObjectsWithPriority:2] == 1).to.beTruthy();
+	expect([queue countofObjectsWithPriority:3] == 4).to.beTruthy();
+	expect([queue countofObjectsWithPriority:4] == 1).to.beTruthy();
+	expect([queue countofObjectsWithPriority:7] == 1).to.beTruthy();
+	expect([queue countofObjectsWithPriority:9] == 2).to.beTruthy();
+});
 
--(void)testDequeueAllObjectsOfNextPriorityLevel
-{
+it(@"should dequeue the expected objects of next priority level", ^{
 	CWPriorityQueue *queue = [CWPriorityQueue new];
 	
 	[queue addItem:@"1-1" withPriority:1];
@@ -94,23 +89,20 @@
 	[queue addItem:@"4-3" withPriority:4];
 	[queue addItem:@"4-4" withPriority:4];
 	
-	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 1, nil);
-	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 5, nil);
-	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 3, nil);
-	STAssertTrue([queue dequeueAllObjectsOfNextPriorityLevel].count == 4, nil);
-}
+	expect([queue dequeueAllObjectsOfNextPriorityLevel]).to.haveCountOf(1);
+	expect([queue dequeueAllObjectsOfNextPriorityLevel]).to.haveCountOf(5);
+	expect([queue dequeueAllObjectsOfNextPriorityLevel]).to.haveCountOf(3);
+	expect([queue dequeueAllObjectsOfNextPriorityLevel]).to.haveCountOf(4);
+});
 
--(void)test
-{
+it(@"should allow you to peek at the next item to be dequeued", ^{
 	CWPriorityQueue *queue = [CWPriorityQueue new];
 	
-	STAssertNil([queue peek], nil);
+	expect([queue peek]).to.beNil();
 	
 	[queue addItem:@"Hypnotoad" withPriority:4];
 	
-	id item = [queue peek];
-	STAssertNotNil(item, nil);
-	CWAssertEqualsStrings(item, @"Hypnotoad");
-}
+	expect([queue peek]).to.equal(@"Hypnotoad");
+});
 
-@end
+SpecEnd
