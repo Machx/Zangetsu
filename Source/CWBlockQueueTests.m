@@ -94,4 +94,37 @@ describe(@"-label", ^{
 	});
 });
 
+//TODO: consider making api name same as serial block queue?
+describe(@"-executeWhenAllBlocksHaveFinished", ^{
+	it(@"should only execute a block once all enqueued operations finished", ^{
+		CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														   concurrent:YES
+																label:nil];
+		
+		__block NSNumber *count = @(0);
+		
+		[queue addoperationWithBlock:^{
+			@synchronized(count) {
+				count = @(count.intValue + 1);
+			}
+		}];
+		
+		[queue addoperationWithBlock:^{
+			@synchronized(count) {
+				count = @(count.intValue + 1);
+			}
+		}];
+		
+		[queue addoperationWithBlock:^{
+			@synchronized(count) {
+				count = @(count.intValue + 1);
+			}
+		}];
+		
+		[queue executeWhenQueueIsFinished:^{
+			expect(count).to.equal(@(3));
+		}];
+	});
+});
+
 SpecEnd
