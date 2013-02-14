@@ -35,7 +35,7 @@ typedef void (^TaskCompletionBlock)(void);
 /* Error Domain */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
 /* Invalid Executable Path */
-static const NSInteger kCWTaskInvalidExecutableErrorCode =         1; //TODO: add 'ErrorCode' onto end of names
+static const NSInteger kCWTaskInvalidExecutableErrorCode =         1;
 /* Invalid Directory specified to operate in */
 static const NSInteger kCWTaskInvalidDirectoryErrorCode =          2;
 /* Task can only be run 1 and it has already been launched */
