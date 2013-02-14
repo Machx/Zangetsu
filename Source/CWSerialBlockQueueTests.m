@@ -86,4 +86,30 @@ describe(@"-waitUntilAllBlocksHaveProcessed", ^{
 	});
 });
 
+describe(@"-executeOnceAllBlocksHaveFinished", ^{
+	it(@"should only execute the block once all of them have finished", ^{
+		CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+		
+		__block NSUInteger count = 0;
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			//just to introduce a slight delay
+			for(uint i = 0; i < 10000; i++) { TRUE; }
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue executeWhenAllBlocksHaveFinished:^{
+			expect(count == 3).to.beTruthy();
+		}];
+	});
+});
+
 SpecEnd
