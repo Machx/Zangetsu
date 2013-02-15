@@ -60,6 +60,17 @@ describe(@"CWCreateError()", ^{
 	});
 });
 
+describe(@"CWCreateErrorWithUserInfo()", ^{
+	it(@"should store values that can be retrieved in the info dictionary", ^{
+		NSError *error = CWCreateErrorWithUserInfo(@"com.something.something",
+												   404,
+												   @{ @"testKey" : @"Hypnotoad" },
+												   @"I can't computer!");
+		
+		expect(error.userInfo[@"testKey"]).to.equal(@"Hypnotoad");
+	});
+});
+
 describe(@"CWErrorTrap()", ^{
 	it(@"should correctly set an NSError object on a NSError pointer", ^{
 		NSUInteger i = 50;
