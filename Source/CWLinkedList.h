@@ -34,8 +34,13 @@ typedef enum : NSUInteger {
 	kCWDoublyLinkedListEnumerateReverse = 1
 } CWDoublyLinkedListEnumerationOption;
 
-
 static NSString *const kCWDoublyLinkedListErrorDomain = @"com.Zangetsu.CWDoublyLinkedList";
+
+static NSUInteger const kLLInsertNilErrorCode = 442;
+static NSUInteger const kLLInsertWithNilListAndIndexGreateZeroErrorCode = 443;
+static NSUInteger const kLLDeleteObjectOnNilListWithIndexErrorCode = 450;
+static NSUInteger const kLLIndexBeyondListBoundsErrorCode = 460;
+static NSUInteger const kLLAttemptToGetNodeAtIndexWithNoElementsErrorCode = 461;
 
 @interface CWLinkedList : NSObject
 

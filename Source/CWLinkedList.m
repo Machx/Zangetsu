@@ -96,13 +96,13 @@
 	if (object == nil) {
 		//TODO: publicly document (and if needed change) these error #'s
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
-					   442,
+					   kLLInsertNilErrorCode,
 					   @"Attemtping to insert a nil object");
 		return YES;
 	}
 	if ((!self.head) && (index != 0)) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
-					   443,
+					   kLLInsertWithNilListAndIndexGreateZeroErrorCode,
 					   @"Trying to insert an object in a list with no objects and index > 0");
 		return YES;
 	}
@@ -154,7 +154,7 @@
 -(void)removeObjectAtIndex:(NSUInteger)index {
 	if (!self.head) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
-					   450,
+					   kLLDeleteObjectOnNilListWithIndexErrorCode,
 					   @"Trying to delete an object in a list with no objects and index > 0");
 		return;
 	}
@@ -181,14 +181,16 @@
 							error:(NSError **)error {
 	NSUInteger maxCount = (self.count - 1);
 	if (CWErrorTrap(index > maxCount, ^NSError *{
-		return CWCreateError(kCWDoublyLinkedListErrorDomain, 442,
+		return CWCreateError(kCWDoublyLinkedListErrorDomain,
+							 kLLIndexBeyondListBoundsErrorCode,
 							 [NSString stringWithFormat:@"Index %lu is beyond List Bounds %lu",
 							  index,maxCount]);
 	}, error)) {
 		return nil;
 	}
 	if (CWErrorTrap(self.head == nil, ^NSError *{
-		return CWCreateError(kCWDoublyLinkedListErrorDomain, 445,
+		return CWCreateError(kCWDoublyLinkedListErrorDomain,
+							 kLLAttemptToGetNodeAtIndexWithNoElementsErrorCode,
 							 @"Attempting to get Node at index in a list with no elements");
 	}, error)) {
 		return nil;
@@ -244,7 +246,7 @@
 -(CWLinkedList *)linkedListWithRange:(NSRange)range {
 	if ((range.length + range.location) > (self.count - 1)) {
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
-					   442,
+					   kLLIndexBeyondListBoundsErrorCode,
 					   @"Error: Range beyond bounds... Exiting now...");
 		return nil;
 	}
