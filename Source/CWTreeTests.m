@@ -68,6 +68,18 @@ describe(@"CWTree Root Node", ^{
 
 describe(@"-enumerateTreeWithBlock", ^{
 	//TODO: move the tree creation code here?
+	CWTree *tree = [[CWTree alloc] initWithRootNodeValue:@"1"];
+	CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"2"];
+	[[tree rootNode] addChild:node2];
+	CWTreeNode *node3 = [[CWTreeNode alloc] initWithValue:@"3"];
+	[[tree rootNode] addChild:node3];
+	CWTreeNode *node4 = [[CWTreeNode alloc] initWithValue:@"4"];
+	[node2 addChild:node4];
+	CWTreeNode *node5 = [[CWTreeNode alloc] initWithValue:@"5"];
+	[node2 addChild:node5];
+	CWTreeNode *node6 = [[CWTreeNode alloc] initWithValue:@"6"];
+	[node3 addChild:node6];
+	
 	it(@"should enumerate nodes in the correct order", ^{
 		static NSString * const kTreeEnumerationGoodResult = @"123456";
 		/**
@@ -85,17 +97,6 @@ describe(@"-enumerateTreeWithBlock", ^{
 		 processed in the order they are visited which should be on level by level
 		 basis and from left to right on each level.
 		 */
-		CWTree *tree = [[CWTree alloc] initWithRootNodeValue:@"1"];
-		CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"2"];
-		[[tree rootNode] addChild:node2];
-		CWTreeNode *node3 = [[CWTreeNode alloc] initWithValue:@"3"];
-		[[tree rootNode] addChild:node3];
-		CWTreeNode *node4 = [[CWTreeNode alloc] initWithValue:@"4"];
-		[node2 addChild:node4];
-		CWTreeNode *node5 = [[CWTreeNode alloc] initWithValue:@"5"];
-		[node2 addChild:node5];
-		CWTreeNode *node6 = [[CWTreeNode alloc] initWithValue:@"6"];
-		[node3 addChild:node6];
 		
 		__block NSMutableString *resultString = [[NSMutableString alloc] init];
 		[tree enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
@@ -115,17 +116,6 @@ describe(@"-enumerateTreeWithBlock", ^{
 		 */
 		//we are going to halt enumeration when we reach the node with 3
 		static NSString * const kTreeEnumerationGoodResult = @"123";
-		CWTree *tree = [[CWTree alloc] initWithRootNodeValue:@"1"];
-		CWTreeNode *node2 = [[CWTreeNode alloc] initWithValue:@"2"];
-		[[tree rootNode] addChild:node2];
-		CWTreeNode *node3 = [[CWTreeNode alloc] initWithValue:@"3"];
-		[[tree rootNode] addChild:node3];
-		CWTreeNode *node4 = [[CWTreeNode alloc] initWithValue:@"4"];
-		[node2 addChild:node4];
-		CWTreeNode *node5 = [[CWTreeNode alloc] initWithValue:@"5"];
-		[node2 addChild:node5];
-		CWTreeNode *node6 = [[CWTreeNode alloc] initWithValue:@"6"];
-		[node3 addChild:node6];
 		
 		__block NSMutableString *resultString = [[NSMutableString alloc] init];
 		[tree enumerateTreeWithBlock:^(id nodeValue, id node, BOOL *stop) {
