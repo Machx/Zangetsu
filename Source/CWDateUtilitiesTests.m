@@ -61,13 +61,12 @@ describe(@"CWDateFromComponents()", ^{
 		expect(date1).to.equal(date2);
 	});
 	
-	//TODO: fix this test
-//	it(@"should return different date instances when different timezones are passed in", ^{
-//		NSDate *date1 = CWDateFromComponents(2012, 10, 14, 02, 30, 0, nil, nil);
-//		NSDate *date2 = CWDateFromComponents(2012, 10, 14, 02, 30, 0, [NSTimeZone timeZoneForSecondsFromGMT:0], nil);
-//		
-//		expect(date1).notTo.equal(date2);
-//	});
+	it(@"should return different date instances when different timezones are passed in", ^{
+		NSDate *date1 = CWDateFromComponents(2012, 10, 14, 02, 30, 0, nil, [NSCalendar currentCalendar]);
+		NSDate *date2 = CWDateFromComponents(2012, 10, 14, 02, 30, 0, [NSTimeZone timeZoneForSecondsFromGMT:0], [NSCalendar currentCalendar]);
+		
+		expect(date1).notTo.equal(date2);
+	});
 });
 
 describe(@"-dateFromISO8601String", ^{
