@@ -182,7 +182,7 @@ typedef enum : NSUInteger {
 /**
  Waits for the queue to finish executing all previously queued blocks
  */
--(void)waitForQueueToFinish;
+-(void)waitUntilAllBlocksHaveProcessed;
 
 /**
  Suspends the execution of further blocks on the queue

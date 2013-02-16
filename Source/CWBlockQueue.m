@@ -178,7 +178,7 @@
 	dispatch_barrier_async(self.queue,block);
 }
 
--(void)waitForQueueToFinish {
+-(void)waitUntilAllBlocksHaveProcessed {
 	dispatch_barrier_sync(self.queue, ^{
 		CWDebugLog(@"Queue %@ Finished",self);
 	});
