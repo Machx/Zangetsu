@@ -94,7 +94,6 @@
 -(BOOL)hasInsertObjectErrorsWithObject:(id)object
 							  andIndex:(NSUInteger)index {
 	if (object == nil) {
-		//TODO: publicly document (and if needed change) these error #'s
 		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
 					   kLLInsertNilErrorCode,
 					   @"Attemtping to insert a nil object");
