@@ -152,7 +152,7 @@ it(@"should wait for all operations to finish executing", ^{
 	[queue addOperation:op2];
 	[queue addOperation:op3];
 	[queue addOperation:op4];
-	[queue waitForQueueToFinish];
+	[queue waitUntilAllBlocksHaveProcessed];
 	
 	expect(count == 4).to.beTruthy();
 });
