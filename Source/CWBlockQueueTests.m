@@ -10,8 +10,6 @@
 #import "CWBlockQueue.h"
 #import "CWAssertionMacros.h"
 
-//TODO: test waiting for operations to finish...
-
 SpecBegin(CWBlockQueue)
 
 it(@"should execute a basic block operation asap", ^{
@@ -125,6 +123,38 @@ describe(@"-executeWhenAllBlocksHaveFinished", ^{
 			expect(count).to.equal(@(3));
 		}];
 	});
+});
+
+it(@"should wait for all operations to finish executing", ^{
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+													   concurrent:NO
+															label:nil];
+	
+	__block int32_t count = 0;
+	
+	CWBlockOperation *op1 = [CWBlockOperation operationWithBlock:^{
+		OSAtomicIncrement32(&count);
+	}];
+	
+	CWBlockOperation *op2 = [CWBlockOperation operationWithBlock:^{
+		OSAtomicIncrement32(&count);
+	}];
+	
+	CWBlockOperation *op3 = [CWBlockOperation operationWithBlock:^{
+		OSAtomicIncrement32(&count);
+	}];
+	
+	CWBlockOperation *op4 = [CWBlockOperation operationWithBlock:^{
+		OSAtomicIncrement32(&count);
+	}];
+	
+	[queue addOperation:op1];
+	[queue addOperation:op2];
+	[queue addOperation:op3];
+	[queue addOperation:op4];
+	[queue waitForQueueToFinish];
+	
+	expect(count == 4).to.beTruthy();
 });
 
 SpecEnd
