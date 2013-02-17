@@ -10,11 +10,17 @@
 #import "CWTrie.h"
 #import "CWAssertionMacros.h"
 
+static CWTrie *trie = nil;
+
 SpecBegin(CWTrie)
 
 it(@"should be able to set & retrieve values for keys", ^{
 	CWTrie *aTrie = [[CWTrie alloc] init];
 	
+beforeAll(^{
+	trie = [CWTrie new];
+});
+
 	NSString *aKey = @"Hello";
 	NSString *aValue = @"World";
 	[aTrie setObjectValue:aValue forKey:aKey];
