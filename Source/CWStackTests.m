@@ -57,7 +57,7 @@ describe(@"-push", ^{
 	});
 	
 	it(@"should not accept pushing nil onto the stack", ^{
-		CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:@[@"Nibbler"]];
+		CWStack *testStack = [[CWStack alloc] initWithObjectsFromArray:@[ @"Nibbler" ]];
 		expect(testStack.count == 1).to.beTruthy();
 		expect(testStack.topOfStackObject).to.equal(@"Nibbler");
 		
@@ -69,7 +69,7 @@ describe(@"-push", ^{
 
 describe(@"-popToObject:withBlock:", ^{
 	it(@"should pop objects in the sequence expected", ^{
-		NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+		NSArray *array = @[ @"This", @"is", @"a", @"sentence" ];
 		CWStack *stack = [[CWStack alloc] initWithObjectsFromArray:array];
 		__block NSInteger index = 0;
 		
@@ -81,7 +81,7 @@ describe(@"-popToObject:withBlock:", ^{
 			} else if (index == 2) {
 				expect(obj).to.equal(@"is");
 			} else {
-				STAssertTrue(0, @"should not get here");
+				STFail(@"We have enumerated past the expected bounds");
 			}
 			index++;
 		}];
