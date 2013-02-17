@@ -36,22 +36,22 @@ SpecBegin(CWStackTests)
 
 describe(@"-push", ^{
 	it(@"should add objects to the stack", ^{
-		NSArray *array = @[@"This",@"is",@"a",@"sentence"];
+		NSArray *array = @[ @"This", @"is", @"a", @"sentence" ];
 		CWStack *stack = [[CWStack alloc] init];
 		
-		[stack push:[array objectAtIndex:0]];
+		[stack push:array[0]];
 		expect(stack.count == 1).to.beTruthy();
 		expect(stack.topOfStackObject).to.equal(@"This");
 		
-		[stack push:[array objectAtIndex:1]];
+		[stack push:array[1]];
 		expect(stack.count == 2).to.beTruthy();
 		expect(stack.topOfStackObject).to.equal(@"is");
 		
-		[stack push:[array objectAtIndex:2]];
+		[stack push:array[2]];
 		expect(stack.count == 3).to.beTruthy();
 		expect(stack.topOfStackObject).to.equal(@"a");
 		
-		[stack push:[array objectAtIndex:3]];
+		[stack push:array[3]];
 		expect(stack.count == 4).to.beTruthy();
 		expect(stack.topOfStackObject).to.equal(@"sentence");
 	});
