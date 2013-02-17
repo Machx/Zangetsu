@@ -14,28 +14,25 @@ static CWTrie *trie = nil;
 
 SpecBegin(CWTrie)
 
-it(@"should be able to set & retrieve values for keys", ^{
-	CWTrie *aTrie = [[CWTrie alloc] init];
-	
 beforeAll(^{
 	trie = [CWTrie new];
 });
 
+it(@"should be able to set & retrieve values for keys", ^{	
 	NSString *aKey = @"Hello";
 	NSString *aValue = @"World";
-	[aTrie setObjectValue:aValue forKey:aKey];
+	[trie setObjectValue:aValue forKey:aKey];
 	
 	//find key that does exist
-	NSString *foundValue = [aTrie objectValueForKey:aKey];
+	NSString *foundValue = [trie objectValueForKey:aKey];
 	expect(foundValue).to.equal(aValue);
 	
 	//return nil for key that doesn't exist
-	expect([aTrie objectValueForKey:@"Foodbar"]).to.beNil();
-	expect([aTrie objectValueForKey:nil]).to.beNil();
+	expect([trie objectValueForKey:@"Foodbar"]).to.beNil();
+	expect([trie objectValueForKey:nil]).to.beNil();
 });
 
 it(@"shouldn't distinguish between uppercase & lowercase if set to", ^{
-	CWTrie *trie = [[CWTrie alloc] init];
 	trie.caseSensitive = NO;
 	[trie setObjectValue:@"Bender" forKey:@"Fry"];
 	
@@ -45,7 +42,6 @@ it(@"shouldn't distinguish between uppercase & lowercase if set to", ^{
 });
 
 it(@"should remove values for keys", ^{
-	CWTrie *trie = [[CWTrie alloc] init];
 	[trie setObjectValue:@"Bender" forKey:@"Fry"];
 	
 	expect([trie objectValueForKey:@"Fry"]).to.equal(@"Bender");
