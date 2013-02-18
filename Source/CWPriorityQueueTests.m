@@ -105,4 +105,24 @@ it(@"should allow you to peek at the next item to be dequeued", ^{
 	expect([queue peek]).to.equal(@"Hypnotoad");
 });
 
+it(@"should allow you to clear all objects off the queue", ^{
+	CWPriorityQueue *queue = [CWPriorityQueue new];
+	
+	expect(queue.count == 0).to.beTruthy();
+	[queue addItem:@1 withPriority:1];
+	expect(queue.count == 1).to.beTruthy();
+	
+	[queue addItem:@2 withPriority:2];
+	expect(queue.count == 2).to.beTruthy();
+	[queue addItem:@3 withPriority:3];
+	expect(queue.count == 3).to.beTruthy();
+	[queue addItem:@4 withPriority:4];
+	expect(queue.count == 4).to.beTruthy();
+	[queue addItem:@5 withPriority:5];
+	expect(queue.count == 5).to.beTruthy();
+	
+	[queue removeAllObjects];
+	expect(queue.count == 0).to.beTruthy();
+});
+
 SpecEnd
