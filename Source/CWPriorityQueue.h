@@ -26,8 +26,16 @@
 -(void)addItem:(id)item
   withPriority:(NSUInteger)priority;
 
+/**
+ Removes all objects on the queue from the queue instance
+ */
 -(void)removeAllObjects;
 
+/**
+ Returns the count of objects currently on the queue instance
+ 
+ @return a NSUInteger with the count of objects contained in the receiving queue
+ */
 -(NSUInteger)count;
 
 /**
