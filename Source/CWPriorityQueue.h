@@ -28,6 +28,8 @@
 
 -(void)removeAllObjects;
 
+-(NSUInteger)count;
+
 /**
  Returns the first item on the queue without removing it from the queue or nil
  

@@ -86,6 +86,10 @@
 	[self.storage removeAllObjects];
 }
 
+-(NSUInteger)count {
+	return self.storage.count;
+}
+
 -(id)peek {
 	return ((CWPriorityQueueItem *)[self.storage cw_firstObject]).item;
 }
