@@ -26,6 +26,8 @@
 -(void)addItem:(id)item
   withPriority:(NSUInteger)priority;
 
+-(void)removeAllObjects;
+
 /**
  Returns the first item on the queue without removing it from the queue or nil
  

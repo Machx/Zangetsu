@@ -82,6 +82,10 @@
 	[self _sortStorage];
 }
 
+-(void)removeAllObjects {
+	[self.storage removeAllObjects];
+}
+
 -(id)peek {
 	return ((CWPriorityQueueItem *)[self.storage cw_firstObject]).item;
 }
