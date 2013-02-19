@@ -117,52 +117,21 @@ it(@"should enumerate contents in the order expected forward", ^{
 	}];
 });
 
-//TODO: we should test that we are enumerating in the order we expect...
-//it(@"should enumerate objects as expected", ^{
-//	CWFixedQueue *queue = [CWFixedQueue new];
-//	queue.capacity = 2;
-//	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
-//	//test forward
-//	[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
-//		switch (index) {
-//			case 0:
-//				CWAssertEqualsStrings(object, @"Everybody Watch");
-//				break;
-//			case 1:
-//				CWAssertEqualsStrings(object, @"Hypnotoad");
-//				break;
-//			default:
-//				STFail(@"Enumerated out of bounds");
-//				break;
-//		}
-//	}];
-//	[queue enumerateContentsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger index, BOOL *stop) {
-//		switch (index) {
-//			case 0:
-//				CWAssertEqualsStrings(object, @"Everybody Watch");
-//				break;
-//			case 1:
-//				CWAssertEqualsStrings(object, @"Hypnotoad");
-//				break;
-//			default:
-//				STFail(@"Enumerated out of bounds");
-//				break;
-//		}
-//	}];
-//	//test reverse
-//	[queue enumerateContentsWithOptions:NSEnumerationReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
-//		switch (index) {
-//			case 0:
-//				CWAssertEqualsStrings(object, @"Everybody Watch");
-//				break;
-//			case 1:
-//				CWAssertEqualsStrings(object, @"Hypnotoad");
-//				break;
-//			default:
-//				STFail(@"Enumerated out of bounds");
-//				break;
-//		}
-//	}];
-//});
+it(@"should be able to enumerate contents concurrently", ^{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	__block int32_t count = 0;
+	[queue enumerateContentsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+		if (count == 0) {
+			expect(object).to.equal(@"Everybody Watch");
+		} else if (count == 1) {
+			expect(object).to.equal(@"Hypnotoad");
+		} else {
+			STFail(@"Enumerated past expected bounds");
+		}
+		OSAtomicIncrement32(&count);
+	}];
+});
 
 SpecEnd
