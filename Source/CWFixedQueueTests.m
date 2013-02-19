@@ -134,4 +134,21 @@ it(@"should be able to enumerate contents concurrently", ^{
 	}];
 });
 
+it(@"should be able to enumerate in reverse", ^{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	__block NSUInteger count = 0;
+	[queue enumerateContentsWithOptions:NSEnumerationReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+		if (count == 1) {
+			expect(object).to.equal(@"Everybody Watch");
+		} else if (count == 0) {
+			expect(object).to.equal(@"Hypnotoad");
+		} else {
+			STFail(@"Enumerated past expected bounds");
+		}
+		++count;
+	}];
+});
+
 SpecEnd
