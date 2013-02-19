@@ -99,6 +99,23 @@ it(@"should call the eviction block when evicting objects from the queue", ^{
 	expect(hypnotoadTrigger).to.beTruthy();
 });
 
+it(@"should enumerate contents in the order expected forward", ^{
+	CWFixedQueue *queue = [CWFixedQueue new];
+	queue.capacity = 2;
+	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
+	//test forward
+	__block NSUInteger count = 0;
+	[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
+		if (count == 0) {
+			expect(object).to.equal(@"Everybody Watch");
+		} else if (count == 1) {
+			expect(object).to.equal(@"Hypnotoad");
+		} else {
+			STFail(@"Enumerated past expected bounds");
+		}
+		++count;
+	}];
+});
 
 //TODO: we should test that we are enumerating in the order we expect...
 //it(@"should enumerate objects as expected", ^{
