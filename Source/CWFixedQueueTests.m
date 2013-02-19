@@ -99,56 +99,53 @@ it(@"should call the eviction block when evicting objects from the queue", ^{
 	expect(hypnotoadTrigger).to.beTruthy();
 });
 
-it(@"should enumerate contents in the order expected forward", ^{
+describe(@"enumeration operations", ^{
 	CWFixedQueue *queue = [CWFixedQueue new];
 	queue.capacity = 2;
 	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
-	//test forward
-	__block NSUInteger count = 0;
-	[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
-		if (count == 0) {
-			expect(object).to.equal(@"Everybody Watch");
-		} else if (count == 1) {
-			expect(object).to.equal(@"Hypnotoad");
-		} else {
-			STFail(@"Enumerated past expected bounds");
-		}
-		++count;
-	}];
-});
-
-it(@"should be able to enumerate contents concurrently", ^{
-	CWFixedQueue *queue = [CWFixedQueue new];
-	queue.capacity = 2;
-	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
-	__block int32_t count = 0;
-	[queue enumerateContentsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger index, BOOL *stop) {
-		if (count == 0) {
-			expect(object).to.equal(@"Everybody Watch");
-		} else if (count == 1) {
-			expect(object).to.equal(@"Hypnotoad");
-		} else {
-			STFail(@"Enumerated past expected bounds");
-		}
-		OSAtomicIncrement32(&count);
-	}];
-});
-
-it(@"should be able to enumerate in reverse", ^{
-	CWFixedQueue *queue = [CWFixedQueue new];
-	queue.capacity = 2;
-	[queue enqueueObjectsInArray:@[ @"Everybody Watch",@"Hypnotoad" ]];
-	__block NSUInteger count = 0;
-	[queue enumerateContentsWithOptions:NSEnumerationReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
-		if (count == 1) {
-			expect(object).to.equal(@"Everybody Watch");
-		} else if (count == 0) {
-			expect(object).to.equal(@"Hypnotoad");
-		} else {
-			STFail(@"Enumerated past expected bounds");
-		}
-		++count;
-	}];
+	
+	it(@"should enumerate contents in the order expected forward", ^{
+		//test forward
+		__block NSUInteger count = 0;
+		[queue enumerateContents:^(id object, NSUInteger index, BOOL *stop) {
+			if (count == 0) {
+				expect(object).to.equal(@"Everybody Watch");
+			} else if (count == 1) {
+				expect(object).to.equal(@"Hypnotoad");
+			} else {
+				STFail(@"Enumerated past expected bounds");
+			}
+			++count;
+		}];
+	});
+	
+	it(@"should be able to enumerate contents concurrently", ^{
+		__block int32_t count = 0;
+		[queue enumerateContentsWithOptions:NSEnumerationConcurrent usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+			if (count == 0) {
+				expect(object).to.equal(@"Everybody Watch");
+			} else if (count == 1) {
+				expect(object).to.equal(@"Hypnotoad");
+			} else {
+				STFail(@"Enumerated past expected bounds");
+			}
+			OSAtomicIncrement32(&count);
+		}];
+	});
+	
+	it(@"should be able to enumerate in reverse", ^{
+		__block NSUInteger count = 0;
+		[queue enumerateContentsWithOptions:NSEnumerationReverse usingBlock:^(id object, NSUInteger index, BOOL *stop) {
+			if (count == 1) {
+				expect(object).to.equal(@"Everybody Watch");
+			} else if (count == 0) {
+				expect(object).to.equal(@"Hypnotoad");
+			} else {
+				STFail(@"Enumerated past expected bounds");
+			}
+			++count;
+		}];
+	});
 });
 
 SpecEnd
