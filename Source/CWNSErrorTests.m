@@ -32,8 +32,6 @@
 #import "CWMacros.h"
 #import "CWAssertionMacros.h"
 
-//TODO: covered all error api's?
-
 SpecBegin(NSErrorTests)
 
 describe(@"CWCreateError()", ^{

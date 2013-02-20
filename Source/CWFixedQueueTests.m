@@ -10,8 +10,6 @@
 #import "CWFixedQueue.h"
 #import "CWAssertionMacros.h"
 
-//TODO: Review these tests & cleanup if necessary
-
 SpecBegin(CWFixedQueue)
 
 it(@"should enqueue & dequeue objects as expected", ^{
