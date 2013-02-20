@@ -122,7 +122,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 }
 
 -(id)objectValueForKey:(NSString *)aKey {
-	if((!aKey) || (![aKey cw_isNotEmptyString])) {
+	if ((!aKey) || (![aKey cw_isNotEmptyString])) {
 		CWLogErrorInfo(kZangetsuTrieErrorDomain, 405,
 					   @"Nil or 0 length key. Returning nil");
 		return nil;

@@ -71,7 +71,7 @@
 }
 
 -(void)enqueue:(id)object {
-	if(object){
+	if (object) {
 		if (![self.storage containsObject:object]) {
 			[self.storage addObject:object];
 			[self clearExcessObjects];
