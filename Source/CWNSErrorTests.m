@@ -109,4 +109,21 @@ describe(@"CWErrorSet()", ^{
 	});
 });
 
+describe(@"CWErrorSetV()", ^{
+	it(@"should set an error on a NSError pointer", ^{
+		NSError *error;
+		
+		CWErrorSetV(@"com.Test.Test",
+					404,
+					@"This is a test",
+					@{ @"TestKey" : @"Hypnotoad" },
+					&error);
+		
+		expect(error.domain).to.equal(@"com.Test.Test");
+		expect(error.code == 404).to.beTruthy();
+		expect(error.userInfo[NSLocalizedDescriptionKey]).to.equal(@"This is a test");
+		expect(error.userInfo[@"TestKey"]).to.equal(@"Hypnotoad");
+	});
+});
+
 SpecEnd
