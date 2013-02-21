@@ -146,10 +146,7 @@
 }
 
 -(BOOL)isEqualToTree:(CWTree *)tree {
-	if ([self.rootNode isNodeValueEqualTo:tree.rootNode] &&
-		[[self.rootNode description] isEqualToString:tree.rootNode.description]) {
-		return YES;
-	}
+	if (tree && [self.rootNode isEqualToNode:tree.rootNode]) return YES;
     return NO;
 }
 
