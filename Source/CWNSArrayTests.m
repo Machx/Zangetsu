@@ -34,7 +34,7 @@ SpecBegin(CWNSArrayTests)
 
 describe(@"-cw_firstObject", ^{
 	it(@"should return the correct first object", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+		NSArray *testArray = @[ @"Fry",@"Leela",@"Bender" ];
 		NSString *firstObject = [testArray cw_firstObject];
 		
 		expect(firstObject).to.equal(@"Fry");
@@ -45,52 +45,43 @@ describe(@"-cw_findWithBlock", ^{
 	it(@"should find the correct object", ^{
 		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		NSString *string = [testArray cw_findWithBlock:^(id obj) {
-			if ([(NSString *)obj isEqualToString:@"Bender"]) {
-				return YES;
-			}
+			if ([(NSString *)obj isEqualToString:@"Bender"]) return YES;
 			return NO;
 		}];
-		
-		expect(string).notTo.beNil();
 		expect(string).to.equal(@"Bender");
 	});
 });
 
 describe(@"-cw_mapArray", ^{
-	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+	NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 	
 	it(@"should map one array to another", ^{
 		NSArray *myArray = [testArray cw_mapArray:^(id obj) {
 			return obj;
 		}];
-		
 		expect(myArray).to.equal(testArray);
 	});
 	
 	it(@"should correctly selectively map objects", ^{
-		NSArray *testArray2 = [testArray cw_mapArray:^id(id obj) {
+		NSArray *results = [testArray cw_mapArray:^id(id obj) {
 			if([(NSString *)obj isEqualToString:@"Fry"] ||
-			   [(NSString *)obj isEqualToString:@"Leela"]){
-				return obj;
-			}
+			   [(NSString *)obj isEqualToString:@"Leela"]) return obj;
 			return nil;
 		}];
-		NSArray *expectedResults = @[@"Fry",@"Leela"];
-		
-		expect(testArray2).to.equal(expectedResults);
+		NSArray *expectedResults = @[ @"Fry", @"Leela" ];
+		expect(results).to.equal(expectedResults);
 	});
 });
 
 
 describe(@"-cw_each", ^{
-	NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+	NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 	
 	it(@"should enumerate all the objects", ^{
 		__block NSMutableArray *results = [[NSMutableArray alloc] init];
 		[testArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
 			[results addObject:obj];
 		}];
-		
 		expect(testArray).to.equal(results);
 	});
 	
@@ -100,8 +91,8 @@ describe(@"-cw_each", ^{
 			[results addObject:obj];
 			if ([(NSString *)obj isEqualToString:@"Leela"]) *stop = YES;
 		}];
-		NSArray *goodResults = @[@"Fry",@"Leela"];
 		
+		NSArray *goodResults = @[ @"Fry", @"Leela" ];
 		expect(results).to.equal(goodResults);
 	});
 	
@@ -152,16 +143,13 @@ describe(@"-cw_findObjectWithBlock", ^{
 
 describe(@"-cw_findAllWithBlock", ^{
 	it(@"should find all expected objects", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
+		NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 		NSArray *results = [testArray cw_findAllWithBlock:^BOOL(id obj) {
 			if ([(NSString *)obj isEqualToString:@"Fry"] ||
-				[(NSString *)obj isEqualToString:@"Leela"]) {
-				return YES;
-			}
+				[(NSString *)obj isEqualToString:@"Leela"]) return YES;
 			return NO;
 		}];
-		NSArray *goodResults = @[@"Fry",@"Leela"];
-		
+		NSArray *goodResults = @[ @"Fry", @"Leela" ];
 		expect(goodResults).to.equal(results);
 	});
 });
