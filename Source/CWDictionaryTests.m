@@ -48,7 +48,7 @@ describe(@"-cw_mapDictionary", ^{
 		NSDictionary *dictionary = @{ @"bar" : @"foo" };
 		
 		NSDictionary *results = [dictionary cw_mapDictionary:^NSDictionary *(id key, id value) {
-			return [NSDictionary dictionaryWithObjectsAndKeys:value,key, nil];
+			return @{ key : value };
 		}];
 		
 		expect(results).to.equal(dictionary);
