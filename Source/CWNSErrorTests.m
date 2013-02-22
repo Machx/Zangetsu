@@ -131,6 +131,16 @@ describe(@"CWErrorSetV()", ^{
 		expect(error.userInfo[NSLocalizedDescriptionKey]).to.equal(@"This is a test");
 		expect(error.userInfo[@"TestKey"]).to.equal(@"Hypnotoad");
 	});
+	
+	it(@"should work even with nil passed in", ^{
+		//we don't check for anything and just call the method
+		//if it throws an exception Specta will catch it...
+		CWErrorSetV(@"com.Test.Test",
+					404,
+					@"This is a test",
+					nil, //user info
+					nil); //error
+	});
 });
 
 SpecEnd
