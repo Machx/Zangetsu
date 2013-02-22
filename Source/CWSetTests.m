@@ -33,8 +33,9 @@
 SpecBegin(NSSetAdditions)
 
 describe(@"-cw_each", ^{
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	
 	it(@"should enumerate all objects", ^{
-		NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
 		__block NSMutableSet *resultSet = [[NSMutableSet alloc] init];
 		[set1 cw_each:^(id obj, BOOL *stop) {
 			[resultSet addObject:obj];
@@ -44,7 +45,6 @@ describe(@"-cw_each", ^{
 	});
 	
 	it(@"should stop enumerating when stop is set to YES", ^{
-		NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
 		__block NSMutableSet *resultSet = [[NSMutableSet alloc] init];
 		[set1 cw_each:^(id obj, BOOL *stop) {
 			[resultSet addObject:obj];
