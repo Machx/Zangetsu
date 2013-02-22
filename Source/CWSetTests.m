@@ -56,8 +56,9 @@ describe(@"-cw_each", ^{
 });
 
 describe(@"-cw_eachConcurrentlyWithBlock", ^{
+	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
+	
 	it(@"should enumerate all objects in a set", ^{
-		NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
 		__block NSMutableSet *set2 = [[NSMutableSet alloc] init];
 		[set1 cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
 			@synchronized(set2){
@@ -69,7 +70,6 @@ describe(@"-cw_eachConcurrentlyWithBlock", ^{
 	});
 	
 	it(@"should stop enumerating when stop is set to YES", ^{
-		NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
 		__block NSMutableSet *set2 = [[NSMutableSet alloc] init];
 		[set1 cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
 			@synchronized(set2) {
