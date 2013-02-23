@@ -82,7 +82,7 @@ void CWErrorSet(NSString *domain,
 				NSInteger errorCode,
 				NSString *errorMessageFormat,
 				NSError **error) {
-	if (error) *error = CWCreateError(domain, errorCode, errorMessageFormat);
+	CWErrorSetV(domain, errorCode, errorMessageFormat, nil, error);
 }
 
 void CWErrorSetV(NSString *domain,
