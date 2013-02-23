@@ -109,7 +109,7 @@
 
 -(BOOL)isEqualToNode:(CWTreeNode *)node {
 	if ([node.value isEqual:self.value]   &&
-		[node.parent isEqual:self.parent] &&
+		(self.parent == node.parent || [node.parent isEqual:self.parent]) &&
 		[node.children isEqual:self.children]) {
 		return YES;
 	}
