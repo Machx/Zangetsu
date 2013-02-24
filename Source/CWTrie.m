@@ -46,7 +46,7 @@
 	if (self) {
 		_key = nodeKey;
 		_value = nil;
-		_children = [[NSMutableSet alloc] init];
+		_children = [NSMutableSet set];
 	}
 	return self;
 }
@@ -56,7 +56,7 @@
     if (self) {
 		_key = nil;
 		_value = nil;
-		_children = [[NSMutableSet alloc] init];
+		_children = [NSMutableSet set];
     }
     return self;
 }
