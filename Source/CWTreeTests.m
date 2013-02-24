@@ -44,8 +44,8 @@ describe(@"CWTree Root Node", ^{
 		CWTree *tree2 = [[CWTree alloc] initWithRootNodeValue:aString];
 		
 		expect([[tree1 rootNode] isNodeValueEqualTo:[tree2 rootNode]]).to.beTruthy();
-		//TODO: fix this
-		//expect([[tree1 rootNode] isEqualTo:[tree2 rootNode]]).to.beTruthy();
+		expect([[tree1 rootNode] isEqualToNode:[tree2 rootNode]]).to.beTruthy();
+		expect([[tree1 rootNode] isEqualTo:[tree2 rootNode]]).to.beFalsy();
 	});
 });
 
