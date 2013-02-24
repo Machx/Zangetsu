@@ -56,7 +56,6 @@ describe(@"-isEqualToTree", ^{
 		CWTree *tree2 = [[CWTree alloc] initWithRootNodeValue:aStringVal];
 		
 		expect([tree1 isEqualToTree:tree2]).to.beTruthy();
-		//TODO fix so this passes...
 		expect([tree1 isEqualToTree:tree1]).to.beTruthy();
 		
 		CWTree *tree3 = nil;
