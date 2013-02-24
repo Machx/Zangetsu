@@ -30,7 +30,6 @@
 #import "CWTrie.h"
 
 @interface CWTrieNode : NSObject
-- (id)initWithKey:(NSString *)nodeKey;
 @property(retain) NSString *key;
 @property(retain) id value;
 @property(retain) NSMutableSet *children;
@@ -72,8 +71,6 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 @interface CWTrie()
 @property(retain) CWTrieNode *rootNode;
-+(CWTrieNode *)nodeForCharacter:(NSString *)chr
-						 inNode:(CWTrieNode *)aNode;
 @end
 
 @implementation CWTrie
