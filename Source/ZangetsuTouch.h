@@ -69,6 +69,7 @@
 #import "CWBlockTimer.h"
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
+#import "NSNumberAdditions.h"
 
 /**
  What will never work on iOS
