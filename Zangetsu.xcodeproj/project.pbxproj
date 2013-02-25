@@ -81,6 +81,11 @@
 		B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */; };
 		B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImageAdditions.m */; };
+		B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
+		B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
+		B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
 		B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWLinkedListTests.m */; };
 		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -320,6 +325,10 @@
 		B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSColorAdditionsTests.m; path = Source/CWNSColorAdditionsTests.m; sourceTree = "<group>"; };
 		B85908371587D3F300B8B2C4 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = Source/UIImageAdditions.h; sourceTree = "<group>"; };
 		B85908381587D3F300B8B2C4 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = Source/UIImageAdditions.m; sourceTree = "<group>"; };
+		B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSNumberAdditions.h; path = Source/NSNumberAdditions.h; sourceTree = "<group>"; };
+		B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditions.m; path = Source/NSNumberAdditions.m; sourceTree = "<group>"; };
+		B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSNumberAdditionsTests.h; path = Source/NSNumberAdditionsTests.h; sourceTree = "<group>"; };
+		B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditionsTests.m; path = Source/NSNumberAdditionsTests.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
 		B863579F1561495400EF09BA /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
@@ -700,6 +709,8 @@
 				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
 				B86FC33A15BB109F009D018C /* NSURLAdditions.h */,
 				B86FC33B15BB109F009D018C /* NSURLAdditions.m */,
+				B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */,
+				B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */,
 			);
 			name = "Foundation Additions";
 			sourceTree = "<group>";
@@ -945,6 +956,8 @@
 				B8CE2C3315FF7CB40004D8D1 /* CWFixedQueueTests.m */,
 				B86E60FF169D1F060071D187 /* CWPriorityQueueTests.h */,
 				B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */,
+				B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */,
+				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -1005,6 +1018,7 @@
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
 				B86E6101169D1F060071D187 /* CWPriorityQueue.h in Headers */,
+				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,6 +1069,7 @@
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
 				B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
 				B86E6107169D21830071D187 /* CWPriorityQueue.h in Headers */,
+				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1287,7 @@
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 				B86E6102169D1F060071D187 /* CWPriorityQueue.m in Sources */,
+				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,6 +1333,7 @@
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
 				B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */,
+				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,6 +1376,7 @@
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
 				B8CE2C3415FF7CB40004D8D1 /* CWFixedQueueTests.m in Sources */,
 				B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */,
+				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
