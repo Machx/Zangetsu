@@ -31,6 +31,16 @@
 
 @interface NSNumber (CWNSNumberAdditions)
 
+/**
+ Executes the block n number of times where n is the integer value of self
+ 
+ Converts the NSNumbers value to a NSInteger value and then repeatedly 
+ executes the block n number of times where n is the NSInteger value of the
+ receiver.
+ 
+ @param index - The current iteration of executing the block
+ @param stop - a BOOL pointer which if set to YES stops executing anymore blocks
+ */
 -(void)cw_times:(void (^)(NSInteger index, BOOL *stop))block;
 
 @end
