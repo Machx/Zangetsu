@@ -31,6 +31,6 @@
 
 @interface NSNumber (CWNSNumberAdditions)
 
--(void)cw_times:(dispatch_block_t)block;
+-(void)cw_times:(void (^)(NSInteger index, BOOL *stop))block;
 
 @end

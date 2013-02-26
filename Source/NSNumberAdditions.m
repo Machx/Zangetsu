@@ -31,10 +31,12 @@
 
 @implementation NSNumber (CWNSNumberAdditions)
 
--(void)cw_times:(dispatch_block_t)block {
+-(void)cw_times:(void (^)(NSInteger index, BOOL *stop))block {
 	NSInteger count = [self integerValue];
+	BOOL stop = NO;
 	for (NSInteger i = 0; i < count; i++) {
-		block();
+		block(i,&stop);
+		if (stop == YES) break;
 	}
 }
 
