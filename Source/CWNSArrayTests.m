@@ -30,11 +30,16 @@
 #import "CWNSArrayTests.h"
 #import "CWAssertionMacros.h"
 
+NSArray *testArray = nil;
+
 SpecBegin(CWNSArrayTests)
+
+beforeAll(^{
+	testArray = @[ @"Fry",@"Leela",@"Bender" ];
+});
 
 describe(@"-cw_firstObject", ^{
 	it(@"should return the correct first object", ^{
-		NSArray *testArray = @[ @"Fry",@"Leela",@"Bender" ];
 		NSString *firstObject = [testArray cw_firstObject];
 		
 		expect(firstObject).to.equal(@"Fry");
@@ -43,7 +48,6 @@ describe(@"-cw_firstObject", ^{
 
 describe(@"-cw_findWithBlock", ^{
 	it(@"should find the correct object", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		NSString *string = [testArray cw_findWithBlock:^(id obj) {
 			if ([(NSString *)obj isEqualToString:@"Bender"]) return YES;
 			return NO;
@@ -53,7 +57,6 @@ describe(@"-cw_findWithBlock", ^{
 });
 
 describe(@"-cw_mapArray", ^{
-	NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 	
 	it(@"should map one array to another", ^{
 		NSArray *myArray = [testArray cw_mapArray:^(id obj) {
@@ -75,7 +78,6 @@ describe(@"-cw_mapArray", ^{
 
 
 describe(@"-cw_each", ^{
-	NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 	
 	it(@"should enumerate all the objects", ^{
 		__block NSMutableArray *results = [[NSMutableArray alloc] init];
@@ -113,7 +115,6 @@ describe(@"-cw_each", ^{
 
 describe(@"-cw_eachConcurrently", ^{
 	it(@"should enumerate all objects in an array", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		__block int32_t count = 0;
 		
 		[testArray cw_eachConcurrentlyWithBlock:^(id obj, NSUInteger index, BOOL *stop) {
@@ -132,7 +133,6 @@ describe(@"-cw_eachConcurrently", ^{
 
 describe(@"-cw_findObjectWithBlock", ^{
 	it(@"should find the object", ^{
-		NSArray *testArray = @[@"Fry",@"Leela",@"Bender"];
 		BOOL objectIsInArray = [testArray cw_isObjectInArrayWithBlock:^BOOL(id obj) {
 			return [(NSString *)obj isEqualToString:@"Bender"];
 		}];
@@ -143,7 +143,6 @@ describe(@"-cw_findObjectWithBlock", ^{
 
 describe(@"-cw_findAllWithBlock", ^{
 	it(@"should find all expected objects", ^{
-		NSArray *testArray = @[ @"Fry", @"Leela", @"Bender" ];
 		NSArray *results = [testArray cw_findAllWithBlock:^BOOL(id obj) {
 			if ([(NSString *)obj isEqualToString:@"Fry"] ||
 				[(NSString *)obj isEqualToString:@"Leela"]) return YES;
