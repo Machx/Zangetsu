@@ -8,7 +8,6 @@
 
 #import "CWURLUtilitiesTests.h"
 #import <Zangetsu/Zangetsu.h>
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWURLUtilities)
 

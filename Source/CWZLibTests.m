@@ -8,7 +8,6 @@
 
 #import "CWZLibTests.h"
 #import "CWZLib.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWZLib)
 

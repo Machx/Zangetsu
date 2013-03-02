@@ -8,7 +8,6 @@
 
 #import "CWBase64Tests.h"
 #import "CWBase64.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWBase64)
 

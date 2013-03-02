@@ -8,7 +8,6 @@
 
 #import "CWLinkedListTests.h"
 #import "CWLinkedList.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWLinkedList)
 

@@ -7,7 +7,6 @@
 //
 
 #import "CWSerialBlockQueueTests.h"
-#import "CWAssertionMacros.h"
 #import "CWSerialBlockQueue.h"
 
 SpecBegin(CWSerialBlockQueue)

@@ -8,7 +8,6 @@
 
 #import "CWPriorityQueueTests.h"
 #import "CWPriorityQueue.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWPriorityQueue)
 

@@ -29,7 +29,6 @@
 
 #import "CWTreeTests.h"
 #import "CWTree.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWTree)
 

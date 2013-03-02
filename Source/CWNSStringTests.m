@@ -29,7 +29,6 @@
 
 #import "CWNSStringTests.h"
 #import <Zangetsu/Zangetsu.h>
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWNSStringAdditions)
 

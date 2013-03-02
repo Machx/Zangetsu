@@ -30,7 +30,6 @@
 #import "CWFoundationTests.h"
 #import "CWFoundation.h"
 #import "CWMacros.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWFoundationTests)
 

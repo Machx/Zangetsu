@@ -29,7 +29,6 @@
 
 #import "CWPathUtilitiesTests.h"
 #import "CWPathUtilities.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWPathUtilities)
 

@@ -8,7 +8,6 @@
 
 #import "CWTrieTests.h"
 #import "CWTrie.h"
-#import "CWAssertionMacros.h"
 
 static CWTrie *trie = nil;
 

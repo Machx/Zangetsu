@@ -8,7 +8,6 @@
 
 #import "CWQueueTests.h"
 #import "CWQueue.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWQueue)
 

@@ -29,7 +29,6 @@
 
 #import "CWDateUtilitiesTests.h"
 #import "CWDateUtilities.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWDateUtilities)
 
