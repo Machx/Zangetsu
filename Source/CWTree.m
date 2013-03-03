@@ -42,22 +42,24 @@
  */
 -(id)init {
     self = [super init];
-    if (self) {
-        _value = nil;
-        _children = [[NSMutableArray alloc] init];
-        _parent = nil;
-        _allowsDuplicates = YES;
-    }
+    if (!self) return nil;
+	
+	_value = nil;
+	_children = [[NSMutableArray alloc] init];
+	_parent = nil;
+	_allowsDuplicates = YES;
+	
     return self;
 }
 
 -(id)initWithValue:(id)aValue {
     self = [super init];
-    if (self) {
-        _value = aValue;
-        _children = [[NSMutableArray alloc] init];
-        _parent = nil;
-    }
+    if (!self) return nil;
+	
+	_value = aValue;
+	_children = [[NSMutableArray alloc] init];
+	_parent = nil;
+	
     return self;
 }
 
