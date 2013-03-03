@@ -43,22 +43,20 @@
  */
 - (id)init {
     self = [super init];
-    if (self) {
 		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
 									   DISPATCH_QUEUE_SERIAL);
-    }
+    if (!self) return nil;
     return self;
 }
 
 -(id)initWithObjectsFromArray:(NSArray *)objects {
 	self = [super init];
-	if (self) {
 		_dataStore = [[NSMutableArray alloc] init];
 		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
 									   DISPATCH_QUEUE_SERIAL);
 		if ([objects count] > 0) [_dataStore addObjectsFromArray:objects];
-	}
+	if (!self) return nil;
 	return self;
 }
 
