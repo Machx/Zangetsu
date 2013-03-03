@@ -74,7 +74,7 @@
 			[self.value description],
 			[self.parent description],
 			[self.children description],
-			CWBOOLString(self.allowsDuplicates)];
+			(self.allowsDuplicates ? @"YES" : @"NO")];
 }
 
 
