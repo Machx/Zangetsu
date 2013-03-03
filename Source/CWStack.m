@@ -34,6 +34,8 @@
 @property(assign) dispatch_queue_t queue;
 @end
 
+static int32_t queueCounter = 0;
+
 @implementation CWStack
 
 /**
@@ -43,20 +45,26 @@
  */
 - (id)init {
     self = [super init];
-		_dataStore = [[NSMutableArray alloc] init];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
-									   DISPATCH_QUEUE_SERIAL);
     if (!self) return nil;
+	
+	_dataStore = [[NSMutableArray alloc] init];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
+						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+	
     return self;
 }
 
 -(id)initWithObjectsFromArray:(NSArray *)objects {
 	self = [super init];
-		_dataStore = [[NSMutableArray alloc] init];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWStack_"),
-									   DISPATCH_QUEUE_SERIAL);
-		if ([objects count] > 0) [_dataStore addObjectsFromArray:objects];
 	if (!self) return nil;
+	
+	_dataStore = [[NSMutableArray alloc] init];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
+						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+	if (objects.count > 0) [_dataStore addObjectsFromArray:objects];
+	
 	return self;
 }
 
