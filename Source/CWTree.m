@@ -86,11 +86,12 @@
 		[self.children addObject:node];
 	} else {
 		if (![self.children containsObject:node]) {
-			BOOL anyNodeContainsValue = [self.children cw_isObjectInArrayWithBlock:^BOOL(id obj) {
-				if ([((CWTreeNode *)obj).value isEqual:node.value]) {
-					return YES;
+			__block BOOL anyNodeContainsValue = NO;
+			[self.children enumerateObjectsUsingBlock:^(CWTreeNode *obj, NSUInteger idx, BOOL *stop) {
+				if ([obj.value isEqual:node.value]) {
+					anyNodeContainsValue = YES;
+					*stop = YES;
 				}
-				return NO;
 			}];
 			if (!anyNodeContainsValue) {
 				node.parent = self;
