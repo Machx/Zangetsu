@@ -93,7 +93,7 @@
 }
 
 -(id)peek {
-	return ((CWPriorityQueueItem *)[self.storage cw_firstObject]).item;
+	return ((CWPriorityQueueItem *)((self.storage.count > 0) ? self.storage[0] : nil)).item;
 }
 
 -(id)dequeue {
@@ -126,19 +126,19 @@
 -(NSArray *)allObjectsOfPriority:(NSUInteger)priority; {
 	NSMutableArray *results = [NSMutableArray array];
 	NSArray *filteredResults = [self _arrayOfAllObjectsOfPriority:priority];
-	[filteredResults cw_each:^(id object, NSUInteger index, BOOL *stop) {
-		[results addObject:((CWPriorityQueueItem *)object).item];
+	[filteredResults enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		[results addObject:((CWPriorityQueueItem *)obj).item];
 	}];
 	return results;
 }
 
 -(NSUInteger)countofObjectsWithPriority:(NSUInteger)priority {
 	__block int32_t count = 0;
-	[self.storage cw_eachConcurrentlyWithBlock:^(id object, NSUInteger index, BOOL *stop) {
+	[self.storage enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		//since the array is sorted if we have gone past our priority stop
-		if (((CWPriorityQueueItem *)object).priority >  priority) *stop = YES;
+		if (((CWPriorityQueueItem *)obj).priority >  priority) *stop = YES;
 		//otherwise if the priority matches then increment count
-		if (((CWPriorityQueueItem *)object).priority == priority) {
+		if (((CWPriorityQueueItem *)obj).priority == priority) {
 			OSAtomicIncrement32(&count);
 		}
 	}];
