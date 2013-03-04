@@ -17,10 +17,11 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        _item = nil;
-		_priority = NSUIntegerMax; //lowest priority
-    }
+    if (!self) return nil;
+	
+	_item = nil;
+	_priority = NSUIntegerMax; //lowest priority
+	
     return self;
 }
 
@@ -48,9 +49,10 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        _storage = [NSMutableArray array];
-    }
+    if (!self) return nil;
+	
+	_storage = [NSMutableArray array];
+	
     return self;
 }
 
