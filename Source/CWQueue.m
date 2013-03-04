@@ -35,6 +35,8 @@
 @property(assign) dispatch_queue_t queue;
 @end
 
+static int32_t queueCounter = 0;
+
 @implementation CWQueue
 
 /**
@@ -140,7 +142,7 @@
 -(id)peek {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		object = [self.dataStore cw_firstObject];
+		object = ((self.dataStore.count > 0) ? self.dataStore[0] : nil);
 	});
 	return object;
 }
