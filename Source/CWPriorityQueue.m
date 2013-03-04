@@ -110,8 +110,8 @@
 	[self.storage removeObjectsInArray:priorityResults];
 	//extract the items so we don't return CWPriorityQueueItems...
 	NSMutableArray *results = [NSMutableArray array];
-	[priorityResults cw_each:^(id object, NSUInteger index, BOOL *stop) {
-		[results addObject:((CWPriorityQueueItem *)object).item];
+	[priorityResults enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		[results addObject:((CWPriorityQueueItem *)obj).item];
 	}];
 	return results;
 }
