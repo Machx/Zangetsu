@@ -58,19 +58,25 @@
  */
 -(id)init {
 	self = [super init];
-	if (self) {
-		_dataStore = [[NSMutableArray alloc] init];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
-	}
+	if (!self) return nil;
+	
+	_dataStore = [NSMutableArray array];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
+						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+	
 	return self;
 }
 
 -(id)initWithObjectsFromArray:(NSArray *)array {
 	self = [super init];
-	if (self) {
-		_dataStore = [NSMutableArray arrayWithArray:array];
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWQueue_"), DISPATCH_QUEUE_SERIAL);
-	}
+	if (!self) return nil;
+	
+	_dataStore = [NSMutableArray arrayWithArray:array];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
+						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+	
 	return self;
 }
 
