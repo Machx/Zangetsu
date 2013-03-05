@@ -117,12 +117,12 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 	if (CWTrieNodeHasErrorForCharacter(chr)) return nil;
 	
 	NSString *aChar = (chr.length == 1 ? chr : [chr substringToIndex:1]);
-	CWTrieNode *node = [aNode.children cw_findWithBlock:^BOOL(id obj) {
-		CWTrieNode *lookupNode = (CWTrieNode *)obj;
-		if ([lookupNode.key isEqualToString:aChar]) {
-			return YES;
+	__block CWTrieNode *node = nil;
+	[aNode.children enumerateObjectsUsingBlock:^(CWTrieNode *currentNode, BOOL *stop) {
+		if ([currentNode.key isEqualToString:aChar]) {
+			node = currentNode;
+			*stop = YES;
 		}
-		return NO;
 	}];
 	return node;
 }
