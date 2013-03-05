@@ -42,22 +42,24 @@
  */
 - (id)initWithKey:(NSString *)nodeKey {
 	self = [super init];
-	if (self) {
-		_key = nodeKey;
-		_value = nil;
-		_children = [NSMutableSet set];
-	}
+	if (!self) return nil;
+	
+	_key = nodeKey;
+	_value = nil;
+	_children = [NSMutableSet set];
+	
 	return self;
 }
 
 - (id)init {
     self = [super init];
-    if (self) {
-		_key = nil;
-		_value = nil;
-		_children = [NSMutableSet set];
-    }
-    return self;
+    if (!self) return nil;
+    
+	_key = nil;
+	_value = nil;
+	_children = [NSMutableSet set];
+	
+	return self;
 }
 
 -(NSString *)description {
