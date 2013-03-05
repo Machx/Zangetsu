@@ -79,10 +79,11 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 - (id)init {
     self = [super init];
-    if (self) {
-        _rootNode = [[CWTrieNode alloc] init];
-		_caseSensitive = YES;
-    }
+    if (!self) return nil;
+	
+	_rootNode = [[CWTrieNode alloc] init];
+	_caseSensitive = YES;
+	
     return self;
 }
 
