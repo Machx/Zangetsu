@@ -128,7 +128,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 }
 
 -(id)objectValueForKey:(NSString *)aKey {
-	if ((!aKey) || (![aKey cw_isNotEmptyString])) {
+	if ((!aKey) || (aKey.length == 0)) {
 		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, 405, @"Nil or 0 length key. Returning nil");
 		return nil;
 	}
@@ -153,7 +153,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey {
-	if((!aKey) || (![aKey cw_isNotEmptyString])) {
+	if((!aKey) || (aKey.length == 0)) {
 		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, 404, @"Key is nil, cannot set value");
 		return;
 	}
