@@ -89,7 +89,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 -(NSString *)description {
 	return [NSString stringWithFormat:@"Trie (\nCase Sensitive: %@\nNodes: %@",
-			CWBOOLString(self.caseSensitive),self.rootNode];
+			(self.caseSensitive ? @"YES" : @"NO"),self.rootNode];
 }
 
 BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
