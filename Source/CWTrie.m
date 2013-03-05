@@ -29,6 +29,14 @@
 
 #import "CWTrie.h"
 
+#define TRIE_LOG_ERROR( domain , errorCode , msg ) \
+do { \
+	NSError *error = [NSError errorWithDomain:domain \
+										 code:errorCode \
+									 userInfo:@{ NSLocalizedDescriptionKey : msg }]; \
+	NSLog(@"Error: %@",error); \
+}while(0);
+
 @interface CWTrieNode : NSObject
 @property(retain) NSString *key;
 @property(retain) id value;
@@ -94,13 +102,11 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 	if (character == nil) {
-		CWLogErrorInfo(kZangetsuTrieErrorDomain, kNilLookupCharacter,
-					   @"Character to be looked up is nil");
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kNilLookupCharacter, @"Character to be looked up is nil");
 		return YES;
 	}
 	if (![character cw_isNotEmptyString]) {
-		CWLogErrorInfo(kZangetsuTrieErrorDomain, kEmptyLookupString,
-					   @"Character to be looked up is an empty string");
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kEmptyLookupString, @"Character to be looked up is an empty string");
 		return YES;
 	}
 	return NO;
@@ -123,8 +129,7 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 
 -(id)objectValueForKey:(NSString *)aKey {
 	if ((!aKey) || (![aKey cw_isNotEmptyString])) {
-		CWLogErrorInfo(kZangetsuTrieErrorDomain, 405,
-					   @"Nil or 0 length key. Returning nil");
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, 405, @"Nil or 0 length key. Returning nil");
 		return nil;
 	}
 	
@@ -149,9 +154,8 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 -(void)setObjectValue:(id)aObject 
 			   forKey:(NSString *)aKey {
 	if((!aKey) || (![aKey cw_isNotEmptyString])) {
-		CWLogErrorInfo(kZangetsuTrieErrorDomain, 404,
-					   @"Key is nil, cannot set value");
-		return; 
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, 404, @"Key is nil, cannot set value");
+		return;
 	}
 	
 	CWTrieNode *currentNode = self.rootNode;
