@@ -59,9 +59,6 @@
 @property(readwrite, assign) NSUInteger count;
 @property(retain) CWLinkedListNode *head;
 @property(weak) CWLinkedListNode *tail;
--(void)_removeObjectWithNode:(CWLinkedListNode *)node;
--(CWLinkedListNode *)_nodeAtIndex:(NSUInteger)index error:(NSError **)error;
--(BOOL)hasInsertObjectErrorsWithObject:(id)object andIndex:(NSUInteger)index;
 @end
 
 @implementation CWLinkedList
