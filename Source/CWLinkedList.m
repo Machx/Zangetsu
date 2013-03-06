@@ -240,8 +240,15 @@
 										   error:&node1Error];
 	CWLinkedListNode *node2 = [self _nodeAtIndex:index2
 										   error:&node2Error];
-	if(!node1) { CWLogError(node1Error); return; }
-	if(!node2) { CWLogError(node2Error); return; }
+	
+	if(!node1) {
+		NSLog(@"Error: %@",node1Error);
+		return;
+	}
+	if(!node2) {
+		NSLog(@"Error: %@",node2Error);
+		return;
+	}
 	
 	id temp = node1.data;
 	node1.data = node2.data;
