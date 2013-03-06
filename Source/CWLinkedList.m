@@ -39,11 +39,12 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        _data = nil;
-		_next = nil;
-		_prev = nil;
-    }
+    if (!self) return nil;
+	
+	_data = nil;
+	_next = nil;
+	_prev = nil;
+	
     return self;
 }
 
@@ -67,11 +68,12 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        _count = 0;
-		_head = nil;
-		_tail = nil;
-    }
+    if (!self) return nil;
+	
+	_count = 0;
+	_head = nil;
+	_tail = nil;
+	
     return self;
 }
 
