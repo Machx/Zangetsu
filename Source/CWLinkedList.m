@@ -58,7 +58,7 @@
 
 -(NSString *)description {
 	return [NSString stringWithFormat:@"( Node Value: %@\n Prev Node: %@\n Next Node: %@ )",
-			_data,_prev,_next];
+			self.data,self.prev,self.next];
 }
 
 @end
