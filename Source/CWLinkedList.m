@@ -29,6 +29,14 @@
 
 #import "CWLinkedList.h"
 
+#define CWLL_LOG_ERROR( domain , errorCode , msg ) \
+	do { \
+		NSError *error = [NSError errorWithDomain:domain \
+											 code:errorCode \
+										 userInfo:@{ NSLocalizedDescriptionKey : msg }]; \
+		NSLog(@"Error: %@",error); \
+	}while(0);
+
 @interface CWLinkedListNode : NSObject
 @property(retain) id data;
 @property(retain) CWLinkedListNode *next;
@@ -93,13 +101,11 @@
 -(BOOL)hasInsertObjectErrorsWithObject:(id)object
 							  andIndex:(NSUInteger)index {
 	if (object == nil) {
-		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
-					   kLLInsertNilErrorCode,
-					   @"Attemtping to insert a nil object");
+		CWLL_LOG_ERROR(kCWDoublyLinkedListErrorDomain, kLLInsertNilErrorCode, @"Attemtping to insert a nil object");
 		return YES;
 	}
 	if ((!self.head) && (index != 0)) {
-		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+		CWLL_LOG_ERROR(kCWDoublyLinkedListErrorDomain,
 					   kLLInsertWithNilListAndIndexGreateZeroErrorCode,
 					   @"Trying to insert an object in a list with no objects and index > 0");
 		return YES;
@@ -151,9 +157,10 @@
 
 -(void)removeObjectAtIndex:(NSUInteger)index {
 	if (!self.head) {
-		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+		CWLL_LOG_ERROR(kCWDoublyLinkedListErrorDomain,
 					   kLLDeleteObjectOnNilListWithIndexErrorCode,
 					   @"Trying to delete an object in a list with no objects and index > 0");
+
 		return;
 	}
 	
@@ -243,7 +250,7 @@
 
 -(CWLinkedList *)linkedListWithRange:(NSRange)range {
 	if ((range.length + range.location) > (self.count - 1)) {
-		CWLogErrorInfo(kCWDoublyLinkedListErrorDomain,
+		CWLL_LOG_ERROR(kCWDoublyLinkedListErrorDomain,
 					   kLLIndexBeyondListBoundsErrorCode,
 					   @"Error: Range beyond bounds... Exiting now...");
 		return nil;
