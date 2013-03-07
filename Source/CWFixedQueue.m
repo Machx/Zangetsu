@@ -31,7 +31,6 @@
 
 @interface CWFixedQueue()
 @property(retain) NSMutableArray *storage;
--(void)clearExcessObjects;
 @end
 
 @implementation CWFixedQueue
