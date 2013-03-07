@@ -100,8 +100,14 @@ typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
  */
 -(id)dequeue;
 
+/**
+ Returns the object at the given index. This method matches NSArrays behavior.
+ */
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 
+/**
+ Sets the object at the given index. This method matches NSArrays behavior.
+ */
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
 
 /**
