@@ -38,22 +38,24 @@
 
 -(id)initWithCapacity:(NSUInteger)capacity {
 	self = [super init];
-	if (self) {
-		_storage = [NSMutableArray array];
-		_capacity = capacity;
-		_evictionBlock = nil;
-	}
+	if (!self) return nil;
+	
+	_storage = [NSMutableArray array];
+	_capacity = capacity;
+	_evictionBlock = nil;
+	
 	return self;
 }
 
 - (id)init
 {
     self = [super init];
-    if (self) {
-        _storage = [NSMutableArray array];
-		_capacity = 50;
-		_evictionBlock = nil;
-    }
+    if (!self) return nil;
+	
+	_storage = [NSMutableArray array];
+	_capacity = 50;
+	_evictionBlock = nil;
+	
     return self;
 }
 
