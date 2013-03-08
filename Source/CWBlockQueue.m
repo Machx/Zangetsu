@@ -45,7 +45,7 @@
 }
 
 +(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block {
-	NSParameterAssert(block);
+	NSParameterAssert(block != nil);
 	return [[self alloc] initWithBlock:block];
 }
 
