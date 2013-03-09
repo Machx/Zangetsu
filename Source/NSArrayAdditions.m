@@ -54,7 +54,10 @@
 }
 
 -(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block {
-	return ([self cw_findWithBlock:block] ? YES : NO);
+	NSUInteger index = [self indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+		return (block(obj) ? YES : NO);
+	}];
+	return (index != NSNotFound ? YES : NO);
 }
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
