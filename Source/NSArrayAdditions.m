@@ -61,11 +61,17 @@
 }
 
 -(NSArray *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
-    NSMutableArray * results = [NSMutableArray array];
-	[self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		if (block(obj)) [results addObject:obj];
+	NSIndexSet *indexes = [self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+		return (block(obj) ? YES : NO);
 	}];
-    return results;
+	if (indexes.count > 0) {
+		NSMutableArray *results = [NSMutableArray array];
+		[indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+			[results addObject:self[idx]];
+		}];
+		return results;
+	}
+	return nil;
 }
 
 #if Z_HOST_OS_IS_MAC_OS_X
