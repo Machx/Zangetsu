@@ -43,14 +43,14 @@
 }
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
-	__block id foundObject = nil;
-	[self cw_eachConcurrentlyWithBlock:^(id object, NSUInteger index, BOOL *stop) {
-		if (block(object)) {
-			foundObject = object;
+	NSUInteger index = [self indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+		if (block(obj)) {
+			return YES;
 			*stop = YES;
 		}
-	}];	
-    return foundObject;
+		return NO;
+	}];
+	return (index != NSNotFound ? self[index] : nil);
 }
 
 -(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id obj))block {
