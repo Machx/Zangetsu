@@ -141,18 +141,6 @@ describe(@"-cw_findObjectWithBlock", ^{
 	});
 });
 
-describe(@"-cw_findAllWithBlock", ^{
-	it(@"should find all expected objects", ^{
-		NSArray *results = [testArray cw_findAllWithBlock:^BOOL(id obj) {
-			if ([(NSString *)obj isEqualToString:@"Fry"] ||
-				[(NSString *)obj isEqualToString:@"Leela"]) return YES;
-			return NO;
-		}];
-		NSArray *goodResults = @[ @"Fry", @"Leela" ];
-		expect(goodResults).to.equal(results);
-	});
-});
-
 describe(@"-cw_arrayOfObjectsPassingTest", ^{
 	it(@"should find all passing objects", ^{
 		NSArray *array = @[ @1, @2, @3, @4, @5, @6, @7, @8, @9, @10 ];
