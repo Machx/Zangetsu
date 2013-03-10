@@ -91,14 +91,6 @@
  */
 -(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id object))block;
 
-/**
- Returns an NSArray with all objects passing the block test
- 
- @param block every object is passed to this to the block to test it
- @return an array of objects that passed (returned YES) from the block
- */
--(NSArray *)cw_findAllWithBlock:(BOOL (^)(id object))block;
-
 #if Z_HOST_OS_IS_MAC_OS_X
 /**
  Returns a NSHashTable with all the objects passing the block test
