@@ -93,7 +93,7 @@
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block {
     NSMutableArray * cwArray = [NSMutableArray array];
-	[self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
+	[self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		id rObj = block(obj);
         if (rObj) [cwArray addObject:rObj];
 	}];
