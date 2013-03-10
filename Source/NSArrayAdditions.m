@@ -78,9 +78,14 @@
 
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
     NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
-    [self cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		if (block(obj)) [results addObject:obj];
+	NSIndexSet *indexes = [self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+		return block(obj);
 	}];
+	if (indexes.count > 0) {
+		[indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+			[results addObject:self[idx]];
+		}];
+	}
     return results;
 }
 
