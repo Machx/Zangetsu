@@ -150,21 +150,4 @@ describe(@"-cw_mapSet", ^{
 	});
 });
 
-describe(@"-cw_findAllWithBlock", ^{
-	it(@"should correctly only find objects the block returns YES for", ^{
-		NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
-		NSSet *resultSet = [testSet cw_findAllWithBlock:^(id obj) {
-			NSString *object = (NSString *)obj;
-			if ([object isEqualToString:@"Fry"] ||
-				[object isEqualToString:@"Leela"]) {
-				return YES;
-			}
-			return NO;
-		}];
-		NSSet *goodSet = [NSSet setWithObjects:@"Fry",@"Leela",nil];
-		
-		expect(resultSet).to.equal(goodSet);
-	});
-});
-
 SpecEnd
