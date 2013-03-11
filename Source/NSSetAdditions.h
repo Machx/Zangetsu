@@ -116,19 +116,4 @@
  */
 -(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
-/**
- Adds objects in the receiver that pass the block test to a new set
- 
- Enumerates over the contents of the receiver, calling the block and passing
- each object enumerated over. If the block returns YES then the object currently
- being enumerated over is added to the new NSSet, otherwise it is skipped and
- the method advances to the next object until the end of the collection is
- reched. Finally the method returns the set of objects that passed the block
- test.
- 
- @param block a block taking and id arg and returning a BOOL
- @return a NSSet of objects passing the block test
- */
--(NSSet *)cw_setOfObjectsPassingTest:(BOOL (^)(id obj))block;
-
 @end

@@ -71,12 +71,4 @@
     return mappedSet;
 }
 
--(NSSet *)cw_setOfObjectsPassingTest:(BOOL (^)(id obj))block {
-	NSMutableSet *set = [NSMutableSet set];
-	[self cw_each:^(id obj, BOOL *stop) {
-		if (block(obj)) [set addObject:obj];
-	}];
-	return set;
-}
-
 @end
