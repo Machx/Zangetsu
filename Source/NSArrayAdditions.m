@@ -67,11 +67,9 @@
 	NSIndexSet *indexes = [self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
 		return block(obj);
 	}];
-	if (indexes.count > 0) {
-		[indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-			[results addObject:self[idx]];
-		}];
-	}
+	[indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+		[results addObject:self[idx]];
+	}];
     return results;
 }
 
