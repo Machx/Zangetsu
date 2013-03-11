@@ -85,11 +85,10 @@
 }
 
 -(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block {
-	NSMutableArray *array = [NSMutableArray array];
-	[self cw_each:^(id object, NSUInteger index, BOOL *stop) {
-		if (block(object)) [array addObject:object];
+	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		return block(evaluatedObject);
 	}];
-	return array;
+	return [self filteredArrayUsingPredicate:predicate];
 }
 
 @end
