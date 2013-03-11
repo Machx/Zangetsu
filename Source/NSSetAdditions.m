@@ -48,14 +48,6 @@
 	return nil;
 }
 
--(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block {
-	NSMutableSet *results = [[NSMutableSet alloc] init];
-	[self cw_each:^(id obj, BOOL *stop) {
-		if (block(obj)) [results addObject:obj];
-	}];
-	return results;
-}
-
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block {
 	return ([self cw_findWithBlock:block] ? YES : NO);
 }

@@ -72,20 +72,6 @@
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block;
 
 /**
- Enumerates over all objects in a set and returns all objects where the block
- callback returned YES
- 
- This method allows you to deeply inspect all objects in a set and return
- multiple objects you have an interest in. This method creates a new set and
- adds the objects it passed in to blocks that returned YES to that set.
- 
- @param block a block taking an id argument which is an object in the set and
- returning a BOOL value
- @return a NSSet with all objects where blocks returned YES or an empty NSSet
- */
--(NSSet *)cw_findAllWithBlock:(BOOL (^)(id obj))block;
-
-/**
  Enumerates over all the objects with a block till one returns YES otherwise 
  returns NO
  
