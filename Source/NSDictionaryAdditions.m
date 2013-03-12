@@ -46,9 +46,9 @@
 }
 
 -(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block {
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[self cw_each:^(id key, id value, BOOL *stop) {
-		NSDictionary *returnedDictionary = block(key,value);
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+		NSDictionary *returnedDictionary = block(key,obj);
 		if (returnedDictionary) [dict addEntriesFromDictionary:returnedDictionary];
 	}];
 	return dict;
