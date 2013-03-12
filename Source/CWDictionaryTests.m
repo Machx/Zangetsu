@@ -112,4 +112,33 @@ describe(@"-cw_eachConcurrentlyWithBlock", ^{
 	});
 });
 
+describe(@"-cw_filteredDictionaryOfEntriesPassingTest", ^{
+	it(@"should return a new dictionary with only the key/value pairs I expect", ^{
+		NSDictionary *dict = @{ @"Futurama" : @"Fry",
+						  @"Key2" : @"Bender",
+						  @"Key3" : @"Leela",
+						  @"Key4" : @"Rodgers",
+						  @"Key5" : @"Snake"
+	   };
+		
+		NSDictionary *results = [dict cw_filteredDictionaryOfEntriesPassingTest:^BOOL(id key, id value) {
+			if ([key isEqualToString:@"Futurama"]) {
+				return YES;
+			}
+			if ([value isEqualToString:@"Bender"] ||
+				[value isEqualToString:@"Leela"]) {
+				return YES;
+			}
+			return NO;
+		}];
+		
+		NSDictionary *expected = @{ @"Futurama" : @"Fry",
+							  @"Key2" : @"Bender",
+							  @"Key3" : @"Leela"
+							  };
+		
+		expect(results).to.equal(expected);
+	});
+});
+
 SpecEnd
