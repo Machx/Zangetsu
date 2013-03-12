@@ -54,4 +54,15 @@
 	return dict;
 }
 
+-(NSDictionary *)cw_filteredDictionaryOfEntriesPassingTest:(BOOL (^)(id key, id value))block {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	NSSet *passingKeys = [self keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
+		return block(key,obj);
+	}];
+	[passingKeys enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		[dictionary addEntriesFromDictionary:@{obj : self[obj]}];
+	}];
+	return dictionary;
+}
+
 @end
