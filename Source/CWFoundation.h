@@ -43,14 +43,6 @@
 BOOL CWClassExists(NSString * class);
 
 /**
- Returns a NSString value of 'YES' or 'NO' corresponding to the bool value arg
- 
- @param value a BOOL value of YES or NO
- @return NSString of @"YES" if value is YES, otherwise @"NO"
- */
-NSString *CWBOOLString(BOOL value);
-
-/**
  Returns a unique NSString prepended by the passed in string
  
  @param preString the string to be prepended on the unique string

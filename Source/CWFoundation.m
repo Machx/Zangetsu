@@ -33,8 +33,6 @@ BOOL CWClassExists(NSString * class) {
 	return ( NSClassFromString(class) ? YES : NO );
 }
 
-NSString *CWBOOLString(BOOL value) {
-    return ( value ? @"YES" : @"NO" );
 }
 
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
