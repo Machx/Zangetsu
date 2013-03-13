@@ -43,23 +43,4 @@ describe(@"CWClassExists", ^{
 	});
 });
 
-describe(@"CWBoolString()", ^{
-	it(@"should return a string of 'YES' when passed YES", ^{
-		expect(CWBOOLString(YES)).to.equal(@"YES");
-	});
-	
-	it(@"should return a string of 'NO' when passed NO", ^{
-		expect(CWBOOLString(NO)).to.equal(@"NO");
-	});
-	
-	it(@"should return a string of 'YES' when given a non nil object", ^{
-		expect(CWBOOLString([@"Test" boolValue])).to.equal(@"YES");
-	});
-	
-	it(@"should return a string of 'NO' when given a nil object", ^{
-		id obj = nil;
-		expect(CWBOOLString([obj boolValue])).to.equal(@"NO");
-	});
-});
-
 SpecEnd
