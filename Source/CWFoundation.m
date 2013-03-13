@@ -30,9 +30,7 @@ THE SOFTWARE.
 #import "CWFoundation.h"
 
 BOOL CWClassExists(NSString * class) {
-	return ( NSClassFromString(class) ? YES : NO );
-}
-
+	return (BOOL)NSClassFromString(class);
 }
 
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
