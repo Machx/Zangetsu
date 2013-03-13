@@ -92,7 +92,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 			NSStringFromClass([self class]),
 			[self urlHost],
 			[self httpAuthorizationHeader],
-			CWBOOLString([self connectionIsFinished])];
+			(self.connectionIsFinished ? @"YES" : @"NO")];
 }
 
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
