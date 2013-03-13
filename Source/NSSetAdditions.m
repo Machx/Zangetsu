@@ -55,7 +55,7 @@
 #if Z_HOST_OS_IS_MAC_OS_X
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
 	NSHashTable *results = [NSHashTable hashTableWithWeakObjects];
-	[self cw_each:^(id obj, BOOL *stop) {
+	[self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
 		if (block(obj)) [results addObject:obj];
 	}];
 	return results;
@@ -63,8 +63,8 @@
 #endif
 
 -(NSSet *)cw_mapSet:(id (^)(id obj))block {
-	NSMutableSet *mappedSet = [[NSMutableSet alloc] init];
-	[self cw_each:^(id obj, BOOL *stop) {
+	NSMutableSet *mappedSet = [NSMutableSet set];
+	[self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
 		id rObj = block(obj);
 		if (rObj) [mappedSet addObject:rObj];
 	}];
