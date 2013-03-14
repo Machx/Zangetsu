@@ -34,7 +34,7 @@
 @property(assign) dispatch_queue_t queue;
 @end
 
-static int32_t queueCounter = 0;
+static int64_t queueCounter = 0;
 
 @implementation CWStack
 
@@ -48,8 +48,8 @@ static int32_t queueCounter = 0;
     if (!self) return nil;
 	
 	_dataStore = [[NSMutableArray alloc] init];
-	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
-						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%lli",
+						  OSAtomicIncrement64(&queueCounter)] UTF8String];
 	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	
     return self;
@@ -60,8 +60,8 @@ static int32_t queueCounter = 0;
 	if (!self) return nil;
 	
 	_dataStore = [[NSMutableArray alloc] init];
-	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%i",
-						  OSAtomicIncrement32(&queueCounter)] UTF8String];
+	const char *label = [[NSString stringWithFormat:@"com.Zangetsu.CWStack_%lli",
+						  OSAtomicIncrement64(&queueCounter)] UTF8String];
 	_queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	if (objects.count > 0) [_dataStore addObjectsFromArray:objects];
 	
