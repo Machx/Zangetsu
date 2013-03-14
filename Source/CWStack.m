@@ -154,12 +154,10 @@ static int32_t queueCounter = 0;
 -(BOOL)containsObjectWithBlock:(BOOL (^)(id object))block {
 	__block BOOL contains = NO;
 	dispatch_sync(self.queue, ^{
-		for (id obj in self.dataStore) {
-			if (block(obj)) {
-				contains = YES;
-				break;
-			}
-		}
+		NSUInteger index = [self.dataStore indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+			return block(obj);
+		}];
+		if (index != NSNotFound) contains = YES;
 	});
 	return contains;
 }
