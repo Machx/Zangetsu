@@ -75,11 +75,9 @@ static int32_t queueCounter = 0;
 }
 
 -(id)pop {
-	__block id object;
+	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		if (self.dataStore.count == 0) {
-			object = nil;
-		} else {
+		if (self.dataStore.count > 0) {
 			object = [self.dataStore lastObject];
 			[self.dataStore removeLastObject];
 		}
