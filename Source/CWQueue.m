@@ -158,7 +158,7 @@ static int64_t queueCounter = 0;
 }
 
 -(void)dequeueOueueWithBlock:(void(^)(id object, BOOL *stop))block {
-	if(self.dataStore.count == 0) { return; }
+	if(self.dataStore.count == 0) return;
 	
 	BOOL shouldStop = NO;
 	id dequeuedObject = nil;
@@ -213,7 +213,7 @@ static int64_t queueCounter = 0;
 #pragma mark Comparison -
 
 -(BOOL)isEqualToQueue:(CWQueue *)aQueue {
-	__block BOOL isEqual;
+	__block BOOL isEqual = NO;
 	dispatch_sync(self.queue, ^{
 		isEqual = [self.dataStore isEqual:aQueue.dataStore];
 	});
