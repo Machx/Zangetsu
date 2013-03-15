@@ -17,3 +17,5 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+Source.zip
