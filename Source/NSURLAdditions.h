@@ -11,6 +11,11 @@
 
 @interface NSURL (CWURLAdditions)
 
+/**
+ A better string description of a NSURL including host, port, path, etc
+ 
+ @return a NSString with a much better string url description than -description
+ */
 -(NSString *)cw_betterDescription;
 
 @end

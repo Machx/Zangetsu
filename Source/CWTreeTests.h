@@ -8,7 +8,3 @@
  	*/
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface CWTreeTests : SenTestCase
-
-@end

@@ -50,18 +50,34 @@ extern void CWAddRoundedRectToPath(CGContextRef context,
 								   float ovalHeight);
 
 /**
- Saves the CGContext state, executes the block and then restores the context State.
+ Saves the CGContext state, executes the block & then restores the context State
  
  @param ctx a CGContextRef you wish to operate on
+<<<<<<< HEAD
  @param block a block containing code you wish to execute between saving & restoring the CGContextRef state	*/
+=======
+ @param block a block to execute between saving & restoring CGContextRef state
+ */
+>>>>>>> upstream/master
 extern void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void));
+
+/**
+ Creates a CGContextRef for drawing images into with the width & height provided
+ 
+ The object that is returned is your responsibility to free when done with it.
+ 
+ @param width the width of the context in pixels
+ @param height the height of the context in pixels
+ @return CGContextRef for drawing images into that you must free
+ */
+extern CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) CF_RETURNS_RETAINED;
 
 /**
  Draws a Linear gradient between 2 points using Core Graphics
  
  @param context the CGContextRef the drawing is to occurr on
- @param point1 a CGPoint, the starting point for where the gradient should be drawn
- @param point2 a CGPoint, the ending point for where the gradient should be drawn
+ @param point1 the starting point for where the gradient should be drawn
+ @param point2 the ending point for where the gradient should be drawn
  @param colora the starting Color for the gradient
  @param colorb the ending Color for the gradient	*/
 extern void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
@@ -75,7 +91,12 @@ extern void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
  @param g a CGFloat representing the blue component of the CGColorRef
  @param b a CGFloat representing the green component of the CGColorRef
  @param a a CGFloat representing the alpha component of the CGColorRef
+<<<<<<< HEAD
  @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it	*/
+=======
+ @return a CGColorRef object that you must free when done with it
+ */
+>>>>>>> upstream/master
 extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a);
 
 /**
@@ -85,8 +106,14 @@ extern CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a);
  @param g a CGFloat representing the blue component of the CGColorRef
  @param b a CGFloat representing the green component of the CGColorRef
  @param a a CGFloat representing the alpha component of the CGColorRef
+<<<<<<< HEAD
  @param cspace the CGColorSpaceRef you want the CGColorRef to be created with. This cannot be NULL, if it is NULL this method returns NULL.
  @return a CGColorRef object created with the components specified in the parameters, you must release this object when done with it	*/
+=======
+ @param cspace color space to use, this cannot be NULL.
+ @return a CGColorRef object that you must free when done or NULL
+ */
+>>>>>>> upstream/master
 extern CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace);
 
 #define CWCGColorMethod(_name_) extern CGColorRef CWCGColor##_name_(CGFloat alpha) CF_RETURNS_RETAINED

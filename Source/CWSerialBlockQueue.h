@@ -11,7 +11,7 @@
 
 @interface CWSerialBlockOperation : NSObject
 /**
- Returns a new CWSerialBlockOperation object that executes block when it is dequeued
+ Returns a new CWSerialBlockOperation object that executes block when dequeued
  
  @param block a dispatch_block_t block that must not be NULL
  @return a new CWSerialBlockOperation object	*/
@@ -27,16 +27,26 @@
 - (id)init;
 
 /**
- Returns a new CWSerialBlockQueue with the given label or a uniquely generated one
+ Returns a new CWSerialBlockQueue with the given label or a unique one
  
+<<<<<<< HEAD
  @return a new CWSerialBlockQueue queue that is immediately beginning to execute blockOperations	*/
+=======
+ @return a new CWSerialBlockQueue queue
+ */
+>>>>>>> upstream/master
 -(id)initWithLabel:(NSString *)qlabel;
 
 /**
- Returns a new CWSerialBlockQueue that immediately submits all operation objects in blockOperations for execution
+ Returns new CWSerialBlockQueue which immmediately begins dequeueing operations
  
  @param blockOperations a NSArray of CWSerialBlockOperatiom objects
+<<<<<<< HEAD
  @return a new CWSerialBlockQueue queue that is immediately beginning to execute blockOperations	*/
+=======
+ @return a new CWSerialBlockQueue queue starting to dequeue operations
+ */
+>>>>>>> upstream/master
 -(id)initWithLabel:(NSString *)qlabel andBlockOperationObjects:(NSArray *)blockOperations;
 
 /**
@@ -54,7 +64,12 @@
 /**
  Adds the block operation to the receiver for execution
  
+<<<<<<< HEAD
  @param operation a CWSerialBlockOperation object if this is nil this method does nothing	*/
+=======
+ @param operation a CWSerialBlockOperation object, if nil this does nothing
+ */
+>>>>>>> upstream/master
 -(void)addBlockOperation:(CWSerialBlockOperation *)operation;
 
 /**
@@ -82,8 +97,13 @@
 -(void)waitUntilAllBlocksHaveProcessed;
 
 /**
- Asynchronously waits for all currently enqued blocks to finish and then executes block
+ Asynchronously waits for all enqued blocks to finish and then executes block
  
+<<<<<<< HEAD
  @param block the block to be executed once all operation opjects are finished executing	*/
+=======
+ @param block the block to be executed once all operation opjects are finished
+ */
+>>>>>>> upstream/master
 -(void)executeWhenAllBlocksHaveFinished:(dispatch_block_t)block;
 @end

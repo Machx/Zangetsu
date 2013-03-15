@@ -38,8 +38,7 @@ inline CGContextRef CWCurrentCGContext()
 #endif
 }
 
-CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) 
-{
+CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect) {
 	CGRect centeredRect;
 	centeredRect.size = smallRect.size;
 	centeredRect.origin.x = (largeRect.size.width - smallRect.size.width) * 0.5;
@@ -50,8 +49,7 @@ CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect)
 void CWAddRoundedRectToPath(CGContextRef context,
 						  CGRect rect,
 						  float ovalWidth,
-						  float ovalHeight) 
-{	
+						  float ovalHeight) {
     if (ovalWidth == 0 || ovalHeight == 0) {
         CGContextAddRect(context, rect);
         return;
@@ -75,8 +73,7 @@ void CWAddRoundedRectToPath(CGContextRef context,
 	});
 }
 
-void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) 
-{
+void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void)) {
 	CGContextSaveGState(ctx);
 	block();
 	CGContextRestoreGState(ctx);
@@ -84,8 +81,7 @@ void CWSaveAndRestoreCGContextState(CGContextRef ctx, void(^block)(void))
 
 void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 											  CGPoint point1, CGFloat color1[4],
-											  CGPoint point2, CGFloat color2[4])
-{
+											  CGPoint point2, CGFloat color2[4]) {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
 	CGFloat components[] = { color1[0], color1[1], color1[2], color1[3], color2[0], color2[1], color2[2], color2[3] };
 	CGGradientRef gradient = CGGradientCreateWithColorComponents(space, components, NULL, 2);
@@ -94,16 +90,32 @@ void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 	CGColorSpaceRelease(space);
 }
 
-CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a)
-{
+CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
+	CGContextRef ref = NULL;
+	CGColorSpaceRef space = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+	NSInteger bytesPerRow = (width * 4);
+	
+	ref = CGBitmapContextCreate(NULL,
+								width, height,
+								8, bytesPerRow,
+								space, kCGImageAlphaPremultipliedLast);
+	if (ref == NULL) {
+		CGColorSpaceRelease(space);
+		CWDebugLog(@"CWGraphicsFoundation: CGBitmapContext not allocated");
+		return NULL;
+	}
+	CGColorSpaceRelease(space);
+	return ref;
+}
+
+CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
 	CGColorRef color = CWCreateCGColorWithSpace(r, g, b, a, space);
 	CGColorSpaceRelease(space);
 	return color;
 }
 
-CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace)
-{
+CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace) {
 	if(cspace == NULL) { return NULL; }
 	CGFloat components[4];
 	components[0] = r; components[1] = g; components[2] = b; components[3] = a;

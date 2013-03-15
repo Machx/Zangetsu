@@ -20,10 +20,10 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
-		B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
-		B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */; };
+		B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
+		B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,11 +68,6 @@
 		B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWSerialBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
 		B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
-		B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B84F1F50154A146F0038AEE0 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
-		B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F51154A146F0038AEE0 /* CWLinkedList.m */; };
-		B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */; };
 		B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,11 +81,13 @@
 		B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */; };
 		B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImageAdditions.m */; };
-		B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DB08B15C81DE900E51890 /* CWAVLTree.h */; };
-		B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DB08C15C81DE900E51890 /* CWAVLTree.m */; };
-		B85DB09215C9738E00E51890 /* CWAVLTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DB09115C9738E00E51890 /* CWAVLTreeTests.m */; };
+		B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
+		B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
+		B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
-		B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */; };
+		B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWLinkedListTests.m */; };
 		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,6 +114,11 @@
 		B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
+		B86E6101169D1F060071D187 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B86E60FD169D1F060071D187 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86E6102169D1F060071D187 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E60FE169D1F060071D187 /* CWPriorityQueue.m */; };
+		B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */; };
+		B86E6107169D21830071D187 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B86E60FD169D1F060071D187 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E60FE169D1F060071D187 /* CWPriorityQueue.m */; };
 		B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86FC33B15BB109F009D018C /* NSURLAdditions.m */; };
 		B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,6 +127,8 @@
 		B87A7AFB145DB100007A4C0D /* CWQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AFA145DB100007A4C0D /* CWQueueTests.m */; };
 		B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
+		B884628516C0AD8B00EE9AF0 /* libExpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */; };
+		B884628616C0ADB300EE9AF0 /* libSpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884626316C0ACCA00EE9AF0 /* libSpecta-macosx.a */; };
 		B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B884940013A13D700046194D /* CWApplicationRegistryTests.m */; };
 		B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B88BFAFC14DAF61100E82207 /* CWBase64IOS.m */; };
@@ -267,8 +271,8 @@
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
 		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
-		B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedList.h; path = Source/CWDoublyLinkedList.h; sourceTree = "<group>"; };
-		B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedList.m; path = Source/CWDoublyLinkedList.m; sourceTree = "<group>"; };
+		B812FF53155E043100BDC6CA /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
+		B812FF54155E043100BDC6CA /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
@@ -303,10 +307,6 @@
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
 		B84C513314F696790046455E /* CWSerialBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueue.h; path = Source/CWSerialBlockQueue.h; sourceTree = "<group>"; };
 		B84C513414F696790046455E /* CWSerialBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueue.m; path = Source/CWSerialBlockQueue.m; sourceTree = "<group>"; };
-		B84F1F50154A146F0038AEE0 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
-		B84F1F51154A146F0038AEE0 /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
-		B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
-		B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
 		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
@@ -323,14 +323,14 @@
 		B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSColorAdditionsTests.m; path = Source/CWNSColorAdditionsTests.m; sourceTree = "<group>"; };
 		B85908371587D3F300B8B2C4 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = Source/UIImageAdditions.h; sourceTree = "<group>"; };
 		B85908381587D3F300B8B2C4 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = Source/UIImageAdditions.m; sourceTree = "<group>"; };
-		B85DB08B15C81DE900E51890 /* CWAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAVLTree.h; path = Source/CWAVLTree.h; sourceTree = "<group>"; };
-		B85DB08C15C81DE900E51890 /* CWAVLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAVLTree.m; path = Source/CWAVLTree.m; sourceTree = "<group>"; };
-		B85DB09015C9738E00E51890 /* CWAVLTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAVLTreeTests.h; path = Source/CWAVLTreeTests.h; sourceTree = "<group>"; };
-		B85DB09115C9738E00E51890 /* CWAVLTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAVLTreeTests.m; path = Source/CWAVLTreeTests.m; sourceTree = "<group>"; };
+		B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSNumberAdditions.h; path = Source/NSNumberAdditions.h; sourceTree = "<group>"; };
+		B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditions.m; path = Source/NSNumberAdditions.m; sourceTree = "<group>"; };
+		B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSNumberAdditionsTests.h; path = Source/NSNumberAdditionsTests.h; sourceTree = "<group>"; };
+		B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditionsTests.m; path = Source/NSNumberAdditionsTests.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
-		B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDoublyLinkedListTests.h; path = Source/CWDoublyLinkedListTests.h; sourceTree = "<group>"; };
-		B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDoublyLinkedListTests.m; path = Source/CWDoublyLinkedListTests.m; sourceTree = "<group>"; };
+		B863579F1561495400EF09BA /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
+		B86357A01561495400EF09BA /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSRecursiveLockAdditions.h; path = Source/NSRecursiveLockAdditions.h; sourceTree = "<group>"; };
 		B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRecursiveLockAdditions.m; path = Source/NSRecursiveLockAdditions.m; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
@@ -353,6 +353,10 @@
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
+		B86E60FD169D1F060071D187 /* CWPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueue.h; path = Source/CWPriorityQueue.h; sourceTree = "<group>"; };
+		B86E60FE169D1F060071D187 /* CWPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueue.m; path = Source/CWPriorityQueue.m; sourceTree = "<group>"; };
+		B86E60FF169D1F060071D187 /* CWPriorityQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueueTests.h; path = Source/CWPriorityQueueTests.h; sourceTree = "<group>"; };
+		B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueueTests.m; path = Source/CWPriorityQueueTests.m; sourceTree = "<group>"; };
 		B86FC33A15BB109F009D018C /* NSURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLAdditions.h; path = Source/NSURLAdditions.h; sourceTree = "<group>"; };
 		B86FC33B15BB109F009D018C /* NSURLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLAdditions.m; path = Source/NSURLAdditions.m; sourceTree = "<group>"; };
 		B87A7AF4145D0EDC007A4C0D /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = Source/CWQueue.h; sourceTree = "<group>"; };
@@ -361,6 +365,53 @@
 		B87A7AFA145DB100007A4C0D /* CWQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueueTests.m; path = Source/CWQueueTests.m; sourceTree = "<group>"; };
 		B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugUtilities.h; path = Source/CWDebugUtilities.h; sourceTree = "<group>"; };
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
+		B884625816C0ACB200EE9AF0 /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = External/Specta/Specta.h; sourceTree = "<group>"; };
+		B884625916C0ACB200EE9AF0 /* SpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpectaSupport.h; path = External/Specta/SpectaSupport.h; sourceTree = "<group>"; };
+		B884625A16C0ACB200EE9AF0 /* SpectaTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpectaTypes.h; path = External/Specta/SpectaTypes.h; sourceTree = "<group>"; };
+		B884625B16C0ACB200EE9AF0 /* SpectaUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpectaUtility.h; path = External/Specta/SpectaUtility.h; sourceTree = "<group>"; };
+		B884625C16C0ACB200EE9AF0 /* SPTExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTExample.h; path = External/Specta/SPTExample.h; sourceTree = "<group>"; };
+		B884625D16C0ACB200EE9AF0 /* SPTExampleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTExampleGroup.h; path = External/Specta/SPTExampleGroup.h; sourceTree = "<group>"; };
+		B884625E16C0ACB200EE9AF0 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSenTestCase.h; path = External/Specta/SPTSenTestCase.h; sourceTree = "<group>"; };
+		B884625F16C0ACB200EE9AF0 /* SPTSenTestInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSenTestInvocation.h; path = External/Specta/SPTSenTestInvocation.h; sourceTree = "<group>"; };
+		B884626016C0ACB200EE9AF0 /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSharedExampleGroups.h; path = External/Specta/SPTSharedExampleGroups.h; sourceTree = "<group>"; };
+		B884626116C0ACB200EE9AF0 /* SPTSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = External/Specta/SPTSpec.h; sourceTree = "<group>"; };
+		B884626216C0ACCA00EE9AF0 /* libSpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-ios-universal.a"; path = "External/Specta/libSpecta-ios-universal.a"; sourceTree = "<group>"; };
+		B884626316C0ACCA00EE9AF0 /* libSpecta-macosx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-macosx.a"; path = "External/Specta/libSpecta-macosx.a"; sourceTree = "<group>"; };
+		B884626416C0ACE700EE9AF0 /* EXPBackwardCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPBackwardCompatibility.h; path = External/Expecta/EXPBackwardCompatibility.h; sourceTree = "<group>"; };
+		B884626516C0ACE700EE9AF0 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = External/Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
+		B884626616C0ACE700EE9AF0 /* EXPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPDefines.h; path = External/Expecta/EXPDefines.h; sourceTree = "<group>"; };
+		B884626716C0ACE700EE9AF0 /* EXPDoubleTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPDoubleTuple.h; path = External/Expecta/EXPDoubleTuple.h; sourceTree = "<group>"; };
+		B884626816C0ACE700EE9AF0 /* Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expecta.h; path = External/Expecta/Expecta.h; sourceTree = "<group>"; };
+		B884626916C0ACE700EE9AF0 /* ExpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpectaSupport.h; path = External/Expecta/ExpectaSupport.h; sourceTree = "<group>"; };
+		B884626A16C0ACE700EE9AF0 /* EXPExpect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPExpect.h; path = External/Expecta/EXPExpect.h; sourceTree = "<group>"; };
+		B884626B16C0ACE700EE9AF0 /* EXPFloatTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPFloatTuple.h; path = External/Expecta/EXPFloatTuple.h; sourceTree = "<group>"; };
+		B884626C16C0ACE700EE9AF0 /* EXPMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPMatcher.h; path = External/Expecta/EXPMatcher.h; sourceTree = "<group>"; };
+		B884626D16C0ACE700EE9AF0 /* EXPMatcherHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPMatcherHelpers.h; path = External/Expecta/EXPMatcherHelpers.h; sourceTree = "<group>"; };
+		B884626E16C0ACE700EE9AF0 /* EXPMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPMatchers.h; path = External/Expecta/EXPMatchers.h; sourceTree = "<group>"; };
+		B884626F16C0ACE700EE9AF0 /* EXPMatchers+beCloseTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beCloseTo.h"; path = "External/Expecta/EXPMatchers+beCloseTo.h"; sourceTree = "<group>"; };
+		B884627016C0ACE700EE9AF0 /* EXPMatchers+beFalsy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beFalsy.h"; path = "External/Expecta/EXPMatchers+beFalsy.h"; sourceTree = "<group>"; };
+		B884627116C0ACE700EE9AF0 /* EXPMatchers+beGreaterThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThan.h"; path = "External/Expecta/EXPMatchers+beGreaterThan.h"; sourceTree = "<group>"; };
+		B884627216C0ACE700EE9AF0 /* EXPMatchers+beGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThanOrEqualTo.h"; path = "External/Expecta/EXPMatchers+beGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
+		B884627316C0ACE700EE9AF0 /* EXPMatchers+beIdenticalTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beIdenticalTo.h"; path = "External/Expecta/EXPMatchers+beIdenticalTo.h"; sourceTree = "<group>"; };
+		B884627416C0ACE700EE9AF0 /* EXPMatchers+beInstanceOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInstanceOf.h"; path = "External/Expecta/EXPMatchers+beInstanceOf.h"; sourceTree = "<group>"; };
+		B884627516C0ACE700EE9AF0 /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInTheRangeOf.h"; path = "External/Expecta/EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
+		B884627616C0ACE700EE9AF0 /* EXPMatchers+beKindOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beKindOf.h"; path = "External/Expecta/EXPMatchers+beKindOf.h"; sourceTree = "<group>"; };
+		B884627716C0ACE700EE9AF0 /* EXPMatchers+beLessThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThan.h"; path = "External/Expecta/EXPMatchers+beLessThan.h"; sourceTree = "<group>"; };
+		B884627816C0ACE700EE9AF0 /* EXPMatchers+beLessThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThanOrEqualTo.h"; path = "External/Expecta/EXPMatchers+beLessThanOrEqualTo.h"; sourceTree = "<group>"; };
+		B884627916C0ACE700EE9AF0 /* EXPMatchers+beNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beNil.h"; path = "External/Expecta/EXPMatchers+beNil.h"; sourceTree = "<group>"; };
+		B884627A16C0ACE700EE9AF0 /* EXPMatchers+beSubclassOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSubclassOf.h"; path = "External/Expecta/EXPMatchers+beSubclassOf.h"; sourceTree = "<group>"; };
+		B884627B16C0ACE700EE9AF0 /* EXPMatchers+beTruthy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beTruthy.h"; path = "External/Expecta/EXPMatchers+beTruthy.h"; sourceTree = "<group>"; };
+		B884627C16C0ACE700EE9AF0 /* EXPMatchers+contain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+contain.h"; path = "External/Expecta/EXPMatchers+contain.h"; sourceTree = "<group>"; };
+		B884627D16C0ACE700EE9AF0 /* EXPMatchers+equal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+equal.h"; path = "External/Expecta/EXPMatchers+equal.h"; sourceTree = "<group>"; };
+		B884627E16C0ACE700EE9AF0 /* EXPMatchers+haveCountOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveCountOf.h"; path = "External/Expecta/EXPMatchers+haveCountOf.h"; sourceTree = "<group>"; };
+		B884627F16C0ACE700EE9AF0 /* EXPMatchers+raise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raise.h"; path = "External/Expecta/EXPMatchers+raise.h"; sourceTree = "<group>"; };
+		B884628016C0ACE700EE9AF0 /* EXPUnsupportedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPUnsupportedObject.h; path = External/Expecta/EXPUnsupportedObject.h; sourceTree = "<group>"; };
+		B884628116C0ACE700EE9AF0 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "External/Expecta/NSObject+Expecta.h"; sourceTree = "<group>"; };
+		B884628216C0ACE700EE9AF0 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "External/Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
+		B884628316C0ACFA00EE9AF0 /* libExpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-ios-universal.a"; path = "External/Expecta/libExpecta-ios-universal.a"; sourceTree = "<group>"; };
+		B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-macosx.a"; path = "External/Expecta/libExpecta-macosx.a"; sourceTree = "<group>"; };
+		B884628816C0AFD900EE9AF0 /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raiseWithReason.h"; path = "External/Expecta/EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
+		B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Zangetsu-UnitTestsOSX.pch"; path = "Source/Zangetsu-UnitTestsOSX.pch"; sourceTree = "<group>"; };
 		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
 		B884940013A13D700046194D /* CWApplicationRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistryTests.m; path = Source/CWApplicationRegistryTests.m; sourceTree = "<group>"; };
 		B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64IOS.h; path = Source/CWBase64IOS.h; sourceTree = "<group>"; };
@@ -469,6 +520,8 @@
 			files = (
 				B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */,
 				17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */,
+				B884628516C0AD8B00EE9AF0 /* libExpecta-macosx.a in Frameworks */,
+				B884628616C0ADB300EE9AF0 /* libSpecta-macosx.a in Frameworks */,
 				B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +547,7 @@
 				B82D73E711DA850A00863F3B /* Zangetsu.h */,
 				B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */,
 				B80BCE4512962DD100AF8CCE /* ToDo.rtf */,
+				B884623D16C0AC3700EE9AF0 /* External */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -653,6 +707,8 @@
 				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
 				B86FC33A15BB109F009D018C /* NSURLAdditions.h */,
 				B86FC33B15BB109F009D018C /* NSURLAdditions.m */,
+				B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */,
+				B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */,
 			);
 			name = "Foundation Additions";
 			sourceTree = "<group>";
@@ -711,6 +767,75 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B884623D16C0AC3700EE9AF0 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B884623F16C0AC5100EE9AF0 /* Expecta */,
+				B884623E16C0AC4900EE9AF0 /* Specta */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		B884623E16C0AC4900EE9AF0 /* Specta */ = {
+			isa = PBXGroup;
+			children = (
+				B884626216C0ACCA00EE9AF0 /* libSpecta-ios-universal.a */,
+				B884626316C0ACCA00EE9AF0 /* libSpecta-macosx.a */,
+				B884625816C0ACB200EE9AF0 /* Specta.h */,
+				B884625916C0ACB200EE9AF0 /* SpectaSupport.h */,
+				B884625A16C0ACB200EE9AF0 /* SpectaTypes.h */,
+				B884625B16C0ACB200EE9AF0 /* SpectaUtility.h */,
+				B884625C16C0ACB200EE9AF0 /* SPTExample.h */,
+				B884625D16C0ACB200EE9AF0 /* SPTExampleGroup.h */,
+				B884625E16C0ACB200EE9AF0 /* SPTSenTestCase.h */,
+				B884625F16C0ACB200EE9AF0 /* SPTSenTestInvocation.h */,
+				B884626016C0ACB200EE9AF0 /* SPTSharedExampleGroups.h */,
+				B884626116C0ACB200EE9AF0 /* SPTSpec.h */,
+			);
+			name = Specta;
+			sourceTree = "<group>";
+		};
+		B884623F16C0AC5100EE9AF0 /* Expecta */ = {
+			isa = PBXGroup;
+			children = (
+				B884628816C0AFD900EE9AF0 /* EXPMatchers+raiseWithReason.h */,
+				B884628316C0ACFA00EE9AF0 /* libExpecta-ios-universal.a */,
+				B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */,
+				B884626416C0ACE700EE9AF0 /* EXPBackwardCompatibility.h */,
+				B884626516C0ACE700EE9AF0 /* EXPBlockDefinedMatcher.h */,
+				B884626616C0ACE700EE9AF0 /* EXPDefines.h */,
+				B884626716C0ACE700EE9AF0 /* EXPDoubleTuple.h */,
+				B884626816C0ACE700EE9AF0 /* Expecta.h */,
+				B884626916C0ACE700EE9AF0 /* ExpectaSupport.h */,
+				B884626A16C0ACE700EE9AF0 /* EXPExpect.h */,
+				B884626B16C0ACE700EE9AF0 /* EXPFloatTuple.h */,
+				B884626C16C0ACE700EE9AF0 /* EXPMatcher.h */,
+				B884626D16C0ACE700EE9AF0 /* EXPMatcherHelpers.h */,
+				B884626E16C0ACE700EE9AF0 /* EXPMatchers.h */,
+				B884626F16C0ACE700EE9AF0 /* EXPMatchers+beCloseTo.h */,
+				B884627016C0ACE700EE9AF0 /* EXPMatchers+beFalsy.h */,
+				B884627116C0ACE700EE9AF0 /* EXPMatchers+beGreaterThan.h */,
+				B884627216C0ACE700EE9AF0 /* EXPMatchers+beGreaterThanOrEqualTo.h */,
+				B884627316C0ACE700EE9AF0 /* EXPMatchers+beIdenticalTo.h */,
+				B884627416C0ACE700EE9AF0 /* EXPMatchers+beInstanceOf.h */,
+				B884627516C0ACE700EE9AF0 /* EXPMatchers+beInTheRangeOf.h */,
+				B884627616C0ACE700EE9AF0 /* EXPMatchers+beKindOf.h */,
+				B884627716C0ACE700EE9AF0 /* EXPMatchers+beLessThan.h */,
+				B884627816C0ACE700EE9AF0 /* EXPMatchers+beLessThanOrEqualTo.h */,
+				B884627916C0ACE700EE9AF0 /* EXPMatchers+beNil.h */,
+				B884627A16C0ACE700EE9AF0 /* EXPMatchers+beSubclassOf.h */,
+				B884627B16C0ACE700EE9AF0 /* EXPMatchers+beTruthy.h */,
+				B884627C16C0ACE700EE9AF0 /* EXPMatchers+contain.h */,
+				B884627D16C0ACE700EE9AF0 /* EXPMatchers+equal.h */,
+				B884627E16C0ACE700EE9AF0 /* EXPMatchers+haveCountOf.h */,
+				B884627F16C0ACE700EE9AF0 /* EXPMatchers+raise.h */,
+				B884628016C0ACE700EE9AF0 /* EXPUnsupportedObject.h */,
+				B884628116C0ACE700EE9AF0 /* NSObject+Expecta.h */,
+				B884628216C0ACE700EE9AF0 /* NSValue+Expecta.h */,
+			);
+			name = Expecta;
+			sourceTree = "<group>";
+		};
 		B89D8D0514D646D600C5BBAB /* AppKit Additions */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,14 +867,12 @@
 				1701DA1913CC9285007EE513 /* CWTree.m */,
 				B87A7AF4145D0EDC007A4C0D /* CWQueue.h */,
 				B87A7AF5145D0EDC007A4C0D /* CWQueue.m */,
+				B86E60FD169D1F060071D187 /* CWPriorityQueue.h */,
+				B86E60FE169D1F060071D187 /* CWPriorityQueue.m */,
 				B897CA16153B6E1C003BAD73 /* CWTrie.h */,
 				B897CA17153B6E1C003BAD73 /* CWTrie.m */,
-				B84F1F50154A146F0038AEE0 /* CWLinkedList.h */,
-				B84F1F51154A146F0038AEE0 /* CWLinkedList.m */,
-				B812FF53155E043100BDC6CA /* CWDoublyLinkedList.h */,
-				B812FF54155E043100BDC6CA /* CWDoublyLinkedList.m */,
-				B85DB08B15C81DE900E51890 /* CWAVLTree.h */,
-				B85DB08C15C81DE900E51890 /* CWAVLTree.m */,
+				B812FF53155E043100BDC6CA /* CWLinkedList.h */,
+				B812FF54155E043100BDC6CA /* CWLinkedList.m */,
 				B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */,
 				B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */,
 			);
@@ -776,6 +899,7 @@
 		B8F5E67C12A02F6500E58C94 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */,
 				B869C85113F6B90400739DE4 /* CWMacroTests.h */,
 				B869C85213F6B90400739DE4 /* CWMacroTests.m */,
 				B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */,
@@ -822,16 +946,16 @@
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
 				B897CA1C153B8610003BAD73 /* CWTrieTests.h */,
 				B897CA1D153B8610003BAD73 /* CWTrieTests.m */,
-				B84F1F56154A2BFE0038AEE0 /* CWLinkedListTests.h */,
-				B84F1F57154A2BFE0038AEE0 /* CWLinkedListTests.m */,
-				B863579F1561495400EF09BA /* CWDoublyLinkedListTests.h */,
-				B86357A01561495400EF09BA /* CWDoublyLinkedListTests.m */,
+				B863579F1561495400EF09BA /* CWLinkedListTests.h */,
+				B86357A01561495400EF09BA /* CWLinkedListTests.m */,
 				B8590750158787EF00B8B2C4 /* CWNSColorAdditionsTests.h */,
 				B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */,
-				B85DB09015C9738E00E51890 /* CWAVLTreeTests.h */,
-				B85DB09115C9738E00E51890 /* CWAVLTreeTests.m */,
 				B8CE2C3215FF7CB40004D8D1 /* CWFixedQueueTests.h */,
 				B8CE2C3315FF7CB40004D8D1 /* CWFixedQueueTests.m */,
+				B86E60FF169D1F060071D187 /* CWPriorityQueueTests.h */,
+				B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */,
+				B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */,
+				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -885,13 +1009,13 @@
 				B84C513514F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B84F1F52154A146F0038AEE0 /* CWLinkedList.h in Headers */,
-				B812FF55155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
+				B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
-				B85DB08D15C81DE900E51890 /* CWAVLTree.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
+				B86E6101169D1F060071D187 /* CWPriorityQueue.h in Headers */,
+				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,11 +1060,12 @@
 				B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B84F1F53154A146F0038AEE0 /* CWLinkedList.h in Headers */,
-				B812FF56155E043100BDC6CA /* CWDoublyLinkedList.h in Headers */,
+				B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
 				B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
+				B86E6107169D21830071D187 /* CWPriorityQueue.h in Headers */,
+				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,7 +1152,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Zangetsu" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1152,13 +1277,13 @@
 				B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B84F1F54154A146F0038AEE0 /* CWLinkedList.m in Sources */,
-				B812FF57155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
+				B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
-				B85DB08E15C81DE900E51890 /* CWAVLTree.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
+				B86E6102169D1F060071D187 /* CWPriorityQueue.m in Sources */,
+				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,10 +1325,11 @@
 				B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B84F1F55154A146F0038AEE0 /* CWLinkedList.m in Sources */,
-				B812FF58155E043100BDC6CA /* CWDoublyLinkedList.m in Sources */,
+				B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
+				B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */,
+				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1242,11 +1368,11 @@
 				B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */,
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
-				B84F1F58154A2BFE0038AEE0 /* CWLinkedListTests.m in Sources */,
-				B86357A11561495400EF09BA /* CWDoublyLinkedListTests.m in Sources */,
+				B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */,
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
-				B85DB09215C9738E00E51890 /* CWAVLTreeTests.m in Sources */,
 				B8CE2C3415FF7CB40004D8D1 /* CWFixedQueueTests.m in Sources */,
+				B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */,
+				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1289,9 +1415,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+=======
+>>>>>>> upstream/master
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1318,7 +1447,15 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = Info.plist;
+<<<<<<< HEAD
 				INSTALL_PATH = "@loader_path/Frameworks";
+=======
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External/Specta\"",
+				);
+>>>>>>> upstream/master
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = Zangetsu;
@@ -1333,9 +1470,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+=======
+>>>>>>> upstream/master
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1359,7 +1499,15 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = Info.plist;
+<<<<<<< HEAD
 				INSTALL_PATH = "@loader_path/Frameworks";
+=======
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External/Specta\"",
+				);
+>>>>>>> upstream/master
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -1375,9 +1523,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+=======
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
+>>>>>>> upstream/master
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -1392,6 +1550,7 @@
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
@@ -1407,12 +1566,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+=======
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
+>>>>>>> upstream/master
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1425,9 +1595,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+=======
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
+>>>>>>> upstream/master
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -1442,6 +1622,7 @@
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
@@ -1458,9 +1639,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+<<<<<<< HEAD
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+=======
+>>>>>>> upstream/master
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1487,7 +1671,15 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = Info.plist;
+<<<<<<< HEAD
 				INSTALL_PATH = "@loader_path/Frameworks";
+=======
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External/Specta\"",
+				);
+>>>>>>> upstream/master
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = Zangetsu;
@@ -1657,7 +1849,7 @@
 		B8F5E66F12A02EB700E58C94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -1668,12 +1860,14 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib\"",
+					"\"$(SRCROOT)/External/Expecta\"",
+					"\"$(SRCROOT)/External/Specta\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
@@ -1685,6 +1879,7 @@
 					Cocoa,
 					"-framework",
 					SenTestingKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "Unit Tests";
 				WRAPPER_EXTENSION = octest;
@@ -1694,7 +1889,7 @@
 		B8F5E67012A02EB700E58C94 /* Analyze */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
@@ -1702,12 +1897,14 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib\"",
+					"\"$(SRCROOT)/External/Expecta\"",
+					"\"$(SRCROOT)/External/Specta\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
@@ -1719,6 +1916,7 @@
 					Cocoa,
 					"-framework",
 					SenTestingKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "Unit Tests";
 				WRAPPER_EXTENSION = octest;
@@ -1728,7 +1926,7 @@
 		B8F5E67112A02EB700E58C94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -1738,12 +1936,14 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_PREFIX_HEADER = "Source/Zangetsu-UnitTestsOSX.pch";
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib\"",
+					"\"$(SRCROOT)/External/Expecta\"",
+					"\"$(SRCROOT)/External/Specta\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
@@ -1755,6 +1955,7 @@
 					Cocoa,
 					"-framework",
 					SenTestingKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "Unit Tests";
 				WRAPPER_EXTENSION = octest;

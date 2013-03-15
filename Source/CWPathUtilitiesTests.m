@@ -9,54 +9,47 @@
 
 #import "CWPathUtilitiesTests.h"
 #import "CWPathUtilities.h"
-#import "CWAssertionMacros.h"
 
-@implementation CWPathUtilitiesTests
+SpecBegin(CWPathUtilities)
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
+describe(@"+pathByAppendingHomeFolderPath", ^{
+	it(@"should correctly get the home folder path & append a value to it", ^{
+		NSString *homePath1 = [@"~/Documents/Test" stringByExpandingTildeInPath];
+		NSString *homePath2 = [CWPathUtilities pathByAppendingHomeFolderPath:@"Documents/Test"];
+		
+		expect(homePath1).to.equal(homePath2);
+	});
+});
 
--(void)testAppendHomePath
-{
-    NSString *homePath1 = [@"~/Documents/Test" stringByExpandingTildeInPath];
-    NSString *homePath2 = [CWPathUtilities pathByAppendingHomeFolderPath:@"Documents/Test"];
+describe(@"+documentsFolderPathForFile", ^{
+	it(@"should correctly return the expected path in the Documents folder", ^{
+		NSString *documentPath1 = [@"~/Documents/Test.txt" stringByExpandingTildeInPath];
+		NSString *documentPath2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
+		
+		expect(documentPath1).to.equal(documentPath2);
+	});
+});
+
+describe(@"CWFullPathFromTildeString", ^{
+	it(@"should return a non nil path for a valid path", ^{
+		expect(CWFullPathFromTildeString(@"~/Documents")).notTo.beNil();
+	});
 	
-	CWAssertEqualsStrings(homePath1, homePath2);
-}
+	it(@"should return nil for invalid paths", ^{
+		expect(CWFullPathFromTildeString(@"~/Quizzyjimbo1135599887658-111765")).to.beNil();
+	});
+});
 
--(void)testDocumentFolderPath
-{
-    NSString *documentPath1 = [@"~/Documents/Test.txt" stringByExpandingTildeInPath];
-    NSString *documentPath2 = [CWPathUtilities documentsFolderPathForFile:@"Test.txt"];
-    
-	CWAssertEqualsStrings(documentPath1, documentPath2);
-}
+describe(@"+temporaryFilePath", ^{
+	it(@"should always return a unique temporary path", ^{
+		NSString *path1 = [CWPathUtilities temporaryFilePath];
+		NSString *path2 = [CWPathUtilities temporaryFilePath];
+		NSString *path3 = [CWPathUtilities temporaryFilePath];
+		
+		expect(path1).notTo.equal(path2);
+		expect(path1).notTo.equal(path3);
+		expect(path2).notTo.equal(path3);
+	});
+});
 
--(void)testExpandTildeFunction
-{
-	STAssertNil(CWFullPathFromTildeString(@"~/Quizzyjimbo1135599887658-111765"), @"This directory shouldn't exist");
-	STAssertNotNil(CWFullPathFromTildeString(@"~/Documents"), @"Documents folder should be present on all installs");
-}
-
--(void)testTemporaryPath
-{
-	NSString *path1 = [CWPathUtilities temporaryFilePath];
-	NSString *path2 = [CWPathUtilities temporaryFilePath];
-	NSString *path3 = [CWPathUtilities temporaryFilePath];
-	
-	CWAssertNotEqualsObjects(path1, path2, @"Paths should not be the same");
-	CWAssertNotEqualsObjects(path1, path3, @"Paths should not be the same");
-	CWAssertNotEqualsObjects(path2, path3, @"Paths should not be the same");
-}
-
-- (void)tearDown {
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd

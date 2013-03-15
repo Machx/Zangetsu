@@ -10,38 +10,24 @@
 #import "CWURLTests.h"
 #import <Zangetsu/Zangetsu.h>
 
-static NSString * const kAppleURLString = @"http://www.apple.com";
+SpecBegin(CWNSURLAddition)
 
-@implementation CWURLAdditionTests
-
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
-
--(void)testCWURL
-{
-	NSURL *appleURL = CWURL(kAppleURLString);
+describe(@"CWURL()", ^{
+	NSString * const kAppleURLString = @"http://www.apple.com";
 	
-	STAssertTrue([appleURL isEqual:[NSURL URLWithString:kAppleURLString]], @"2 URL objects should have the same value");
-}
-
--(void)testCWURLV
-{
-	NSURL *appleURL2 = CWURL(@"%@/%@",kAppleURLString,@"macosx");
+	it(@"should produce a URL idental to one created by Cocoa API", ^{
+		NSURL *appleURL = CWURL(kAppleURLString);
+		NSURL *systemURL = [NSURL URLWithString:kAppleURLString];
+		
+		expect(appleURL).to.equal(systemURL);
+	});
 	
-	NSString *urlString = [NSString stringWithFormat:@"%@/%@",kAppleURLString,@"macosx"];
-	
-	STAssertTrue([appleURL2 isEqual:[NSURL URLWithString:urlString]], @"2 URL objects should have the same value");
-}
+	it(@"should work with va arguments", ^{
+		NSURL *appleURL2 = CWURL(@"%@/%@",kAppleURLString,@"macosx");
+		NSString *urlString = [NSString stringWithFormat:@"%@/%@",kAppleURLString,@"macosx"];
+		
+		expect(appleURL2).to.equal([NSURL URLWithString:urlString]);
+	});
+});
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd

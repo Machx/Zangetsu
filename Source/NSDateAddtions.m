@@ -11,30 +11,34 @@
 
 @implementation NSDate (CWNSDateAddtions)
 
--(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes usingCalendar:(NSCalendar *)dateCal
-{
+-(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes
+					usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setMinute:minutes];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
-	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];	
-	return date;
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
+	return [calendar dateByAddingComponents:components
+									 toDate:self
+									options:0];
 }
 
--(NSDate *)cw_dateByAddingHours:(NSInteger)hours usingCalendar:(NSCalendar *)dateCal
-{
+-(NSDate *)cw_dateByAddingHours:(NSInteger)hours
+				  usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setHour:hours];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
-	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
-	return date;
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
+	return [calendar dateByAddingComponents:components
+									 toDate:self
+									options:0];
 }
 
--(NSDate *)cw_dateByAddingDays:(NSInteger)days usingCalendar:(NSCalendar *)dateCal {
+-(NSDate *)cw_dateByAddingDays:(NSInteger)days
+				 usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
 	[components setDay:days];
-	NSCalendar *calendar = (dateCal) ? dateCal : [NSCalendar currentCalendar];
-	NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
-	return date;
+	NSCalendar *calendar = (dateCal ? dateCal : [NSCalendar currentCalendar]);
+	return [calendar dateByAddingComponents:components
+									 toDate:self
+									options:0];
 }
 
 @end

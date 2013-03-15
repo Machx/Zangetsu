@@ -22,6 +22,7 @@
 BOOL CWClassExists(NSString * class);
 
 /**
+<<<<<<< HEAD
  Returns a NSString value of 'YES' or 'NO' corresponding to the bool value passed in
  
  @param value a BOOL value of YES or NO
@@ -33,13 +34,25 @@ NSString *CWBOOLString(BOOL value);
  
  @param preString the string to be prepended on the unique string
  @return a string containing the preString argument prepended onto a unique string value	*/
+=======
+ Returns a unique NSString prepended by the passed in string
+ 
+ @param preString the string to be prepended on the unique string
+ @return NSString with a UUID String prepended with the prestring argument
+ */
+>>>>>>> upstream/master
 NSString *CWUUIDStringPrependedWithString(NSString *preString);
 
 /**
  Returns a unique c string prepended by the passed in string
  
  @param preString the string to be prepended on the unique string
+<<<<<<< HEAD
  @return a string containing the preString argument prepended onto a unique string value	*/
+=======
+ @return C String with a UUID String prepended with the prestring argument
+ */
+>>>>>>> upstream/master
 const char *CWUUIDCStringPrependedWithString(NSString *preString);
 
 /**
@@ -49,13 +62,13 @@ const char *CWUUIDCStringPrependedWithString(NSString *preString);
 void CWNextRunLoop(dispatch_block_t block);
 
 /**
- Inspired by println in Go, Prints all the variables (space seperated) to NSLog()
+ Inspired by println in Go, Prints all the variables, space seperated,to NSLog()
  
  @args all the variables you want printed to NSLog()	*/
 void CWPrintLine(NSArray *args);
 
 /**
- Inspired by println in Go, Prints all the variables (space seperated) with a newline appended to printf()
+ Inspired by println in Go, Prints all the variable, space separated, to printf
  
  @args all the variables you want printed to printf()	*/
 void CWPrintfLine(NSArray *args);

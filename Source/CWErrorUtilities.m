@@ -9,9 +9,9 @@
 
 #import "CWErrorUtilities.h"
 
-NSError * CWCreateError(NSString * domain, NSInteger errorCode,
-						NSString * errorMessageFormat, ...)
-{
+NSError * CWCreateError(NSString * domain,
+						NSInteger errorCode,
+						NSString * errorMessageFormat, ...) {
     va_list args;
     va_start(args, errorMessageFormat);
     NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
@@ -21,14 +21,14 @@ NSError * CWCreateError(NSString * domain, NSInteger errorCode,
 	return CWCreateErrorWithUserInfo(domain, errorCode, nil, fullErrorMessage);
 }
 
-NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode,
+NSError * CWCreateErrorWithUserInfo(NSString * domain,
+									NSInteger errorCode,
 									NSDictionary *info,
-									NSString * errorMessageFormat, ...)
-{
+									NSString * errorMessageFormat, ...) {
     NSCParameterAssert(errorMessageFormat);
     NSCParameterAssert(errorCode);
 	
-    NSString * _domain = (domain) ? domain : kCWErrorDomain;
+    NSString * _domain = (domain ? domain : kCWErrorDomain);
 	
     va_list args;
     va_start(args, errorMessageFormat);
@@ -38,18 +38,16 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain, NSInteger errorCode,
 	
 	NSMutableDictionary *_errorDictionary = [NSMutableDictionary new];
 	[_errorDictionary addEntriesFromDictionary:@{ NSLocalizedDescriptionKey : completeErrorMessage }];
-	if (info) {
-		[_errorDictionary addEntriesFromDictionary:info];
-	}
+	if (info) [_errorDictionary addEntriesFromDictionary:info];
 	
     return [NSError errorWithDomain:_domain
                                code:errorCode
                            userInfo:_errorDictionary];
 }
 
-void CWLogErrorInfo(NSString * domain, NSInteger errorCode,
-					NSString * errorMessageFormat, ...)
-{
+void CWLogErrorInfo(NSString * domain,
+					NSInteger errorCode,
+					NSString * errorMessageFormat, ...) {
 	va_list args;
     va_start(args, errorMessageFormat);
     NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
@@ -58,4 +56,29 @@ void CWLogErrorInfo(NSString * domain, NSInteger errorCode,
 	
 	NSError *error = CWCreateError(domain, errorCode, fullErrorMessage);
 	CWLogError(error);
+}
+
+void CWErrorSet(NSString *domain,
+				NSInteger errorCode,
+				NSString *errorMessageFormat,
+				NSError **error) {
+	CWErrorSetV(domain, errorCode, errorMessageFormat, nil, error);
+}
+
+void CWErrorSetV(NSString *domain,
+				 NSInteger errorCode,
+				 NSString *errorMessageFormat,
+				 NSDictionary *userInfo,
+				 NSError **error) {
+	if (error) *error = CWCreateErrorWithUserInfo(domain, errorCode, userInfo, errorMessageFormat);
+}
+
+BOOL CWErrorTrap(BOOL cond,
+				NSError *(^errorBlock)(void),
+				NSError **error) {
+	if (cond) {
+		if(error) *error = errorBlock();
+		return YES;
+	}
+	return NO;
 }

@@ -8,8 +8,3 @@
  	*/
 
 #import <SenTestingKit/SenTestingKit.h>
-
-
-@interface CWNSStringTests : SenTestCase {}
-
-@end

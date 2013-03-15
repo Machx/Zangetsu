@@ -17,8 +17,7 @@
 
 @implementation CWBlockTimer
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
 		_internalTimer = nil;
@@ -29,8 +28,7 @@
 
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
 							   repeats:(BOOL)repeats
-								 block:(dispatch_block_t)block
-{
+								 block:(dispatch_block_t)block {
 	NSParameterAssert(block);
 	
 	CWBlockTimer *timer = [CWBlockTimer new];
@@ -43,23 +41,19 @@
 	return timer;
 }
 
--(void)fire
-{
+-(void)fire {
 	[self _invokeBlock:self.internalTimer];
 }
 
--(void)invalidate
-{
+-(void)invalidate {
 	[self.internalTimer invalidate];
 }
 
--(BOOL)isValid
-{
-	return [self.internalTimer isValid];
+-(BOOL)isValid {
+	return self.internalTimer.isValid;
 }
 				   
--(void)_invokeBlock:(NSTimer *)timer
-{
+-(void)_invokeBlock:(NSTimer *)timer {
 	if (self.invocationBlock && [timer isEqual:self.internalTimer]) {
 		self.invocationBlock();
 	} else {
@@ -67,8 +61,7 @@
 	}
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	[_internalTimer invalidate];
 }
 

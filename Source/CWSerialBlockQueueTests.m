@@ -7,13 +7,11 @@
 //
 
 #import "CWSerialBlockQueueTests.h"
-#import "CWAssertionMacros.h"
 #import "CWSerialBlockQueue.h"
 
-@implementation CWSerialBlockQueueTests
+SpecBegin(CWSerialBlockQueue)
 
--(void)testBasicBlockExecution
-{
+it(@"should enqueue an operation and execute it right away", ^{
 	NSString *goodResult = @"Hello World!";
 	__block NSString *result = nil;
 	
@@ -21,49 +19,94 @@
 		result = @"Hello World!";
 	}];
 	
-	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithLabel:nil andBlockOperationObjects:[NSArray arrayWithObject:op]];
+	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] initWithLabel:nil];
+	[queue addBlockOperation:op];
 	
-	[queue waitUntilAllBlocksHaveProcessed];
-	
-	CWAssertEqualsStrings(result, goodResult);
-}
+	expect(result).will.equal(goodResult);
+});
 
--(void)testAddOperationWithBlock
-{
-	NSString *goodResult = @"Hello There!";
-	__block NSString *result = nil;
-	
-	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
-	
-	[queue addOperationwithBlock:^{
-		result = @"Hello There!";
-	}];
-	
-	[queue waitUntilAllBlocksHaveProcessed];
-	
-	CWAssertEqualsStrings(result, goodResult);
-}
+describe(@"-addOperationWithBlock", ^{
+	it(@"should execute an operation asap", ^{
+		NSString *goodResult = @"Hello There!";
+		__block NSString *result = nil;
+		
+		CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+		[queue addOperationwithBlock:^{
+			result = @"Hello There!";
+		}];
+		
+		expect(result).will.equal(goodResult);
+	});
+});
 
--(void)testSuspension
-{
-	NSString *goodResult = @"001100010010011110100001101101110011";
-	__block NSString *result = nil;
-	
-	CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
-	
-	[queue suspend];
-	
-	[queue addOperationwithBlock:^{
-		result = [goodResult copy];
-	}];
-	
-	STAssertNil(result,@"block should not have run yet, so result should be nil");
-	
-	[queue resume];
-	
-	[queue waitUntilAllBlocksHaveProcessed];
-	
-	CWAssertEqualsStrings(goodResult, result);
-}
+describe(@"-suspend", ^{
+	it(@"should suspend executing blocks on the queue", ^{
+		NSString *goodResult = @"001100010010011110100001101101110011";
+		__block NSString *result = nil;
+		CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+		
+		[queue suspend];
+		[queue addOperationwithBlock:^{
+			result = [goodResult copy];
+		}];
+		
+		expect(result).to.beNil();
+		
+		[queue resume];
+		
+		expect(result).will.equal(goodResult);
+	});
+});
 
-@end
+describe(@"-waitUntilAllBlocksHaveProcessed", ^{
+	it(@"should wait until all operations have finished before resuming", ^{
+		CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+		
+		__block NSUInteger count = 0;
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			//just to introduce a slight delay
+			for(uint i = 0; i < 10000; i++) { TRUE; }
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue waitUntilAllBlocksHaveProcessed];
+		expect(count == 3).to.beTruthy();
+	});
+});
+
+describe(@"-executeOnceAllBlocksHaveFinished", ^{
+	it(@"should only execute the block once all of them have finished", ^{
+		CWSerialBlockQueue *queue = [[CWSerialBlockQueue alloc] init];
+		
+		__block NSUInteger count = 0;
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			//just to introduce a slight delay
+			for(uint i = 0; i < 10000; i++) { TRUE; }
+			count++;
+		}];
+		
+		[queue addOperationwithBlock:^{
+			count++;
+		}];
+		
+		[queue executeWhenAllBlocksHaveFinished:^{
+			expect(count == 3).to.beTruthy();
+		}];
+	});
+});
+
+SpecEnd

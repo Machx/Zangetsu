@@ -23,7 +23,6 @@
 		center.persistentStoreCoordinator = [[NSApp delegate] persistentStoreCoordinator];
 #endif
 	});
-	
 	return center;
 }
 

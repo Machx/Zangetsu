@@ -8,48 +8,46 @@
 
 #import "CWTrieTests.h"
 #import "CWTrie.h"
-#import "CWAssertionMacros.h"
 
-@implementation CWTrieTests
+static CWTrie *trie = nil;
 
--(void)testBasicSetAndFind
-{
-	CWTrie *aTrie = [[CWTrie alloc] init];
-	
+SpecBegin(CWTrie)
+
+beforeAll(^{
+	trie = [CWTrie new];
+});
+
+it(@"should be able to set & retrieve values for keys", ^{	
 	NSString *aKey = @"Hello";
 	NSString *aValue = @"World";
-	
-	[aTrie setObjectValue:aValue forKey:aKey];
+	[trie setObjectValue:aValue forKey:aKey];
 	
 	//find key that does exist
-	NSString *foundValue = [aTrie objectValueForKey:aKey];
-	CWAssertEqualsStrings(aValue, foundValue);
+	NSString *foundValue = [trie objectValueForKey:aKey];
+	expect(foundValue).to.equal(aValue);
 	
 	//return nil for key that doesn't exist
-	STAssertNil([aTrie objectValueForKey:@"Foobar"],@"key doesn't exist in this trie");
-	STAssertNil([aTrie objectValueForKey:nil],@"should return nil for nil key");
-}
+	expect([trie objectValueForKey:@"Foodbar"]).to.beNil();
+	expect([trie objectValueForKey:nil]).to.beNil();
+});
 
--(void)testTrieCaseSensitivity
-{
-	CWTrie *trie = [[CWTrie alloc] init];
+it(@"shouldn't distinguish between uppercase & lowercase if set to", ^{
 	trie.caseSensitive = NO;
-	
 	[trie setObjectValue:@"Bender" forKey:@"Fry"];
 	
-	CWAssertEqualsStrings([trie objectValueForKey:@"Fry"], @"Bender");
-	CWAssertEqualsStrings([trie objectValueForKey:@"FRY"], @"Bender");
-}
+	expect([trie objectValueForKey:@"Fry"]).to.equal(@"Bender");
+	expect([trie objectValueForKey:@"FRY"]).to.equal(@"Bender");
+	expect([trie objectValueForKey:@"fRy"]).to.equal(@"Bender");
+});
 
--(void)testRemoveValueForKey
-{
-	CWTrie *trie = [[CWTrie alloc] init];
-	
+it(@"should remove values for keys", ^{
 	[trie setObjectValue:@"Bender" forKey:@"Fry"];
-	CWAssertEqualsStrings([trie objectValueForKey:@"Fry"], @"Bender");
+	
+	expect([trie objectValueForKey:@"Fry"]).to.equal(@"Bender");
 	
 	[trie removeObjectValueForKey:@"Fry"];
-	STAssertNil([trie objectValueForKey:@"Fry"],@"Should be nil if removeObjectValueForKey: works");
-}
+	
+	expect([trie objectValueForKey:@"Fry"]).to.beNil();
+});
 
-@end
+SpecEnd

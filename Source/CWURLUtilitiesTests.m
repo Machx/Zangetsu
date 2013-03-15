@@ -8,22 +8,21 @@
 
 #import "CWURLUtilitiesTests.h"
 #import <Zangetsu/Zangetsu.h>
-#import "CWAssertionMacros.h"
 
-@implementation CWURLUtilitiesTests
+SpecBegin(CWURLUtilities)
 
--(void)testBasicBase64AuthHeader
-{
-	NSString *authorizationHeaderString = CWURLAuthorizationHeaderString(@"TestAccount", @"TestPassword");
-	NSString *const goodResultString = @"Basic VGVzdEFjY291bnQ6VGVzdFBhc3N3b3Jk";
+describe(@"CWURLAuthorizationHeaderString()", ^{
+	it(@"should create an expected result from a given input", ^{
+		NSString *authorizationHeaderString = CWURLAuthorizationHeaderString(@"TestAccount", @"TestPassword");
+		NSString *const goodResultString = @"Basic VGVzdEFjY291bnQ6VGVzdFBhc3N3b3Jk";
+		
+		expect(authorizationHeaderString).to.equal(goodResultString);
+	});
 	
-	CWAssertEqualsStrings(authorizationHeaderString, goodResultString);
-}
+	it(@"should return nil when either username or password is nil", ^{
+		expect(CWURLAuthorizationHeaderString(nil, @"TestPassword")).to.beNil();
+		expect(CWURLAuthorizationHeaderString(@"Test Account", nil)).to.beNil();
+	});
+});
 
--(void)testBase64AuthHeaderWithNilData
-{
-	STAssertNil(CWURLAuthorizationHeaderString(nil, @"TestPassword"), @"Returned String should be nil");
-	STAssertNil(CWURLAuthorizationHeaderString(@"Test Account", nil), @"Returned String should be nil");
-}
-
-@end
+SpecEnd

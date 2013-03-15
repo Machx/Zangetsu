@@ -8,8 +8,3 @@
  	*/
 
 #import <SenTestingKit/SenTestingKit.h>
-
-
-@interface CWURLAdditionTests : SenTestCase
-
-@end

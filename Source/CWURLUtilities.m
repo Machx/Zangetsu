@@ -11,8 +11,7 @@
 
 static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
-NSURL *CWURL(NSString * urlFormat,...)
-{
+NSURL *CWURL(NSString * urlFormat,...) {
     NSCParameterAssert(urlFormat);
 	
 	va_list args;
@@ -24,8 +23,7 @@ NSURL *CWURL(NSString * urlFormat,...)
     return _urlValue;
 }
 
-NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password)
-{
+NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	if (login == nil) {
 		CWLogErrorInfo(kCWURLUtiltyErrorDomain, 404,
 					   @"Required Login string was nil");
@@ -49,8 +47,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password)
 
 @implementation CWURLUtilities
 
-+ (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code
-{
++ (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
     if (localizedMessage) {
         return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);

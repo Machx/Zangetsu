@@ -38,8 +38,16 @@ static const NSInteger kPidNotFound = -1;
  Searches for all the applications listed as running and if the application is
  running then it returns the apps bundle identifier, otherwise returns nil.
  
+<<<<<<< HEAD
  @param appName a NSString with the name of the application whose bundle identifier you want
  @return a NSString with the bundle identifier of the app name passed in or nil if the app isn't running	*/
+=======
+ @param appName a NSString with the name of the application whose bundle 
+ identifier you want
+ @return a NSString with the bundle identifier of the app name passed in or nil 
+ if the app isn't running
+ */
+>>>>>>> upstream/master
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName;
 
 /**
@@ -49,17 +57,32 @@ static const NSInteger kPidNotFound = -1;
  this returns the NSRunningApplication intance corresponding to that particular
  application.
  
+<<<<<<< HEAD
  @param appName a NSString with the name of the application whose corresponding NSRunningApplication you want
  @return the NSRunningApplication instance corresponding to appName, otherwise nil	*/
+=======
+ @param appName a NSString with the name of the application whose corresponding 
+ NSRunningApplication you want
+ @return the NSRunningApplication instance corresponding to appName, else nil
+ */
+>>>>>>> upstream/master
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
 
 /**
- Returns the NSImage Icon for the Application corresponding to appname if its running
+ Returns the Icon for the Application corresponding to appname if its running
  
- Searches all the running applications and if it finds an application with the same name
- returns a reference to the particular applications icon in NSImage form.
+ Searches all the running applications and if it finds an application with the 
+ same name returns a reference to the particular applications icon in NSImage 
+ form.
  
+<<<<<<< HEAD
  @param appName a NSString representing the application whose instance you want its icon data
  @return a NSImage corresponding to appName, otherwise nil	*/
+=======
+ @param appName a NSString representing the application whose instance you want 
+ its icon data
+ @return a NSImage corresponding to appName, otherwise nil
+ */
+>>>>>>> upstream/master
 +(NSImage *)iconForApplication:(NSString *)appName;
 @end

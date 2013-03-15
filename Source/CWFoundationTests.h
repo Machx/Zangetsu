@@ -8,7 +8,3 @@
  	*/
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface CWFoundationTests : SenTestCase
-
-@end

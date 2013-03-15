@@ -9,8 +9,7 @@
 
 @implementation NSString (CWNSStringAdditions)
 
-+(NSString *)cw_uuidString
-{
++(NSString *)cw_uuidString {
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
 	CFRelease(uid);
@@ -18,9 +17,7 @@
 }
 
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                              usingBlock:(void (^)(NSString *substring))block
-{
-	//making sure we get a unique queue label
+                              usingBlock:(void (^)(NSString *substring))block {
 	dispatch_group_t group = dispatch_group_create();
 	const char *queueLabel = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSString_");
 	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
@@ -28,7 +25,7 @@
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
 							 options:options
 						  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclRange, BOOL *stop){
-							  dispatch_group_async(group, queue, ^ {
+							  dispatch_group_async(group, queue, ^{
 								  block(substring);
 							  });
 	 }];
@@ -38,11 +35,9 @@
 	dispatch_release(queue);
 }
 
--(NSString *)cw_escapeEntitiesForURL
-{
+-(NSString *)cw_escapeEntitiesForURL {
 	NSMutableString *escapedString = [NSMutableString string];
 	const char *originalString = [self UTF8String];
-	
 	while (*originalString) {
 		const unsigned char currentChar = *originalString;
 		if((( currentChar >= 'a' ) && ( currentChar <= 'z' )) ||
@@ -60,13 +55,11 @@
 		}
 		originalString++;
 	}
-	
 	return escapedString;
 }
 
-- (BOOL) cw_isNotEmptyString
-{
-	return ( [self length] > 0 );
+- (BOOL) cw_isNotEmptyString {
+	return ([self length] > 0);
 }
 
 @end

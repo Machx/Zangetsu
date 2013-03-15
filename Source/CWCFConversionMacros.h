@@ -9,8 +9,15 @@
 
 /**
  CWCFConversionMacros serves 2 purposes 
+<<<<<<< HEAD
  (1) it a reference to CoreFoundation Types that toll free bridge to Cocoa objects, as well as
  (2) a easy way to ensure that objects of the correct type are toll free bridged	*/
+=======
+ (1) it a reference to CoreFoundation Types that toll free bridge to Cocoa 
+     objects, as well as
+ (2) a easy way to ensure that objects of the correct type are toll free bridged
+ */
+>>>>>>> upstream/master
 
 #import <Foundation/Foundation.h>
 

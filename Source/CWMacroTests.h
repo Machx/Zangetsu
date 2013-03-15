@@ -9,6 +9,3 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface CWMacroTests : SenTestCase
-
-@end

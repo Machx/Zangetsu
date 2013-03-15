@@ -8,8 +8,3 @@
  	*/
 
 #import <SenTestingKit/SenTestingKit.h>
-
-
-@interface CWDateUtilitiesTests : SenTestCase
-
-@end

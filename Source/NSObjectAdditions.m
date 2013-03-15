@@ -19,35 +19,39 @@
 
 #pragma mark - Objective-C Associated Objects
 
--(id)cw_valueAssociatedWithKey:(void *)key 
-{
+-(id)cw_valueAssociatedWithKey:(void *)key {
 	return objc_getAssociatedObject(self, key);
 }
 
--(void)cw_associateValue:(id)value withKey:(void *)key
-{
+-(void)cw_associateValue:(id)value withKey:(void *)key {
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN);
 }
 
--(void)cw_associateWeakValue:(id)value withKey:(void *)key
-{
+-(void)cw_associateWeakValue:(id)value withKey:(void *)key {
 	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
 #pragma mark - Exerimental Perform with Block Methods
 
--(void)cw_performAfterDelay:(NSTimeInterval)delay withBlock:(void (^)())block
-{
+-(void)cw_performAfterDelay:(NSTimeInterval)delay
+				  withBlock:(dispatch_block_t)block {
 	[block performSelector:@selector(_cw_blockInvokeCallBack) 
 				withObject:nil 
 				afterDelay:delay];
 }
 
 /**
+<<<<<<< HEAD
  Private - Internal Implementation Method	*/
 -(void)_cw_blockInvokeCallBack
 {
 	void (^block)(void) = (id)self;
+=======
+ Private - Internal Implementation Method
+ */
+-(void)_cw_blockInvokeCallBack {
+	dispatch_block_t block = (id)self;
+>>>>>>> upstream/master
 	block();
 }
 
@@ -55,17 +59,17 @@
 
 -(void)cw_performSelector:(SEL)selector 
 			   withObject:(id)obj 
-				  onQueue:(NSOperationQueue *)queue
-{
+				  onQueue:(NSOperationQueue *)queue {
 	NSParameterAssert(queue);
-	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:selector object:obj];
+	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self
+																	 selector:selector
+																	   object:obj];
 	[queue addOperation:op];
 }
 
 -(void)cw_performSelector:(SEL)selector 
 			   withObject:(id)obj 
-			   onGCDQueue:(dispatch_queue_t)queue 
-{
+			   onGCDQueue:(dispatch_queue_t)queue {
 	dispatch_async(queue, ^{
 		[self performSelector:selector 
 				   withObject:obj 
@@ -73,8 +77,7 @@
 	});
 }
 
--(id)cw_ARCPerformSelector:(SEL)selector
-{
+-(id)cw_ARCPerformSelector:(SEL)selector {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 	return [self performSelector:selector];
@@ -83,8 +86,7 @@
 
 #pragma mark - Misc
 
--(BOOL)cw_isNotNil
-{
+-(BOOL)cw_isNotNil {
 	return YES;
 }
 

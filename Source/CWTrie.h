@@ -9,6 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const kZangetsuTrieErrorDomain = @"com.Zangetsu.CWTrie";
+
+static const NSUInteger kNilLookupCharacter = 442;
+static const NSUInteger kEmptyLookupString = 443;
+
 @interface CWTrie : NSObject
 
 /**

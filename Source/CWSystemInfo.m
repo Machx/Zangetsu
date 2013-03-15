@@ -17,21 +17,17 @@
 #pragma mark Host Version Information
 
 //private method
-+(NSDictionary *)systemVersionDictionary
-{
++(NSDictionary *)systemVersionDictionary {
 	static dispatch_once_t pred;
 	static NSDictionary *systemDictionary = nil;
 	static NSString * const kSystemVersionPlist = @"/System/Library/CoreServices/SystemVersion.plist";
-	
 	dispatch_once(&pred,^{
 		systemDictionary = [NSDictionary dictionaryWithContentsOfFile:kSystemVersionPlist];
 	});
-	
 	return systemDictionary;
 }
 
-+ (NSDictionary *) hostVersion
-{
++ (NSDictionary *) hostVersion {
     NSString *systemVersionString = [CWSystemInfo hostVersionString];
 	NSArray *versionComponents = [systemVersionString componentsSeparatedByString:@"."];
 	
@@ -43,33 +39,29 @@
 	 kCWSystemMinorVersion : versionComponents[1],
 	 kCWSystemBugFixVersion : versionComponents[2]
 	}];
-	
 	return versionDictionary;
 }
 
 
-+ (NSString *) hostVersionString
-{
++ (NSString *) hostVersionString {
     return [CWSystemInfo systemVersionDictionary][@"ProductVersion"];
 }
 
 #pragma mark - CPU Information
 
-+ (NSInteger) numberOfCPUCores
-{
++ (NSInteger) numberOfCPUCores {
     NSInteger coreCount = 0;
     size_t size = sizeof(coreCount);
-    if ( sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0) ) {
+    if (sysctlbyname("hw.ncpu", &coreCount, &size, NULL, 0)) {
         return 1;
     }
     return coreCount;
 }
 
-+(CGFloat) processorSpeed
-{
++(CGFloat) processorSpeed {
 	NSUInteger hz = 0;
 	size_t size = sizeof(hz);
-	if ( sysctlbyname("hw.cpufrequency_max", &hz, &size, NULL, 0) ) {
+	if (sysctlbyname("hw.cpufrequency_max", &hz, &size, NULL, 0)) {
 		return 1;
 	}
 	return hz * 10e-10;
@@ -77,11 +69,10 @@
 
 #pragma mark - System RAM Information
 
-+ (CGFloat) physicalRamSize
-{
++ (CGFloat) physicalRamSize {
 	NSUInteger bytes = 0;
 	size_t size = sizeof(bytes);
-	if ( sysctlbyname("hw.memsize", &bytes, &size, NULL, 0) ) {
+	if (sysctlbyname("hw.memsize", &bytes, &size, NULL, 0)) {
 		return 1;
 	}
     return bytes * 9.31323e-10;

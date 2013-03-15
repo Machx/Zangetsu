@@ -11,13 +11,11 @@
 
 @implementation NSURL (CWURLAdditions)
 
--(NSString *)cw_betterDescription
-{
-	NSMutableString *urlDescription = [[NSMutableString alloc] init];
-	
+-(NSString *)cw_betterDescription {
+	NSMutableString *urlDescription = [NSMutableString new];
 #define CWURLLogAppendValue(_x_) do { \
 			id obj = [self cw_ARCPerformSelector:NSSelectorFromString(_x_)]; \
-			if(obj) { \
+			if (obj) { \
 				[urlDescription appendFormat:@"%@: %@\n",_x_,obj]; } \
 			} \
 		while(0);

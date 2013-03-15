@@ -30,7 +30,12 @@
 @end
 
 @interface NSData (CWSHA1Utilities)
+<<<<<<< HEAD
 /**	Convience method to return the SHA1 value of the contents of a NSData object given
+=======
+/**
+ * Convience method to return the SHA1 value of the contents given
+>>>>>>> upstream/master
  *
  * @return a NSString object with the SHA1 hash of the NSData objects contents	*/
 -(NSString *)cw_sha1StringFromData;

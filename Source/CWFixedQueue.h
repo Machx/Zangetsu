@@ -73,8 +73,14 @@ typedef void (^CWFixedQueueEvictionBlock)(id evictedObject);
  @return the oldest item on the queue or nil if there are no items in the queue	*/
 -(id)dequeue;
 
+/**
+ Returns the object at the given index. This method matches NSArrays behavior.
+ */
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 
+/**
+ Sets the object at the given index. This method matches NSArrays behavior.
+ */
 -(void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
 
 /**

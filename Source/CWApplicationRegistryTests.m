@@ -15,31 +15,23 @@
  to make that it should be running, otherwise the only other application we could
  test that is guaranteed to be running is Finder	*/
 
-@implementation CWApplicationRegistryTests
+SpecBegin(CWApplicationRegistry)
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
+describe(@"+applicationIsrunning", ^{
+	it(@"should correctly identify when an app is running", ^{
+		expect([CWApplicationRegistry applicationIsRunning:@"Xcode"]).to.beTruthy();
+	});
+	
+	it(@"should correctly identify when an app is not running", ^{
+		//seriously don't ever ship an app named this
+		expect([CWApplicationRegistry applicationIsRunning:@"Hypnotoad3333455443333"]).to.beFalsy();
+	});
+});
 
--(void)testIsAppRunning
-{
-	STAssertTrue([CWApplicationRegistry applicationIsRunning:@"Xcode"], @"Xcode should be running");
-	STAssertFalse([CWApplicationRegistry applicationIsRunning:@"Hypnotoad33333345555"], @"Pretty good chance there will never be an app named this");
-}
+describe(@"+bundleIdentifierForApplicaton", ^{
+	it(@"should no return nil for valid applications", ^{
+		expect([CWApplicationRegistry bundleIdentifierForApplication:@"Xcode"]).toNot.beNil();
+	});
+});
 
--(void)testBundleIdentifierForApp
-{
-	STAssertNotNil([CWApplicationRegistry bundleIdentifierForApplication:@"Xcode"], @"bundleid should not be nil");
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd

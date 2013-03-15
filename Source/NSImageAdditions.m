@@ -31,20 +31,16 @@ THE SOFTWARE.
 
 @implementation NSImage (CWNSImageAdditions)
 
--(NSImage *)cw_imageResizedToSize:(CGSize)size
-{	
+-(NSImage *)cw_imageResizedToSize:(CGSize)size {
 	return [self cw_imageResizedToSize:size 
 			  withInterpolationQuality:kCGInterpolationHigh];
 }
 
 -(NSImage *)cw_imageResizedToSize:(CGSize)size 
-		 withInterpolationQuality:(CGInterpolationQuality)quality
-{
+		 withInterpolationQuality:(CGInterpolationQuality)quality {
 	CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)[self TIFFRepresentation], NULL);
 	CGImageRef image = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
-	
 	CGRect rect = { CGPointZero, size };
-	
 	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
 												 CGImageGetBitsPerComponent(image), 0,
 												 CGImageGetColorSpace(image), 
@@ -58,7 +54,6 @@ THE SOFTWARE.
 	
 	CGContextSetInterpolationQuality(context, quality);
 	CGContextDrawImage(context, rect, image);
-	
 	CGImageRef cgImage = CGBitmapContextCreateImage(context);
 	NSImage *nsimage = [[NSImage alloc] initWithCGImage:cgImage size:size];
 	

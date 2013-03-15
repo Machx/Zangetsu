@@ -85,6 +85,7 @@ do { \
 														 description:[NSString stringWithFormat:@"%s length is 0 (needs to be > 0)",#_x_]]; \
 	} \
 } while(0);
+<<<<<<< HEAD
 
 /**
  Throws an assertion when the objects are equal	*/
@@ -105,3 +106,5 @@ do { \
 		STFail(@"The string '%s' is not equal to the string '%s'", #string1 , #string2); \
 	} \
 }while(0)
+=======
+>>>>>>> upstream/master

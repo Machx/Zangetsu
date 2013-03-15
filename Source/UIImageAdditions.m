@@ -11,19 +11,15 @@
 
 @implementation UIImage (CWUIImageAdditions)
 
--(UIImage *)cw_imageResizedToSize:(CGSize)size
-{
-	UIImage *result = [self cw_imageResizedToSize:size 
-						 withInterpolationQuality:kCGInterpolationHigh];
-	return result;
+-(UIImage *)cw_imageResizedToSize:(CGSize)size {
+	return [self cw_imageResizedToSize:size
+			  withInterpolationQuality:kCGInterpolationHigh];
 }
 
 -(UIImage *)cw_imageResizedToSize:(CGSize)size 
-		 withInterpolationQuality:(CGInterpolationQuality)quality
-{
+		 withInterpolationQuality:(CGInterpolationQuality)quality {
 	CGImageRef image = self.CGImage;
 	CGRect rect = { CGPointZero, size };
-	
 	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
 												 CGImageGetBitsPerComponent(image), 0,
 												 CGImageGetColorSpace(image), 

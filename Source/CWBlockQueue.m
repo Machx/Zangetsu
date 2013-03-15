@@ -15,8 +15,7 @@
 
 @implementation CWBlockOperation
 
--(id)initWithBlock:(dispatch_block_t)block
-{
+-(id)initWithBlock:(dispatch_block_t)block {
 	self = [super init];
 	if (self) {
 		_operationBlock = [block copy];
@@ -25,9 +24,8 @@
 	return self;
 }
 
-+(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block
-{
-	NSParameterAssert(block);
++(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block {
+	NSParameterAssert(block != nil);
 	return [[self alloc] initWithBlock:block];
 }
 
@@ -45,8 +43,7 @@
 
 -(id)initWithQueueType:(CWBlockQueueTargetType)type 
 			concurrent:(BOOL)concurrent 
-				 label:(NSString *)label
-{
+				 label:(NSString *)label {
 	self = [super init];
 	if (self) {
 		_queue = [self _getDispatchQueueWithType:type 
@@ -56,8 +53,7 @@
 	return self;
 }
 
--(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue
-{
+-(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue {
 	self = [super init];
 	if (self) {
 		_queue = gcdQueue;
@@ -67,12 +63,10 @@
 
 -(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type 
 								  concurrent:(BOOL)concurrent 
-									andLabel:(NSString *)qLabel
-{
+									andLabel:(NSString *)qLabel {
 	dispatch_queue_t queue = NULL;
-	
 	if (type == kCWBlockQueueTargetPrivateQueue) {
-		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent) ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL;
+		dispatch_queue_attr_t queueConcurrentAttribute = (concurrent ? DISPATCH_QUEUE_CONCURRENT : DISPATCH_QUEUE_SERIAL);
 		if (qLabel) {
 			queue = dispatch_queue_create([qLabel UTF8String], queueConcurrentAttribute);
 			self.label = qLabel;
@@ -101,22 +95,15 @@
 	return queue;
 }
 
--(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue
-{
-	if (blockQueue) {
-		dispatch_set_target_queue(self.queue, [blockQueue queue]);
-	}
+-(void)setTargetCWBlockQueue:(CWBlockQueue *)blockQueue {
+	if (blockQueue) dispatch_set_target_queue(self.queue, [blockQueue queue]);
 }
 
--(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue
-{
-	if (GCDQueue) {
-		dispatch_set_target_queue(self.queue, GCDQueue);
-	}
+-(void)setTargetGCDQueue:(dispatch_queue_t)GCDQueue {
+	if (GCDQueue) dispatch_set_target_queue(self.queue, GCDQueue);
 }
 
-+(CWBlockQueue *)mainQueue
-{
++(CWBlockQueue *)mainQueue {
 	static CWBlockQueue *mainBlockQueue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -127,8 +114,7 @@
 	return mainBlockQueue;
 }
 
-+(CWBlockQueue *)globalDefaultQueue
-{
++(CWBlockQueue *)globalDefaultQueue {
 	static CWBlockQueue *gcdDefaultQueue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -139,82 +125,76 @@
 	return gcdDefaultQueue;
 }
 
-+(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block
-{
++(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block {
 	const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_TemporaryQueue_");
 	dispatch_queue_t tempQueue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	dispatch_async(tempQueue, block);
 	dispatch_release(tempQueue);
 }
 
--(void)addOperation:(CWBlockOperation *)operation
-{
+-(void)addOperation:(CWBlockOperation *)operation {
 	dispatch_async(self.queue, ^{
 		operation.operationBlock();
-		if (operation.completionBlock) {
-			operation.completionBlock();
-		}
+		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
--(void)addoperationWithBlock:(dispatch_block_t)block
-{
+-(void)addoperationWithBlock:(dispatch_block_t)block {
 	dispatch_async(self.queue, block);
 }
 
--(void)addSynchronousOperation:(CWBlockOperation *)operation
-{
+-(void)addSynchronousOperation:(CWBlockOperation *)operation {
 	dispatch_sync(self.queue, ^{
 		operation.operationBlock();
-		if (operation.completionBlock) {
-			operation.completionBlock();
-		}
+		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
--(void)addSynchronousOperationWithBlock:(dispatch_block_t)block
-{
+-(void)addSynchronousOperationWithBlock:(dispatch_block_t)block {
 	dispatch_sync(self.queue, block);
 }
 
--(void)executeWhenQueueIsFinished:(dispatch_block_t)block
-{
+-(void)executeWhenQueueIsFinished:(dispatch_block_t)block {
 	dispatch_barrier_async(self.queue,block);
 }
 
--(void)waitForQueueToFinish
-{
+-(void)waitUntilAllBlocksHaveProcessed {
 	dispatch_barrier_sync(self.queue, ^{
 		CWDebugLog(@"Queue %@ Finished",self);
 	});
 }
 
--(void)suspend
-{
+-(void)suspend {
 	dispatch_suspend(self.queue);
 }
 
--(void)resume
-{
+-(void)resume {
 	dispatch_resume(self.queue);
 }
 
 /**
+<<<<<<< HEAD
  Returns if the CWBlockQueues gcd queues are the same	*/
 -(BOOL)isEqual:(id)object
 {
 	if ([object isMemberOfClass:[self class]]) {
 		return (self.queue == [object queue]);
 	}
+=======
+ Returns if the CWBlockQueues gcd queues are the same
+ */
+-(BOOL)isEqual:(id)object {
+	if ([object isMemberOfClass:[self class]]) return (self.queue == [object queue]);
+>>>>>>> upstream/master
 	return NO;
 }
 
 -(void)dealloc
 {
-	if (self.queue != dispatch_get_main_queue() &&
-		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) &&
-		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) &&
-		self.queue != dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
+	if (( self.queue != dispatch_get_main_queue() ) &&
+		( self.queue != CWGCDPriorityQueueHigh() ) &&
+		( self.queue != CWGCDPriorityQueueNormal() ) &&
+		( self.queue != CWGCDPriorityQueueLow() )) {
 		//make sure we only release on a private queue
 		//doing this on the global concurrent queues does nothing
 		dispatch_release(_queue); 

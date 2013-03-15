@@ -10,40 +10,26 @@
 #import "CWMacroTests.h"
 #import "CWMacros.h"
 
-@implementation CWMacroTests
+SpecBegin(CWMacroTests)
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
+describe(@"test NSSET() Macro", ^{
+	it(@"should create an idental set to apples api", ^{
+		const NSString *q1 = @"All Hail Hypnotoad!";
+		const NSString *q2 = @"We just need to hit the bullseye and all the dominos will fall like a house of cards... checkmate";
+		NSSet *set1 = NSSET(q1,q2);
+		NSSet *set2 = [NSSet setWithObjects:q1,q2, nil];
+		
+		expect(set1).to.equal(set2);
+	});
+});
 
--(void)testSetMacro
-{
-    const NSString *q1 = @"All Hail Hypnotoad!";
-    const NSString *q2 = @"We just need to hit the bullseye and all the dominos will fall like a house of cards... checkmate";
-    
-    NSSet *set1 = NSSET(q1,q2);
-    NSSet *set2 = [NSSet setWithObjects:q1,q2, nil];
-    
-	STAssertEqualObjects(set1, set2, @"The 2 sets should have the same content");
-}
+describe(@"test gcdqueue macros", ^{
+	it(@"should return the proper gcd queues", ^{
+		expect(CWGCDPriorityQueueHigh() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)).to.beTruthy();
+		expect(CWGCDPriorityQueueNormal() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)).to.beTruthy();
+		expect(CWGCDPriorityQueueLow() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)).to.beTruthy();
+		expect(CWGCDPriorityQueueBackground() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)).to.beTruthy();
+	});
+});
 
--(void)testGCDQueueMacros
-{
-    //make sure our GCD macros correspond to the proper queues...
-    STAssertTrue(CWGCDQueueHigh() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), @"Queues should be the same");
-    STAssertTrue(CWGCDQueueNormal() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), @"Queues should be the same");
-    STAssertTrue(CWGCDQueueLow() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), @"Queues should be the same");
-    STAssertTrue(CWGCDQueueBackground() == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), @"Queues should be the same");
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd

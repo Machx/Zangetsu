@@ -29,63 +29,42 @@ THE SOFTWARE.
 
 #import "CWFoundation.h"
 
-BOOL CWClassExists(NSString * class)
-{
-	Class _class = NSClassFromString(class);
-	return (_class) ? YES : NO;
+BOOL CWClassExists(NSString * class) {
+	return (BOOL)NSClassFromString(class);
 }
 
-NSString *CWBOOLString(BOOL value)
-{
-    return (value) ? @"YES" : @"NO";
+NSString *CWUUIDStringPrependedWithString(NSString *preString) {
+	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
 
-
-NSString *CWUUIDStringPrependedWithString(NSString *preString)
-{
-	NSString *unqiueString = [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
-	return unqiueString;
+const char *CWUUIDCStringPrependedWithString(NSString *preString) {
+	return [CWUUIDStringPrependedWithString(preString) UTF8String];
 }
 
-const char *CWUUIDCStringPrependedWithString(NSString *preString)
-{
-	NSString *uString = CWUUIDStringPrependedWithString(preString);
-	if (uString) {
-		return [uString UTF8String];
-	}
-	return NULL;
-}
-
-void CWNextRunLoop(dispatch_block_t block)
-{
+void CWNextRunLoop(dispatch_block_t block) {
 	static dispatch_queue_t queue = nil;
-	if (!queue) {
-		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation");
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation-CWNextRunLoop");
 		queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
-	}
+	});
 	dispatch_async(queue, ^{
 		dispatch_sync(dispatch_get_main_queue(), block);
 	});
 }
 
-void CWPrintLine(NSArray *args)
-{
-	NSMutableString *printString = [[NSMutableString alloc] init];
-	
-	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[printString appendFormat:@"%@ ",obj];
+NSString *_CWPrintLineComposedString(NSArray *objects) {
+	NSMutableString *string = [NSMutableString string];
+	[objects cw_each:^(id object, NSUInteger index, BOOL *stop) {
+		[string appendFormat:@"%@ ",object];
 	}];
-	
-	NSLog(@"%@",printString);
+	return string;
 }
 
-void CWPrintfLine(NSArray *args)
-{
-	NSMutableString *printString = [[NSMutableString alloc] init];
-	
-	[args cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[printString appendFormat:@"%@ ",obj];
-	}];
-	
-	printf("%s\n",[printString UTF8String]);
+void CWPrintLine(NSArray *args) {
+	NSLog(@"%@",_CWPrintLineComposedString(args));
+}
+
+void CWPrintfLine(NSArray *args) {
+	printf("%s\n",[_CWPrintLineComposedString(args) UTF8String]);
 }

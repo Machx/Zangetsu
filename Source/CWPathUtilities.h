@@ -19,6 +19,7 @@
 NSString *CWFullPathFromTildeString(NSString *tildePath);
 
 @interface CWPathUtilities : NSObject
+<<<<<<< HEAD
 /**	Conveince method for returing the apps Application Support folder
  * 
  * Gets the application support folder path & appends the bundle name to get the app support folder path
@@ -51,14 +52,63 @@ NSString *CWFullPathFromTildeString(NSString *tildePath);
  *
  * @param subpath the path to be appended onto the home folder path
  * @return a NSString with the path within the home folder path	*/
+=======
+/**
+  Conveince method for returing the apps Application Support folder
+  
+  Gets the application support folder path & appends the bundle name to get the
+  app support folder path for the application its being used in. The path 
+  returned is not guaranteed to exist.
+  
+  @return NSString with the Application Support Folder Path for this application
+ */
++(NSString *)applicationSupportFolder;
+
+/**
+ Returns a path including a subpath (path) in the app support folder
+ 
+ Returns the path including a subpath in the application support folder for the
+ current app. The path returned is not guaranteed to exist. 
+ 
+ @param path a subpath to be appended on to the Application Support Folder Path
+ @return NSString with path within the app support folder path to the subpath
+ */
++(NSString *)pathByAppendingAppSupportFolderWithPath:(NSString *)path;
+
+/**
+  Returns the path for a document in the Documents folder
+ 
+ Returns the document file path for a document in the users document folder.
+ The path returned is not guaranteed to exist. If file is nil then this api will
+ throw an assertion.
+ 
+ @param file the file in the document folder you are getting a path to
+ @return a NSString with the path to file inside the documents folder.
+ */
++(NSString *)documentsFolderPathForFile:(NSString *)file;
+
+/**
+  Convenience Method for returning a subpath within the home folder path
+ 
+  Returns the home folder path with a subpath appended onto the home folder path
+ 
+  @param subpath the path to be appended onto the home folder path
+  @return a NSString with the path within the home folder path
+ */
+>>>>>>> upstream/master
 +(NSString *)pathByAppendingHomeFolderPath:(NSString *)subPath;
 
 /**
  Returns a NSString path to a temporary file
  
  Uses NSTemporaryDirectory() and the cw_uuidString method to create a unique
- path for a temporary file. 
+ path for a temporary file.
  
+<<<<<<< HEAD
  @return a NSString with the full path to a temporary file with a unique name and .temp extension	*/
+=======
+ @return NSString with the full path to a temporary file with a unique name
+ */
+>>>>>>> upstream/master
 +(NSString *)temporaryFilePath;
 @end

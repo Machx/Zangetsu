@@ -34,7 +34,8 @@
 /**
  Creates a new CWBlockTimer instance intiailized with the passed in values
  
- @param interval a NSTimeInterval for how long the timer action is supposed to wait till firing
+ @param interval a NSTimeInterval for how long the timer action is supposed to 
+ wait till firing
  @param block the block to be executed when the timer fires
  @param repeats a BOOL indicating if the timer should repeat
  @return a new CWBlockTimer instance configured with the parameters passed in	*/

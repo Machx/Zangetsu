@@ -10,46 +10,17 @@
 #import "CWFoundationTests.h"
 #import "CWFoundation.h"
 #import "CWMacros.h"
-#import "CWAssertionMacros.h"
 
-@implementation CWFoundationTests
+SpecBegin(CWFoundationTests)
 
-- (void)setUp {
-    [super setUp];
-    
-    // Set-up code here.
-}
-
--(void)testClassExists
-{
-    STAssertTrue(CWClassExists(@"NSString"), @"NSString should exist");
-    STAssertFalse(CWClassExists(@"Hypnotoad"), @"Hypnotoad class shouldn't exist");
-}
-
--(void)testBoolString
-{
-    //just test the 2 bool values...
-    
-    NSString *yesString = CWBOOLString(YES);
-	CWAssertEqualsStrings(yesString, @"YES");
-    
-    NSString *noString = CWBOOLString(NO);
-	CWAssertEqualsStrings(noString, @"NO");
+describe(@"CWClassExists", ^{
+	it(@"should correctly return when classes exist", ^{
+		expect(CWClassExists(@"NSString")).to.beTruthy();
+	});
 	
-	NSString *str = @"Yes";
-	NSString *str2 = CWBOOLString([str boolValue]);
-	CWAssertEqualsStrings(str2, @"YES");
-	
-	NSString *str3 = nil;
-	NSString *str4 = CWBOOLString([str3 boolValue]);
-	CWAssertEqualsStrings(str4, @"NO");
-}
+	it(@"should currectly return when classes don't exist", ^{
+		expect(CWClassExists(@"Hypnotoad")).to.beFalsy();
+	});
+});
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-@end
+SpecEnd
