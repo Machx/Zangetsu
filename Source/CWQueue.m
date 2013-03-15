@@ -140,7 +140,7 @@ static int64_t queueCounter = 0;
 -(id)peek {
 	__block id object = nil;
 	dispatch_sync(self.queue, ^{
-		object = ((self.dataStore.count > 0) ? self.dataStore[0] : nil);
+		object = self.dataStore[0] ?: nil;
 	});
 	return object;
 }
