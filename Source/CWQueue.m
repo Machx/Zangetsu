@@ -103,7 +103,7 @@ static int64_t queueCounter = 0;
 }
 
 -(void)enqueueObjectsFromArray:(NSArray *)objects {
-	if (objects && (objects.count > 0)) {
+	if (objects.count > 0) {
 		dispatch_sync(self.queue, ^{
 			[self.dataStore addObjectsFromArray:objects];
 		});
