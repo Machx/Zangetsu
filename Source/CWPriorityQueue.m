@@ -133,16 +133,14 @@
 }
 
 -(NSUInteger)countofObjectsWithPriority:(NSUInteger)priority {
-	__block int32_t count = 0;
-	[self.storage enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+	NSIndexSet *set = [self.storage indexesOfObjectsWithOptions:NSEnumerationConcurrent
+													passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
 		//since the array is sorted if we have gone past our priority stop
 		if (((CWPriorityQueueItem *)obj).priority >  priority) *stop = YES;
-		//otherwise if the priority matches then increment count
-		if (((CWPriorityQueueItem *)obj).priority == priority) {
-			OSAtomicIncrement32(&count);
-		}
+		
+		return (((CWPriorityQueueItem *)obj).priority == priority);
 	}];
-	return (NSUInteger)count;
+	return set.count;
 }
 
 @end
