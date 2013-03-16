@@ -102,11 +102,11 @@ BOOL CWTrieNodeHasErrorForCharacter(NSString *character);
 
 BOOL CWTrieNodeHasErrorForCharacter(NSString *character) {
 	if (character == nil) {
-		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kNilLookupCharacter, @"Character to be looked up is nil");
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kNilLookupCharacterErrorCode, @"Character to be looked up is nil");
 		return YES;
 	}
 	if (![character cw_isNotEmptyString]) {
-		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kEmptyLookupString, @"Character to be looked up is an empty string");
+		TRIE_LOG_ERROR(kZangetsuTrieErrorDomain, kEmptyLookupStringErrorCode, @"Character to be looked up is an empty string");
 		return YES;
 	}
 	return NO;

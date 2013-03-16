@@ -31,8 +31,8 @@
 
 static NSString *const kZangetsuTrieErrorDomain = @"com.Zangetsu.CWTrie";
 
-static const NSUInteger kNilLookupCharacter = 442;
-static const NSUInteger kEmptyLookupString = 443;
+static const NSUInteger kNilLookupCharacterErrorCode = 442;
+static const NSUInteger kEmptyLookupStringErrorCode = 443;
 
 @interface CWTrie : NSObject
 
