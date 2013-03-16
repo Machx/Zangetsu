@@ -25,7 +25,7 @@
     return self;
 }
 
-+(instancetype)itemWithObject:(id)object
++(CWPriorityQueueItem *)itemWithObject:(id)object
 				  andPriority:(NSUInteger)priority {
 	NSParameterAssert(object);
 	CWPriorityQueueItem *queueItem = [self new];
