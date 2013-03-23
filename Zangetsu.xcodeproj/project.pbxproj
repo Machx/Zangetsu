@@ -39,6 +39,41 @@
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
 		B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8380E4013452C18009988F5 /* NSDateAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
+		B83A595216FE3565005663D7 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594416FE3565005663D7 /* CWFixedQueue.h */; };
+		B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594416FE3565005663D7 /* CWFixedQueue.h */; };
+		B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594516FE3565005663D7 /* CWFixedQueue.m */; };
+		B83A595516FE3565005663D7 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594516FE3565005663D7 /* CWFixedQueue.m */; };
+		B83A595616FE3565005663D7 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594616FE3565005663D7 /* CWLinkedList.h */; };
+		B83A595716FE3565005663D7 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594616FE3565005663D7 /* CWLinkedList.h */; };
+		B83A595816FE3565005663D7 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594716FE3565005663D7 /* CWLinkedList.m */; };
+		B83A595916FE3565005663D7 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594716FE3565005663D7 /* CWLinkedList.m */; };
+		B83A595A16FE3565005663D7 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594816FE3565005663D7 /* CWPriorityQueue.h */; };
+		B83A595B16FE3565005663D7 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594816FE3565005663D7 /* CWPriorityQueue.h */; };
+		B83A595C16FE3565005663D7 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594916FE3565005663D7 /* CWPriorityQueue.m */; };
+		B83A595D16FE3565005663D7 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594916FE3565005663D7 /* CWPriorityQueue.m */; };
+		B83A595E16FE3565005663D7 /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594A16FE3565005663D7 /* CWQueue.h */; };
+		B83A595F16FE3565005663D7 /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594A16FE3565005663D7 /* CWQueue.h */; };
+		B83A596016FE3565005663D7 /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594B16FE3565005663D7 /* CWQueue.m */; };
+		B83A596116FE3565005663D7 /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594B16FE3565005663D7 /* CWQueue.m */; };
+		B83A596216FE3565005663D7 /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594C16FE3565005663D7 /* CWStack.h */; };
+		B83A596316FE3565005663D7 /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594C16FE3565005663D7 /* CWStack.h */; };
+		B83A596416FE3565005663D7 /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594D16FE3565005663D7 /* CWStack.m */; };
+		B83A596516FE3565005663D7 /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594D16FE3565005663D7 /* CWStack.m */; };
+		B83A596616FE3565005663D7 /* CWTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594E16FE3565005663D7 /* CWTree.h */; };
+		B83A596716FE3565005663D7 /* CWTree.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594E16FE3565005663D7 /* CWTree.h */; };
+		B83A596816FE3565005663D7 /* CWTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594F16FE3565005663D7 /* CWTree.m */; };
+		B83A596916FE3565005663D7 /* CWTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594F16FE3565005663D7 /* CWTree.m */; };
+		B83A596A16FE3565005663D7 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A595016FE3565005663D7 /* CWTrie.h */; };
+		B83A596B16FE3565005663D7 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A595016FE3565005663D7 /* CWTrie.h */; };
+		B83A596C16FE3565005663D7 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A595116FE3565005663D7 /* CWTrie.m */; };
+		B83A596D16FE3565005663D7 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A595116FE3565005663D7 /* CWTrie.m */; };
+		B83A597C16FE359F005663D7 /* CWFixedQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */; };
+		B83A597D16FE359F005663D7 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597116FE359F005663D7 /* CWLinkedListTests.m */; };
+		B83A597E16FE359F005663D7 /* CWPriorityQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */; };
+		B83A597F16FE359F005663D7 /* CWQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597516FE359F005663D7 /* CWQueueTests.m */; };
+		B83A598016FE359F005663D7 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597716FE359F005663D7 /* CWStackTests.m */; };
+		B83A598116FE359F005663D7 /* CWTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597916FE359F005663D7 /* CWTreeTests.m */; };
+		B83A598216FE359F005663D7 /* CWTrieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597B16FE359F005663D7 /* CWTrieTests.m */; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -257,6 +292,34 @@
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
 		B8380E4013452C18009988F5 /* NSDateAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateAddtions.h; path = Source/NSDateAddtions.h; sourceTree = "<group>"; };
 		B8380E4113452C18009988F5 /* NSDateAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateAddtions.m; path = Source/NSDateAddtions.m; sourceTree = "<group>"; };
+		B83A594416FE3565005663D7 /* CWFixedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueue.h; path = "External/Zangetsu-Data-Structures/CWFixedQueue.h"; sourceTree = "<group>"; };
+		B83A594516FE3565005663D7 /* CWFixedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueue.m; path = "External/Zangetsu-Data-Structures/CWFixedQueue.m"; sourceTree = "<group>"; };
+		B83A594616FE3565005663D7 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = "External/Zangetsu-Data-Structures/CWLinkedList.h"; sourceTree = "<group>"; };
+		B83A594716FE3565005663D7 /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = "External/Zangetsu-Data-Structures/CWLinkedList.m"; sourceTree = "<group>"; };
+		B83A594816FE3565005663D7 /* CWPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueue.h; path = "External/Zangetsu-Data-Structures/CWPriorityQueue.h"; sourceTree = "<group>"; };
+		B83A594916FE3565005663D7 /* CWPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueue.m; path = "External/Zangetsu-Data-Structures/CWPriorityQueue.m"; sourceTree = "<group>"; };
+		B83A594A16FE3565005663D7 /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = "External/Zangetsu-Data-Structures/CWQueue.h"; sourceTree = "<group>"; };
+		B83A594B16FE3565005663D7 /* CWQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueue.m; path = "External/Zangetsu-Data-Structures/CWQueue.m"; sourceTree = "<group>"; };
+		B83A594C16FE3565005663D7 /* CWStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStack.h; path = "External/Zangetsu-Data-Structures/CWStack.h"; sourceTree = "<group>"; };
+		B83A594D16FE3565005663D7 /* CWStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStack.m; path = "External/Zangetsu-Data-Structures/CWStack.m"; sourceTree = "<group>"; };
+		B83A594E16FE3565005663D7 /* CWTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTree.h; path = "External/Zangetsu-Data-Structures/CWTree.h"; sourceTree = "<group>"; };
+		B83A594F16FE3565005663D7 /* CWTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTree.m; path = "External/Zangetsu-Data-Structures/CWTree.m"; sourceTree = "<group>"; };
+		B83A595016FE3565005663D7 /* CWTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrie.h; path = "External/Zangetsu-Data-Structures/CWTrie.h"; sourceTree = "<group>"; };
+		B83A595116FE3565005663D7 /* CWTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrie.m; path = "External/Zangetsu-Data-Structures/CWTrie.m"; sourceTree = "<group>"; };
+		B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueueTests.h; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.h"; sourceTree = "<group>"; };
+		B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueueTests.m; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.m"; sourceTree = "<group>"; };
+		B83A597016FE359F005663D7 /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = "External/Zangetsu-Data-Structures/CWLinkedListTests.h"; sourceTree = "<group>"; };
+		B83A597116FE359F005663D7 /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = "External/Zangetsu-Data-Structures/CWLinkedListTests.m"; sourceTree = "<group>"; };
+		B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueueTests.h; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.h"; sourceTree = "<group>"; };
+		B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueueTests.m; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.m"; sourceTree = "<group>"; };
+		B83A597416FE359F005663D7 /* CWQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueueTests.h; path = "External/Zangetsu-Data-Structures/CWQueueTests.h"; sourceTree = "<group>"; };
+		B83A597516FE359F005663D7 /* CWQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueueTests.m; path = "External/Zangetsu-Data-Structures/CWQueueTests.m"; sourceTree = "<group>"; };
+		B83A597616FE359F005663D7 /* CWStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStackTests.h; path = "External/Zangetsu-Data-Structures/CWStackTests.h"; sourceTree = "<group>"; };
+		B83A597716FE359F005663D7 /* CWStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStackTests.m; path = "External/Zangetsu-Data-Structures/CWStackTests.m"; sourceTree = "<group>"; };
+		B83A597816FE359F005663D7 /* CWTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTreeTests.h; path = "External/Zangetsu-Data-Structures/CWTreeTests.h"; sourceTree = "<group>"; };
+		B83A597916FE359F005663D7 /* CWTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTreeTests.m; path = "External/Zangetsu-Data-Structures/CWTreeTests.m"; sourceTree = "<group>"; };
+		B83A597A16FE359F005663D7 /* CWTrieTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrieTests.h; path = "External/Zangetsu-Data-Structures/CWTrieTests.h"; sourceTree = "<group>"; };
+		B83A597B16FE359F005663D7 /* CWTrieTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrieTests.m; path = "External/Zangetsu-Data-Structures/CWTrieTests.m"; sourceTree = "<group>"; };
 		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
@@ -800,6 +863,20 @@
 		B8AFE82314119D4000616FA4 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
+				B83A594416FE3565005663D7 /* CWFixedQueue.h */,
+				B83A594516FE3565005663D7 /* CWFixedQueue.m */,
+				B83A594616FE3565005663D7 /* CWLinkedList.h */,
+				B83A594716FE3565005663D7 /* CWLinkedList.m */,
+				B83A594816FE3565005663D7 /* CWPriorityQueue.h */,
+				B83A594916FE3565005663D7 /* CWPriorityQueue.m */,
+				B83A594A16FE3565005663D7 /* CWQueue.h */,
+				B83A594B16FE3565005663D7 /* CWQueue.m */,
+				B83A594C16FE3565005663D7 /* CWStack.h */,
+				B83A594D16FE3565005663D7 /* CWStack.m */,
+				B83A594E16FE3565005663D7 /* CWTree.h */,
+				B83A594F16FE3565005663D7 /* CWTree.m */,
+				B83A595016FE3565005663D7 /* CWTrie.h */,
+				B83A595116FE3565005663D7 /* CWTrie.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -867,6 +944,20 @@
 				B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */,
 				B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */,
 				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
+				B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */,
+				B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */,
+				B83A597016FE359F005663D7 /* CWLinkedListTests.h */,
+				B83A597116FE359F005663D7 /* CWLinkedListTests.m */,
+				B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */,
+				B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */,
+				B83A597416FE359F005663D7 /* CWQueueTests.h */,
+				B83A597516FE359F005663D7 /* CWQueueTests.m */,
+				B83A597616FE359F005663D7 /* CWStackTests.h */,
+				B83A597716FE359F005663D7 /* CWStackTests.m */,
+				B83A597816FE359F005663D7 /* CWTreeTests.h */,
+				B83A597916FE359F005663D7 /* CWTreeTests.m */,
+				B83A597A16FE359F005663D7 /* CWTrieTests.h */,
+				B83A597B16FE359F005663D7 /* CWTrieTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -921,6 +1012,13 @@
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
+				B83A595216FE3565005663D7 /* CWFixedQueue.h in Headers */,
+				B83A595616FE3565005663D7 /* CWLinkedList.h in Headers */,
+				B83A595A16FE3565005663D7 /* CWPriorityQueue.h in Headers */,
+				B83A595E16FE3565005663D7 /* CWQueue.h in Headers */,
+				B83A596216FE3565005663D7 /* CWStack.h in Headers */,
+				B83A596616FE3565005663D7 /* CWTree.h in Headers */,
+				B83A596A16FE3565005663D7 /* CWTrie.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +1063,13 @@
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
 				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
+				B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */,
+				B83A595716FE3565005663D7 /* CWLinkedList.h in Headers */,
+				B83A595B16FE3565005663D7 /* CWPriorityQueue.h in Headers */,
+				B83A595F16FE3565005663D7 /* CWQueue.h in Headers */,
+				B83A596316FE3565005663D7 /* CWStack.h in Headers */,
+				B83A596716FE3565005663D7 /* CWTree.h in Headers */,
+				B83A596B16FE3565005663D7 /* CWTrie.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,6 +1281,13 @@
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
+				B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */,
+				B83A595816FE3565005663D7 /* CWLinkedList.m in Sources */,
+				B83A595C16FE3565005663D7 /* CWPriorityQueue.m in Sources */,
+				B83A596016FE3565005663D7 /* CWQueue.m in Sources */,
+				B83A596416FE3565005663D7 /* CWStack.m in Sources */,
+				B83A596816FE3565005663D7 /* CWTree.m in Sources */,
+				B83A596C16FE3565005663D7 /* CWTrie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1215,6 +1327,13 @@
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
+				B83A595516FE3565005663D7 /* CWFixedQueue.m in Sources */,
+				B83A595916FE3565005663D7 /* CWLinkedList.m in Sources */,
+				B83A595D16FE3565005663D7 /* CWPriorityQueue.m in Sources */,
+				B83A596116FE3565005663D7 /* CWQueue.m in Sources */,
+				B83A596516FE3565005663D7 /* CWStack.m in Sources */,
+				B83A596916FE3565005663D7 /* CWTree.m in Sources */,
+				B83A596D16FE3565005663D7 /* CWTrie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,6 +1370,13 @@
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
 				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
+				B83A597C16FE359F005663D7 /* CWFixedQueueTests.m in Sources */,
+				B83A597D16FE359F005663D7 /* CWLinkedListTests.m in Sources */,
+				B83A597E16FE359F005663D7 /* CWPriorityQueueTests.m in Sources */,
+				B83A597F16FE359F005663D7 /* CWQueueTests.m in Sources */,
+				B83A598016FE359F005663D7 /* CWStackTests.m in Sources */,
+				B83A598116FE359F005663D7 /* CWTreeTests.m in Sources */,
+				B83A598216FE359F005663D7 /* CWTrieTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
