@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1701DA1A13CC9285007EE513 /* CWTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1701DA1813CC9285007EE513 /* CWTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1701DA1B13CC9285007EE513 /* CWTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1701DA1913CC9285007EE513 /* CWTree.m */; };
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
-		17967DCE13D09C590023DCCB /* CWTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17967DCD13D09C590023DCCB /* CWTreeTests.m */; };
 		17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
@@ -20,10 +17,6 @@
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
 		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
-		B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B812FF53155E043100BDC6CA /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
-		B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B812FF54155E043100BDC6CA /* CWLinkedList.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,10 +45,6 @@
 		B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B849523012CBE1CF00098684 /* CWMD5Utilities.m */; };
 		B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
-		B849840914C4724C00E799A1 /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B87A7AF4145D0EDC007A4C0D /* CWQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B849840A14C4725300E799A1 /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AF5145D0EDC007A4C0D /* CWQueue.m */; };
-		B849840B14C472BE00E799A1 /* CWTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1701DA1913CC9285007EE513 /* CWTree.m */; };
-		B849840C14C472C200E799A1 /* CWTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1701DA1813CC9285007EE513 /* CWTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B869BAFF14C3AA5A00ED2908 /* ZangetsuTouch-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
@@ -87,7 +76,6 @@
 		B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
 		B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
-		B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86357A01561495400EF09BA /* CWLinkedListTests.m */; };
 		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,7 +83,6 @@
 		B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A5142F82EE003BBF29 /* CWZLibTests.m */; };
 		B86686A214A37B4500F8A541 /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86686A014A37B4400F8A541 /* NSManagedObjectContextAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86686A314A37B4500F8A541 /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86686A114A37B4400F8A541 /* NSManagedObjectContextAdditions.m */; };
-		B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B867BBF813944FE1009BEB98 /* CWStackTests.m */; };
 		B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
 		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
@@ -106,8 +93,6 @@
 		B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArrayAdditions.m */; };
-		B869BB3214C3D2DE00ED2908 /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B869BB3314C3D2E800ED2908 /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18301138C1AF900A7EF7C /* CWStack.m */; };
 		B869BB3414C46BF600ED2908 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3514C46BFE00ED2908 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
 		B869BB3614C46C8400ED2908 /* CWFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,17 +100,9 @@
 		B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
-		B86E6101169D1F060071D187 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B86E60FD169D1F060071D187 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B86E6102169D1F060071D187 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E60FE169D1F060071D187 /* CWPriorityQueue.m */; };
-		B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */; };
-		B86E6107169D21830071D187 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B86E60FD169D1F060071D187 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E60FE169D1F060071D187 /* CWPriorityQueue.m */; };
 		B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86FC33B15BB109F009D018C /* NSURLAdditions.m */; };
 		B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B87A7AF4145D0EDC007A4C0D /* CWQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AF5145D0EDC007A4C0D /* CWQueue.m */; };
-		B87A7AFB145DB100007A4C0D /* CWQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B87A7AFA145DB100007A4C0D /* CWQueueTests.m */; };
 		B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
 		B884628516C0AD8B00EE9AF0 /* libExpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */; };
@@ -148,11 +125,6 @@
 		B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897240E1347946C00BB67CF /* CWNSDateTests.m */; };
-		B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = B897CA16153B6E1C003BAD73 /* CWTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA17153B6E1C003BAD73 /* CWTrie.m */; };
-		B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA17153B6E1C003BAD73 /* CWTrie.m */; };
-		B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897CA1D153B8610003BAD73 /* CWTrieTests.m */; };
 		B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */; };
 		B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,8 +133,6 @@
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8B77E091436065900CB3F93 /* NSOperationQueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */; };
-		B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C18300138C1AF900A7EF7C /* CWStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18301138C1AF900A7EF7C /* CWStack.m */; };
 		B8C1F9BE1426F27F0065369B /* CWBase64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */; };
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8C5B94914C484F5000E0A88 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
@@ -198,11 +168,6 @@
 		B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3881314C47BD000F6D2A8 /* Security.framework */; };
 		B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
-		B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */; };
-		B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */; };
-		B8CE2C3415FF7CB40004D8D1 /* CWFixedQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CE2C3315FF7CB40004D8D1 /* CWFixedQueueTests.m */; };
 		B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */; };
 		B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
@@ -255,13 +220,9 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		1701DA1813CC9285007EE513 /* CWTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTree.h; path = Source/CWTree.h; sourceTree = "<group>"; };
-		1701DA1913CC9285007EE513 /* CWTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTree.m; path = Source/CWTree.m; sourceTree = "<group>"; };
 		17395C7213B280EE00C900BD /* Zangetsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zangetsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilitiesTests.h; path = Source/CWPathUtilitiesTests.h; sourceTree = "<group>"; };
 		174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilitiesTests.m; path = Source/CWPathUtilitiesTests.m; sourceTree = "<group>"; };
-		17967DCC13D09C590023DCCB /* CWTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTreeTests.h; path = Source/CWTreeTests.h; sourceTree = "<group>"; };
-		17967DCD13D09C590023DCCB /* CWTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTreeTests.m; path = Source/CWTreeTests.m; sourceTree = "<group>"; };
 		17990CBB13B62D1A001DCD83 /* CWFoundationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFoundationTests.h; path = Source/CWFoundationTests.h; sourceTree = "<group>"; };
 		17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFoundationTests.m; path = Source/CWFoundationTests.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu_Prefix.pch; sourceTree = "<group>"; };
@@ -273,8 +234,6 @@
 		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
 		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
-		B812FF53155E043100BDC6CA /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = Source/CWLinkedList.h; sourceTree = "<group>"; };
-		B812FF54155E043100BDC6CA /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = Source/CWLinkedList.m; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
@@ -331,8 +290,6 @@
 		B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditionsTests.m; path = Source/NSNumberAdditionsTests.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
-		B863579F1561495400EF09BA /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = Source/CWLinkedListTests.h; sourceTree = "<group>"; };
-		B86357A01561495400EF09BA /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = Source/CWLinkedListTests.m; sourceTree = "<group>"; };
 		B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSRecursiveLockAdditions.h; path = Source/NSRecursiveLockAdditions.h; sourceTree = "<group>"; };
 		B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRecursiveLockAdditions.m; path = Source/NSRecursiveLockAdditions.m; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
@@ -341,8 +298,6 @@
 		B86367A5142F82EE003BBF29 /* CWZLibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLibTests.m; path = Source/CWZLibTests.m; sourceTree = "<group>"; };
 		B86686A014A37B4400F8A541 /* NSManagedObjectContextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSManagedObjectContextAdditions.h; path = Source/NSManagedObjectContextAdditions.h; sourceTree = "<group>"; };
 		B86686A114A37B4400F8A541 /* NSManagedObjectContextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSManagedObjectContextAdditions.m; path = Source/NSManagedObjectContextAdditions.m; sourceTree = "<group>"; };
-		B867BBF713944FE0009BEB98 /* CWStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStackTests.h; path = Source/CWStackTests.h; sourceTree = "<group>"; };
-		B867BBF813944FE1009BEB98 /* CWStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStackTests.m; path = Source/CWStackTests.m; sourceTree = "<group>"; };
 		B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAssertionMacros.h; path = Source/CWAssertionMacros.h; sourceTree = "<group>"; };
 		B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZangetsuTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B869BAFB14C3AA5A00ED2908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -355,16 +310,8 @@
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
-		B86E60FD169D1F060071D187 /* CWPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueue.h; path = Source/CWPriorityQueue.h; sourceTree = "<group>"; };
-		B86E60FE169D1F060071D187 /* CWPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueue.m; path = Source/CWPriorityQueue.m; sourceTree = "<group>"; };
-		B86E60FF169D1F060071D187 /* CWPriorityQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueueTests.h; path = Source/CWPriorityQueueTests.h; sourceTree = "<group>"; };
-		B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueueTests.m; path = Source/CWPriorityQueueTests.m; sourceTree = "<group>"; };
 		B86FC33A15BB109F009D018C /* NSURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLAdditions.h; path = Source/NSURLAdditions.h; sourceTree = "<group>"; };
 		B86FC33B15BB109F009D018C /* NSURLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLAdditions.m; path = Source/NSURLAdditions.m; sourceTree = "<group>"; };
-		B87A7AF4145D0EDC007A4C0D /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = Source/CWQueue.h; sourceTree = "<group>"; };
-		B87A7AF5145D0EDC007A4C0D /* CWQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueue.m; path = Source/CWQueue.m; sourceTree = "<group>"; };
-		B87A7AF9145DB100007A4C0D /* CWQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueueTests.h; path = Source/CWQueueTests.h; sourceTree = "<group>"; };
-		B87A7AFA145DB100007A4C0D /* CWQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueueTests.m; path = Source/CWQueueTests.m; sourceTree = "<group>"; };
 		B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugUtilities.h; path = Source/CWDebugUtilities.h; sourceTree = "<group>"; };
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
 		B884625816C0ACB200EE9AF0 /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = External/Specta/Specta.h; sourceTree = "<group>"; };
@@ -434,10 +381,6 @@
 		B89418FD132AF54500313534 /* CWRuntimeUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWRuntimeUtilities.m; path = Source/CWRuntimeUtilities.m; sourceTree = "<group>"; };
 		B897240D1347946C00BB67CF /* CWNSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSDateTests.h; path = Source/CWNSDateTests.h; sourceTree = "<group>"; };
 		B897240E1347946C00BB67CF /* CWNSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSDateTests.m; path = Source/CWNSDateTests.m; sourceTree = "<group>"; };
-		B897CA16153B6E1C003BAD73 /* CWTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrie.h; path = Source/CWTrie.h; sourceTree = "<group>"; };
-		B897CA17153B6E1C003BAD73 /* CWTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrie.m; path = Source/CWTrie.m; sourceTree = "<group>"; };
-		B897CA1C153B8610003BAD73 /* CWTrieTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrieTests.h; path = Source/CWTrieTests.h; sourceTree = "<group>"; };
-		B897CA1D153B8610003BAD73 /* CWTrieTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrieTests.m; path = Source/CWTrieTests.m; sourceTree = "<group>"; };
 		B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSColorAdditions.h; path = Source/NSColorAdditions.h; sourceTree = "<group>"; };
 		B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSColorAdditions.m; path = Source/NSColorAdditions.m; sourceTree = "<group>"; };
 		B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSImageAdditions.h; path = Source/NSImageAdditions.h; sourceTree = "<group>"; };
@@ -447,16 +390,10 @@
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8B77E061436065800CB3F93 /* NSOperationQueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSOperationQueueAdditions.h; path = Source/NSOperationQueueAdditions.h; sourceTree = "<group>"; };
 		B8B77E071436065900CB3F93 /* NSOperationQueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOperationQueueAdditions.m; path = Source/NSOperationQueueAdditions.m; sourceTree = "<group>"; };
-		B8C18300138C1AF900A7EF7C /* CWStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStack.h; path = Source/CWStack.h; sourceTree = "<group>"; };
-		B8C18301138C1AF900A7EF7C /* CWStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStack.m; path = Source/CWStack.m; sourceTree = "<group>"; };
 		B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64Tests.h; path = Source/CWBase64Tests.h; sourceTree = "<group>"; };
 		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
-		B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueue.h; path = Source/CWFixedQueue.h; sourceTree = "<group>"; };
-		B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueue.m; path = Source/CWFixedQueue.m; sourceTree = "<group>"; };
-		B8CE2C3215FF7CB40004D8D1 /* CWFixedQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueueTests.h; path = Source/CWFixedQueueTests.h; sourceTree = "<group>"; };
-		B8CE2C3315FF7CB40004D8D1 /* CWFixedQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueueTests.m; path = Source/CWFixedQueueTests.m; sourceTree = "<group>"; };
 		B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilitiesTests.h; path = Source/CWDateUtilitiesTests.h; sourceTree = "<group>"; };
 		B8D1F36313AA54630099BBDC /* CWDateUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilitiesTests.m; path = Source/CWDateUtilitiesTests.m; sourceTree = "<group>"; };
 		B8D2618715D5571100F087C4 /* CWBlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockTimer.h; path = Source/CWBlockTimer.h; sourceTree = "<group>"; };
@@ -863,20 +800,6 @@
 		B8AFE82314119D4000616FA4 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
-				B8C18300138C1AF900A7EF7C /* CWStack.h */,
-				B8C18301138C1AF900A7EF7C /* CWStack.m */,
-				1701DA1813CC9285007EE513 /* CWTree.h */,
-				1701DA1913CC9285007EE513 /* CWTree.m */,
-				B87A7AF4145D0EDC007A4C0D /* CWQueue.h */,
-				B87A7AF5145D0EDC007A4C0D /* CWQueue.m */,
-				B86E60FD169D1F060071D187 /* CWPriorityQueue.h */,
-				B86E60FE169D1F060071D187 /* CWPriorityQueue.m */,
-				B897CA16153B6E1C003BAD73 /* CWTrie.h */,
-				B897CA17153B6E1C003BAD73 /* CWTrie.m */,
-				B812FF53155E043100BDC6CA /* CWLinkedList.h */,
-				B812FF54155E043100BDC6CA /* CWLinkedList.m */,
-				B8CE2C2B15FE2F690004D8D1 /* CWFixedQueue.h */,
-				B8CE2C2C15FE2F690004D8D1 /* CWFixedQueue.m */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -922,8 +845,6 @@
 				B8F5E6E312A0355900E58C94 /* CWSetTests.m */,
 				B8072B3213894F81008F7B63 /* CWURLTests.h */,
 				B8072B3313894F81008F7B63 /* CWURLTests.m */,
-				B867BBF713944FE0009BEB98 /* CWStackTests.h */,
-				B867BBF813944FE1009BEB98 /* CWStackTests.m */,
 				B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */,
 				B884940013A13D700046194D /* CWApplicationRegistryTests.m */,
 				B8D1F36213AA54630099BBDC /* CWDateUtilitiesTests.h */,
@@ -932,30 +853,18 @@
 				17990CBC13B62D1A001DCD83 /* CWFoundationTests.m */,
 				174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */,
 				174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */,
-				17967DCC13D09C590023DCCB /* CWTreeTests.h */,
-				17967DCD13D09C590023DCCB /* CWTreeTests.m */,
 				B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */,
 				B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */,
 				B86367A4142F82EE003BBF29 /* CWZLibTests.h */,
 				B86367A5142F82EE003BBF29 /* CWZLibTests.m */,
-				B87A7AF9145DB100007A4C0D /* CWQueueTests.h */,
-				B87A7AFA145DB100007A4C0D /* CWQueueTests.m */,
 				B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */,
 				B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */,
 				B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */,
 				B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */,
 				B81CAD9F14FC2CB4009F5FD7 /* CWBlockQueueTests.h */,
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
-				B897CA1C153B8610003BAD73 /* CWTrieTests.h */,
-				B897CA1D153B8610003BAD73 /* CWTrieTests.m */,
-				B863579F1561495400EF09BA /* CWLinkedListTests.h */,
-				B86357A01561495400EF09BA /* CWLinkedListTests.m */,
 				B8590750158787EF00B8B2C4 /* CWNSColorAdditionsTests.h */,
 				B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */,
-				B8CE2C3215FF7CB40004D8D1 /* CWFixedQueueTests.h */,
-				B8CE2C3315FF7CB40004D8D1 /* CWFixedQueueTests.m */,
-				B86E60FF169D1F060071D187 /* CWPriorityQueueTests.h */,
-				B86E6100169D1F060071D187 /* CWPriorityQueueTests.m */,
 				B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */,
 				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
 			);
@@ -996,13 +905,10 @@
 				B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */,
 				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
 				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
-				B8C18302138C1AF900A7EF7C /* CWStack.h in Headers */,
-				1701DA1A13CC9285007EE513 /* CWTree.h in Headers */,
 				B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */,
 				B88EA5E81426D73B002F327B /* CWBase64.h in Headers */,
 				B86367A1142F7607003BBF29 /* CWZLib.h in Headers */,
 				B8B77E081436065900CB3F93 /* NSOperationQueueAdditions.h in Headers */,
-				B87A7AF6145D0EDC007A4C0D /* CWQueue.h in Headers */,
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
 				B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */,
 				B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */,
@@ -1011,13 +917,9 @@
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
 				B84C513514F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
-				B897CA18153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B812FF55155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
-				B8CE2C2D15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
-				B86E6101169D1F060071D187 /* CWPriorityQueue.h in Headers */,
 				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1030,13 +932,10 @@
 				B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */,
 				B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */,
 				B869BB3014C3C65E00ED2908 /* NSArrayAdditions.h in Headers */,
-				B869BB3214C3D2DE00ED2908 /* CWStack.h in Headers */,
 				B869BB3414C46BF600ED2908 /* NSObjectAdditions.h in Headers */,
 				B869BB3614C46C8400ED2908 /* CWFoundation.h in Headers */,
 				B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */,
 				B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */,
-				B849840914C4724C00E799A1 /* CWQueue.h in Headers */,
-				B849840C14C472C200E799A1 /* CWTree.h in Headers */,
 				B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */,
 				B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */,
 				B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */,
@@ -1063,12 +962,8 @@
 				B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */,
 				B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
-				B897CA19153B6E1C003BAD73 /* CWTrie.h in Headers */,
-				B812FF56155E043100BDC6CA /* CWLinkedList.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
-				B8CE2C2E15FE2F690004D8D1 /* CWFixedQueue.h in Headers */,
-				B86E6107169D21830071D187 /* CWPriorityQueue.h in Headers */,
 				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1266,13 +1161,10 @@
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
 				B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */,
 				B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */,
-				B8C18303138C1AF900A7EF7C /* CWStack.m in Sources */,
-				1701DA1B13CC9285007EE513 /* CWTree.m in Sources */,
 				B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */,
 				B88EA5E91426D73B002F327B /* CWBase64.m in Sources */,
 				B86367A2142F7607003BBF29 /* CWZLib.m in Sources */,
 				B8B77E091436065900CB3F93 /* NSOperationQueueAdditions.m in Sources */,
-				B87A7AF7145D0EDC007A4C0D /* CWQueue.m in Sources */,
 				B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */,
 				B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */,
 				B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */,
@@ -1280,13 +1172,9 @@
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
 				B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
-				B897CA1A153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B812FF57155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
-				B8CE2C2F15FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
-				B86E6102169D1F060071D187 /* CWPriorityQueue.m in Sources */,
 				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1296,13 +1184,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B869BB3114C3C66600ED2908 /* NSArrayAdditions.m in Sources */,
-				B869BB3314C3D2E800ED2908 /* CWStack.m in Sources */,
 				B869BB3514C46BFE00ED2908 /* NSObjectAdditions.m in Sources */,
 				B869BB3714C46C8B00ED2908 /* CWFoundation.m in Sources */,
 				B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */,
 				B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */,
-				B849840A14C4725300E799A1 /* CWQueue.m in Sources */,
-				B849840B14C472BE00E799A1 /* CWTree.m in Sources */,
 				B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */,
 				B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */,
 				B8E3880714C4759900F6D2A8 /* NSDateAddtions.m in Sources */,
@@ -1328,11 +1213,7 @@
 				B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */,
 				B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
-				B897CA1B153B6E1C003BAD73 /* CWTrie.m in Sources */,
-				B812FF58155E043100BDC6CA /* CWLinkedList.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
-				B8CE2C3015FE2F690004D8D1 /* CWFixedQueue.m in Sources */,
-				B86E6108169D21BD0071D187 /* CWPriorityQueue.m in Sources */,
 				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1357,25 +1238,18 @@
 				B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */,
 				B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */,
 				B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */,
-				B867BBF913944FE1009BEB98 /* CWStackTests.m in Sources */,
 				B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */,
 				B8D1F36413AA54630099BBDC /* CWDateUtilitiesTests.m in Sources */,
 				17990CBD13B62D1A001DCD83 /* CWFoundationTests.m in Sources */,
 				174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */,
-				17967DCE13D09C590023DCCB /* CWTreeTests.m in Sources */,
 				B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */,
 				B836F41514196817007B412E /* CWNSMutableArrayAdditionsTests.m in Sources */,
 				B8C1F9BE1426F27F0065369B /* CWBase64Tests.m in Sources */,
 				B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */,
-				B87A7AFB145DB100007A4C0D /* CWQueueTests.m in Sources */,
 				B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */,
 				B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */,
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
-				B897CA1E153B8610003BAD73 /* CWTrieTests.m in Sources */,
-				B86357A11561495400EF09BA /* CWLinkedListTests.m in Sources */,
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
-				B8CE2C3415FF7CB40004D8D1 /* CWFixedQueueTests.m in Sources */,
-				B86E6106169D21620071D187 /* CWPriorityQueueTests.m in Sources */,
 				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
