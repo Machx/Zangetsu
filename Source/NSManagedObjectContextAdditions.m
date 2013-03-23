@@ -51,7 +51,7 @@ static void *cwmdbg = &cwmdbg;
 		NSLog(@"MOC: %@",[self description]);
 	}
 	
-	NSLog(@"Has Changes: %@",CWBOOLString([self hasChanges]));
+	NSLog(@"Has Changes: %@",(self.hasChanges ? @"YES" : @"NO"));
 	
 	if ([self hasChanges]) {
 		if ([[self insertedObjects] count] > 0) NSLog(@"%lu Inserted Objects",(long)[[self insertedObjects] count]);
