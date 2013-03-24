@@ -4,6 +4,8 @@ Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.7 and
 
 Note: As a library for iOS 5 this project is still in the early stages of development right now. It is stable on Mac OS X, but is undergoing work to port code from Mac OS X to iOS.
 
+This project uses submodules so once you have checked it out you will need to update it with `git submodule update -i --recursive`.
+
 ## What's in Zangetsu? ##
 
 Zangetsu contains
