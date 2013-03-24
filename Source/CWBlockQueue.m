@@ -59,6 +59,8 @@
 @property(readwrite,retain) NSString *label;
 @end
 
+static int64_t count = 0;
+
 @implementation CWBlockQueue
 
 -(id)initWithQueueType:(CWBlockQueueTargetType)type 
@@ -91,7 +93,7 @@
 			queue = dispatch_queue_create([qLabel UTF8String], queueConcurrentAttribute);
 			self.label = qLabel;
 		} else {
-			NSString *aLabel = CWUUIDStringPrependedWithString(@"com.Zangetsu.CWBlockQueue_");
+			NSString *aLabel = [NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_%lli",OSAtomicIncrement64(&count)];
 			queue = dispatch_queue_create([aLabel UTF8String], queueConcurrentAttribute);
 			self.label = aLabel;
 		}
