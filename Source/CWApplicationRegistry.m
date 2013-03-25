@@ -84,18 +84,4 @@
     return appInstance;
 }
 
-+(NSImage *)iconForApplication:(NSString *)appName {
-    __block NSImage *appIcon = nil;
-    NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		NSRunningApplication *app = (NSRunningApplication *)obj;
-		
-		if ([[app localizedName] isEqualToString:appName]) {
-			appIcon = [app icon];
-			*stop = YES;
-		}
-	}];
-    return appIcon;
-}
-
 @end

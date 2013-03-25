@@ -80,16 +80,4 @@ static const NSInteger kPidNotFound = -1;
  */
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
 
-/**
- Returns the Icon for the Application corresponding to appname if its running
- 
- Searches all the running applications and if it finds an application with the 
- same name returns a reference to the particular applications icon in NSImage 
- form.
- 
- @param appName a NSString representing the application whose instance you want 
- its icon data
- @return a NSImage corresponding to appName, otherwise nil
- */
-+(NSImage *)iconForApplication:(NSString *)appName;
 @end
