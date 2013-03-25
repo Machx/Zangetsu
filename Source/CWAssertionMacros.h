@@ -45,16 +45,6 @@ THE SOFTWARE.
 #	define CWAssert5(...) /**/
 #endif
 
-#define CWAssertV(cond, ...) \
-do { \
-	if(!cond) { \
-		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] \
-																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
-														  lineNumber:__LINE__ \
-														 description:__VA_ARGS__]; \
-	} \
-} while(0);
-
 /* Basis of this is from Stack Overflow
  http://stackoverflow.com/questions/2283987/xcode-call-stack-trace-on-assert
  Basically a simple assertion that spits the exact expression that failed out to log and
