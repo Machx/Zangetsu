@@ -944,6 +944,14 @@
 				B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */,
 				B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */,
 				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
+				B8F8870F1700943A0011F1FF /* External Lib Unit Tests */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		B8F8870F1700943A0011F1FF /* External Lib Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
 				B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */,
 				B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */,
 				B83A597016FE359F005663D7 /* CWLinkedListTests.h */,
@@ -959,7 +967,7 @@
 				B83A597A16FE359F005663D7 /* CWTrieTests.h */,
 				B83A597B16FE359F005663D7 /* CWTrieTests.m */,
 			);
-			name = "Unit Tests";
+			name = "External Lib Unit Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
