@@ -66,13 +66,3 @@ do { \
 		NSLog(@"IBOutlet Assertion: %s is nil and appears to not be hooked up!",#_x_); \
 	} \
 } while(0);
-
-#define CWZeroLengthAssert(_x_) \
-do { \
-	if([_x_ length] == 0) { \
-		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] \
-																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
-														  lineNumber:__LINE__ \
-														 description:[NSString stringWithFormat:@"%s length is 0 (needs to be > 0)",#_x_]]; \
-	} \
-} while(0);
