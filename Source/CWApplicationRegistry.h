@@ -38,7 +38,7 @@ static const NSInteger kPidNotFound = -1;
  Searches all the applications listed as running and if the application is 
  found then returns YES, otherwise returns NO.
  
- @param appName a NSString with the app name you wish to check
+ @param appName the name of the application to be checked if it's running
  @return a BOOL with YES if the app is running, otherwise NO
  */
 +(BOOL)applicationIsRunning:(NSString *)appName;
@@ -49,7 +49,7 @@ static const NSInteger kPidNotFound = -1;
  Searches all the applications listed as running and if the application is 
  found then returns its pid, otherwise returns kPidNotFound (-1).
  
- @param appName a NSString with the name of the app whose pid you want
+ @param appName the name of the app whose pid you want
  @return a NSInteger with the pid or kPidNotFound (-1) if not found
  */
 +(NSInteger)pidForApplication:(NSString *)appName;
@@ -60,10 +60,8 @@ static const NSInteger kPidNotFound = -1;
  Searches for all the applications listed as running and if the application is
  running then it returns the apps bundle identifier, otherwise returns nil.
  
- @param appName a NSString with the name of the application whose bundle 
- identifier you want
- @return a NSString with the bundle identifier of the app name passed in or nil 
- if the app isn't running
+ @param appName the name of the application whose bundle identifier you want
+ @return a NSString of the bundle identifier of the app name passed in or nil
  */
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName;
 
@@ -74,8 +72,7 @@ static const NSInteger kPidNotFound = -1;
  this returns the NSRunningApplication intance corresponding to that particular
  application.
  
- @param appName a NSString with the name of the application whose corresponding 
- NSRunningApplication you want
+ @param appName the name of the application whose instance you want
  @return the NSRunningApplication instance corresponding to appName, else nil
  */
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
