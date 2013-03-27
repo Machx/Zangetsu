@@ -103,7 +103,7 @@ static const NSInteger kCWTaskNotLaunchedErrorCode =           -1729;
  @param error a NSError object with a error if something went wrong
  */
 -(void)launchTaskOnQueue:(NSOperationQueue *)queue
-		   withCompletionBlock:(void (^)(NSString *output, NSError *error))block;
+	 withCompletionBlock:(void (^)(NSString *output, NSError *error))block;
 
 /**
  adds a operation to the passed in gcd dispatch_qeueue_t queue and calls
