@@ -40,14 +40,6 @@
 @property (readwrite, assign) BOOL inAsynchronous;
 @property (readwrite, retain) NSPipe * pipe;
 @property (readwrite, retain) NSTask * internalTask;
-// Private Methods
-- (void) _configureTask;
-- (BOOL) _validateTask:(NSError **)error;
-- (void) _performPostRunActionsIfApplicable;
-- (NSString *) _resultsStringFromLaunchedTask:(NSError **)error;
-- (BOOL) _validateExecutable:(NSError **)error;
-- (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error;
-- (BOOL) _validateTaskHasRun:(NSError **)error;
 @end
 
 @implementation CWTask
