@@ -95,6 +95,7 @@
 }
 
 /**
+ Private Method
  Any arguments to the task are set here
  */
 - (void) _configureTask {
@@ -110,6 +111,7 @@
 }
 
 /**
+ Private Method
  Runs all the validation methods and returns NO if any of them fail,
  returns YES otherwise
  
@@ -126,6 +128,7 @@
 }
 
 /**
+ Private Method
  Checks for a non nil value of executable and checks that the executable
  actually exists if either fail it writes out a kCWTaskInvalidExecutable error
  to the NSError pointer and returns NO
@@ -145,6 +148,7 @@
 }
 
 /**
+ Private Method
  if there is a non nil directory path provided it validates that it actually 
  exists if that fails it writes out a kCWTaskInvalidDirectory error & returns NO
  
@@ -165,6 +169,7 @@
 }
 
 /**
+ Private Method
  CWTask behaves just like  NSTask in that each task object may only run once. 
  This checks to see if it has already run and if it has write out a 
  kCWTaskAlreadyRun error to the error pointer and then  returns NO
@@ -197,6 +202,7 @@
 }
 
 /**
+ Private Method
  actual launching of the task and extracting the results from
  the NSPipe into a NSString object occur here
  
@@ -226,6 +232,7 @@
 }
 
 /**
+ Private Method
  any post run actions after the task have been launched occurr here
  
  @param error a NSError object to be written to if something fails
