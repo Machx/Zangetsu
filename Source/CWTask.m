@@ -102,7 +102,7 @@
 	self.internalTask.launchPath = self.executable;
 	self.pipe = [NSPipe pipe];
 	self.internalTask.standardOutput = self.pipe;
-	if (_arguments.count > 0) {
+	if (self.arguments.count > 0) {
 		self.internalTask.arguments = self.arguments;
 	}
 	if (self.directoryPath) {
