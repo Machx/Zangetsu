@@ -51,14 +51,6 @@ BOOL CWClassExists(NSString * class);
 NSString *CWUUIDStringPrependedWithString(NSString *preString);
 
 /**
- Returns a unique c string prepended by the passed in string
- 
- @param preString the string to be prepended on the unique string
- @return C String with a UUID String prepended with the prestring argument
- */
-const char *CWUUIDCStringPrependedWithString(NSString *preString);
-
-/**
  Schedules the block to be executed on the next run loop on the main thread
  
  @param block the block to be executed on the next runloop on the main thread
