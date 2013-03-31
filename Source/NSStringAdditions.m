@@ -39,7 +39,7 @@
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                               usingBlock:(void (^)(NSString *substring))block {
 	dispatch_group_t group = dispatch_group_create();
-	const char *queueLabel = CWUUIDCStringPrependedWithString(@"com.Zangetsu.NSString_");
+	const char *queueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.NSString_") UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
 	
 	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
