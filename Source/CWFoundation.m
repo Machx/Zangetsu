@@ -41,7 +41,7 @@ void CWNextRunLoop(dispatch_block_t block) {
 	static dispatch_queue_t queue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		const char *label = CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWFoundation-CWNextRunLoop");
+		const char *label = [CWUUIDStringPrependedWithString(@"com.Zangetsu.CWFoundation-CWNextRunLoop") UTF8String];
 		queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
 	});
 	dispatch_async(queue, ^{

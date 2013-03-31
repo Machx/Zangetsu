@@ -60,7 +60,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-		_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+		_queue = dispatch_queue_create([CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-") UTF8String], DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -71,7 +71,7 @@
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
-			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+			_queue = dispatch_queue_create([CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-") UTF8String], DISPATCH_QUEUE_SERIAL);
 		}
 	}
 	return self;
@@ -83,7 +83,7 @@
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
-			_queue = dispatch_queue_create(CWUUIDCStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-"), DISPATCH_QUEUE_SERIAL);
+			_queue = dispatch_queue_create([CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-") UTF8String], DISPATCH_QUEUE_SERIAL);
 		}
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{ op.operationBlock(); });

@@ -248,7 +248,7 @@
 
 -(void)launchTaskWithResult:(void (^)(NSString *output, NSError *error))block {
 	NSString *uLabel = [NSString stringWithFormat:@"com.CWTask.%@_",self.executable];
-	const char *uniqueLabel = CWUUIDCStringPrependedWithString(uLabel);
+	const char *uniqueLabel = [CWUUIDStringPrependedWithString(uLabel) UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
 	self.inAsynchronous = YES;
 	dispatch_async(queue, ^{
