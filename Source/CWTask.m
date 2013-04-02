@@ -28,6 +28,7 @@
  */
 
 #import "CWTask.h"
+#import "EXTScope.h"
 
 @interface CWTask ()
 // Publicly declared
@@ -251,7 +252,9 @@
 	const char *uniqueLabel = [CWUUIDStringPrependedWithString(uLabel) UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
 	self.inAsynchronous = YES;
+	@weakify(self);
 	dispatch_async(queue, ^{
+		@strongify(self);
 		NSError * taskError;
 		NSString * resultsString = nil;
 		
@@ -268,16 +271,9 @@
 	   withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
 	NSParameterAssert(queue);
 	self.inAsynchronous = YES;
-
+	@weakify(self);
     [queue addOperationWithBlock:^{
-         NSError * taskError;
-         NSString * resultsString = nil;
-
-         resultsString = [self launchTask:&taskError];
-
-         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-			 block (resultsString, taskError);
-		 }];
+		@strongify(self);
 		NSError * taskError;
 		NSString * resultsString = nil;
 		
@@ -293,8 +289,9 @@
 		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
 	NSParameterAssert(queue);
 	self.inAsynchronous = YES;
-
+	@weakify(self);
     dispatch_async(queue, ^{
+		@strongify(self);
 		NSError * taskError;
 		NSString * resultsString = nil;
 
