@@ -28,6 +28,7 @@
  */
 
 #import "CWURLRequest.h"
+#import "EXTScope.h"
 
 static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLRequest";
 
@@ -144,9 +145,12 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 -(void)startAsynchronousConnectionWithCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
 	const char *label = [CWUUIDStringPrependedWithString(@"com.Zangetsu.CWURLRequest") UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(label, 0);
+	@weakify(self);
 	dispatch_async(queue, ^{
+		@strongify(self);
 		NSData *data = [self startSynchronousConnection];
 		dispatch_async(dispatch_get_main_queue(), ^{
+			@strongify(self);
 			block(data,self.connectionError,self.connectionResponse);
 		});
 	});
