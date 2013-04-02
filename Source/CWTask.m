@@ -278,6 +278,14 @@
          [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 			 block (resultsString, taskError);
 		 }];
+		NSError * taskError;
+		NSString * resultsString = nil;
+		
+		resultsString = [self launchTask:&taskError];
+		
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			block (resultsString, taskError);
+		}];
      }];
 }
 
