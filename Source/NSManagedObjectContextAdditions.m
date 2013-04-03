@@ -28,6 +28,7 @@
  */
 
 #import "NSManagedObjectContextAdditions.h"
+#import <objc/runtime.h>
 
 @implementation NSManagedObjectContext (CWNSManagedObjectContextAdditions)
 
@@ -36,12 +37,14 @@
 static void *cwmdbg = &cwmdbg;
 
 -(NSString *)cw_debugName {
-	return [self cw_valueAssociatedWithKey:cwmdbg];
+	return objc_getAssociatedObject(self, cwmdbg);
 }
 
 -(void)cw_setDebugName:(NSString *)cwdebugname {
-	[self cw_associateValue:cwdebugname 
-					withKey:cwmdbg];
+	objc_setAssociatedObject(self,
+							 cwmdbg,
+							 cwdebugname,
+							 OBJC_ASSOCIATION_RETAIN);
 }
 
 -(void)cw_logObjectsInContext {
