@@ -111,11 +111,9 @@
 }
 
 -(void)addBlockOperationObjects:(NSArray *)operationObjects {
-	if (operationObjects && ([operationObjects count] > 0)) {
-		for (id op in operationObjects) {
-			if ([op isMemberOfClass:[CWSerialBlockOperation class]]) {
-				[self addBlockOperationObjects:op];
-			}
+	for (id op in operationObjects) {
+		if ([op isMemberOfClass:[CWSerialBlockOperation class]]) {
+			[self addBlockOperationObjects:op];
 		}
 	}
 }
