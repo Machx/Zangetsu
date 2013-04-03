@@ -51,8 +51,8 @@
 }
 
 -(void)cw_setValuesForKeys:(NSDictionary *)moValues {
-	[moValues cw_each:^(id key, id value, BOOL *stop) {
-		[self setValue:value forKey:key];
+	[moValues enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+		[self setValue:obj forKey:key];
 	}];
 }
 
