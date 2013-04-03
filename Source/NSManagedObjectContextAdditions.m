@@ -48,7 +48,7 @@ static void *cwmdbg = &cwmdbg;
 }
 
 -(void)cw_logObjectsInContext {
-	if ([self cw_debugName]) {
+	if (self.cw_debugName) {
 		NSLog(@"MOC Name: %@",[self cw_debugName]);
 	} else {
 		NSLog(@"MOC: %@",[self description]);
@@ -56,10 +56,10 @@ static void *cwmdbg = &cwmdbg;
 	
 	NSLog(@"Has Changes: %@",(self.hasChanges ? @"YES" : @"NO"));
 	
-	if ([self hasChanges]) {
-		if ([[self insertedObjects] count] > 0) NSLog(@"%lu Inserted Objects",(long)[[self insertedObjects] count]);
-		if ([[self updatedObjects] count] > 0) NSLog(@"%lu Updated Objects",(long)[[self updatedObjects] count]);
-		if ([[self deletedObjects] count] > 0) NSLog(@"%lu Deleted Objects",(long)[[self deletedObjects] count]);
+	if (self.hasChanges) {
+		if (self.insertedObjects.count > 0) NSLog(@"%lu Inserted Objects",(long)self.insertedObjects.count);
+		if (self.updatedObjects.count > 0) NSLog(@"%lu Updated Objects",(long)self.updatedObjects.count);
+		if (self.deletedObjects.count > 0) NSLog(@"%lu Deleted Objects",(long)self.deletedObjects.count);
 	}
 }
 
