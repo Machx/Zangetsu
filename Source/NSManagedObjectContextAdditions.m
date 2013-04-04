@@ -49,9 +49,9 @@ static void *cwmdbg = &cwmdbg;
 
 -(void)cw_logObjectsInContext {
 	if (self.cw_debugName) {
-		NSLog(@"MOC Name: %@",[self cw_debugName]);
+		NSLog(@"MOC Name: %@",self.cw_debugName);
 	} else {
-		NSLog(@"MOC: %@",[self description]);
+		NSLog(@"MOC: %@",self.description);
 	}
 	
 	NSLog(@"Has Changes: %@",(self.hasChanges ? @"YES" : @"NO"));
