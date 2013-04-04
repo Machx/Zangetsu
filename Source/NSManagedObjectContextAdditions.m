@@ -84,10 +84,12 @@ static void *cwmdbg = &cwmdbg;
 									 error:error];
 		return count;
 	}
-	CWErrorSet(kNSManagedObjectContextAdditionsDomain,
-			   990,
-			   [NSString stringWithFormat:@"Could not find an etity of name %@",entityName],
-			   error);
+	if (error) {
+		*error = [NSError errorWithDomain:kNSManagedObjectContextAdditionsDomain
+									 code:990 userInfo:@{
+				 NSLocalizedFailureReasonErrorKey : [NSString stringWithFormat:@"Could not find an entity of name %@",entityName]
+				  }];
+	}
 	return 0;
 }
 
