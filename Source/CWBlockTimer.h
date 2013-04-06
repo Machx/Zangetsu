@@ -32,9 +32,9 @@
 @interface CWBlockTimer : NSObject
 
 /**
- Returns the Internal NSTimer Instance that CWBlockTimer instances manage
+ Returns the Internal NSTimer Instance that CWBlockTimer instance manages
  
- @return the Internal NSTimer instance
+ @return Internal NSTimer instance
  */
 @property(readonly,retain) NSTimer *internalTimer;
 
@@ -58,10 +58,9 @@
 /**
  Creates a new CWBlockTimer instance intiailized with the passed in values
  
- @param interval a NSTimeInterval for how long the timer action is supposed to 
- wait till firing
+ @param interval how long the timer action is supposed to wait until firing
  @param block the block to be executed when the timer fires
- @param repeats a BOOL indicating if the timer should repeat
+ @param repeats if the timer should repeat
  @return a new CWBlockTimer instance configured with the parameters passed in
  */
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
