@@ -60,6 +60,9 @@ void CWNextRunLoop(dispatch_block_t block);
 /**
  Inspired by println in Go, Prints all the variables, space seperated,to NSLog()
  
+ Creates a string by calling description on each variable and concatenating all
+ those strings together separated by spaces and then logs that string to NSLog.
+ 
  @args all the variables you want printed to NSLog()
  */
 void CWPrintLine(NSArray *args);
