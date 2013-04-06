@@ -70,6 +70,10 @@ void CWPrintLine(NSArray *args);
 /**
  Inspired by println in Go, Prints all the variable, space separated, to printf
  
+ Creates a string by calling description on each variable and concatenating all
+ those strings together separated by spaces and then converts that to a const
+ char c string and logs that through printf.
+ 
  @args all the variables you want printed to printf()
  */
 void CWPrintfLine(NSArray *args);
