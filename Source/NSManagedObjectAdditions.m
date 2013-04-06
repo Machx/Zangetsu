@@ -51,9 +51,11 @@
 }
 
 -(void)cw_setValuesForKeys:(NSDictionary *)moValues {
-	[moValues enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-		[self setValue:obj forKey:key];
-	}];
+	NSArray *keys = [moValues allKeys];
+	for (id key in keys) {
+		id value = moValues[key];
+		[self setValue:value forKey:key];
+	}
 }
 
 @end
