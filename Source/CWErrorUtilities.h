@@ -41,8 +41,8 @@ static NSString * const kCWErrorDomain = @"CWErrorDomain";
  formatting and passing arguments for the formatting of a string. If no domain 
  is passed in it defaults to kCWErrorDomain.
  
- @param domain a NSString specifying the domain for a NSError object
- @param errorCode a NSInteger for the error code in a NSError object
+ @param domain the domain for a NSError object
+ @param errorCode the error code in a NSError object
  @param errorMessageFormat a string format which sets NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
  */
@@ -59,8 +59,8 @@ NSError * CWCreateError(NSString * domain,
  for a string with formatting and passing arguments for the formatting of a
  string. If no domain is passed in it defaults to kCWErrorDomain.
  
- @param domain a NSString specifying the domain for a NSError object
- @param errorCode a NSInteger for the error code in a NSError object
+ @param domain the domain for a NSError object
+ @param errorCode the error code in a NSError object
  @param info a dictionary to be added to the error
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  @return a NSError object with the values passed in
