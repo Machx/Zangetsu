@@ -36,9 +36,14 @@
 
 #if Z_HOST_OS_IS_MAC_OS_X
 /**
+ Displays the information in a NSException object as an alert panel
+ 
  Takes a NSException object and runs an Critical Alert Panel with the Exception 
  information as well as the stack trace of where the stack trace occurred minus
- the exception handling frames.
+ the exception handling frames. The user has an opportunity to quit the app
+ with the alert panel triggered in this api.
+ 
+ @param exception this objects info will be displayed as an alert panel
  */
 void CWShowExceptionAsAlertPanel(NSException *exception);
 #endif
@@ -47,6 +52,8 @@ void CWShowExceptionAsAlertPanel(NSException *exception);
 /**
  Calls CWStackTrace() to return NSThreads callStackSymbols
  and put them in string form.
+ 
+ @return a NSString containing NSThreards callStackSymbols
  */
 -(NSString *)cw_stackTrace;
 @end
