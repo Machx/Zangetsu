@@ -122,9 +122,9 @@ void CWErrorSetV(NSString *domain,
 /**
  Tests if the condition is true and if it is sets the error
  
- @param cond the condition to be tested
+ @param cond the expression to be tested
  @param errorBlock a block that returns a NSError object if the error is set
- @param error pointer to be set with the block returned var if condition is true
+ @param error to be set with the block returned var if condition is true
  @return returns YES if the condition evaluates to true, otherwise returns NO
  */
 BOOL CWErrorTrap(BOOL cond,
