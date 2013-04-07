@@ -77,8 +77,8 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
  NSError object to the console. It creates a NSError object and then logs its 
  description with CWLogError().
  
- @param domain a NSString specifying the domain for a NSError object
- @param errorCode a NSInteger for the error code in a NSError object
+ @param domain the domain for a NSError object
+ @param errorCode the error code in a NSError object
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  */
 void CWLogErrorInfo(NSString * domain,
@@ -91,8 +91,8 @@ void CWLogErrorInfo(NSString * domain,
  This allows creating an error and safely setting it wihtout worrying about 
  checking for non nil value before setting the pointer. 
  
- @param domain a NSString specifying the domain for a NSError object
- @param errorCode a NSInteger for the error code in a NSError object
+ @param domain the domain for a NSError object
+ @param errorCode the error code in a NSError object
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  @param error the NSError reference to set
  */
@@ -108,8 +108,8 @@ void CWErrorSet(NSString *domain,
  checking for non nil value before setting the pointer. This method also allows
  you to set additional values in the user info dictionary if needed.
  
- @param domain a NSString specifying the domain for a NSError object
- @param errorCode a NSInteger for the error code in a NSError object
+ @param domain the domain for a NSError object
+ @param errorCode the error code in a NSError object
  @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
  @param error the NSError reference to set
  */
