@@ -44,6 +44,11 @@ describe(@"-cw_firstObject", ^{
 		
 		expect(firstObject).to.equal(@"Fry");
 	});
+	
+	it(@"should return nil in an empty array", ^{
+		NSArray *emptyArray = [[NSArray alloc] init];
+		expect([emptyArray cw_firstObject]).to.beNil();
+	});
 });
 
 describe(@"-cw_findWithBlock", ^{
