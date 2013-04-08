@@ -41,7 +41,6 @@ beforeAll(^{
 describe(@"-cw_firstObject", ^{
 	it(@"should return the correct first object", ^{
 		NSString *firstObject = [testArray cw_firstObject];
-		
 		expect(firstObject).to.equal(@"Fry");
 	});
 	
