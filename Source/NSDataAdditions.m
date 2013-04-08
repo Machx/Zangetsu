@@ -31,10 +31,6 @@
 
 @implementation NSData (CWNSDataAdditions)
 
-- (const char *) cw_utf8StringFromData {
-	return [[NSString stringWithUTF8String:[self bytes]] UTF8String];
-}
-
 -(NSString *)cw_hexString {
 	NSUInteger capacity = [self length] * 2;
 	NSMutableString *stringBuffer = [NSMutableString stringWithCapacity:capacity];

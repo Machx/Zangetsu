@@ -33,14 +33,6 @@
 @interface NSData (CWNSDataAdditions)
 
 /**
-/**
- Returns a const char from the contents of the NSData object encoded in UTF8
- 
- @return a const char from the contents of the NSData object, otherwise nil
- */
--(const char *)cw_utf8StringFromData;
-
-/**
  returns a string with the representation of the data in hex
  
  @return a NSString with the data representation in hex, otherwise nil
