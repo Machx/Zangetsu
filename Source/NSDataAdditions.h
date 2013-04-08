@@ -33,12 +33,6 @@
 @interface NSData (CWNSDataAdditions)
 
 /**
- Returns a NSString from the contents of the data encoded in UTF8 encoding
- 
- @return a NSString from the contents of the NSData object, otherwise nil
- */
--(NSString *)cw_NSStringFromData;
-
 /**
  Returns a const char from the contents of the NSData object encoded in UTF8
  

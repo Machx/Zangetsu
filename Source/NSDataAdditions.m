@@ -31,11 +31,6 @@
 
 @implementation NSData (CWNSDataAdditions)
 
-- (NSString *) cw_NSStringFromData {
-    return [[NSString alloc] initWithData:self
-								 encoding:NSUTF8StringEncoding];
-}
-
 - (const char *) cw_utf8StringFromData {
 	return [[NSString stringWithUTF8String:[self bytes]] UTF8String];
 }
