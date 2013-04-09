@@ -37,8 +37,6 @@
 		B836F41514196817007B412E /* CWNSMutableArrayAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */; };
 		B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B837BC1A1284FDC0009215D7 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSStringAdditions.m */; };
-		B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8380E4013452C18009988F5 /* NSDateAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
 		B83A595216FE3565005663D7 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594416FE3565005663D7 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594416FE3565005663D7 /* CWFixedQueue.h */; };
 		B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594516FE3565005663D7 /* CWFixedQueue.m */; };
@@ -243,8 +241,6 @@
 		B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */; };
 		B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
 		B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8E3880714C4759900F6D2A8 /* NSDateAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8380E4113452C18009988F5 /* NSDateAddtions.m */; };
-		B8E3880814C4759D00F6D2A8 /* NSDateAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8380E4013452C18009988F5 /* NSDateAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3880914C475EC00F6D2A8 /* NSDictionaryAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3880A14C475F300F6D2A8 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */; };
 		B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -321,8 +317,6 @@
 		B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSMutableArrayAdditionsTests.m; path = Source/CWNSMutableArrayAdditionsTests.m; sourceTree = "<group>"; };
 		B837BC171284FDC0009215D7 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = Source/NSStringAdditions.h; sourceTree = "<group>"; };
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
-		B8380E4013452C18009988F5 /* NSDateAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateAddtions.h; path = Source/NSDateAddtions.h; sourceTree = "<group>"; };
-		B8380E4113452C18009988F5 /* NSDateAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateAddtions.m; path = Source/NSDateAddtions.m; sourceTree = "<group>"; };
 		B83A594416FE3565005663D7 /* CWFixedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueue.h; path = "External/Zangetsu-Data-Structures/CWFixedQueue.h"; sourceTree = "<group>"; };
 		B83A594516FE3565005663D7 /* CWFixedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueue.m; path = "External/Zangetsu-Data-Structures/CWFixedQueue.m"; sourceTree = "<group>"; };
 		B83A594616FE3565005663D7 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = "External/Zangetsu-Data-Structures/CWLinkedList.h"; sourceTree = "<group>"; };
@@ -790,8 +784,6 @@
 				B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */,
 				B82B955412E24F8E00CABF26 /* NSDataAdditions.h */,
 				B82B955512E24F8E00CABF26 /* NSDataAdditions.m */,
-				B8380E4013452C18009988F5 /* NSDateAddtions.h */,
-				B8380E4113452C18009988F5 /* NSDateAddtions.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
 				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
@@ -1103,7 +1095,6 @@
 				B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */,
 				B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */,
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
-				B8380E4213452C18009988F5 /* NSDateAddtions.h in Headers */,
 				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
 				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
 				B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */,
@@ -1177,7 +1168,6 @@
 				B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */,
 				B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */,
 				B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */,
-				B8E3880814C4759D00F6D2A8 /* NSDateAddtions.h in Headers */,
 				B8E3880914C475EC00F6D2A8 /* NSDictionaryAdditions.h in Headers */,
 				B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */,
 				B8E3881714C4837F00F6D2A8 /* CWGraphicsFoundation.h in Headers */,
@@ -1404,7 +1394,6 @@
 				B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */,
 				B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */,
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
-				B8380E4313452C18009988F5 /* NSDateAddtions.m in Sources */,
 				B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */,
 				B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */,
 				B88EA5E91426D73B002F327B /* CWBase64.m in Sources */,
@@ -1442,7 +1431,6 @@
 				B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */,
 				B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */,
 				B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */,
-				B8E3880714C4759900F6D2A8 /* NSDateAddtions.m in Sources */,
 				B8E3880A14C475F300F6D2A8 /* NSDictionaryAdditions.m in Sources */,
 				B8E3881614C47E2B00F6D2A8 /* CWURLRequest.m in Sources */,
 				B8E3881814C4838700F6D2A8 /* CWGraphicsFoundation.m in Sources */,

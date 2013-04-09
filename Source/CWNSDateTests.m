@@ -28,7 +28,7 @@
  */
 
 #import "CWNSDateTests.h"
-#import "NSDateAddtions.h"
+#import "CWDateUtilities.h"
 
 SpecBegin(CWNSDateTests)
 
