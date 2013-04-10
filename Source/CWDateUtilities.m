@@ -27,16 +27,13 @@ THE SOFTWARE.
 
 #import "CWDateUtilities.h"
 
-@implementation CWDateUtilities
 
-+ (NSDate *) dateFromISO8601String:(NSString *)dateString  {
-    NSDate * isoDate = [self dateFromString:dateString
-							 withDateFormat:kCWISO8601TimeFormat];
-    return (isoDate ? isoDate : [self dateFromString:dateString
-									  withDateFormat:kCWISO8601TimeFormat2]);
+NSDate *dateFromISO8601String(NSString *dateString)  {
+	NSDate *isoDate = dateFromString(dateString, kCWISO8601TimeFormat);
+	return (isoDate ?: dateFromString(dateString, kCWISO8601TimeFormat2));
 }
 
-+ (NSDate *) dateFromString:(NSString *)dateString withDateFormat:(NSString *)dateFormat {
+NSDate *dateFromString(NSString * dateString, NSString *dateFormat) {
     [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
 	formatter.dateFormat = dateFormat;
@@ -44,7 +41,6 @@ THE SOFTWARE.
     return [formatter dateFromString:dateString];
 }
 
-@end
 
 @implementation NSDate (CWNSDateAddtions)
 
