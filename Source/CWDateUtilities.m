@@ -27,6 +27,7 @@ THE SOFTWARE.
 
 #import "CWDateUtilities.h"
 
+#pragma mark CWDateUtilities -
 
 NSDate *dateFromISO8601String(NSString *dateString)  {
 	NSDate *isoDate = dateFromString(dateString, kCWISO8601TimeFormat);
@@ -41,6 +42,8 @@ NSDate *dateFromString(NSString * dateString, NSString *dateFormat) {
     return [formatter dateFromString:dateString];
 }
 
+
+#pragma mark NSDateExtensions -
 
 @implementation NSDate (CWNSDateAddtions)
 
@@ -75,6 +78,8 @@ NSDate *dateFromString(NSString * dateString, NSString *dateFormat) {
 }
 
 @end
+
+#pragma mark General Date Functions -
 
 NSString * CWDateString(NSDate * date) {
 	if (date) {

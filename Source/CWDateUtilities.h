@@ -28,6 +28,8 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark CWDateUtilities -
+
 static NSString * const kCWISO8601TimeFormat = @"yyyy/MM/dd HH:mm:ss ZZZ";
 static NSString * const kCWISO8601TimeFormat2 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";;
 
@@ -59,6 +61,7 @@ NSDate *dateFromISO8601String(NSString *dateString);
  */
 NSDate *dateFromString(NSString * dateString, NSString *dateFormat);
 
+#pragma mark General Date Functions -
 
 /**
  Returns a NSString with a description of the NSDate object
@@ -88,6 +91,8 @@ NSString *CWDateString(NSDate *date);
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
 							  NSTimeZone *timeZone, NSCalendar *calendar);
+
+#pragma mark NSDateExtensions -
 
 @interface NSDate (CWNSDateAddtions)
 
