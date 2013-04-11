@@ -47,7 +47,7 @@ static NSString * const kCWISO8601TimeFormat2 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";;
  @param dateString The String containing a ISO8601 Date
  @return A NSDate Object if successful or nil if not successful
  */
-NSDate *dateFromISO8601String(NSString *dateString);
+NSDate *CWDateFromISO8601String(NSString *dateString);
 
 /**
  Convert a NSString object containing a date to a NSDate object with date format
