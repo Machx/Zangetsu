@@ -34,7 +34,7 @@ SpecBegin(CWDateUtilities)
 
 describe(@"-dateFromString:withFormat:", ^{
 	it(@"should create a valid date with the correct values", ^{
-		NSDate *date1 = dateFromString(@"2012-07-01 11:05:00", @"yyyy-M-dd h:mm:ss");
+		NSDate *date1 = CWDateFromString(@"2012-07-01 11:05:00", @"yyyy-M-dd h:mm:ss");
 		NSDate *date2 = CWDateFromComponents(2012, 07, 01, 11, 05, 00, nil, [NSCalendar currentCalendar]);
 		
 		expect(date1).to.equal(date2);
@@ -71,7 +71,7 @@ describe(@"CWDateFromComponents()", ^{
 describe(@"-dateFromISO8601String", ^{
 	it(@"should correctly parse ISO 8601 Date Strings", ^{
 		NSString *data = @"1994-11-05T13:15:30Z";
-		NSDate *date1 = dateFromISO8601String(data);
+		NSDate *date1 = CWDateFromISO8601String(data);
 		
 		expect(date1).notTo.beNil();
 		
