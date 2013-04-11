@@ -32,6 +32,8 @@ THE SOFTWARE.
 NSDate *dateFromISO8601String(NSString *dateString)  {
 	NSDate *isoDate = dateFromString(dateString, kCWISO8601TimeFormat);
 	return (isoDate ?: dateFromString(dateString, kCWISO8601TimeFormat2));
+	NSDate *isoDate = CWDateFromString(dateString, kCWISO8601TimeFormat);
+	return (isoDate ?: CWDateFromString(dateString, kCWISO8601TimeFormat2));
 }
 
 NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
