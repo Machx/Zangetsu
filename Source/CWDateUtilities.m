@@ -34,7 +34,7 @@ NSDate *dateFromISO8601String(NSString *dateString)  {
 	return (isoDate ?: dateFromString(dateString, kCWISO8601TimeFormat2));
 }
 
-NSDate *dateFromString(NSString * dateString, NSString *dateFormat) {
+NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
     [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
 	formatter.dateFormat = dateFormat;

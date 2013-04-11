@@ -59,7 +59,7 @@ NSDate *dateFromISO8601String(NSString *dateString);
  @param dateFormat The Format the dateString object is in
  @return a NSDate object with the date if successful or nil if unsuccessful
  */
-NSDate *dateFromString(NSString * dateString, NSString *dateFormat);
+NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat);
 
 #pragma mark General Date Functions -
 
