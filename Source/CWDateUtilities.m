@@ -27,6 +27,40 @@ THE SOFTWARE.
 
 #import "CWDateUtilities.h"
 
+#pragma mark General Date Functions -
+
+NSString * CWDateString(NSDate * date) {
+	if (date) {
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+		formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
+		
+		return [formatter stringFromDate:date];
+	}
+	return nil;
+}
+
+NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
+                              NSInteger hour, NSInteger minute, NSInteger second,
+							  NSTimeZone *timeZone, NSCalendar *calendar) {
+    NSDateComponents * components = [[NSDateComponents alloc] init];
+    if (components) {
+		components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
+		components.year = year;
+		components.month = month;
+		components.day = day;
+		components.hour = hour;
+		components.minute = minute;
+		components.second = second;
+		
+		NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
+        if (calendar) {
+            NSDate * date = [aCalendar dateFromComponents:components];
+            if (date) return date;
+        }
+    }
+    return nil;
+}
 
 NSDate *CWDateFromISO8601String(NSString *dateString)  {
 	NSDate *isoDate = CWDateFromString(dateString, kCWISO8601TimeFormat);
@@ -77,38 +111,3 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
 }
 
 @end
-
-#pragma mark General Date Functions -
-
-NSString * CWDateString(NSDate * date) {
-	if (date) {
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
-		formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
-		
-		return [formatter stringFromDate:date];
-	}
-	return nil;
-}
-
-NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
-                              NSInteger hour, NSInteger minute, NSInteger second,
-							  NSTimeZone *timeZone, NSCalendar *calendar) {
-    NSDateComponents * components = [[NSDateComponents alloc] init];
-    if (components) {
-		components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
-		components.year = year;
-		components.month = month;
-		components.day = day;
-		components.hour = hour;
-		components.minute = minute;
-		components.second = second;
-		
-		NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
-        if (calendar) {
-            NSDate * date = [aCalendar dateFromComponents:components];
-            if (date) return date;
-        }
-    }
-    return nil;
-}
