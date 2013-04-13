@@ -27,7 +27,6 @@ THE SOFTWARE.
 
 #import "CWDateUtilities.h"
 
-#pragma mark CWDateUtilities -
 
 NSDate *CWDateFromISO8601String(NSString *dateString)  {
 	NSDate *isoDate = CWDateFromString(dateString, kCWISO8601TimeFormat);
