@@ -63,7 +63,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 }
 
 NSDate *CWDateFromISO8601String(NSString *dateString)  {
-	NSParameterAssert(dateString != nil);
+	NSCParameterAssert(dateString != nil);
 	NSDate *isoDate = CWDateFromString(dateString, kCWISO8601TimeFormat);
 	return (isoDate ?: CWDateFromString(dateString, kCWISO8601TimeFormat2));
 }
