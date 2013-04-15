@@ -43,21 +43,19 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
                               NSInteger hour, NSInteger minute, NSInteger second,
 							  NSTimeZone *timeZone, NSCalendar *calendar) {
     NSDateComponents * components = [[NSDateComponents alloc] init];
-    if (components) {
-		components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
-		components.year = year;
-		components.month = month;
-		components.day = day;
-		components.hour = hour;
-		components.minute = minute;
-		components.second = second;
-		
-		NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
-        if (calendar) {
-            NSDate * date = [aCalendar dateFromComponents:components];
-            if (date) return date;
-        }
-    }
+    components.timeZone = (timeZone ? timeZone : [NSTimeZone systemTimeZone]);
+	components.year = year;
+	components.month = month;
+	components.day = day;
+	components.hour = hour;
+	components.minute = minute;
+	components.second = second;
+	
+	NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
+	if (calendar) {
+		NSDate * date = [aCalendar dateFromComponents:components];
+		if (date) return date;
+	}
     return nil;
 }
 
