@@ -54,7 +54,7 @@ NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
 	NSCalendar *aCalendar = (calendar ? calendar : [NSCalendar currentCalendar]);
 	if (calendar) {
 		NSDate * date = [aCalendar dateFromComponents:components];
-		if (date) return date;
+		return date;
 	}
     return nil;
 }
