@@ -81,7 +81,7 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
 -(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes
 					usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setMinute:minutes];
+	components.minute = minutes;
 	NSCalendar *calendar = (dateCal ?: [NSCalendar currentCalendar]);
 	return [calendar dateByAddingComponents:components
 									 toDate:self
@@ -91,7 +91,7 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
 -(NSDate *)cw_dateByAddingHours:(NSInteger)hours
 				  usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setHour:hours];
+	components.hour = hours;
 	NSCalendar *calendar = (dateCal ?: [NSCalendar currentCalendar]);
 	return [calendar dateByAddingComponents:components
 									 toDate:self
@@ -101,7 +101,7 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
 -(NSDate *)cw_dateByAddingDays:(NSInteger)days
 				 usingCalendar:(NSCalendar *)dateCal {
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setDay:days];
+	components.day = days;
 	NSCalendar *calendar = (dateCal ?: [NSCalendar currentCalendar]);
 	return [calendar dateByAddingComponents:components
 									 toDate:self
