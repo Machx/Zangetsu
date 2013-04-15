@@ -30,14 +30,13 @@ THE SOFTWARE.
 #pragma mark General Date Functions -
 
 NSString * CWDateString(NSDate * date) {
-	if (date) {
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
-		formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
-		
-		return [formatter stringFromDate:date];
-	}
-	return nil;
+	if(date == nil) return nil;
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+	formatter.timeZone = [[NSCalendar currentCalendar] timeZone];
+	
+	return [formatter stringFromDate:date];
 }
 
 NSDate * CWDateFromComponents(NSInteger year, NSInteger month, NSInteger day,
