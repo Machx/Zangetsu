@@ -95,9 +95,7 @@ void CWErrorSetV(NSString *domain,
 BOOL CWErrorTrap(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error) {
-	if (cond) {
-		if(error) *error = errorBlock();
-		return YES;
-	}
-	return NO;
+	if(!cond) return NO;
+	if(error) *error = errorBlock();
+	return YES;
 }
