@@ -46,7 +46,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
 									NSDictionary *info,
 									NSString * errorMessageFormat, ...) {
     NSCParameterAssert(errorMessageFormat);
-    NSCParameterAssert(errorCode);
 	
     NSString * _domain = (domain ? domain : kCWErrorDomain);
 	
