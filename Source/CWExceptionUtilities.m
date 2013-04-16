@@ -33,7 +33,7 @@
 void CWShowExceptionAsAlertPanel(NSException *exception) {
 	NSInteger result = NSRunCriticalAlertPanel(@"Application Error Occurred",
 											   [NSString stringWithFormat:@"Uncaught Exception: %@\n%@\n%@",
-												[exception name], [exception reason],[exception cw_stackTrace]],
+												exception.name, exception.reason, [exception cw_stackTrace]],
 											   @"Continue", @"Quit", nil);
 	if (result == NSAlertAlternateReturn) [[NSApplication sharedApplication] terminate:nil];
 }
