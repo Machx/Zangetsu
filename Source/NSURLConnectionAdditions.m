@@ -38,13 +38,13 @@
 	NSParameterAssert(request);
 	NSParameterAssert(queue);
 	dispatch_async(queue, ^{
-		NSURLResponse *_response = nil;
-		NSError *_urlError;
-		NSData *_data = [NSURLConnection sendSynchronousRequest:request
-											  returningResponse:&_response 
-														  error:&_urlError];
+		NSURLResponse *aResponse = nil;
+		NSError *urlError;
+		NSData *receivedData = [NSURLConnection sendSynchronousRequest:request
+											  returningResponse:&aResponse
+														  error:&urlError];
 		dispatch_async(dispatch_get_main_queue(), ^{
-			block(_data,_response,_urlError);
+			block(receivedData,aResponse,urlError);
 		});
 	});
 }
