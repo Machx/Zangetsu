@@ -37,12 +37,12 @@
 }
 
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                              usingBlock:(void (^)(NSString *substring))block {
+								 usingBlock:(void (^)(NSString *substring))block {
 	dispatch_group_t group = dispatch_group_create();
 	const char *queueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.NSString_") UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
 	
-	[self enumerateSubstringsInRange:NSMakeRange(0, [self length])
+	[self enumerateSubstringsInRange:NSMakeRange(0,self.length)
 							 options:options
 						  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclRange, BOOL *stop){
 							  dispatch_group_async(group, queue, ^{
@@ -79,7 +79,7 @@
 }
 
 - (BOOL) cw_isNotEmptyString {
-	return ([self length] > 0);
+	return (self.length > 0);
 }
 
 @end
