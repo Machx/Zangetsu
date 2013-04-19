@@ -42,7 +42,7 @@ NSURL *CWURL(NSString * urlFormat,...);
  
  where "{base64encodedlogin}" is your login and password encoded via base64
  encoding. If either the passed in login or password are nil the function
- will throw an assertion.
+ will log an error message and immediately return.
  
  @param login a NSString with your login identity
  @param password a NSString with the password for the login identity
