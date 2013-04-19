@@ -48,9 +48,7 @@
 		[self insertObject:object atIndex:index];
 		return;
 	}
-	CWLogErrorInfo(kCWNSMutableArrayAdditionsErrorDomain,
-				   kCWNSMutableArrayAdditionsObjectNotFoundCode,
-				   @"Object you are attempting to move was not contained in the array");
+	printf("%s: Object you are attempting to move was not contained in the array",__PRETTY_FUNCTION__);
 }
 
 @end
