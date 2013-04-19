@@ -45,13 +45,11 @@ NSURL *CWURL(NSString * urlFormat,...) {
 
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	if (login == nil) {
-		CWLogErrorInfo(kCWURLUtiltyErrorDomain, 404,
-					   @"Required Login string was nil");
+		printf("%s: Required Login String was nil",__PRETTY_FUNCTION__);
 		return nil;
 	}
 	if (password == nil) {
-		CWLogErrorInfo(kCWURLUtiltyErrorDomain, 405,
-					   @"Required Password string was nil");
+		printf("%s: Required Password String was nil",__PRETTY_FUNCTION__);
 		return nil;
 	}
 	
