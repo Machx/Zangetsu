@@ -84,7 +84,8 @@
 		if (qLabel) {
 			_queue = dispatch_queue_create([qLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 		} else {
-			_queue = dispatch_queue_create([CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-") UTF8String], DISPATCH_QUEUE_SERIAL);
+			const char *uniqueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.CWSerialBlockQueue-") UTF8String];
+			_queue = dispatch_queue_create(uniqueLabel, DISPATCH_QUEUE_SERIAL);
 		}
 		for (CWSerialBlockOperation *op in blockOperations) {
 			dispatch_async(_queue, ^{ op.operationBlock(); });
