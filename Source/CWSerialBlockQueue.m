@@ -93,8 +93,12 @@
 }
 
 -(NSString *)label {
-	return [NSString stringWithCString:dispatch_queue_get_label(self.queue)
-							  encoding:NSUTF8StringEncoding];
+	static NSString *queueLabel = nil;
+	if (queueLabel == nil) {
+		queueLabel = [NSString stringWithCString:dispatch_queue_get_label(self.queue)
+										encoding:NSUTF8StringEncoding];
+	}
+	return queueLabel;
 }
 
 -(void)resume {
