@@ -71,21 +71,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
 									NSString * errorMessageFormat, ...);
 
 /**
- Convenience Method for logging NSError information directly
- 
- Internally this method does what you would have to do manually to log an
- NSError object to the console. It creates a NSError object and then logs its 
- description with CWLogError().
- 
- @param domain the domain for a NSError object
- @param errorCode the error code in a NSError object
- @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
- */
-void CWLogErrorInfo(NSString * domain,
-					NSInteger errorCode,
-					NSString * errorMessageFormat, ...);
-
-/**
  Safely Sets an error by checking if it is non nil
  
  This allows creating an error and safely setting it wihtout worrying about 

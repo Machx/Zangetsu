@@ -64,19 +64,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
                            userInfo:_errorDictionary];
 }
 
-void CWLogErrorInfo(NSString * domain,
-					NSInteger errorCode,
-					NSString * errorMessageFormat, ...) {
-	va_list args;
-    va_start(args, errorMessageFormat);
-    NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
-														 arguments:args];
-    va_end(args);
-	
-	NSError *error = CWCreateError(domain, errorCode, fullErrorMessage);
-	CWLogError(error);
-}
-
 void CWErrorSet(NSString *domain,
 				NSInteger errorCode,
 				NSString *errorMessageFormat,
