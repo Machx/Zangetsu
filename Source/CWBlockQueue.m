@@ -28,6 +28,7 @@
  */
 
 #import "CWBlockQueue.h"
+#import <libkern/OSAtomic.h>
 
 @interface CWBlockOperation()
 @property(copy) dispatch_block_t operationBlock;
