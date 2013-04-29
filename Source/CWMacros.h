@@ -38,7 +38,7 @@
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s%i:\n",__PRETTY_FUNCTION__,__LINE__)
-#	define CWDebugLog(args...) NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
+#	define CWDebugLog(args...) NSLog(@"%s %i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 #else
 #	define CWPrintClassAndMethod() /**/
 #	define CWDebugLog(args...) /**/
