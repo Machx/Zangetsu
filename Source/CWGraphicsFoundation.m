@@ -92,7 +92,12 @@ void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 
 CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
 	CGContextRef ref = NULL;
-	CGColorSpaceRef space = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+	CGColorSpaceRef space =
+#if Z_HOST_OS_IS_MAC_OS_X
+	CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+#else
+	CGColorSpaceCreateDeviceRGB();
+#endif
 	NSInteger bytesPerRow = (width * 4);
 	
 	ref = CGBitmapContextCreate(NULL,
