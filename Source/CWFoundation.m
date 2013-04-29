@@ -29,6 +29,10 @@ THE SOFTWARE.
 
 #import "CWFoundation.h"
 
+#ifdef ( TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR )
+NSString *_CWPrintLineComposedString(NSArray *objects);
+#endif
+
 BOOL CWClassExists(NSString * class) {
 	return (BOOL)NSClassFromString(class);
 }
