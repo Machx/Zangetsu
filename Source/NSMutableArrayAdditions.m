@@ -32,9 +32,9 @@
 @implementation NSMutableArray (CWNSMutableArrayAdditions)
 
 -(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray {
-	[otherArray cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		[self addObject:[obj copy]];
-	}];
+	for (id object in otherArray) {
+		[self addObject:[object copy]];
+	}
 }
 
 -(void)cw_moveObject:(id)object
