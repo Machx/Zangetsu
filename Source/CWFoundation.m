@@ -54,9 +54,9 @@ void CWNextRunLoop(dispatch_block_t block) {
 
 NSString *_CWPrintLineComposedString(NSArray *objects) {
 	NSMutableString *string = [NSMutableString string];
-	[objects cw_each:^(id object, NSUInteger index, BOOL *stop) {
+	for (id object in objects) {
 		[string appendFormat:@"%@ ",object];
-	}];
+	}
 	return string;
 }
 
