@@ -53,8 +53,8 @@
 								  response:(NSURLResponse **)response 
 								  andError:(NSError **)error {
 	NSParameterAssert(request);
-	__block NSData *data = nil;
-	__block NSURLResponse *resp = nil;
+	__block NSData *data;
+	__block NSURLResponse *resp;
 	__block NSError *err;
 	dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		data = [NSURLConnection sendSynchronousRequest:request 
