@@ -50,7 +50,6 @@
 #import "CWStack.h"
 #import "CWTree.h"
 #import "NSMutableArrayAdditions.h"
-#import "NSOperationQueueAdditions.h"
 #import "CWQueue.h"
 #import "CWURLRequest.h"
 #import "NSRecursiveLockAdditions.h"

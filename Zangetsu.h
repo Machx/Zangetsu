@@ -62,7 +62,6 @@
 #import "NSMutableArrayAdditions.h"
 #import "CWBase64.h"
 #import "CWZLib.h"
-#import "NSOperationQueueAdditions.h"
 #import "CWQueue.h"
 #import "CWURLRequest.h"
 #import "NSMutableURLRequestAdditions.h"
