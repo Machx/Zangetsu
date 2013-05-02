@@ -58,6 +58,14 @@ describe(@"-cw_findWithBlock", ^{
 		}];
 		expect(string).to.equal(@"Bender");
 	});
+	
+	it(@"should return nil if it can't find anything", ^{
+		NSString *string = [testArray cw_findWithBlock:^BOOL(id object) {
+			if([(NSString *)object isEqualToString:@"Hypnotoad"]) return YES;
+			return NO;
+		}];
+		expect(string).to.beNil();
+	});
 });
 
 describe(@"-cw_mapArray", ^{
