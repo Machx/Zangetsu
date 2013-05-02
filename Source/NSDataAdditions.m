@@ -39,7 +39,7 @@
 	for (NSUInteger i = 0; i < [self length]; ++i) {
 		[stringBuffer appendFormat:@"%02X ",(unsigned int)dataBuffer[i]];
 	}
-	return (stringBuffer ? stringBuffer : nil);
+	return (stringBuffer ?: nil);
 }
 
 @end
