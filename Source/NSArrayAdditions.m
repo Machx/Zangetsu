@@ -76,12 +76,12 @@
 #endif
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block {
-    NSMutableArray * cwArray = [NSMutableArray array];
+    NSMutableArray * mappedArray = [NSMutableArray array];
 	[self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		id rObj = block(obj);
-        if (rObj) [cwArray addObject:rObj];
+        if (rObj) [mappedArray addObject:rObj];
 	}];
-	return cwArray;
+	return mappedArray;
 }
 
 -(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block {
