@@ -77,10 +77,11 @@
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block {
     NSMutableArray * mappedArray = [NSMutableArray array];
-	[self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		id rObj = block(obj);
-        if (rObj) [mappedArray addObject:rObj];
-	}];
+	for (id object in self) {
+		id returnedObject = block(object);
+        if (returnedObject)
+			[mappedArray addObject:returnedObject];
+	}
 	return mappedArray;
 }
 
