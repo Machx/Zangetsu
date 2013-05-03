@@ -161,8 +161,9 @@ describe(@"-cw_findObjectWithBlock", ^{
 });
 
 describe(@"-cw_arrayOfObjectsPassingTest", ^{
+	NSArray *array = @[ @1, @2, @3, @4, @5, @6, @7, @8, @9, @10 ];
+	
 	it(@"should find all passing objects", ^{
-		NSArray *array = @[ @1, @2, @3, @4, @5, @6, @7, @8, @9, @10 ];
 		NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
 			return (((NSNumber *)obj).intValue > 5);
 		}];
