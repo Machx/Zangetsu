@@ -151,6 +151,13 @@ describe(@"-cw_findObjectWithBlock", ^{
 		
 		expect(objectIsInArray).to.beTruthy();
 	});
+	
+	it(@"should correctly return NO when an object is not in the array", ^{
+		BOOL objectIsInArray = [testArray cw_isObjectInArrayWithBlock:^BOOL(id object) {
+			return [(NSString *)object isEqualToString:@"Hypnotoad"];
+		}];
+		expect(objectIsInArray).to.beFalsy();
+	});
 });
 
 describe(@"-cw_arrayOfObjectsPassingTest", ^{
