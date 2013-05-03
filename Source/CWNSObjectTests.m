@@ -57,7 +57,7 @@ describe(@"cw_associateWeakValue:withKey:", ^{
 
 describe(@"-cw_isNotNil", ^{
 	it(@"should correctly identify nil and non nil references", ^{
-		id object1 = nil;
+		id object1; //ARC should nil this...
 		NSString *string = @"今日の天気がいいですね";
 		
 		expect([object1 cw_isNotNil]).to.beFalsy();
