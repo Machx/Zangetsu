@@ -173,6 +173,14 @@ describe(@"-cw_arrayOfObjectsPassingTest", ^{
 		expect(results).to.haveCountOf(5);
 		expect(results).to.equal(goodResults);
 	});
+	
+	it(@"should return an empty array when no objects pass", ^{
+		NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
+			return (((NSNumber *)obj).intValue == 0);
+		}];
+		
+		expect(results.count == 0).to.beTruthy();
+	});
 });
 
 SpecEnd
