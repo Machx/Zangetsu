@@ -85,7 +85,7 @@ describe(@"-cw_eachConcurrentlyWithBlock", ^{
 });
 
 describe(@"-cw_findWithBlock", ^{
-	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+	NSSet *testSet = NSSET(@"Fry",@"Bender",@"Leela");
 	
 	it(@"should correctly find an object in a set", ^{
 		id testobj = [testSet cw_findWithBlock:^(id obj) {
@@ -105,7 +105,7 @@ describe(@"-cw_findWithBlock", ^{
 });
 
 describe(@"-cw_isObjectInSetWithBlock", ^{
-	NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+	NSSet *testSet = NSSET(@"Fry",@"Bender",@"Leela");
 	
 	it(@"should correctly return YES if an object is in the set", ^{
 		BOOL objInSet = [testSet cw_isObjectInSetWithBlock:^(id obj) {
@@ -126,7 +126,7 @@ describe(@"-cw_isObjectInSetWithBlock", ^{
 
 describe(@"-cw_mapSet", ^{
 	it(@"should corectly map a set 1 to 1", ^{
-		NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+		NSSet *testSet = NSSET(@"Fry",@"Bender",@"Leela");
 		NSSet *resultSet = [testSet cw_mapSet:^(id obj) {
 			return obj;
 		}];
@@ -135,7 +135,7 @@ describe(@"-cw_mapSet", ^{
 	});
 	
 	it(@"should correctly not map objects to a set", ^{
-		NSSet *testSet = [NSSet setWithObjects:@"Fry",@"Bender",@"Leela",nil];
+		NSSet *testSet = NSSET(@"Fry",@"Bender",@"Leela");
 		NSSet *results = [testSet cw_mapSet:^id(id obj) {
 			if ([(NSString *)obj isEqualToString:@"Fry"] ||
 				[(NSString *)obj isEqualToString:@"Bender"]) {
