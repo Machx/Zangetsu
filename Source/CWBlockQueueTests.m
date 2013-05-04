@@ -98,28 +98,23 @@ describe(@"-executeWhenAllBlocksHaveFinished", ^{
 														   concurrent:YES
 																label:nil];
 		
-		__block NSNumber *count = @(0);
+		__block int32_t count = 0;
 		
 		[queue addoperationWithBlock:^{
-			@synchronized(count) {
-				count = @(count.intValue + 1);
-			}
+			OSAtomicIncrement32(&count);
 		}];
 		
 		[queue addoperationWithBlock:^{
-			@synchronized(count) {
-				count = @(count.intValue + 1);
-			}
+			OSAtomicIncrement32(&count);
 		}];
 		
 		[queue addoperationWithBlock:^{
-			@synchronized(count) {
-				count = @(count.intValue + 1);
-			}
+			OSAtomicIncrement32(&count);
 		}];
 		
 		[queue executeWhenQueueIsFinished:^{
-			expect(count).to.equal(@(3));
+			//expect(count).to.equal(@(3));
+			expect(count == 3).to.beTruthy();
 		}];
 	});
 });
