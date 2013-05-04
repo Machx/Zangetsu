@@ -113,7 +113,6 @@ describe(@"-executeWhenAllBlocksHaveFinished", ^{
 		}];
 		
 		[queue executeWhenQueueIsFinished:^{
-			//expect(count).to.equal(@(3));
 			expect(count == 3).to.beTruthy();
 		}];
 	});

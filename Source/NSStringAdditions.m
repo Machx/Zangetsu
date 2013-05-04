@@ -30,6 +30,9 @@
 @implementation NSString (CWNSStringAdditions)
 
 +(NSString *)cw_uuidString {
+	if ([NSUUID class]) {
+		return [[NSUUID UUID] UUIDString];
+	}
 	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
 	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
 	CFRelease(uid);
