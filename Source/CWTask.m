@@ -190,7 +190,7 @@
 }
 
 - (NSString *) launchTask:(NSError **)error {
-    if (![self _validateTask:error]) { return nil; }
+    if (![self _validateTask:error]) return nil;
 	
     NSString * resultsString = nil;
 	if (!self.taskHasRun) {
