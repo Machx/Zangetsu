@@ -51,13 +51,6 @@ BOOL CWClassExists(NSString * class);
 NSString *CWUUIDStringPrependedWithString(NSString *preString);
 
 /**
- Schedules the block to be executed on the next run loop on the main thread
- 
- @param block the block to be executed on the next runloop on the main thread
- */
-void CWNextRunLoop(dispatch_block_t block);
-
-/**
  Inspired by println in Go, Prints all the variables, space seperated,to NSLog()
  
  Creates a string by calling description on each variable and concatenating all
