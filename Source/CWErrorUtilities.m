@@ -47,7 +47,7 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
 									NSString * errorMessageFormat, ...) {
     NSCParameterAssert(errorMessageFormat != nil);
 	
-    NSString * _domain = (domain ? domain : kCWErrorDomain);
+    NSString * _domain = (domain ?: kCWErrorDomain);
 	
     va_list args;
     va_start(args, errorMessageFormat);
