@@ -33,14 +33,6 @@
 
 SpecBegin(CWFoundationTests)
 
-describe(@"CWClassExists", ^{
-	it(@"should correctly return when classes exist", ^{
-		expect(CWClassExists(@"NSString")).to.beTruthy();
-	});
-	
-	it(@"should currectly return when classes don't exist", ^{
-		expect(CWClassExists(@"Hypnotoad")).to.beFalsy();
-	});
-});
+//TODO: consider for deletion if no other tests will be present
 
 SpecEnd
