@@ -31,11 +31,6 @@ THE SOFTWARE.
 
 NSString *_CWPrintLineComposedString(NSArray *objects);
 
-
-BOOL CWClassExists(NSString * class) {
-	return (BOOL)NSClassFromString(class);
-}
-
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
