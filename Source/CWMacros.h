@@ -37,21 +37,21 @@
 #pragma mark - Log Functions
 
 #ifdef DEBUG
-#	define CWPrintClassAndMethod() NSLog(@"%s%i:\n",__PRETTY_FUNCTION__,__LINE__)
-#	define CWDebugLog(args...) NSLog(@"%s %i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
+#	define CWPrintClassAndMethod() NSLog(@"%s L#%i:\n",__PRETTY_FUNCTION__,__LINE__)
+#	define CWDebugLog(args...) NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 #else
 #	define CWPrintClassAndMethod() /**/
 #	define CWDebugLog(args...) /**/
 #endif
 
-#define CWLog(args...) NSLog(@"%s %i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]);
+#define CWLog(args...) NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]);
 
 #define CWDebugLocationString() [NSString stringWithFormat:@"%s[%i]",__PRETTY_FUNCTION__,__LINE__]
 
 #define CWConditionalLog(cond,args...) \
 do { \
 	if((cond)){ \
-		NSLog(@"%s%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]); \
+		NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]); \
 	} \
 } while(0);
 	
