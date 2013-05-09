@@ -29,24 +29,22 @@ THE SOFTWARE.
 
 #import "CWFoundation.h"
 
-NSString *_CWPrintLineComposedString(NSArray *objects);
-
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
 
-NSString *_CWPrintLineComposedString(NSArray *objects) {
-	NSMutableString *string = [NSMutableString string];
-	for (id object in objects) {
-		[string appendFormat:@"%@ ",object];
-	}
-	return string;
-}
-
 void CWPrintLine(NSArray *args) {
-	NSLog(@"%@",_CWPrintLineComposedString(args));
+	NSMutableString *printLine = [NSMutableString string];
+	for (id object in args) {
+		[printLine appendFormat:@"%@ ",object];
+	}
+	NSLog(@"%@",printLine);
 }
 
 void CWPrintfLine(NSArray *args) {
-	printf("%s\n",[_CWPrintLineComposedString(args) UTF8String]);
+	NSMutableString *printLine = [NSMutableString string];
+	for (id object in args) {
+		[printLine appendFormat:@"%@ ",object];
+	}
+	printf("%s\n",[printLine UTF8String]);
 }
