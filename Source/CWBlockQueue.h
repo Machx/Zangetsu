@@ -117,12 +117,16 @@ typedef enum : NSUInteger {
 
 /**
  The internal queue that CWBlockQueue dispatches to
+ 
+ @return the dispatch_queue_t the queue uses
  */
 @property(readonly,assign) dispatch_queue_t queue;
 
 /**
  A NSString with the label you have given to the queue if initialized with one,
  otherwise it contains a automatically generated one.
+ 
+ @return the label for the queue used to make it distinct
  */
 @property(readonly,retain) NSString *label;
 
