@@ -182,9 +182,7 @@ static int64_t count = 0;
 }
 
 -(void)waitUntilAllBlocksHaveProcessed {
-	dispatch_barrier_sync(self.queue, ^{
-		CWDebugLog(@"Queue %@ Finished",self);
-	});
+	dispatch_barrier_sync(self.queue, ^{ });
 }
 
 -(void)suspend {
