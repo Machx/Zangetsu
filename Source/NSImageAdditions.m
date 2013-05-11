@@ -46,7 +46,7 @@ THE SOFTWARE.
 												 CGImageGetColorSpace(image), 
 												 kCGImageAlphaPremultipliedLast);
 	if (context == NULL) {
-		CWDebugLog(@"ERROR: Received NULL CGContextRef");
+		CWLog(@"ERROR: Received NULL CGContextRef");
 		CFRelease(imageSource);
 		CGImageRelease(image);
 		return nil;
