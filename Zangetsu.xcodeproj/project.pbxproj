@@ -115,10 +115,6 @@
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C17D3153F8BA4006CB444 /* libprofile_rt.a */; };
-		B84C513514F696790046455E /* CWSerialBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWSerialBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B84C513314F696790046455E /* CWSerialBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
-		B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C513414F696790046455E /* CWSerialBlockQueue.m */; };
 		B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -395,8 +391,6 @@
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
-		B84C513314F696790046455E /* CWSerialBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueue.h; path = Source/CWSerialBlockQueue.h; sourceTree = "<group>"; };
-		B84C513414F696790046455E /* CWSerialBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueue.m; path = Source/CWSerialBlockQueue.m; sourceTree = "<group>"; };
 		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
 		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
@@ -721,8 +715,6 @@
 			children = (
 				B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */,
 				B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */,
-				B84C513314F696790046455E /* CWSerialBlockQueue.h */,
-				B84C513414F696790046455E /* CWSerialBlockQueue.m */,
 			);
 			name = Queues;
 			sourceTree = "<group>";
@@ -1090,7 +1082,6 @@
 				B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */,
 				B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
-				B84C513514F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
@@ -1167,7 +1158,6 @@
 				B8C5B96714C492C1000E0A88 /* CWExceptionUtilities.h in Headers */,
 				B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */,
 				B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */,
-				B84C513614F696790046455E /* CWSerialBlockQueue.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
@@ -1407,7 +1397,6 @@
 				B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */,
 				B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */,
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
-				B84C513714F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
@@ -1450,7 +1439,6 @@
 				B8C5B96614C492B9000E0A88 /* CWExceptionUtilities.m in Sources */,
 				B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */,
 				B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */,
-				B84C513814F696790046455E /* CWSerialBlockQueue.m in Sources */,
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,

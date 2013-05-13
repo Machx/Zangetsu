@@ -56,7 +56,6 @@
 #import "CWSystemInfoIOS.h"
 #import "CWBase64IOS.h"
 #import "NSMutableURLRequestAdditions.h"
-#import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "UIImageAdditions.h"

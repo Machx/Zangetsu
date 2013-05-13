@@ -67,7 +67,6 @@
 #import "NSMutableURLRequestAdditions.h"
 #import "NSRecursiveLockAdditions.h"
 #import "NSColorAdditions.h"
-#import "CWSerialBlockQueue.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "NSImageAdditions.h"
