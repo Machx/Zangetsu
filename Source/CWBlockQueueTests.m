@@ -46,7 +46,7 @@ it(@"should execute a completion block if present", ^{
 it(@"should execute synchronous operations synchronously", ^{
 	__block NSInteger result = 0;
 	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
-													   concurrent:NO
+													   concurrent:YES
 															label:nil];
 	
 	[queue addSynchronousOperationWithBlock:^{
