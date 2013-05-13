@@ -115,7 +115,6 @@
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C17D3153F8BA4006CB444 /* libprofile_rt.a */; };
-		B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
@@ -391,8 +390,6 @@
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
-		B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSerialBlockQueueTests.h; path = Source/CWSerialBlockQueueTests.h; sourceTree = "<group>"; };
-		B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSerialBlockQueueTests.m; path = Source/CWSerialBlockQueueTests.m; sourceTree = "<group>"; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
 		B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilitiesTests.m; path = Source/CWURLUtilitiesTests.m; sourceTree = "<group>"; };
 		B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSObjectAdditions.h; path = Source/NSObjectAdditions.h; sourceTree = "<group>"; };
@@ -1009,8 +1006,6 @@
 				B86367A5142F82EE003BBF29 /* CWZLibTests.m */,
 				B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */,
 				B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */,
-				B850C27814F80DF7000EEC03 /* CWSerialBlockQueueTests.h */,
-				B850C27914F80DF7000EEC03 /* CWSerialBlockQueueTests.m */,
 				B81CAD9F14FC2CB4009F5FD7 /* CWBlockQueueTests.h */,
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
 				B8590750158787EF00B8B2C4 /* CWNSColorAdditionsTests.h */,
@@ -1480,7 +1475,6 @@
 				B8C1F9BE1426F27F0065369B /* CWBase64Tests.m in Sources */,
 				B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */,
 				B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */,
-				B850C27A14F80DF7000EEC03 /* CWSerialBlockQueueTests.m in Sources */,
 				B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */,
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
 				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
