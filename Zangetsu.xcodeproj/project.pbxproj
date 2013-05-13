@@ -641,6 +641,8 @@
 				B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
 				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
+				B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */,
+				B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */,
 				B8D2618715D5571100F087C4 /* CWBlockTimer.h */,
 				B8D2618815D5571100F087C4 /* CWBlockTimer.m */,
 				B84995C4128396E1001206E1 /* CWDateUtilities.h */,
@@ -665,7 +667,6 @@
 				B818BBFB1497A49800C71A61 /* CWURLRequest.m */,
 				B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */,
 				B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */,
-				B81CADA214FC33A9009F5FD7 /* Queues */,
 				B8AFE82314119D4000616FA4 /* Data Structures */,
 				B8A084D212F4BA2B00EAFCBF /* Errors and Exceptions */,
 				B8E8F6CF12F34339001A0BBF /* Hashing and Encoding */,
@@ -705,15 +706,6 @@
 				32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		B81CADA214FC33A9009F5FD7 /* Queues */ = {
-			isa = PBXGroup;
-			children = (
-				B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */,
-				B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */,
-			);
-			name = Queues;
 			sourceTree = "<group>";
 		};
 		B84682BD170A6F7B00E7F22F /* extobjc */ = {
