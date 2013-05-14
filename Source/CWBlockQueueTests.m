@@ -160,4 +160,24 @@ it(@"should execute a block on a temporary queue", ^{
 	expect(didExecute == YES).will.beTruthy();
 });
 
+it(@"should suspend and resume the queue when expected", ^{
+	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+													   concurrent:YES
+															label:nil];
+	
+	[queue suspend];
+	
+	__block BOOL didExecute = NO;
+	
+	[queue addoperationWithBlock:^{
+		didExecute = YES;
+	}];
+	
+	expect(didExecute == NO).to.beTruthy();
+	
+	[queue resume];
+	
+	expect(didExecute == YES).will.beTruthy();
+});
+
 SpecEnd
