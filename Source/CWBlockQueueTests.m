@@ -180,4 +180,24 @@ it(@"should suspend and resume the queue when expected", ^{
 	expect(didExecute == YES).will.beTruthy();
 });
 
+it(@"make sure we get back unique labels from queues", ^{
+	CWBlockQueue *queue1 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														concurrent:NO
+															 label:nil];
+	CWBlockQueue *queue2 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														concurrent:NO
+															 label:nil];
+	CWBlockQueue *queue3 = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
+														concurrent:NO
+															 label:nil];
+	
+	NSString *label1 = queue1.label;
+	NSString *label2 = queue2.label;
+	NSString *label3 = queue3.label;
+	
+	expect(label1).notTo.equal(label2);
+	expect(label1).notTo.equal(label3);
+	expect(label2).notTo.equal(label3);
+});
+
 SpecEnd
