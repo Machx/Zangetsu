@@ -150,4 +150,14 @@ it(@"should wait for all operations to finish executing", ^{
 	expect(count == 4).to.beTruthy();
 });
 
+it(@"should execute a block on a temporary queue", ^{
+	__block BOOL didExecute = NO;
+	
+	[CWBlockQueue executeBlockOnTemporaryQueue:^{
+		didExecute = YES;
+	}];
+	
+	expect(didExecute == YES).will.beTruthy();
+});
+
 SpecEnd
