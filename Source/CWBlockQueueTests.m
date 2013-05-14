@@ -200,4 +200,22 @@ it(@"make sure we get back unique labels from queues", ^{
 	expect(label2).notTo.equal(label3);
 });
 
+describe(@"test gcd type queues", ^{
+	it(@"should get the type of gcd global queue expected", ^{
+		CWBlockQueue *high = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetGCDHighPriority
+														  concurrent:NO
+															   label:nil];
+		CWBlockQueue *normal = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetGCDNormalPriority
+															concurrent:NO
+																 label:nil];
+		CWBlockQueue *low = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetGCDLowPriority
+														 concurrent:NO
+															  label:nil];
+		
+		expect(high.queue == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)).to.beTruthy();
+		expect(normal.queue == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)).to.beTruthy();
+		expect(low.queue == dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)).to.beTruthy();
+	});
+});
+
 SpecEnd
