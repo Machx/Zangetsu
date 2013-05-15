@@ -27,8 +27,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#import <Foundation/Foundation.h>
-
 #ifdef DEBUG
 #	define CWAssert(cond,desc) NSAssert(cond,desc)
 #	define CWAssert1(cond,desc,a1) NSAssert1(cond,desc,a1)
