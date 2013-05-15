@@ -27,21 +27,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#ifdef DEBUG
-#	define CWAssert(cond,desc) NSAssert(cond,desc)
-#	define CWAssert1(cond,desc,a1) NSAssert1(cond,desc,a1)
-#	define CWAssert2(cond,desc,a1,a2) NSAssert2(cond,desc,a1,a2)
-#	define CWAssert3(cond,desc,a1,a2,a3) NSAssert3(cond,desc,a1,a2,a3)
-#	define CWAssert4(cond,desc,a1,a2,a3,a4) NSAssert4(cond,desc,a1,a2,a3,a4)
-#	define CWAssert5(cond,desc,a1,a2,a3,a4,a5) NSAssert5(cond,desc,a1,a2,a3,a4,a5)
-#else
-#	define CWAssert(...) /**/
-#	define CWAssert1(...) /**/
-#	define CWAssert2(...) /**/
-#	define CWAssert3(...) /**/
-#	define CWAssert4(...) /**/
-#	define CWAssert5(...) /**/
-#endif
 
 /* Basis of this is from Stack Overflow
  http://stackoverflow.com/questions/2283987/xcode-call-stack-trace-on-assert
