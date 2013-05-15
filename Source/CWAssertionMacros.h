@@ -27,25 +27,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
-/* Basis of this is from Stack Overflow
- http://stackoverflow.com/questions/2283987/xcode-call-stack-trace-on-assert
- Basically a simple assertion that spits the exact expression that failed out to log and
- also spits out the stack trace without the assertion handling frames
- */
-#define CWAssertST(x,desc) \
+#define CWAssert(expression, ...) \
 do { \
-	if (!(x)) { \
-		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] \
-																file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] \
-														  lineNumber:__LINE__ \
-														 description:[NSString stringWithFormat:@"%s:%s failed assertion\nMessage:%@\n%@",__PRETTY_FUNCTION__, #x, desc, [NSThread callStackSymbols]]]; \
+	if(!(expression)) { \
+		NSLog(@"Assertion Failure '%s' in %s on line %s:%d. %@", #expression, __func__, __FILE__, __LINE__, [NSString stringWithFormat: @"" __VA_ARGS__]); \
+		abort(); \
 	} \
-} while(0);
+} while(0)
+
+#define CWAssertST(expression, ...) \
+do { \
+	if(!(expression)) { \
+		NSLog(@"Assertion Failure '%s' in %s on line %s:%d. %@", #expression, __func__, __FILE__, __LINE__, [NSString stringWithFormat: @"" __VA_ARGS__]); \
+		NSLog(@"Assertion Failure Stack Trace:\n%@",[NSThread callStackSymbols]); \
+		abort(); \
+	} \
+} while(0)
 
 #define CWIBOutletAssert(_x_) \
 do { \
 	if(_x_ == nil) { \
 		NSLog(@"IBOutlet Assertion: %s is nil and appears to not be hooked up!",#_x_); \
 	} \
-} while(0);
+} while(0)
