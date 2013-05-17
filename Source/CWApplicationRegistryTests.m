@@ -50,7 +50,7 @@ describe(@"+applicationIsrunning", ^{
 });
 
 describe(@"+bundleIdentifierForApplicaton", ^{
-	it(@"should no return nil for valid applications", ^{
+	it(@"should not return nil for valid applications", ^{
 		expect([CWApplicationRegistry bundleIdentifierForApplication:@"Xcode"]).toNot.beNil();
 	});
 });
