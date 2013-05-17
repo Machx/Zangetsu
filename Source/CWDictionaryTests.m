@@ -122,10 +122,8 @@ describe(@"-cw_filteredDictionaryOfEntriesPassingTest", ^{
 	   };
 		
 		NSDictionary *results = [dict cw_filteredDictionaryOfEntriesPassingTest:^BOOL(id key, id value) {
-			if ([key isEqualToString:@"Futurama"]) {
-				return YES;
-			}
-			if ([value isEqualToString:@"Bender"] ||
+			if ([key isEqualToString:@"Futurama"] ||
+				[value isEqualToString:@"Bender"] ||
 				[value isEqualToString:@"Leela"]) {
 				return YES;
 			}
