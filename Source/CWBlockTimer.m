@@ -74,7 +74,7 @@
 }
 				   
 -(void)_invokeBlock:(NSTimer *)timer {
-	if (self.invocationBlock && [timer isEqual:self.internalTimer]) {
+	if ([timer isEqual:self.internalTimer] && self.invocationBlock) {
 		self.invocationBlock();
 	} else {
 		CWDebugLog(@"ERROR: No invocation block to invoke for timer...");
