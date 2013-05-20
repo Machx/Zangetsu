@@ -46,7 +46,7 @@
 
 #define CWLog(args...) NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]);
 
-#define CWDebugLocationString() [NSString stringWithFormat:@"%s[%i]",__PRETTY_FUNCTION__,__LINE__]
+#define CWLogMethodAndLine() [NSString stringWithFormat:@"%s[%i]",__PRETTY_FUNCTION__,__LINE__]
 
 #define CWConditionalLog(cond,args...) \
 do { \
