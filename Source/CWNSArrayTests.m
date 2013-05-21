@@ -179,6 +179,7 @@ describe(@"-cw_arrayOfObjectsPassingTest", ^{
 			return (((NSNumber *)obj).intValue == 0);
 		}];
 		
+		expect(results).notTo.beNil();
 		expect(results.count == 0).to.beTruthy();
 	});
 });
