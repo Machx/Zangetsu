@@ -41,6 +41,13 @@ describe(@"test NSSET() Macro", ^{
 		
 		expect(set1).to.equal(set2);
 	});
+	
+	it(@"should still create a empty set when passed nil", ^{
+		NSSet *set1 = NSSET(nil);
+		
+		expect(set1).notTo.beNil();
+		expect(set1.count == 0).to.beTruthy();
+	});
 });
 
 describe(@"test gcdqueue macros", ^{
