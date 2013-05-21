@@ -16,7 +16,7 @@ SpecBegin(NSMutableArrayAdditions)
 
 describe(@"-cw_moveObject:toIndex:", ^{
 	it(@"should move an object at one index to another", ^{
-		NSMutableArray *array = [[NSMutableArray alloc] initWithArray:@[ @0, @1, @5, @2, @3, @4]];
+		NSMutableArray *array = [[NSMutableArray alloc] initWithArray:@[ @0, @1, @5, @2, @3, @4 ]];
 		[array cw_moveObject:@5 toIndex:5];
 		[array cw_each:^(id object, NSUInteger index, BOOL *stop) {
 			expect(object).to.equal(@(index));
