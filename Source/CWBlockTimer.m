@@ -32,7 +32,7 @@
 @interface CWBlockTimer ()
 @property(copy) dispatch_block_t invocationBlock;
 @property(readwrite,retain) NSTimer *internalTimer;
--(void)_invokeBlock:(NSTimer *)timer;
+-(void)p_internalInvokeBlock:(NSTimer *)timer;
 @end
 
 @implementation CWBlockTimer
@@ -54,7 +54,7 @@
 	CWBlockTimer *timer = [CWBlockTimer new];
 	timer.internalTimer = [NSTimer scheduledTimerWithTimeInterval:interval
 														   target:timer
-														 selector:@selector(_invokeBlock:)
+														 selector:@selector(p_internalInvokeBlock:)
 														 userInfo:nil
 														  repeats:repeats];
 	timer.invocationBlock = block;
@@ -62,7 +62,7 @@
 }
 
 -(void)fire {
-	[self _invokeBlock:self.internalTimer];
+	[self p_internalInvokeBlock:self.internalTimer];
 }
 
 -(void)invalidate {
@@ -73,7 +73,7 @@
 	return self.internalTimer.isValid;
 }
 				   
--(void)_invokeBlock:(NSTimer *)timer {
+-(void)p_internalInvokeBlock:(NSTimer *)timer {
 	if ([timer isEqual:self.internalTimer] && self.invocationBlock) {
 		self.invocationBlock();
 	} else {
