@@ -73,10 +73,29 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
     return [formatter dateFromString:dateString];
 }
 
-
 #pragma mark NSDateExtensions -
 
 @implementation NSDate (CWNSDateAddtions)
+
+#pragma mark Component Methods -
+
+-(NSDateComponents *)cw_dateComponents {
+	NSUInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+	return [self cw_dateComponentsWithUnits:units];
+}
+
+-(NSDateComponents *)cw_dateComponentsWithUnits:(NSUInteger)calendarUnits {
+	return [self cw_dateComponentsWithUnits:calendarUnits
+							  usingCalendar:[NSCalendar currentCalendar]];
+}
+
+-(NSDateComponents *)cw_dateComponentsWithUnits:(NSUInteger)calendarUnits
+								  usingCalendar:(NSCalendar *)calendar {
+	NSCalendar *cal = (calendar ?: [NSCalendar currentCalendar]);
+	return [cal components:calendarUnits fromDate:self];
+}
+
+#pragma mark Date by Adding Methods
 
 -(NSDate *)cw_dateByAddingMinutes:(NSInteger)minutes
 					usingCalendar:(NSCalendar *)dateCal {
