@@ -30,6 +30,8 @@
 #import "CWRuntimeUtilities.h"
 #import <objc/runtime.h>
 
+//TODO: possibly refactor to not use CWErrorTrap so this code could be independent
+
 void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, NSError **error) {
 	Method originalMethod, newMethod = nil;
 	
