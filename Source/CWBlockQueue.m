@@ -38,10 +38,11 @@
 
 -(id)initWithBlock:(dispatch_block_t)block {
 	self = [super init];
-	if (self) {
-		_operationBlock = [block copy];
-		_completionBlock = NULL;
-	}
+	if (self == nil) return nil;
+	
+	_operationBlock = [block copy];
+	_completionBlock = NULL;
+	
 	return self;
 }
 
@@ -68,19 +69,21 @@ static int64_t count = 0;
 			concurrent:(BOOL)concurrent 
 				 label:(NSString *)label {
 	self = [super init];
-	if (self) {
-		_queue = [self _getDispatchQueueWithType:type 
-									  concurrent:concurrent 
-										andLabel:label];
-	}
+	if (self == nil) return nil;
+	
+	_queue = [self _getDispatchQueueWithType:type
+								  concurrent:concurrent
+									andLabel:label];
+	
 	return self;
 }
 
 -(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue {
 	self = [super init];
-	if (self) {
-		_queue = gcdQueue;
-	}
+	if (self == nil) return nil;
+	
+	_queue = gcdQueue;
+	
 	return self;
 }
 
