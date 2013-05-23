@@ -120,15 +120,13 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 		return;
 	}
 	
-	if (class_addMethod(methodClass,
-						originalSel,
-						method_getImplementation(newMethod),
-						method_getTypeEncoding(newMethod))) {
-		class_replaceMethod(methodClass,
-							originalSel,
-							method_getImplementation(originalMethod),
-							method_getTypeEncoding(originalMethod));
-	} else {
-		method_exchangeImplementations(originalMethod, newMethod);
-	}
+	class_addMethod(methodClass,
+					originalSel,
+					method_getImplementation(newMethod),
+					method_getTypeEncoding(newMethod));
+	class_replaceMethod(methodClass,
+						newSel,
+						method_getImplementation(originalMethod),
+						method_getTypeEncoding(originalMethod));
+	method_exchangeImplementations(originalMethod, newMethod);
 }
