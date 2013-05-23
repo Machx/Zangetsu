@@ -31,11 +31,11 @@
 
 static NSString *const kCWRuntimeErrorDomain = @"com.Zangetsu.CWRuntimeUtilities";
 
-static const NSInteger kCWErrorNoOriginalInstanceMethod = 201;
-static const NSInteger kCWErrorNoNewInstanceMethod = 202;
-static const NSInteger kCWErrorNoOriginalClassMethod = 203;
-static const NSInteger kCWErrorNoNewClassMethod = 204;
-static const NSInteger kCWErrorNonMatchingMethodEncodings = 205;
+static const NSInteger kCWRuntimeErrorNoOriginalInstanceMethod = 201;
+static const NSInteger kCWRuntimeErrorNoNewInstanceMethod = 202;
+static const NSInteger kCWRuntimeErrorNoOriginalClassMethod = 203;
+static const NSInteger kCWRuntimeErrorNoNewClassMethod = 204;
+static const NSInteger kCWRuntimeErrorNonMatchingMethodEncodings = 205;
 
 //so we don't have to include <objc/runtime.h> here in this header
 typedef struct objc_method *Method;

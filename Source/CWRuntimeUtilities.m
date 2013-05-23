@@ -39,7 +39,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	if (!originalMethod) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNoOriginalInstanceMethod
+										 code:kCWRuntimeErrorNoOriginalInstanceMethod
 									 userInfo:@{ NSLocalizedDescriptionKey : @"No Original Instance Method to swizzle!"
 					  }];
 		}
@@ -50,7 +50,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	if (!newMethod) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNoNewInstanceMethod
+										 code:kCWRuntimeErrorNoNewInstanceMethod
 									 userInfo:@{ NSLocalizedDescriptionKey : @"No New Instance Method to swizzle!"
 					  }];
 		}
@@ -62,7 +62,7 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	if (strcmp(method1_encoding, method2_encoding) != 0) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNonMatchingMethodEncodings
+										 code:kCWRuntimeErrorNonMatchingMethodEncodings
 									 userInfo:@{ NSLocalizedDescriptionKey :
 					  [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
 					   method1_encoding,method2_encoding]
@@ -90,7 +90,7 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	if (!originalMethod) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNoOriginalClassMethod
+										 code:kCWRuntimeErrorNoOriginalClassMethod
 									 userInfo:@{ NSLocalizedDescriptionKey : @"No Original Class Method to swizzle!"
 					  }];
 		}
@@ -101,7 +101,7 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	if (!newMethod) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNoNewClassMethod
+										 code:kCWRuntimeErrorNoNewClassMethod
 									 userInfo:@{ NSLocalizedDescriptionKey : @"No New Class Instance Method to swizzle!"
 					  }];
 		}
@@ -113,7 +113,7 @@ void CWSwizzleClassMethods(Class methodClass, SEL originalSel, SEL newSel, NSErr
 	if (strcmp(method1_encoding, method2_encoding) != 0) {
 		if (error) {
 			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
-										 code:kCWErrorNonMatchingMethodEncodings
+										 code:kCWRuntimeErrorNonMatchingMethodEncodings
 									 userInfo:@{ NSLocalizedDescriptionKey :
 					  [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
 					   method1_encoding,method2_encoding]
