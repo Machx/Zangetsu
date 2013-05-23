@@ -36,25 +36,38 @@ void CWSwizzleInstanceMethods(Class instanceClass, SEL originalSel, SEL newSel, 
 	Method originalMethod, newMethod = nil;
 	
 	originalMethod = class_getInstanceMethod(instanceClass, originalSel);
-	if (CWErrorTrap(!originalMethod, ^NSError *{
-		return CWCreateError(kCWRuntimeErrorDomain,kCWErrorNoOriginalInstanceMethod,
-							 @"No Original Instance Method to swizzle!"); }, error)) {
+	if (!originalMethod) {
+		if (error) {
+			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
+										 code:kCWErrorNoOriginalInstanceMethod
+									 userInfo:@{ NSLocalizedDescriptionKey : @"No Original Instance Method to swizzle!"
+					  }];
+		}
 		return;
 	}
 	
 	newMethod = class_getInstanceMethod(instanceClass, newSel);
-	if (CWErrorTrap(!newMethod, ^NSError *{
-		return CWCreateError(kCWRuntimeErrorDomain,kCWErrorNoNewInstanceMethod,
-							 @"No New Instance Method to swizzle!"); }, error)) {
+	if (!newMethod) {
+		if (error) {
+			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
+										 code:kCWErrorNoNewInstanceMethod
+									 userInfo:@{ NSLocalizedDescriptionKey : @"No New Instance Method to swizzle!"
+					  }];
+		}
 		return;
 	}
 	
 	const char *method1_encoding = method_getTypeEncoding(originalMethod);
 	const char *method2_encoding = method_getTypeEncoding(newMethod);
-	if (CWErrorTrap(!strcmp(method1_encoding, method2_encoding), ^NSError *{
-		return CWCreateError(kCWRuntimeErrorDomain, kCWErrorNonMatchingMethodEncodings,
-							 [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
-							  method1_encoding,method2_encoding]); }, error)) {
+	if (strcmp(method1_encoding, method2_encoding) != 0) {
+		if (error) {
+			*error = [NSError errorWithDomain:kCWRuntimeErrorDomain
+										 code:kCWErrorNonMatchingMethodEncodings
+									 userInfo:@{ NSLocalizedDescriptionKey :
+					  [NSString stringWithFormat:@"Method Encodings don't match: %s != %s",
+					   method1_encoding,method2_encoding]
+					  }];
+		}
 		return;
 	}
 	
