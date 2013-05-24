@@ -50,7 +50,7 @@ static const NSInteger classErrorCode2 = 400;
 SpecBegin(CWRuntime)
 
 it(@"should swizzle instance methods", ^{
-	CWTestFoo *foo __attribute__((objc_precise_lifetime)) = [CWTestFoo new];
+	CWTestFoo *foo = [CWTestFoo new];
 	
 	NSError *error1;
 	[foo setError1:&error1];
