@@ -8,8 +8,8 @@
 
 #import "CWRuntimeTests.h"
 
-static const NSInteger code1 = 100;
-static const NSInteger code2 = 200;
+static const NSInteger instanceErrorCode1 = 100;
+static const NSInteger instanceErrorCode2 = 200;
 
 static const NSInteger classErrorCode1 = 300;
 static const NSInteger classErrorCode2 = 400;
@@ -25,12 +25,12 @@ static const NSInteger classErrorCode2 = 400;
 
 -(void)setError1:(NSError **)error {
 	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:code1 userInfo:nil];
+		*error = [NSError errorWithDomain:@"domain" code:instanceErrorCode1 userInfo:nil];
 	}
 }
 -(void)setError2:(NSError **)error {
 	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:code2 userInfo:nil];
+		*error = [NSError errorWithDomain:@"domain" code:instanceErrorCode2 userInfo:nil];
 	}
 }
 
@@ -55,12 +55,12 @@ it(@"should swizzle instance methods", ^{
 	NSError *error1;
 	[foo setError1:&error1];
 	expect(error1.domain).to.equal(@"domain");
-	expect(error1.code == code1).to.beTruthy();
+	expect(error1.code == instanceErrorCode1).to.beTruthy();
 	
 	NSError *error2;
 	[foo setError2:&error2];
 	expect(error2.domain).to.equal(@"domain");
-	expect(error2.code == code2).to.beTruthy();
+	expect(error2.code == instanceErrorCode2).to.beTruthy();
 	
 	NSError *swizzleError;
 	CWSwizzleInstanceMethods([foo class], @selector(setError1:), @selector(setError2:), &swizzleError);
@@ -69,12 +69,12 @@ it(@"should swizzle instance methods", ^{
 	NSError *error3;
 	[foo setError1:&error3];
 	expect(error3.domain).to.equal(@"domain");
-	expect(error3.code == code2).to.beTruthy();
+	expect(error3.code == instanceErrorCode2).to.beTruthy();
 	
 	NSError *error4;
 	[foo setError2:&error4];
 	expect(error4.domain).to.equal(@"domain");
-	expect(error4.code == code1).to.beTruthy();
+	expect(error4.code == instanceErrorCode1).to.beTruthy();
 });
 
 it(@"should swizzle class methods", ^{
