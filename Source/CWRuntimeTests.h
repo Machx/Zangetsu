@@ -7,7 +7,3 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface CWRuntimeTests : SenTestCase
-
-@end
