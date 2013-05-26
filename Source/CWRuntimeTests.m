@@ -8,41 +8,35 @@
 
 #import "CWRuntimeTests.h"
 
-static const NSInteger instanceErrorCode1 = 100;
-static const NSInteger instanceErrorCode2 = 200;
+static const NSInteger kInstanceCode1 = 100;
+static const NSInteger kInstanceCode2 = 200;
 
-static const NSInteger classErrorCode1 = 300;
-static const NSInteger classErrorCode2 = 400;
+static const NSInteger kClassCode1 = 300;
+static const NSInteger kClassCode2 = 400;
 
 @interface CWTestFoo : NSObject
--(void)setError1:(NSError **)error;
--(void)setError2:(NSError **)error;
-+(void)setClassError1:(NSError **)error;
-+(void)setClassError2:(NSError **)error;
+-(NSInteger)instanceCode1;
+-(NSInteger)instanceCode2;
++(NSInteger)classCode1;
++(NSInteger)classCode2;
 @end
 
 @implementation CWTestFoo
 
--(void)setError1:(NSError **)error {
-	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:instanceErrorCode1 userInfo:nil];
-	}
-}
--(void)setError2:(NSError **)error {
-	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:instanceErrorCode2 userInfo:nil];
-	}
+-(NSInteger)instanceCode1 {
+	return kInstanceCode1;
 }
 
-+(void)setClassError1:(NSError **)error {
-	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:classErrorCode1 userInfo:nil];
-	}
+-(NSInteger)instanceCode2 {
+	return kInstanceCode2;
 }
-+(void)setClassError2:(NSError **)error {
-	if (error) {
-		*error = [NSError errorWithDomain:@"domain" code:classErrorCode2 userInfo:nil];
-	}
+
++(NSInteger)classCode1 {
+	return kClassCode1;
+}
+
++(NSInteger)classCode2 {
+	return kClassCode2;
 }
 
 @end
