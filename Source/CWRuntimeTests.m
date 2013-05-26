@@ -60,25 +60,17 @@ it(@"should swizzle instance methods", ^{
 });
 
 it(@"should swizzle class methods", ^{
-	NSError *error1;
-	[CWTestFoo setClassError1:&error1];
-	expect(error1.code == classErrorCode1).to.beTruthy();
+	expect([CWTestFoo classCode1] == kClassCode1).to.beTruthy();
 	
-	NSError *error2;
-	[CWTestFoo setClassError2:&error2];
-	expect(error2.code == classErrorCode2).to.beTruthy();
+	expect([CWTestFoo classCode2] == kClassCode2).to.beTruthy();
 	
 	NSError *swizzleError;
-	CWSwizzleClassMethods([CWTestFoo class], @selector(setClassError1:), @selector(setClassError2:), &swizzleError);
-	if(swizzleError != nil) NSLog(@"Swizzle Error: %@",swizzleError);
+	CWSwizzleClassMethods([CWTestFoo class], @selector(classCode1), @selector(classCode2), &swizzleError);
+	if(swizzleError) NSLog(@"Swizzle Error: %@",swizzleError);
 	
-	NSError *error3;
-	[CWTestFoo setClassError1:&error3];
-	expect(error3.code == classErrorCode2).to.beTruthy();
+	expect([CWTestFoo classCode1] == kClassCode2).to.beTruthy();
 	
-	NSError *error4;
-	[CWTestFoo setClassError2:&error4];
-	expect(error4.code == classErrorCode1).to.beTruthy();
+	expect([CWTestFoo classCode2] == kClassCode1).to.beTruthy();
 });
 
 SpecEnd
