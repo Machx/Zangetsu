@@ -46,29 +46,17 @@ SpecBegin(CWRuntime)
 it(@"should swizzle instance methods", ^{
 	CWTestFoo *foo = [CWTestFoo new];
 	
-	NSError *error1;
-	[foo setError1:&error1];
-	expect(error1.domain).to.equal(@"domain");
-	expect(error1.code == instanceErrorCode1).to.beTruthy();
+	expect(foo.instanceCode1 == kInstanceCode1).to.beTruthy();
 	
-	NSError *error2;
-	[foo setError2:&error2];
-	expect(error2.domain).to.equal(@"domain");
-	expect(error2.code == instanceErrorCode2).to.beTruthy();
+	expect(foo.instanceCode2 == kInstanceCode2).to.beTruthy();
 	
 	NSError *swizzleError;
-	CWSwizzleInstanceMethods([foo class], @selector(setError1:), @selector(setError2:), &swizzleError);
-	if(swizzleError != nil) NSLog(@"Swizzle Error: %@",swizzleError);
+	CWSwizzleInstanceMethods([foo class], @selector(instanceCode1), @selector(instanceCode2), &swizzleError);
+	if(swizzleError) NSLog(@"Swizzle Error: %@",swizzleError);
 	
-	NSError *error3;
-	[foo setError1:&error3];
-	expect(error3.domain).to.equal(@"domain");
-	expect(error3.code == instanceErrorCode2).to.beTruthy();
+	expect(foo.instanceCode1 == kInstanceCode2).to.beTruthy();
 	
-	NSError *error4;
-	[foo setError2:&error4];
-	expect(error4.domain).to.equal(@"domain");
-	expect(error4.code == instanceErrorCode1).to.beTruthy();
+	expect(foo.instanceCode2 == kInstanceCode1).to.beTruthy();
 });
 
 it(@"should swizzle class methods", ^{
