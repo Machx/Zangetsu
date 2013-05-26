@@ -52,7 +52,7 @@ it(@"should swizzle instance methods", ^{
 	
 	NSError *swizzleError;
 	CWSwizzleInstanceMethods([foo class], @selector(instanceCode1), @selector(instanceCode2), &swizzleError);
-	if(swizzleError) NSLog(@"Swizzle Error: %@",swizzleError);
+	if(swizzleError) NSLog(@"[Instance] Swizzle Error: %@",swizzleError);
 	
 	expect(foo.instanceCode1 == kInstanceCode2).to.beTruthy();
 	
@@ -66,7 +66,7 @@ it(@"should swizzle class methods", ^{
 	
 	NSError *swizzleError;
 	CWSwizzleClassMethods([CWTestFoo class], @selector(classCode1), @selector(classCode2), &swizzleError);
-	if(swizzleError) NSLog(@"Swizzle Error: %@",swizzleError);
+	if(swizzleError) NSLog(@"[Class] Swizzle Error: %@",swizzleError);
 	
 	expect([CWTestFoo classCode1] == kClassCode2).to.beTruthy();
 	
