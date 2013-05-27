@@ -47,6 +47,10 @@
 	objc_AssociationPolicy policty = (atomic ? OBJC_ASSOCIATION_RETAIN : OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 	objc_setAssociatedObject(self, key, value, policty);
 }
+
+-(void)cw_associateValueByCopy:(id)value atomic:(BOOL)atomic withKey:(void *)key {
+	objc_AssociationPolicy policy = (atomic ? OBJC_ASSOCIATION_COPY : OBJC_ASSOCIATION_COPY_NONATOMIC);
+	objc_setAssociatedObject(self, key, value, policy);
 }
 
 -(void)cw_associateWeakValue:(id)value withKey:(void *)key {

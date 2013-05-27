@@ -51,6 +51,10 @@
 				  atomic:(BOOL)atomic
 				 withKey:(void *)key;
 
+-(void)cw_associateValueByCopy:(id)value
+						atomic:(BOOL)atomic
+					   withKey:(void *)key;
+
 /**
  Associates the value with a key using a weak reference
  
