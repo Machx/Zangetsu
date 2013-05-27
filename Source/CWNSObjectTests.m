@@ -35,23 +35,23 @@ SpecBegin(CWNSObject)
 
 describe(@"-cw_associateValue:withKey:", ^{
 	it(@"should be able to store & retrieve strong references", ^{
-		char *key1 = "key1";
+		void *key = &key;
 		NSObject *object = [[NSObject alloc] init];
 		[object cw_associateValue:@"All Hail the Hypnotoad"
-						  withKey:key1];
+						  withKey:key];
 		
-		expect([object cw_valueAssociatedWithKey:key1]).to.equal(@"All Hail the Hypnotoad");
+		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"All Hail the Hypnotoad");
 	});
 });
 
 describe(@"cw_associateWeakValue:withKey:", ^{
 	it(@"should be able to store & retrieve weak references", ^{
-		char *key3 = "key3";
+		void *key = &key;
 		NSObject *object = [[NSObject alloc] init];
 		[object cw_associateWeakValue:@"Hypnotoad Season 3"
-							  withKey:key3];
+							  withKey:key];
 		
-		expect([object cw_valueAssociatedWithKey:key3]).to.equal(@"Hypnotoad Season 3");
+		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"Hypnotoad Season 3");
 	});
 });
 
