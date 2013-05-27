@@ -48,6 +48,7 @@
  @param key to be used to lookup value later
  */
 -(void)cw_associateValue:(id)value
+				  atomic:(BOOL)atomic
 				 withKey:(void *)key;
 
 /**
