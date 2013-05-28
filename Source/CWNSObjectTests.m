@@ -38,6 +38,7 @@ describe(@"-cw_associateValue:withKey:", ^{
 		void *key = &key;
 		NSObject *object = [[NSObject alloc] init];
 		[object cw_associateValue:@"All Hail the Hypnotoad"
+						   atomic:YES
 						  withKey:key];
 		
 		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"All Hail the Hypnotoad");
