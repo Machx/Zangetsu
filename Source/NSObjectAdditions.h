@@ -52,6 +52,13 @@
 				  atomic:(BOOL)atomic
 				 withKey:(void *)key;
 
+/**
+ Associates the value with a key by copying it and using a strong reference
+ 
+ @param value the object to be associated with the receiver
+ @param atomic specificies if the value should be set atomically
+ @param key to be used to lookup value later
+ */
 -(void)cw_associateValueByCopy:(id)value
 						atomic:(BOOL)atomic
 					   withKey:(void *)key;
