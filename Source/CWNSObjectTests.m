@@ -43,6 +43,18 @@ describe(@"-cw_associateValue:atomic:withKey:", ^{
 		
 		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"All Hail the Hypnotoad");
 	});
+	
+	it(@"should be able to store & retreive strong references nonatomically", ^{
+		void *key = &key;
+		NSObject *object = [NSObject new];
+		[object cw_associateValue:@"Hypnotoad"
+						   atomic:NO
+						  withKey:key];
+		
+		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"Hypnotoad");
+	});
+});
+
 });
 
 describe(@"cw_associateWeakValue:withKey:", ^{
