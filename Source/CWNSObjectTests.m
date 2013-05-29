@@ -33,10 +33,10 @@
 
 SpecBegin(CWNSObject)
 
-describe(@"-cw_associateValue:withKey:", ^{
+describe(@"-cw_associateValue:atomic:withKey:", ^{
 	it(@"should be able to store & retrieve strong references", ^{
 		void *key = &key;
-		NSObject *object = [[NSObject alloc] init];
+		NSObject *object = [NSObject new];
 		[object cw_associateValue:@"All Hail the Hypnotoad"
 						   atomic:YES
 						  withKey:key];
