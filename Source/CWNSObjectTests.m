@@ -55,6 +55,17 @@ describe(@"-cw_associateValue:atomic:withKey:", ^{
 	});
 });
 
+describe(@"-cw_associateValueByCopy:atomic:withKey:", ^{
+	it(@"should be able to store & retrieve strong references atomically", ^{
+		void *key = &key;
+		NSObject *object = [NSObject new];
+		[object cw_associateValueByCopy:@"Hypnotoad"
+								 atomic:YES
+								withKey:key];
+		
+		expect([object cw_valueAssociatedWithKey:key]).to.equal(@"Hypnotoad");
+	});
+	});
 });
 
 describe(@"cw_associateWeakValue:withKey:", ^{
