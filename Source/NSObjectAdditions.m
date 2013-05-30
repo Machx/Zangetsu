@@ -50,9 +50,9 @@
 	objc_setAssociatedObject(self, key, value, policty);
 }
 
--(void)cw_associateValueByCopy:(id)value
-						atomic:(BOOL)atomic
-					   withKey:(void *)key {
+-(void)cw_associateValueByCopyingValue:(id)value
+								atomic:(BOOL)atomic
+							   withKey:(void *)key {
 	objc_AssociationPolicy policy = (atomic ? OBJC_ASSOCIATION_COPY : OBJC_ASSOCIATION_COPY_NONATOMIC);
 	objc_setAssociatedObject(self, key, value, policy);
 }
