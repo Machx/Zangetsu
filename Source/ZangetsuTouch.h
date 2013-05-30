@@ -27,6 +27,10 @@
  THE SOFTWARE.
  */
 
+#if ! __has_feature(objc_arc)
+#error This project requires ARC
+#endif
+
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWDateUtilities.h"
