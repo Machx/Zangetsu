@@ -32,8 +32,6 @@
  they were created & added to Zangetsu
  */
 
-//TODO: single out the external data structure headers?
-
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWTask.h"
