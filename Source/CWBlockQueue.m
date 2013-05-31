@@ -28,7 +28,8 @@
  */
 
 #import "CWBlockQueue.h"
-#import <libkern/OSAtomic.h>
+#import <libkern/OSAtomic.h> //for OSAtomicIncrement64()
+#import "CWAssertionMacros.h"
 
 @interface CWBlockOperation()
 @property(copy) dispatch_block_t operationBlock;
@@ -47,7 +48,7 @@
 }
 
 +(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block {
-	NSParameterAssert(block != nil);
+	CWAssert(block != nil);
 	return [[self alloc] initWithBlock:block];
 }
 
