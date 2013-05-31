@@ -45,6 +45,9 @@
 /**
  Returns a new CWBlockOperation object
  
+ Creates a new CWBlockOperation object. The Block itself must not be nil,
+ otherwise this method will throw an assertion and abort.
+ 
  @param block the block to be used with the operation object. Must not be nil.
  @return a CWBlocKOperation instance
  */
