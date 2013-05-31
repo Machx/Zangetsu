@@ -86,6 +86,18 @@ static int64_t count = 0;
 	return self;
 }
 
+-(NSString *)label {
+	//Because queue_get_label blows up with NULL refs
+	if (self.queue == NULL) return @"No Queue Present";
+	
+	const char *gcdLabel = dispatch_queue_get_label(self.queue);
+	//Because stringWithUTF8String will blow up with NULL
+	//we can get here if the queue doesn't have a label
+	if (gcdLabel == NULL) gcdLabel = "GCD Queue";
+	
+	return [NSString stringWithUTF8String:gcdLabel];
+}
+
 -(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type 
 								  concurrent:(BOOL)concurrent 
 									andLabel:(NSString *)qLabel {
