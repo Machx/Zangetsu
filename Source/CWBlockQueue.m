@@ -29,7 +29,7 @@
 
 #import "CWBlockQueue.h"
 #import <libkern/OSAtomic.h> //for OSAtomicIncrement64()
-#import "CWAssertionMacros.h"
+#import "CWAssertionMacros.h" //for CWParameterAssert()
 
 @interface CWBlockOperation()
 @property(copy) dispatch_block_t operationBlock;
