@@ -126,8 +126,12 @@ typedef enum : NSUInteger {
 @property(readonly,assign) dispatch_queue_t queue;
 
 /**
- A NSString with the label you have given to the queue if initialized with one,
- otherwise it contains a automatically generated one.
+ The internal queues label
+ 
+ This returns the internal queus label and will be one of several values. If the
+ queue is non-existant (nil) then this returns "No Queue Present." Otherwise 
+ the result from dispatch_queue_get_label() is returned, except if the result
+ returned is NULL, in which case "GCD Queue" is returned.
  
  @return the label for the queue used to make it distinct
  */
