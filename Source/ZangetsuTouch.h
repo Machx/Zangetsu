@@ -31,6 +31,8 @@
 #error This project requires ARC
 #endif
 
+#import "CWAssertionMacros.h"
+
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWDateUtilities.h"
