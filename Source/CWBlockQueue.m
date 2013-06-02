@@ -214,10 +214,10 @@ static int64_t count = 0;
 }
 
 -(void)dealloc {
-	if (( self.queue != dispatch_get_main_queue() ) &&
-		( self.queue != CWGCDPriorityQueueHigh() ) &&
-		( self.queue != CWGCDPriorityQueueNormal() ) &&
-		( self.queue != CWGCDPriorityQueueLow() )) {
+	if (( _queue != dispatch_get_main_queue() ) &&
+		( _queue != CWGCDPriorityQueueHigh() ) &&
+		( _queue != CWGCDPriorityQueueNormal() ) &&
+		( _queue != CWGCDPriorityQueueLow() )) {
 		//make sure we only release on a private queue
 		//doing this on the global concurrent queues does nothing
 		dispatch_release(_queue); 
