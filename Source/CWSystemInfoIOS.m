@@ -115,7 +115,7 @@
 	@"x86_64"    : @"iOS Simulator"
 	};
 	
-	NSString *hardwareString = [hardwareDictionary objectForKey:machineString];
+	NSString *hardwareString = hardwareDictionary[machineString];
 	
 	return hardwareString;
 }
