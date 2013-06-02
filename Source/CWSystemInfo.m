@@ -51,7 +51,7 @@
     NSString *systemVersionString = [CWSystemInfo hostVersionString];
 	NSArray *versionComponents = [systemVersionString componentsSeparatedByString:@"."];
 	
-	NSAssert(versionComponents.count == 3, nil);
+	CWAssert(versionComponents.count == 3);
 	
 	NSMutableDictionary *versionDictionary = [NSMutableDictionary new];
 	[versionDictionary addEntriesFromDictionary:@{
