@@ -158,6 +158,8 @@ static int64_t count = 0;
 }
 
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block {
+	CWAssert(block != nil);
+	
 	static int64_t temporaryQueueCounter = 0;
 	NSString *tempLabel = [NSString stringWithFormat:@"com.Zangetsu.CWBlockQueue_TemporaryQueue_%llu",
 						   OSAtomicIncrement64(&temporaryQueueCounter)];
