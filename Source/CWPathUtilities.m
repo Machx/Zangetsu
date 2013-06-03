@@ -44,29 +44,29 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 @implementation CWPathUtilities
 
 + (NSString *) applicationSupportFolder {
-    NSString * _path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
-    if (_path) {
-		NSString * _appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
-		return [NSString stringWithFormat:@"%@/%@", _path, _appName];
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
+    if (path) {
+		NSString * appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
+		return [NSString stringWithFormat:@"%@/%@", path, appName];
 	}
 	return nil;
 }
 
 + (NSString *) documentsFolderPathForFile:(NSString *)file {
     NSParameterAssert(file);
-    NSString *_path = nil;
-    _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
-    if (_path) {
-		return [NSString stringWithFormat:@"%@/%@",_path,file];
+    NSString *path = nil;
+    path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
+    if (path) {
+		return [NSString stringWithFormat:@"%@/%@",path,file];
 	}
 	return nil;
 }
 
 + (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
 	NSParameterAssert(path);
-    NSString * _appSupportPath = [CWPathUtilities applicationSupportFolder];
-	if (_appSupportPath) {
-		return [NSString stringWithFormat:@"%@/%@", _appSupportPath, path];
+    NSString * appSupportPath = [CWPathUtilities applicationSupportFolder];
+	if (appSupportPath) {
+		return [NSString stringWithFormat:@"%@/%@", appSupportPath, path];
 	}
     return nil;
 }
