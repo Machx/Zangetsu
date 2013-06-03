@@ -91,9 +91,10 @@ typedef enum : NSUInteger {
  This creates a temporary dispatch_queue_t and then asynchronously executes the
  block and when the block has completed executing the queue is immediately 
  released. The temporary queue has a unique label like 
- 'com.Zangetsu.CWBlockQueue_TemporaryQueue_1A5F...' etc.
+ 'com.Zangetsu.CWBlockQueue_TemporaryQueue_1A5F...' etc. If the block being 
+ dispatched is nil this will catch an assertion and call abort().
  
- @param block the block to be executed on a temporary queue
+ @param block the block to be executed on a temporary queue. Cannot be nil.
  */
 +(void)executeBlockOnTemporaryQueue:(dispatch_block_t)block;
 
