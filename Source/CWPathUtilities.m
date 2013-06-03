@@ -33,7 +33,7 @@ static NSString * const kCWAppName = @"CFBundleName";
 
 
 NSString *CWFullPathFromTildeString(NSString *tildePath) {
-	NSCParameterAssert(tildePath);
+	if(tildePath == nil) return nil;
 	NSString *path = [tildePath stringByExpandingTildeInPath];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
 		return path;
@@ -53,7 +53,6 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 }
 
 + (NSString *) documentsFolderPathForFile:(NSString *)file {
-    NSParameterAssert(file);
     NSString *path = nil;
     path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
     if (path) {
@@ -63,7 +62,6 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 }
 
 + (NSString *) pathByAppendingAppSupportFolderWithPath:(NSString *)path {
-	NSParameterAssert(path);
     NSString * appSupportPath = [CWPathUtilities applicationSupportFolder];
 	if (appSupportPath) {
 		return [NSString stringWithFormat:@"%@/%@", appSupportPath, path];
@@ -72,7 +70,6 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 }
 
 + (NSString *) pathByAppendingHomeFolderPath:(NSString *)subPath {
-	NSParameterAssert(subPath);
 	return [NSString stringWithFormat:@"%@/%@",NSHomeDirectory(),subPath];
 }
 
