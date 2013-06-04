@@ -40,7 +40,7 @@
 -(void)cw_moveObject:(id)object
 			 toIndex:(NSUInteger)index
 {
-	NSParameterAssert(object);
+	CWAssert(object != nil);
 	NSUInteger oldIndex = [self indexOfObject:object];
 	if (oldIndex == index) return;
 	if (oldIndex != NSNotFound) {

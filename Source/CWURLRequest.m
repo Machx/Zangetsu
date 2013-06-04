@@ -159,7 +159,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
 						 withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
-	NSParameterAssert(queue);
+	CWAssert(queue != nil);
 	@weakify(self);
 	dispatch_async(queue, ^{
 		@strongify(self);
@@ -173,7 +173,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(void)startAsynchronousConnectionOnQueue:(NSOperationQueue *)queue 
 					  withCompletionBlock:(void (^)(NSData *data, NSError *error, NSURLResponse *response))block {
-	NSParameterAssert(queue);
+	CWAssert(queue != nil);
 	@weakify(self);
 	[queue addOperationWithBlock:^{
 		@strongify(self);

@@ -83,7 +83,7 @@
 -(void)cw_performSelector:(SEL)selector 
 			   withObject:(id)obj 
 				  onQueue:(NSOperationQueue *)queue {
-	NSParameterAssert(queue);
+	CWAssert(queue != nil);
 	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self
 																	 selector:selector
 																	   object:obj];
