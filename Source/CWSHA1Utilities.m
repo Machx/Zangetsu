@@ -31,7 +31,7 @@
 @implementation NSString (CWSHA1Utilities)
 
 + (NSString *) cw_sha1HashFromString:(NSString *)str {
-    NSParameterAssert(str);
+    CWAssert(str != nil);
 
     const char * cStringRep = [str UTF8String];
     unsigned char shaHash[CC_SHA1_DIGEST_LENGTH];

@@ -33,7 +33,7 @@
 @implementation NSString (CWMD5Utilities)
 
 +(NSString *)cw_md5HashFromString:(NSString *)string {
-	NSParameterAssert(string);
+	CWAssert(string != nil);
 	const char *cStringRep = [string UTF8String];
 	unsigned char md5Hash[CC_MD5_DIGEST_LENGTH];
 	CC_MD5(cStringRep, (CC_LONG)strlen(cStringRep), md5Hash);

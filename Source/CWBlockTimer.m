@@ -49,7 +49,7 @@
 +(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
 							   repeats:(BOOL)repeats
 								 block:(dispatch_block_t)block {
-	NSParameterAssert(block);
+	CWAssert(block != nil);
 	
 	CWBlockTimer *timer = [CWBlockTimer new];
 	timer.internalTimer = [NSTimer scheduledTimerWithTimeInterval:interval
