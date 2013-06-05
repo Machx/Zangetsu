@@ -74,6 +74,16 @@
  */
 -(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block;
 
+/**
+ Appends keys & values from one dictionary to another & returns a new instance
+ 
+ This method takes the receiver dictionary and creates a mutable copy, appends
+ the keys and values from the argument dictionary, and then then returns to you
+ a new NSDictionary instance containing keys and values from both dictionaries.
+ 
+ @param dictionary the keys and values you wish to append to the reciver
+ @return a new NSDictionary instance containing keys/values from both instances
+ */
 -(NSDictionary *)cw_dictionaryByAppendingDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)cw_filteredDictionaryOfEntriesPassingTest:(BOOL (^)(id key, id value))block;
