@@ -45,6 +45,12 @@
 	return [[self allKeys] containsObject:key];
 }
 
+-(NSDictionary *)cw_dictionaryByAppendingDictionary:(NSDictionary *)dictionary {
+	NSMutableDictionary *results = [self mutableCopy];
+	[results addEntriesFromDictionary:dictionary];
+	return results;
+}
+
 -(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {

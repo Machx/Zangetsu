@@ -74,6 +74,8 @@
  */
 -(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block;
 
+-(NSDictionary *)cw_dictionaryByAppendingDictionary:(NSDictionary *)dictionary;
+
 -(NSDictionary *)cw_filteredDictionaryOfEntriesPassingTest:(BOOL (^)(id key, id value))block;
 
 @end
