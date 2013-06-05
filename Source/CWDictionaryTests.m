@@ -67,6 +67,19 @@ describe(@"-cw_mapDictionary", ^{
 	});
 });
 
+describe(@"-cw_dictionaryByAppendingDictionary", ^{
+	it(@"should correctly append one dictionary to another", ^{
+		NSDictionary *dict1 = @{ @"key1" : @"value1" };
+		NSDictionary *dict2 = @{ @"key2" : @"value2" };
+		
+		NSDictionary *result = [dict1 cw_dictionaryByAppendingDictionary:dict2];
+		
+		expect(result.allKeys.count == 2).to.beTruthy();
+		expect(result[@"key1"]).to.equal(@"value1");
+		expect(result[@"key2"]).to.equal(@"value2");
+	});
+});
+
 describe(@"-cw_each", ^{
 	it(@"should enumerate all key/value pairs in a dictionary", ^{
 		NSDictionary *dictionary = @{ @"Futurama" : @"Fry",
