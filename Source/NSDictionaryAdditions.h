@@ -86,6 +86,21 @@
  */
 -(NSDictionary *)cw_dictionaryByAppendingDictionary:(NSDictionary *)dictionary;
 
+/**
+ Returns a new dictionary with key/value pairs from the receiver passing test
+ 
+ This method creates a new NSDictionary instance and finds all entries in the
+ receiver dictionary that pass the block test, adds those to the new dictionary
+ and then returns that new dictionary at the end of the method.
+ 
+ The block takes in the key and value pairs from the receiver dictionary and
+ passes them to you for evaluation. If you return YES then that key/value pair
+ is added to the new NSDictionary instance, otherwise if you return NO then
+ it will be omitted from the dictionary returned.
+ 
+ @param block must not be nil. use in evaluating key/value pairs
+ @return a new NSDictionary with the key/value pairs that passed the block test
+ */
 -(NSDictionary *)cw_filteredDictionaryOfEntriesPassingTest:(BOOL (^)(id key, id value))block;
 
 @end
