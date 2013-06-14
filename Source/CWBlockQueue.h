@@ -73,7 +73,7 @@ typedef enum : NSUInteger {
  
  @return mainQueue a CWBlockQueue object using the GCD Main Queue
  */
-+(CWBlockQueue *)mainQueue;
++(instancetype)mainQueue;
 
 /**
  Returns a global CWBlockQueue object initialized to point at the GCD Default
@@ -82,7 +82,7 @@ typedef enum : NSUInteger {
  @return globalDefaultQueue a CWBlock queue object initialized and using the GCD
  Default Priority Queue
  */
-+(CWBlockQueue *)globalDefaultQueue;
++(instancetype)globalDefaultQueue;
 
 /**
  Creates a Temporary Queue that you can use to throw a block on for execution in
@@ -107,9 +107,9 @@ typedef enum : NSUInteger {
  
  @return an initialed CWBlockQueue
  */
--(id)initWithQueueType:(CWBlockQueueTargetType)type
-			concurrent:(BOOL)concurrent
-				 label:(NSString *)qLabel;
+-(instancetype)initWithQueueType:(CWBlockQueueTargetType)type
+					  concurrent:(BOOL)concurrent
+						   label:(NSString *)qLabel;
 
 /**
  Initialzes a CWBlockQueue object with a specified gcd queue
@@ -117,7 +117,7 @@ typedef enum : NSUInteger {
  @param a dispatch_queue_t queue that CWBlockQueue should manage
  @return an initialized CWBlockQueue object
  */
--(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue;
+-(instancetype)initWithGCDQueue:(dispatch_queue_t)gcdQueue;
 
 /**
  The internal queue that CWBlockQueue dispatches to

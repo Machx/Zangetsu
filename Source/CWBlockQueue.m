@@ -65,7 +65,7 @@ static int64_t count = 0;
 
 @implementation CWBlockQueue
 
--(id)initWithQueueType:(CWBlockQueueTargetType)type 
+-(instancetype)initWithQueueType:(CWBlockQueueTargetType)type
 			concurrent:(BOOL)concurrent 
 				 label:(NSString *)label {
 	self = [super init];
@@ -78,7 +78,7 @@ static int64_t count = 0;
 	return self;
 }
 
--(id)initWithGCDQueue:(dispatch_queue_t)gcdQueue {
+-(instancetype)initWithGCDQueue:(dispatch_queue_t)gcdQueue {
 	self = [super init];
 	if (self == nil) return nil;
 	
@@ -135,7 +135,7 @@ static int64_t count = 0;
 	if (GCDQueue) dispatch_set_target_queue(self.queue, GCDQueue);
 }
 
-+(CWBlockQueue *)mainQueue {
++(instancetype)mainQueue {
 	static CWBlockQueue *mainBlockQueue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -146,7 +146,7 @@ static int64_t count = 0;
 	return mainBlockQueue;
 }
 
-+(CWBlockQueue *)globalDefaultQueue {
++(instancetype)globalDefaultQueue {
 	static CWBlockQueue *gcdDefaultQueue = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
