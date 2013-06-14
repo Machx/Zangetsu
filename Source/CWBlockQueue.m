@@ -47,7 +47,7 @@
 	return self;
 }
 
-+(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block {
++(instancetype)operationWithBlock:(dispatch_block_t)block {
 	CWAssert(block != nil);
 	return [[self alloc] initWithBlock:block];
 }

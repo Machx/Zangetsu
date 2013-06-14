@@ -51,7 +51,7 @@
  @param block the block to be used with the operation object. Must not be nil.
  @return a CWBlocKOperation instance
  */
-+(CWBlockOperation *)operationWithBlock:(dispatch_block_t)block;
++(instancetype)operationWithBlock:(dispatch_block_t)block;
 
 /**
  a Block executed once the main block of the operation has finished executing
