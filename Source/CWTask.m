@@ -32,9 +32,9 @@
 
 @interface CWTask ()
 // Publicly declared
-@property (readwrite, retain) NSString * executable;
+@property (readwrite, copy) NSString * executable;
 @property (readwrite, retain) NSArray * arguments;
-@property (readwrite, retain) NSString * directoryPath;
+@property (readwrite, copy) NSString * directoryPath;
 @property (readwrite, assign) NSInteger successCode;
 // Privately Declared
 @property (readwrite, assign) BOOL taskHasRun;

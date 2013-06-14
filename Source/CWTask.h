@@ -50,8 +50,8 @@ static const NSInteger kCWTaskNotLaunchedErrorCode =           -1729;
 @interface CWTask : NSObject
 
 //public readonly vars
-@property(readonly, retain) NSString *executable;
-@property(readonly, retain) NSString *directoryPath;
+@property(readonly, copy) NSString *executable;
+@property(readonly, copy) NSString *directoryPath;
 @property(readonly, assign) NSInteger successCode;
 @property(readonly, retain) NSArray *arguments;
 //public read/write vars
