@@ -89,12 +89,12 @@ static int64_t count = 0;
 
 -(NSString *)label {
 	//Because queue_get_label blows up with NULL refs
-	if (self.queue == NULL) return @"No Queue Present";
+	if (self.queue == NULL) return kCWBlockQueueNoQueueLabel;
 	
 	const char *gcdLabel = dispatch_queue_get_label(self.queue);
 	//Because stringWithUTF8String will blow up with NULL
 	//we can get here if the queue doesn't have a label
-	if (gcdLabel == NULL) gcdLabel = "GCD Queue";
+	if (gcdLabel == NULL) return kCWBlockQueueGenericGCDQueueLabel;
 	
 	return [NSString stringWithUTF8String:gcdLabel];
 }

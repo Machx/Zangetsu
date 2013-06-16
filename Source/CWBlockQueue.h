@@ -41,7 +41,11 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kCWBlockQueueNoQueueLabel = @"No Queue Present";
+static NSString * const kCWBlockQueueGenericGCDQueueLabel = @"GCD Queue";
+
 @interface CWBlockOperation : NSObject
+
 /**
  Returns a new CWBlockOperation object
  
@@ -68,6 +72,7 @@ typedef enum : NSUInteger {
 } CWBlockQueueTargetType;
 
 @interface CWBlockQueue : NSObject
+
 /**
  Returns a global CWBlockQueue object initialized to point at the GCD Main Queue
  
