@@ -139,10 +139,11 @@
  */
 - (BOOL) _validateExecutable:(NSError **)error {
     if ((!self.executable) || ![[NSFileManager defaultManager] fileExistsAtPath:self.executable]) {
-		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskInvalidExecutableErrorCode,
-				   @"Executable Path provided doesn't exist",
-				   error);
+		if (error) {
+			*error = [NSError errorWithDomain:kCWTaskErrorDomain
+										 code:kCWTaskInvalidExecutableErrorCode
+									 userInfo:@{ NSLocalizedFailureReasonErrorKey : @"Executable Path provided doesn't exist" }];
+		}
         return NO;
     }
     return YES;
@@ -159,10 +160,11 @@
 - (BOOL) _validateDirectoryPathIfApplicable:(NSError **)error {
     if (self.directoryPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:self.directoryPath]) {
-			CWErrorSet(kCWTaskErrorDomain,
-					   kCWTaskInvalidDirectoryErrorCode,
-					   @"The Directory Specified does not exist & is invalid",
-					   error);
+			if (error) {
+				*error = [NSError errorWithDomain:kCWTaskErrorDomain
+											 code:kCWTaskInvalidDirectoryErrorCode
+										 userInfo:@{ NSLocalizedFailureReasonErrorKey : @"The Directory Specified does not exist & is invalid" }];
+			}
             return NO;
         }
     }
@@ -180,10 +182,11 @@
  */
 - (BOOL) _validateTaskHasRun:(NSError **)error {
     if (self.taskHasRun) {
-		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskAlreadyRunErrorCode,
-				   @"This CWTask Instance has already been run",
-				   error);
+		if (error) {
+			*error = [NSError errorWithDomain:kCWTaskErrorDomain
+										 code:kCWTaskAlreadyRunErrorCode
+									 userInfo:@{ NSLocalizedFailureReasonErrorKey: @"This CWTask Instance has already been run" }];
+		}
         return NO;
     }
     return YES;
@@ -218,10 +221,11 @@
     }
     @catch (NSException * e) {
         CWDebugLog(@"caught exception: %@", e);
-		CWErrorSet(kCWTaskErrorDomain,
-				   kCWTaskEncounteredExceptionOnRunErrorCode,
-				   [e description],
-				   error);
+		if (error) {
+			*error = [NSError errorWithDomain:kCWTaskErrorDomain
+										 code:kCWTaskEncounteredExceptionOnRunErrorCode
+									 userInfo:@{ NSLocalizedFailureReasonErrorKey : [e description] }];
+		}
     }
 
     returnedData = [[self.pipe fileHandleForReading] readDataToEndOfFile];
