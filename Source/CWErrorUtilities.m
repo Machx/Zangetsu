@@ -64,21 +64,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
                            userInfo:_errorDictionary];
 }
 
-void CWErrorSet(NSString *domain,
-				NSInteger errorCode,
-				NSString *errorMessageFormat,
-				NSError **error) {
-	CWErrorSetV(domain, errorCode, errorMessageFormat, nil, error);
-}
-
-void CWErrorSetV(NSString *domain,
-				 NSInteger errorCode,
-				 NSString *errorMessageFormat,
-				 NSDictionary *userInfo,
-				 NSError **error) {
-	if (error) *error = CWCreateErrorWithUserInfo(domain, errorCode, userInfo, errorMessageFormat);
-}
-
 BOOL CWErrorTrap(BOOL cond,
 				NSError *(^errorBlock)(void),
 				NSError **error) {

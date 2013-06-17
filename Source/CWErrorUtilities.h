@@ -71,40 +71,6 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
 									NSString * errorMessageFormat, ...);
 
 /**
- Safely Sets an error by checking if it is non nil
- 
- This allows creating an error and safely setting it wihtout worrying about 
- checking for non nil value before setting the pointer. 
- 
- @param domain the domain for a NSError object
- @param errorCode the error code in a NSError object
- @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
- @param error the NSError reference to set
- */
-void CWErrorSet(NSString *domain,
-				NSInteger errorCode,
-				NSString *errorMessageFormat,
-				NSError **error);
-
-/**
- Safely Sets an error by checking if it is non nil
- 
- This allows creating an error and safely setting it wihtout worrying about
- checking for non nil value before setting the pointer. This method also allows
- you to set additional values in the user info dictionary if needed.
- 
- @param domain the domain for a NSError object
- @param errorCode the error code in a NSError object
- @param errorMessageFormat string formatting for NSLocalizedDescriptionKey
- @param error the NSError reference to set
- */
-void CWErrorSetV(NSString *domain,
-				 NSInteger errorCode,
-				 NSString *errorMessageFormat,
-				 NSDictionary *userInfo,
-				 NSError **error);
-
-/**
  Tests if the condition is true and if it is sets the error
  
  @param cond the expression to be tested
