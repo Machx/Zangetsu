@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #import "CWFoundation.h"
 
+//TODO: consider moving this to the NSString category
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
 }
