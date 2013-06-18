@@ -44,6 +44,12 @@ do { \
 	} \
 } while(0)
 
+/**
+ CWIBOutletAssert is not a usual assertion macro like the other ones contained
+ here. Its purpose is entirely just to be a reminder when launching an app in
+ debug mode that certain outlets have not been hooked up so you don't go and
+ spend a bunch of time wondering what went wrong in your code :)
+ */
 #define CWIBOutletAssert(_x_) \
 do { \
 	if(_x_ == nil) { \
