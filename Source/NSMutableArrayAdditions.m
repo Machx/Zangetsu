@@ -48,7 +48,7 @@
 		[self insertObject:object atIndex:index];
 		return;
 	}
-	printf("%s: Object you are attempting to move was not contained in the array",__PRETTY_FUNCTION__);
+	NSLog(@"%s: Object you are attempting to move was not contained in the array",__PRETTY_FUNCTION__);
 }
 
 @end
