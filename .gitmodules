@@ -2,3 +2,6 @@
 	path = External/Zangetsu-Data-Structures
 	url = https://github.com/Machx/Zangetsu-Data-Structures.git
 	ignore = dirty
+[submodule "External/CWLogging"]
+	path = External/CWLogging
+	url = https://github.com/Machx/CWLogging.git
