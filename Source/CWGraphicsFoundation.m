@@ -106,7 +106,7 @@ CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
 								space, kCGImageAlphaPremultipliedLast);
 	if (ref == NULL) {
 		CGColorSpaceRelease(space);
-		CWDebugLog(@"CWGraphicsFoundation: CGBitmapContext not allocated");
+		CWLogInfo(@"CWGraphicsFoundation: CGBitmapContext not allocated");
 		return NULL;
 	}
 	CGColorSpaceRelease(space);

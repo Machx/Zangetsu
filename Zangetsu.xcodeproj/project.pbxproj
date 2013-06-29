@@ -265,6 +265,10 @@
 		B8EB3438172ECF200044E492 /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
+		B8F738C0177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; };
+		B8F738C1177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; };
+		B8F738C2177F537900A66200 /* CWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F738BF177F537900A66200 /* CWLogging.m */; };
+		B8F738C3177F537900A66200 /* CWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F738BF177F537900A66200 /* CWLogging.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -532,6 +536,8 @@
 		B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDictionaryTests.m; path = Source/CWDictionaryTests.m; sourceTree = "<group>"; };
 		B8F5E6E212A0355900E58C94 /* CWSetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSetTests.h; path = Source/CWSetTests.h; sourceTree = "<group>"; };
 		B8F5E6E312A0355900E58C94 /* CWSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSetTests.m; path = Source/CWSetTests.m; sourceTree = "<group>"; };
+		B8F738BE177F537900A66200 /* CWLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLogging.h; path = External/CWLogging/CWLogging.h; sourceTree = "<group>"; };
+		B8F738BF177F537900A66200 /* CWLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLogging.m; path = External/CWLogging/CWLogging.m; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -653,6 +659,8 @@
 				B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */,
 				B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */,
 				B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */,
+				B8F738BE177F537900A66200 /* CWLogging.h */,
+				B8F738BF177F537900A66200 /* CWLogging.m */,
 				B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */,
 				B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */,
 				B89418FC132AF54500313534 /* CWRuntimeUtilities.h */,
@@ -1111,6 +1119,7 @@
 				B84682F7170A6F9600E7F22F /* metamacros.h in Headers */,
 				B84682F8170A6F9600E7F22F /* NSInvocation+EXT.h in Headers */,
 				B84682F9170A6F9600E7F22F /* NSMethodSignature+EXT.h in Headers */,
+				B8F738C0177F537900A66200 /* CWLogging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1193,7 @@
 				B8EB3438172ECF200044E492 /* NSMethodSignature+EXT.h in Headers */,
 				B8EB341D172ECF0E0044E492 /* EXTADT.h in Headers */,
 				B8EB341E172ECF130044E492 /* EXTAnnotation.h in Headers */,
+				B8F738C1177F537900A66200 /* CWLogging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1396,6 +1406,7 @@
 				B83A596416FE3565005663D7 /* CWStack.m in Sources */,
 				B83A596816FE3565005663D7 /* CWTree.m in Sources */,
 				B83A596C16FE3565005663D7 /* CWTrie.m in Sources */,
+				B8F738C2177F537900A66200 /* CWLogging.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1436,6 +1447,7 @@
 				B83A596516FE3565005663D7 /* CWStack.m in Sources */,
 				B83A596916FE3565005663D7 /* CWTree.m in Sources */,
 				B83A596D16FE3565005663D7 /* CWTrie.m in Sources */,
+				B8F738C3177F537900A66200 /* CWLogging.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

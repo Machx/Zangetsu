@@ -220,7 +220,7 @@
         [self.internalTask launch];
     }
     @catch (NSException * e) {
-        CWDebugLog(@"caught exception: %@", e);
+		CWLogInfo(@"caught exception: %@",e);
 		if (error) {
 			*error = [NSError errorWithDomain:kCWTaskErrorDomain
 										 code:kCWTaskEncounteredExceptionOnRunErrorCode

@@ -79,3 +79,4 @@
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
 #import "NSNumberAdditions.h"
+#import "CWLogging.h"
