@@ -38,15 +38,11 @@
 
 #ifdef DEBUG
 #	define CWPrintClassAndMethod() NSLog(@"%s L#%i:\n",__PRETTY_FUNCTION__,__LINE__)
-#	define CWDebugLog(args...) NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args])
 #else
 #	define CWPrintClassAndMethod() /**/
-#	define CWDebugLog(args...) /**/
 #endif
 
-#define CWLog(args...) NSLog(@"%s L#%i: %@",__PRETTY_FUNCTION__,__LINE__,[NSString stringWithFormat:args]);
-
-#define CWLogMethodAndLine() NSLog(@"%s L#%i",__PRETTY_FUNCTION__,__LINE__);
+#define CWLogMethodAndLine() NSLog(@"%s L#%i",__PRETTY_FUNCTION__,__LINE__)
 
 #define CWConditionalLog(cond,args...) \
 do { \
