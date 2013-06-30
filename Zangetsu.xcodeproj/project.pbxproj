@@ -137,7 +137,6 @@
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86367A2142F7607003BBF29 /* CWZLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A0142F7607003BBF29 /* CWZLib.m */; };
 		B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A5142F82EE003BBF29 /* CWZLibTests.m */; };
-		B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
 		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
 		B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,6 +160,8 @@
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
 		B884628516C0AD8B00EE9AF0 /* libExpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */; };
 		B884628616C0ADB300EE9AF0 /* libSpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884626316C0ACCA00EE9AF0 /* libSpecta-macosx.a */; };
+		B88474C11780A1FA00EC9373 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B88474C21780A1FA00EC9373 /* CWAssertionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B884940113A13D700046194D /* CWApplicationRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B884940013A13D700046194D /* CWApplicationRegistryTests.m */; };
 		B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B88BFAFC14DAF61100E82207 /* CWBase64IOS.m */; };
@@ -418,7 +419,6 @@
 		B86367A0142F7607003BBF29 /* CWZLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLib.m; path = Source/CWZLib.m; sourceTree = "<group>"; };
 		B86367A4142F82EE003BBF29 /* CWZLibTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLibTests.h; path = Source/CWZLibTests.h; sourceTree = "<group>"; };
 		B86367A5142F82EE003BBF29 /* CWZLibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLibTests.m; path = Source/CWZLibTests.m; sourceTree = "<group>"; };
-		B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAssertionMacros.h; path = Source/CWAssertionMacros.h; sourceTree = "<group>"; };
 		B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZangetsuTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B869BAFB14C3AA5A00ED2908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B869BAFF14C3AA5A00ED2908 /* ZangetsuTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZangetsuTouch-Prefix.pch"; sourceTree = "<group>"; };
@@ -481,6 +481,7 @@
 		B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-macosx.a"; path = "External/Expecta/libExpecta-macosx.a"; sourceTree = "<group>"; };
 		B884628816C0AFD900EE9AF0 /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raiseWithReason.h"; path = "External/Expecta/EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
 		B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Zangetsu-UnitTestsOSX.pch"; path = "Source/Zangetsu-UnitTestsOSX.pch"; sourceTree = "<group>"; };
+		B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAssertionMacros.h; path = External/CWAssertionMacros/CWAssertionMacros.h; sourceTree = "<group>"; };
 		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
 		B884940013A13D700046194D /* CWApplicationRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistryTests.m; path = Source/CWApplicationRegistryTests.m; sourceTree = "<group>"; };
 		B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64IOS.h; path = Source/CWBase64IOS.h; sourceTree = "<group>"; };
@@ -643,8 +644,8 @@
 			isa = PBXGroup;
 			children = (
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
+				B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */,
 				B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */,
-				B869BADE14C208CB00ED2908 /* CWAssertionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
 				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
 				B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */,
@@ -1075,7 +1076,6 @@
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
 				B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */,
 				B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */,
-				B869BADF14C208CB00ED2908 /* CWAssertionMacros.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
@@ -1120,6 +1120,7 @@
 				B84682F8170A6F9600E7F22F /* NSInvocation+EXT.h in Headers */,
 				B84682F9170A6F9600E7F22F /* NSMethodSignature+EXT.h in Headers */,
 				B8F738C0177F537900A66200 /* CWLogging.h in Headers */,
+				B88474C11780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1194,6 +1195,7 @@
 				B8EB341D172ECF0E0044E492 /* EXTADT.h in Headers */,
 				B8EB341E172ECF130044E492 /* EXTAnnotation.h in Headers */,
 				B8F738C1177F537900A66200 /* CWLogging.h in Headers */,
+				B88474C21780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
