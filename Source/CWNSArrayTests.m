@@ -53,6 +53,24 @@ describe(@"-cw_firstObject", ^{
 	});
 });
 
+describe(@"-cw_randomObject", ^{
+	it(@"should return a random object in the array", ^{
+		/**
+		 Assuming this is truly random this would be really hard to correctly
+		 test. This API doesn't mean a unique or different object every time,
+		 but generally with enough objects to pick it should give us 2 different
+		 random objects in the array.
+		 */
+		NSArray *randArray = @[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,
+						 @11,@12,@13,@14,@15,@16,@17,@18,@19,@20];
+		
+		id randObject1 = [randArray cw_randomObject];
+		id randObject2 = [randArray cw_randomObject];
+		
+		expect(randObject1).notTo.equal(randObject2);
+	});
+});
+
 describe(@"-cw_findWithBlock", ^{
 	it(@"should find the correct object", ^{
 		NSString *string = [testArray cw_findWithBlock:^(id obj) {
