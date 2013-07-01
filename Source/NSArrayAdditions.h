@@ -41,6 +41,11 @@
  */
 -(id)cw_firstObject;
 
+/**
+ Returns a random object from the array
+ 
+ @return a random object contained in the receiver array
+ */
 -(id)cw_randomObject;
 
 /**
