@@ -33,7 +33,6 @@
 
 #import "CWNSObjectTests.h"
 #import "NSObjectAdditions.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(CWNSObject)
 

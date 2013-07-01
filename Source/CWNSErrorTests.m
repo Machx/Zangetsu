@@ -33,8 +33,6 @@
 
 #import "CWNSErrorTests.h"
 #import "CWErrorUtilities.h"
-#import "CWMacros.h"
-#import "CWAssertionMacros.h"
 
 SpecBegin(NSErrorTests)
 

@@ -32,7 +32,6 @@
  */
 
 #import "CWNSArrayTests.h"
-#import "CWAssertionMacros.h"
 
 NSArray *testArray = nil;
 
