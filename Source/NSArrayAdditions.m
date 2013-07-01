@@ -37,6 +37,10 @@
 	return (self.count > 0 ? self[0] : nil);
 }
 
+-(id)cw_randomObject {
+	return [self objectAtIndex:arc4random_uniform((uint32_t)self.count)];
+}
+
 -(void)cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
 	[self enumerateObjectsUsingBlock:block];
 }

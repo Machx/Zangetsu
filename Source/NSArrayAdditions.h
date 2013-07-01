@@ -41,6 +41,8 @@
  */
 -(id)cw_firstObject;
 
+-(id)cw_randomObject;
+
 /**
  Iterates over all the objects in an array and calls the block on each object
  
