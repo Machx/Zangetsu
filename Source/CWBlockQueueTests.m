@@ -50,24 +50,6 @@ it(@"should execute a basic block operation asap", ^{
 	expect(result).will.equal(@"Hello World!");
 });
 
-it(@"should execute a completion block if present", ^{
-	__block NSString *result = nil;
-	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
-													   concurrent:YES
-															label:nil];
-	
-	CWBlockOperation *operation = [CWBlockOperation operationWithBlock:^{
-		NSLog(@"Obey Hypnotoad!");
-	}];
-	[operation setCompletionBlock:^{
-		result = @"Obey Hypnotoad!";
-	}];
-	
-	[queue addOperation:operation];
-	
-	expect(result).will.equal(@"Obey Hypnotoad!");
-});
-
 it(@"should execute synchronous operations synchronously", ^{
 	__block NSInteger result = 0;
 	CWBlockQueue *queue = [[CWBlockQueue alloc] initWithQueueType:kCWBlockQueueTargetPrivateQueue
