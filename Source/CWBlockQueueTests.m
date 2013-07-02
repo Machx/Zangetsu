@@ -35,6 +35,11 @@
 #import "CWBlockQueue.h"
 #import "CWAssertionMacros.h"
 
+/**
+ For the Expecta ...will.equal()...
+ These tests use the default 1.0 second timeout
+ */
+
 SpecBegin(CWBlockQueue)
 
 it(@"should execute a basic block operation asap", ^{
