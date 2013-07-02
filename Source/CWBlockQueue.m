@@ -46,7 +46,6 @@
 	if (self == nil) return nil;
 	
 	_operationBlock = [block copy];
-	_completionBlock = NULL;
 	
 	return self;
 }
@@ -176,7 +175,6 @@ static int64_t count = 0;
 -(void)addOperation:(CWBlockOperation *)operation {
 	dispatch_async(self.queue, ^{
 		operation.operationBlock();
-		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
@@ -187,7 +185,6 @@ static int64_t count = 0;
 -(void)addSynchronousOperation:(CWBlockOperation *)operation {
 	dispatch_sync(self.queue, ^{
 		operation.operationBlock();
-		if (operation.completionBlock) operation.completionBlock();
 	});
 }
 
