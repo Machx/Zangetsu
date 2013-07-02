@@ -61,10 +61,6 @@ static NSString * const kCWBlockQueueGenericGCDQueueLabel = @"GCD Queue";
  */
 +(instancetype)operationWithBlock:(dispatch_block_t)block;
 
-/**
- a Block executed once the main block of the operation has finished executing
- */
-@property(copy) dispatch_block_t completionBlock;
 @end
 
 typedef enum : NSUInteger {
