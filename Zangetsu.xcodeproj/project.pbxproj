@@ -137,6 +137,8 @@
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86367A2142F7607003BBF29 /* CWZLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A0142F7607003BBF29 /* CWZLib.m */; };
 		B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A5142F82EE003BBF29 /* CWZLibTests.m */; };
+		B8660D471783281700B08CEF /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
 		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
 		B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -266,8 +268,8 @@
 		B8EB3438172ECF200044E492 /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
-		B8F738C0177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; };
-		B8F738C1177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; };
+		B8F738C0177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8F738C1177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F738C2177F537900A66200 /* CWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F738BF177F537900A66200 /* CWLogging.m */; };
 		B8F738C3177F537900A66200 /* CWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F738BF177F537900A66200 /* CWLogging.m */; };
 /* End PBXBuildFile section */
@@ -1196,6 +1198,8 @@
 				B8EB341E172ECF130044E492 /* EXTAnnotation.h in Headers */,
 				B8F738C1177F537900A66200 /* CWLogging.h in Headers */,
 				B88474C21780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
+				B8660D471783281700B08CEF /* NSMutableURLRequestAdditions.h in Headers */,
+				B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
