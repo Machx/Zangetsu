@@ -49,7 +49,7 @@
 												 CGImageGetColorSpace(image), 
 												 kCGImageAlphaPremultipliedLast);
 	if (context == NULL) {
-		CWDebugLog(@"ERROR: Received NULL CGContextRef");
+		CWDebugLog(ASL_LEVEL_INFO,@"ERROR: Received NULL CGContextRef");
 		return nil;
 	}
 	
