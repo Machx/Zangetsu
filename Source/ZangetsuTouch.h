@@ -32,6 +32,7 @@
 #endif
 
 #import "CWAssertionMacros.h"
+#import "CWLogging.h"
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
