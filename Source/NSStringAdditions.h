@@ -33,7 +33,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (CWNSStringAdditions) 
+@interface NSString (CWNSStringAdditions)
+
 /**
  Returns a UUID String
  
@@ -44,20 +45,31 @@
  @return a new UUID NSString instance
  */
 + (NSString *)cw_uuidString;
+
 /**
  Asynchronous & Synchronous string enumeration 
- this method was created for being able to enumerate over all the lines
- in a string asychronously, but make the whole operation of enumerating 
- over all the lines, synchronous
+ this method was created for being able to enumerate over all the lines in a 
+ string asychronously, but make the whole operation of enumerating over all the 
+ lines, synchronous
+ 
+ @param options the options on how to enumerate the string
+ @block the block to handle processing the substrings returned
  */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
                                  usingBlock:(void (^)(NSString *substring))block;
+
 /**
  Escapes entities that would need to be escaped in urls
+ 
+ @return a new NSString with appropriate entities escaped
  */
 - (NSString *) cw_escapeEntitiesForURL;
+
 /**
  Quick test for an empty string
+ 
+ @return BOOL with YES if length > 0, otherwise returns NO
  */
 - (BOOL) cw_isNotEmptyString;
+
 @end
