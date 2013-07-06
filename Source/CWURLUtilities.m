@@ -49,11 +49,11 @@ NSURL *CWURL(NSString * urlFormat,...) {
 
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	if (login == nil) {
-		printf("%s: Required Login String was nil",__PRETTY_FUNCTION__);
+		CWLogInfo(@"Required Login was nil... returning nil");
 		return nil;
 	}
 	if (password == nil) {
-		printf("%s: Required Password String was nil",__PRETTY_FUNCTION__);
+		CWLogInfo(@"Required Password was nil... returning nil");
 		return nil;
 	}
 	
