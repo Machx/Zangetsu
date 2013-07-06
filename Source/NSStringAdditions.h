@@ -35,7 +35,13 @@
 
 @interface NSString (CWNSStringAdditions) 
 /**
- Convenience method for Core Foundations CFUUIDCreate() function
+ Returns a UUID String
+ 
+ On OS X 10.8 and later this method calls the new [[NSUUID UUID] UUIDString]
+ function. For 10.7 compatibility this method calls CFUUIDCreateString() if the
+ NSUUID class doesn't exist.
+ 
+ @return a new UUID NSString instance
  */
 + (NSString *)cw_uuidString;
 /**
