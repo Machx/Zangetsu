@@ -45,6 +45,7 @@
 			 toIndex:(NSUInteger)index
 {
 	CWAssert(object != nil);
+	CWAssert(index <= (self.count - 1));
 	NSUInteger oldIndex = [self indexOfObject:object];
 	if (oldIndex == index) return;
 	if (oldIndex != NSNotFound) {
