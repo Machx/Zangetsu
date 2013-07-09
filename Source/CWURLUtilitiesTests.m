@@ -43,11 +43,6 @@ describe(@"CWURLAuthorizationHeaderString()", ^{
 		
 		expect(authorizationHeaderString).to.equal(goodResultString);
 	});
-	
-	it(@"should return nil when either username or password is nil", ^{
-		expect(CWURLAuthorizationHeaderString(nil, @"TestPassword")).to.beNil();
-		expect(CWURLAuthorizationHeaderString(@"Test Account", nil)).to.beNil();
-	});
 });
 
 SpecEnd

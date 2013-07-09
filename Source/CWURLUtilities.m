@@ -48,14 +48,8 @@ NSURL *CWURL(NSString * urlFormat,...) {
 }
 
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
-	if (login == nil) {
-		CWLogInfo(@"Required Login was nil... returning nil");
-		return nil;
-	}
-	if (password == nil) {
-		CWLogInfo(@"Required Password was nil... returning nil");
-		return nil;
-	}
+	CWAssert(login != nil);
+	CWAssert(password != nil);
 	
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
