@@ -36,7 +36,7 @@
 static NSString * const kCWURLUtiltyErrorDomain = @"com.Zangetsu.CWURLUtilities";
 
 NSURL *CWURL(NSString * urlFormat,...) {
-    NSCParameterAssert(urlFormat);
+	CWAssert(urlFormat != nil);
 	
 	va_list args;
     va_start(args, urlFormat);
