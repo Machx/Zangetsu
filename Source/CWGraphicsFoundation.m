@@ -108,11 +108,8 @@ CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
 								width, height,
 								8, bytesPerRow,
 								space, kCGImageAlphaPremultipliedLast);
-	if (ref == NULL) {
-		CGColorSpaceRelease(space);
-		CWLogInfo(@"CWGraphicsFoundation: CGBitmapContext not allocated");
-		return NULL;
-	}
+	CWAssert(ref != NULL);
+	
 	CGColorSpaceRelease(space);
 	return ref;
 }
@@ -125,7 +122,7 @@ CGColorRef CWCreateCGColor(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
 }
 
 CGColorRef CWCreateCGColorWithSpace(CGFloat r, CGFloat g, CGFloat b, CGFloat a, CGColorSpaceRef cspace) {
-	if(cspace == NULL) { return NULL; }
+	CWAssert(cspace != NULL);
 	CGFloat components[4];
 	components[0] = r; components[1] = g; components[2] = b; components[3] = a;
 	CGColorRef colorRef = CGColorCreate(cspace, components);
