@@ -48,7 +48,7 @@
 	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
 												 CGImageGetBitsPerComponent(image), 0,
 												 CGImageGetColorSpace(image), 
-												 kCGImageAlphaPremultipliedLast);
+												 kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
 	if (context == NULL) {
 		CWLogInfo(@"ERROR: Received NULL CGContextRef");
 		CFRelease(imageSource);
