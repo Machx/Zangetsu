@@ -107,7 +107,7 @@ CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
 	ref = CGBitmapContextCreate(NULL,
 								width, height,
 								8, bytesPerRow,
-								space, kCGImageAlphaPremultipliedLast);
+								space, kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
 	CWAssert(ref != NULL);
 	
 	CGColorSpaceRelease(space);
