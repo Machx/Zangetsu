@@ -36,6 +36,7 @@
 @implementation NSRecursiveLock (CWNSRecursiveLockAdditions)
 
 -(void)cw_doWithLock:(dispatch_block_t)block {
+	CWAssert(block != nil);
 	[self lock];
 	block();
 	[self unlock];
