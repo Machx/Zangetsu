@@ -33,11 +33,6 @@
 
 #import "CWFoundation.h"
 
-//TODO: consider moving this to the NSString category
-NSString *CWUUIDStringPrependedWithString(NSString *preString) {
-	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
-}
-
 void CWPrintLine(NSArray *args) {
 	NSMutableString *printLine = [NSMutableString string];
 	for (id object in args) {
