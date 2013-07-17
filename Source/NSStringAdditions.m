@@ -31,6 +31,10 @@
 #import "NSStringAdditions.h"
 #import <CoreFoundation/CoreFoundation.h>
 
+NSString *CWUUIDStringPrependedWithString(NSString *preString) {
+	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
+}
+
 @implementation NSString (CWNSStringAdditions)
 
 +(NSString *)cw_uuidString {
