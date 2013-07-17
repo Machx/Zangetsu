@@ -35,10 +35,13 @@
 
 @interface NSRecursiveLock (CWNSRecursiveLockAdditions)
 /**
- Executes the lock method on the instance, executes the block, 
- and then executes the unlock method on the instance lock.
+ Locks the lock, executes the block, then unlocks the lock
  
- @param block the block to be executed between locking & unlocking the lock
+ Executes the lock method on the instance, executes the block, 
+ and then executes the unlock method on the instance lock. if
+ the block is nil then an assertion is thrown.
+ 
+ @param block the block to be executed should not be nil
  */
 -(void)cw_doWithLock:(dispatch_block_t)block;
 @end
