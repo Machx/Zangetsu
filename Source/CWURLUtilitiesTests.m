@@ -36,6 +36,10 @@
 
 SpecBegin(CWURLUtilities)
 
+// CWURLAuthorizationHeaderString() uses CWAssert() which will call abort() and
+// not throw an exception when passed either a nil username or password string
+// which is why tests covering that case are not present here
+
 describe(@"CWURLAuthorizationHeaderString()", ^{
 	it(@"should create an expected result from a given input", ^{
 		NSString *authorizationHeaderString = CWURLAuthorizationHeaderString(@"TestAccount", @"TestPassword");
