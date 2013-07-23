@@ -71,27 +71,4 @@ describe(@"CWCreateErrorWithUserInfo()", ^{
 	});
 });
 
-describe(@"CWErrorTrap()", ^{
-	it(@"should correctly set an NSError object on a NSError pointer", ^{
-		NSUInteger i = 50;
-		NSError *error;
-		BOOL result = CWErrorTrap(i > 5, ^NSError *{
-			return CWCreateError(@"com.Test.Test", 404, @"Less than 5");
-		}, &error);
-		
-		expect(result).to.beTruthy();
-		expect(error.domain).to.equal(@"com.Test.Test");
-		expect(error.code == 404).to.beTruthy();
-		expect(error.userInfo[NSLocalizedDescriptionKey]).to.equal(@"Less than 5");
-	});
-	
-	it(@"should return YES condition was meet even when given nil for NSError", ^{
-		BOOL result = CWErrorTrap(YES, ^NSError *{
-			return nil;
-		}, nil);
-		
-		expect(result).to.beTruthy();
-	});
-});
-
 SpecEnd
