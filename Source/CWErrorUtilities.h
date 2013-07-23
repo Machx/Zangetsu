@@ -71,15 +71,3 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
 									NSInteger errorCode,
 									NSDictionary *info,
 									NSString * errorMessageFormat, ...);
-
-/**
- Tests if the condition is true and if it is sets the error
- 
- @param cond the expression to be tested
- @param errorBlock a block that returns a NSError object if the error is set
- @param error to be set with the block returned var if condition is true
- @return returns YES if the condition evaluates to true, otherwise returns NO
- */
-BOOL CWErrorTrap(BOOL cond,
-				NSError *(^errorBlock)(void),
-				NSError **error);

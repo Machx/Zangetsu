@@ -67,11 +67,3 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
                                code:errorCode
                            userInfo:_errorDictionary];
 }
-
-BOOL CWErrorTrap(BOOL cond,
-				NSError *(^errorBlock)(void),
-				NSError **error) {
-	if(!cond) return NO;
-	if(error) *error = errorBlock();
-	return YES;
-}
