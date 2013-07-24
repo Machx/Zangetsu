@@ -47,8 +47,8 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString);
  Returns a UUID String
  
  On OS X 10.8 and later this method calls the new [[NSUUID UUID] UUIDString]
- function. For 10.7 compatibility this method calls CFUUIDCreateString() if the
- NSUUID class doesn't exist.
+ function. For 10.7 compatibility this method calls CFUUIDCreateString() and
+ bridges that to a NSString.
  
  @return a new UUID NSString instance
  */
