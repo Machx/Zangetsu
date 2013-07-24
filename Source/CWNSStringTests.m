@@ -82,7 +82,7 @@ describe(@"-cw_enumerateConcurrentlyWithOptions:usingBlock:", ^{
 	it(@"should enumerate all substrings", ^{
 		NSString *string  = @"This\nis\na\nstring\nwith\nmany\nlines.";
 		__block int32_t count = 0;
-		[string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines usingBlock:^(NSString *substring) {
+		[string cw_enumerateConcurrentlyWithOptions:NSStringEnumerationByLines withBlock:^(NSString *substring) {
 			OSAtomicIncrement32(&count);
 		}];
 		
