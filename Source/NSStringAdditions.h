@@ -64,7 +64,7 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString);
  @block the block to handle processing the substrings returned
  */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-                                 usingBlock:(void (^)(NSString *substring))block;
+								  withBlock:(void (^)(NSString *substring))block;
 
 /**
  Escapes entities that would need to be escaped in urls

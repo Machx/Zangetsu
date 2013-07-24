@@ -48,7 +48,7 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 }
 
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-								 usingBlock:(void (^)(NSString *substring))block {
+								  withBlock:(void (^)(NSString *substring))block {
 	dispatch_group_t group = dispatch_group_create();
 	const char *queueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.NSString_") UTF8String];
 	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
