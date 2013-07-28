@@ -1,10 +1,12 @@
 /*
-//  CWBlockTimer.m
-//  Zangetsu
-//
-//  Created by Colin Wheeler on 8/10/12.
-//
-//
+ //  CWBlockTimer.m
+ //  Zangetsu
+ //
+ //  V2 - Rewritten using dispatch_source_t instead of NSTimer
+ //
+ //  Created by Colin Wheeler on 7/25/13.
+ //  Copyright (c) 2013 Colin Wheeler. All rights reserved.
+ //
  
  Copyright (c) 2013, Colin Wheeler
  All rights reserved.
@@ -32,61 +34,81 @@
  */
 
 #import "CWBlockTimer.h"
+#import "CWLogging.h"
+#import "CWAssertionMacros.h"
 
 @interface CWBlockTimer ()
-@property(copy) dispatch_block_t invocationBlock;
-@property(readwrite,retain) NSTimer *internalTimer;
--(void)p_internalInvokeBlock:(NSTimer *)timer;
+@property(nonatomic,assign) dispatch_source_t source;
 @end
 
 @implementation CWBlockTimer
 
 - (id)init {
+	CWLogInfo(@"Wrong initializer for CWBlockTimer2. Call -initWithTimeInterval:onQueue:withBlock:");
+	return nil;
+}
+
+- (id)initWithTimeInterval:(NSTimeInterval)interval
+				   onQueue:(dispatch_queue_t)queue
+				 withBlock:(dispatch_block_t)block {
+	CWAssert(queue != NULL);
+	CWAssert(block != nil);
+	
     self = [super init];
-    if (self) {
-		_internalTimer = nil;
-		_invocationBlock = nil;
-    }
+    if (self == nil) return self;
+	
+	_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+	
+	uint64_t nSec = (uint64_t)(interval * NSEC_PER_SEC);
+	dispatch_source_set_timer(_source,
+							  dispatch_time(DISPATCH_TIME_NOW, nSec),
+							  nSec,
+							  (0.5 * NSEC_PER_SEC));
+	
+	dispatch_source_set_event_handler(_source, block);
+	dispatch_resume(_source);
+	
     return self;
 }
 
-+(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
-							   repeats:(BOOL)repeats
-								 block:(dispatch_block_t)block {
+- (id)initWithTimeInterval:(NSTimeInterval)interval
+					leeway:(uint64_t)leeway
+				   onQueue:(dispatch_queue_t)queue
+				 withBlock:(dispatch_block_t)block {
+	CWAssert(queue != NULL);
 	CWAssert(block != nil);
 	
-	CWBlockTimer *timer = [CWBlockTimer new];
-	timer.internalTimer = [NSTimer scheduledTimerWithTimeInterval:interval
-														   target:timer
-														 selector:@selector(p_internalInvokeBlock:)
-														 userInfo:nil
-														  repeats:repeats];
-	timer.invocationBlock = block;
-	return timer;
-}
-
--(void)fire {
-	[self p_internalInvokeBlock:self.internalTimer];
+    self = [super init];
+    if (self == nil) return self;
+	
+	_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+	
+	uint64_t nSec = (uint64_t)(interval * NSEC_PER_SEC);
+	dispatch_source_set_timer(_source,
+							  dispatch_time(DISPATCH_TIME_NOW, nSec),
+							  nSec,
+							  leeway);
+	
+	dispatch_source_set_event_handler(_source, block);
+	dispatch_resume(_source);
+	
+    return self;
 }
 
 -(void)invalidate {
-	[self.internalTimer invalidate];
-}
-
--(BOOL)isValid {
-	return self.internalTimer.isValid;
-}
-				   
--(void)p_internalInvokeBlock:(NSTimer *)timer {
-	if ([timer isEqual:self.internalTimer] && self.invocationBlock) {
-		self.invocationBlock();
-	} else {
-		CWLogInfo(@"ERROR: No invocation block to invoke for timer...");
+	if (self.source) {
+		dispatch_source_cancel(self.source);
+		dispatch_release(self.source);
+		self.source = nil;
 	}
 }
 
--(void)dealloc {
-	[_internalTimer invalidate];
+- (void)dealloc {
+    if (_source) {
+		dispatch_source_cancel(_source);
+		dispatch_release(_source);
+		_source = nil;
+	}
 }
 
 @end

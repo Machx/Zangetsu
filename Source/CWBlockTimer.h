@@ -1,10 +1,10 @@
 /*
-//  CWBlockTimer.h
-//  Zangetsu
-//
-//  Created by Colin Wheeler on 8/10/12.
-//
-//
+ //  CWBlockTimer.h
+ //  ObjC_Playground
+ //
+ //  Created by Colin Wheeler on 7/25/13.
+ //  Copyright (c) 2013 Colin Wheeler. All rights reserved.
+ //
  
  Copyright (c) 2013, Colin Wheeler
  All rights reserved.
@@ -33,42 +33,61 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ CWBlockTimer is a simple class that is designed to be a minimal wrapper around
+ Grand Central Dispatch and its dispatch_source timer API. Internally it sets
+ up a dispatch_source_t object and configures it with the time interval, queue
+ and block you give it. Then it will immediately begin firing the block at the
+ time interval you give it.
+ 
+ To stop the timer forever, call the -invalidate method which will take care of
+ that, or just let ARC dealloc a CWBlockTimer instance and that will also
+ stop the timer.
+ */
+
 @interface CWBlockTimer : NSObject
 
 /**
- Returns the Internal NSTimer Instance that CWBlockTimer instance manages
+ Creates a new CWBlockTimer instance
  
- @return Internal NSTimer instance
+ This creates a new timer instance set to fire the block passed in on the queue
+ given every interval seconds. This default timer also gives the system a
+ default leeway of half a second for the system delaying the timer. If you want
+ to set the leeway for the timer yourself you should use the alternate init
+ method that lets you specify the leeway for the timer.
+ 
+ @param interval seconds between timer firing
+ @param queue block should be executed on. Must not be null
+ @param block to be executed by the timer
+ @return a new CWBlockTimer2 configured instance
  */
-@property(readonly,retain) NSTimer *internalTimer;
+- (id)initWithTimeInterval:(NSTimeInterval)interval
+				   onQueue:(dispatch_queue_t)queue
+				 withBlock:(dispatch_block_t)block;
 
 /**
- Invokes the block that the timer is set to fire
+ Creates a new CWBlockTimer2 instance
+ 
+ This creates a new timer instance set to fire the block passed in on the queue
+ given every interval seconds.
+ 
+ @param interval seconds between timer firing
+ @param leeway the time in nanoseconds that the system can deferr the timer
+ @param queue block should be executed on. Must not be null
+ @param block to be executed by the timer
+ @return a new CWBlockTimer2 configured instance
  */
--(void)fire;
+- (id)initWithTimeInterval:(NSTimeInterval)interval
+					leeway:(uint64_t)leeway
+				   onQueue:(dispatch_queue_t)queue
+				 withBlock:(dispatch_block_t)block;
 
 /**
- Invalidates the NSTimer instance
+ Invalidates the timer so it stops firing.
+ 
+ Once the timer has been invalidated it will never fire again. You must dealloc
+ the instance and create a new instance.
  */
 -(void)invalidate;
-
-/**
- Returns if the internal NSTimer instance is valid
- 
- @return a BOOL indicating if the timer instance is valid
- */
--(BOOL)isValid;
-
-/**
- Creates a new CWBlockTimer instance intiailized with the passed in values
- 
- @param interval how long the timer action is supposed to wait until firing
- @param block the block to be executed when the timer fires
- @param repeats if the timer should repeat
- @return a new CWBlockTimer instance configured with the parameters passed in
- */
-+(CWBlockTimer *)timerWithTimeInterval:(NSTimeInterval)interval
-							   repeats:(BOOL)repeats
-								 block:(dispatch_block_t)block;
 
 @end
