@@ -44,7 +44,7 @@
 @implementation CWBlockTimer
 
 - (id)init {
-	CWLogInfo(@"Wrong initializer for CWBlockTimer2. Call -initWithTimeInterval:onQueue:withBlock:");
+	CWLogInfo(@"Wrong initializer for CWBlockTimer. Call -initWithTimeInterval:onQueue:withBlock:");
 	return nil;
 }
 
