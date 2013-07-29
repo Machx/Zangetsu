@@ -43,6 +43,10 @@
  To stop the timer forever, call the -invalidate method which will take care of
  that, or just let ARC dealloc a CWBlockTimer instance and that will also
  stop the timer.
+ 
+ Do not call -init on CWBlockTimer as it will just log a message warning you
+ that you called the wrong init method and return nil. Call one of the
+ initializers listed below.
  */
 
 @interface CWBlockTimer : NSObject
