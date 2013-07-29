@@ -59,14 +59,14 @@
  @param interval seconds between timer firing
  @param queue block should be executed on. Must not be null
  @param block to be executed by the timer
- @return a new CWBlockTimer2 configured instance
+ @return a new CWBlockTimer configured instance
  */
 - (id)initWithTimeInterval:(NSTimeInterval)interval
 				   onQueue:(dispatch_queue_t)queue
 				 withBlock:(dispatch_block_t)block;
 
 /**
- Creates a new CWBlockTimer2 instance
+ Creates a new CWBlockTimer instance
  
  This creates a new timer instance set to fire the block passed in on the queue
  given every interval seconds.
@@ -75,7 +75,7 @@
  @param leeway the time in nanoseconds that the system can deferr the timer
  @param queue block should be executed on. Must not be null
  @param block to be executed by the timer
- @return a new CWBlockTimer2 configured instance
+ @return a new CWBlockTimer configured instance
  */
 - (id)initWithTimeInterval:(NSTimeInterval)interval
 					leeway:(uint64_t)leeway
