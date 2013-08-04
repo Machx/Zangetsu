@@ -273,6 +273,7 @@
 		});
 	});
 	dispatch_release(queue);
+	queue = nil;
 }
 
 - (void) launchTaskOnQueue:(NSOperationQueue *)queue 
