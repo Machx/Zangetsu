@@ -159,6 +159,7 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 		});
 	});
 	dispatch_release(queue);
+	queue = nil;
 }
 
 -(void)startAsynchronousConnectionOnGCDQueue:(dispatch_queue_t)queue 
