@@ -50,11 +50,10 @@
 /**
  Enumerates over all the objects in a set or stop is set to YES
  
- Enumerates over all the objects in a set. This method creates its own 
- dispatch_queue_t and gives it a unique label such as 
- "com.Zangetsu.NSSetAdditions_ConncurrentEach" appended with a UUID string. This
- method then concurrently enumerates all objects or until the stop pointer is
- set to yes and waits until all blocks have finished executing before exiting.
+ This method then concurrently enumerates all objects or until  the stop pointer
+ is set to yes and waits until all blocks have finished executing before 
+ exiting. This is equivalent to calling enumerateObjectsWithOptions:usingBlock:
+ passing in NSEnumerationConcurrent for the option.
  
  @param block a Block taking a id and BOOL* arguments
  */
