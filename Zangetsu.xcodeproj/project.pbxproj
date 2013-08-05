@@ -38,10 +38,6 @@
 		B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594416FE3565005663D7 /* CWFixedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594516FE3565005663D7 /* CWFixedQueue.m */; };
 		B83A595516FE3565005663D7 /* CWFixedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594516FE3565005663D7 /* CWFixedQueue.m */; };
-		B83A595616FE3565005663D7 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594616FE3565005663D7 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B83A595716FE3565005663D7 /* CWLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594616FE3565005663D7 /* CWLinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B83A595816FE3565005663D7 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594716FE3565005663D7 /* CWLinkedList.m */; };
-		B83A595916FE3565005663D7 /* CWLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594716FE3565005663D7 /* CWLinkedList.m */; };
 		B83A595A16FE3565005663D7 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594816FE3565005663D7 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B83A595B16FE3565005663D7 /* CWPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B83A594816FE3565005663D7 /* CWPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B83A595C16FE3565005663D7 /* CWPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A594916FE3565005663D7 /* CWPriorityQueue.m */; };
@@ -329,8 +325,6 @@
 		B837BC181284FDC0009215D7 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = Source/NSStringAdditions.m; sourceTree = "<group>"; };
 		B83A594416FE3565005663D7 /* CWFixedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueue.h; path = "External/Zangetsu-Data-Structures/CWFixedQueue.h"; sourceTree = "<group>"; };
 		B83A594516FE3565005663D7 /* CWFixedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueue.m; path = "External/Zangetsu-Data-Structures/CWFixedQueue.m"; sourceTree = "<group>"; };
-		B83A594616FE3565005663D7 /* CWLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedList.h; path = "External/Zangetsu-Data-Structures/CWLinkedList.h"; sourceTree = "<group>"; };
-		B83A594716FE3565005663D7 /* CWLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedList.m; path = "External/Zangetsu-Data-Structures/CWLinkedList.m"; sourceTree = "<group>"; };
 		B83A594816FE3565005663D7 /* CWPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueue.h; path = "External/Zangetsu-Data-Structures/CWPriorityQueue.h"; sourceTree = "<group>"; };
 		B83A594916FE3565005663D7 /* CWPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueue.m; path = "External/Zangetsu-Data-Structures/CWPriorityQueue.m"; sourceTree = "<group>"; };
 		B83A594A16FE3565005663D7 /* CWQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueue.h; path = "External/Zangetsu-Data-Structures/CWQueue.h"; sourceTree = "<group>"; };
@@ -940,8 +934,6 @@
 			children = (
 				B83A594416FE3565005663D7 /* CWFixedQueue.h */,
 				B83A594516FE3565005663D7 /* CWFixedQueue.m */,
-				B83A594616FE3565005663D7 /* CWLinkedList.h */,
-				B83A594716FE3565005663D7 /* CWLinkedList.m */,
 				B83A594816FE3565005663D7 /* CWPriorityQueue.h */,
 				B83A594916FE3565005663D7 /* CWPriorityQueue.m */,
 				B83A594A16FE3565005663D7 /* CWQueue.h */,
@@ -1085,7 +1077,6 @@
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 				B83A595216FE3565005663D7 /* CWFixedQueue.h in Headers */,
-				B83A595616FE3565005663D7 /* CWLinkedList.h in Headers */,
 				B83A595A16FE3565005663D7 /* CWPriorityQueue.h in Headers */,
 				B83A595E16FE3565005663D7 /* CWQueue.h in Headers */,
 				B83A596216FE3565005663D7 /* CWStack.h in Headers */,
@@ -1162,7 +1153,6 @@
 				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
 				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 				B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */,
-				B83A595716FE3565005663D7 /* CWLinkedList.h in Headers */,
 				B83A595B16FE3565005663D7 /* CWPriorityQueue.h in Headers */,
 				B83A595F16FE3565005663D7 /* CWQueue.h in Headers */,
 				B83A596316FE3565005663D7 /* CWStack.h in Headers */,
@@ -1406,7 +1396,6 @@
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 				B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */,
-				B83A595816FE3565005663D7 /* CWLinkedList.m in Sources */,
 				B83A595C16FE3565005663D7 /* CWPriorityQueue.m in Sources */,
 				B83A596016FE3565005663D7 /* CWQueue.m in Sources */,
 				B83A596416FE3565005663D7 /* CWStack.m in Sources */,
@@ -1447,7 +1436,6 @@
 				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
 				B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 				B83A595516FE3565005663D7 /* CWFixedQueue.m in Sources */,
-				B83A595916FE3565005663D7 /* CWLinkedList.m in Sources */,
 				B83A595D16FE3565005663D7 /* CWPriorityQueue.m in Sources */,
 				B83A596116FE3565005663D7 /* CWQueue.m in Sources */,
 				B83A596516FE3565005663D7 /* CWStack.m in Sources */,
