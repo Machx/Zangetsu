@@ -75,6 +75,8 @@
  all objects in the array but waits for all blocks to finish executing before 
  going on.
  
+ Important! If block is nil then this method will throw an exception.
+ 
  @param index the position of the object in the array
  @param obj the object being enumerated over
  @param stop if you need to stop the enumeration set this to YES
