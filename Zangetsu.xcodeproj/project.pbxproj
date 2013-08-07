@@ -59,7 +59,6 @@
 		B83A596C16FE3565005663D7 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A595116FE3565005663D7 /* CWTrie.m */; };
 		B83A596D16FE3565005663D7 /* CWTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A595116FE3565005663D7 /* CWTrie.m */; };
 		B83A597C16FE359F005663D7 /* CWFixedQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */; };
-		B83A597D16FE359F005663D7 /* CWLinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597116FE359F005663D7 /* CWLinkedListTests.m */; };
 		B83A597E16FE359F005663D7 /* CWPriorityQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */; };
 		B83A597F16FE359F005663D7 /* CWQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597516FE359F005663D7 /* CWQueueTests.m */; };
 		B83A598016FE359F005663D7 /* CWStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B83A597716FE359F005663D7 /* CWStackTests.m */; };
@@ -337,8 +336,6 @@
 		B83A595116FE3565005663D7 /* CWTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrie.m; path = "External/Zangetsu-Data-Structures/CWTrie.m"; sourceTree = "<group>"; };
 		B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueueTests.h; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.h"; sourceTree = "<group>"; };
 		B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueueTests.m; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.m"; sourceTree = "<group>"; };
-		B83A597016FE359F005663D7 /* CWLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLinkedListTests.h; path = "External/Zangetsu-Data-Structures/CWLinkedListTests.h"; sourceTree = "<group>"; };
-		B83A597116FE359F005663D7 /* CWLinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLinkedListTests.m; path = "External/Zangetsu-Data-Structures/CWLinkedListTests.m"; sourceTree = "<group>"; };
 		B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueueTests.h; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.h"; sourceTree = "<group>"; };
 		B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueueTests.m; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.m"; sourceTree = "<group>"; };
 		B83A597416FE359F005663D7 /* CWQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueueTests.h; path = "External/Zangetsu-Data-Structures/CWQueueTests.h"; sourceTree = "<group>"; };
@@ -1017,8 +1014,6 @@
 			children = (
 				B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */,
 				B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */,
-				B83A597016FE359F005663D7 /* CWLinkedListTests.h */,
-				B83A597116FE359F005663D7 /* CWLinkedListTests.m */,
 				B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */,
 				B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */,
 				B83A597416FE359F005663D7 /* CWQueueTests.h */,
@@ -1476,7 +1471,6 @@
 				B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */,
 				B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */,
 				B83A597C16FE359F005663D7 /* CWFixedQueueTests.m in Sources */,
-				B83A597D16FE359F005663D7 /* CWLinkedListTests.m in Sources */,
 				B83A597E16FE359F005663D7 /* CWPriorityQueueTests.m in Sources */,
 				B83A597F16FE359F005663D7 /* CWQueueTests.m in Sources */,
 				B83A598016FE359F005663D7 /* CWStackTests.m in Sources */,
