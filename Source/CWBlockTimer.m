@@ -34,7 +34,6 @@
  */
 
 #import "CWBlockTimer.h"
-#import "CWLogging.h"
 #import "CWAssertionMacros.h"
 
 @interface CWBlockTimer ()
@@ -44,7 +43,7 @@
 @implementation CWBlockTimer
 
 - (id)init {
-	CWLogInfo(@"Wrong initializer for CWBlockTimer. Call -initWithTimeInterval:onQueue:withBlock:");
+	NSLog(@"Wrong initializer for CWBlockTimer. Call -initWithTimeInterval:onQueue:withBlock:");
 	return nil;
 }
 
