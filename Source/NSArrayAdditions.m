@@ -53,8 +53,8 @@
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
 	NSUInteger index = [self indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
 		if (block(obj)) {
-			return YES;
 			*stop = YES;
+			return YES;
 		}
 		return NO;
 	}];
