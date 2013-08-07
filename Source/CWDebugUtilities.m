@@ -44,7 +44,7 @@
 #import <stdarg.h>
 #import <mach/mach.h>
 #import <mach/mach_time.h>
-#import <unistd.h>
+//#import <unistd.h>
 
 
 BOOL CWIsDebugInProgress() {
