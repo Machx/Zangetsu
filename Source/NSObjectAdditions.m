@@ -97,6 +97,9 @@
 -(void)cw_performSelector:(SEL)selector 
 			   withObject:(id)obj 
 			   onGCDQueue:(dispatch_queue_t)queue {
+	CWAssert(queue != NULL);
+	CWAssert(obj != nil);
+	CWAssert(selector != NULL);
 	dispatch_async(queue, ^{
 		[self performSelector:selector 
 				   withObject:obj 
