@@ -106,9 +106,11 @@
 /**
  This method calls dispatch_async() using queue and then invokes selector
  
- @param selector the selector to be performed on queue
- @param obj an optional object argument
- @param queue the queue to be used for the dispatch_async() call
+ If any of the arguments are nil/NULL then the method will throw an assertion.
+ 
+ @param selector the selector to be performed on queue. Cannot be NULL.
+ @param obj an optional object argument. Cannot be nil.
+ @param queue the queue to be used for the dispatch_async() call.Cannot be NULL.
  */
 -(void)cw_performSelector:(SEL)selector
 			   withObject:(id)obj
