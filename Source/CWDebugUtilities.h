@@ -58,7 +58,7 @@ void CWCrash(void);
  
  @param block a block to be executed only if the application is being debugged
  */
-void CWInDebugOnly(void(^DebugBlock)(void));
+void CWInDebugOnly(void(^debugBlock)(void));
 
 /**
  Classic Nanosecond timing code, but now uses a 
@@ -67,7 +67,7 @@ void CWInDebugOnly(void(^DebugBlock)(void));
  
  @return a double with the amount of nanoseconds it took to execute the block
  */
-double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
+double CWNanoSecondsToExecuteCode(void(^timeBlock)(void));
 
 /**
  Returns in MilliSeconds the amount of time the code
@@ -75,7 +75,7 @@ double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void));
 
  @return a double with the ammount of milliseconds it took to execute the block
  */
-double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void));
+double CWMilliSecondsToExecuteCode(void(^timeBlock)(void));
 
 /**
  Returns the call stack symbols as a NSString instead

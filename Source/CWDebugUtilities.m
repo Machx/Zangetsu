@@ -71,15 +71,15 @@ void CWCrash() {
 	__builtin_trap();
 }
 
-void CWInDebugOnly(void(^DebugBlock)(void)) {
+void CWInDebugOnly(void(^debugBlock)(void)) {
 #ifdef DEBUG
-	DebugBlock();
+	debugBlock();
 #endif
 }
 
-double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
+double CWNanoSecondsToExecuteCode(void(^timeBlock)(void)) {
 	uint64_t start = mach_absolute_time();
-	TimeBlock();
+	timeBlock();
 	uint64_t end = mach_absolute_time();
 	uint64_t elapsed = end - start;
 	mach_timebase_info_data_t info;
@@ -88,8 +88,8 @@ double CWNanoSecondsToExecuteCode(void(^TimeBlock)(void)) {
 	return nanoSeconds;
 }
 
-double CWMilliSecondsToExecuteCode(void(^TimeBlock)(void)) {
-	double nanoSeconds = CWNanoSecondsToExecuteCode(TimeBlock);
+double CWMilliSecondsToExecuteCode(void(^timeBlock)(void)) {
+	double nanoSeconds = CWNanoSecondsToExecuteCode(timeBlock);
 	return (1.0 * 10e-6 * nanoSeconds);
 }
 
