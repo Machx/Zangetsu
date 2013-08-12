@@ -44,6 +44,7 @@
 #import "CWDateUtilities.h"
 #import "NSStringAdditions.h"
 #import "NSArrayAdditions.h"
+#import "NSArray+Enumeration.h"
 #import "NSDictionaryAdditions.h"
 #import "CWSystemInfo.h"
 #import "NSSetAdditions.h"
