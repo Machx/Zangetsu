@@ -211,6 +211,10 @@
 		B8C5B97614C5C73E000E0A88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3881314C47BD000F6D2A8 /* Security.framework */; };
 		B8C5B97814C5D7D8000E0A88 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
 		B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */; };
+		B8C9BC6017B9224300679B86 /* NSArray+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C9BC6117B9224300679B86 /* NSArray+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C9BC6217B9224300679B86 /* NSArray+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */; };
+		B8C9BC6317B9224300679B86 /* NSArray+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */; };
 		B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */; };
@@ -508,6 +512,8 @@
 		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
+		B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Enumeration.h"; path = "Source/NSArray+Enumeration.h"; sourceTree = "<group>"; };
+		B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Enumeration.m"; path = "Source/NSArray+Enumeration.m"; sourceTree = "<group>"; };
 		B8D2618715D5571100F087C4 /* CWBlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockTimer.h; path = Source/CWBlockTimer.h; sourceTree = "<group>"; };
 		B8D2618815D5571100F087C4 /* CWBlockTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockTimer.m; path = Source/CWBlockTimer.m; sourceTree = "<group>"; };
 		B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -754,6 +760,8 @@
 			children = (
 				B8588975128DF314002AC417 /* NSArrayAdditions.h */,
 				B8588976128DF314002AC417 /* NSArrayAdditions.m */,
+				B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */,
+				B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */,
 				B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */,
 				B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */,
 				B82B955412E24F8E00CABF26 /* NSDataAdditions.h */,
@@ -1109,6 +1117,7 @@
 				B84682F9170A6F9600E7F22F /* NSMethodSignature+EXT.h in Headers */,
 				B8F738C0177F537900A66200 /* CWLogging.h in Headers */,
 				B88474C11780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
+				B8C9BC6017B9224300679B86 /* NSArray+Enumeration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,6 +1194,7 @@
 				B88474C21780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
 				B8660D471783281700B08CEF /* NSMutableURLRequestAdditions.h in Headers */,
 				B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */,
+				B8C9BC6117B9224300679B86 /* NSArray+Enumeration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,6 +1407,7 @@
 				B83A596816FE3565005663D7 /* CWTree.m in Sources */,
 				B83A596C16FE3565005663D7 /* CWTrie.m in Sources */,
 				B8F738C2177F537900A66200 /* CWLogging.m in Sources */,
+				B8C9BC6217B9224300679B86 /* NSArray+Enumeration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,6 +1448,7 @@
 				B83A596916FE3565005663D7 /* CWTree.m in Sources */,
 				B83A596D16FE3565005663D7 /* CWTrie.m in Sources */,
 				B8F738C3177F537900A66200 /* CWLogging.m in Sources */,
+				B8C9BC6317B9224300679B86 /* NSArray+Enumeration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
