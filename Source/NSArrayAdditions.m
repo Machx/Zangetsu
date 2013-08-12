@@ -41,15 +41,6 @@
 	return [self objectAtIndex:arc4random_uniform((uint32_t)self.count)];
 }
 
--(void)cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
-	[self enumerateObjectsUsingBlock:block];
-}
-
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj, NSUInteger index, BOOL * stop))block {
-	[self enumerateObjectsWithOptions:NSEnumerationConcurrent
-						   usingBlock:block];
-}
-
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
 	NSUInteger index = [self indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
 		if (block(obj)) {
