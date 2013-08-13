@@ -84,21 +84,6 @@
 #endif
 
 /**
- Map objects in one array to another array
- 
- cw_mapArray basically maps an array by enumerating over the array to be mapped
- and executes the block while passing in the object to map. You simply need to 
- either
- (1) return the object to be mapped in the new array or
- (2) return nil if you don't want to map the passed in object
- 
- @param block a block in which you return an object to be mapped to a new array 
-		or nil to not map it
- @return a new mapped array
- */
--(NSArray *)cw_mapArray:(id (^)(id object))block;
-
-/**
  Returns an array of objects in the the receiver that pass the test (block)
  
  In this API you simply need to inspect objects in tbe block and return YES if

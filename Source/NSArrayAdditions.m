@@ -74,16 +74,6 @@
 
 #endif
 
--(NSArray *)cw_mapArray:(id (^)(id obj))block {
-    NSMutableArray * mappedArray = [NSMutableArray array];
-	for (id object in self) {
-		id returnedObject = block(object);
-        if (returnedObject)
-			[mappedArray addObject:returnedObject];
-	}
-	return mappedArray;
-}
-
 -(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block {
 	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
 		return block(evaluatedObject);
