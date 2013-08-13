@@ -32,6 +32,9 @@
  */
 
 #import "CWNSArrayTests.h"
+//
+#import <Zangetsu/NSArrayAdditions.h>
+#import <Zangetsu/NSArray+Enumeration.h>
 
 NSArray *testArray = nil;
 

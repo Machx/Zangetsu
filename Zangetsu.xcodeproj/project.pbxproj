@@ -215,6 +215,7 @@
 		B8C9BC6117B9224300679B86 /* NSArray+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C9BC6217B9224300679B86 /* NSArray+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */; };
 		B8C9BC6317B9224300679B86 /* NSArray+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */; };
+		B8C9BC6417B9C7B800679B86 /* NSArray+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */; };
 		B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		B8D9196D133E493A009AC4AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D9196C133E493A009AC4AC /* SystemConfiguration.framework */; };
@@ -1489,6 +1490,7 @@
 				B83A598116FE359F005663D7 /* CWTreeTests.m in Sources */,
 				B83A598216FE359F005663D7 /* CWTrieTests.m in Sources */,
 				B8B5AE1C174FB7E100848028 /* CWRuntimeTests.m in Sources */,
+				B8C9BC6417B9C7B800679B86 /* NSArray+Enumeration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
