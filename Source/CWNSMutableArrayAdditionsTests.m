@@ -31,7 +31,9 @@
  */
 
 #import "CWNSMutableArrayAdditionsTests.h"
-#import "NSArrayAdditions.h"
+#import "NSArray+Search.h"
+#import "NSArray+Enumeration.h"
+#import "NSArray+Transform.h"
 #import "NSMutableArrayAdditions.h"
 
 SpecBegin(NSMutableArrayAdditions)

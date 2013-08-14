@@ -32,9 +32,11 @@
  */
 
 #import "CWNSArrayTests.h"
+#import <Zangetsu/Zangetsu.h>
 //
-#import <Zangetsu/NSArrayAdditions.h>
-#import <Zangetsu/NSArray+Enumeration.h>
+//#import <Zangetsu/NSArray+Search.h>
+//#import <Zangetsu/NSArray+Transform.h>
+//#import <Zangetsu/NSArray+Enumeration.h>
 
 NSArray *testArray = nil;
 
