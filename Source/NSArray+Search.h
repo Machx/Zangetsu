@@ -32,7 +32,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSArray (CWNSArrayAdditions)
+@interface NSArray (Zangetsu_NSArray_Search)
 
 /**
  Returns the 1st object in an array if it has count >= 1, otherwise returns nil

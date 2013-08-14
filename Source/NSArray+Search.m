@@ -28,10 +28,10 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSArrayAdditions.h"
+#import "NSArray+Search.h"
 
 
-@implementation NSArray (CWNSArrayAdditions)
+@implementation NSArray (Zangetsu_NSArray_Search)
 
 -(id)cw_firstObject {
 	return (self.count > 0 ? self[0] : nil);
