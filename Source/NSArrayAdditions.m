@@ -38,6 +38,7 @@
 }
 
 -(id)cw_randomObject {
+	if(self.count == 0) return nil;
 	return [self objectAtIndex:arc4random_uniform((uint32_t)self.count)];
 }
 

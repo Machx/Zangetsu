@@ -44,6 +44,8 @@
 /**
  Returns a random object from the array
  
+ If the receive is an empty array this will return nil.
+ 
  @return a random object contained in the receiver array
  */
 -(id)cw_randomObject;
