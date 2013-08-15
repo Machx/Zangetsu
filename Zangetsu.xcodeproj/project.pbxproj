@@ -271,6 +271,10 @@
 		B8EB3436172ECF200044E492 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682D9170A6F9600E7F22F /* metamacros.h */; };
 		B8EB3437172ECF200044E492 /* NSInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DA170A6F9600E7F22F /* NSInvocation+EXT.h */; };
 		B8EB3438172ECF200044E492 /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */; };
+		B8EF77A717BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8EF77A817BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8EF77A917BD15E2005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
+		B8EF77AA17BD15E3005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
 		B8F5E68812A0301A00E58C94 /* CWDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */; };
 		B8F5E6E412A0355900E58C94 /* CWSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5E6E312A0355900E58C94 /* CWSetTests.m */; };
 		B8F738C0177F537900A66200 /* CWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F738BE177F537900A66200 /* CWLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -538,6 +542,8 @@
 		B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilities.h; path = Source/CWPathUtilities.h; sourceTree = "<group>"; };
 		B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilities.m; path = Source/CWPathUtilities.m; sourceTree = "<group>"; };
 		B8EB341B172ECE9B0044E492 /* libextobjc_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libextobjc_iOS.a; path = External/extobjc/libextobjc_iOS.a; sourceTree = "<group>"; };
+		B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Enumeration.h"; path = "Source/NSDictionary+Enumeration.h"; sourceTree = "<group>"; };
+		B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Enumeration.m"; path = "Source/NSDictionary+Enumeration.m"; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
@@ -778,6 +784,8 @@
 				B82B955512E24F8E00CABF26 /* NSDataAdditions.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
+				B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */,
+				B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */,
 				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
 				B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */,
 				B88C1195129239C500B49835 /* NSSetAdditions.h */,
@@ -1129,6 +1137,7 @@
 				B88474C11780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
 				B8C9BC6017B9224300679B86 /* NSArray+Enumeration.h in Headers */,
 				B8C9BC6D17BA73BD00679B86 /* NSArray+Transform.h in Headers */,
+				B8EF77A717BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1216,7 @@
 				B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */,
 				B8C9BC6117B9224300679B86 /* NSArray+Enumeration.h in Headers */,
 				B8C9BC6E17BA73BD00679B86 /* NSArray+Transform.h in Headers */,
+				B8EF77A817BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1431,7 @@
 				B8F738C2177F537900A66200 /* CWLogging.m in Sources */,
 				B8C9BC6217B9224300679B86 /* NSArray+Enumeration.m in Sources */,
 				B8C9BC6F17BA73BD00679B86 /* NSArray+Transform.m in Sources */,
+				B8EF77A917BD15E2005721B8 /* NSDictionary+Enumeration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1463,6 +1474,7 @@
 				B8F738C3177F537900A66200 /* CWLogging.m in Sources */,
 				B8C9BC6317B9224300679B86 /* NSArray+Enumeration.m in Sources */,
 				B8C9BC7017BA73BD00679B86 /* NSArray+Transform.m in Sources */,
+				B8EF77AA17BD15E3005721B8 /* NSDictionary+Enumeration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
