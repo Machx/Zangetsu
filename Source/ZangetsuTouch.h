@@ -42,6 +42,7 @@
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"
 #import "NSDictionaryAdditions.h"
+#import "NSDictionary+Enumeration.h"
 #import "NSSetAdditions.h"
 #import "NSURLConnectionAdditions.h"
 #import "CWDebugUtilities.h"
