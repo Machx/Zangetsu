@@ -36,15 +36,6 @@
 
 @implementation NSDictionary (CWNSDictionaryAdditions)
 
--(void)cw_each:(void (^)(id key, id value, BOOL *stop))block {
-	[self enumerateKeysAndObjectsUsingBlock:block];
-}
-
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block {
-	[self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent
-								  usingBlock:block];
-}
-
 -(BOOL)cw_containsKey:(NSString *)key {
 	return [[self allKeys] containsObject:key];
 }

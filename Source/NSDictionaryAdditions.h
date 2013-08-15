@@ -37,27 +37,6 @@
 @interface NSDictionary (CWNSDictionaryAdditions)
 
 /**
- Ruby Inspired Enumerator for NSDictionary Key/Value Pairs in Objective-C
- 
- @param key the current key being enumerated over
- @param value the value corresponding to the current key being enumerated over
- @param stop BOOL pointer which you can set to YES to stop enumeration
- */
--(void)cw_each:(void (^)(id key, id value, BOOL *stop))block;
-
-/**
- Concurrent Enumeration of NSDictionary Key/Value pairs
- 
- This method is equivalent to enumerating using the Foundation API 
- -enumerateKeysAndObjectsWithOptions passing in NSEnumerationConcurrent
- 
- @param key the current key being enumerated over
- @param value the value corresponding to the current key being enumerated over
- @param stop BOOL pointer which you can set to YES to stop enumeration
- */
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id key, id value, BOOL *stop))block;
-
-/**
  Returns a BOOL inicating if the key passed in is contained in the receiver
  
  @return a BOOL with YES if the key was found in the receiver, otherwise NO
