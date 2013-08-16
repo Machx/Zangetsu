@@ -35,47 +35,6 @@
 
 @interface   NSObject (CWNSObjectAdditions)
 
-#pragma mark Objective-C Associated Objects -
-
-/**
- Returns the value associated with a key
- 
- @param key that was used to associate an object with the receiver
- @return the value associated with the given key
- */
--(id)cw_valueAssociatedWithKey:(void *)key;
-
-/**
- Associates the value with a key using a strong reference
- 
- @param value the object to be associated with the receiver
- @param atomic specificies if the value should be set atomically
- @param key to be used to lookup value later
- */
--(void)cw_associateValue:(id)value
-				  atomic:(BOOL)atomic
-				 withKey:(void *)key;
-
-/**
- Associates the value with a key by copying it and using a strong reference
- 
- @param value the object to be associated with the receiver
- @param atomic specificies if the value should be set atomically
- @param key to be used to lookup value later
- */
--(void)cw_associateValueByCopyingValue:(id)value
-								atomic:(BOOL)atomic
-							   withKey:(void *)key;
-
-/**
- Associates the value with a key using a weak reference
- 
- @param value the object to be associated with the receiver
- @param key to be used to lookup value later
- */
--(void)cw_associateWeakValue:(id)value
-					 withKey:(void *)key;
-
 //Block Timing Methods -
 
 /**

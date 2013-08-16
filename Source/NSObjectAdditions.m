@@ -41,30 +41,6 @@
 
 @implementation NSObject (CWNSObjectAdditions)
 
-#pragma mark - Objective-C Associated Objects
-
--(id)cw_valueAssociatedWithKey:(void *)key {
-	return objc_getAssociatedObject(self, key);
-}
-
--(void)cw_associateValue:(id)value
-				  atomic:(BOOL)atomic
-				 withKey:(void *)key {
-	objc_AssociationPolicy policty = (atomic ? OBJC_ASSOCIATION_RETAIN : OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-	objc_setAssociatedObject(self, key, value, policty);
-}
-
--(void)cw_associateValueByCopyingValue:(id)value
-								atomic:(BOOL)atomic
-							   withKey:(void *)key {
-	objc_AssociationPolicy policy = (atomic ? OBJC_ASSOCIATION_COPY : OBJC_ASSOCIATION_COPY_NONATOMIC);
-	objc_setAssociatedObject(self, key, value, policy);
-}
-
--(void)cw_associateWeakValue:(id)value withKey:(void *)key {
-	objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
-}
-
 #pragma mark - Exerimental Perform with Block Methods
 
 -(void)cw_performAfterDelay:(NSTimeInterval)delay
