@@ -33,7 +33,7 @@
 
 #import "NSArray+Enumeration.h"
 
-@implementation NSArray (Zangetsu_Enumeration)
+@implementation NSArray (Zangetsu_NSArray_Enumeration)
 
 -(void)cw_each:(void (^)(id obj, NSUInteger index, BOOL *stop))block {
 	[self enumerateObjectsUsingBlock:block];

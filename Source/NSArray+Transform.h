@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (Zangetsu_Transform)
+@interface NSArray (Zangetsu_NSArray_Transform)
 
 /**
  Map objects in one array to another array

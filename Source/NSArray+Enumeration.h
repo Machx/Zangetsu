@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (Zangetsu_Enumeration)
+@interface NSArray (Zangetsu_NSArray_Enumeration)
 
 /**
  Iterates over all the objects in an array and calls the block on each object

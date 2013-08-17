@@ -33,7 +33,7 @@
 
 #import "NSArray+Transform.h"
 
-@implementation NSArray (Zangetsu_Transform)
+@implementation NSArray (Zangetsu_NSArray_Transform)
 
 -(NSArray *)cw_mapArray:(id (^)(id obj))block {
     NSMutableArray * mappedArray = [NSMutableArray array];
