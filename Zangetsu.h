@@ -37,6 +37,7 @@
 #endif
 
 #import "CWAssertionMacros.h"
+#import "CWLogging.h"
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
@@ -83,4 +84,3 @@
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
 #import "NSNumberAdditions.h"
-#import "CWLogging.h"
