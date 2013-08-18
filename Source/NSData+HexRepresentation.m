@@ -31,9 +31,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSDataAdditions.h"
+#import "NSData+HexRepresentation.h"
 
-@implementation NSData (CWNSDataAdditions)
+@implementation NSData (Zangetsu_NSData_HexRepresentation)
 
 -(NSString *)cw_hexString {
 	NSUInteger capacity = [self length] * 2;

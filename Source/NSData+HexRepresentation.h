@@ -34,7 +34,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSData (CWNSDataAdditions)
+@interface NSData (Zangetsu_NSData_HexRepresentation)
 
 /**
  returns a string with the representation of the data in hex
