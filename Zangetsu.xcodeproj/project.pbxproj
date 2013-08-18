@@ -25,8 +25,8 @@
 		B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */; };
 		B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */; };
 		B81CADA114FC2CB4009F5FD7 /* CWBlockQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */; };
-		B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
+		B82B955612E24F8E00CABF26 /* NSData+HexRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B82B955712E24F8E00CABF26 /* NSData+HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */; };
 		B82D252E12AB6962006650B8 /* CWNSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D252D12AB6962006650B8 /* CWNSStringTests.m */; };
 		B82D263212ADD557006650B8 /* NSURLConnectionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82D263312ADD557006650B8 /* NSURLConnectionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */; };
@@ -230,8 +230,8 @@
 		B8DC9A94134A6DF200501FC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DC9A93134A6DF200501FC1 /* libz.dylib */; };
 		B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */; };
-		B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSDataAdditions.m */; };
-		B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8E3880414C4756F00F6D2A8 /* NSData+HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */; };
+		B8E3880614C4757300F6D2A8 /* NSData+HexRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3880914C475EC00F6D2A8 /* NSDictionaryAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3880A14C475F300F6D2A8 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */; };
 		B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -329,8 +329,8 @@
 		B81CAD9914FBE680009F5FD7 /* CWBlockQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockQueue.m; path = Source/CWBlockQueue.m; sourceTree = "<group>"; };
 		B81CAD9F14FC2CB4009F5FD7 /* CWBlockQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockQueueTests.h; path = Source/CWBlockQueueTests.h; sourceTree = "<group>"; };
 		B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBlockQueueTests.m; path = Source/CWBlockQueueTests.m; sourceTree = "<group>"; };
-		B82B955412E24F8E00CABF26 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Source/NSDataAdditions.h; sourceTree = "<group>"; };
-		B82B955512E24F8E00CABF26 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Source/NSDataAdditions.m; sourceTree = "<group>"; };
+		B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+HexRepresentation.h"; path = "Source/NSData+HexRepresentation.h"; sourceTree = "<group>"; };
+		B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+HexRepresentation.m"; path = "Source/NSData+HexRepresentation.m"; sourceTree = "<group>"; };
 		B82D252C12AB6962006650B8 /* CWNSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSStringTests.h; path = Source/CWNSStringTests.h; sourceTree = "<group>"; };
 		B82D252D12AB6962006650B8 /* CWNSStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSStringTests.m; path = Source/CWNSStringTests.m; sourceTree = "<group>"; };
 		B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLConnectionAdditions.h; path = Source/NSURLConnectionAdditions.h; sourceTree = "<group>"; };
@@ -786,8 +786,8 @@
 				B8C9BC6C17BA73BD00679B86 /* NSArray+Transform.m */,
 				B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */,
 				B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */,
-				B82B955412E24F8E00CABF26 /* NSDataAdditions.h */,
-				B82B955512E24F8E00CABF26 /* NSDataAdditions.m */,
+				B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */,
+				B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */,
 				B85889A0128E04E9002AC417 /* NSDictionaryAdditions.h */,
 				B85889A1128E04E9002AC417 /* NSDictionaryAdditions.m */,
 				B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */,
@@ -1087,7 +1087,7 @@
 				B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */,
 				B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */,
 				B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */,
-				B82B955612E24F8E00CABF26 /* NSDataAdditions.h in Headers */,
+				B82B955612E24F8E00CABF26 /* NSData+HexRepresentation.h in Headers */,
 				B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */,
 				B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */,
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
@@ -1164,7 +1164,7 @@
 				B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */,
 				B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */,
 				B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */,
-				B8E3880614C4757300F6D2A8 /* NSDataAdditions.h in Headers */,
+				B8E3880614C4757300F6D2A8 /* NSData+HexRepresentation.h in Headers */,
 				B8E3880914C475EC00F6D2A8 /* NSDictionaryAdditions.h in Headers */,
 				B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */,
 				B8E3881714C4837F00F6D2A8 /* CWGraphicsFoundation.h in Headers */,
@@ -1415,7 +1415,7 @@
 				B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */,
 				B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */,
 				B849523212CBE1CF00098684 /* CWMD5Utilities.m in Sources */,
-				B82B955712E24F8E00CABF26 /* NSDataAdditions.m in Sources */,
+				B82B955712E24F8E00CABF26 /* NSData+HexRepresentation.m in Sources */,
 				B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */,
 				B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */,
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
@@ -1456,7 +1456,7 @@
 				B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */,
 				B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */,
 				B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */,
-				B8E3880414C4756F00F6D2A8 /* NSDataAdditions.m in Sources */,
+				B8E3880414C4756F00F6D2A8 /* NSData+HexRepresentation.m in Sources */,
 				B8E3880A14C475F300F6D2A8 /* NSDictionaryAdditions.m in Sources */,
 				B8E3881614C47E2B00F6D2A8 /* CWURLRequest.m in Sources */,
 				B8E3881814C4838700F6D2A8 /* CWGraphicsFoundation.m in Sources */,
