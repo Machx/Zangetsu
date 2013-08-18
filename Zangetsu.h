@@ -60,7 +60,7 @@
 #import "CWErrorUtilities.h"
 #import "CWGraphicsFoundation.h"
 #import "CWMD5Utilities.h"
-#import "NSDataAdditions.h"
+#import "NSData+HexRepresentation.h"
 #import "CWExceptionUtilities.h"
 #import "CWURLUtilities.h"
 #import "CWRuntimeUtilities.h"
