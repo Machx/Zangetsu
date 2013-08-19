@@ -40,30 +40,4 @@
 	return [[self allKeys] containsObject:key];
 }
 
--(NSDictionary *)cw_dictionaryByAppendingDictionary:(NSDictionary *)dictionary {
-	NSMutableDictionary *results = [self mutableCopy];
-	[results addEntriesFromDictionary:dictionary];
-	return results;
-}
-
--(NSDictionary *)cw_mapDictionary:(NSDictionary* (^)(id key, id value))block {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	[self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-		NSDictionary *returnedDictionary = block(key,obj);
-		if (returnedDictionary) [dict addEntriesFromDictionary:returnedDictionary];
-	}];
-	return dict;
-}
-
--(NSDictionary *)cw_filteredDictionaryOfEntriesPassingTest:(BOOL (^)(id key, id value))block {
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	NSSet *passingKeys = [self keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
-		return block(key,obj);
-	}];
-	[passingKeys enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-		[dictionary addEntriesFromDictionary:@{obj : self[obj]}];
-	}];
-	return dictionary;
-}
-
 @end
