@@ -49,6 +49,7 @@
 #import "NSArray+Transform.h"
 #import "NSDictionaryAdditions.h"
 #import "NSDictionary+Enumeration.h"
+#import "NSDictionary+Transform.h"
 #import "CWSystemInfo.h"
 #import "NSSetAdditions.h"
 #import "NSURLConnectionAdditions.h"
