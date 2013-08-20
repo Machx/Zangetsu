@@ -49,6 +49,7 @@
 #import "CWDebugUtilities.h"
 #import "NSObjectAdditions.h"
 #import "NSObject+AssociatedObjects.h"
+#import "NSObject+PerformOperation.h"
 #import "CWFoundation.h"
 #import "CWPathUtilities.h"
 #import "CWErrorUtilities.h"
