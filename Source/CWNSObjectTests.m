@@ -32,7 +32,7 @@
  */
 
 #import "CWNSObjectTests.h"
-#import "NSObjectAdditions.h"
+#import "NSObject+Nil.h"
 
 SpecBegin(CWNSObject)
 
