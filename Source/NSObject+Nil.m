@@ -31,7 +31,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSObjectAdditions.h"
+#import "NSObject+Nil.h"
 #import <objc/runtime.h>
 
 @implementation NSObject (CWNSObjectAdditions)
