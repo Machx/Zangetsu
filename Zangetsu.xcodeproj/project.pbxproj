@@ -114,8 +114,8 @@
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C17D3153F8BA4006CB444 /* libprofile_rt.a */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
-		B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
+		B857FC7012B96275001AA9A9 /* NSObject+Nil.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B857FC7112B96275001AA9A9 /* NSObject+Nil.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */; };
 		B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */; };
 		B8588977128DF314002AC417 /* NSArray+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArray+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,8 +147,8 @@
 		B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3014C3C65E00ED2908 /* NSArray+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArray+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3114C3C66600ED2908 /* NSArray+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArray+Search.m */; };
-		B869BB3414C46BF600ED2908 /* NSObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B869BB3514C46BFE00ED2908 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */; };
+		B869BB3414C46BF600ED2908 /* NSObject+Nil.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B869BB3514C46BFE00ED2908 /* NSObject+Nil.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */; };
 		B869BB3614C46C8400ED2908 /* CWFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3714C46C8B00ED2908 /* CWFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */; };
 		B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
@@ -416,8 +416,8 @@
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
 		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
 		B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilitiesTests.m; path = Source/CWURLUtilitiesTests.m; sourceTree = "<group>"; };
-		B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSObjectAdditions.h; path = Source/NSObjectAdditions.h; sourceTree = "<group>"; };
-		B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSObjectAdditions.m; path = Source/NSObjectAdditions.m; sourceTree = "<group>"; };
+		B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Nil.h"; path = "Source/NSObject+Nil.h"; sourceTree = "<group>"; };
+		B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Nil.m"; path = "Source/NSObject+Nil.m"; sourceTree = "<group>"; };
 		B857FD0D12BA8E46001AA9A9 /* CWFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFoundation.h; path = Source/CWFoundation.h; sourceTree = "<group>"; };
 		B857FD0E12BA8E46001AA9A9 /* CWFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFoundation.m; path = Source/CWFoundation.m; sourceTree = "<group>"; };
 		B8588975128DF314002AC417 /* NSArray+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Search.h"; path = "Source/NSArray+Search.h"; sourceTree = "<group>"; };
@@ -806,8 +806,8 @@
 				B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */,
 				B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */,
 				B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */,
-				B857FC6E12B96275001AA9A9 /* NSObjectAdditions.h */,
-				B857FC6F12B96275001AA9A9 /* NSObjectAdditions.m */,
+				B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */,
+				B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */,
 				B81E520D17C3BC7A0076BC63 /* NSObject+PerformOperation.h */,
 				B81E520E17C3BC7A0076BC63 /* NSObject+PerformOperation.m */,
 				B891C76D17BE6939008D5032 /* NSObject+AssociatedObjects.h */,
@@ -1097,7 +1097,7 @@
 				B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */,
 				B82D263212ADD557006650B8 /* NSURLConnectionAdditions.h in Headers */,
 				B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */,
-				B857FC7012B96275001AA9A9 /* NSObjectAdditions.h in Headers */,
+				B857FC7012B96275001AA9A9 /* NSObject+Nil.h in Headers */,
 				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
 				B8E914CA12BFF5C000167AE8 /* CWPathUtilities.h in Headers */,
 				B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */,
@@ -1176,7 +1176,7 @@
 				B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */,
 				B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */,
 				B869BB3014C3C65E00ED2908 /* NSArray+Search.h in Headers */,
-				B869BB3414C46BF600ED2908 /* NSObjectAdditions.h in Headers */,
+				B869BB3414C46BF600ED2908 /* NSObject+Nil.h in Headers */,
 				B869BB3614C46C8400ED2908 /* CWFoundation.h in Headers */,
 				B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */,
 				B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */,
@@ -1429,7 +1429,7 @@
 				B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */,
 				B82D263312ADD557006650B8 /* NSURLConnectionAdditions.m in Sources */,
 				B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */,
-				B857FC7112B96275001AA9A9 /* NSObjectAdditions.m in Sources */,
+				B857FC7112B96275001AA9A9 /* NSObject+Nil.m in Sources */,
 				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
 				B8E914CB12BFF5C000167AE8 /* CWPathUtilities.m in Sources */,
 				B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */,
@@ -1473,7 +1473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B869BB3114C3C66600ED2908 /* NSArray+Search.m in Sources */,
-				B869BB3514C46BFE00ED2908 /* NSObjectAdditions.m in Sources */,
+				B869BB3514C46BFE00ED2908 /* NSObject+Nil.m in Sources */,
 				B869BB3714C46C8B00ED2908 /* CWFoundation.m in Sources */,
 				B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */,
 				B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */,
