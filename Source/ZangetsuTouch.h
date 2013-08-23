@@ -47,7 +47,7 @@
 #import "NSSetAdditions.h"
 #import "NSURLConnectionAdditions.h"
 #import "CWDebugUtilities.h"
-#import "NSObjectAdditions.h"
+#import "NSObject+Nil.h"
 #import "NSObject+AssociatedObjects.h"
 #import "NSObject+PerformOperation.h"
 #import "CWFoundation.h"
