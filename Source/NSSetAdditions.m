@@ -36,15 +36,6 @@
 
 @implementation NSSet (CWNSSetAdditions)
 
--(void)cw_each:(void (^)(id obj, BOOL *stop))block {
-	[self enumerateObjectsUsingBlock:block];
-}
-
--(void)cw_eachConcurrentlyWithBlock:(void (^)(id obj,BOOL *stop))block {
-	[self enumerateObjectsWithOptions:NSEnumerationConcurrent
-						   usingBlock:block];
-}
-
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
 	for(id obj in self){
 		if(block(obj)) return obj;
