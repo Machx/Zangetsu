@@ -52,6 +52,7 @@
 #import "NSDictionary+Transform.h"
 #import "CWSystemInfo.h"
 #import "NSSetAdditions.h"
+#import "NSSet+Enumeration.h"
 #import "NSURLConnectionAdditions.h"
 #import "CWDebugUtilities.h"
 #import "NSObject+Nil.h"
