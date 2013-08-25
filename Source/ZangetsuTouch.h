@@ -46,7 +46,7 @@
 #import "NSDictionary+Transform.h"
 #import "NSSetAdditions.h"
 #import "NSSet+Enumeration.h"
-#import "NSURLConnectionAdditions.h"
+#import "NSURLConnection+Asynchronous.h"
 #import "CWDebugUtilities.h"
 #import "NSObject+Nil.h"
 #import "NSObject+AssociatedObjects.h"
