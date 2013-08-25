@@ -36,6 +36,9 @@
 NSError * CWCreateError(NSString * domain,
 						NSInteger errorCode,
 						NSString * errorMessageFormat, ...) {
+	CWAssert(domain != nil);
+	CWAssert(errorMessageFormat != nil);
+	
     va_list args;
     va_start(args, errorMessageFormat);
     NSString * fullErrorMessage = [[NSString alloc] initWithFormat:errorMessageFormat
