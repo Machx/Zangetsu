@@ -31,10 +31,10 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSURLConnectionAdditions.h"
+#import "NSURLConnection+Asynchronous.h"
 
 
-@implementation NSURLConnection (CWNSURLConnectionAdditions)
+@implementation NSURLConnection (Zangetsu_NSURLConnection_Asynchronous)
 
 +(void)cw_performAsynchronousRequest:(NSURLRequest *)request 
 						  onGCDQueue:(dispatch_queue_t)queue 

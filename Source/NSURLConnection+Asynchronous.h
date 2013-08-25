@@ -34,7 +34,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSURLConnection (CWNSURLConnectionAdditions)
+@interface NSURLConnection (Zangetsu_NSURLConnection_Asynchronous)
 
 /**
  Checks the Queue and request parameters then dispatches a block onto
