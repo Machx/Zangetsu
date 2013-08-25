@@ -36,8 +36,8 @@
 		B82B955612E24F8E00CABF26 /* NSData+HexRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B82B955712E24F8E00CABF26 /* NSData+HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */; };
 		B82D252E12AB6962006650B8 /* CWNSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D252D12AB6962006650B8 /* CWNSStringTests.m */; };
-		B82D263212ADD557006650B8 /* NSURLConnectionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B82D263312ADD557006650B8 /* NSURLConnectionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */; };
+		B82D263212ADD557006650B8 /* NSURLConnection+Asynchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B82D263312ADD557006650B8 /* NSURLConnection+Asynchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */; };
 		B82D73E811DA850A00863F3B /* Zangetsu.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D73E711DA850A00863F3B /* Zangetsu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B836F41514196817007B412E /* CWNSMutableArrayAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */; };
 		B837BC191284FDC0009215D7 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -210,8 +210,8 @@
 		B8C5B95514C48E0F000E0A88 /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B8C5B95614C48E3F000E0A88 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
 		B8C5B95714C48E43000E0A88 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C5B95A14C490D7000E0A88 /* NSURLConnectionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C5B95B14C490DD000E0A88 /* NSURLConnectionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */; };
+		B8C5B95A14C490D7000E0A88 /* NSURLConnection+Asynchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B95B14C490DD000E0A88 /* NSURLConnection+Asynchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */; };
 		B8C5B95C14C49108000E0A88 /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C5B95D14C4910E000E0A88 /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
 		B8C5B95E14C4912A000E0A88 /* CWPathUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -349,8 +349,8 @@
 		B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+HexRepresentation.m"; path = "Source/NSData+HexRepresentation.m"; sourceTree = "<group>"; };
 		B82D252C12AB6962006650B8 /* CWNSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSStringTests.h; path = Source/CWNSStringTests.h; sourceTree = "<group>"; };
 		B82D252D12AB6962006650B8 /* CWNSStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSStringTests.m; path = Source/CWNSStringTests.m; sourceTree = "<group>"; };
-		B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLConnectionAdditions.h; path = Source/NSURLConnectionAdditions.h; sourceTree = "<group>"; };
-		B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLConnectionAdditions.m; path = Source/NSURLConnectionAdditions.m; sourceTree = "<group>"; };
+		B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+Asynchronous.h"; path = "Source/NSURLConnection+Asynchronous.h"; sourceTree = "<group>"; };
+		B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+Asynchronous.m"; path = "Source/NSURLConnection+Asynchronous.m"; sourceTree = "<group>"; };
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
 		B836F41314196816007B412E /* CWNSMutableArrayAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSMutableArrayAdditionsTests.h; path = Source/CWNSMutableArrayAdditionsTests.h; sourceTree = "<group>"; };
 		B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSMutableArrayAdditionsTests.m; path = Source/CWNSMutableArrayAdditionsTests.m; sourceTree = "<group>"; };
@@ -824,8 +824,8 @@
 				B80C295617C9195600D27E00 /* NSSet+Enumeration.m */,
 				B837BC171284FDC0009215D7 /* NSStringAdditions.h */,
 				B837BC181284FDC0009215D7 /* NSStringAdditions.m */,
-				B82D263012ADD557006650B8 /* NSURLConnectionAdditions.h */,
-				B82D263112ADD557006650B8 /* NSURLConnectionAdditions.m */,
+				B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */,
+				B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */,
 				B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */,
 				B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */,
 				B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */,
@@ -1103,7 +1103,7 @@
 				B85889A2128E04E9002AC417 /* NSDictionaryAdditions.h in Headers */,
 				B88C112D1290D2BA00B49835 /* CWSystemInfo.h in Headers */,
 				B88C1197129239C500B49835 /* NSSetAdditions.h in Headers */,
-				B82D263212ADD557006650B8 /* NSURLConnectionAdditions.h in Headers */,
+				B82D263212ADD557006650B8 /* NSURLConnection+Asynchronous.h in Headers */,
 				B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */,
 				B857FC7012B96275001AA9A9 /* NSObject+Nil.h in Headers */,
 				B857FD0F12BA8E46001AA9A9 /* CWFoundation.h in Headers */,
@@ -1201,7 +1201,7 @@
 				B8C5B95014C486E0000E0A88 /* NSSetAdditions.h in Headers */,
 				B8C5B95414C48E09000E0A88 /* CWURLUtilities.h in Headers */,
 				B8C5B95714C48E43000E0A88 /* CWDateUtilities.h in Headers */,
-				B8C5B95A14C490D7000E0A88 /* NSURLConnectionAdditions.h in Headers */,
+				B8C5B95A14C490D7000E0A88 /* NSURLConnection+Asynchronous.h in Headers */,
 				B8C5B95C14C49108000E0A88 /* CWDebugUtilities.h in Headers */,
 				B8C5B95E14C4912A000E0A88 /* CWPathUtilities.h in Headers */,
 				B8C5B96114C49199000E0A88 /* CWMD5Utilities.h in Headers */,
@@ -1437,7 +1437,7 @@
 				B85889A3128E04E9002AC417 /* NSDictionaryAdditions.m in Sources */,
 				B88C112E1290D2BA00B49835 /* CWSystemInfo.m in Sources */,
 				B88C1198129239C500B49835 /* NSSetAdditions.m in Sources */,
-				B82D263312ADD557006650B8 /* NSURLConnectionAdditions.m in Sources */,
+				B82D263312ADD557006650B8 /* NSURLConnection+Asynchronous.m in Sources */,
 				B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */,
 				B857FC7112B96275001AA9A9 /* NSObject+Nil.m in Sources */,
 				B857FD1012BA8E46001AA9A9 /* CWFoundation.m in Sources */,
@@ -1499,7 +1499,7 @@
 				B8C5B95114C486E5000E0A88 /* NSSetAdditions.m in Sources */,
 				B8C5B95514C48E0F000E0A88 /* CWURLUtilities.m in Sources */,
 				B8C5B95614C48E3F000E0A88 /* CWDateUtilities.m in Sources */,
-				B8C5B95B14C490DD000E0A88 /* NSURLConnectionAdditions.m in Sources */,
+				B8C5B95B14C490DD000E0A88 /* NSURLConnection+Asynchronous.m in Sources */,
 				B8C5B95D14C4910E000E0A88 /* CWDebugUtilities.m in Sources */,
 				B8C5B95F14C49130000E0A88 /* CWPathUtilities.m in Sources */,
 				B8C5B96014C49196000E0A88 /* CWMD5Utilities.m in Sources */,
