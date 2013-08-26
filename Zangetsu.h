@@ -44,6 +44,7 @@
 #import "CWTask.h"
 #import "CWDateUtilities.h"
 #import "NSStringAdditions.h"
+#import "NSString+UUID.h"
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"
