@@ -31,21 +31,9 @@
 #import "NSStringAdditions.h"
 #import <CoreFoundation/CoreFoundation.h>
 
-NSString *CWUUIDStringPrependedWithString(NSString *preString) {
-	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_uuidString]];
-}
+
 
 @implementation NSString (CWNSStringAdditions)
-
-+(NSString *)cw_uuidString {
-	if ([NSUUID class]) {
-		return [[NSUUID UUID] UUIDString];
-	}
-	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
-	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
-	CFRelease(uid);
-	return (__bridge_transfer NSString *)tmpString;
-}
 
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
 								  withBlock:(void (^)(NSString *substring))block {

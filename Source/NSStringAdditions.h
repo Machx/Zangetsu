@@ -33,26 +33,9 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- Returns a unique NSString prepended by the passed in string
- 
- @param preString the string to be prepended on the unique string
- @return NSString with a UUID String prepended with the prestring argument
- */
-NSString *CWUUIDStringPrependedWithString(NSString *preString);
+
 
 @interface NSString (CWNSStringAdditions)
-
-/**
- Returns a UUID String
- 
- On OS X 10.8 and later this method calls the new [[NSUUID UUID] UUIDString]
- function. For 10.7 compatibility this method calls CFUUIDCreateString() and
- bridges that to a NSString.
- 
- @return a new UUID NSString instance
- */
-+ (NSString *)cw_uuidString;
 
 /**
  Asynchronous & Synchronous string enumeration 
