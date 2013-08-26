@@ -287,6 +287,10 @@
 		B8EF77A817BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8EF77A917BD15E2005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
 		B8EF77AA17BD15E3005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
+		B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; };
+		B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; };
+		B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
+		B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
 		B8F32B9E17C25B9400DE385F /* NSDictionary+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F32B9F17C25B9400DE385F /* NSDictionary+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F32BA017C25B9400DE385F /* NSDictionary+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */; };
@@ -566,6 +570,8 @@
 		B8EB341B172ECE9B0044E492 /* libextobjc_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libextobjc_iOS.a; path = External/extobjc/libextobjc_iOS.a; sourceTree = "<group>"; };
 		B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Enumeration.h"; path = "Source/NSDictionary+Enumeration.h"; sourceTree = "<group>"; };
 		B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Enumeration.m"; path = "Source/NSDictionary+Enumeration.m"; sourceTree = "<group>"; };
+		B8F1664C17CBA1910010A149 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "Source/NSString+UUID.h"; sourceTree = "<group>"; };
+		B8F1664D17CBA1910010A149 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "Source/NSString+UUID.m"; sourceTree = "<group>"; };
 		B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Transform.h"; path = "Source/NSDictionary+Transform.h"; sourceTree = "<group>"; };
 		B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Transform.m"; path = "Source/NSDictionary+Transform.m"; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -824,6 +830,8 @@
 				B80C295617C9195600D27E00 /* NSSet+Enumeration.m */,
 				B837BC171284FDC0009215D7 /* NSStringAdditions.h */,
 				B837BC181284FDC0009215D7 /* NSStringAdditions.m */,
+				B8F1664C17CBA1910010A149 /* NSString+UUID.h */,
+				B8F1664D17CBA1910010A149 /* NSString+UUID.m */,
 				B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */,
 				B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */,
 				B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */,
@@ -1174,6 +1182,7 @@
 				B8F32B9E17C25B9400DE385F /* NSDictionary+Transform.h in Headers */,
 				B81E520F17C3BC7A0076BC63 /* NSObject+PerformOperation.h in Headers */,
 				B80C295717C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
+				B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1257,6 +1266,7 @@
 				B8F32B9F17C25B9400DE385F /* NSDictionary+Transform.h in Headers */,
 				B81E521017C3BC7A0076BC63 /* NSObject+PerformOperation.h in Headers */,
 				B80C295817C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
+				B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1486,7 @@
 				B8F32BA017C25B9400DE385F /* NSDictionary+Transform.m in Sources */,
 				B81E521117C3BC7A0076BC63 /* NSObject+PerformOperation.m in Sources */,
 				B80C295917C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
+				B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1523,6 +1534,7 @@
 				B8F32BA117C25B9400DE385F /* NSDictionary+Transform.m in Sources */,
 				B81E521217C3BC7A0076BC63 /* NSObject+PerformOperation.m in Sources */,
 				B80C295A17C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
+				B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
