@@ -31,10 +31,10 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSSetAdditions.h"
+#import "NSSet+Search.h"
 
 
-@implementation NSSet (CWNSSetAdditions)
+@implementation NSSet (Zangetsu_NSSet_Search)
 
 -(id)cw_findWithBlock:(BOOL (^)(id obj))block {
 	for(id obj in self){
@@ -56,14 +56,5 @@
 	return results;
 }
 #endif
-
--(NSSet *)cw_mapSet:(id (^)(id obj))block {
-	NSMutableSet *mappedSet = [NSMutableSet set];
-	[self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-		id rObj = block(obj);
-		if (rObj) [mappedSet addObject:rObj];
-	}];
-    return mappedSet;
-}
 
 @end

@@ -34,7 +34,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSSet (CWNSSetAdditions) 
+@interface NSSet (Zangetsu_NSSet_Search) 
 
 /**
  Enumerates over all the object in a set till a block returns YES & returns
@@ -78,22 +78,5 @@
  */
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
 #endif
-
-/**
- Maps an NSSet to a new NSSet
- 
- This method allows you to map one NSSet to another one and in the process you
- can alter the set or simply do 1-to-1 mapping. This method calls a block with
- each object in a set and expects to get an object back or nil. If the block
- returns an object it stores that object in the new set, otherwise if it gets 
- nil back then it does not store anything in the new set for that specific
- block callback.
- 
- @param block a block with an id object argument for the object being enumerated 
-        over in the set and expecting an id object or nil back
- @return a NSSet with the mapped set. If nil was returned for all block 
-        callbacks this simply returns an empty NSSet
- */
--(NSSet *)cw_mapSet:(id (^)(id obj))block;
 
 @end
