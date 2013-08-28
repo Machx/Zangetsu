@@ -336,7 +336,6 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8072B3213894F81008F7B63 /* CWURLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLTests.h; path = Source/CWURLTests.h; sourceTree = "<group>"; };
 		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
-		B80BCE4512962DD100AF8CCE /* ToDo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		B80C295517C9195600D27E00 /* NSSet+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+Enumeration.h"; path = "Source/NSSet+Enumeration.h"; sourceTree = "<group>"; };
 		B80C295617C9195600D27E00 /* NSSet+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Enumeration.m"; path = "Source/NSSet+Enumeration.m"; sourceTree = "<group>"; };
 		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
@@ -656,7 +655,6 @@
 				B8B6638B1287A93B00CB4E3E /* ReadMe.md */,
 				B82D73E711DA850A00863F3B /* Zangetsu.h */,
 				B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */,
-				B80BCE4512962DD100AF8CCE /* ToDo.rtf */,
 				B884623D16C0AC3700EE9AF0 /* External */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
