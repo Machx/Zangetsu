@@ -48,7 +48,7 @@
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"
-#import "NSDictionaryAdditions.h"
+#import "NSDictionary+Search.h"
 #import "NSDictionary+Enumeration.h"
 #import "NSDictionary+Transform.h"
 #import "CWSystemInfo.h"
