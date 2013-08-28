@@ -1,5 +1,5 @@
 /*
-//  NSDictionaryAdditions.m
+//  NSDictionaryAdditions.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 11/12/10.
@@ -31,13 +31,16 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSDictionaryAdditions.h"
+#import <Foundation/Foundation.h>
 
 
-@implementation NSDictionary (CWNSDictionaryAdditions)
+@interface NSDictionary (Zangetsu_NSDictionary_Search)
 
--(BOOL)cw_containsKey:(NSString *)key {
-	return [[self allKeys] containsObject:key];
-}
+/**
+ Returns a BOOL inicating if the key passed in is contained in the receiver
+ 
+ @return a BOOL with YES if the key was found in the receiver, otherwise NO
+ */
+-(BOOL)cw_containsKey:(NSString *)key;
 
 @end
