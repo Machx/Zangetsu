@@ -34,7 +34,8 @@
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"
-#import "NSMutableArrayAdditions.h"
+#import "NSMutableArray+Copying.h"
+#import "NSMutableArray+Shuffle.h"
 
 SpecBegin(NSMutableArrayAdditions)
 
