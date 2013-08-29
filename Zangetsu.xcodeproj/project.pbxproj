@@ -16,8 +16,8 @@
 		B80C295817C9195600D27E00 /* NSSet+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B80C295517C9195600D27E00 /* NSSet+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B80C295917C9195600D27E00 /* NSSet+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C295617C9195600D27E00 /* NSSet+Enumeration.m */; };
 		B80C295A17C9195600D27E00 /* NSSet+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C295617C9195600D27E00 /* NSSet+Enumeration.m */; };
-		B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
+		B81049AE1407DB07005DE1E5 /* NSMutableArray+Shuffle.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArray+Shuffle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B81049AF1407DB07005DE1E5 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -107,6 +107,10 @@
 		B84682F7170A6F9600E7F22F /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682D9170A6F9600E7F22F /* metamacros.h */; };
 		B84682F8170A6F9600E7F22F /* NSInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DA170A6F9600E7F22F /* NSInvocation+EXT.h */; };
 		B84682F9170A6F9600E7F22F /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */; };
+		B848FFCA17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; };
+		B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; };
+		B848FFCC17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */ = {isa = PBXBuildFile; fileRef = B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */; };
+		B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */ = {isa = PBXBuildFile; fileRef = B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849506F12C52F6E00098684 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
 		B849523112CBE1CF00098684 /* CWMD5Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B849522F12CBE1CF00098684 /* CWMD5Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,8 +118,8 @@
 		B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
 		B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B869BAFF14C3AA5A00ED2908 /* ZangetsuTouch-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
-		B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */; };
+		B849841014C474A800E799A1 /* NSMutableArray+Shuffle.h in Headers */ = {isa = PBXBuildFile; fileRef = B81049AC1407DB07005DE1E5 /* NSMutableArray+Shuffle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B849841114C474AD00E799A1 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */; };
 		B84994AA128210D6001206E1 /* CWTask.h in Headers */ = {isa = PBXBuildFile; fileRef = B84994A7128210D6001206E1 /* CWTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,8 +342,8 @@
 		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
 		B80C295517C9195600D27E00 /* NSSet+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+Enumeration.h"; path = "Source/NSSet+Enumeration.h"; sourceTree = "<group>"; };
 		B80C295617C9195600D27E00 /* NSSet+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Enumeration.m"; path = "Source/NSSet+Enumeration.m"; sourceTree = "<group>"; };
-		B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArrayAdditions.h; path = Source/NSMutableArrayAdditions.h; sourceTree = "<group>"; };
-		B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArrayAdditions.m; path = Source/NSMutableArrayAdditions.m; sourceTree = "<group>"; };
+		B81049AC1407DB07005DE1E5 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffle.h"; path = "Source/NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffle.m"; path = "Source/NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
 		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 		B84682D9170A6F9600E7F22F /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = External/extobjc/metamacros.h; sourceTree = "<group>"; };
 		B84682DA170A6F9600E7F22F /* NSInvocation+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+EXT.h"; path = "External/extobjc/NSInvocation+EXT.h"; sourceTree = "<group>"; };
 		B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+EXT.h"; path = "External/extobjc/NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
+		B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Copying.h"; path = "Source/NSMutableArray+Copying.h"; sourceTree = "<group>"; };
+		B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Copying.m"; path = "Source/NSMutableArray+Copying.m"; sourceTree = "<group>"; };
 		B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWGraphicsFoundation.h; path = Source/CWGraphicsFoundation.h; sourceTree = "<group>"; };
 		B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWGraphicsFoundation.m; path = Source/CWGraphicsFoundation.m; sourceTree = "<group>"; };
 		B849522F12CBE1CF00098684 /* CWMD5Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMD5Utilities.h; path = Source/CWMD5Utilities.h; sourceTree = "<group>"; };
@@ -812,8 +818,10 @@
 				B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */,
 				B8C9BC6B17BA73BD00679B86 /* NSArray+Transform.h */,
 				B8C9BC6C17BA73BD00679B86 /* NSArray+Transform.m */,
-				B81049AC1407DB07005DE1E5 /* NSMutableArrayAdditions.h */,
-				B81049AD1407DB07005DE1E5 /* NSMutableArrayAdditions.m */,
+				B81049AC1407DB07005DE1E5 /* NSMutableArray+Shuffle.h */,
+				B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */,
+				B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */,
+				B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */,
 				B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */,
 				B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */,
 				B85889A0128E04E9002AC417 /* NSDictionary+Search.h */,
@@ -1131,7 +1139,7 @@
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
 				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
 				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
-				B81049AE1407DB07005DE1E5 /* NSMutableArrayAdditions.h in Headers */,
+				B81049AE1407DB07005DE1E5 /* NSMutableArray+Shuffle.h in Headers */,
 				B88EA5E81426D73B002F327B /* CWBase64.h in Headers */,
 				B86367A1142F7607003BBF29 /* CWZLib.h in Headers */,
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
@@ -1190,6 +1198,7 @@
 				B80C295717C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
 				B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B81F6AF517CCECA80026763A /* NSSet+Transform.h in Headers */,
+				B848FFCA17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,7 +1215,7 @@
 				B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */,
 				B849840614C46DC400E799A1 /* CWErrorUtilities.h in Headers */,
 				B849840D14C4736D00E799A1 /* ZangetsuTouch-Prefix.pch in Headers */,
-				B849841014C474A800E799A1 /* NSMutableArrayAdditions.h in Headers */,
+				B849841014C474A800E799A1 /* NSMutableArray+Shuffle.h in Headers */,
 				B8E3880614C4757300F6D2A8 /* NSData+HexRepresentation.h in Headers */,
 				B8E3880914C475EC00F6D2A8 /* NSDictionary+Search.h in Headers */,
 				B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */,
@@ -1275,6 +1284,7 @@
 				B80C295817C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
 				B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B81F6AF617CCECA80026763A /* NSSet+Transform.h in Headers */,
+				B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1468,7 +1478,7 @@
 				B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */,
 				B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */,
 				B88F8567138049FC000CA4D0 /* CWApplicationRegistry.m in Sources */,
-				B81049AF1407DB07005DE1E5 /* NSMutableArrayAdditions.m in Sources */,
+				B81049AF1407DB07005DE1E5 /* NSMutableArray+Shuffle.m in Sources */,
 				B88EA5E91426D73B002F327B /* CWBase64.m in Sources */,
 				B86367A2142F7607003BBF29 /* CWZLib.m in Sources */,
 				B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */,
@@ -1496,6 +1506,7 @@
 				B80C295917C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
 				B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */,
 				B81F6AF717CCECA80026763A /* NSSet+Transform.m in Sources */,
+				B848FFCC17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1508,7 +1519,7 @@
 				B869BB3714C46C8B00ED2908 /* CWFoundation.m in Sources */,
 				B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */,
 				B849840814C46DCA00E799A1 /* CWErrorUtilities.m in Sources */,
-				B849841114C474AD00E799A1 /* NSMutableArrayAdditions.m in Sources */,
+				B849841114C474AD00E799A1 /* NSMutableArray+Shuffle.m in Sources */,
 				B8E3880414C4756F00F6D2A8 /* NSData+HexRepresentation.m in Sources */,
 				B8E3880A14C475F300F6D2A8 /* NSDictionary+Search.m in Sources */,
 				B8E3881614C47E2B00F6D2A8 /* CWURLRequest.m in Sources */,
@@ -1545,6 +1556,7 @@
 				B80C295A17C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
 				B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */,
 				B81F6AF817CCECA80026763A /* NSSet+Transform.m in Sources */,
+				B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
