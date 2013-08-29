@@ -1,5 +1,5 @@
 /*
-//  NSMutableArrayAdditions.m
+//  NSMutableArrayAdditions.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 8/26/11.
@@ -31,29 +31,17 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSMutableArrayAdditions.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSMutableArray (CWNSMutableArrayAdditions)
+@interface NSMutableArray (CWNSMutableArrayAdditions)
 
--(void)cw_addObjectsFromArrayByCopying:(NSArray *)otherArray {
-	for (id object in otherArray) {
-		[self addObject:[object copy]];
-	}
-}
-
+/**
+ Moves the object at whatever index it is at to the specified index
+ 
+ @param object in the receiver you want to move to a new index
+ @param index the index you wish to move the specified object to
+ */
 -(void)cw_moveObject:(id)object
-			 toIndex:(NSUInteger)index
-{
-	CWAssert(object != nil);
-	CWAssert(index <= (self.count - 1));
-	NSUInteger oldIndex = [self indexOfObject:object];
-	if (oldIndex == index) return;
-	if (oldIndex != NSNotFound) {
-		[self removeObjectAtIndex:oldIndex];
-		[self insertObject:object atIndex:index];
-		return;
-	}
-	NSLog(@"%s: Object you are attempting to move was not contained in the array",__PRETTY_FUNCTION__);
-}
+			 toIndex:(NSUInteger)index;
 
 @end
