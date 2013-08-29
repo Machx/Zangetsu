@@ -107,8 +107,8 @@
 		B84682F7170A6F9600E7F22F /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682D9170A6F9600E7F22F /* metamacros.h */; };
 		B84682F8170A6F9600E7F22F /* NSInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DA170A6F9600E7F22F /* NSInvocation+EXT.h */; };
 		B84682F9170A6F9600E7F22F /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = B84682DB170A6F9600E7F22F /* NSMethodSignature+EXT.h */; };
-		B848FFCA17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; };
-		B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; };
+		B848FFCA17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */ = {isa = PBXBuildFile; fileRef = B848FFC817CF9BA600565D9B /* NSMutableArray+Copying.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B848FFCC17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */ = {isa = PBXBuildFile; fileRef = B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */; };
 		B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */ = {isa = PBXBuildFile; fileRef = B848FFC917CF9BA600565D9B /* NSMutableArray+Copying.m */; };
 		B849506E12C52F6E00098684 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
