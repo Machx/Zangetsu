@@ -35,25 +35,6 @@
 
 @implementation NSString (CWNSStringAdditions)
 
-- (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-								  withBlock:(void (^)(NSString *substring))block {
-	dispatch_group_t group = dispatch_group_create();
-	const char *queueLabel = [CWUUIDStringPrependedWithString(@"com.Zangetsu.NSString_") UTF8String];
-	dispatch_queue_t queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_CONCURRENT);
-	
-	[self enumerateSubstringsInRange:NSMakeRange(0,self.length)
-							 options:options
-						  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclRange, BOOL *stop){
-		dispatch_group_async(group, queue, ^{
-			block(substring);
-		});
-	}];
-	
-	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-	dispatch_release(group); group = nil;
-	dispatch_release(queue); queue = nil;
-}
-
 -(NSString *)cw_escapeEntitiesForURL {
 	NSMutableString *escapedString = [NSMutableString string];
 	const char *originalString = [self UTF8String];

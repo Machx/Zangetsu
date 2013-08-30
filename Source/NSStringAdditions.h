@@ -38,18 +38,6 @@
 @interface NSString (CWNSStringAdditions)
 
 /**
- Asynchronous & Synchronous string enumeration 
- this method was created for being able to enumerate over all the lines in a 
- string asychronously, but make the whole operation of enumerating over all the 
- lines, synchronous
- 
- @param options the options on how to enumerate the string
- @block the block to handle processing the substrings returned
- */
-- (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
-								  withBlock:(void (^)(NSString *substring))block;
-
-/**
  Escapes entities that would need to be escaped in urls
  
  @return a new NSString with appropriate entities escaped
