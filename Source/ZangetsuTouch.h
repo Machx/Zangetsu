@@ -38,6 +38,7 @@
 #import "CWSHA1Utilities.h"
 #import "CWDateUtilities.h"
 #import "NSStringAdditions.h"
+#import "NSString+Enumeration.h"
 #import "NSString+UUID.h"
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
