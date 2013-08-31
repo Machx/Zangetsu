@@ -1,6 +1,9 @@
 /*
-//  NSStringAdditions.m
+//  NSStringAdditions.h
 //  Zangetsu
+//
+//  Created by Colin Wheeler on 11/5/10.
+//  Copyright 2010. All rights reserved.
 //
  
  Copyright (c) 2013, Colin Wheeler
@@ -28,38 +31,17 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSStringAdditions.h"
-#import <CoreFoundation/CoreFoundation.h>
+#import <Foundation/Foundation.h>
 
 
 
-@implementation NSString (CWNSStringAdditions)
+@interface NSString (Zangetsu_NSString_Empty)
 
--(NSString *)cw_escapeEntitiesForURL {
-	NSMutableString *escapedString = [NSMutableString string];
-	const char *originalString = [self UTF8String];
-	while (*originalString) {
-		const unsigned char currentChar = *originalString;
-		if((( currentChar >= 'a' ) && ( currentChar <= 'z' )) ||
-		   (( currentChar >= 'A' ) && ( currentChar <= 'Z' )) ||
-		   (( currentChar >= '0' ) && ( currentChar <= '9' )) ||
-		   (  currentChar == '.' ) ||
-		   (  currentChar == '~' ) ||
-		   (  currentChar == '_' ) ||
-		   (  currentChar == '-' ) ){
-			[escapedString appendFormat:@"%c",currentChar];
-		} else if (currentChar == ' ') {
-			[escapedString appendString:@"%20"];
-		} else  {
-			[escapedString appendFormat:@"%%%02X",currentChar];
-		}
-		originalString++;
-	}
-	return escapedString;
-}
-
-- (BOOL) cw_isNotEmptyString {
-	return (self.length > 0);
-}
+/**
+ Quick test for an empty string
+ 
+ @return BOOL with YES if length > 0, otherwise returns NO
+ */
+- (BOOL) cw_isNotEmptyString;
 
 @end

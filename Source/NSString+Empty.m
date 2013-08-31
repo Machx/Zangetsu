@@ -1,9 +1,6 @@
 /*
-//  NSStringAdditions.h
+//  NSStringAdditions.m
 //  Zangetsu
-//
-//  Created by Colin Wheeler on 11/5/10.
-//  Copyright 2010. All rights reserved.
 //
  
  Copyright (c) 2013, Colin Wheeler
@@ -31,24 +28,12 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "NSString+Empty.h"
 
+@implementation NSString (Zangetsu_NSString_Empty)
 
-
-@interface NSString (CWNSStringAdditions)
-
-/**
- Escapes entities that would need to be escaped in urls
- 
- @return a new NSString with appropriate entities escaped
- */
-- (NSString *) cw_escapeEntitiesForURL;
-
-/**
- Quick test for an empty string
- 
- @return BOOL with YES if length > 0, otherwise returns NO
- */
-- (BOOL) cw_isNotEmptyString;
+- (BOOL) cw_isNotEmptyString {
+	return (self.length > 0);
+}
 
 @end
