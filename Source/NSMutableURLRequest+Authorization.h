@@ -1,5 +1,5 @@
 /*
-//  NSMutableURLRequest+CWNSMutableURLRequestAdditions.h
+//  NSMutableURLRequest + Authorization
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 12/13/11.
