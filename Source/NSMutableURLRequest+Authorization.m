@@ -31,7 +31,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#import "NSMutableURLRequestAdditions.h"
+#import "NSMutableURLRequest+Authorization.h"
 
 static NSString *const kCWHttpAuthorizationHeaderField = @"Authorization";
 
