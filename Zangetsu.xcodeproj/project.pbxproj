@@ -20,8 +20,8 @@
 		B81049AF1407DB07005DE1E5 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */; };
 		B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFA1497A49800C71A61 /* CWURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
-		B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */; };
+		B818BC011497B38F00C71A61 /* NSMutableURLRequest+Authorization.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B818BC021497B38F00C71A61 /* NSMutableURLRequest+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BC001497B38F00C71A61 /* NSMutableURLRequest+Authorization.m */; };
 		B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81BFF8D1305A7F3001A4BCF /* CWURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */; };
 		B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,7 +148,7 @@
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86367A2142F7607003BBF29 /* CWZLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A0142F7607003BBF29 /* CWZLib.m */; };
 		B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A5142F82EE003BBF29 /* CWZLibTests.m */; };
-		B8660D471783281700B08CEF /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8660D471783281700B08CEF /* NSMutableURLRequest+Authorization.h in Headers */ = {isa = PBXBuildFile; fileRef = B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D2618715D5571100F087C4 /* CWBlockTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BAFB14C3AA5A00ED2908 /* Foundation.framework */; };
 		B869BB1614C3AA5B00ED2908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B869BB1414C3AA5B00ED2908 /* InfoPlist.strings */; };
@@ -354,8 +354,8 @@
 		B81049AD1407DB07005DE1E5 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffle.m"; path = "Source/NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		B818BBFA1497A49800C71A61 /* CWURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLRequest.h; path = Source/CWURLRequest.h; sourceTree = "<group>"; };
 		B818BBFB1497A49800C71A61 /* CWURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequest.m; path = Source/CWURLRequest.m; sourceTree = "<group>"; };
-		B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableURLRequestAdditions.h; path = Source/NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
-		B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableURLRequestAdditions.m; path = Source/NSMutableURLRequestAdditions.m; sourceTree = "<group>"; };
+		B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableURLRequest+Authorization.h"; path = "Source/NSMutableURLRequest+Authorization.h"; sourceTree = "<group>"; };
+		B818BC001497B38F00C71A61 /* NSMutableURLRequest+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableURLRequest+Authorization.m"; path = "Source/NSMutableURLRequest+Authorization.m"; sourceTree = "<group>"; };
 		B81BFF8A1305A7F1001A4BCF /* CWURLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilities.h; path = Source/CWURLUtilities.h; sourceTree = "<group>"; };
 		B81BFF8B1305A7F2001A4BCF /* CWURLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilities.m; path = Source/CWURLUtilities.m; sourceTree = "<group>"; };
 		B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBlockQueue.h; path = Source/CWBlockQueue.h; sourceTree = "<group>"; };
@@ -864,8 +864,8 @@
 				B8F1664D17CBA1910010A149 /* NSString+UUID.m */,
 				B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */,
 				B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */,
-				B818BBFF1497B38F00C71A61 /* NSMutableURLRequestAdditions.h */,
-				B818BC001497B38F00C71A61 /* NSMutableURLRequestAdditions.m */,
+				B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */,
+				B818BC001497B38F00C71A61 /* NSMutableURLRequest+Authorization.m */,
 				B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */,
 				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
 				B86FC33A15BB109F009D018C /* NSURLAdditions.h */,
@@ -1159,7 +1159,7 @@
 				B88EA5E81426D73B002F327B /* CWBase64.h in Headers */,
 				B86367A1142F7607003BBF29 /* CWZLib.h in Headers */,
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
-				B818BC011497B38F00C71A61 /* NSMutableURLRequestAdditions.h in Headers */,
+				B818BC011497B38F00C71A61 /* NSMutableURLRequest+Authorization.h in Headers */,
 				B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
@@ -1291,7 +1291,7 @@
 				B8EB341E172ECF130044E492 /* EXTAnnotation.h in Headers */,
 				B8F738C1177F537900A66200 /* CWLogging.h in Headers */,
 				B88474C21780A1FA00EC9373 /* CWAssertionMacros.h in Headers */,
-				B8660D471783281700B08CEF /* NSMutableURLRequestAdditions.h in Headers */,
+				B8660D471783281700B08CEF /* NSMutableURLRequest+Authorization.h in Headers */,
 				B8660D491783288C00B08CEF /* CWBlockTimer.h in Headers */,
 				B8C9BC6117B9224300679B86 /* NSArray+Enumeration.h in Headers */,
 				B8C9BC6E17BA73BD00679B86 /* NSArray+Transform.h in Headers */,
@@ -1502,7 +1502,7 @@
 				B88EA5E91426D73B002F327B /* CWBase64.m in Sources */,
 				B86367A2142F7607003BBF29 /* CWZLib.m in Sources */,
 				B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */,
-				B818BC021497B38F00C71A61 /* NSMutableURLRequestAdditions.m in Sources */,
+				B818BC021497B38F00C71A61 /* NSMutableURLRequest+Authorization.m in Sources */,
 				B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */,
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
