@@ -33,7 +33,7 @@
 
 #import "NSURL+DebugDescription.h"
 
-@implementation NSURL (CWURLAdditions)
+@implementation NSURL (Zangetsu_NSURL_DebugDescription)
 
 -(NSString *)cw_betterDescription {
 	NSMutableString *urlDescription = [NSMutableString new];

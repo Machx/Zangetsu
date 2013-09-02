@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (CWURLAdditions)
+@interface NSURL (Zangetsu_NSURL_DebugDescription)
 
 /**
  A better string description of a NSURL including host, port, path, etc
