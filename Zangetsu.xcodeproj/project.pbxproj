@@ -166,9 +166,9 @@
 		B869BB3814C46D3100ED2908 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B869BB3914C46D3500ED2908 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869C85313F6B90400739DE4 /* CWMacroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B869C85213F6B90400739DE4 /* CWMacroTests.m */; };
-		B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B86FC33B15BB109F009D018C /* NSURLAdditions.m */; };
-		B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURLAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86FC33C15BB109F009D018C /* NSURL+DebugDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86FC33D15BB109F009D018C /* NSURL+DebugDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B86FC33B15BB109F009D018C /* NSURL+DebugDescription.m */; };
+		B86FC33F15BB14B0009D018C /* NSURL+DebugDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6912B3E88500F85BCE /* CWDebugUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8806A6A12B3E88500F85BCE /* CWDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */; };
 		B884628516C0AD8B00EE9AF0 /* libExpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B884628416C0ACFA00EE9AF0 /* libExpecta-macosx.a */; };
@@ -480,8 +480,8 @@
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
-		B86FC33A15BB109F009D018C /* NSURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLAdditions.h; path = Source/NSURLAdditions.h; sourceTree = "<group>"; };
-		B86FC33B15BB109F009D018C /* NSURLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLAdditions.m; path = Source/NSURLAdditions.m; sourceTree = "<group>"; };
+		B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+DebugDescription.h"; path = "Source/NSURL+DebugDescription.h"; sourceTree = "<group>"; };
+		B86FC33B15BB109F009D018C /* NSURL+DebugDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+DebugDescription.m"; path = "Source/NSURL+DebugDescription.m"; sourceTree = "<group>"; };
 		B8806A6712B3E88500F85BCE /* CWDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDebugUtilities.h; path = Source/CWDebugUtilities.h; sourceTree = "<group>"; };
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
 		B884625816C0ACB200EE9AF0 /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = External/Specta/Specta.h; sourceTree = "<group>"; };
@@ -868,8 +868,8 @@
 				B818BC001497B38F00C71A61 /* NSMutableURLRequest+Authorization.m */,
 				B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */,
 				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
-				B86FC33A15BB109F009D018C /* NSURLAdditions.h */,
-				B86FC33B15BB109F009D018C /* NSURLAdditions.m */,
+				B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */,
+				B86FC33B15BB109F009D018C /* NSURL+DebugDescription.m */,
 				B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */,
 				B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */,
 			);
@@ -1164,7 +1164,7 @@
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
-				B86FC33C15BB109F009D018C /* NSURLAdditions.h in Headers */,
+				B86FC33C15BB109F009D018C /* NSURL+DebugDescription.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B85DF7F316DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 				B83A595216FE3565005663D7 /* CWFixedQueue.h in Headers */,
@@ -1253,7 +1253,7 @@
 				B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
-				B86FC33F15BB14B0009D018C /* NSURLAdditions.h in Headers */,
+				B86FC33F15BB14B0009D018C /* NSURL+DebugDescription.h in Headers */,
 				B85DF7F416DAA1820008FB97 /* NSNumberAdditions.h in Headers */,
 				B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */,
 				B83A595B16FE3565005663D7 /* CWPriorityQueue.h in Headers */,
@@ -1507,7 +1507,7 @@
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
-				B86FC33D15BB109F009D018C /* NSURLAdditions.m in Sources */,
+				B86FC33D15BB109F009D018C /* NSURL+DebugDescription.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B85DF7F516DAA1820008FB97 /* NSNumberAdditions.m in Sources */,
 				B83A595416FE3565005663D7 /* CWFixedQueue.m in Sources */,
