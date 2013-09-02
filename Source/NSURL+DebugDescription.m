@@ -1,5 +1,5 @@
 /*
-//  NSURL+CWURLAdditions.m
+//  NSURL+DebugDescription.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 7/21/12.
@@ -31,7 +31,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSURLAdditions.h"
+#import "NSURL+DebugDescription.h"
 
 @implementation NSURL (CWURLAdditions)
 
