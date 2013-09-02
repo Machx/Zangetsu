@@ -87,7 +87,7 @@
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "NSImageAdditions.h"
-#import "NSURLAdditions.h"
+#import "NSURL+DebugDescription.h"
 #import "CWBlockTimer.h"
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
