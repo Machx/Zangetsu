@@ -33,7 +33,7 @@
 
 #import "NSRecursiveLock+UnlockWithBlock.h"
 
-@implementation NSRecursiveLock (CWNSRecursiveLockAdditions)
+@implementation NSRecursiveLock (Zangetsu_NSRecursiveLock_UnlockWithBlock)
 
 -(void)cw_doWithLock:(dispatch_block_t)block {
 	CWAssert(block != nil);

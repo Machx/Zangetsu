@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSRecursiveLock (CWNSRecursiveLockAdditions)
+@interface NSRecursiveLock (Zangetsu_NSRecursiveLock_UnlockWithBlock)
 /**
  Locks the lock, executes the block, then unlocks the lock
  
