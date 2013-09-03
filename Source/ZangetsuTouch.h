@@ -71,7 +71,7 @@
 #import "NSMutableArray+Shuffle.h"
 #import "CWQueue.h"
 #import "CWURLRequest.h"
-#import "NSRecursiveLockAdditions.h"
+#import "NSRecursiveLock+UnlockWithBlock.h"
 #import "CWSystemInfoIOS.h"
 #import "CWBase64IOS.h"
 #import "NSMutableURLRequest+Authorization.h"
