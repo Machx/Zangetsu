@@ -143,8 +143,8 @@
 		B85DF7F616DAA1820008FB97 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumberAdditions.m */; };
 		B85DF7F916DABA990008FB97 /* NSNumberAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */; };
 		B8617C0E132E6E1700AD0F78 /* CWNSErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */; };
-		B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
+		B8635FFB149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8635FFC149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */; };
 		B86367A1142F7607003BBF29 /* CWZLib.h in Headers */ = {isa = PBXBuildFile; fileRef = B863679F142F7607003BBF29 /* CWZLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B86367A2142F7607003BBF29 /* CWZLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A0142F7607003BBF29 /* CWZLib.m */; };
 		B86367A6142F82EE003BBF29 /* CWZLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86367A5142F82EE003BBF29 /* CWZLibTests.m */; };
@@ -212,8 +212,8 @@
 		B8C320CF12A1B77F00219E4A /* CWNSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */; };
 		B8C5B94914C484F5000E0A88 /* NSString+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = B837BC181284FDC0009215D7 /* NSString+Empty.m */; };
 		B8C5B94B14C484F9000E0A88 /* NSString+Empty.h in Headers */ = {isa = PBXBuildFile; fileRef = B837BC171284FDC0009215D7 /* NSString+Empty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C5B94C14C48536000E0A88 /* NSRecursiveLockAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C5B94D14C4853C000E0A88 /* NSRecursiveLockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */; };
+		B8C5B94C14C48536000E0A88 /* NSRecursiveLock+UnlockWithBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = B8635FF9149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C5B94D14C4853C000E0A88 /* NSRecursiveLock+UnlockWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */; };
 		B8C5B94E14C4864D000E0A88 /* CWSHA1Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B890142911D992F000705CE4 /* CWSHA1Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C5B94F14C48653000E0A88 /* CWSHA1Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B890142A11D992F000705CE4 /* CWSHA1Utilities.m */; };
 		B8C5B95014C486E0000E0A88 /* NSSet+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C1195129239C500B49835 /* NSSet+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -463,8 +463,8 @@
 		B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditionsTests.m; path = Source/NSNumberAdditionsTests.m; sourceTree = "<group>"; };
 		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
-		B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSRecursiveLockAdditions.h; path = Source/NSRecursiveLockAdditions.h; sourceTree = "<group>"; };
-		B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRecursiveLockAdditions.m; path = Source/NSRecursiveLockAdditions.m; sourceTree = "<group>"; };
+		B8635FF9149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSRecursiveLock+UnlockWithBlock.h"; path = "Source/NSRecursiveLock+UnlockWithBlock.h"; sourceTree = "<group>"; };
+		B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSRecursiveLock+UnlockWithBlock.m"; path = "Source/NSRecursiveLock+UnlockWithBlock.m"; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
 		B86367A0142F7607003BBF29 /* CWZLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLib.m; path = Source/CWZLib.m; sourceTree = "<group>"; };
 		B86367A4142F82EE003BBF29 /* CWZLibTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLibTests.h; path = Source/CWZLibTests.h; sourceTree = "<group>"; };
@@ -866,8 +866,8 @@
 				B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */,
 				B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */,
 				B818BC001497B38F00C71A61 /* NSMutableURLRequest+Authorization.m */,
-				B8635FF9149C505800D6741D /* NSRecursiveLockAdditions.h */,
-				B8635FFA149C505800D6741D /* NSRecursiveLockAdditions.m */,
+				B8635FF9149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h */,
+				B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */,
 				B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */,
 				B86FC33B15BB109F009D018C /* NSURL+DebugDescription.m */,
 				B85DF7F116DAA1810008FB97 /* NSNumberAdditions.h */,
@@ -1160,7 +1160,7 @@
 				B86367A1142F7607003BBF29 /* CWZLib.h in Headers */,
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
 				B818BC011497B38F00C71A61 /* NSMutableURLRequest+Authorization.h in Headers */,
-				B8635FFB149C505800D6741D /* NSRecursiveLockAdditions.h in Headers */,
+				B8635FFB149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
@@ -1239,7 +1239,7 @@
 				B8E3881514C47E2600F6D2A8 /* CWURLRequest.h in Headers */,
 				B8E3881714C4837F00F6D2A8 /* CWGraphicsFoundation.h in Headers */,
 				B8C5B94B14C484F9000E0A88 /* NSString+Empty.h in Headers */,
-				B8C5B94C14C48536000E0A88 /* NSRecursiveLockAdditions.h in Headers */,
+				B8C5B94C14C48536000E0A88 /* NSRecursiveLock+UnlockWithBlock.h in Headers */,
 				B8C5B94E14C4864D000E0A88 /* CWSHA1Utilities.h in Headers */,
 				B8C5B95014C486E0000E0A88 /* NSSet+Search.h in Headers */,
 				B8C5B95414C48E09000E0A88 /* CWURLUtilities.h in Headers */,
@@ -1503,7 +1503,7 @@
 				B86367A2142F7607003BBF29 /* CWZLib.m in Sources */,
 				B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */,
 				B818BC021497B38F00C71A61 /* NSMutableURLRequest+Authorization.m in Sources */,
-				B8635FFC149C505800D6741D /* NSRecursiveLockAdditions.m in Sources */,
+				B8635FFC149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m in Sources */,
 				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
@@ -1547,7 +1547,7 @@
 				B8E3881614C47E2B00F6D2A8 /* CWURLRequest.m in Sources */,
 				B8E3881814C4838700F6D2A8 /* CWGraphicsFoundation.m in Sources */,
 				B8C5B94914C484F5000E0A88 /* NSString+Empty.m in Sources */,
-				B8C5B94D14C4853C000E0A88 /* NSRecursiveLockAdditions.m in Sources */,
+				B8C5B94D14C4853C000E0A88 /* NSRecursiveLock+UnlockWithBlock.m in Sources */,
 				B8C5B94F14C48653000E0A88 /* CWSHA1Utilities.m in Sources */,
 				B8C5B95114C486E5000E0A88 /* NSSet+Search.m in Sources */,
 				B8C5B95514C48E0F000E0A88 /* CWURLUtilities.m in Sources */,
