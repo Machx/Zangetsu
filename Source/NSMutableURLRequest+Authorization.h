@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableURLRequest (CWNSMutableURLRequestAdditions)
+@interface NSMutableURLRequest (Zangetsu_NSMutableURLRequest_Authorization)
 /**
  Sets the HTTP Authorization header field on a NSMutableURLRequest object
  
