@@ -32,7 +32,7 @@
  */
 
 #import "NSNumberAdditionsTests.h"
-#import "NSNumberAdditions.h"
+#import "NSNumber+RepeatingActions.h"
 
 SpecBegin(CWNSNumberAdditions)
 
