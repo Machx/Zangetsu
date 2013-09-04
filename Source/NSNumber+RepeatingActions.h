@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNumber (CWNSNumberAdditions)
+@interface NSNumber (Zangetsu_NSNumber_RepeatingActions)
 
 /**
  Executes the block n number of times where n is the integer value of self

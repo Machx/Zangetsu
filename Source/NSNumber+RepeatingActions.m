@@ -31,9 +31,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSNumberAdditions.h"
+#import "NSNumber+RepeatingActions.h"
 
-@implementation NSNumber (CWNSNumberAdditions)
+@implementation NSNumber (Zangetsu_NSNumber_RepeatingActions)
 
 -(void)cw_times:(void (^)(NSInteger index, BOOL *stop))block {
 	NSInteger count = [self integerValue];
