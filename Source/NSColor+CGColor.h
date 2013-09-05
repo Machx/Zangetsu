@@ -33,7 +33,7 @@
  
 #import <AppKit/AppKit.h>
 
-@interface NSColor (CWNSColorAdditions)
+@interface NSColor (Zangetsu_NSColor_CGColor)
 /**
  Converts a NSColor to its equivalent CGColorRef
  

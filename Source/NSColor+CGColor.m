@@ -33,7 +33,7 @@
 
 #import "NSColor+CGColor.h"
 
-@implementation NSColor (CWNSColorAdditions)
+@implementation NSColor (Zangetsu_NSColor_CGColor)
 
 -(CGColorRef)cw_CGColor {
 	NSColor *nscolor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
