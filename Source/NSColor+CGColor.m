@@ -31,7 +31,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSColorAdditions.h"
+#import "NSColor+CGColor.h"
 
 @implementation NSColor (CWNSColorAdditions)
 
