@@ -83,7 +83,7 @@
 #import "CWURLRequest.h"
 #import "NSMutableURLRequest+Authorization.h"
 #import "NSRecursiveLock+UnlockWithBlock.h"
-#import "NSColorAdditions.h"
+#import "NSColor+CGColor.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
 #import "NSImageAdditions.h"
