@@ -197,8 +197,8 @@
 		B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B89418FC132AF54500313534 /* CWRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89418FF132AF54500313534 /* CWRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B89418FD132AF54500313534 /* CWRuntimeUtilities.m */; };
 		B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897240E1347946C00BB67CF /* CWNSDateTests.m */; };
-		B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */; };
+		B89D8D0914D6476F00C5BBAB /* NSColor+CGColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B89D8D0A14D6476F00C5BBAB /* NSColor+CGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */; };
 		B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */; };
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -554,8 +554,8 @@
 		B89418FD132AF54500313534 /* CWRuntimeUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWRuntimeUtilities.m; path = Source/CWRuntimeUtilities.m; sourceTree = "<group>"; };
 		B897240D1347946C00BB67CF /* CWNSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSDateTests.h; path = Source/CWNSDateTests.h; sourceTree = "<group>"; };
 		B897240E1347946C00BB67CF /* CWNSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSDateTests.m; path = Source/CWNSDateTests.m; sourceTree = "<group>"; };
-		B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSColorAdditions.h; path = Source/NSColorAdditions.h; sourceTree = "<group>"; };
-		B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSColorAdditions.m; path = Source/NSColorAdditions.m; sourceTree = "<group>"; };
+		B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSColor+CGColor.h"; path = "Source/NSColor+CGColor.h"; sourceTree = "<group>"; };
+		B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSColor+CGColor.m"; path = "Source/NSColor+CGColor.m"; sourceTree = "<group>"; };
 		B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSImageAdditions.h; path = Source/NSImageAdditions.h; sourceTree = "<group>"; };
 		B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSImageAdditions.m; path = Source/NSImageAdditions.m; sourceTree = "<group>"; };
 		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
@@ -1003,8 +1003,8 @@
 		B89D8D0514D646D600C5BBAB /* AppKit Additions */ = {
 			isa = PBXGroup;
 			children = (
-				B89D8D0714D6476F00C5BBAB /* NSColorAdditions.h */,
-				B89D8D0814D6476F00C5BBAB /* NSColorAdditions.m */,
+				B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */,
+				B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */,
 				B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */,
 				B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */,
 			);
@@ -1161,7 +1161,7 @@
 				B818BBFC1497A49800C71A61 /* CWURLRequest.h in Headers */,
 				B818BC011497B38F00C71A61 /* NSMutableURLRequest+Authorization.h in Headers */,
 				B8635FFB149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h in Headers */,
-				B89D8D0914D6476F00C5BBAB /* NSColorAdditions.h in Headers */,
+				B89D8D0914D6476F00C5BBAB /* NSColor+CGColor.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
 				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURL+DebugDescription.h in Headers */,
@@ -1504,7 +1504,7 @@
 				B818BBFD1497A49800C71A61 /* CWURLRequest.m in Sources */,
 				B818BC021497B38F00C71A61 /* NSMutableURLRequest+Authorization.m in Sources */,
 				B8635FFC149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m in Sources */,
-				B89D8D0A14D6476F00C5BBAB /* NSColorAdditions.m in Sources */,
+				B89D8D0A14D6476F00C5BBAB /* NSColor+CGColor.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
 				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURL+DebugDescription.m in Sources */,
