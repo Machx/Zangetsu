@@ -33,7 +33,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NSImage (CWNSImageAdditions)
+@interface NSImage (Zangetsu_NSImage_Resizing)
 
 /**
  Returns a new image of the receiver resized to the specified size

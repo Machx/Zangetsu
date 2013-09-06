@@ -33,7 +33,7 @@
 
 #import "NSImage+Resizing.h"
 
-@implementation NSImage (CWNSImageAdditions)
+@implementation NSImage (Zangetsu_NSImage_Resizing)
 
 -(NSImage *)cw_imageResizedToSize:(CGSize)size {
 	return [self cw_imageResizedToSize:size 
