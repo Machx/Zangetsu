@@ -199,8 +199,8 @@
 		B897240F1347946C00BB67CF /* CWNSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B897240E1347946C00BB67CF /* CWNSDateTests.m */; };
 		B89D8D0914D6476F00C5BBAB /* NSColor+CGColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89D8D0A14D6476F00C5BBAB /* NSColor+CGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */; };
-		B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */; };
+		B89DA4DF15A89F5D0084E17C /* NSImage+Resizing.h in Headers */ = {isa = PBXBuildFile; fileRef = B89DA4DD15A89F5D0084E17C /* NSImage+Resizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B89DA4E015A89F5D0084E17C /* NSImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DA4DE15A89F5D0084E17C /* NSImage+Resizing.m */; };
 		B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8A084D012F4BA2000EAFCBF /* CWExceptionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */; };
 		B8AD231317D0EA4B009D9848 /* NSString+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8AD231117D0EA4B009D9848 /* NSString+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -556,8 +556,8 @@
 		B897240E1347946C00BB67CF /* CWNSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSDateTests.m; path = Source/CWNSDateTests.m; sourceTree = "<group>"; };
 		B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSColor+CGColor.h"; path = "Source/NSColor+CGColor.h"; sourceTree = "<group>"; };
 		B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSColor+CGColor.m"; path = "Source/NSColor+CGColor.m"; sourceTree = "<group>"; };
-		B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSImageAdditions.h; path = Source/NSImageAdditions.h; sourceTree = "<group>"; };
-		B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSImageAdditions.m; path = Source/NSImageAdditions.m; sourceTree = "<group>"; };
+		B89DA4DD15A89F5D0084E17C /* NSImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Resizing.h"; path = "Source/NSImage+Resizing.h"; sourceTree = "<group>"; };
+		B89DA4DE15A89F5D0084E17C /* NSImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Resizing.m"; path = "Source/NSImage+Resizing.m"; sourceTree = "<group>"; };
 		B8A084CD12F4BA2000EAFCBF /* CWExceptionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWExceptionUtilities.h; path = Source/CWExceptionUtilities.h; sourceTree = "<group>"; };
 		B8A084CE12F4BA2000EAFCBF /* CWExceptionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWExceptionUtilities.m; path = Source/CWExceptionUtilities.m; sourceTree = "<group>"; };
 		B8AD231117D0EA4B009D9848 /* NSString+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Enumeration.h"; path = "Source/NSString+Enumeration.h"; sourceTree = "<group>"; };
@@ -1005,8 +1005,8 @@
 			children = (
 				B89D8D0714D6476F00C5BBAB /* NSColor+CGColor.h */,
 				B89D8D0814D6476F00C5BBAB /* NSColor+CGColor.m */,
-				B89DA4DD15A89F5D0084E17C /* NSImageAdditions.h */,
-				B89DA4DE15A89F5D0084E17C /* NSImageAdditions.m */,
+				B89DA4DD15A89F5D0084E17C /* NSImage+Resizing.h */,
+				B89DA4DE15A89F5D0084E17C /* NSImage+Resizing.m */,
 			);
 			name = "AppKit Additions";
 			sourceTree = "<group>";
@@ -1163,7 +1163,7 @@
 				B8635FFB149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h in Headers */,
 				B89D8D0914D6476F00C5BBAB /* NSColor+CGColor.h in Headers */,
 				B81CAD9A14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
-				B89DA4DF15A89F5D0084E17C /* NSImageAdditions.h in Headers */,
+				B89DA4DF15A89F5D0084E17C /* NSImage+Resizing.h in Headers */,
 				B86FC33C15BB109F009D018C /* NSURL+DebugDescription.h in Headers */,
 				B8D2618915D5571100F087C4 /* CWBlockTimer.h in Headers */,
 				B85DF7F316DAA1820008FB97 /* NSNumber+RepeatingActions.h in Headers */,
@@ -1506,7 +1506,7 @@
 				B8635FFC149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m in Sources */,
 				B89D8D0A14D6476F00C5BBAB /* NSColor+CGColor.m in Sources */,
 				B81CAD9C14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
-				B89DA4E015A89F5D0084E17C /* NSImageAdditions.m in Sources */,
+				B89DA4E015A89F5D0084E17C /* NSImage+Resizing.m in Sources */,
 				B86FC33D15BB109F009D018C /* NSURL+DebugDescription.m in Sources */,
 				B8D2618A15D5571100F087C4 /* CWBlockTimer.m in Sources */,
 				B85DF7F516DAA1820008FB97 /* NSNumber+RepeatingActions.m in Sources */,
