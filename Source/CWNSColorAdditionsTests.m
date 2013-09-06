@@ -32,7 +32,7 @@
  */
 
 #import "CWNSColorAdditionsTests.h"
-#import "NSColorAdditions.h"
+#import "NSColor+CGColor.h"
 
 SpecBegin(NSColorAdditions)
 
