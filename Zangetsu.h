@@ -86,7 +86,7 @@
 #import "NSColor+CGColor.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
-#import "NSImageAdditions.h"
+#import "NSImage+Resizing.h"
 #import "NSURL+DebugDescription.h"
 #import "CWBlockTimer.h"
 #import "CWFixedQueue.h"
