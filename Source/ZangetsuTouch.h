@@ -77,7 +77,6 @@
 #import "NSMutableURLRequest+Authorization.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
-#import "NSImage+Resizing.h"
 #import "NSURL+DebugDescription.h"
 #import "CWBlockTimer.h"
 #import "CWFixedQueue.h"
