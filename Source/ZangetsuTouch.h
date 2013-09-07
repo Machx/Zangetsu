@@ -82,6 +82,7 @@
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
 #import "NSNumber+RepeatingActions.h"
+#import "UIImage+Resizing.h"
 
 /**
  What will never work on iOS
