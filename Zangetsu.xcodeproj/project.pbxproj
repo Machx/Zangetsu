@@ -135,8 +135,8 @@
 		B85889A2128E04E9002AC417 /* NSDictionary+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = B85889A0128E04E9002AC417 /* NSDictionary+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B85889A3128E04E9002AC417 /* NSDictionary+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = B85889A1128E04E9002AC417 /* NSDictionary+Search.m */; };
 		B8590752158787F000B8B2C4 /* CWNSColorAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */; };
-		B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImageAdditions.m */; };
+		B85908391587D3F300B8B2C4 /* UIImage+Resizing.h in Headers */ = {isa = PBXBuildFile; fileRef = B85908371587D3F300B8B2C4 /* UIImage+Resizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B859083A1587D3F300B8B2C4 /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = B85908381587D3F300B8B2C4 /* UIImage+Resizing.m */; };
 		B85DF7F316DAA1820008FB97 /* NSNumber+RepeatingActions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumber+RepeatingActions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B85DF7F416DAA1820008FB97 /* NSNumber+RepeatingActions.h in Headers */ = {isa = PBXBuildFile; fileRef = B85DF7F116DAA1810008FB97 /* NSNumber+RepeatingActions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B85DF7F516DAA1820008FB97 /* NSNumber+RepeatingActions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85DF7F216DAA1810008FB97 /* NSNumber+RepeatingActions.m */; };
@@ -455,8 +455,8 @@
 		B85889A1128E04E9002AC417 /* NSDictionary+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Search.m"; path = "Source/NSDictionary+Search.m"; sourceTree = "<group>"; };
 		B8590750158787EF00B8B2C4 /* CWNSColorAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSColorAdditionsTests.h; path = Source/CWNSColorAdditionsTests.h; sourceTree = "<group>"; };
 		B8590751158787EF00B8B2C4 /* CWNSColorAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSColorAdditionsTests.m; path = Source/CWNSColorAdditionsTests.m; sourceTree = "<group>"; };
-		B85908371587D3F300B8B2C4 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = Source/UIImageAdditions.h; sourceTree = "<group>"; };
-		B85908381587D3F300B8B2C4 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = Source/UIImageAdditions.m; sourceTree = "<group>"; };
+		B85908371587D3F300B8B2C4 /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resizing.h"; path = "Source/UIImage+Resizing.h"; sourceTree = "<group>"; };
+		B85908381587D3F300B8B2C4 /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resizing.m"; path = "Source/UIImage+Resizing.m"; sourceTree = "<group>"; };
 		B85DF7F116DAA1810008FB97 /* NSNumber+RepeatingActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+RepeatingActions.h"; path = "Source/NSNumber+RepeatingActions.h"; sourceTree = "<group>"; };
 		B85DF7F216DAA1810008FB97 /* NSNumber+RepeatingActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+RepeatingActions.m"; path = "Source/NSNumber+RepeatingActions.m"; sourceTree = "<group>"; };
 		B85DF7F716DABA990008FB97 /* NSNumberAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSNumberAdditionsTests.h; path = Source/NSNumberAdditionsTests.h; sourceTree = "<group>"; };
@@ -879,8 +879,8 @@
 		B85908351587D3A800B8B2C4 /* UIKit Additions */ = {
 			isa = PBXGroup;
 			children = (
-				B85908371587D3F300B8B2C4 /* UIImageAdditions.h */,
-				B85908381587D3F300B8B2C4 /* UIImageAdditions.m */,
+				B85908371587D3F300B8B2C4 /* UIImage+Resizing.h */,
+				B85908381587D3F300B8B2C4 /* UIImage+Resizing.m */,
 			);
 			name = "UIKit Additions";
 			sourceTree = "<group>";
@@ -1252,7 +1252,7 @@
 				B8DFB1EB14CB0FD100FAF7B4 /* CWSystemInfoIOS.h in Headers */,
 				B88BFAFD14DAF61100E82207 /* CWBase64IOS.h in Headers */,
 				B81CAD9B14FBE680009F5FD7 /* CWBlockQueue.h in Headers */,
-				B85908391587D3F300B8B2C4 /* UIImageAdditions.h in Headers */,
+				B85908391587D3F300B8B2C4 /* UIImage+Resizing.h in Headers */,
 				B86FC33F15BB14B0009D018C /* NSURL+DebugDescription.h in Headers */,
 				B85DF7F416DAA1820008FB97 /* NSNumber+RepeatingActions.h in Headers */,
 				B83A595316FE3565005663D7 /* CWFixedQueue.h in Headers */,
@@ -1560,7 +1560,7 @@
 				B8DFB1EC14CB0FD800FAF7B4 /* CWSystemInfoIOS.m in Sources */,
 				B88BFAFE14DAF61100E82207 /* CWBase64IOS.m in Sources */,
 				B81CAD9D14FBE680009F5FD7 /* CWBlockQueue.m in Sources */,
-				B859083A1587D3F300B8B2C4 /* UIImageAdditions.m in Sources */,
+				B859083A1587D3F300B8B2C4 /* UIImage+Resizing.m in Sources */,
 				B85DF7F616DAA1820008FB97 /* NSNumber+RepeatingActions.m in Sources */,
 				B83A595516FE3565005663D7 /* CWFixedQueue.m in Sources */,
 				B83A595D16FE3565005663D7 /* CWPriorityQueue.m in Sources */,
