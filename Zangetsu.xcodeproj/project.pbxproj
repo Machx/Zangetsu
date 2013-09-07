@@ -304,7 +304,7 @@
 		B8EF77A917BD15E2005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
 		B8EF77AA17BD15E3005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
 		B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; };
-		B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; };
+		B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
 		B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
 		B8F32B9E17C25B9400DE385F /* NSDictionary+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1275,6 +1275,7 @@
 				B8EB342A172ECF200044E492 /* extobjc.h in Headers */,
 				B8EB342B172ECF200044E492 /* EXTPassthrough.h in Headers */,
 				B8EB342C172ECF200044E492 /* EXTPrivateMethod.h in Headers */,
+				B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B8EB342D172ECF200044E492 /* EXTProtocolCategory.h in Headers */,
 				B8EB342E172ECF200044E492 /* EXTRuntimeExtensions.h in Headers */,
 				B8EB342F172ECF200044E492 /* EXTSafeCategory.h in Headers */,
@@ -1300,7 +1301,6 @@
 				B8F32B9F17C25B9400DE385F /* NSDictionary+Transform.h in Headers */,
 				B81E521017C3BC7A0076BC63 /* NSObject+PerformOperation.h in Headers */,
 				B80C295817C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
-				B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B81F6AF617CCECA80026763A /* NSSet+Transform.h in Headers */,
 				B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */,
 				B8AD231417D0EA4B009D9848 /* NSString+Enumeration.h in Headers */,
