@@ -1,5 +1,5 @@
 /*
-//  UIImage+CWUIImageAdditions.m
+//  UIImage+CWUIImageAdditions.h
 //  Zangetsu
 //
 //  Created by Colin Wheeler on 6/12/12.
@@ -30,37 +30,33 @@
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+#import <UIKit/UIKit.h>
+
+@interface UIImage (Zangetsu_UIImage_Resizing)
+
+/**
+ Resizes a UIImage to the new passed in size
  
-#import "UIImageAdditions.h"
+ This method is equivalent to calling 
+ -cw_imageResizedToSize:size withInterpolationQuality:kCGInterpolationHigh.
+ 
+ @param size The size you wish the UIImage receiver to be resized to.
+ @return a new UIImage resized to the desired size
+ */
+-(UIImage *)cw_imageResizedToSize:(CGSize)size;
 
-@implementation UIImage (CWUIImageAdditions)
-
--(UIImage *)cw_imageResizedToSize:(CGSize)size {
-	return [self cw_imageResizedToSize:size
-			  withInterpolationQuality:kCGInterpolationHigh];
-}
-
+/**
+ Resizes a UIImage to the new passed in size
+ 
+ This method allows you to resize an image to a specified size and also
+ to control the interpolation quality on the new image
+ 
+ @param size The size you wish the UIImage receiver to be resized to.
+ @param quality the quality of the interpolation to be done in the resize
+ @return a new UIImage resized to the desired size
+ */
 -(UIImage *)cw_imageResizedToSize:(CGSize)size 
-		 withInterpolationQuality:(CGInterpolationQuality)quality {
-	CGImageRef image = self.CGImage;
-	CGRect rect = { CGPointZero, size };
-	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
-												 CGImageGetBitsPerComponent(image), 0,
-												 CGImageGetColorSpace(image), 
-												 kCGImageAlphaPremultipliedLast);
-	
-	CWAssert(context != NULL);
-	
-	CGContextSetInterpolationQuality(context, quality);
-	CGContextDrawImage(context, rect, image);
-	
-	CGImageRef cgImage = CGBitmapContextCreateImage(context);
-	UIImage *result = [UIImage imageWithCGImage:cgImage];
-	
-	CGImageRelease(cgImage);
-	CGContextRelease(context);
-	
-	return result;
-}
+		 withInterpolationQuality:(CGInterpolationQuality)quality;
 
 @end
