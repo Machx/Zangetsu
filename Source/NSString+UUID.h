@@ -52,6 +52,6 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString);
  
  @return a new UUID NSString instance
  */
-+ (NSString *)cw_uuidString;
++ (NSString *)cw_UUIDString;
 
 @end

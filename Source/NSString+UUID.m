@@ -39,7 +39,7 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 
 @implementation NSString (Zangetsu_NSString_UUID)
 
-+(NSString *)cw_uuidString {
++(NSString *)cw_UUIDString {
 	if ([NSUUID class]) {
 		return [[NSUUID UUID] UUIDString];
 	}
