@@ -42,7 +42,7 @@
  lines, synchronous
  
  @param options the options on how to enumerate the string
- @block the block to handle processing the substrings returned
+ @block the block to handle processing the substrings returned. Must not be nil.
  */
 - (void)cw_enumerateConcurrentlyWithOptions:(NSStringEnumerationOptions)options
 								  withBlock:(void (^)(NSString *substring))block;
