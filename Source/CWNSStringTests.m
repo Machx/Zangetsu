@@ -38,9 +38,9 @@ SpecBegin(CWNSStringAdditions)
 
 describe(@"-cw_uuidString", ^{
 	it(@"should never produce the same thing twice", ^{
-		NSString *string1 = [NSString cw_uuidString];
-		NSString *string2 = [NSString cw_uuidString];
-		NSString *string3 = [NSString cw_uuidString];
+		NSString *string1 = [NSString cw_UUIDString];
+		NSString *string2 = [NSString cw_UUIDString];
+		NSString *string3 = [NSString cw_UUIDString];
 		
 		expect(string1).notTo.equal(string2);
 		expect(string1).notTo.equal(string3);
