@@ -40,6 +40,9 @@
 #import "CWLogging.h"
 
 //Foundation
+#import "NSObject+Nil.h"
+#import "NSObject+AssociatedObjects.h"
+#import "NSObject+PerformOperation.h"
 #import "NSString+Empty.h"
 #import "NSString+URL.h"
 #import "NSString+Enumeration.h"
@@ -60,6 +63,7 @@
 #import "NSMutableURLRequest+Authorization.h"
 #import "NSRecursiveLock+UnlockWithBlock.h"
 #import "NSNumber+RepeatingActions.h"
+#import "NSURL+DebugDescription.h"
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
