@@ -65,6 +65,15 @@
 #import "NSNumber+RepeatingActions.h"
 #import "NSURL+DebugDescription.h"
 
+//Data Structures
+#import "CWStack.h"
+#import "CWTree.h"
+#import "CWQueue.h"
+#import "CWBlockQueue.h"
+#import "CWTrie.h"
+#import "CWFixedQueue.h"
+#import "CWPriorityQueue.h"
+
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWTask.h"
@@ -73,9 +82,7 @@
 #import "CWSystemInfo.h"
 
 #import "CWDebugUtilities.h"
-#import "NSObject+Nil.h"
-#import "NSObject+AssociatedObjects.h"
-#import "NSObject+PerformOperation.h"
+
 #import "CWFoundation.h"
 #import "CWPathUtilities.h"
 #import "CWErrorUtilities.h"
@@ -87,20 +94,17 @@
 #import "CWRuntimeUtilities.h"
 #import "CWCFConversionMacros.h"
 #import "CWApplicationRegistry.h"
-#import "CWStack.h"
-#import "CWTree.h"
+
 
 #import "CWBase64.h"
 #import "CWZLib.h"
-#import "CWQueue.h"
+
 #import "CWURLRequest.h"
 
 #import "NSColor+CGColor.h"
-#import "CWBlockQueue.h"
-#import "CWTrie.h"
+
 #import "NSImage+Resizing.h"
-#import "NSURL+DebugDescription.h"
+
 #import "CWBlockTimer.h"
-#import "CWFixedQueue.h"
-#import "CWPriorityQueue.h"
+
 
