@@ -74,6 +74,10 @@
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
 
+//AppKit
+#import "NSColor+CGColor.h"
+#import "NSImage+Resizing.h"
+
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWTask.h"
@@ -101,9 +105,7 @@
 
 #import "CWURLRequest.h"
 
-#import "NSColor+CGColor.h"
 
-#import "NSImage+Resizing.h"
 
 #import "CWBlockTimer.h"
 
