@@ -39,10 +39,7 @@
 #import "CWAssertionMacros.h"
 #import "CWLogging.h"
 
-#import "CWMacros.h"
-#import "CWSHA1Utilities.h"
-#import "CWTask.h"
-#import "CWDateUtilities.h"
+//Foundation
 #import "NSString+Empty.h"
 #import "NSString+URL.h"
 #import "NSString+Enumeration.h"
@@ -53,11 +50,24 @@
 #import "NSDictionary+Search.h"
 #import "NSDictionary+Enumeration.h"
 #import "NSDictionary+Transform.h"
-#import "CWSystemInfo.h"
 #import "NSSet+Search.h"
 #import "NSSet+Transform.h"
 #import "NSSet+Enumeration.h"
 #import "NSURLConnection+Asynchronous.h"
+#import "NSData+HexRepresentation.h"
+#import "NSMutableArray+Copying.h"
+#import "NSMutableArray+Shuffle.h"
+#import "NSMutableURLRequest+Authorization.h"
+#import "NSRecursiveLock+UnlockWithBlock.h"
+#import "NSNumber+RepeatingActions.h"
+
+#import "CWMacros.h"
+#import "CWSHA1Utilities.h"
+#import "CWTask.h"
+#import "CWDateUtilities.h"
+
+#import "CWSystemInfo.h"
+
 #import "CWDebugUtilities.h"
 #import "NSObject+Nil.h"
 #import "NSObject+AssociatedObjects.h"
@@ -67,7 +77,7 @@
 #import "CWErrorUtilities.h"
 #import "CWGraphicsFoundation.h"
 #import "CWMD5Utilities.h"
-#import "NSData+HexRepresentation.h"
+
 #import "CWExceptionUtilities.h"
 #import "CWURLUtilities.h"
 #import "CWRuntimeUtilities.h"
@@ -75,14 +85,12 @@
 #import "CWApplicationRegistry.h"
 #import "CWStack.h"
 #import "CWTree.h"
-#import "NSMutableArray+Copying.h"
-#import "NSMutableArray+Shuffle.h"
+
 #import "CWBase64.h"
 #import "CWZLib.h"
 #import "CWQueue.h"
 #import "CWURLRequest.h"
-#import "NSMutableURLRequest+Authorization.h"
-#import "NSRecursiveLock+UnlockWithBlock.h"
+
 #import "NSColor+CGColor.h"
 #import "CWBlockQueue.h"
 #import "CWTrie.h"
@@ -91,4 +99,4 @@
 #import "CWBlockTimer.h"
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
-#import "NSNumber+RepeatingActions.h"
+
