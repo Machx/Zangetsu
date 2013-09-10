@@ -71,6 +71,9 @@
 #import "CWFixedQueue.h"
 #import "CWPriorityQueue.h"
 
+//UIKit
+#import "UIImage+Resizing.h"
+
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
 #import "CWDateUtilities.h"
@@ -84,16 +87,8 @@
 #import "CWURLUtilities.h"
 #import "CWRuntimeUtilities.h"
 #import "CWCFConversionMacros.h"
-
-
 #import "CWSystemInfoIOS.h"
 #import "CWBase64IOS.h"
-
-
-
-
-
-#import "UIImage+Resizing.h"
 
 /**
  What will never work on iOS
