@@ -54,7 +54,6 @@
 #import "NSURLConnection+Asynchronous.h"
 #import "NSMutableArray+Copying.h"
 #import "NSMutableArray+Shuffle.h"
-#import "CWURLRequest.h"
 #import "NSRecursiveLock+UnlockWithBlock.h"
 #import "NSData+HexRepresentation.h"
 #import "NSMutableURLRequest+Authorization.h"
@@ -89,6 +88,7 @@
 #import "CWCFConversionMacros.h"
 #import "CWSystemInfoIOS.h"
 #import "CWBase64IOS.h"
+#import "CWURLRequest.h"
 
 /**
  What will never work on iOS
