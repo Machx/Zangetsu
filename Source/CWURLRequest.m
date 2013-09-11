@@ -102,7 +102,8 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 
 -(void)setAuthorizationHeaderLogin:(NSString *)login 
 					   andPassword:(NSString *)passwd {
-	if (!(login && passwd)) return;
+	CWAssert(login != nil);
+	CWAssert(passwd != nil);
 	
 	NSString *base64AuthString = CWURLAuthorizationHeaderString(login, passwd);
 	if (base64AuthString) {
