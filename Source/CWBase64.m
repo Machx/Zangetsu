@@ -41,7 +41,9 @@
     __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
     
-    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault,
+										  (const unsigned char *)string,
+										  strlen(string));
     if (data == NULL) return nil;
 	
 	//declare this here so it can be included in the error cleanup block and
@@ -81,7 +83,9 @@
     __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
     
-    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault,
+										  (const unsigned char *)string,
+										  strlen(string));
     if (data == NULL) return nil;
 	
 	//declare this here so it can be included in the error cleanup block and
