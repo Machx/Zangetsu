@@ -34,11 +34,6 @@
 #import "CWBase64.h"
 #import <Security/Security.h>
 
-#define CWBASE64CLEANUP() \
-	CFShow(error); \
-	CFRelease(data); \
-	CFRelease(encoder);
-
 @implementation NSString (CWBase64Encoding)
 
 - (NSString *)cw_base64EncodedString {
@@ -77,14 +72,6 @@
     return base64String;
 }
 
-#undef CWBASE64CLEANUP
-
-#define CWBASE64CLEANUP() \
-	CFShow(error); \
-	CFRelease(data); \
-	CFRelease(decoder);
-
-
 - (NSString *)cw_base64DecodedString {
     SecTransformRef decoder;
     CFErrorRef error = NULL;
@@ -121,7 +108,5 @@
     
     return base64DecodedString;
 }
-
-#undef CWBASE64CLEANUP
 
 @end
