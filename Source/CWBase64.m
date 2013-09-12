@@ -37,30 +37,34 @@
 @implementation NSString (CWBase64Encoding)
 
 - (NSString *)cw_base64EncodedString {
-    SecTransformRef encoder;
-    CFErrorRef error = NULL;
+    __block SecTransformRef encoder;
+    __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
     
-    CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
     if (data == NULL) return nil;
+	
+	//declare this here so it can be included in the error cleanup block and
+	//eliminate a clangsa warning on a potential leak
+	__block CFDataRef encodedData = NULL;
+	
+	//returning nil lets us only need 1 statement for error handling
+	id (^encoderErrorCleanup)(void) = ^id{
+		CFShow(error);
+		CFRelease(data);
+		CFRelease(encoder);
+		if(encodedData) CFRelease(encodedData);
+		return nil;
+	};
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) {
-		CWBASE64CLEANUP();
-		return nil;
-	}
+    if (error) return encoderErrorCleanup();
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
-    if (error) {
-		CWBASE64CLEANUP();
-		return nil;
-	}
+    if (error) return encoderErrorCleanup();
     
-    CFDataRef encodedData = SecTransformExecute(encoder, &error);
-    if (!encodedData && error) {
-		CWBASE64CLEANUP();
-		return nil;
-	}
+    encodedData = SecTransformExecute(encoder, &error);
+	if (error) return encoderErrorCleanup();
     
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData
@@ -73,31 +77,34 @@
 }
 
 - (NSString *)cw_base64DecodedString {
-    SecTransformRef decoder;
-    CFErrorRef error = NULL;
+    __block SecTransformRef decoder;
+    __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
     
-    CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
+    __block CFDataRef data = CFDataCreate(kCFAllocatorDefault, (const unsigned char *)string, strlen(string));
     if (data == NULL) return nil;
+	
+	//declare this here so it can be included in the error cleanup block and
+	//eliminate a clangsa warning on a potential leak
+	__block CFDataRef decodedData = NULL;
+	
+	//returning nil lets us only need 1 statement for error handling
+	id (^decoderErrorCleanup)(void) = ^id{
+		CFShow(error);
+		CFRelease(data);
+		CFRelease(decoder);
+		if (decodedData) CFRelease(decodedData);
+		return nil;
+	};
     
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) {
-		CWBASE64CLEANUP();
-		return nil;
-	}
+    if (error) return decoderErrorCleanup();
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
-    if (error) {
-		CWBASE64CLEANUP();
-		return nil;
-	}
+    if (error) return decoderErrorCleanup();
     
-    CFDataRef decodedData = SecTransformExecute(decoder, &error);
-    if (error) {
-		CWBASE64CLEANUP();
-		CFRelease(decodedData);
-		return nil;
-	}
+    decodedData = SecTransformExecute(decoder, &error);
+	if (error) return decoderErrorCleanup();
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData
