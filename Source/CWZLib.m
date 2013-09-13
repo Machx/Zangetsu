@@ -37,28 +37,30 @@
 @implementation NSData (CWZLib)
 
 -(NSData *)cw_zLibCompress {
-    SecTransformRef encoder;
-	CFDataRef data = NULL;
-    CFErrorRef error = NULL;
+    __block SecTransformRef encoder;
+	__block CFDataRef data = NULL;
+    __block CFErrorRef error = NULL;
     
-    CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
+    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
     if (inputData == NULL) return nil;
+	
+	//returning nil allows us to cleanup & return all in 1 statement
+	id (^zlibCompressCleanup)(void) = ^id{
+		CFShow(error);
+		CFRelease(inputData);
+		if(encoder) CFRelease(encoder);
+		if(data) CFRelease(data);
+		return nil;
+	};
+	
     encoder = SecEncodeTransformCreate(kSecZLibEncoding, &error);
-    if(error) {
-		CWZLIBCLEANUP();
-		return nil;
-	}
+    if(error) return zlibCompressCleanup();
+	
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-		return nil;
-	}
+    if (error) return zlibCompressCleanup();
+	
 	data = SecTransformExecute(encoder, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-		CFRelease(data);
-		return nil;
-	}
+    if (error) return zlibCompressCleanup();
     
 	CFRelease(encoder);
 	CFRelease(inputData);
@@ -67,28 +69,30 @@
 }
 
 -(NSData *)cw_zLibDecompress {
-    SecTransformRef decoder = NULL;
-	CFDataRef decodedData = NULL;
-    CFErrorRef error = NULL;
+    __block SecTransformRef decoder = NULL;
+	__block CFDataRef decodedData = NULL;
+    __block CFErrorRef error = NULL;
     
-    CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
+    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
     if (inputData == NULL) return nil;
+	
+	//returning nil allows us to cleanup & return all in 1 statement
+	id (^zlibDecompressCleanup)(void) = ^id{
+		CFShow(error);
+		CFRelease(inputData);
+		if (decoder) CFRelease(decoder);
+		if (decodedData) CFRelease(decodedData);
+		return nil;
+	};
+	
     decoder = SecDecodeTransformCreate(kSecZLibEncoding, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-		return nil;
-	}
+    if (error) return zlibDecompressCleanup();
+	
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, inputData, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-		return nil;
-	}
+    if (error) return zlibDecompressCleanup();
+	
     decodedData = SecTransformExecute(decoder, &error);
-    if (error) {
-		CWZLIBCLEANUP();
-		CFRelease(decodedData);
-		return nil;
-	}
+    if (error) return zlibDecompressCleanup();
     
 	CFRelease(inputData);
 	CFRelease(decoder);
