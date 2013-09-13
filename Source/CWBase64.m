@@ -54,7 +54,7 @@
 	id (^encoderErrorCleanup)(void) = ^id{
 		CFShow(error);
 		CFRelease(data);
-		CFRelease(encoder);
+		if(encoder) CFRelease(encoder);
 		if(encodedData) CFRelease(encodedData);
 		return nil;
 	};
@@ -96,7 +96,7 @@
 	id (^decoderErrorCleanup)(void) = ^id{
 		CFShow(error);
 		CFRelease(data);
-		CFRelease(decoder);
+		if (decoder) CFRelease(decoder);
 		if (decodedData) CFRelease(decodedData);
 		return nil;
 	};
