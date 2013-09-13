@@ -34,11 +34,6 @@
 #import "CWZLib.h"
 #import <Security/Security.h>
 
-#define CWZLIBCLEANUP() \
-	CFShow(error); \
-	CFRelease(inputData); \
-	CFRelease(encoder);
-
 @implementation NSData (CWZLib)
 
 -(NSData *)cw_zLibCompress {
@@ -71,13 +66,6 @@
     return (__bridge_transfer NSData *)data; 
 }
 
-#undef CWZLIBCLEANUP
-
-#define CWZLIBCLEANUP() \
-	CFShow(error); \
-	CFRelease(inputData); \
-	CFRelease(decoder);
-
 -(NSData *)cw_zLibDecompress {
     SecTransformRef decoder = NULL;
 	CFDataRef decodedData = NULL;
@@ -107,7 +95,5 @@
     
     return (__bridge_transfer NSData *)decodedData;
 }
-
-#undef CWZLIBCLEANUP
 
 @end
