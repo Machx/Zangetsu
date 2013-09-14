@@ -41,7 +41,9 @@
 	__block CFDataRef data = NULL;
     __block CFErrorRef error = NULL;
     
-    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
+    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault,
+											   [self bytes],
+											   [self length]);
     if (inputData == NULL) return nil;
 	
 	//returning nil allows us to cleanup & return all in 1 statement
@@ -73,7 +75,9 @@
 	__block CFDataRef decodedData = NULL;
     __block CFErrorRef error = NULL;
     
-    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault, [self bytes], [self length]);
+    __block CFDataRef inputData = CFDataCreate(kCFAllocatorDefault,
+											   [self bytes],
+											   [self length]);
     if (inputData == NULL) return nil;
 	
 	//returning nil allows us to cleanup & return all in 1 statement
