@@ -51,7 +51,7 @@
 	__block CFDataRef encodedData = NULL;
 	
 	//returning nil lets us only need 1 statement for error handling
-	id (^encoderErrorCleanup)(void) = ^id{
+	id (^base64EncoderCleanup)(void) = ^id{
 		CFShow(error);
 		CFRelease(data);
 		if(encoder) CFRelease(encoder);
@@ -60,13 +60,13 @@
 	};
     
     encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) return encoderErrorCleanup();
+    if (error) return base64EncoderCleanup();
     
     SecTransformSetAttribute(encoder, kSecTransformInputAttributeName, data, &error);
-    if (error) return encoderErrorCleanup();
+    if (error) return base64EncoderCleanup();
     
     encodedData = SecTransformExecute(encoder, &error);
-	if (error) return encoderErrorCleanup();
+	if (error) return base64EncoderCleanup();
     
     NSString *base64String = nil;
     base64String = [[NSString alloc] initWithData:(__bridge NSData *)encodedData
@@ -93,7 +93,7 @@
 	__block CFDataRef decodedData = NULL;
 	
 	//returning nil lets us only need 1 statement for error handling
-	id (^decoderErrorCleanup)(void) = ^id{
+	id (^base64decoderCleanup)(void) = ^id{
 		CFShow(error);
 		CFRelease(data);
 		if (decoder) CFRelease(decoder);
@@ -102,13 +102,13 @@
 	};
     
     decoder = SecDecodeTransformCreate(kSecBase64Encoding, &error);
-    if (error) return decoderErrorCleanup();
+    if (error) return base64decoderCleanup();
     
     SecTransformSetAttribute(decoder, kSecTransformInputAttributeName, data, &error);
-    if (error) return decoderErrorCleanup();
+    if (error) return base64decoderCleanup();
     
     decodedData = SecTransformExecute(decoder, &error);
-	if (error) return decoderErrorCleanup();
+	if (error) return base64decoderCleanup();
     
     NSString *base64DecodedString = nil;
     base64DecodedString = [[NSString alloc] initWithData:(__bridge NSData *)decodedData
