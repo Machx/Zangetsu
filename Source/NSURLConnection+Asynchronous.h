@@ -53,6 +53,6 @@
  */
 +(NSData *)cw_performGCDSynchronousRequest:(NSURLRequest *)request 
 								  response:(NSURLResponse **)response 
-								  andError:(NSError **)error;
+									 error:(NSError **)error;
 
 @end
