@@ -39,8 +39,7 @@
     NSMutableArray * mappedArray = [NSMutableArray array];
 	for (id object in self) {
 		id returnedObject = block(object);
-        if (returnedObject)
-			[mappedArray addObject:returnedObject];
+        if (returnedObject) [mappedArray addObject:returnedObject];
 	}
 	return mappedArray;
 }
