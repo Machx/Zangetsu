@@ -43,8 +43,7 @@ NSURL *CWURL(NSString * urlFormat,...) {
 	NSString *urlString = [[NSString alloc] initWithFormat:urlFormat arguments:args];
 	va_end(args);
 	
-	NSURL *_urlValue = [NSURL URLWithString:urlString];
-    return _urlValue;
+	return [NSURL URLWithString:urlString];
 }
 
 NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
@@ -54,10 +53,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 	NSString *tempBasicAuthString = [NSString stringWithFormat:@"%@:%@",login,password];
 	NSString *encodedAuth = nil;
 	encodedAuth = [tempBasicAuthString  cw_base64EncodedString];
-	if (encodedAuth) {
-		NSString *authString = [[NSString alloc] initWithFormat:@"Basic %@",encodedAuth];
-		return authString;
-	}
+	if (encodedAuth) return [[NSString alloc] initWithFormat:@"Basic %@",encodedAuth];
 	return nil;
 }
 
@@ -65,9 +61,7 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 
 + (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
-    if (localizedMessage) {
-        return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
-    }
+    if (localizedMessage) return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
     return nil;
 }
 
