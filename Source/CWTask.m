@@ -279,6 +279,7 @@
 - (void) launchTaskOnQueue:(NSOperationQueue *)queue 
 	   withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
 	CWAssert(queue != nil);
+	CWAssert(block != nil);
 	self.inAsynchronous = YES;
 	@weakify(self);
     [queue addOperationWithBlock:^{
@@ -297,6 +298,7 @@
 - (void) launchTaskOnGCDQueue:(dispatch_queue_t)queue
 		  withCompletionBlock:(void (^)(NSString * output, NSError * error))block {
 	CWAssert(queue != nil);
+	CWAssert(block != nil);
 	self.inAsynchronous = YES;
 	@weakify(self);
     dispatch_async(queue, ^{
