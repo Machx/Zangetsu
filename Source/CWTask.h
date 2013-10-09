@@ -100,7 +100,7 @@ static const NSInteger kCWTaskNotLaunchedErrorCode =           -1729;
 /**
  adds a operation to the passed in NSOperationQueue and calls -launchTask: then 
  when it is done returns back to the main thread via NSOperationQueue mainQueue 
- and executes the block.
+ and executes the block. The block must not be nil.
  
  @param queue a NSOperationQueue to launch the task on
  @param output the launched tasks output
@@ -112,7 +112,7 @@ static const NSInteger kCWTaskNotLaunchedErrorCode =           -1729;
 /**
  adds a operation to the passed in gcd dispatch_qeueue_t queue and calls
  -launchTask: then when it is done returns back to the main thread via 
- dispatch_get_main_queue() and executes the block
+ dispatch_get_main_queue() and executes the block. The block must not be nil.
  
  @param queue a dispatch_queue_t to launch the task on
  @param output the contents of the launched tasks output
