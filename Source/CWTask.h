@@ -33,8 +33,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TaskCompletionBlock)(void);
-
 /* Errors */
 /* Error Domain */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
@@ -59,7 +57,7 @@ static const NSInteger kCWTaskNotLaunchedErrorCode =           -1729;
 @property(readonly, assign) NSInteger successCode;
 @property(readonly, retain) NSArray *arguments;
 //public read/write vars
-@property(copy) TaskCompletionBlock completionBlock;
+@property(copy) dispatch_block_t completionBlock;
 
 //public api
 
