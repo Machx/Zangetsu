@@ -57,16 +57,21 @@
 }
 
 +(NSInteger)pidForApplication:(NSString *)appName {
-	__block NSInteger pid = kPidNotFound;
+	NSInteger pid = kPidNotFound;
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		NSRunningApplication *app = (NSRunningApplication *)obj;
+	
+	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		NSRunningApplication *app = (NSRunningApplication *)evaluatedObject;
+		if ([[app localizedName] isEqualToString:appName]) return YES;
 		
-		if ([[app localizedName] isEqualToString:appName]) {
-			pid = [app processIdentifier];
-			*stop = YES;
-		}
+		return NO;
 	}];
+	
+	NSArray *results = [applications filteredArrayUsingPredicate:predicate];
+	
+	if (results.count > 0)
+		pid = ((NSRunningApplication *)[results cw_firstObject]).processIdentifier;
+	
 	return pid;
 }
 
