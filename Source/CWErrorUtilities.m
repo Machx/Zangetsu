@@ -63,6 +63,7 @@ NSError * CWCreateErrorWithUserInfo(NSString * domain,
     va_end(args);
 	
 	NSMutableDictionary *_errorDictionary = [NSMutableDictionary new];
+	//TODO: auto localize the string here
 	[_errorDictionary addEntriesFromDictionary:@{ NSLocalizedDescriptionKey : completeErrorMessage }];
 	if (info) [_errorDictionary addEntriesFromDictionary:info];
 	
