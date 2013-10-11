@@ -38,6 +38,10 @@
  (2) a easy way to ensure that objects of the correct type are toll free bridged
  */
 
+/**
+ TODO: Consider retiring these macros or move them to their own repo
+ */
+
 #import <Foundation/Foundation.h>
 
 /* NSString & CFStringRef */
