@@ -40,10 +40,19 @@
 +(BOOL)applicationIsRunning:(NSString *)appName {
 	BOOL isRunning = NO;
 	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	isRunning = [applications cw_isObjectInArrayWithBlock:^BOOL(id obj) {
-		if ([[obj localizedName] isEqualToString:appName]) return YES;
+	
+	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		NSRunningApplication *app = (NSRunningApplication *)evaluatedObject;
+		if ([[app localizedName] isEqualToString:appName]) return YES;
+		
 		return NO;
 	}];
+	
+	NSArray *results = [applications filteredArrayUsingPredicate:predicate];
+	if (results.count > 0) {
+		isRunning = YES;
+	}
+	
 	return isRunning;
 }
 
