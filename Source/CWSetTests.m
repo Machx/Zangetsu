@@ -63,10 +63,12 @@ describe(@"-cw_eachConcurrentlyWithBlock", ^{
 	NSSet *set1 = NSSET(@"Fry",@"Leeela",@"Bender",@"Nibbler");
 	
 	it(@"should enumerate all objects in a set", ^{
+		//test by creating a direct 1-to-1 mapping of the original set
 		__block NSMutableSet *set2 = [[NSMutableSet alloc] init];
 		[set1 cw_eachConcurrentlyWithBlock:^(id obj, BOOL *stop) {
+			//NSSet is not thread safe so guard against this
 			@synchronized(set2){
-				[set2 addObject:obj]; //map set2 1-to-1 with set1
+				[set2 addObject:obj];
 			}
 		}];
 		
