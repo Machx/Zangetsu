@@ -90,16 +90,19 @@
 }
 
 +(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName {
-    __block NSRunningApplication *appInstance = nil;
     NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	[applications cw_each:^(id obj, NSUInteger index, BOOL *stop) {
-		NSRunningApplication *app = (NSRunningApplication *)obj;
-		if ([[app localizedName] isEqualToString:appName]) {
-			appInstance = app;
-			*stop = YES;
-		}
+	
+	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		NSRunningApplication *app = (NSRunningApplication *)evaluatedObject;
+		if ([[app localizedName] isEqualToString:appName]) return YES;
+		
+		return NO;
 	}];
-    return appInstance;
+	
+	NSArray *results = [applications filteredArrayUsingPredicate:predicate];
+	if (results.count > 0) return results[0];
+    
+	return nil;
 }
 
 @end
