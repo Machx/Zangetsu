@@ -38,22 +38,10 @@
 
 
 +(BOOL)applicationIsRunning:(NSString *)appName {
-	BOOL isRunning = NO;
-	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-	
-	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-		NSRunningApplication *app = (NSRunningApplication *)evaluatedObject;
-		if ([[app localizedName] isEqualToString:appName]) return YES;
-		
-		return NO;
-	}];
-	
-	NSArray *results = [applications filteredArrayUsingPredicate:predicate];
-	if (results.count > 0) {
-		isRunning = YES;
+	if ([CWApplicationRegistry runningAppInstanceForApp:appName] != nil) {
+		return YES;
 	}
-	
-	return isRunning;
+	return NO;
 }
 
 +(NSInteger)pidForApplication:(NSString *)appName {
