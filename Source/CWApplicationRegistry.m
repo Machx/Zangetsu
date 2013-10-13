@@ -46,19 +46,9 @@
 
 +(NSInteger)pidForApplication:(NSString *)appName {
 	NSInteger pid = kPidNotFound;
-	NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-		NSRunningApplication *app = (NSRunningApplication *)evaluatedObject;
-		if ([[app localizedName] isEqualToString:appName]) return YES;
-		
-		return NO;
-	}];
-	
-	NSArray *results = [applications filteredArrayUsingPredicate:predicate];
-	
-	if (results.count > 0)
-		pid = ((NSRunningApplication *)[results cw_firstObject]).processIdentifier;
+	NSRunningApplication *app = [self runningAppInstanceForApp:appName];
+	if (app) pid = app.processIdentifier;
 	
 	return pid;
 }
