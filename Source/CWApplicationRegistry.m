@@ -55,7 +55,9 @@
 
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName {
 	NSRunningApplication *app = [CWApplicationRegistry runningApplicationInstanceForAppName:appName];
-	return app.bundleIdentifier;
+	if (app) return app.bundleIdentifier;
+	
+	return nil;
 }
 
 +(NSRunningApplication *)runningApplicationInstanceForAppName:(NSString *)appName {
