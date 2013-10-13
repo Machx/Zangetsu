@@ -79,6 +79,6 @@ static const NSInteger kPidNotFound = -1;
  @param appName the name of the application whose instance you want
  @return the NSRunningApplication instance corresponding to appName, else nil
  */
-+(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName;
++(NSRunningApplication *)runningApplicationInstanceForAppName:(NSString *)appName;
 
 @end

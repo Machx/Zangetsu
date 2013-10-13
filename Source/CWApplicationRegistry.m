@@ -38,7 +38,7 @@
 
 
 +(BOOL)applicationIsRunning:(NSString *)appName {
-	if ([CWApplicationRegistry runningAppInstanceForApp:appName] != nil) {
+	if ([CWApplicationRegistry runningApplicationInstanceForAppName:appName] != nil) {
 		return YES;
 	}
 	return NO;
@@ -47,18 +47,18 @@
 +(NSInteger)pidForApplication:(NSString *)appName {
 	NSInteger pid = kPidNotFound;
 	
-	NSRunningApplication *app = [self runningAppInstanceForApp:appName];
+	NSRunningApplication *app = [self runningApplicationInstanceForAppName:appName];
 	if (app) pid = app.processIdentifier;
 	
 	return pid;
 }
 
 +(NSString *)bundleIdentifierForApplication:(NSString *)appName {
-	NSRunningApplication *app = [CWApplicationRegistry runningAppInstanceForApp:appName];
+	NSRunningApplication *app = [CWApplicationRegistry runningApplicationInstanceForAppName:appName];
 	return app.bundleIdentifier;
 }
 
-+(NSRunningApplication *)runningAppInstanceForApp:(NSString *)appName {
++(NSRunningApplication *)runningApplicationInstanceForAppName:(NSString *)appName {
     NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 	
 	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
