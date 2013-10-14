@@ -223,7 +223,8 @@ static int64_t count = 0;
 		( _queue != CWGCDPriorityQueueLow() )) {
 		//make sure we only release on a private queue
 		//doing this on the global concurrent queues does nothing
-		dispatch_release(_queue); 
+		dispatch_release(_queue);
+		_queue = nil;
 	}
 }
 
