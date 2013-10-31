@@ -1,8 +1,8 @@
 # Zangetsu Framework #
 
-Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.7 and as a static library for iOS 5. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa & iOS Cocoa Touch applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License. Although it is not required, if you do use this I'd love it if you let me know what apps you use this in. Thanks!
 
 Note: As a library for iOS 5 this project is still in the early stages of development right now. It is stable on Mac OS X, but is undergoing work to port code from Mac OS X to iOS.
+Zangetsu is a general purpose 64 bit ARC enabled Framework for Mac OS X 10.8+ and as a static library for iOS 6+. It has a number of convenience functions and Foundation categories that help in the development of Mac OS X Cocoa & iOS Cocoa Touch applications. It is the framework that helps power many of my apps. Going forward as I can more and more non application specific code from my apps will be added to this Framework. This framework is made available under the nonviral Open Source MIT License. Although it is not required, if you do use this I'd love it if you let me know what apps you use this in. Thanks!
 
 This project uses submodules so once you have checked it out you will need to update it with `git submodule update -i --recursive`.
 
