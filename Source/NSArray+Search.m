@@ -67,7 +67,7 @@
 #if Z_HOST_OS_IS_MAC_OS_X
 
 -(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
-    NSHashTable * results = [NSHashTable hashTableWithWeakObjects];
+    NSHashTable * results = [NSHashTable weakObjectsHashTable];
 	NSIndexSet *indexes = [self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
 		return block(obj);
 	}];
