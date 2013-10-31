@@ -2044,7 +2044,7 @@
 					"\"$(SRCROOT)/External/Expecta\"",
 					"\"$(SRCROOT)/External/Specta\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CFLAGS = (
 					"-ftest-coverage",
 					"-fprofile-arcs",
@@ -2081,7 +2081,7 @@
 					"\"$(SRCROOT)/External/Expecta\"",
 					"\"$(SRCROOT)/External/Specta\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CFLAGS = (
 					"-ftest-coverage",
 					"-fprofile-arcs",
@@ -2120,7 +2120,7 @@
 					"\"$(SRCROOT)/External/Expecta\"",
 					"\"$(SRCROOT)/External/Specta\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CFLAGS = (
 					"-ftest-coverage",
 					"-fprofile-arcs",
