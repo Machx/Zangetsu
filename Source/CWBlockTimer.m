@@ -37,7 +37,7 @@
 #import "CWAssertionMacros.h"
 
 @interface CWBlockTimer ()
-@property(nonatomic,assign) dispatch_source_t source;
+@property(nonatomic) dispatch_source_t source;
 @end
 
 @implementation CWBlockTimer
@@ -97,7 +97,6 @@
 -(void)invalidate {
 	if (self.source) {
 		dispatch_source_cancel(self.source);
-		dispatch_release(self.source);
 		self.source = nil;
 	}
 }
@@ -105,8 +104,6 @@
 - (void)dealloc {
     if (_source) {
 		dispatch_source_cancel(_source);
-		dispatch_release(_source);
-		_source = nil;
 	}
 }
 

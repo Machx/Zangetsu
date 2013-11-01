@@ -159,7 +159,6 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 			block(data,self.connectionError,self.connectionResponse);
 		});
 	});
-	dispatch_release(queue);
 	queue = nil;
 }
 

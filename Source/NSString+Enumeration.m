@@ -50,8 +50,6 @@
 						  }];
 	
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-	dispatch_release(group); group = nil;
-	dispatch_release(queue); queue = nil;
 }
 
 @end

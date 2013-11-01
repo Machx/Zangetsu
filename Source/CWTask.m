@@ -272,7 +272,6 @@
 			block(resultsString, taskError);
 		});
 	});
-	dispatch_release(queue);
 	queue = nil;
 }
 
