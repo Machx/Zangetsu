@@ -169,7 +169,6 @@ static int64_t count = 0;
 	
 	dispatch_queue_t tempQueue = dispatch_queue_create([tempLabel UTF8String], DISPATCH_QUEUE_SERIAL);
 	dispatch_async(tempQueue, block);
-	dispatch_release(tempQueue);
 }
 
 -(void)addOperation:(CWBlockOperation *)operation {
