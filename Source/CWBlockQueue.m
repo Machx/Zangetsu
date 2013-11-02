@@ -69,8 +69,8 @@ static int64_t count = 0;
 @implementation CWBlockQueue
 
 -(instancetype)initWithQueueType:(CWBlockQueueTargetType)type
-			concurrent:(BOOL)concurrent 
-				 label:(NSString *)label {
+                      concurrent:(BOOL)concurrent
+                           label:(NSString *)label {
 	self = [super init];
 	if (self == nil) return nil;
 	
