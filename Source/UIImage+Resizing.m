@@ -47,7 +47,7 @@
 	CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 
 												 CGImageGetBitsPerComponent(image), 0,
 												 CGImageGetColorSpace(image), 
-												 kCGImageAlphaPremultipliedLast);
+												 kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
 	
 	CWAssert(context != NULL);
 	
