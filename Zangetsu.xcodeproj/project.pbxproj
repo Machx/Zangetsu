@@ -12,6 +12,7 @@
 		173E11491823ED130044B7AC /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
 		173E114B1823ED700044B7AC /* libSpecta.a in Resources */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
+		17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
@@ -1548,6 +1549,7 @@
 				B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
 				B8AD231617D0EA4B009D9848 /* NSString+Enumeration.m in Sources */,
 				B8D4FA3517D256FD00F7972C /* NSString+URL.m in Sources */,
+				17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
