@@ -1,10 +1,10 @@
 #import "EXPExpect.h"
 #import "EXPBlockDefinedMatcher.h"
 
-id _EXPObjectify(char *type, ...);
-EXPExpect *_EXP_expect(id testCase, int lineNumber, char *fileName, EXPIdBlock actualBlock);
+id _EXPObjectify(const char *type, ...);
+EXPExpect *_EXP_expect(id testCase, int lineNumber, const char *fileName, EXPIdBlock actualBlock);
 
-void EXPFail(id testCase, int lineNumber, char *fileName, NSString *message);
+void EXPFail(id testCase, int lineNumber, const char *fileName, NSString *message);
 NSString *EXPDescribeObject(id obj);
 
 void EXP_prerequisite(EXPBoolBlock block);
@@ -12,10 +12,18 @@ void EXP_match(EXPBoolBlock block);
 void EXP_failureMessageForTo(EXPStringBlock block);
 void EXP_failureMessageForNotTo(EXPStringBlock block);
 
+#if __has_feature(objc_arc)
+#define _EXP_release(x)
+#define _EXP_autorelease(x) (x)
+
+#else
+#define _EXP_release(x) [x release]
+#define _EXP_autorelease(x) [x autorelease]
+#endif
+
 // workaround for the categories bug: http://developer.apple.com/library/mac/#qa/qa1490/_index.html
 #define EXPFixCategoriesBug(name) \
-@interface EXPFixCategoriesBug##name; @end \
-@implementation EXPFixCategoriesBug##name; @end
+__attribute__((constructor)) static void EXPFixCategoriesBug##name() {}
 
 #define _EXPMatcherInterface(matcherName, matcherArguments) \
 @interface EXPExpect (matcherName##Matcher) \
@@ -35,13 +43,14 @@ EXPFixCategoriesBug(EXPMatcher##matcherName##Matcher); \
   __block void (^failureMessageForTo)(EXPStringBlock block) = ^(EXPStringBlock block) { EXP_failureMessageForTo(block); }; \
   __block void (^failureMessageForNotTo)(EXPStringBlock block) = ^(EXPStringBlock block) { EXP_failureMessageForNotTo(block); }; \
   prerequisite(nil); match(nil); failureMessageForTo(nil); failureMessageForNotTo(nil); \
-  void (^matcherBlock) matcherArguments = ^ matcherArguments { \
+  void (^matcherBlock) matcherArguments = [^ matcherArguments { \
     {
 
 #define _EXPMatcherImplementationEnd \
     } \
     [self applyMatcher:matcher to:&actual]; \
-  }; \
-  return [[matcherBlock copy] autorelease]; \
+  } copy]; \
+  _EXP_release(matcher); \
+  return _EXP_autorelease(matcherBlock); \
 } \
 @end
