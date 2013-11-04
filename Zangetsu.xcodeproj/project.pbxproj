@@ -2017,10 +2017,7 @@
 					"$(SRCROOT)/External/**",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_CFLAGS = (
-					"-ftest-coverage",
-					"-fprofile-arcs",
-				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -2030,6 +2027,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "Unit Tests";
+				TEST_AFTER_BUILD = NO;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -2055,10 +2053,7 @@
 					"$(SRCROOT)/External/**",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_CFLAGS = (
-					"-ftest-coverage",
-					"-fprofile-arcs",
-				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -2068,6 +2063,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "Unit Tests";
+				TEST_AFTER_BUILD = NO;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Analyze;
@@ -2095,10 +2091,7 @@
 					"$(SRCROOT)/External/**",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_CFLAGS = (
-					"-ftest-coverage",
-					"-fprofile-arcs",
-				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -2108,6 +2101,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "Unit Tests";
+				TEST_AFTER_BUILD = NO;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
