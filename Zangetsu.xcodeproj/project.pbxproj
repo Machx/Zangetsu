@@ -10,12 +10,12 @@
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		173E11371823EC5F0044B7AC /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11351823EC5B0044B7AC /* libSpecta-iOS.a */; };
 		173E11491823ED130044B7AC /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
-		173E114B1823ED700044B7AC /* libSpecta.a in Resources */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
+		176DC48F18288AAE000ECCCD /* libextobjc_OSX.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = B84682BB170A6E7E00E7F22F /* libextobjc_OSX.a */; };
+		176DC49018288AB7000ECCCD /* libSpecta.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
 		17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		17B977E31826D36800216962 /* libExpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DE1826D36800216962 /* libExpecta-iOS.a */; };
 		17B977E41826D36800216962 /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
-		17B977E61826D3E300216962 /* libExpecta.a in Resources */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
@@ -313,6 +313,20 @@
 			remoteInfo = Zangetsu;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		176DC48E18288A9F000ECCCD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				176DC49018288AB7000ECCCD /* libSpecta.a in CopyFiles */,
+				176DC48F18288AAE000ECCCD /* libextobjc_OSX.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -1344,6 +1358,7 @@
 				B8F5E66412A02EB400E58C94 /* Resources */,
 				B8F5E66512A02EB400E58C94 /* Sources */,
 				B8F5E66612A02EB400E58C94 /* Frameworks */,
+				176DC48E18288A9F000ECCCD /* CopyFiles */,
 				B8F5E66712A02EB400E58C94 /* ShellScript */,
 			);
 			buildRules = (
@@ -1414,8 +1429,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B977E61826D3E300216962 /* libExpecta.a in Resources */,
-				173E114B1823ED700044B7AC /* libSpecta.a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
