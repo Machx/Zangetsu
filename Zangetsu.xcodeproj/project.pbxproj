@@ -10,8 +10,8 @@
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		173E11371823EC5F0044B7AC /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11351823EC5B0044B7AC /* libSpecta-iOS.a */; };
 		173E11491823ED130044B7AC /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
+		17468FD41829D0BC00D01A2E /* libExpecta.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
-		176DC48F18288AAE000ECCCD /* libextobjc_OSX.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = B84682BB170A6E7E00E7F22F /* libextobjc_OSX.a */; };
 		176DC49018288AB7000ECCCD /* libSpecta.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 173E11361823EC5B0044B7AC /* libSpecta.a */; };
 		17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		17B977E31826D36800216962 /* libExpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DE1826D36800216962 /* libExpecta-iOS.a */; };
@@ -104,7 +104,6 @@
 		B84994AB128210D6001206E1 /* CWTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B84994A8128210D6001206E1 /* CWTask.m */; };
 		B84995C6128396E1001206E1 /* CWDateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B84995C4128396E1001206E1 /* CWDateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B84995C7128396E1001206E1 /* CWDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B84995C5128396E1001206E1 /* CWDateUtilities.m */; };
-		B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C17D3153F8BA4006CB444 /* libprofile_rt.a */; };
 		B851DBC9148AA8E9003CF04D /* CWURLUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */; };
 		B857FC7012B96275001AA9A9 /* NSObject+Nil.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B857FC7112B96275001AA9A9 /* NSObject+Nil.m in Sources */ = {isa = PBXBuildFile; fileRef = B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */; };
@@ -321,8 +320,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				17468FD41829D0BC00D01A2E /* libExpecta.a in CopyFiles */,
 				176DC49018288AB7000ECCCD /* libSpecta.a in CopyFiles */,
-				176DC48F18288AAE000ECCCD /* libextobjc_OSX.a in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +650,6 @@
 				B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */,
 				17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */,
 				17B977E41826D36800216962 /* libExpecta.a in Frameworks */,
-				B84C17D4153F8BA4006CB444 /* libprofile_rt.a in Frameworks */,
 				173E11491823ED130044B7AC /* libSpecta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1730,7 +1728,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = "";
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -1750,6 +1748,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@rpath";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1774,6 +1773,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@rpath";
 				"INSTALL_PATH[sdk=*]" = "@rpath";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
@@ -1812,6 +1812,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@rpath";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
