@@ -61,7 +61,7 @@
 -(dispatch_queue_t)_getDispatchQueueWithType:(NSInteger)type 
 								  concurrent:(BOOL)concurrent 
 									andLabel:(NSString *)label;
-@property(readwrite,assign) dispatch_queue_t queue; //the queue that CWBlockQueue manages
+@property(readwrite,strong) dispatch_queue_t queue;
 @end
 
 static int64_t count = 0;

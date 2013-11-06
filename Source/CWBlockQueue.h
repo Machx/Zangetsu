@@ -129,7 +129,7 @@ typedef enum : NSUInteger {
  
  @return the dispatch_queue_t the queue uses
  */
-@property(readonly,assign) dispatch_queue_t queue;
+@property(readonly,strong) dispatch_queue_t queue;
 
 /**
  The internal queues label
