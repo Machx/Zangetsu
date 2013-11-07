@@ -87,9 +87,22 @@
 				 withBlock:(dispatch_block_t)block;
 
 /**
+ Resumes the firing of blocks on the timer
+ 
+ If the timer is still valid then this resumes firing of blocks on the timer,
+ otherwise it has no effect.
+ */
 -(void)resume;
+
+/**
+ Suspends the firing of blocks on the timer
+ 
+ If the timer is still valid then this suspends firing any more blocks on the
+ timer, otherwise is has no effect.
+ */
 -(void)suspend;
 
+/**
  Invalidates the timer so it stops firing.
  
  Once the timer has been invalidated it will never fire again. You must dealloc
