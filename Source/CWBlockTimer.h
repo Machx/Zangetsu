@@ -87,6 +87,7 @@
 				 withBlock:(dispatch_block_t)block;
 
 /**
+-(void)resume;
 -(void)suspend;
 
  Invalidates the timer so it stops firing.
