@@ -87,6 +87,8 @@
 				 withBlock:(dispatch_block_t)block;
 
 /**
+-(void)suspend;
+
  Invalidates the timer so it stops firing.
  
  Once the timer has been invalidated it will never fire again. You must dealloc

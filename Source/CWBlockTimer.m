@@ -94,6 +94,12 @@
     return self;
 }
 
+-(void)suspend {
+    if (self.source) {
+        dispatch_suspend(self.source);
+    }
+}
+
 -(void)invalidate {
 	if (self.source) {
 		dispatch_source_cancel(self.source);
