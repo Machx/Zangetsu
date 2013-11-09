@@ -35,8 +35,7 @@
 
 -(id)cw_firstObject {
 	if ([self respondsToSelector:@selector(firstObject)]) {
-		//TODO: once linking against 10.9 SDK change this to [self fistObject]
-		return [self performSelector:@selector(firstObject)];
+		return [self firstObject];
 	}
 	return (self.count > 0 ? self[0] : nil);
 }
