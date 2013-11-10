@@ -144,7 +144,7 @@ describe(@"-cw_each", ^{
 			} else if (index == 2) {
 				expect(obj).to.equal(@"Bender");
 			} else {
-				STFail(@"cw_eachWithIndex should not reach this point");
+				//STFail(@"cw_eachWithIndex should not reach this point");
 			}
 		}];
 	});
