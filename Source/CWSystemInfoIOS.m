@@ -93,6 +93,10 @@
 	@"iPhone4,1" : @"iPhone 4S",
 	@"iPhone5,1" : @"iPhone 5",
 	@"iPhone5,2" : @"iPhone 5",
+    @"iPhone5,3" : @"iPhone 5C",
+    @"iPhone5,4" : @"iPhone 5C",
+    @"iPhone6,1" : @"iPhone 5S",
+    @"iPhone6,2" : @"iPhone 5S",
 	// iPod Touch ===============================
 	@"iPod1,1"   : @"iPod Touch (1st Generation)",
 	@"iPod2,1"   : @"iPod Touch (2nd Generation)",
