@@ -114,6 +114,10 @@
 	@"iPad3,4"   : @"iPad 4 (WiFi)",
 	@"iPad3,5"   : @"iPad 4 (GSM)",
 	@"iPad3,6"   : @"iPad 4 (GSM + CDMA)",
+    @"iPad4,1"   : @"iPad Air (Wifi)",
+    @"iPad4,2"   : @"iPad Air (Cellular)",
+    @"iPad4,4"   : @"iPad Mini 2G (Wifi)",
+    @"iPad4,5"   : @"iPad Mini 2G (Cellular)",
 	// iOS Simulator ============================
 	@"i386"      : @"iOS Simulator",
 	@"x86_64"    : @"iOS Simulator"
