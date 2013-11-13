@@ -85,8 +85,8 @@
 	
 	NSDictionary *hardwareDictionary = @{
 	// iPhone ===================================
-	@"iPhone1,1" : @"iPhone",
-	@"iPhone1,2" : @"iPhone 3G",
+//	@"iPhone1,1" : @"iPhone", //latest iOS could run 3.1.3
+//	@"iPhone1,2" : @"iPhone 3G", // iOS 4.2.1
 	@"iPhone2,1" : @"iPhone 3GS",
 	@"iPhone3,1" : @"iPhone 4",
 	@"iPhone3,3" : @"iPhone 4 (Verizon)",
@@ -98,13 +98,13 @@
     @"iPhone6,1" : @"iPhone 5S",
     @"iPhone6,2" : @"iPhone 5S",
 	// iPod Touch ===============================
-	@"iPod1,1"   : @"iPod Touch (1st Generation)",
-	@"iPod2,1"   : @"iPod Touch (2nd Generation)",
-	@"iPod3,1"   : @"iPod Touch (3rd Generation)",
+//	@"iPod1,1"   : @"iPod Touch (1st Generation)", //iOS 3.1.3
+//	@"iPod2,1"   : @"iPod Touch (2nd Generation)", //iOS 4.2.1
+//	@"iPod3,1"   : @"iPod Touch (3rd Generation)", //iOS 5.1.1
 	@"iPod4,1"   : @"iPod Touch (4th Generation)",
 	@"iPod5,1"   : @"iPod Touch (5th Generation)",
 	// iPad =====================================
-	@"iPad1,1"   : @"iPad",
+//	@"iPad1,1"   : @"iPad", //iOS 5.1.1
 	@"iPad2,1"   : @"iPad 2 (WiFi)",
 	@"iPad2,2"   : @"iPad 2 (GSM)",
 	@"iPad2,3"   : @"iPad 2 (CDMA)",
