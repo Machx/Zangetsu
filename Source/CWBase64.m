@@ -79,6 +79,16 @@
 }
 
 - (NSString *)cw_base64DecodedString {
+    if (OS_VERSION_GREATER_OR_EQUAL_TO(@"10.9")) {
+        NSData *shaData = [[NSData alloc] initWithBase64EncodedString:self
+                                                              options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if (shaData) {
+            NSString *shaDecoded = [[NSString alloc] initWithData:shaData
+                                                         encoding:NSUTF8StringEncoding];
+            return shaDecoded;
+        }
+    }
+    
     __block SecTransformRef decoder;
     __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
