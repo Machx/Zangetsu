@@ -37,6 +37,15 @@
 @implementation NSString (CWBase64Encoding)
 
 - (NSString *)cw_base64EncodedString {
+    if (OS_VERSION_GREATER_OR_EQUAL_TO(@"10.9")) {
+        NSData *base64Data = [self dataUsingEncoding:NSUTF8StringEncoding];
+        if (base64Data) {
+            NSString *base64String = [base64Data base64EncodedStringWithOptions:
+                                      NSDataBase64Encoding76CharacterLineLength];
+            return base64String;
+        }
+    }
+
     __block SecTransformRef encoder;
     __block CFErrorRef error = NULL;
     const char *string = [self UTF8String];
