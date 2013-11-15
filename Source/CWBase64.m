@@ -80,12 +80,12 @@
 
 - (NSString *)cw_base64DecodedString {
     if (OS_VERSION_GREATER_OR_EQUAL_TO(@"10.9")) {
-        NSData *shaData = [[NSData alloc] initWithBase64EncodedString:self
-                                                              options:NSDataBase64DecodingIgnoreUnknownCharacters];
-        if (shaData) {
-            NSString *shaDecoded = [[NSString alloc] initWithData:shaData
+        NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:self
+                                                                 options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if (base64Data) {
+            NSString *base64Decoded = [[NSString alloc] initWithData:base64Data
                                                          encoding:NSUTF8StringEncoding];
-            return shaDecoded;
+            return base64Decoded;
         }
     }
     
