@@ -33,6 +33,8 @@
 
 #import "NSImage+Resizing.h"
 
+//TODO Test for retina display
+
 @implementation NSImage (Zangetsu_NSImage_Resizing)
 
 -(NSImage *)cw_imageResizedToSize:(CGSize)size {
