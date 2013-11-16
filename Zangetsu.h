@@ -75,7 +75,6 @@
 #import "CWPriorityQueue.h"
 
 //AppKit
-#import "NSColor+CGColor.h"
 #import "NSImage+Resizing.h"
 
 #import "CWMacros.h"
