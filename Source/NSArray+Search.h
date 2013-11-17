@@ -75,19 +75,6 @@
  */
 -(BOOL)cw_isObjectInArrayWithBlock:(BOOL (^)(id object))block;
 
-#if Z_HOST_OS_IS_MAC_OS_X
-/**
- Returns a NSHashTable with all the objects passing the block test
- 
- like cw_find but instead uses NSHashTable to store weak pointers to all objects
- passing the test of the bool block
- 
- @param block the block to be executed over every object for testing
- @return a NSHashTable with all object passing the block test
- */
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id object))block;
-#endif
-
 /**
  Returns an array of objects in the the receiver that pass the test (block)
  

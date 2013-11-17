@@ -63,21 +63,6 @@
 	return (index != NSNotFound ? YES : NO);
 }
 
-#if Z_HOST_OS_IS_MAC_OS_X
-
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
-    NSHashTable * results = [NSHashTable weakObjectsHashTable];
-	NSIndexSet *indexes = [self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-		return block(obj);
-	}];
-	[indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-		[results addObject:self[idx]];
-	}];
-    return results;
-}
-
-#endif
-
 -(NSArray *)cw_arrayOfObjectsPassingTest:(BOOL (^)(id obj))block {
 	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
 		return block(evaluatedObject);
