@@ -37,16 +37,3 @@ NSString *CWUUIDStringPrependedWithString(NSString *preString) {
 	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_UUIDString]];
 }
 
-@implementation NSString (Zangetsu_NSString_UUID)
-//TODO: consider for removal if 10.8 is the minimum?
-+(NSString *)cw_UUIDString {
-	if ([NSUUID class]) {
-		return [[NSUUID UUID] UUIDString];
-	}
-	CFUUIDRef uid = CFUUIDCreate(kCFAllocatorDefault);
-	CFStringRef tmpString = CFUUIDCreateString(kCFAllocatorDefault, uid);
-	CFRelease(uid);
-	return (__bridge NSString *)tmpString;
-}
-
-@end
