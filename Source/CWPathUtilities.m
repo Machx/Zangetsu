@@ -81,7 +81,7 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 }
 
 +(NSString *)temporaryFilePath {
-	return [NSString stringWithFormat:@"%@%@.temp", NSTemporaryDirectory(), [NSString cw_UUIDString]];
+	return [NSString stringWithFormat:@"%@%@.temp", NSTemporaryDirectory(), [[NSUUID UUID] UUIDString]];
 }
 
 @end

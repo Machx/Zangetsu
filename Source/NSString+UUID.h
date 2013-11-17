@@ -33,6 +33,8 @@
 
 #import <Foundation/Foundation.h>
 
+//TODO consider moving this one function
+
 /**
  Returns a unique NSString prepended by the passed in string
  

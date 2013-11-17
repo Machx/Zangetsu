@@ -34,6 +34,6 @@
 #import "NSString+UUID.h"
 
 NSString *CWUUIDStringPrependedWithString(NSString *preString) {
-	return [NSString stringWithFormat:@"%@%@",preString,[NSString cw_UUIDString]];
+	return [NSString stringWithFormat:@"%@%@",preString,[[NSUUID UUID] UUIDString]];
 }
 

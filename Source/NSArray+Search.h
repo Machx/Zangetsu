@@ -53,7 +53,6 @@
  */
 -(id)cw_randomObject;
 
-
 /**
  Returns the first object in the receiver which passes the block test
  
