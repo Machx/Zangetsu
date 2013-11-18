@@ -81,8 +81,9 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 		_connectionIsFinished = NO;
 		_receivedData = nil;
 		_connectionResponse = nil;
-		_connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
-										@"Host is nil and therefore cannot be used for a connection");
+        _connectionError = [NSError errorWithDomain:kCWURLRequestErrorDomain
+                                               code:kCWSimpleURLRequestNoHostError
+                                           userInfo:@{NSLocalizedFailureReasonErrorKey : @"Host is nil and therefore cannot be used for a connection"}];
 	}
 	return self;
 }
