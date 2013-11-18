@@ -130,8 +130,9 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 -(NSData *)startSynchronousConnection {
 	NSMutableURLRequest *request = [self _createInternalURLRequest];
 	if (!request) {
-		self.connectionError = CWCreateError(kCWURLRequestErrorDomain, kCWSimpleURLRequestNoHostError,
-											 @"Host is nil and therefore cannot be used for a connection");
+        self.connectionError = [NSError errorWithDomain:kCWURLRequestErrorDomain
+                                                   code:kCWSimpleURLRequestNoHostError
+                                               userInfo:@{ NSLocalizedFailureReasonErrorKey : @"Host is nil and therefore cannot be used for a connection"}];
 		return nil;
 	}
 	
