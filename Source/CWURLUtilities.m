@@ -61,7 +61,11 @@ NSString *CWURLAuthorizationHeaderString(NSString *login, NSString *password) {
 
 + (NSError *)errorWithLocalizedMessageForStatusCode:(NSInteger)code {
     NSString * localizedMessage = [NSHTTPURLResponse localizedStringForStatusCode:code];
-    if (localizedMessage) return CWCreateError(kCWURLUtiltyErrorDomain, code, localizedMessage);
+    if (localizedMessage) {
+        return [NSError errorWithDomain:kCWURLUtiltyErrorDomain
+                                   code:code
+                               userInfo:@{NSLocalizedFailureReasonErrorKey: localizedMessage}];
+    }
     return nil;
 }
 
