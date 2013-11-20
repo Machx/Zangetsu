@@ -133,13 +133,3 @@
 }
 
 @end
-
-/* Outdated Hardware Info :: Hardware Model & Last iOS Version it could run
- kept here mostly for nostalgia, this may be deleted at some point
- //	@"iPhone1,1" : @"iPhone",                      //iOS 3.1.3
- //	@"iPhone1,2" : @"iPhone 3G",                   //iOS 4.2.1
- //	@"iPod1,1"   : @"iPod Touch (1st Generation)", //iOS 3.1.3
- //	@"iPod2,1"   : @"iPod Touch (2nd Generation)", //iOS 4.2.1
- //	@"iPod3,1"   : @"iPod Touch (3rd Generation)", //iOS 5.1.1
- //	@"iPad1,1"   : @"iPad",                        //iOS 5.1.1
- */
