@@ -46,7 +46,6 @@
 #import "NSString+Empty.h"
 #import "NSString+URL.h"
 #import "NSString+Enumeration.h"
-#import "NSString+UUID.h"
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"
