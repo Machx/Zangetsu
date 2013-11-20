@@ -35,6 +35,8 @@
 
 static NSString * const kCWErrorDomain = @"CWErrorDomain";
 
+//Consider for removal
+
 /**
  Convenience method for creating a NSError Object
  
