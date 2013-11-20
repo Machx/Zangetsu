@@ -277,10 +277,6 @@
 		B8EF77A817BD15E2005721B8 /* NSDictionary+Enumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8EF77A917BD15E2005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
 		B8EF77AA17BD15E3005721B8 /* NSDictionary+Enumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */; };
-		B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F1664C17CBA1910010A149 /* NSString+UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
-		B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F1664D17CBA1910010A149 /* NSString+UUID.m */; };
 		B8F32B9E17C25B9400DE385F /* NSDictionary+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F32B9F17C25B9400DE385F /* NSDictionary+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8F32BA017C25B9400DE385F /* NSDictionary+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */; };
@@ -586,8 +582,6 @@
 		B8EB341B172ECE9B0044E492 /* libextobjc_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libextobjc_iOS.a; path = External/extobjc/libextobjc_iOS.a; sourceTree = "<group>"; };
 		B8EF77A517BD15E2005721B8 /* NSDictionary+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Enumeration.h"; path = "Source/NSDictionary+Enumeration.h"; sourceTree = "<group>"; };
 		B8EF77A617BD15E2005721B8 /* NSDictionary+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Enumeration.m"; path = "Source/NSDictionary+Enumeration.m"; sourceTree = "<group>"; };
-		B8F1664C17CBA1910010A149 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "Source/NSString+UUID.h"; sourceTree = "<group>"; };
-		B8F1664D17CBA1910010A149 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "Source/NSString+UUID.m"; sourceTree = "<group>"; };
 		B8F32B9C17C25B9300DE385F /* NSDictionary+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Transform.h"; path = "Source/NSDictionary+Transform.h"; sourceTree = "<group>"; };
 		B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Transform.m"; path = "Source/NSDictionary+Transform.m"; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -854,8 +848,6 @@
 				B8D4FA3117D256FD00F7972C /* NSString+URL.m */,
 				B8AD231117D0EA4B009D9848 /* NSString+Enumeration.h */,
 				B8AD231217D0EA4B009D9848 /* NSString+Enumeration.m */,
-				B8F1664C17CBA1910010A149 /* NSString+UUID.h */,
-				B8F1664D17CBA1910010A149 /* NSString+UUID.m */,
 				B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */,
 				B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */,
 				B818BBFF1497B38F00C71A61 /* NSMutableURLRequest+Authorization.h */,
@@ -1180,7 +1172,6 @@
 				B8F32B9E17C25B9400DE385F /* NSDictionary+Transform.h in Headers */,
 				B81E520F17C3BC7A0076BC63 /* NSObject+PerformOperation.h in Headers */,
 				B80C295717C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
-				B8F1664E17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B81F6AF517CCECA80026763A /* NSSet+Transform.h in Headers */,
 				B84682F7170A6F9600E7F22F /* metamacros.h in Headers */,
 				B84682F8170A6F9600E7F22F /* NSInvocation+EXT.h in Headers */,
@@ -1246,7 +1237,6 @@
 				B8EB342A172ECF200044E492 /* extobjc.h in Headers */,
 				B8EB342B172ECF200044E492 /* EXTPassthrough.h in Headers */,
 				B8EB342C172ECF200044E492 /* EXTPrivateMethod.h in Headers */,
-				B8F1664F17CBA1910010A149 /* NSString+UUID.h in Headers */,
 				B8EB342D172ECF200044E492 /* EXTProtocolCategory.h in Headers */,
 				B8EB342E172ECF200044E492 /* EXTRuntimeExtensions.h in Headers */,
 				B8EB342F172ECF200044E492 /* EXTSafeCategory.h in Headers */,
@@ -1500,7 +1490,6 @@
 				B8F32BA017C25B9400DE385F /* NSDictionary+Transform.m in Sources */,
 				B81E521117C3BC7A0076BC63 /* NSObject+PerformOperation.m in Sources */,
 				B80C295917C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
-				B8F1665017CBA1910010A149 /* NSString+UUID.m in Sources */,
 				B81F6AF717CCECA80026763A /* NSSet+Transform.m in Sources */,
 				B848FFCC17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
 				B8AD231517D0EA4B009D9848 /* NSString+Enumeration.m in Sources */,
@@ -1552,7 +1541,6 @@
 				B8F32BA117C25B9400DE385F /* NSDictionary+Transform.m in Sources */,
 				B81E521217C3BC7A0076BC63 /* NSObject+PerformOperation.m in Sources */,
 				B80C295A17C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
-				B8F1665117CBA1910010A149 /* NSString+UUID.m in Sources */,
 				B81F6AF817CCECA80026763A /* NSSet+Transform.m in Sources */,
 				B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
 				B8AD231617D0EA4B009D9848 /* NSString+Enumeration.m in Sources */,
