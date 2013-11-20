@@ -48,3 +48,7 @@ void CWPrintfLine(NSArray *args) {
 	}
 	printf("%s\n",[printLine UTF8String]);
 }
+
+NSString *CWUUIDStringPrependedWithString(NSString *preString) {
+	return [NSString stringWithFormat:@"%@%@",preString,[[NSUUID UUID] UUIDString]];
+}

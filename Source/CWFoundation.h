@@ -53,3 +53,11 @@ void CWPrintLine(NSArray *args);
  @args all the variables you want printed to printf()
  */
 void CWPrintfLine(NSArray *args);
+
+/**
+ Returns a unique NSString prepended by the passed in string
+ 
+ @param preString the string to be prepended on the unique string
+ @return NSString with a UUID String prepended with the prestring argument
+ */
+NSString *CWUUIDStringPrependedWithString(NSString *preString);
