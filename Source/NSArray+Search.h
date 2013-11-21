@@ -35,16 +35,6 @@
 @interface NSArray (Zangetsu_NSArray_Search)
 
 /**
- Returns the 1st object in an array if it has count >= 1, otherwise returns nil
- 
- If -[NSArray firstObject] is available on the platform you are running on then
- this will call and return that instead.
- 
- @return object at index 0 if it exists, otherwise returns nil
- */
--(id)cw_firstObject;
-
-/**
  Returns a random object from the array
  
  If the receive is an empty array this will return nil.
