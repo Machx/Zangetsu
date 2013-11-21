@@ -51,7 +51,7 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 @implementation CWPathUtilities
 
 + (NSString *) applicationSupportFolder {
-    NSString * path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) cw_firstObject];
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject];
     if (path) {
 		NSString * appName = [[[NSBundle mainBundle] infoDictionary] valueForKey:kCWAppName];
 		return [NSString stringWithFormat:@"%@/%@", path, appName];
@@ -61,7 +61,7 @@ NSString *CWFullPathFromTildeString(NSString *tildePath) {
 
 + (NSString *) documentsFolderPathForFile:(NSString *)file {
     NSString *path = nil;
-    path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) cw_firstObject];
+    path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     if (path) {
 		return [NSString stringWithFormat:@"%@/%@",path,file];
 	}
