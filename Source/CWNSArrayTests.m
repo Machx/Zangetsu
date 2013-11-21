@@ -42,18 +42,6 @@ beforeAll(^{
 	testArray = @[ @"Fry",@"Leela",@"Bender" ];
 });
 
-describe(@"-cw_firstObject", ^{
-	it(@"should return the correct first object", ^{
-		NSString *firstObject = [testArray cw_firstObject];
-		expect(firstObject).to.equal(@"Fry");
-	});
-	
-	it(@"should return nil in an empty array", ^{
-		NSArray *emptyArray = [[NSArray alloc] init];
-		expect([emptyArray cw_firstObject]).to.beNil();
-	});
-});
-
 describe(@"-cw_randomObject", ^{
 	it(@"should return a random object in the array", ^{
 		/**
