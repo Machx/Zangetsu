@@ -178,7 +178,7 @@ describe(@"-cw_arrayOfObjectsPassingTest", ^{
 	
 	it(@"should find all passing objects", ^{
 		NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
-			return (((NSNumber *)obj).intValue > 5);
+            return ([(NSNumber *)obj compare:@5] == NSOrderedDescending);
 		}];
 		
 		NSArray *goodResults = @[ @6, @7, @8, @9, @10 ];
