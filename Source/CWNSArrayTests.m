@@ -189,7 +189,7 @@ describe(@"-cw_arrayOfObjectsPassingTest", ^{
 	
 	it(@"should return an empty array when no objects pass", ^{
 		NSArray *results = [array cw_arrayOfObjectsPassingTest:^BOOL(id obj) {
-			return (((NSNumber *)obj).intValue == 0);
+            return ([(NSNumber *)obj compare:@0] == NSOrderedSame);
 		}];
 		
 		expect(results).notTo.beNil();
