@@ -428,17 +428,11 @@
 		B83A594F16FE3565005663D7 /* CWTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTree.m; path = "External/Zangetsu-Data-Structures/CWTree.m"; sourceTree = "<group>"; };
 		B83A595016FE3565005663D7 /* CWTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrie.h; path = "External/Zangetsu-Data-Structures/CWTrie.h"; sourceTree = "<group>"; };
 		B83A595116FE3565005663D7 /* CWTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrie.m; path = "External/Zangetsu-Data-Structures/CWTrie.m"; sourceTree = "<group>"; };
-		B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWFixedQueueTests.h; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.h"; sourceTree = "<group>"; };
 		B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWFixedQueueTests.m; path = "External/Zangetsu-Data-Structures/CWFixedQueueTests.m"; sourceTree = "<group>"; };
-		B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPriorityQueueTests.h; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.h"; sourceTree = "<group>"; };
 		B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPriorityQueueTests.m; path = "External/Zangetsu-Data-Structures/CWPriorityQueueTests.m"; sourceTree = "<group>"; };
-		B83A597416FE359F005663D7 /* CWQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWQueueTests.h; path = "External/Zangetsu-Data-Structures/CWQueueTests.h"; sourceTree = "<group>"; };
 		B83A597516FE359F005663D7 /* CWQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWQueueTests.m; path = "External/Zangetsu-Data-Structures/CWQueueTests.m"; sourceTree = "<group>"; };
-		B83A597616FE359F005663D7 /* CWStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWStackTests.h; path = "External/Zangetsu-Data-Structures/CWStackTests.h"; sourceTree = "<group>"; };
 		B83A597716FE359F005663D7 /* CWStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWStackTests.m; path = "External/Zangetsu-Data-Structures/CWStackTests.m"; sourceTree = "<group>"; };
-		B83A597816FE359F005663D7 /* CWTreeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTreeTests.h; path = "External/Zangetsu-Data-Structures/CWTreeTests.h"; sourceTree = "<group>"; };
 		B83A597916FE359F005663D7 /* CWTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTreeTests.m; path = "External/Zangetsu-Data-Structures/CWTreeTests.m"; sourceTree = "<group>"; };
-		B83A597A16FE359F005663D7 /* CWTrieTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWTrieTests.h; path = "External/Zangetsu-Data-Structures/CWTrieTests.h"; sourceTree = "<group>"; };
 		B83A597B16FE359F005663D7 /* CWTrieTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWTrieTests.m; path = "External/Zangetsu-Data-Structures/CWTrieTests.m"; sourceTree = "<group>"; };
 		B84682BB170A6E7E00E7F22F /* libextobjc_OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libextobjc_OSX.a; path = External/extobjc/libextobjc_OSX.a; sourceTree = "<group>"; };
 		B84682BE170A6F9600E7F22F /* EXTADT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTADT.h; path = External/extobjc/EXTADT.h; sourceTree = "<group>"; };
@@ -1099,17 +1093,11 @@
 		B8F8870F1700943A0011F1FF /* External Lib Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B83A596E16FE359F005663D7 /* CWFixedQueueTests.h */,
 				B83A596F16FE359F005663D7 /* CWFixedQueueTests.m */,
-				B83A597216FE359F005663D7 /* CWPriorityQueueTests.h */,
 				B83A597316FE359F005663D7 /* CWPriorityQueueTests.m */,
-				B83A597416FE359F005663D7 /* CWQueueTests.h */,
 				B83A597516FE359F005663D7 /* CWQueueTests.m */,
-				B83A597616FE359F005663D7 /* CWStackTests.h */,
 				B83A597716FE359F005663D7 /* CWStackTests.m */,
-				B83A597816FE359F005663D7 /* CWTreeTests.h */,
 				B83A597916FE359F005663D7 /* CWTreeTests.m */,
-				B83A597A16FE359F005663D7 /* CWTrieTests.h */,
 				B83A597B16FE359F005663D7 /* CWTrieTests.m */,
 			);
 			name = "External Lib Unit Tests";
