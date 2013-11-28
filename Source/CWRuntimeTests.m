@@ -30,8 +30,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWRuntimeTests.h"
-
 static const NSInteger kInstanceCode1 = 100;
 static const NSInteger kInstanceCode2 = 200;
 

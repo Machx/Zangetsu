@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSNumberAdditionsTests.h"
 #import "NSNumber+RepeatingActions.h"
 
 SpecBegin(CWNSNumberAdditions)
