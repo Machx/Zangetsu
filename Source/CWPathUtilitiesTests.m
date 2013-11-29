@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWPathUtilitiesTests.h"
 #import "CWPathUtilities.h"
 
 SpecBegin(CWPathUtilities)

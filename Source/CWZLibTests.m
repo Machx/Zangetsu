@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWZLibTests.h"
 #import "CWZLib.h"
 
 SpecBegin(CWZLib)

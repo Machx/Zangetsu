@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWBase64Tests.h"
 #import "CWBase64.h"
 
 SpecBegin(CWBase64)
