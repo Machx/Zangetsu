@@ -336,7 +336,6 @@
 		173E11441823ECB10044B7AC /* SPTReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTReporter.h; path = External/Specta/SPTReporter.h; sourceTree = "<group>"; };
 		173E11471823ECB10044B7AC /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSharedExampleGroups.h; path = External/Specta/SPTSharedExampleGroups.h; sourceTree = "<group>"; };
 		173E11481823ECB10044B7AC /* SPTSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = External/Specta/SPTSpec.h; sourceTree = "<group>"; };
-		174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilitiesTests.h; path = Source/CWPathUtilitiesTests.h; sourceTree = "<group>"; };
 		174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilitiesTests.m; path = Source/CWPathUtilitiesTests.m; sourceTree = "<group>"; };
 		174C9AF2182F10A500A6166D /* libSpecta-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-OSX.a"; path = "External/Specta/libSpecta-OSX.a"; sourceTree = "<group>"; };
 		174C9AF3182F10A500A6166D /* SPTNestedReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTNestedReporter.h; path = External/Specta/SPTNestedReporter.h; sourceTree = "<group>"; };
@@ -475,7 +474,6 @@
 		B84995C4128396E1001206E1 /* CWDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDateUtilities.h; path = Source/CWDateUtilities.h; sourceTree = "<group>"; };
 		B84995C5128396E1001206E1 /* CWDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDateUtilities.m; path = Source/CWDateUtilities.m; sourceTree = "<group>"; };
 		B84C17D3153F8BA4006CB444 /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
-		B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLUtilitiesTests.h; path = Source/CWURLUtilitiesTests.h; sourceTree = "<group>"; };
 		B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLUtilitiesTests.m; path = Source/CWURLUtilitiesTests.m; sourceTree = "<group>"; };
 		B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Nil.h"; path = "Source/NSObject+Nil.h"; sourceTree = "<group>"; };
 		B857FC6F12B96275001AA9A9 /* NSObject+Nil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Nil.m"; path = "Source/NSObject+Nil.m"; sourceTree = "<group>"; };
@@ -496,7 +494,6 @@
 		B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSRecursiveLock+UnlockWithBlock.m"; path = "Source/NSRecursiveLock+UnlockWithBlock.m"; sourceTree = "<group>"; };
 		B863679F142F7607003BBF29 /* CWZLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLib.h; path = Source/CWZLib.h; sourceTree = "<group>"; };
 		B86367A0142F7607003BBF29 /* CWZLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLib.m; path = Source/CWZLib.m; sourceTree = "<group>"; };
-		B86367A4142F82EE003BBF29 /* CWZLibTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWZLibTests.h; path = Source/CWZLibTests.h; sourceTree = "<group>"; };
 		B86367A5142F82EE003BBF29 /* CWZLibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWZLibTests.m; path = Source/CWZLibTests.m; sourceTree = "<group>"; };
 		B869BAF914C3AA5A00ED2908 /* libZangetsuTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZangetsuTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B869BAFB14C3AA5A00ED2908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -545,7 +542,6 @@
 		B8AD231217D0EA4B009D9848 /* NSString+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Enumeration.m"; path = "Source/NSString+Enumeration.m"; sourceTree = "<group>"; };
 		B8B5AE1B174FB7E100848028 /* CWRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWRuntimeTests.m; path = Source/CWRuntimeTests.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
-		B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64Tests.h; path = Source/CWBase64Tests.h; sourceTree = "<group>"; };
 		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
 		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
@@ -1068,13 +1064,9 @@
 				B8072B3313894F81008F7B63 /* CWURLTests.m */,
 				B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */,
 				B884940013A13D700046194D /* CWApplicationRegistryTests.m */,
-				174C23F313BA182200CA4CBB /* CWPathUtilitiesTests.h */,
 				174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */,
-				B8C1F9BC1426F27F0065369B /* CWBase64Tests.h */,
 				B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */,
-				B86367A4142F82EE003BBF29 /* CWZLibTests.h */,
 				B86367A5142F82EE003BBF29 /* CWZLibTests.m */,
-				B851DBC7148AA8E8003CF04D /* CWURLUtilitiesTests.h */,
 				B851DBC8148AA8E8003CF04D /* CWURLUtilitiesTests.m */,
 				B81CADA014FC2CB4009F5FD7 /* CWBlockQueueTests.m */,
 				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
