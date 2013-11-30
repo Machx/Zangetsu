@@ -30,7 +30,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWNSMutableArrayAdditionsTests.h"
 #import "NSArray+Search.h"
 #import "NSArray+Enumeration.h"
 #import "NSArray+Transform.h"

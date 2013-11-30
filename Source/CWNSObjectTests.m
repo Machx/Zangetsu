@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWNSObjectTests.h"
 #import "NSObject+Nil.h"
 
 SpecBegin(CWNSObject)

@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWSetTests.h"
 #import <Zangetsu/Zangetsu.h>
 
 SpecBegin(NSSetAdditions)

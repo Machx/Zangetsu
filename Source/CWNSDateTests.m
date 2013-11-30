@@ -31,7 +31,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWNSDateTests.h"
 #import "CWDateUtilities.h"
 
 SpecBegin(CWDateUtilities)
