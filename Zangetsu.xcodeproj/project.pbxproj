@@ -384,7 +384,6 @@
 		17B977E11826D36800216962 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "External/Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8072B3213894F81008F7B63 /* CWURLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWURLTests.h; path = Source/CWURLTests.h; sourceTree = "<group>"; };
 		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
 		B80C295517C9195600D27E00 /* NSSet+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+Enumeration.h"; path = "Source/NSSet+Enumeration.h"; sourceTree = "<group>"; };
 		B80C295617C9195600D27E00 /* NSSet+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Enumeration.m"; path = "Source/NSSet+Enumeration.m"; sourceTree = "<group>"; };
@@ -405,12 +404,10 @@
 		B81F6AF417CCECA80026763A /* NSSet+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Transform.m"; path = "Source/NSSet+Transform.m"; sourceTree = "<group>"; };
 		B82B955412E24F8E00CABF26 /* NSData+HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+HexRepresentation.h"; path = "Source/NSData+HexRepresentation.h"; sourceTree = "<group>"; };
 		B82B955512E24F8E00CABF26 /* NSData+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+HexRepresentation.m"; path = "Source/NSData+HexRepresentation.m"; sourceTree = "<group>"; };
-		B82D252C12AB6962006650B8 /* CWNSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSStringTests.h; path = Source/CWNSStringTests.h; sourceTree = "<group>"; };
 		B82D252D12AB6962006650B8 /* CWNSStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSStringTests.m; path = Source/CWNSStringTests.m; sourceTree = "<group>"; };
 		B82D263012ADD557006650B8 /* NSURLConnection+Asynchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+Asynchronous.h"; path = "Source/NSURLConnection+Asynchronous.h"; sourceTree = "<group>"; };
 		B82D263112ADD557006650B8 /* NSURLConnection+Asynchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+Asynchronous.m"; path = "Source/NSURLConnection+Asynchronous.m"; sourceTree = "<group>"; };
 		B82D73E711DA850A00863F3B /* Zangetsu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu.h; sourceTree = "<group>"; };
-		B836F41314196816007B412E /* CWNSMutableArrayAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSMutableArrayAdditionsTests.h; path = Source/CWNSMutableArrayAdditionsTests.h; sourceTree = "<group>"; };
 		B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSMutableArrayAdditionsTests.m; path = Source/CWNSMutableArrayAdditionsTests.m; sourceTree = "<group>"; };
 		B837BC171284FDC0009215D7 /* NSString+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Empty.h"; path = "Source/NSString+Empty.h"; sourceTree = "<group>"; };
 		B837BC181284FDC0009215D7 /* NSString+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Empty.m"; path = "Source/NSString+Empty.m"; sourceTree = "<group>"; };
@@ -488,7 +485,6 @@
 		B85DF7F116DAA1810008FB97 /* NSNumber+RepeatingActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+RepeatingActions.h"; path = "Source/NSNumber+RepeatingActions.h"; sourceTree = "<group>"; };
 		B85DF7F216DAA1810008FB97 /* NSNumber+RepeatingActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+RepeatingActions.m"; path = "Source/NSNumber+RepeatingActions.m"; sourceTree = "<group>"; };
 		B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNumberAdditionsTests.m; path = Source/NSNumberAdditionsTests.m; sourceTree = "<group>"; };
-		B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSErrorTests.h; path = Source/CWNSErrorTests.h; sourceTree = "<group>"; };
 		B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSErrorTests.m; path = Source/CWNSErrorTests.m; sourceTree = "<group>"; };
 		B8635FF9149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSRecursiveLock+UnlockWithBlock.h"; path = "Source/NSRecursiveLock+UnlockWithBlock.h"; sourceTree = "<group>"; };
 		B8635FFA149C505800D6741D /* NSRecursiveLock+UnlockWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSRecursiveLock+UnlockWithBlock.m"; path = "Source/NSRecursiveLock+UnlockWithBlock.m"; sourceTree = "<group>"; };
@@ -504,7 +500,6 @@
 		B869BB2314C3AACE00ED2908 /* ZangetsuTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZangetsuTouch.h; path = Source/ZangetsuTouch.h; sourceTree = SOURCE_ROOT; };
 		B869BB2514C3B6AF00ED2908 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B869C85113F6B90400739DE4 /* CWMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWMacroTests.h; path = Source/CWMacroTests.h; sourceTree = "<group>"; };
 		B869C85213F6B90400739DE4 /* CWMacroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWMacroTests.m; path = Source/CWMacroTests.m; sourceTree = "<group>"; };
 		B86FC33A15BB109F009D018C /* NSURL+DebugDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+DebugDescription.h"; path = "Source/NSURL+DebugDescription.h"; sourceTree = "<group>"; };
 		B86FC33B15BB109F009D018C /* NSURL+DebugDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+DebugDescription.m"; path = "Source/NSURL+DebugDescription.m"; sourceTree = "<group>"; };
@@ -512,7 +507,6 @@
 		B8806A6812B3E88500F85BCE /* CWDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDebugUtilities.m; path = Source/CWDebugUtilities.m; sourceTree = "<group>"; };
 		B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Zangetsu-UnitTestsOSX.pch"; path = "Source/Zangetsu-UnitTestsOSX.pch"; sourceTree = "<group>"; };
 		B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAssertionMacros.h; path = External/CWAssertionMacros/CWAssertionMacros.h; sourceTree = "<group>"; };
-		B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWApplicationRegistryTests.h; path = Source/CWApplicationRegistryTests.h; sourceTree = "<group>"; };
 		B884940013A13D700046194D /* CWApplicationRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWApplicationRegistryTests.m; path = Source/CWApplicationRegistryTests.m; sourceTree = "<group>"; };
 		B88BFAFB14DAF61100E82207 /* CWBase64IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBase64IOS.h; path = Source/CWBase64IOS.h; sourceTree = "<group>"; };
 		B88BFAFC14DAF61100E82207 /* CWBase64IOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64IOS.m; path = Source/CWBase64IOS.m; sourceTree = "<group>"; };
@@ -532,7 +526,6 @@
 		B891C76E17BE6939008D5032 /* NSObject+AssociatedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AssociatedObjects.m"; path = "Source/NSObject+AssociatedObjects.m"; sourceTree = "<group>"; };
 		B89418FC132AF54500313534 /* CWRuntimeUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWRuntimeUtilities.h; path = Source/CWRuntimeUtilities.h; sourceTree = "<group>"; };
 		B89418FD132AF54500313534 /* CWRuntimeUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWRuntimeUtilities.m; path = Source/CWRuntimeUtilities.m; sourceTree = "<group>"; };
-		B897240D1347946C00BB67CF /* CWNSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSDateTests.h; path = Source/CWNSDateTests.h; sourceTree = "<group>"; };
 		B897240E1347946C00BB67CF /* CWNSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSDateTests.m; path = Source/CWNSDateTests.m; sourceTree = "<group>"; };
 		B89DA4DD15A89F5D0084E17C /* NSImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Resizing.h"; path = "Source/NSImage+Resizing.h"; sourceTree = "<group>"; };
 		B89DA4DE15A89F5D0084E17C /* NSImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Resizing.m"; path = "Source/NSImage+Resizing.m"; sourceTree = "<group>"; };
@@ -543,7 +536,6 @@
 		B8B5AE1B174FB7E100848028 /* CWRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWRuntimeTests.m; path = Source/CWRuntimeTests.m; sourceTree = "<group>"; };
 		B8B6638B1287A93B00CB4E3E /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBase64Tests.m; path = Source/CWBase64Tests.m; sourceTree = "<group>"; };
-		B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSArrayTests.h; path = Source/CWNSArrayTests.h; sourceTree = "<group>"; };
 		B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSArrayTests.m; path = Source/CWNSArrayTests.m; sourceTree = "<group>"; };
 		B8C9BC5E17B9224300679B86 /* NSArray+Enumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Enumeration.h"; path = "Source/NSArray+Enumeration.h"; sourceTree = "<group>"; };
 		B8C9BC5F17B9224300679B86 /* NSArray+Enumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Enumeration.m"; path = "Source/NSArray+Enumeration.m"; sourceTree = "<group>"; };
@@ -562,7 +554,6 @@
 		B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWErrorUtilities.h; path = Source/CWErrorUtilities.h; sourceTree = "<group>"; };
 		B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWErrorUtilities.m; path = Source/CWErrorUtilities.m; sourceTree = "<group>"; };
 		B8E8F62912F1ED30001A0BBF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		B8E9141312BD8B0A00167AE8 /* CWNSObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWNSObjectTests.h; path = Source/CWNSObjectTests.h; sourceTree = "<group>"; };
 		B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSObjectTests.m; path = Source/CWNSObjectTests.m; sourceTree = "<group>"; };
 		B8E914C812BFF5C000167AE8 /* CWPathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWPathUtilities.h; path = Source/CWPathUtilities.h; sourceTree = "<group>"; };
 		B8E914C912BFF5C000167AE8 /* CWPathUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilities.m; path = Source/CWPathUtilities.m; sourceTree = "<group>"; };
@@ -573,9 +564,7 @@
 		B8F32B9D17C25B9300DE385F /* NSDictionary+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Transform.m"; path = "Source/NSDictionary+Transform.m"; sourceTree = "<group>"; };
 		B8F5E66912A02EB400E58C94 /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F5E66A12A02EB400E58C94 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
-		B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWDictionaryTests.h; path = Source/CWDictionaryTests.h; sourceTree = "<group>"; };
 		B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWDictionaryTests.m; path = Source/CWDictionaryTests.m; sourceTree = "<group>"; };
-		B8F5E6E212A0355900E58C94 /* CWSetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSetTests.h; path = Source/CWSetTests.h; sourceTree = "<group>"; };
 		B8F5E6E312A0355900E58C94 /* CWSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSetTests.m; path = Source/CWSetTests.m; sourceTree = "<group>"; };
 		B8F738BE177F537900A66200 /* CWLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWLogging.h; path = External/CWLogging/CWLogging.h; sourceTree = "<group>"; };
 		B8F738BF177F537900A66200 /* CWLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWLogging.m; path = External/CWLogging/CWLogging.m; sourceTree = "<group>"; };
@@ -1042,27 +1031,16 @@
 			isa = PBXGroup;
 			children = (
 				B884628916C1620400EE9AF0 /* Zangetsu-UnitTestsOSX.pch */,
-				B869C85113F6B90400739DE4 /* CWMacroTests.h */,
 				B869C85213F6B90400739DE4 /* CWMacroTests.m */,
-				B8C320CD12A1B77F00219E4A /* CWNSArrayTests.h */,
 				B8C320CE12A1B77F00219E4A /* CWNSArrayTests.m */,
-				B897240D1347946C00BB67CF /* CWNSDateTests.h */,
 				B897240E1347946C00BB67CF /* CWNSDateTests.m */,
-				B8F5E68612A0301A00E58C94 /* CWDictionaryTests.h */,
 				B8F5E68712A0301A00E58C94 /* CWDictionaryTests.m */,
-				B8617C0C132E6E1700AD0F78 /* CWNSErrorTests.h */,
 				B8617C0D132E6E1700AD0F78 /* CWNSErrorTests.m */,
-				B836F41314196816007B412E /* CWNSMutableArrayAdditionsTests.h */,
 				B836F41414196816007B412E /* CWNSMutableArrayAdditionsTests.m */,
-				B8E9141312BD8B0A00167AE8 /* CWNSObjectTests.h */,
 				B8E9141412BD8B0A00167AE8 /* CWNSObjectTests.m */,
-				B82D252C12AB6962006650B8 /* CWNSStringTests.h */,
 				B82D252D12AB6962006650B8 /* CWNSStringTests.m */,
-				B8F5E6E212A0355900E58C94 /* CWSetTests.h */,
 				B8F5E6E312A0355900E58C94 /* CWSetTests.m */,
-				B8072B3213894F81008F7B63 /* CWURLTests.h */,
 				B8072B3313894F81008F7B63 /* CWURLTests.m */,
-				B88493FF13A13D700046194D /* CWApplicationRegistryTests.h */,
 				B884940013A13D700046194D /* CWApplicationRegistryTests.m */,
 				174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */,
 				B8C1F9BD1426F27F0065369B /* CWBase64Tests.m */,
