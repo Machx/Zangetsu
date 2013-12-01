@@ -63,20 +63,4 @@
  */
 -(BOOL)cw_isObjectInSetWithBlock:(BOOL (^)(id obj))block;
 
-#if Z_HOST_OS_IS_MAC_OS_X
-/**
- This method is the same as cw_findAllWithBlock except that it stores the
- objects in a NSHashTable
- 
- This method enumerates over all the objects in a set and returns a NSHashTable 
- with all objects where the block callback returned YES. If no blocks returned
- YES then this returns an empty NSHashTable.
- 
- @param a block with a id argument and a BOOL return value
- @return a NSHashTable with all objects where the block call back returned YES,
- otherwise an empty NSHashTable if none return YES
- */
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block;
-#endif
-
 @end

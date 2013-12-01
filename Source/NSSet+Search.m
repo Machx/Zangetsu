@@ -47,14 +47,4 @@
 	return ([self cw_findWithBlock:block] ? YES : NO);
 }
 
-#if Z_HOST_OS_IS_MAC_OS_X
--(NSHashTable *)cw_findAllIntoWeakRefsWithBlock:(BOOL (^)(id))block {
-	NSHashTable *results = [NSHashTable weakObjectsHashTable];
-	[self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-		if (block(obj)) [results addObject:obj];
-	}];
-	return results;
-}
-#endif
-
 @end
