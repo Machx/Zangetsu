@@ -134,7 +134,6 @@
 		B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2714C3B6C800ED2908 /* SenTestingKit.framework */; };
 		B869BB2914C3BC5B00ED2908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869BB2514C3B6AF00ED2908 /* UIKit.framework */; };
 		B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B890149311D99D6A00705CE4 /* CWMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3014C3C65E00ED2908 /* NSArray+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = B8588975128DF314002AC417 /* NSArray+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B869BB3114C3C66600ED2908 /* NSArray+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = B8588976128DF314002AC417 /* NSArray+Search.m */; };
 		B869BB3414C46BF600ED2908 /* NSObject+Nil.h in Headers */ = {isa = PBXBuildFile; fileRef = B857FC6E12B96275001AA9A9 /* NSObject+Nil.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,7 +235,6 @@
 		B8E3881614C47E2B00F6D2A8 /* CWURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B818BBFB1497A49800C71A61 /* CWURLRequest.m */; };
 		B8E3881714C4837F00F6D2A8 /* CWGraphicsFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B849506C12C52F6E00098684 /* CWGraphicsFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E3881814C4838700F6D2A8 /* CWGraphicsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B849506D12C52F6E00098684 /* CWGraphicsFoundation.m */; };
-		B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E71A9512C42A10003D09A7 /* CWErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E71A9612C42A10003D09A7 /* CWErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */; };
 		B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E8F62912F1ED30001A0BBF /* CoreData.framework */; };
@@ -550,7 +548,6 @@
 		B8DFB1E614CB0F0B00FAF7B4 /* CWSystemInfoIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSystemInfoIOS.h; path = Source/CWSystemInfoIOS.h; sourceTree = "<group>"; };
 		B8DFB1E714CB0F0B00FAF7B4 /* CWSystemInfoIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSystemInfoIOS.m; path = Source/CWSystemInfoIOS.m; sourceTree = "<group>"; };
 		B8E3881314C47BD000F6D2A8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWCFConversionMacros.h; path = Source/CWCFConversionMacros.h; sourceTree = "<group>"; };
 		B8E71A9312C42A10003D09A7 /* CWErrorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWErrorUtilities.h; path = Source/CWErrorUtilities.h; sourceTree = "<group>"; };
 		B8E71A9412C42A10003D09A7 /* CWErrorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWErrorUtilities.m; path = Source/CWErrorUtilities.m; sourceTree = "<group>"; };
 		B8E8F62912F1ED30001A0BBF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -674,7 +671,6 @@
 			children = (
 				B890149311D99D6A00705CE4 /* CWMacros.h */,
 				B88474C01780A1FA00EC9373 /* CWAssertionMacros.h */,
-				B8E654B4136CD6F8000672A0 /* CWCFConversionMacros.h */,
 				B88F8564138049FB000CA4D0 /* CWApplicationRegistry.h */,
 				B88F8565138049FC000CA4D0 /* CWApplicationRegistry.m */,
 				B81CAD9814FBE680009F5FD7 /* CWBlockQueue.h */,
@@ -1096,7 +1092,6 @@
 				B8A084CF12F4BA2000EAFCBF /* CWExceptionUtilities.h in Headers */,
 				B81BFF8C1305A7F3001A4BCF /* CWURLUtilities.h in Headers */,
 				B89418FE132AF54500313534 /* CWRuntimeUtilities.h in Headers */,
-				B8E654B5136CD6F8000672A0 /* CWCFConversionMacros.h in Headers */,
 				B88F8566138049FC000CA4D0 /* CWApplicationRegistry.h in Headers */,
 				B81049AE1407DB07005DE1E5 /* NSMutableArray+Shuffle.h in Headers */,
 				B88EA5E81426D73B002F327B /* CWBase64.h in Headers */,
@@ -1140,7 +1135,6 @@
 			files = (
 				B869BB2414C3AACE00ED2908 /* ZangetsuTouch.h in Headers */,
 				B869BB2A14C3BC7D00ED2908 /* CWMacros.h in Headers */,
-				B869BB2B14C3BC8C00ED2908 /* CWCFConversionMacros.h in Headers */,
 				B869BB3014C3C65E00ED2908 /* NSArray+Search.h in Headers */,
 				B869BB3414C46BF600ED2908 /* NSObject+Nil.h in Headers */,
 				B869BB3614C46C8400ED2908 /* CWFoundation.h in Headers */,

@@ -90,7 +90,6 @@
 #import "CWExceptionUtilities.h"
 #import "CWURLUtilities.h"
 #import "CWRuntimeUtilities.h"
-#import "CWCFConversionMacros.h"
 #import "CWApplicationRegistry.h"
 #import "CWBase64.h"
 #import "CWZLib.h"
