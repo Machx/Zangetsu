@@ -71,6 +71,9 @@
     return [CWSystemInfo systemVersionDictionary][@"ProductVersion"];
 }
 
+//The methods below this line are being considered for deprecation
+//and should not be used
+
 #pragma mark - CPU Information
 
 + (NSInteger) numberOfCPUCores {

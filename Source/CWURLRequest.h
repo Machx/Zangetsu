@@ -31,6 +31,8 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+//TODO: Consider Removing and rebuilding this on NSURLSession
+
 #import <Foundation/Foundation.h>
 
 //Built in CWSimpleURLRequest Errors
