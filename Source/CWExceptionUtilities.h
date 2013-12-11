@@ -32,13 +32,13 @@
  */
 
 
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 #import <Cocoa/Cocoa.h>
 #else
 #import <Foundation/Foundation.h>
 #endif
 
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 /**
  Displays the information in a NSException object as an alert panel
  

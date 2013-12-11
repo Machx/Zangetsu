@@ -33,7 +33,7 @@
 
 #import "CWExceptionUtilities.h"
 
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 void CWShowExceptionAsAlertPanel(NSException *exception) {
 	NSInteger result = NSRunCriticalAlertPanel(@"Application Error Occurred",
 											   [NSString stringWithFormat:@"Uncaught Exception: %@\n%@\n%@",

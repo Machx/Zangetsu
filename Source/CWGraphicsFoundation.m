@@ -35,7 +35,7 @@
 
 inline CGContextRef CWCurrentCGContext()
 {
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 	return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 #else
 	return UIGraphicsGetCurrentContext();
@@ -97,7 +97,7 @@ void CWContextDrawLinearGradientBetweenPoints(CGContextRef context,
 CGContextRef CWImageContextWithSize(NSInteger width, NSInteger height) {
 	CGContextRef ref = NULL;
 	CGColorSpaceRef space =
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 	CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
 #else
 	CGColorSpaceCreateDeviceRGB();

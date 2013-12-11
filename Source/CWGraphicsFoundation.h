@@ -32,7 +32,7 @@
 */
 
 
-#if Z_HOST_OS_IS_MAC_OS_X
+#if Z_OS_IS_OSX
 #import <Cocoa/Cocoa.h>
 #else
 #import <UIKit/UIKit.h>
