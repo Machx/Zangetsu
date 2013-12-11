@@ -35,8 +35,10 @@
 #pragma mark - General Functions
 #define NSSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
 
+#if !(TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 #define NSCOLOR(r,g,b,a) [NSColor colorWithCalibratedRed:r green:g blue:b alpha:a]
 #define NSDEVICECOLOR(r,g,b,a) [NSColor colorWithDeviceRed:r green:g blue:b alpha:a]
+#endif
 
 #pragma mark - Log Functions
 
