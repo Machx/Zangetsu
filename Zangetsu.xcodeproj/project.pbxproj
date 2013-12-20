@@ -16,6 +16,8 @@
 		17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		17B977E31826D36800216962 /* libExpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DE1826D36800216962 /* libExpecta-iOS.a */; };
 		17B977E41826D36800216962 /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
+		17DB360F186493A600AD38BE /* UIColor+Debugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DB360D186493A600AD38BE /* UIColor+Debugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17DB3610186493A600AD38BE /* UIColor+Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB360E186493A600AD38BE /* UIColor+Debugging.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
@@ -375,6 +377,8 @@
 		17B977DF1826D36800216962 /* libExpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libExpecta.a; path = External/Expecta/libExpecta.a; sourceTree = "<group>"; };
 		17B977E01826D36800216962 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "External/Expecta/NSObject+Expecta.h"; sourceTree = "<group>"; };
 		17B977E11826D36800216962 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "External/Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
+		17DB360D186493A600AD38BE /* UIColor+Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Debugging.h"; path = "Source/UIColor+Debugging.h"; sourceTree = "<group>"; };
+		17DB360E186493A600AD38BE /* UIColor+Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Debugging.m"; path = "Source/UIColor+Debugging.m"; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
@@ -831,6 +835,8 @@
 			children = (
 				B85908371587D3F300B8B2C4 /* UIImage+Resizing.h */,
 				B85908381587D3F300B8B2C4 /* UIImage+Resizing.m */,
+				17DB360D186493A600AD38BE /* UIColor+Debugging.h */,
+				17DB360E186493A600AD38BE /* UIColor+Debugging.m */,
 			);
 			name = "UIKit Additions";
 			sourceTree = "<group>";
@@ -1197,6 +1203,7 @@
 				B80C295817C9195600D27E00 /* NSSet+Enumeration.h in Headers */,
 				B81F6AF617CCECA80026763A /* NSSet+Transform.h in Headers */,
 				B848FFCB17CF9BA600565D9B /* NSMutableArray+Copying.h in Headers */,
+				17DB360F186493A600AD38BE /* UIColor+Debugging.h in Headers */,
 				B8AD231417D0EA4B009D9848 /* NSString+Enumeration.h in Headers */,
 				B8D4FA3317D256FD00F7972C /* NSString+URL.h in Headers */,
 			);
@@ -1474,6 +1481,7 @@
 				B80C295A17C9195600D27E00 /* NSSet+Enumeration.m in Sources */,
 				B81F6AF817CCECA80026763A /* NSSet+Transform.m in Sources */,
 				B848FFCD17CF9BA600565D9B /* NSMutableArray+Copying.m in Sources */,
+				17DB3610186493A600AD38BE /* UIColor+Debugging.m in Sources */,
 				B8AD231617D0EA4B009D9848 /* NSString+Enumeration.m in Sources */,
 				B8D4FA3517D256FD00F7972C /* NSString+URL.m in Sources */,
 				17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */,
