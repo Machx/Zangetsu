@@ -71,6 +71,7 @@
 
 //UIKit
 #import "UIImage+Resizing.h"
+#import "UIColor+Debugging.h"
 
 #import "CWMacros.h"
 #import "CWSHA1Utilities.h"
