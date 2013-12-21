@@ -35,11 +35,11 @@
 @implementation UIColor (Zangetsu_Debugging)
 
 +(UIColor *)cw_debuggingColor {
-    //RGB: 255, 215, 0
-    return [UIColor colorWithRed:1.0
-                           green:(215/255)
-                            blue:0.0
-                           alpha:1.0];
+    //Yellow Color
+    return [UIColor colorWithRed:1.0f
+                           green:1.0f
+                            blue:0.0f
+                           alpha:1.0f];
 }
 
 @end
