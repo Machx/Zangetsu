@@ -35,7 +35,7 @@
 @interface UIColor (Zangetsu_Debugging)
 
 /**
- Produces a Gold Color, for determining if an element is visible on screen
+ Produces a Yellow Color, for determining if an element is visible on screen
  
  This is a color which is meant ot be used for determining if an element is on
  screen or not
