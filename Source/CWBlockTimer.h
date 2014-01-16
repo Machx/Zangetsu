@@ -65,9 +65,9 @@
  @param block to be executed by the timer
  @return a new CWBlockTimer configured instance
  */
-- (id)initWithTimeInterval:(NSTimeInterval)interval
-				   onQueue:(dispatch_queue_t)queue
-				 withBlock:(dispatch_block_t)block;
+- (instancetype)initWithTimeInterval:(NSTimeInterval)interval
+                             onQueue:(dispatch_queue_t)queue
+                           withBlock:(dispatch_block_t)block;
 
 /**
  Creates a new CWBlockTimer instance
@@ -81,10 +81,10 @@
  @param block to be executed by the timer
  @return a new CWBlockTimer configured instance
  */
-- (id)initWithTimeInterval:(NSTimeInterval)interval
-					leeway:(uint64_t)leeway
-				   onQueue:(dispatch_queue_t)queue
-				 withBlock:(dispatch_block_t)block;
+- (instancetype)initWithTimeInterval:(NSTimeInterval)interval
+                              leeway:(uint64_t)leeway
+                             onQueue:(dispatch_queue_t)queue
+                           withBlock:(dispatch_block_t)block;
 
 /**
  Resumes the firing of blocks on the timer

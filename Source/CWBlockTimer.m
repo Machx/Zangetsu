@@ -47,7 +47,7 @@
 	return nil;
 }
 
-- (id)initWithTimeInterval:(NSTimeInterval)interval
+- (instancetype)initWithTimeInterval:(NSTimeInterval)interval
 				   onQueue:(dispatch_queue_t)queue
 				 withBlock:(dispatch_block_t)block {
 	CWAssert(queue != NULL);
@@ -59,7 +59,7 @@
                             withBlock:block];
 }
 
-- (id)initWithTimeInterval:(NSTimeInterval)interval
+- (instancetype)initWithTimeInterval:(NSTimeInterval)interval
 					leeway:(uint64_t)leeway
 				   onQueue:(dispatch_queue_t)queue
 				 withBlock:(dispatch_block_t)block {
