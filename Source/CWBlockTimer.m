@@ -43,7 +43,7 @@
 @implementation CWBlockTimer
 
 - (id)init {
-	NSLog(@"Wrong initializer for CWBlockTimer. Call -initWithTimeInterval:onQueue:withBlock:");
+    fprintf(stderr, "Wrong initializer for CWBlockTimer. Call -initWithTimeInterval:onQueue:withBlock:");
 	return nil;
 }
 
