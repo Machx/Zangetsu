@@ -34,10 +34,12 @@
 #import "CWBase64.h"
 #import <Security/Security.h>
 
+static NSString * const kCW_OSX_10_9_MAVERICKS = @"10.9";
+
 @implementation NSString (CWBase64Encoding)
 
 - (NSString *)cw_base64EncodedString {
-    if (OS_VERSION_GREATER_OR_EQUAL_TO(@"10.9")) {
+    if (OS_VERSION_GREATER_OR_EQUAL_TO(kCW_OSX_10_9_MAVERICKS)) {
         NSData *base64Data = [self dataUsingEncoding:NSUTF8StringEncoding];
         if (base64Data) {
             NSString *base64String = [base64Data base64EncodedStringWithOptions:
@@ -88,7 +90,7 @@
 }
 
 - (NSString *)cw_base64DecodedString {
-    if (OS_VERSION_GREATER_OR_EQUAL_TO(@"10.9")) {
+    if (OS_VERSION_GREATER_OR_EQUAL_TO(kCW_OSX_10_9_MAVERICKS)) {
         NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:self
                                                                  options:NSDataBase64DecodingIgnoreUnknownCharacters];
         if (base64Data) {
