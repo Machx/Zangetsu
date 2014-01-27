@@ -100,8 +100,7 @@
 }
 
 /**
- Private Method
- Any arguments to the task are set here
+ Configure arguments to the Task. This method is a private method.
  */
 - (void) _configureTask {
 	self.internalTask.launchPath = self.executable;
@@ -116,9 +115,7 @@
 }
 
 /**
- Private Method
- Runs all the validation methods and returns NO if any of them fail,
- returns YES otherwise
+ Runs all the validation methods & returns NO if any fail. Private Method.
  
  @param error a NSError object to be written to if something fails
  @return (BOOL) NO if the task fails any validation test, YES otherwise
@@ -133,10 +130,11 @@
 }
 
 /**
- Private Method
- Checks for a non nil value of executable and checks that the executable
- actually exists if either fail it writes out a kCWTaskInvalidExecutable error
- to the NSError pointer and returns NO
+ Checks to make sure that the executable exists at the path specified.
+ 
+ This is a private method. Checks for a non nil value of executable and checks 
+ that the executable actually exists if either fail it writes out a 
+ kCWTaskInvalidExecutable error to the NSError pointer and returns NO
  
  @param error a NSError object to be written to if something fails
  @return (BOOL) NO is the executable specified doesn't exist otherwise YES
