@@ -33,6 +33,11 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ This class is being considered for removal from this project, so it can be put
+ into its own repository.
+ */
+
 /* Errors */
 /* Error Domain */
 static NSString * const kCWTaskErrorDomain = @"com.Zangetsu.CWTask";
