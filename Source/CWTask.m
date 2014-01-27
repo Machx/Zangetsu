@@ -95,7 +95,7 @@
  * Description for debug information
  */
 - (NSString *) description {
-    return [NSString stringWithFormat:@"CWTask::Executable('%@')\nArguements: %@\nDirectory Path:%@",
+    return [NSString stringWithFormat:@"CWTask: Executable('%@')\nArguements: %@\nDirectory Path:%@",
 			self.executable, self.arguments, self.directoryPath];
 }
 
