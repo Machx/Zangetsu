@@ -35,11 +35,14 @@
 
 #if Z_OS_IS_OSX
 void CWShowExceptionAsAlertPanel(NSException *exception) {
-	NSInteger result = NSRunCriticalAlertPanel(@"Application Error Occurred",
-											   [NSString stringWithFormat:@"Uncaught Exception: %@\n%@\n%@",
-												exception.name, exception.reason, [exception cw_stackTrace]],
-											   @"Continue", @"Quit", nil);
-	if (result == NSAlertAlternateReturn) [[NSApplication sharedApplication] terminate:nil];
+    
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Application Error Occurred"
+    defaultButton:@"Quit" alternateButton:@"Continue" otherButton:nil informativeTextWithFormat:@"Uncaught Exception: %@\n%@\n%@",
+        exception.name, exception.reason, [exception cw_stackTrace]];
+    NSInteger response = [alert runModal];
+    if (response == NSAlertDefaultReturn) {
+        [[NSApplication sharedApplication] terminate:nil];
+    }
 }
 #endif
 
