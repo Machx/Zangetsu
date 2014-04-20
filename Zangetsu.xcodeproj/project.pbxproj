@@ -9,15 +9,18 @@
 /* Begin PBXBuildFile section */
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		173E11371823EC5F0044B7AC /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11351823EC5B0044B7AC /* libSpecta-iOS.a */; };
-		17468FD41829D0BC00D01A2E /* libExpecta.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
+		17468FD41829D0BC00D01A2E /* libExpecta.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
 		174C9AFA182F10A500A6166D /* libSpecta-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 174C9AF2182F10A500A6166D /* libSpecta-OSX.a */; };
-		174C9AFB182F10C200A6166D /* libSpecta-OSX.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 174C9AF2182F10A500A6166D /* libSpecta-OSX.a */; };
+		174C9AFB182F10C200A6166D /* libSpecta-OSX.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 174C9AF2182F10A500A6166D /* libSpecta-OSX.a */; };
 		17A37B421826AD55007CAC31 /* CWBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2618815D5571100F087C4 /* CWBlockTimer.m */; };
 		17B977E31826D36800216962 /* libExpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DE1826D36800216962 /* libExpecta-iOS.a */; };
 		17B977E41826D36800216962 /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
 		17DB360F186493A600AD38BE /* UIColor+Debugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DB360D186493A600AD38BE /* UIColor+Debugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17DB3610186493A600AD38BE /* UIColor+Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB360E186493A600AD38BE /* UIColor+Debugging.m */; };
+		17F871FA19038C69009FB43B /* libOHHTTPStubs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F871F919038C69009FB43B /* libOHHTTPStubs.a */; };
+		17F871FC19038C87009FB43B /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F871FB19038C87009FB43B /* OHHTTPStubs.framework */; };
+		17F8720219038F2F009FB43B /* OHHTTPStubs.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 17F871FB19038C87009FB43B /* OHHTTPStubs.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		B8072B3413894F81008F7B63 /* CWURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8072B3313894F81008F7B63 /* CWURLTests.m */; };
@@ -302,15 +305,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		176DC48E18288A9F000ECCCD /* CopyFiles */ = {
+		176DC48E18288A9F000ECCCD /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				174C9AFB182F10C200A6166D /* libSpecta-OSX.a in CopyFiles */,
-				17468FD41829D0BC00D01A2E /* libExpecta.a in CopyFiles */,
+				17F8720219038F2F009FB43B /* OHHTTPStubs.framework in Copy Files */,
+				174C9AFB182F10C200A6166D /* libSpecta-OSX.a in Copy Files */,
+				17468FD41829D0BC00D01A2E /* libExpecta.a in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -379,6 +384,12 @@
 		17B977E11826D36800216962 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "External/Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		17DB360D186493A600AD38BE /* UIColor+Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Debugging.h"; path = "Source/UIColor+Debugging.h"; sourceTree = "<group>"; };
 		17DB360E186493A600AD38BE /* UIColor+Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Debugging.m"; path = "Source/UIColor+Debugging.m"; sourceTree = "<group>"; };
+		17F871F919038C69009FB43B /* libOHHTTPStubs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOHHTTPStubs.a; path = External/OHTTPStubs/libOHHTTPStubs.a; sourceTree = "<group>"; };
+		17F871FB19038C87009FB43B /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = External/OHTTPStubs/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		17F871FE19038CB4009FB43B /* OHHTTPStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubs.h; path = External/OHTTPStubs/OHHTTPStubs/OHHTTPStubs.h; sourceTree = "<group>"; };
+		17F871FF19038CB4009FB43B /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsResponse.h; path = External/OHTTPStubs/OHHTTPStubs/OHHTTPStubsResponse.h; sourceTree = "<group>"; };
+		17F8720019038CB4009FB43B /* OHHTTPStubsResponse+HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubsResponse+HTTPMessage.h"; path = "External/OHTTPStubs/OHHTTPStubs/OHHTTPStubsResponse+HTTPMessage.h"; sourceTree = "<group>"; };
+		17F8720119038CB4009FB43B /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubsResponse+JSON.h"; path = "External/OHTTPStubs/OHHTTPStubs/OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Zangetsu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zangetsu_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8072B3313894F81008F7B63 /* CWURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLTests.m; path = Source/CWURLTests.m; sourceTree = "<group>"; };
@@ -594,6 +605,7 @@
 			files = (
 				17B977E31826D36800216962 /* libExpecta-iOS.a in Frameworks */,
 				B869BB0D14C3AA5B00ED2908 /* Foundation.framework in Frameworks */,
+				17F871FA19038C69009FB43B /* libOHHTTPStubs.a in Frameworks */,
 				B8C5B97C14C5DDDE000E0A88 /* libZangetsuTouch.a in Frameworks */,
 				B869BB2814C3B6C900ED2908 /* SenTestingKit.framework in Frameworks */,
 			);
@@ -605,6 +617,7 @@
 			files = (
 				174C9AFA182F10A500A6166D /* libSpecta-OSX.a in Frameworks */,
 				B8E8F62A12F1ED30001A0BBF /* CoreData.framework in Frameworks */,
+				17F871FC19038C87009FB43B /* OHHTTPStubs.framework in Frameworks */,
 				17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */,
 				17B977E41826D36800216962 /* libExpecta.a in Frameworks */,
 			);
@@ -728,6 +741,27 @@
 				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		17F871F819038BA7009FB43B /* OHHTTPStubs */ = {
+			isa = PBXGroup;
+			children = (
+				17F871FD19038C9B009FB43B /* Include */,
+				17F871FB19038C87009FB43B /* OHHTTPStubs.framework */,
+				17F871F919038C69009FB43B /* libOHHTTPStubs.a */,
+			);
+			name = OHHTTPStubs;
+			sourceTree = "<group>";
+		};
+		17F871FD19038C9B009FB43B /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				17F871FE19038CB4009FB43B /* OHHTTPStubs.h */,
+				17F871FF19038CB4009FB43B /* OHHTTPStubsResponse.h */,
+				17F8720019038CB4009FB43B /* OHHTTPStubsResponse+HTTPMessage.h */,
+				17F8720119038CB4009FB43B /* OHHTTPStubsResponse+JSON.h */,
+			);
+			name = Include;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -889,6 +923,7 @@
 		B884623D16C0AC3700EE9AF0 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				17F871F819038BA7009FB43B /* OHHTTPStubs */,
 				B84682BD170A6F7B00E7F22F /* extobjc */,
 				B884623F16C0AC5100EE9AF0 /* Expecta */,
 				B884623E16C0AC4900EE9AF0 /* Specta */,
@@ -1274,7 +1309,7 @@
 				B8F5E66412A02EB400E58C94 /* Resources */,
 				B8F5E66512A02EB400E58C94 /* Sources */,
 				B8F5E66612A02EB400E58C94 /* Frameworks */,
-				176DC48E18288A9F000ECCCD /* CopyFiles */,
+				176DC48E18288A9F000ECCCD /* Copy Files */,
 				B8F5E66712A02EB400E58C94 /* ShellScript */,
 			);
 			buildRules = (
@@ -1294,7 +1329,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					B8F5E66812A02EB400E58C94 = {
 						TestTargetID = 8DC2EF4F0486A6940098B216;
@@ -1568,7 +1603,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1602,7 +1636,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1739,7 +1772,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1885,6 +1917,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/colinw/Development/Zangetsu/External/Expecta,
+					"$(PROJECT_DIR)/External/OHTTPStubs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1910,6 +1943,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/colinw/Development/Zangetsu/External/Expecta,
+					"$(PROJECT_DIR)/External/OHTTPStubs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1937,6 +1971,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/colinw/Development/Zangetsu/External/Expecta,
+					"$(PROJECT_DIR)/External/OHTTPStubs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1953,7 +1988,10 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/OHTTPStubs",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_OBJC_GC = unsupported;
@@ -1990,7 +2028,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/OHTTPStubs",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2026,7 +2067,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/OHTTPStubs",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
