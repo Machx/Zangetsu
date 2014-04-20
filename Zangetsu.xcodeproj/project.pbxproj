@@ -340,10 +340,8 @@
 		174C9AF2182F10A500A6166D /* libSpecta-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-OSX.a"; path = "External/Specta/libSpecta-OSX.a"; sourceTree = "<group>"; };
 		174C9AF3182F10A500A6166D /* SPTNestedReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTNestedReporter.h; path = External/Specta/SPTNestedReporter.h; sourceTree = "<group>"; };
 		174C9AF4182F10A500A6166D /* SPTXCTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTXCTestCase.h; path = External/Specta/SPTXCTestCase.h; sourceTree = "<group>"; };
-		174C9AF5182F10A500A6166D /* SPTXCTestInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTXCTestInvocation.h; path = External/Specta/SPTXCTestInvocation.h; sourceTree = "<group>"; };
 		174C9AF6182F10A500A6166D /* SPTXCTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTXCTestReporter.h; path = External/Specta/SPTXCTestReporter.h; sourceTree = "<group>"; };
 		174C9AF7182F10A500A6166D /* XCTestCase+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestCase+Specta.h"; path = "External/Specta/XCTestCase+Specta.h"; sourceTree = "<group>"; };
-		174C9AF8182F10A500A6166D /* XCTestLog+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestLog+Specta.h"; path = "External/Specta/XCTestLog+Specta.h"; sourceTree = "<group>"; };
 		174C9AF9182F10A500A6166D /* XCTestRun+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestRun+Specta.h"; path = "External/Specta/XCTestRun+Specta.h"; sourceTree = "<group>"; };
 		17B977BD1826D36800216962 /* EXPBackwardCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPBackwardCompatibility.h; path = External/Expecta/EXPBackwardCompatibility.h; sourceTree = "<group>"; };
 		17B977BE1826D36800216962 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = External/Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
@@ -937,10 +935,8 @@
 				174C9AF2182F10A500A6166D /* libSpecta-OSX.a */,
 				174C9AF3182F10A500A6166D /* SPTNestedReporter.h */,
 				174C9AF4182F10A500A6166D /* SPTXCTestCase.h */,
-				174C9AF5182F10A500A6166D /* SPTXCTestInvocation.h */,
 				174C9AF6182F10A500A6166D /* SPTXCTestReporter.h */,
 				174C9AF7182F10A500A6166D /* XCTestCase+Specta.h */,
-				174C9AF8182F10A500A6166D /* XCTestLog+Specta.h */,
 				174C9AF9182F10A500A6166D /* XCTestRun+Specta.h */,
 				173E11351823EC5B0044B7AC /* libSpecta-iOS.a */,
 				173E113D1823ECB10044B7AC /* Specta.h */,
