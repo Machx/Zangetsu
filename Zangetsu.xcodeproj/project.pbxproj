@@ -10,6 +10,7 @@
 		17395C7313B2810100C900BD /* Zangetsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17395C7213B280EE00C900BD /* Zangetsu.framework */; };
 		173E11371823EC5F0044B7AC /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E11351823EC5B0044B7AC /* libSpecta-iOS.a */; };
 		1742E834190493250013FECC /* CWNSURLConnectionAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1742E833190493250013FECC /* CWNSURLConnectionAdditionsTests.m */; };
+		1742E83619062E350013FECC /* CWURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1742E83519062E350013FECC /* CWURLRequestTests.m */; };
 		17468FD41829D0BC00D01A2E /* libExpecta.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 17B977DF1826D36800216962 /* libExpecta.a */; };
 		174C23F513BA182200CA4CBB /* CWPathUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */; };
 		174C9AFA182F10A500A6166D /* libSpecta-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 174C9AF2182F10A500A6166D /* libSpecta-OSX.a */; };
@@ -338,6 +339,7 @@
 		173E11471823ECB10044B7AC /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSharedExampleGroups.h; path = External/Specta/SPTSharedExampleGroups.h; sourceTree = "<group>"; };
 		173E11481823ECB10044B7AC /* SPTSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = External/Specta/SPTSpec.h; sourceTree = "<group>"; };
 		1742E833190493250013FECC /* CWNSURLConnectionAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWNSURLConnectionAdditionsTests.m; path = Source/CWNSURLConnectionAdditionsTests.m; sourceTree = "<group>"; };
+		1742E83519062E350013FECC /* CWURLRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWURLRequestTests.m; path = Source/CWURLRequestTests.m; sourceTree = "<group>"; };
 		174C23F413BA182200CA4CBB /* CWPathUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWPathUtilitiesTests.m; path = Source/CWPathUtilitiesTests.m; sourceTree = "<group>"; };
 		174C9AF2182F10A500A6166D /* libSpecta-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-OSX.a"; path = "External/Specta/libSpecta-OSX.a"; sourceTree = "<group>"; };
 		174C9AF3182F10A500A6166D /* SPTNestedReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTNestedReporter.h; path = External/Specta/SPTNestedReporter.h; sourceTree = "<group>"; };
@@ -1074,6 +1076,7 @@
 				B85DF7F816DABA990008FB97 /* NSNumberAdditionsTests.m */,
 				B8B5AE1B174FB7E100848028 /* CWRuntimeTests.m */,
 				1742E833190493250013FECC /* CWNSURLConnectionAdditionsTests.m */,
+				1742E83519062E350013FECC /* CWURLRequestTests.m */,
 				B8F8870F1700943A0011F1FF /* External Lib Unit Tests */,
 			);
 			name = "Unit Tests";
@@ -1555,6 +1558,7 @@
 				B83A597C16FE359F005663D7 /* CWFixedQueueTests.m in Sources */,
 				B83A597E16FE359F005663D7 /* CWPriorityQueueTests.m in Sources */,
 				B83A597F16FE359F005663D7 /* CWQueueTests.m in Sources */,
+				1742E83619062E350013FECC /* CWURLRequestTests.m in Sources */,
 				B83A598016FE359F005663D7 /* CWStackTests.m in Sources */,
 				B83A598116FE359F005663D7 /* CWTreeTests.m in Sources */,
 				B83A598216FE359F005663D7 /* CWTrieTests.m in Sources */,
