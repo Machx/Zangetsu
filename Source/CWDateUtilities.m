@@ -84,9 +84,11 @@ NSDate *CWDateFromString(NSString * dateString, NSString *dateFormat) {
 #pragma mark Component Methods -
 
 -(NSDateComponents *)cw_dateComponents {
-	NSUInteger units = NSYearCalendarUnit  | NSMonthCalendarUnit |
-	                     NSDayCalendarUnit | NSHourCalendarUnit  |
-				      NSMinuteCalendarUnit | NSSecondCalendarUnit;
+	
+	NSUInteger units = NSCalendarUnitYear | NSCalendarUnitMonth |
+		NSCalendarUnitDay | NSCalendarUnitHour |
+		NSCalendarUnitMinute | NSCalendarUnitSecond;
+	
 	return [self cw_dateComponentsWithUnits:units];
 }
 
