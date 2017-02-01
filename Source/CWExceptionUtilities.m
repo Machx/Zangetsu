@@ -36,7 +36,7 @@
 #if Z_OS_IS_OSX
 void CWShowExceptionAsAlertPanel(NSException *exception) {
     
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Application Error Occurred"
+    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Application Error Occurred", "title alert to show to user")
     defaultButton:@"Quit" alternateButton:@"Continue" otherButton:nil informativeTextWithFormat:@"Uncaught Exception: %@\n%@\n%@",
         exception.name, exception.reason, [exception cw_stackTrace]];
     NSInteger response = [alert runModal];
