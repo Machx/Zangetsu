@@ -43,7 +43,7 @@
  */
 +(void)cw_performAsynchronousRequest:(NSURLRequest *)request 
 						  onGCDQueue:(dispatch_queue_t)queue 
-					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block;
+					 completionBlock:(void (^)(NSData *data, NSURLResponse *response, NSError *error))block __attribute__((deprecated));
 
 /**
  Checks the passed in NSURLRequest and then uses dispatch_sync to 
@@ -53,6 +53,6 @@
  */
 +(NSData *)cw_performGCDSynchronousRequest:(NSURLRequest *)request 
 								  response:(NSURLResponse **)response 
-									 error:(NSError **)error;
+									 error:(NSError **)error __attribute__((deprecated));
 
 @end

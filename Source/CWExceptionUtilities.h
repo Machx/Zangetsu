@@ -49,7 +49,7 @@
  
  @param exception this objects info will be displayed as an alert panel
  */
-void CWShowExceptionAsAlertPanel(NSException *exception);
+void CWShowExceptionAsAlertPanel(NSException *exception) __attribute__((deprecated));
 #endif
 
 @interface NSException (CWNSExceptionAdditions)

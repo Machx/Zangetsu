@@ -136,16 +136,28 @@ static NSString * const kCWURLRequestErrorDomain = @"com.Zangetsu.CWSimpleURLReq
 		return nil;
 	}
 	
-	self.instanceConnection = [[NSURLConnection alloc] initWithRequest:request
-															  delegate:self];
-	[self.instanceConnection scheduleInRunLoop:[NSRunLoop currentRunLoop]
-									   forMode:NSDefaultRunLoopMode];
-	[self.instanceConnection start];
+	dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+	__block NSData *syncData = nil;
 	
-	while (self.connectionIsFinished == NO) {
-		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
-								 beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
-	}
+	[[NSURLSession sharedSession] dataTaskWithURL:[request URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+		if (data != nil) {
+			syncData = [data copy];
+		}
+		dispatch_semaphore_signal(sema);
+	}];
+	
+	dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+	
+//	self.instanceConnection = [[NSURLConnection alloc] initWithRequest:request
+//															  delegate:self];
+//	[self.instanceConnection scheduleInRunLoop:[NSRunLoop currentRunLoop]
+//									   forMode:NSDefaultRunLoopMode];
+//	[self.instanceConnection start];
+//	
+//	while (self.connectionIsFinished == NO) {
+//		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+//								 beforeDate:[[NSDate date] dateByAddingTimeInterval:10]];
+//	}
 	return self.receivedData;
 }
 

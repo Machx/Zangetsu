@@ -45,7 +45,7 @@ extern CGRect CWCenteredRect(CGRect smallRect, CGRect largeRect);
 /**
  Easy way to return the CGContextRef inside a NSView
  */
-extern CGContextRef CWCurrentCGContext();
+extern CGContextRef CWCurrentCGContext(void);
 
 /**
  Adds a rounded rect path to a CGContextRef
