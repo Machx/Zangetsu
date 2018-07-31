@@ -27,11 +27,11 @@
 #  endif
 #endif
 
-void SPTdescribe(NSString *name, BOOL focused, void (^block)());
-void    describe(NSString *name, void (^block)());
-void   fdescribe(NSString *name, void (^block)());
-void     context(NSString *name, void (^block)());
-void    fcontext(NSString *name, void (^block)());
+void SPTdescribe(NSString *name, BOOL focused, void (^block)(void));
+void    describe(NSString *name, void (^block)(void));
+void   fdescribe(NSString *name, void (^block)(void));
+void     context(NSString *name, void (^block)(void));
+void    fcontext(NSString *name, void (^block)(void));
 
 void SPTexample(NSString *name, BOOL focused, id block);
 void    example(NSString *name, id block);
